@@ -1,0 +1,281 @@
+%!TEX TS-program = lualatex
+%!TEX encoding = UTF-8 Unicode
+
+\documentclass[12pt, addpoints, hidelinks]{exam}
+\usepackage{xcolor}
+\usepackage{graphicx}
+	\graphicspath{{/Users/goby/Pictures/teach/163/lab/}
+	{img/}} % set of paths to search for images
+
+\usepackage{geometry}
+\geometry{letterpaper, left=1.5in, bottom=1in}                   
+%\geometry{landscape}                % Activate for for rotated page geometry
+\usepackage[parfill]{parskip}    % Activate to begin paragraphs with an empty line rather than an indent
+\usepackage{amssymb, amsmath}
+\usepackage{mathtools}
+	\everymath{\displaystyle}
+
+\usepackage{fontspec}
+\setmainfont[Ligatures={TeX}, BoldFont={* Bold}, ItalicFont={* Italic}, BoldItalicFont={* BoldItalic}, Numbers={OldStyle}]{Linux Libertine O}
+\setsansfont[Scale=MatchLowercase,Ligatures=TeX]{Linux Biolinum O}
+%\setmonofont[Scale=MatchLowercase]{Inconsolatazi4}
+\usepackage{microtype}
+
+
+% To define fonts for particular uses within a document. For example, 
+% This sets the Libertine font to use tabular number format for tables.
+ %\newfontfamily{\tablenumbers}[Numbers={Monospaced}]{Linux Libertine O}
+% \newfontfamily{\libertinedisplay}{Linux Libertine Display O}
+
+\usepackage{booktabs}
+\usepackage{multicol}
+\usepackage[normalem]{ulem}
+
+\usepackage{longtable}
+%\usepackage{siunitx}
+\usepackage{array}
+\newcolumntype{L}[1]{>{\raggedright\let\newline\\\arraybackslash\hspace{0pt}}p{#1}}
+\newcolumntype{C}[1]{>{\centering\let\newline\\\arraybackslash\hspace{0pt}}p{#1}}
+\newcolumntype{R}[1]{>{\raggedleft\let\newline\\\arraybackslash\hspace{0pt}}p{#1}}
+
+\usepackage{enumitem}
+%\setenumerate{label=\Alph.}
+\setlist{leftmargin=*}
+\setlist[1]{labelindent=\parindent}
+\setlist[enumerate]{label=\textsc{\alph*}.}
+\setlist[itemize]{label=\color{gray}\textbullet}
+
+\usepackage{hyperref}
+%\usepackage{placeins} %PRovides \FloatBarrier to flush all floats before a certain point.
+\usepackage{hanging}
+
+\usepackage[sc]{titlesec}
+
+%% Commands for Exam class
+\renewcommand{\solutiontitle}{\noindent}
+\unframedsolutions
+\SolutionEmphasis{\bfseries}
+
+% Shifts margins left. Question numbers appear in margin.
+% This allows "fullwidth" to left align with text that is outside 
+% if the questions environment.
+\renewcommand{\questionshook}{%
+	\setlength{\leftmargin}{-\leftskip}%
+}
+
+%\renewcommand{\partshook}{%
+%	\setlength{\leftmargin}{-\leftskip}%
+%}
+
+%Change \half command from 1/2 to .5
+\renewcommand*\half{.5}
+
+\pagestyle{headandfoot}
+\firstpageheader{\textsc{bi}\,063 Evolution and Ecology}{}{\ifprintanswers\textbf{KEY}\else Name: \enspace \makebox[2.5in]{\hrulefill}\fi}
+\runningheader{}{}{\footnotesize{pg. \thepage}}
+\footer{}{}{}
+\runningheadrule
+
+\newcommand*\AnswerBox[2]{%
+    \parbox[t][#1]{0.92\textwidth}{%
+    \begin{solution}#2\end{solution}}
+%    \vspace*{\stretch{1}}
+}
+
+\newenvironment{AnswerPage}[1]
+    {\begin{minipage}[t][#1]{0.92\textwidth}%
+    \begin{solution}}
+    {\end{solution}\end{minipage}
+    \vspace*{\stretch{1}}}
+
+\newlength{\basespace}
+\setlength{\basespace}{5\baselineskip}
+
+
+%\usepackage{mdframed}
+%\mdfsetup{%
+%	innerleftmargin=0pt,%
+%	innerrightmargin=0pt,
+%	innertopmargin=0pt,
+%	innerbottommargin=0pt,
+%	hidealllines=true
+%}%end mdfsetup
+
+%
+%\makeatletter
+%\def\SetTotalwidth{\advance\linewidth by \@totalleftmargin
+%\@totalleftmargin=0pt}
+%\makeatother
+
+
+%\printanswers
+
+\pointsinmargin\pointformat{}
+
+\begin{document}
+
+
+\subsection*{Using homology and analogy to test hypotheses (\numpoints\ points)}
+
+At the end of the Great Clade Race exercise, you learned that organisms could
+be classified based on sets of shared characters or structures, as shown in this 
+diagram. Organisms in the same taxonomic group share a set of similar structures,
+such as a vertebral column (vertebrates) or four walking legs (tetrapods).
+
+\noindent\includegraphics[width=0.92\textwidth]{03a_vertebrate_tree}
+
+When you see similar structures shared among two or more species, there are two
+testable explanations for it. They are
+
+\begin{enumerate}
+	\item \emph{homology:} the structures are similar because the species
+inherited the similarity from a common ancestor, and
+
+	\item \emph{analogy:} the similarity is necessary for a particular function.\footnote{The similarity
+could be due solely to chance, but this would be \emph{very}
+unlikely.} 
+\end{enumerate}
+
+How can you distinguish between homology and analogy? If you know the 
+common ancestor, you can see if the structure is present in the species and the
+ancestor. If the structure is present in the ancestor, then the similarity must be due
+to homology. If the structure is absent, then the similarity in the descendants must be due to analogy.
+
+Usually, though, you will be looking at similarities in living organisms to test
+hypotheses about their ancestry, without knowing anything about the ancestor.  
+If you have a hypothesis that \emph{predicts} that two species have a
+common ancestor, then the argument would be: ``These two organisms have a 
+similarity which is due to homology; therefore they must have a common ancestor.''
+So, suppose you are testing the hypothesis you looked at in an earlier exercise.
+
+\includegraphics[width=\textwidth]{03c_intro_trees}
+
+This tree shows fish and whales as having a common ancestor.
+You are testing the hypothesis, so you look at a fish and a whale,
+and note a structural similarity: both have structures on their sides that are flattened
+and broad (fins and flippers). You then say to a classmate, ``I think
+that similarity is due to homology, so it supports this hypothesis''
+
+\begin{questions}
+
+
+%% CONSIDER removing this question and just explaining by example.
+\question[1]
+If you are testing the predictions made by your hypothesis,
+can you confidently state that you \emph{know} the similarity is due to
+homology \emph{because} your hypothesis predicts they got it from a
+common ancestor? Explain why or why not.
+
+\AnswerBox{3\baselineskip}{No. That is circular reasoning. }
+
+If homology is to be used as evidence to test a hypothesis about
+ancestry, you cannot use the hypothesis as an argument for how you know
+something is a homology---that would be a circular argument. You need another 
+way to determine if structures are homologous that is not based on a 
+hypothesis about ancestry, an independent test for homology. You 
+have to consider what you know about the
+organisms themselves. 
+
+Remember that an analogy is
+
+\begin{itemize}
+\item
+  a similarity in structures that serve similar functions, and
+\item
+  a similarity in structure that is necessary for the function
+  to be possible.
+\end{itemize}
+
+What you must do is look at the organisms themselves and use them to
+test your hypothesis. Under the hypothesis-testing ``program,'' you have made
+your hypothesis---the tree---so now you should
+make predictions based on the your hypothesis.
+
+\question[1]
+If the tree above is a good representation of the
+relationships among the organisms shown, should you find any homologies
+between fish and whales? Explain.
+
+\AnswerBox{4\baselineskip}{Yes. They hypothesis predicts that fish and whales
+have a common ancestor. Therefore, the hypothesis predicts they should have homologies.}
+
+\question[1]
+Does the hypothesis shown in the tree predict what specific
+homologies they will have? Why or why not? Explain.
+
+\AnswerBox{4\baselineskip}{No. The hypothesis predicts only that the should
+have homologies, but not what the homologies might be.}
+
+\question[1]
+Does the hypothesis shown by the tree predict that there
+will be any homologies between bison and whales? Why or why not? What
+if you later found evidence of a homology? Could this have implications
+for your hypothesis? Explain.
+
+\AnswerBox{4\baselineskip}{No. The hypothesis predicts that bison and whales do
+not have a common ancestor so they should not share homologies. If a homology is found
+then the hypothesis has been falsified.}
+
+\question[1]
+What about analogies? Does the tree above predict that there
+will be analogies between grass and cactus? How about between humans and
+marine worms? Explain.
+
+\AnswerBox{4\baselineskip}{No. Analogies could exist between any organisms. 
+The hypothesis predicts only the presence of homologies.}
+
+If you think about it, analogies could exist between almost any two
+organisms. Analogy does not depend on them being related but instead that they
+share an organ, limb, or other structure that had a similar function in both. That could be
+the case if they are not related, like bison and whales in this
+hypothesis, or if they are related, like cactus and fungus in this
+hypothesis. The hypothesis itself does not make any predictions about
+analogies---it is just about relationships, and does not say anything
+about the functions of organs in the various organisms.
+
+When you are testing hypotheses about ancestry, \emph{analogies are 
+always inconclusive} because an analogy can be found both in 
+organisms that are related and in ones that are not
+related. Analogies just cannot tell you whether two organisms are related.
+
+%
+
+\subsubsection*{Using homology and analogy to test hypotheses}
+
+Using the scientific method, tell what you would conclude about
+the hypothesis shown in the tree above if each of the following results
+occurred, and explain your reasoning for each answer.
+
+\question[1]
+Assume you found an analogy between whales and fish. Is the hypothesis supported, falsified, or is the evidence inconclusive? Explain.
+
+\AnswerBox{4\baselineskip}{Inconclusive. Analogies cannot be used to evaluate hypotheses.}
+
+
+\question[1]
+Assume you found a homology between whales and fish. Is the hypothesis supported, falsified, or is the evidence inconclusive? Explain.
+
+\AnswerBox{4\baselineskip}{The hypothesis is supported. The hypothesis predicts that whales and fish have a common ancestor. The homology suggests they have a common ancestor.}
+
+
+\question[1]
+Assume you found an analogy between bison and whales. Is the hypothesis supported, falsified, or is the evidence inconclusive? Explain.
+
+\AnswerBox{4\baselineskip}{Inconclusive. Analogies cannot be used to evaluate hypotheses.}
+
+\question[1]
+Assume you found a homology between bison and whales. Is the hypothesis supported, falsified, or is the evidence inconclusive? Explain.
+
+\AnswerBox{4\baselineskip}{The hypothesis is falsified. The hypothesis predicts that bison and whales do not have a common ancestor but the homology suggests they do.}
+
+%% CONSIDER removing this question. This is often confusing.
+\question[1]
+What must be true of a trait in the most recent common ancestor if the
+similarity is due to homology?
+
+\AnswerBox{2\baselineskip}{The trait in the ancestor must also be a homology.}
+
+
+\end{questions}
+
+\end{document}  

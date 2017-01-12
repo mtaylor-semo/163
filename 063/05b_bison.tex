@@ -1,0 +1,184 @@
+%!TEX TS-program = lualatex
+%!TEX encoding = UTF-8 Unicode
+
+\documentclass[12pt, addpoints, hidelinks]{exam}
+\usepackage{graphicx}
+	\graphicspath{{/Users/goby/Pictures/teach/163/lab/}
+	{img/}} % set of paths to search for images
+
+\usepackage{geometry}
+\geometry{letterpaper, left=1.5in, bottom=1in}                   
+%\geometry{landscape}                % Activate for for rotated page geometry
+\usepackage[parfill]{parskip}    % Activate to begin paragraphs with an empty line rather than an indent
+\usepackage{amssymb, amsmath}
+\usepackage{mathtools}
+	\everymath{\displaystyle}
+
+\usepackage{fontspec}
+\setmainfont[Ligatures={TeX}, BoldFont={* Bold}, ItalicFont={* Italic}, BoldItalicFont={* BoldItalic}, Numbers={OldStyle}]{Linux Libertine O}
+\setsansfont[Scale=MatchLowercase,Ligatures=TeX]{Linux Biolinum O}
+\setmonofont[Scale=MatchLowercase]{Inconsolatazi4}
+\usepackage{microtype}
+
+
+% To define fonts for particular uses within a document. For example, 
+% This sets the Libertine font to use tabular number format for tables.
+ %\newfontfamily{\tablenumbers}[Numbers={Monospaced}]{Linux Libertine O}
+% \newfontfamily{\libertinedisplay}{Linux Libertine Display O}
+
+\usepackage{booktabs}
+\usepackage{multicol}
+\usepackage[normalem]{ulem}
+
+\usepackage{longtable}
+%\usepackage{siunitx}
+\usepackage{array}
+\newcolumntype{L}[1]{>{\raggedright\let\newline\\\arraybackslash\hspace{0pt}}p{#1}}
+\newcolumntype{C}[1]{>{\centering\let\newline\\\arraybackslash\hspace{0pt}}p{#1}}
+\newcolumntype{R}[1]{>{\raggedleft\let\newline\\\arraybackslash\hspace{0pt}}p{#1}}
+
+\usepackage{enumitem}
+\usepackage{hyperref}
+%\usepackage{placeins} %PRovides \FloatBarrier to flush all floats before a certain point.
+\usepackage{hanging}
+
+\usepackage[sc]{titlesec}
+
+%% Commands for Exam class
+\renewcommand{\solutiontitle}{\noindent}
+\unframedsolutions
+\SolutionEmphasis{\bfseries}
+
+\renewcommand{\questionshook}{%
+	\setlength{\leftmargin}{-\leftskip}%
+}
+
+%Change \half command from 1/2 to .5
+\renewcommand*\half{.5}
+
+\pagestyle{headandfoot}
+\firstpageheader{\textsc{bi}\,063 Evolution and Ecology}{}{\ifprintanswers\textbf{KEY}\else Name: \enspace \makebox[2.5in]{\hrulefill}\fi}
+\runningheader{}{}{\footnotesize{pg. \thepage}}
+\footer{}{}{}
+\runningheadrule
+
+\newcommand*\AnswerBox[2]{%
+    \parbox[t][#1]{0.92\textwidth}{%
+    \begin{solution}#2\end{solution}}
+%    \vspace*{\stretch{1}}
+}
+
+\newenvironment{AnswerPage}[1]
+    {\begin{minipage}[t][#1]{0.92\textwidth}%
+    \begin{solution}}
+    {\end{solution}\end{minipage}
+    \vspace*{\stretch{1}}}
+
+\newlength{\basespace}
+\setlength{\basespace}{5\baselineskip}
+
+%\printanswers
+
+
+\begin{document}
+
+\subsection*{Radius and ulna revisited: the bison (\numpoints\ points)}
+
+In the previous assignment, you examined the radius and ulna in
+humans, pigeons, and (hopefully) several other organisms. You have
+already given some thought to the function of these bones,
+which is to allow the wrist to rotate.
+
+Now, consider the bison. Much like cattle, bison have hooves, and they
+support a great deal of weight on them. Their front hooves do not rotate
+with respect to the rest of the limb (in fact, you can imagine that it
+might be pretty dangerous for the ``wrist'' of a bison to turn,
+considering the weight it supports).
+
+\begin{questions}
+
+\question[3]
+Below are three different hypotheses that include the bison. Based 
+on what you know of bison, and of the radius and ulna,
+what would each hypothesis below \emph{predict} about the forelimb of
+the bison? Would each hypothesis predict that the bison would more
+likely have two bones in the second part of the forelimb, or only one?
+Give your answer and explain why that answer is the one predicted by
+each hypothesis.
+
+\begin{parts}
+
+\part What does hypothesis A predict?
+
+\includegraphics[width=0.9\textwidth]{05_hypA}
+
+\begin{solution}
+  Hypothesis A predicts that bison should not have homologies with any other animal in the phylogeny.
+\end{solution}
+
+\newpage
+
+\part What does hypothesis B predict?
+
+\includegraphics[width=0.8\textwidth]{05_hypB}
+
+\AnswerBox{5\baselineskip}{Hypothesis B predicts that the bison should not have homologies with the whale, pigeon or bat but should have a homology with the animals on the same tree.}
+
+\part What does hypothesis C predict?
+
+\includegraphics[width=0.8\textwidth]{05_hypC}
+
+\begin{solution}
+  Hypothesis C predicts that bison should have homologies with all other animals in the phylogeny.
+\end{solution}
+
+\end{parts}
+
+\newpage
+
+Now go down to the student lounge near MG 127 (turn right out the door, 
+the left, and halfway down the hall on the left) and have a look at the bison
+skeleton in the case. Note that there are two bones in the second section 
+of the forelimb of the bison. Look carefully at the "wrist" joint; the two bones 
+(radius and ulna) are fused together there (the black vertical line is a wire holding the
+skeleton together). In fact, the bones are at least partially fused all
+along their length. They start out as two separate bones in the embryo,
+but fuse during development. By the time the bison is born, the two
+bones can't move separately from each other at all.
+
+\question[2]
+Why do you think the bison has two bones in the lower part of
+its forelimb? Before you say that it is for additional strength,
+consider how much weight the single bone above them (humerus) supports).
+Considering this as a similarity with humans, would this be a homology
+or an analogy? Explain.
+
+\AnswerBox{6\baselineskip}{It has two bones in the lower forelimb because it shares a common ancestor with other animals that also have a radius and ulna. The radius and ulna serve different functions in humans and bison so the radius and ulna are homologies.}
+
+\question[3]
+What can you \emph{conclude} about each of the three class
+hypotheses based on this evidence? Tell in each case whether the
+hypothesis is supported, falsified, weakened, or if there is no
+conclusive evidence provided, and explain your answer. If the evidence
+requires some modification in the hypothesis, suggest how it should be
+modified.
+
+\begin{parts}
+
+	\part Hypothesis A: 
+	
+	\AnswerBox{3\baselineskip}{Hypothesis A is falsified. Bison has a homology of the radius and ulna with all other animals on the phylogeny (or at least the human).}
+
+
+	\part Hypothesis B:
+
+	\AnswerBox{3\baselineskip}{Hypothesis B is falsified (or weakened). Bison has a homology with cat, human, macaque, etc. But, should also have one with pigeon, bat, and whale.}
+	
+	\part Hypothesis C:
+
+	\AnswerBox{2\baselineskip}{Hypothesis C is supported. Bison has a homology with all of the organisms shown.}
+\end{parts}
+
+\end{questions}
+
+\end{document}  

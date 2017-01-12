@@ -1,0 +1,233 @@
+%!TEX TS-program = lualatex
+%!TEX encoding = UTF-8 Unicode
+
+\documentclass[12pt]{exam}
+\usepackage{graphicx}
+	\graphicspath{{/Users/goby/Pictures/teach/163/lab/}
+	{img/}} % set of paths to search for images
+
+\usepackage{geometry}
+\geometry{letterpaper, left=1.5in, bottom=1in}                   
+%\geometry{landscape}                % Activate for for rotated page geometry
+\usepackage[parfill]{parskip}    % Activate to begin paragraphs with an empty line rather than an indent
+\usepackage{amssymb, amsmath}
+\usepackage{mathtools}
+	\everymath{\displaystyle}
+
+\usepackage{fontspec}
+\setmainfont[Ligatures={TeX}, BoldFont={* Bold}, ItalicFont={* Italic}, BoldItalicFont={* BoldItalic}, Numbers={Proportional}]{Linux Libertine O}
+\setsansfont[Scale=MatchLowercase,Ligatures=TeX]{Linux Biolinum O}
+%\setmonofont[Scale=MatchLowercase]{Inconsolatazi4}
+\usepackage{microtype}
+
+\usepackage{unicode-math}
+\setmathfont[Scale=MatchLowercase]{Asana Math}
+%\setmathfont[Scale=MatchLowercase]{XITS Math}
+
+% To define fonts for particular uses within a document. For example, 
+% This sets the Libertine font to use tabular number format for tables.
+\newfontfamily{\tablenumbers}[Numbers={Monospaced}]{Linux Libertine O}
+\newfontfamily{\libertinedisplay}{Linux Libertine Display O}
+
+\usepackage{booktabs}
+\usepackage{multicol}
+
+%\usepackage{tabularx}
+\usepackage{longtable}
+\usepackage[justification=raggedright, labelsep=period]{caption}
+\captionsetup{singlelinecheck=off}
+\captionsetup{skip=0.2em}
+
+%\usepackage{siunitx}
+\usepackage{array}
+\newcolumntype{L}[1]{>{\raggedright\let\newline\\\arraybackslash\hspace{0pt}}p{#1}}
+\newcolumntype{C}[1]{>{\centering\let\newline\\\arraybackslash\hspace{0pt}}p{#1}}
+\newcolumntype{R}[1]{>{\raggedleft\let\newline\\\arraybackslash\hspace{0pt}}p{#1}}
+
+\usepackage{enumitem}
+\setlist{leftmargin=*}
+\setlist[1]{labelindent=\parindent}
+\setlist[enumerate]{label=\textsc{\alph*}.}
+
+%\usepackage{hyperref}
+%\usepackage{placeins} %PRovides \FloatBarrier to flush all floats before a certain point.
+%\usepackage{hanging}
+
+\usepackage[sc]{titlesec}
+
+
+\renewcommand{\solutiontitle}{\noindent}
+\unframedsolutions
+\SolutionEmphasis{\bfseries}
+
+\renewcommand{\questionshook}{%
+	\setlength{\leftmargin}{-\leftskip}%
+}
+%Change \half command from 1/2 to .5
+%\renewcommand*\half{.5}
+
+
+\makeatletter
+\def\SetTotalwidth{\advance\linewidth by \@totalleftmargin
+\@totalleftmargin=0pt}
+\makeatother
+
+
+\pagestyle{headandfoot}
+\firstpageheader{BI 063: Evolution and Ecology}{}{\ifprintanswers\textbf{KEY}\else Name: \enspace \makebox[2.5in]{\hrulefill}\fi}
+\runningheader{}{}{\footnotesize{pg. \thepage}}
+\footer{}{}{}
+\runningheadrule
+
+\newcommand*\AnswerBox[2]{%
+    \parbox[t][#1]{0.92\textwidth}{%
+    \begin{solution}#2\end{solution}}
+    \vspace*{\stretch{1}}
+}
+
+\newenvironment{AnswerPage}[1]
+    {\begin{minipage}[t][#1]{0.92\textwidth}%
+    \begin{solution}}
+    {\end{solution}\end{minipage}
+    \vspace*{\stretch{1}}}
+
+\newlength{\basespace}
+\setlength{\basespace}{5\baselineskip}
+
+%\printanswers
+
+\begin{document}
+
+\subsection*{The scientific method: mutations}
+
+It has long been known that changes in the genes of organisms can occur.
+Such changes are commonly called “mutations.” In the 1940s, it was not
+yet known how mutations occur. Part of the answer to this question was
+discovered by Salvador Luria and Max
+Delbrück. They grew bacteria grown in covered dishes containing nourishment in which bacteria 
+generally thrive. These are called bacterial cultures.
+
+Research that took place before Luria and Delbrück's experiment 
+showed that some types of viruses (bacteriophages, or “phages”) 
+could attack and kill some types of bacteria. Luria and Delbrück discovered that in some bacterial cultures a few of
+the bacteria survive attacks by phages. Moreover, descendants of the
+surviving bacteria tend also to survive phage attacks. This shows that
+the genes of some of the bacteria had undergone mutations that made them
+resistant to the phage, and that these resistant bacteria passed their
+mutant genes onto their offspring. The question remained as to whether the mutations that made the bacteria
+resistant were caused by the attacking virus. Their experiment was designed to
+answer this question.
+
+Luria and Delbrück considered what would happen if a number 
+of bacterial cultures, each with a similar small number of bacteria,
+were allowed to grow for a short time, then all were infected with the
+same quantity of the phage, and then were allowed to grow some more. If
+the phages were producing the mutations, they argued, then all the
+bacterial cultures should end up with roughly the same number of
+resistant bacteria (Figure~1, top panel). Any other result would suggest that the viruses are
+not causing the mutations (Figure~1, bottom panel). In the upper panel, each plate
+has about the same number of resistant colonies. In the lower panel, plates have widely different
+numbers of resistant colonies.
+
+\medskip
+
+{\centering\noindent\includegraphics[width=0.8\textwidth]{01_delbruck_luria}\par
+}
+
+\noindent{\small Figure 1. Graphic representation of possible outcomes from the 
+Luria and Delbrück experiment. Each cluster represents a single bacterial plate 
+descending from a single bacterium (at the top). Bacterial colonies were
+exposed to the phage in the final generation (at the bottom). Time proceeds
+downward from the top. Figure modified from image by Madeleine Price Ball, 
+Wikimedia Commons, after Luria and Delbrück, 1943. }
+
+\bigskip
+
+Luria and Delbrück prepared 20 bacterial cultures, and then
+introduced the phage into each culture at the same time. Table~1 shows the results from 20 bacterial cultures.
+%, and later found that the actual number of
+%resistant bacteria differed widely from one bacterial culture to the
+%next.
+
+\medskip
+
+\begin{longtable}[l]{@{}C{1in}C{1in}C{0.3in}C{1in}C{1in}@{}}
+\caption[]{Number of bacterial colonies resistant to the phage.}\tabularnewline
+\toprule
+Culture Number	&	Resistant Colonies &		&	Culture Number	&	Resistant Colonies \tabularnewline
+\midrule
+1	&	1	&	& 	11	&	107 \tabularnewline
+2	&	0	&	&	12	&	0	\tabularnewline
+3	&	3	&	&	13	&	0	\tabularnewline
+4	&	0	&	&	14	&	0	\tabularnewline
+5	&	0	&	&	15	&	1	\tabularnewline
+6	&	5	&	&	16	&	0	\tabularnewline
+7	&	0	&	&	17	&	0	\tabularnewline
+8	&	5	&	&	18	&	64	\tabularnewline
+9	&	0	&	&	19	&	0	\tabularnewline
+10	&	6	&	&	20	&	35	\tabularnewline
+\bottomrule
+\end{longtable}
+
+\bigskip
+
+Apply the scientific method to the above report. Determine what the various
+components are and list them on the next page. These will be graded for
+correctness and the clarity of your explanations. \textbf{Write answers below in
+ your own words. Do not just copy sentences from above.}
+
+\begin{questions}
+
+\question
+What is the real world observation?
+
+\AnswerBox{4\baselineskip}{%
+Some bacteria developed resistance to viruses. The resistance
+was inherited by their offspring.}
+
+\question
+What is the hypothesis?
+
+\AnswerBox{4\baselineskip}{%
+The viruses that infected the bacteria caused the mutations.}
+
+\newpage
+
+\question
+What is the prediction made by the hypothesis?
+
+\AnswerBox{4\baselineskip}{%
+If the viruses bacteria caused the mutations, then each 
+	culture should have about the same number of resistant colonies.}
+
+
+\question
+What are the results of of their experiment, based on Table~1?
+
+\AnswerBox{4\baselineskip}{%
+Table 1 shows that the number of resistant bacterial colonies varied widely among cultures (0--107).}
+
+\question
+Do the results and predictions agree? Explain why or why not.
+
+\AnswerBox{4\baselineskip}{%
+The prediction was that the number of resistant colonies should
+be about they same but the number varied. The results do not agree 
+with this prediction. }
+
+\question
+What can you conclude about the hypothesis?
+
+\AnswerBox{4\baselineskip}{%
+The hypothesis (viruses as the cause) was falsified.
+}
+
+\question[Checkout]
+A competing hypothesis proposed that mutations occur at random. If so, then mutations could have occurred in the bacterial cultures at any time during Luria and Delbrück's experiment. Are the results in Table~1 consistent with the competing hypothesis? Explain. Use numbers from Table~1 to support your explanation.
+
+\AnswerBox{5\baselineskip}{%
+The results are consistent. Mutations that occur early in the experiment should leave more resistant colonies (e.g., 107 colonies). Mutations that occur late in the experiment should leave fewer resistant colonies (e.g., 5 colonies).}
+
+\end{questions}
+
+\end{document}  

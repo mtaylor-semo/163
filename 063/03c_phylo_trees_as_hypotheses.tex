@@ -1,0 +1,165 @@
+%!TEX TS-program = lualatex
+%!TEX encoding = UTF-8 Unicode
+
+\documentclass[12pt, addpoints, hidelinks]{exam}
+\usepackage{graphicx}
+	\graphicspath{{/Users/goby/Pictures/teach/163/lab/}
+	{img/}} % set of paths to search for images
+
+\usepackage{geometry}
+\geometry{letterpaper, left=1.5in, bottom=1in}                   
+%\geometry{landscape}                % Activate for for rotated page geometry
+%\usepackage[parfill]{parskip}    % Activate to begin paragraphs with an empty line rather than an indent
+\usepackage{amssymb, amsmath}
+\usepackage{mathtools}
+	\everymath{\displaystyle}
+
+\usepackage{fontspec}
+\setmainfont[Ligatures={TeX}, BoldFont={* Bold}, ItalicFont={* Italic}, BoldItalicFont={* BoldItalic}, Numbers={OldStyle}]{Linux Libertine O}
+\setsansfont[Scale=MatchLowercase,Ligatures=TeX]{Linux Biolinum O}
+%\setmonofont[Scale=MatchLowercase]{Inconsolatazi4}
+\usepackage{microtype}
+
+\usepackage{unicode-math}
+\setmathfont[Scale=MatchLowercase]{Asana Math}
+%\setmathfont[Scale=MatchLowercase]{XITS Math}
+
+% To define fonts for particular uses within a document. For example, 
+% This sets the Libertine font to use tabular number format for tables.
+\newfontfamily{\tablenumbers}[Numbers={Monospaced}]{Linux Libertine O}
+\newfontfamily{\libertinedisplay}{Linux Libertine Display O}
+
+\usepackage{booktabs}
+\usepackage{multicol}
+\usepackage[normalem]{ulem}
+
+%\usepackage{tabularx}
+\usepackage{longtable}
+%\usepackage{siunitx}
+\usepackage{array}
+\newcolumntype{L}[1]{>{\raggedright\let\newline\\\arraybackslash\hspace{0pt}}p{#1}}
+\newcolumntype{C}[1]{>{\centering\let\newline\\\arraybackslash\hspace{0pt}}p{#1}}
+\newcolumntype{R}[1]{>{\raggedleft\let\newline\\\arraybackslash\hspace{0pt}}p{#1}}
+
+\usepackage{enumitem}
+\usepackage{hyperref}
+%\usepackage{placeins} %PRovides \FloatBarrier to flush all floats before a certain point.
+\usepackage{hanging}
+
+\usepackage[sc]{titlesec}
+
+
+\renewcommand{\solutiontitle}{\noindent}
+\unframedsolutions
+\SolutionEmphasis{\bfseries}
+
+%Change \half command from 1/2 to .5
+\renewcommand*\half{.5}
+
+
+\makeatletter
+\def\SetTotalwidth{\advance\linewidth by \@totalleftmargin
+\@totalleftmargin=0pt}
+\makeatother
+
+
+\pagestyle{headandfoot}
+\firstpageheader{\textsc{bi} 063: Evolution and Ecology}{}{\ifprintanswers\textbf{KEY}\else Name: \enspace \makebox[2.5in]{\hrulefill}\fi}
+\runningheader{}{}{\footnotesize{pg. \thepage}}
+\footer{}{}{}
+\runningheadrule
+
+\newcommand*\AnswerBox[2]{%
+    \parbox[t][#1]{0.92\textwidth}{%
+    \begin{solution}#2\end{solution}}
+%    \vspace*{\stretch{1}}
+}
+
+\newenvironment{AnswerPage}[1]
+    {\begin{minipage}[t][#1]{0.92\textwidth}%
+    \begin{solution}}
+    {\end{solution}\end{minipage}
+    \vspace*{\stretch{1}}}
+
+\newlength{\basespace}
+\setlength{\basespace}{5\baselineskip}
+
+%\printanswers
+
+\begin{document}
+
+\subsection*{Phylogenetic trees as hypotheses (\numpoints\ points)}
+
+You are about to receive an assignment to make your first hypothesis
+about the relationships of different organisms. An efficient way to 
+represent your hypothesis is by a “tree” diagram,
+called a phylogenetic tree. \emph{Phylogenetic trees are hypotheses 
+about evolutionary relationships} that are compact and easy to
+interpret. You will use phylogenetic trees to represent your own
+hypothesis about the relationships (if any) among 21 different
+species. This exercise will prepare you to interpret and construct a
+tree diagram of your own.
+
+Consider the three phylogenetic trees below. According to the hypothesis, life originated
+in 1930; the first organisms were a plant-like ancestor, and an unspecified
+ancestor of ducks, geese, whales, and fish. Note that, according to the hypothesis, 
+the ancestor of cows, humans, and dogs didn't appear until after 1940, and that humans
+and dogs had a common ancestor as late as 1990 or so.
+
+\vspace*{1\baselineskip}
+
+\noindent\includegraphics[width=\textwidth]{03c_intro_trees}
+
+\begin{questions}
+
+\question[2]
+Define these two terms in your own words:
+\begin{parts}
+	\part phylogeny:
+
+	\AnswerBox{4\baselineskip}{A hypothesis about the relationships and ancestry of organisms.}
+
+	\part common ancestor (what meaning of the word “common” is being used?):
+
+	\AnswerBox{3\baselineskip}{An ancestor that is shared between two or more organisms. The organisms descend from that shared ancestor. Common refers to shared.}
+	
+\end{parts}
+
+\newpage
+
+\question[2]
+When did ducks and geese have their last common ancestor according to
+this hypothesis? Ducks and whales? Ferns and grass? Explain how you
+know.
+
+\AnswerBox{5\baselineskip}{Ducks and geese: about 1990. Ducks and whales: about 1980. Ferns and grass: 1960. Those times are when the ancestor splits into the two descendants.}
+%\vspace*{\stretch{1}}
+
+\question[2]
+What kinds of animals existed in 1985 according to this hypothesis?
+In 1945?
+
+\AnswerBox{5\baselineskip}{1985: Ancestor of trees/grass, ferns; ancestor of ducks/geese; whales, fish, cows, ancestor of humans/dogs. 1945: plant-like ancestor, ancestor of ducks/geese/whales/fish. Maybe nothing for cows/humans/dogs. Allow some leeway for them lining a date across the page.}
+
+\question[2]
+Which should be more basically similar according to this hypothesis:
+geese and whales, or dogs and whales? Which actually are more similar?
+Explain.
+
+\AnswerBox{5\baselineskip}{The hypothesis predicts that whales and geese should be more similar because of common ancestor. Whales and dogs are actually more similar because of shared mammalian characters.}
+
+\question[2]
+What does the vertical axis represent? Be careful.
+
+\AnswerBox{5\baselineskip}{Time in years (or other time based scale. It does \emph{not} represent generations.}
+
+\question[2]
+Can you think of any evidence that you personally have witnessed that
+would falsify the hypothesis represented by this phylogenetic tree? (Any
+portion of it, including dates?) Explain.
+
+\AnswerBox{5\baselineskip}{Open ended. Photos of grandparents or plants or animals older than 1940, etc. Students older than 20. Teachers older than 20. }
+
+\end{questions}
+
+\end{document}  

@@ -1,0 +1,423 @@
+%!TEX TS-program = lualatex
+%!TEX encoding = UTF-8 Unicode
+
+\documentclass[12pt, addpoints, hidelinks]{exam}
+\usepackage{graphicx}
+	\graphicspath{{/Users/goby/Pictures/teach/163/lab/}
+	{img/}} % set of paths to search for images
+
+\usepackage{geometry}
+\geometry{letterpaper, left=1.5in, bottom=1in}                   
+%\geometry{landscape}                % Activate for for rotated page geometry
+\usepackage[parfill]{parskip}    % Activate to begin paragraphs with an empty line rather than an indent
+\usepackage{amssymb, amsmath}
+\usepackage{mathtools}
+	\everymath{\displaystyle}
+
+\usepackage{fontspec}
+\setmainfont[Ligatures={TeX}, BoldFont={* Bold}, ItalicFont={* Italic}, BoldItalicFont={* BoldItalic}, Numbers={OldStyle}]{Linux Libertine O}
+\setsansfont[Scale=MatchLowercase,Ligatures=TeX]{Linux Biolinum O}
+\setmonofont[Scale=MatchLowercase]{Inconsolatazi4}
+\usepackage{microtype}
+
+
+% To define fonts for particular uses within a document. For example, 
+% This sets the Libertine font to use tabular number format for tables.
+ %\newfontfamily{\tablenumbers}[Numbers={Monospaced}]{Linux Libertine O}
+% \newfontfamily{\libertinedisplay}{Linux Libertine Display O}
+
+\usepackage{booktabs}
+\usepackage{multicol}
+\usepackage[normalem]{ulem}
+
+\usepackage{longtable}
+\usepackage{caption}
+	\captionsetup{labelsep=period, singlelinecheck=off, skip=1pt}
+%	\captionsetup{labelsep=period}
+	
+%\usepackage{siunitx}
+\usepackage{array}
+\newcolumntype{L}[1]{>{\raggedright\let\newline\\\arraybackslash\hspace{0pt}}p{#1}}
+\newcolumntype{C}[1]{>{\centering\let\newline\\\arraybackslash\hspace{0pt}}p{#1}}
+\newcolumntype{R}[1]{>{\raggedleft\let\newline\\\arraybackslash\hspace{0pt}}p{#1}}
+
+\usepackage{enumitem}
+\setlist{leftmargin=*}
+\setlist[1]{labelindent=\parindent}
+\setlist[enumerate]{label=\textsc{\alph*}.}
+\setlist[itemize]{label=\color{gray}\textbullet}
+
+\usepackage{hyperref}
+%\usepackage{placeins} %PRovides \FloatBarrier to flush all floats before a certain point.
+\usepackage{hanging}
+
+\usepackage[sc]{titlesec}
+
+%% Commands for Exam class
+\renewcommand{\solutiontitle}{\noindent}
+\unframedsolutions
+\SolutionEmphasis{\bfseries}
+
+\renewcommand{\questionshook}{%
+	\setlength{\leftmargin}{-\leftskip}%
+}
+
+%Change \half command from 1/2 to .5
+\renewcommand*\half{.5}
+
+\pagestyle{headandfoot}
+\firstpageheader{\textsc{bi}\,063 Evolution and Ecology}{}{\ifprintanswers\textbf{KEY}\else Name: \enspace \makebox[2.5in]{\hrulefill}\fi}
+\runningheader{}{}{\footnotesize{pg. \thepage}}
+\footer{}{}{}
+\runningheadrule
+
+\newcommand*\AnswerBox[2]{%
+    \parbox[t][#1]{0.92\textwidth}{%
+    \begin{solution}#2\end{solution}}
+%    \vspace*{\stretch{1}}
+}
+
+\newenvironment{AnswerPage}[1]
+    {\begin{minipage}[t][#1]{0.92\textwidth}%
+    \begin{solution}}
+    {\end{solution}\end{minipage}
+    \vspace*{\stretch{1}}}
+
+\newlength{\basespace}
+\setlength{\basespace}{5\baselineskip}
+
+\makeatletter 
+\newlength\LongtableWidth 
+\newcommand*{\org@longtable}{} 
+\let\org@longtable\longtable 
+\def\longtable{%
+ \begingroup 
+   \advance\c@LT@tables\@ne 
+   \edef\x{LT@\romannumeral\c@LT@tables}% 
+   \global\LongtableWidth\z@ 
+   \@ifundefined{\x}{% 
+   	% longtable width not available 
+   }{% 
+     \def\LT@entry##1##2{% 
+       \global\advance\LongtableWidth##2\relax 
+     }% 
+     \@nameuse{\x}%
+    }% 
+    	% debug output 
+    \typeout{* \x: \the\LongtableWidth}%
+  \endgroup 
+  \ifdim\LongtableWidth>\z@ 
+  \setlength{\LTcapwidth}{\LongtableWidth}%
+  \fi 
+  \org@longtable 
+}
+\makeatother
+
+%\printanswers
+
+\usepackage{multirow}
+
+\begin{document}
+
+\subsection*{The Chips are down: natural selection (\numpoints\ points)}
+
+The process of natural selection occurs because organisms vary in their
+heritable characteristics, and because some variants survive and
+reproduce better than others. As a result, the genetic structure of a
+population changes through time, which is a factor in evolution.
+Although evolution may be defined in terms of genetic change, natural
+selection occurs by the interaction of the environment and whole
+organisms. Individuals that survive longer and produce more offspring in
+an environment are said to have greater fitness, compared to individuals
+that don't live as long and produce fewer offspring in that same
+environment.
+
+This inquiry uses a model to see how competition between members of a
+species to avoid predation, leads to change in that species
+over time. We also model the role of predation as the environmental
+selection pressure.
+
+In this model, you will be the predator species. Pieces
+paper will represent a single prey species (the ``Chips''). The Chips come
+in different colors to represent natural variation in the prey species.
+(Think of dogs. They all belong to the same species, but may look very
+different, e.g., a Chihuahua vs. a Great Dane.) You will see the effect
+ of the variants' ability to avoid predation on their survival and reproduction rates.
+
+\subsubsection*{Material}
+
+\begin{itemize}
+\item
+  One big sheet of newspaper with small printing (the classified pages
+  are the best). This represents the environment that the Chips ``live''
+  in.
+\item
+  An envelope containing the Chips (1 cm square bits of paper):
+  50 white, 50 pink, 50 from newsprint pages.
+\end{itemize}
+
+\vspace*{\baselineskip}
+
+\begin{questions}
+
+\question
+  Write a hypothesis about the relationship between the how well
+  camouflaged Chips are and how well they will survive to reproduce.
+
+	\AnswerBox{2\baselineskip}{\textbf{\emph{This question has no point value.}}}
+	
+\question
+  For your hypothesis to be supported, predict what you expect to
+  happen to the number of each Chip type by the end of the fourth
+  generation?
+
+	``newsprint'' Chips: \ifprintanswers\textbf{\emph{This question has no point value.}}\fi
+	
+	\vspace*{1\baselineskip}	
+
+	``pink'' Chips: 
+
+	\vspace*{1\baselineskip}	
+
+	``white'' Chips:
+
+%	\vspace*{2\baselineskip}	
+
+
+\subsubsection*{How to play}
+
+\begin{enumerate}
+
+\item
+  Work in groups of four. One member of the group will be the 
+  ``Keeper'' who will set up the  playing board each time.  The 
+  other three members of the group will be Predators. Each 
+  predator will remove 5 Chips before the Chips have a chance 
+  to reproduce. All four members of the team collect and analyze the data.
+
+\item
+  Lay out the big piece of newspaper on the desk.
+  
+\item
+  Sort the Chips into piles by color, with at least 50 in each pile.
+  Each Chip represents an individual.
+  
+\item
+  The Keeper begins by taking 10 of each type of Chip, for a total of
+  30.
+  
+\item\label{start_here}
+  The Predators cover their eyes or turn away \emph{until it is their
+  individual turn}.
+  
+\item
+  The Keeper spreads the Chips out on the environment, mixing the colors
+  well and spreading out the Chips.
+  
+\item
+  The first Predator may look at the board and as quickly as possible,
+  remove 5 Chips. These Chips are now dead and unable to reproduce.
+  
+\item
+  The next Predator may now look at the board and remove 5 Chips as
+  quickly as possible. These Chips are also dead and unable to reproduce.
+  
+\item
+  The last Predator may look at the board and remove 5 Chips as quickly
+  as possible. These Chips are also dead and unable to reproduce.
+  
+\item
+  Shake the remaining Chips off the environment and count these
+  survivors according to their type.
+  
+\item
+  Record the number of surviving Chips in the table.
+  
+\item
+  Each of these survivors reproduces one more Chip in their same color
+  to make a population total of 30.
+  
+\item\label{end_here}
+  Record the total number of each color of Chip as the next round begins
+  (after reproduction).
+  
+\item
+  Play this game (steps \ref{start_here}–\ref{end_here}) for a total of four rounds, recording
+  your data in Table 1 each time.
+  
+\item After all groups of have finished, compile the class data in Table 2.
+\end{enumerate}
+
+%\begin{questions}
+
+\newpage
+
+\begin{longtable}[c]{@{}R{0.75in}L{2in}C{0.75in}C{0.75in}C{0.75in}@{}}
+\caption{Effect of natural selection on different Chip varieties (group results).}\\
+\toprule
+ & & \multicolumn{3}{c}{Paper Chip Variants}\tabularnewline
+\cmidrule(lr){3-5}
+%\midrule
+ Generation & & Newsprint & White & Pink\tabularnewline
+\midrule
+%
+%& & & & \tabularnewline
+\multirow{2}{*}{1} 			& 
+	{\small Starting number} 	&
+	10 					&
+	10 					&
+	10\tabularnewline[0.5cm]
+	 %
+	& 
+	{\small \# left after 1st predation} 	&
+	 \rule{0.7in}{0.4pt} 				& 
+	 \rule{0.7in}{0.4pt} 				&	
+	 \rule{0.7in}{0.4pt} \tabularnewline
+%
+\midrule
+%
+&&&&\tabularnewline
+%
+\multirow{2}{*}{2} 					& 
+	{\small \# after 1st reproduction}	& 
+	\rule{0.7in}{0.4pt} 				& 
+	\rule{0.7in}{0.4pt} 				& 
+	\rule{0.7in}{0.4pt} \tabularnewline[0.5cm]
+	%
+	& 
+	{\small \# left after 2nd predation} 	& 
+	\rule{0.7in}{0.4pt} 				& 
+	\rule{0.7in}{0.4pt} 				&
+	\rule{0.7in}{0.4pt} \tabularnewline
+%
+\midrule
+%
+&&&&\tabularnewline
+%
+\multirow{2}{*}{3} 					& 
+	{\small \# after 2nd reproduction} 	& 
+	\rule{0.7in}{0.4pt} 				& 
+	\rule{0.7in}{0.4pt} 				&
+	\rule{0.7in}{0.4pt} \tabularnewline[0.5cm]
+	%
+	& 
+	{\small \# left after 3rd predation} 	&
+	\rule{0.7in}{0.4pt} 				& 
+	\rule{0.7in}{0.4pt} 				&
+	\rule{0.7in}{0.4pt} \tabularnewline
+%
+\midrule
+%
+&&&&\tabularnewline
+%
+\multirow{2}{*}{4} 					& 
+	{\small \# after 3rd reproduction} 	& 
+	\rule{0.7in}{0.4pt} 				& 
+	\rule{0.7in}{0.4pt} 				&
+	\rule{0.7in}{0.4pt} \tabularnewline[0.5cm]
+	%
+	& 
+	{\small \# left after 4th predation} 	& 
+	\rule{0.7in}{0.4pt} 				& 
+	\rule{0.7in}{0.4pt} 				&
+	\rule{0.7in}{0.4pt} \tabularnewline
+%
+\midrule
+%
+&&&&\tabularnewline
+%
+Final 						&
+{\small \# after 4th reproduction}	& 
+\rule{0.7in}{0.4pt} 				& 
+\rule{0.7in}{0.4pt} 				&
+\rule{0.7in}{0.4pt} \tabularnewline
+%
+\midrule
+%
+&&&&\tabularnewline
+%
+ 							& 
+Calculate \% change 			& 
+\rule{0.7in}{0.4pt} 				& 
+\rule{0.7in}{0.4pt} 				& 
+\rule{0.7in}{0.4pt} \tabularnewline
+%
+\bottomrule
+%Footnote
+\multicolumn{5}{L{5.5in}}{\footnotesize \% change = 100*{[}(Final number after the last reproduction $-$ Starting number) / Starting number){]}}
+\end{longtable}
+
+\vspace*{2\baselineskip}
+
+\begin{longtable}[c]{@{}rC{0.75in}C{0.75in}C{0.75in}@{}}
+\caption{Effect of natural selection on different Chip varieties (class results).}\tabularnewline
+
+%\multicolumn{4}{l}{Effect of natural selection on different Chip varieties (class results).}\tabularnewline
+\toprule
+& \multicolumn{3}{c}{Paper Chip Variants}\tabularnewline
+\cmidrule(lr){2-4}
+%\midrule
+& Newsprint & White & Pink\tabularnewline
+\midrule
+& & &\tabularnewline
+Total starting number & \rule{0.7in}{0.4pt} & \rule{0.7in}{0.4pt} &\rule{0.7in}{0.4pt}\tabularnewline[0.5cm]
+
+Total number after 4th reproduction & \rule{0.7in}{0.4pt} & \rule{0.7in}{0.4pt} & \rule{0.7in}{0.4pt}\tabularnewline[0.5cm]
+
+Calculate \% change & \rule{0.7in}{0.4pt} &\rule{0.7in}{0.4pt} &\rule{0.7in}{0.4pt}\tabularnewline
+\bottomrule
+\end{longtable}
+
+\newpage
+
+\question
+  Examine the data in Table 1. Does any Chip variant have more survivors
+  than the others? If so, which?
+
+	\AnswerBox{2\baselineskip}{Usually newsprint and white. \emph{No point value.}}
+
+\question
+  Does your individual data agree with the class data? Is it similar or
+  different? Why?
+
+	\AnswerBox{2\baselineskip}{Usually similar. \emph{No point value.}}
+
+
+\question[1]
+  Based on the experience of your group, does it take Predators a longer or shorter period of time to find one
+  prey individual as they proceed through the generations? Give an
+  explanation for this.
+  
+  	\AnswerBox{2\baselineskip}{Usually starts to take longer. There are fewer pink chips, which are easier to spot.}
+
+\question[1]
+ Were your hypothesis in Question 1 and your predictions in Question 2
+  supported?
+
+	\AnswerBox{2\baselineskip}{Answer depends on their hypotheses and predictions.}
+
+\question[2]
+  Based on the class data in Table 2, which of the Chip variants was the best
+  competitor (least affected by natural selection) in this habitat? Why?
+
+	\AnswerBox{2\baselineskip}{Usually the newsprint. They match the habitat the best (better camouflage) so escape predators better.}
+
+\question[2]
+  Now think about natural selection acting on the predator. What do you
+  suppose will happen to predators that are a little bit better at
+  finding camouflaged chips? What about predators that are not as good at
+  finding camouflaged chips?
+
+	\AnswerBox{3\baselineskip}{Predators that are better at finding food will survive longer and reproduce more. Predators that are not as good will reproduce less. Difference in relative fitness.}
+
+\question[2]
+  Apply the concepts of natural selection to the relationship between a
+  flowering plant and its pollinators. Explain what you think would
+  happen to the flowers if pollinators are attracted more to one color
+  of flower than another color?
+
+	\AnswerBox{3\baselineskip}{The plants with the preferred flower color will reproduce more due to more pollination and thus have higher relative fitness. The preferred flower color will become more common over time. The other flower color will become less common.}
+	
+\end{questions}
+
+\end{document}  

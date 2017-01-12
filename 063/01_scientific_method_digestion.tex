@@ -1,0 +1,179 @@
+%!TEX TS-program = lualatex
+%!TEX encoding = UTF-8 Unicode
+
+\documentclass[12pt]{exam}
+\usepackage{graphicx}
+	\graphicspath{{/Users/goby/Pictures/teach/163/labs}
+	{img/}} % set of paths to search for images
+
+\usepackage{geometry}
+\geometry{letterpaper, left=1.5in, bottom=1in}                   
+%\geometry{landscape}                % Activate for for rotated page geometry
+\usepackage[parfill]{parskip}    % Activate to begin paragraphs with an empty line rather than an indent
+\usepackage{amssymb, amsmath}
+\usepackage{mathtools}
+	\everymath{\displaystyle}
+
+\usepackage{fontspec}
+\setmainfont[Ligatures={TeX}, BoldFont={* Bold}, ItalicFont={* Italic}, BoldItalicFont={* BoldItalic}, Numbers={Proportional}]{Linux Libertine O}
+\setsansfont[Scale=MatchLowercase,Ligatures=TeX]{Linux Biolinum O}
+%\setmonofont[Scale=MatchLowercase]{Inconsolatazi4}
+\usepackage{microtype}
+
+\usepackage{unicode-math}
+\setmathfont[Scale=MatchLowercase]{Asana Math}
+%\setmathfont[Scale=MatchLowercase]{XITS Math}
+
+% To define fonts for particular uses within a document. For example, 
+% This sets the Libertine font to use tabular number format for tables.
+\newfontfamily{\tablenumbers}[Numbers={Monospaced}]{Linux Libertine O}
+\newfontfamily{\libertinedisplay}{Linux Libertine Display O}
+
+\usepackage{booktabs}
+\usepackage{multicol}
+\usepackage[normalem]{ulem}
+
+%\usepackage{tabularx}
+\usepackage{longtable}
+%\usepackage{siunitx}
+\usepackage{array}
+\newcolumntype{L}[1]{>{\raggedright\let\newline\\\arraybackslash\hspace{0pt}}p{#1}}
+\newcolumntype{C}[1]{>{\centering\let\newline\\\arraybackslash\hspace{0pt}}p{#1}}
+\newcolumntype{R}[1]{>{\raggedleft\let\newline\\\arraybackslash\hspace{0pt}}p{#1}}
+
+\usepackage{enumitem}
+\setlist{leftmargin=*}
+\setlist[1]{labelindent=\parindent}
+\setlist[enumerate]{label=\textsc{\alph*}.}
+
+%\usepackage{hyperref}
+%\usepackage{placeins} %PRovides \FloatBarrier to flush all floats before a certain point.
+%\usepackage{hanging}
+
+\usepackage[sc]{titlesec}
+
+
+\renewcommand{\solutiontitle}{\noindent}
+\unframedsolutions
+\SolutionEmphasis{\bfseries}
+
+\renewcommand{\questionshook}{%
+	\setlength{\leftmargin}{-\leftskip}%
+}
+
+%Change \half command from 1/2 to .5
+%\renewcommand*\half{.5}
+
+
+\makeatletter
+\def\SetTotalwidth{\advance\linewidth by \@totalleftmargin
+\@totalleftmargin=0pt}
+\makeatother
+
+
+\pagestyle{headandfoot}
+\firstpageheader{BI 063: Evolution and Ecology}{}{\ifprintanswers\textbf{KEY}\else Name: \enspace \makebox[2.5in]{\hrulefill}\fi}
+\runningheader{}{}{\footnotesize{pg. \thepage}}
+\footer{}{}{}
+\runningheadrule
+
+\newcommand*\AnswerBox[2]{%
+    \parbox[t][#1]{0.92\textwidth}{%
+    \begin{solution}#2\end{solution}}
+    \vspace*{\stretch{1}}
+}
+
+\newenvironment{AnswerPage}[1]
+    {\begin{minipage}[t][#1]{0.92\textwidth}%
+    \begin{solution}}
+    {\end{solution}\end{minipage}
+    \vspace*{\stretch{1}}}
+
+\newlength{\basespace}
+\setlength{\basespace}{5\baselineskip}
+
+%\printanswers
+
+\begin{document}
+
+\subsection*{The scientific method: digestion}
+
+At the beginning of the twentieth century, it was known that the
+pancreas, a small organ near the stomach, secreted digestive juices into
+the duodenum, which connects the stomach with the small intestine. This
+happened whenever partially digested food entered the duodenum from the
+stomach. The question was whether the signal that started the pancreas
+working was transmitted by the nervous system. 
+
+In 1901, two physiologists, W.~M.~Bayliss and E.~H.~Starling, tried to 
+answer the question by cutting all the nerves going to and from the 
+duodenum of an experimental animal. They also inserted tubes to detect the 
+flow of digestive juices from the pancreas to the duodenum. The result of this
+experiment was that, when food entered the duodenum
+of the experimental animal, the pancreas secreted digestive juices.\vspace*{\baselineskip}
+
+Apply the scientific method to the above report. Determine what the various
+components are and list them below (they may be a sentence or two or
+more). \textbf{Write answers below in your own words. Do not just copy
+sentences from above.}
+
+\begin{questions}
+
+\question
+What is the real world observation?
+
+\AnswerBox{5\baselineskip}{%
+When food entered into the duodenum from the stomach, the pancreas
+secreted digestive juices.}
+
+\question
+What is the hypothesis?.
+
+\AnswerBox{5\baselineskip}{%
+The nervous system transmitted the signal that caused the pancreas
+to secrete digestive juices.}
+
+
+%\newpage
+%\vspace*{1\baselineskip}
+
+\question
+What is the prediction made the hypothesis?
+
+\AnswerBox{5\baselineskip}{%
+If the nerves to the duodenum are cut, then the pancreas
+should not secrete digestive juices when food enters the stomach.}
+
+\newpage
+
+\question
+What are the results that were collected?
+
+\AnswerBox{5\baselineskip}{%
+Bayliss and Starling cut the nerves leading to the duodenum. When food
+entered the duodenum, digestive juices were secreted.}
+
+\question
+Do the results and predictions agree? Explain why.
+
+\AnswerBox{5\baselineskip}{%
+The prediction was digestive juices would not be secreted
+because the nerves were cut. The results do not agree with this prediction. }
+
+\question
+What can you conclude about the hypothesis?
+
+\AnswerBox{5\baselineskip}{%
+The hypothesis (nerves as the signal) was falsified.}
+
+\question[Checkout]
+A competing hypothesis was that digestion was triggered by chemical signals in the blood. Based on the description of the experiment given earlier, can you confidently state that the competing hypothesis was supported by the experimental results? Explain.
+
+\AnswerBox{7\baselineskip}{%
+No because only the nervous system was tested. A separate experiment would be needed to performed to test the chemical signal hypothesis.}
+
+\end{questions}
+
+The research of Bayliss and Starling was an important early step towards understanding digestion. Their research did suggest that chemical signals in the blood were an important part of digestion. Subsequent research has showed that the digestive process is much more complex than described here. 
+
+\end{document}  

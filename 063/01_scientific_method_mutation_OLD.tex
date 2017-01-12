@@ -1,0 +1,261 @@
+%!TEX TS-program = lualatex
+%!TEX encoding = UTF-8 Unicode
+
+\documentclass[12pt, addpoints]{exam}
+\usepackage{graphicx}
+	\graphicspath{{/Users/goby/Pictures/teach/163/lab/}
+	{img/}} % set of paths to search for images
+
+\usepackage{geometry}
+\geometry{letterpaper, left=1.5in, bottom=1in}                   
+%\geometry{landscape}                % Activate for for rotated page geometry
+%\usepackage[parfill]{parskip}    % Activate to begin paragraphs with an empty line rather than an indent
+\usepackage{amssymb, amsmath}
+\usepackage{mathtools}
+	\everymath{\displaystyle}
+
+\usepackage{fontspec}
+\setmainfont[Ligatures={TeX}, BoldFont={* Bold}, ItalicFont={* Italic}, BoldItalicFont={* BoldItalic}, Numbers={Proportional}]{Linux Libertine O}
+\setsansfont[Scale=MatchLowercase,Ligatures=TeX]{Linux Biolinum O}
+%\setmonofont[Scale=MatchLowercase]{Inconsolatazi4}
+\usepackage{microtype}
+
+\usepackage{unicode-math}
+\setmathfont[Scale=MatchLowercase]{Asana Math}
+%\setmathfont[Scale=MatchLowercase]{XITS Math}
+
+% To define fonts for particular uses within a document. For example, 
+% This sets the Libertine font to use tabular number format for tables.
+\newfontfamily{\tablenumbers}[Numbers={Monospaced}]{Linux Libertine O}
+\newfontfamily{\libertinedisplay}{Linux Libertine Display O}
+
+\usepackage{booktabs}
+\usepackage{multicol}
+\usepackage[normalem]{ulem}
+
+%\usepackage{tabularx}
+\usepackage{longtable}
+%\usepackage{siunitx}
+\usepackage{array}
+\newcolumntype{L}[1]{>{\raggedright\let\newline\\\arraybackslash\hspace{0pt}}p{#1}}
+\newcolumntype{C}[1]{>{\centering\let\newline\\\arraybackslash\hspace{0pt}}p{#1}}
+\newcolumntype{R}[1]{>{\raggedleft\let\newline\\\arraybackslash\hspace{0pt}}p{#1}}
+
+\usepackage{enumitem}
+\usepackage{hyperref}
+%\usepackage{placeins} %PRovides \FloatBarrier to flush all floats before a certain point.
+\usepackage{hanging}
+
+\usepackage[sc]{titlesec}
+
+
+\renewcommand{\solutiontitle}{\noindent}
+\unframedsolutions
+\SolutionEmphasis{\bfseries}
+
+%Change \half command from 1/2 to .5
+\renewcommand*\half{.5}
+
+
+\makeatletter
+\def\SetTotalwidth{\advance\linewidth by \@totalleftmargin
+\@totalleftmargin=0pt}
+\makeatother
+
+
+\pagestyle{headandfoot}
+\firstpageheader{BI 063: Evolution and Ecology}{}{\ifprintanswers\textbf{KEY}\else Name: \enspace \makebox[2.5in]{\hrulefill}\fi}
+\runningheader{}{}{\footnotesize{pg. \thepage}}
+\footer{}{}{}
+\runningheadrule
+
+\newcommand*\AnswerBox[2]{%
+    \parbox[t][#1]{0.92\textwidth}{%
+    \begin{solution}#2\end{solution}}
+%    \vspace*{\stretch{1}}
+}
+
+\newenvironment{AnswerPage}[1]
+    {\begin{minipage}[t][#1]{0.92\textwidth}%
+    \begin{solution}}
+    {\end{solution}\end{minipage}
+    \vspace*{\stretch{1}}}
+
+\newlength{\basespace}
+\setlength{\basespace}{5\baselineskip}
+
+%\printanswers
+
+\begin{document}
+
+\subsection*{A scientific method: mutations (\numpoints\ points)}
+
+It has long been known that changes in the genes of organisms can occur.
+Such changes are commonly called “mutations.” In the 1940s, it was not
+yet known how mutations occur. Part of the answer to this question was
+given by a famous experiment performed by Salvador Luria and Max
+Delbrück.
+
+Research that took place before Luria and Delbrück's experiment 
+showed that some types of viruses (bacteriophages, or “phages”) 
+could attack and kill some types of bacteria. It is relatively easy to grow 
+bacteria in covered dishes containing nourishment in which bacteria 
+generally thrive. These are called “bacterial cultures.”
+
+Luria and Delbrück discovered that in some bacterial cultures a few of
+the bacteria survive attacks by phages. Moreover, descendants of the
+surviving bacteria tend also to survive phage attacks. This shows that
+the genes of some of the bacteria had undergone mutations that made them
+resistant to the phage, and that these resistant bacteria passed their
+mutant genes onto their offspring.
+
+The question remained as to whether the mutations that made the bacteria
+resistant were caused by the attacking virus itself, or whether they
+merely happened by chance. The experiment at issue was designed to
+answer this question regarding the cause of the mutations.
+
+Luria and Delbrück considered what would happen if a number (say twenty)
+of bacterial cultures, each with a similar small number of bacteria,
+were allowed to grow for a short time, then all were infected with the
+same quantity of the phage, and then were allowed to grow some more. If
+the phages were producing the mutations, they argued, then all the
+bacterial cultures should end up with roughly the same number of
+resistant bacteria.
+
+On the other hand, if the mutations were arising by chance, it follows
+that those bacterial cultures in which the chance mutation happened to
+occur early in the experiment would end up with many more mutant
+bacteria than those cultures in which the mutation happened to occur
+late in the experiment. The earlier mutant bacteria would have longer to
+multiply. Those cultures in which the chance mutation happened to occur
+at some intermediate time would end up with an intermediate number of
+bacteria. If it is a matter of pure chance when the mutations occur, one
+would, therefore, expect that by the end of the experiment there would
+be a large variation in the numbers of mutant bacteria in the different
+bacterial cultures. Figure 1 below shows the predictions from the two
+hypotheses:
+
+\noindent\includegraphics[width=\textwidth]{02b_delbruck_luria}
+
+\noindent{\small Figure 1. Graphic representation of possible outcomes from the 
+Luria and Delbrück hypotheses. Each cluster represents a single bacterial plate 
+descending from a single bacterium (at the top). Bacterial colonies were
+exposed to the phage in the final generation (at the bottom). Time proceeds
+downward from the top. Figure modified from image by Madeleine Price Ball, 
+Wikimedia Commons, after Luria and Delbrück, 1943. }
+\vspace*{\baselineskip}
+
+Luria and Delbrück prepared a number of bacterial cultures, then
+introduced the phage, and later found that the actual number of
+resistant bacteria differed widely from one bacterial culture to the
+next.
+
+Apply the scientific method to the above report. Determine what the various
+components are and list them on the next page. These will be graded for
+correctness and the clarity of your explanations. \textbf{Write answers below in
+ your own words. Do not just copy sentences from above.}
+
+\begin{questions}
+
+\question[1]
+What is the real world observation?
+
+\AnswerBox{4\baselineskip}{%
+Some bacteria developed resistance to viruses. The resistance
+was inherited by their offspring.}
+
+\question[2]
+
+The passage suggests two hypotheses. Write each of them here, as
+hypotheses a and b (H\textsubscript{a} and H\textsubscript{b}).
+
+\begin{enumerate}[label=\alph*.]
+
+	\item H\textsubscript{a}: 
+	\ifprintanswers{%
+		\textbf{The viruses that infected the bacteria caused the mutations.}}
+	\fi \vspace*{2\baselineskip}
+	
+	
+	\item H\textsubscript{b}: 
+	\ifprintanswers{%
+		\textbf{The mutations that caused resistance occurred by chance.}}
+	\fi \vspace*{2\baselineskip}
+
+\end{enumerate}
+
+\newpage
+
+\question[2]
+What is the prediction made based on each of the hypotheses you stated
+above?
+
+\begin{enumerate}[label=\alph*.]
+
+	\item H\textsubscript{a}:
+	\ifprintanswers
+		\textbf{If the viruses bacteria caused the mutations, then each 
+		culture should have about the same number of resistant colonies.}
+		\vspace*{1\baselineskip}
+	\else
+		\vspace*{2\baselineskip}
+	\fi
+
+	\item H\textsubscript{b}:
+	\ifprintanswers
+		\textbf{If mutations occur by chance, then the number of resistant 
+		colonies will vary among cultures.}
+		\vspace*{1\baselineskip}
+	\else
+		\vspace*{2\baselineskip}
+	\fi
+
+\end{enumerate}
+
+
+\question[1]
+What are the results that were collected?
+
+\AnswerBox{5\baselineskip}{%
+Luria and Delbrück counted the number of resistant colonies in each culture 
+at the end of the experiment. They found that the number of colonies varied
+among cultures.}
+
+\question[2]
+Do the results and predictions agree (for each hypothesis)? Explain why or why not for each prediction.
+
+\begin{enumerate}[label=\alph*.]
+
+	\item H\textsubscript{a}:
+	\ifprintanswers
+		\textbf{The prediction was that the number of resistant colonies should
+		be about they same but the number varied. The results do not agree 
+		with this prediction. }
+		\vspace*{1\baselineskip}
+	\else
+		\vspace*{2\baselineskip}
+	\fi
+
+	\item H\textsubscript{b}: 
+	\ifprintanswers
+		\textbf{The prediction was that the number of resistant colonies should
+		vary among cultures. The results showed varying amounts of resistance
+		so the results do agree with this prediction. }
+		\vspace*{1\baselineskip}
+	\else
+		\vspace*{2\baselineskip}
+	\fi
+
+\end{enumerate}
+
+\question[2]
+What can you conclude about each of the hypotheses?
+
+\AnswerBox{5\baselineskip}{%
+The first hypothesis (viruses as the cause) was falsified.\\
+The second hypothesis (random mutations as the cause) was supported.
+}
+
+\end{questions}
+
+\end{document}  

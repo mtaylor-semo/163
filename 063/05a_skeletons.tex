@@ -1,0 +1,377 @@
+%!TEX TS-program = lualatex
+%!TEX encoding = UTF-8 Unicode
+
+%\documentclass[12pt, addpoints, hidelinks]{exam}
+\documentclass[12pt, hidelinks]{exam}
+\usepackage{graphicx}
+	\graphicspath{{/Users/goby/Pictures/teach/163/lab/}
+	{img/}} % set of paths to search for images
+
+\usepackage{geometry}
+\geometry{letterpaper, left=1.5in, bottom=1in}                   
+%\geometry{landscape}                % Activate for for rotated page geometry
+\usepackage[parfill]{parskip}    % Activate to begin paragraphs with an empty line rather than an indent
+\usepackage{amssymb, amsmath}
+\usepackage{mathtools}
+	\everymath{\displaystyle}
+
+\usepackage{fontspec}
+\setmainfont[Ligatures={TeX}, BoldFont={* Bold}, ItalicFont={* Italic}, BoldItalicFont={* BoldItalic}, Numbers={OldStyle}]{Linux Libertine O}
+\setsansfont[Scale=MatchLowercase,Ligatures=TeX]{Linux Biolinum O}
+\setmonofont[Scale=MatchLowercase]{Inconsolatazi4}
+\usepackage{microtype}
+
+
+% To define fonts for particular uses within a document. For example, 
+% This sets the Libertine font to use tabular number format for tables.
+ %\newfontfamily{\tablenumbers}[Numbers={Monospaced}]{Linux Libertine O}
+% \newfontfamily{\libertinedisplay}{Linux Libertine Display O}
+
+\usepackage{booktabs}
+\usepackage{multicol}
+\usepackage[normalem]{ulem}
+
+\usepackage{longtable}
+%\usepackage{siunitx}
+\usepackage{array}
+\newcolumntype{L}[1]{>{\raggedright\let\newline\\\arraybackslash\hspace{0pt}}p{#1}}
+\newcolumntype{C}[1]{>{\centering\let\newline\\\arraybackslash\hspace{0pt}}p{#1}}
+\newcolumntype{R}[1]{>{\raggedleft\let\newline\\\arraybackslash\hspace{0pt}}p{#1}}
+
+\usepackage{enumitem}
+\usepackage{hyperref}
+%\usepackage{placeins} %PRovides \FloatBarrier to flush all floats before a certain point.
+\usepackage{hanging}
+
+\usepackage[sc]{titlesec}
+
+%% Commands for Exam class
+\renewcommand{\solutiontitle}{\noindent}
+\unframedsolutions
+\SolutionEmphasis{\bfseries}
+
+\renewcommand{\questionshook}{%
+	\setlength{\leftmargin}{-\leftskip}%
+}
+
+%Change \half command from 1/2 to .5
+\renewcommand*\half{.5}
+
+\pagestyle{headandfoot}
+\firstpageheader{\textsc{bi}\,063 Evolution and Ecology}{}{\ifprintanswers\textbf{KEY}\else Name: \enspace \makebox[2.5in]{\hrulefill}\fi}
+\runningheader{}{}{\footnotesize{pg. \thepage}}
+\footer{}{}{}
+\runningheadrule
+
+\newcommand*\AnswerBox[2]{%
+    \parbox[t][#1]{0.92\textwidth}{%
+    \begin{solution}#2\end{solution}}
+%    \vspace*{\stretch{1}}
+}
+
+\newenvironment{AnswerPage}[1]
+    {\begin{minipage}[t][#1]{0.92\textwidth}%
+    \begin{solution}}
+    {\end{solution}\end{minipage}
+    \vspace*{\stretch{1}}}
+
+\newlength{\basespace}
+\setlength{\basespace}{5\baselineskip}
+
+\pointsinmargin{\pointformat{}}
+%\printanswers
+
+
+\begin{document}
+
+\subsection*{Homology or analogy: comparing skeletons}
+
+\begin{questions}
+
+\question
+Consider the uses of teeth in catching and killing prey,
+cutting tough plant material, grinding hard seeds or nuts, etc. Look at
+the teeth in the three jaws provided in lab. These are also shown below.
+What kinds of food do you think were eaten by each skeleton's former
+owner? \emph{Justify your answer} based on what you observe about
+their teeth. (You can easily figure out what the
+animals are. Do not base your explanation on what you know the animal
+eats. Base it on what you see in its teeth.)
+
+\begin{parts}
+
+\part Organism 1
+\begin{longtable}[l]{@{}ll@{}}
+\includegraphics[height=3cm]{05_jaw_cat1} & 
+\includegraphics[height=3cm]{05_jaw_cat2}\tabularnewline
+\end{longtable}
+
+\AnswerBox{1\baselineskip}{Carnivore. Sharp teeth for capturing and tearing prey.}
+
+\part Organism 2-Hour
+\begin{longtable}[l]{@{}ll@{}}
+\includegraphics[height=3cm]{05_jaw_horse1} & 
+\rotatebox{90}{\includegraphics[width=3cm]{05_jaw_horse2}}\tabularnewline
+\end{longtable}
+
+\AnswerBox{1\baselineskip}{Herbivore. Large flat teeth for grinding plant material.}
+
+\part Organism 3
+\begin{longtable}[l]{@{}ll@{}}
+\includegraphics[height=3cm]{05_jaw_chimp1}  &
+\includegraphics[height=3cm]{05_jaw_chimp2}\tabularnewline
+\end{longtable}
+
+\AnswerBox{1\baselineskip}{Omnivore. Sharp teeth for tearing and flat teeth for grinding.}
+
+\end{parts}
+
+\newpage
+
+\question[2]
+Consider the canine teeth of a cat and a Mexican wolf. The canine teeth
+are elongated relative to other teeth. Both species are carnivores. %Elongated canine teeth are
+%typical of carnivores, the meat-eating mammals, and this is a structural
+%similarity in these animals.
+
+\begin{longtable}[c]{@{}cc@{}}
+\toprule
+\includegraphics[height=3.5cm]{05_skull_cat} &
+\includegraphics[height=3.5cm]{05_skull_mexican_wolf}\tabularnewline
+%\midrule
+Cat Skull & Mexican Wolf\tabularnewline
+\bottomrule
+\end{longtable}
+
+\begin{parts}
+
+\part
+Is the similarity of elongated canines \emph{necessary for
+the function} in these carnivores? Explain.
+
+\AnswerBox{3\baselineskip}{Most students will answer yes, necessary to capture prey and tear meat.}
+
+\part
+What do you conclude? Is the similarity a homology or
+analogy?
+
+\AnswerBox{3\baselineskip}{Most students will conclude analogy. Accept homology if well justified above.}
+
+\end{parts}
+
+\question[2]
+Now consider the canine teeth of fruit bats. They have elongated canine teeth but they are
+\emph{not} carnivores. They are frugivores (fruit-eaters) or nectivores 
+(lap nectar with the tongue).
+
+\begin{longtable}[c]{@{}c@{}}
+\toprule
+\includegraphics[height=3.5cm]{05_skull_fruit_bat}\tabularnewline
+Fruit Bat\tabularnewline
+\bottomrule
+\end{longtable}
+
+\begin{parts}
+\part
+Is the similarity of elongated canines necessary for
+the function? Explain. 
+
+\AnswerBox{3\baselineskip}{No. Canines are not necessary, especially for nectivores. Some will argue that canines help frugivores but point out they can eat fruit without enlarged canines.}
+
+%\newpage
+
+\part What do you conclude? Is the similarity a homology or
+analogy?
+
+\AnswerBox{3\baselineskip}{Most students will conclude homology.}
+
+\end{parts}
+
+
+Now have a look at the manus (``hand'') of the bat and the macaque 
+(muh-KACK, a type of primate; more specifically, an Old World monkey). 
+The manus is the appendage on the end of the forelimb—most of the 
+wing of the bat and the a``front foot'' in the macaque. 
+
+\question
+Consider the following structural similarity: \emph{Each manus
+has five digits or ``fingers.''}
+\begin{parts}
+	\part What is the function of the manus in the bat?
+
+	\AnswerBox{3\baselineskip}{Flight. \emph{This question has no point value.}}
+
+	\part What is the function of the manus in the macaque?
+
+	\AnswerBox{3\baselineskip}{Grasping, climbing. \emph{This question has no point value.}}
+
+	\part[1] Is the specific similarity described above (that is, having precisely 5
+digits, not 4, 6, or some other number) necessary in order to serve the
+functions you described above? In other words, are the structures
+serving the same functions in the bat and the macaque? Explain.
+(\emph{Remember: if a structure serves different functions, the specific
+structural similarity is not absolutely required to perform any} one
+\emph{of those functions}.
+
+	\AnswerBox{4\baselineskip}{Should determine that five digits is not necessary to serve any one function.}
+
+	\part[1] What do you conclude? Is the structural similarity I described above
+explained by homology or analogy? Explain.
+
+	\AnswerBox{4\baselineskip}{Homology because the structures serve different functions.}
+\end{parts}
+
+
+Now compare the manus of the alligator and the
+\textit{Necturus} (a type of salamander), to the manus of the macaque.
+
+\question
+Consider the following similarity: \emph{Each digit has three
+phalanges} (individual bones in each digit).
+
+\begin{parts}
+	\part What is the function of the three phalanges in the macaque?
+
+	\AnswerBox{3\baselineskip}{Allow the digits to bend for grasping, etc. \emph{This question has no point value.}}
+
+
+	\part What is the function of the three phalanges in the alligator and
+\emph{Necturus}?
+
+	\AnswerBox{3\baselineskip}{Support, spread the weight. \emph{This question has no point value.}}
+
+	\part[1] Is the specific similarity described above (that is, having precisely 3
+phalanges, not 2, 4, or some other number) necessary in order to serve
+the specific functions you described above in the macaque, the alligator
+and \emph{Necturus}? Explain.
+
+	\AnswerBox{4\baselineskip}{No. The phalanges serve different functions. Could bend
+	with more phalanges or even one less.}
+
+	\part[1] What do you conclude? Is the structural similarity I described above
+explained by homology or analogy? Explain.
+
+	\AnswerBox{4\baselineskip}{Homology. The phalanges serve different functions.}
+
+
+\end{parts}
+
+\question
+Now, compare the clavicle (``collar bone'') of a macaque to the clavicle of a cat. In both animals, the clavicle is located between the top of the sternum and the shoulder.
+
+\begin{longtable}[c]{@{}rll@{}}
+\toprule
+Macaque & \includegraphics[width=0.3\textwidth]{05_clavicle_macaque1} &
+\includegraphics[width=0.3\textwidth]{05_clavicle_macaque2}\tabularnewline
+\midrule
+Cat & \includegraphics[width=0.3\textwidth]{05_clavicle_cat2} &
+\includegraphics[width=0.3\textwidth]{05_clavicle_cat1}\tabularnewline
+\bottomrule
+\end{longtable}
+
+In the macaque (upper row), the clavicle is the only bone connection between
+the forelimb and the trunk of the body. Note how it makes contact with
+the sternum at one end and the shoulder blade at the other. 
+
+
+In the cat (lower row), you can see looking down (left photo) that
+there is no bone connection between the shoulder blade and the trunk of
+the body (it didn't have those metal springs in there when it was
+alive). The arrow in the right photo of a cat's shoulder shows
+the cat's clavicle. It is approximately the same shape as the
+macaque's, and is located in the same area of the body. (It also forms
+the same way during embryonic development.) The cat's clavicle doesn't touch
+any other bone or cartilage in the cat; it is embedded in a muscle on the
+chest. The clavicle's position here is slightly off to the side from where it's
+found in the living cat because it has been attached with a wire to the
+humerus.
+
+\begin{parts}
+
+\part Describe their structural similarity. What is similar about their 
+structure, that is, their shape, location, composition, etc.?
+
+	\AnswerBox{4\baselineskip}{\emph{This question has no point value.}}
+
+\part What is the function of the clavicle in each organism? For the 
+macaque, consider how monkeys climb trees, hanging from branches
+and swinging. How would a bone connection between the arm and chest be
+helpful? For the cat, what good is a tiny little bone that doesn't touch
+any other bone?
+
+macaque: \ifprintanswers{\textbf{\textit{This question has no point value.}}}\fi\\[2\baselineskip]
+
+cat: \\[2\baselineskip]
+
+\part[1] Is the similarity you described above necessary in order to
+serve the functions? Explain.
+
+	\AnswerBox{4\baselineskip}{No. The clavicle serves the function of strengthening the shoulder girdle in the macaque (they will not say shoulder girdle). The clavicle does not serve a function in the cat.}
+
+\part[1] What do you conclude? Is the structural similarity you
+described explained by homology or analogy?
+
+	\AnswerBox{4\baselineskip}{Homology. The clavicle serves different functions between the two animals.}
+
+\part[1] If you concluded homology of the clavicle, do you think this
+homology applies only to cats and macaques? What if we compared the
+clavicle of the cat to the clavicle of the frog, the human, the
+alligator, or the bat? Would you conclude that the clavicle is a
+homology or analogy? Explain.
+
+	\AnswerBox{4\baselineskip}{Homology. In most vertebrates, the clavicle provides rigidity and support. But, not for the cat. If each vertebrate is compared to the cat, would conclude homology.}
+
+\end{parts}
+
+\question
+Consider the forelimb of the human and the pigeon. Each
+has a first segment containing a single bone, the humerus, followed by a
+second segment containing two bones, the radius and ulna. The structural similarity here is {the presence of two bones in the
+second section of the forelimb of pigeon and human.}
+
+
+\begin{longtable}[c]{@{}L{2.5in}L{2.5in}l@{}}
+\toprule
+\centering \includegraphics[height=3cm]{05_radius_human1} & \centering \includegraphics[height=3cm]{05_radius_human2}\tabularnewline
+\centering \includegraphics[height=3cm]{05_radius_pigeon} & \centering \includegraphics[height=3cm]{05_radius_human3}\tabularnewline
+
+The pigeon's wing is folded. The joint between the humerus and
+the radius and ulna (``elbow'') is along the back of the body. The ``hand'' of the pigeon
+contains three digits, two of them mostly fused together. & The upper photo shows the radius
+and ulna articulating with the wrist in the human arm. The lower photo shows the
+human ulna (lower left) and radius (upper left) forming the elbow joint
+with the humerus (right).\tabularnewline
+\bottomrule
+\end{longtable}
+
+\begin{parts}
+	\part What is the function of the radius and ulna in each
+animal? Hint: feel your own arm at the wrist and move your hand
+various ways. Twist your wrist. What sort of motion do two bones allow?
+Do birds make similar motions with their wings?
+
+human: \ifprintanswers{\textbf{\textit{This question has no point value}}}\fi\\[2\baselineskip]
+
+pigeon: \\[2\baselineskip]
+
+\part[1] Is the similarity (having two bones in the forearm)
+necessary in order to serve the \emph{function(s)}? Explain.
+
+	\AnswerBox{4\baselineskip}{No. The radius and ulna allows for rotation in human but not pigeon.}
+
+\part[1] What do you conclude? Is the structural similarity you
+described explained by homology or analogy? Explain.
+
+	\AnswerBox{4\baselineskip}{Homology. The radius and ulna serve different functions.}
+
+\part[1] If you concluded homology of the radius and ulna, do you
+think this homology applies only to humans and pigeons? What if we
+compared the radius and ulna of the human to the other vertebrate
+organisms that have them? What might you conclude? Explain.
+
+	\AnswerBox{2\baselineskip}{The radius and ulna are homologous among the vertebrates. In most cases, they do not allow rotation like humans.}
+\end{parts}
+
+\end{questions}
+
+\end{document}  

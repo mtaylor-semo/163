@@ -1,0 +1,304 @@
+%!TEX TS-program = lualatex
+%!TEX encoding = UTF-8 Unicode
+
+%\documentclass[t]{beamer}
+
+%%%% HANDOUTS For online Uncomment the following four lines for handout
+\documentclass[t,handout]{beamer}  %Use this for handouts.
+\usepackage{handoutWithNotes}
+\pgfpagesuselayout{3 on 1 with notes}[letterpaper,border shrink=5mm]
+
+
+%%% Including only some slides for students.
+%%% Uncomment the following line. For the slides,
+%%% use the labels shown below the command.
+\includeonlylecture{student}
+
+%% For students, use \lecture{student}{student}
+%% For mine, use \lecture{instructor}{instructor}
+
+
+%\usepackage{pgf,pgfpages}
+%\pgfpagesuselayout{4 on 1}[letterpaper,border shrink=5mm]
+
+% FONTS
+\usepackage{fontspec}
+\def\mainfont{Linux Biolinum O}
+\setmainfont[Ligatures={Common,TeX}, Contextuals={NoAlternate}, Numbers={Proportional, OldStyle}]{\mainfont}
+\setsansfont[Ligatures={Common,TeX}, Scale=MatchLowercase, Numbers={Proportional,OldStyle}, BoldFont={* Bold}, ItalicFont={* Italic},]\mainfont
+
+\newfontface\lining[Numbers={Lining}]\mainfont
+
+\usepackage{graphicx}
+	\graphicspath{{/Users/goby/pictures/teach/163/lecture/}
+	{/Users/goby/pictures/teach/common/}} % set of paths to search for images
+
+%\usepackage{units}
+\usepackage{booktabs}
+\usepackage{multicol}
+%\usepackage{textcomp}
+
+\usepackage{tikz}
+%	\tikzstyle{every picture}+=[remember picture,overlay]
+
+\mode<presentation>
+{
+  \usetheme{Lecture}
+  \setbeamercovered{invisible}
+  \setbeamertemplate{items}[square]
+}
+
+%\usefonttheme[onlymath]{serif}
+%\usecolortheme[named=blue7]{structure}
+
+\newcommand{\btVFill}{\vskip0pt plus 1filll}
+
+\newcommand\HiddenWord[1]{%
+	\alt<handout>{\rule{\widthof{#1}}{\fboxrule}}{#1}%
+}
+
+\newcommand\GrayedOut[1]{%
+	\alt<handout>{#1}{\textcolor{gray}{#1}}%
+}
+
+
+\begin{document}
+
+\lecture{student}{student}
+
+\begin{frame}[t]{Our goals for this lecture are to}
+
+	\hangpara learn that science is a process for understanding the natural world.
+	
+	\hangpara learn and apply the five steps of the \highlight{scientific method.}
+		
+\end{frame}
+
+\lecture{instructor}{instructor}
+
+{
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{what_is_science}}
+\begin{frame}[b]
+
+	\hfill \tiny\textcolor{white}{J.J, \ccbysa{3}}
+\end{frame}
+}
+
+\lecture{instructor}{instructor}
+
+{
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{science_tentative_new1}}
+\begin{frame}[b]{Science is \highlight{tentative.}}
+\end{frame}
+}
+
+\lecture{student}{student}
+
+{
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{science_tentative_new2}}
+\begin{frame}[b]{Science is \highlight{tentative.}}
+\end{frame}
+}
+
+{
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{science_objective}}
+\begin{frame}[b]{Science is \highlight{objective.}}
+\end{frame}
+}
+
+{
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{science_testable}}
+\begin{frame}[b]{Science is \highlight{testable.}}
+\end{frame}
+}
+
+{
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{reasoning_inductive}}
+\begin{frame}[b]
+
+\hfill \tiny \textcolor{white}{decltype, \ccbysa{3}}
+\end{frame}
+}
+
+{
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{reasoning_deductive}}
+\begin{frame}[b,plain]
+
+\hfill\tiny OpenClipart Vectors, Pixabay.com, \ccby{0}
+\end{frame}
+}
+
+\begin{frame}{Let's test our reasoning skills\dots}
+
+	\hangpara I will turn over some cards.
+	
+	\hangpara Can you predict what card comes next?
+	
+	\hangpara After several observations, can you predict the final pattern?
+
+\end{frame}
+
+
+\begin{frame}[t]{Scientists perform objective testing with the \highlight{scientific method.}}
+
+	\hangpara \highlight{Observation:} some aspect of the natural world that interests you.
+	\pause
+
+	\hangpara \highlight{Hypothesis:} A plausible explanation, taking into account what is already known.
+	\pause
+	
+	\hangpara \highlight{Prediction:} Tells what to expect if you do the experiment.\\ “\textit{If} I do X, \textit{then} I will see Y” is a prediction.
+	\pause
+	
+	\hangpara \highlight{Experiment and results:} Set up the conditions to test the prediction.
+	\pause
+	
+	\hangpara \highlight{Conclusion:} The results can \textit{support} the hypothesis, \textit{falsify} the hypothesis, or be inconclusive.
+
+\end{frame}
+
+% Sea Turtle example
+
+{
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{ascension_green_sea_turtle}}
+\begin{frame}[b,plain]{\highlight{Observation:} Green sea turtles swim 1200 miles from Brazil to Ascension Island to lay their eggs.}
+
+\hfill\tiny\textcolor{white}{Laszlo Ilyes, Flickr, \ccby{2}}
+\end{frame}
+}
+
+{
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{ascension_location}}
+\begin{frame}[b]
+
+\hfill\tiny\textcolor{white}{Modified from Strebe, Wikimedia, \ccbysa{3}}
+\end{frame}
+}
+
+
+\begin{frame}[t]{Two \highlight{hypotheses} were proposed to explain the observation.}
+	\setlength{\columnseprule}{0.4pt}
+
+	\begin{multicols}{2}
+	
+		\hangpara Carr-Coleman (1974)
+		
+		\hangpara Turtles have returned to Ascension for 40–70 million years to lay eggs.
+		
+		\hangpara Their hypothesis is based on plate tectonics. 
+		
+	\columnbreak
+	
+		\hangpara Gould (1978)
+		
+		\hangpara Turtles began using Ascension within past 1 million years.
+		
+		\hangpara Their hypothesis is based on a rare and recent dispersal event.
+	\end{multicols}
+\end{frame}
+
+
+{
+\setbeamercolor{background canvas}{bg=black}
+\begin{frame}[t]{\textcolor{white}{Plate tectonics causes continents to shift positions over time.}}
+	\begin{center}
+		\begin{tikzpicture}
+			\foreach \Value in {1,2,3,4,5,6,7,8,9,10,11,12,13}
+				\node<\Value> (img\Value) {\includegraphics[width=.5\linewidth]{tectonics\Value}};
+		\end{tikzpicture}
+	\end{center}
+
+	\textcolor{white}{As Ascension Island (red dot) separated from Brazil over millions of years, generations of turtles continued to visit the island to breed.}
+
+	\btVFill
+
+	\hfill\tiny \textcolor{white}{\url{http://www.ucmp.berkeley.edu/geology/tectonics.html}}
+
+\end{frame}
+}
+
+\begin{frame}[t]{Each hypothesis makes a specific \highlight{prediction.}}
+	\vspace*{-\baselineskip}
+
+	\hangpara{\small Turtle \textsc{dna} diverges at an approximate rate of 0.2\% per million years.}
+
+	\setlength{\columnseprule}{0.4pt}
+
+	\begin{multicols}{2}
+	
+		\hangpara Carr-Coleman (1974)
+	
+		\hangpara \textit{If} turtles have returned to Ascension for at least 40 million years,
+	
+		\hangpara \textit{then} \textsc{dna} should differ from other populations by at least 8\%.
+	
+	\columnbreak
+	
+		\hangpara Gould (1978)
+	
+		\hangpara \textit{If} turtles only started using Ascension within last 1 million years,
+	
+		\hangpara \textit{then} \textsc{dna} should differ from other populations by no more than 0.2\%.	
+	\end{multicols}
+\end{frame}
+
+{
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{ascension_dna}}
+\begin{frame}[b]{The \highlight{experiment} compared \textsc{dna} of turtles sampled from Ascension, Florida, Venezuela, and Hawaii.}
+
+\tiny\textcolor{white}{University of Michigan School of Natural Resources \textsc{dna} Lab, Flickr, \ccby{2}}
+\end{frame}
+}
+
+{
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{ascension_green_sea_turtle}}
+\begin{frame}[b,plain]{Which hypothesis do you think turned out to be supported?}
+
+\hfill\tiny\textcolor{white}{Laszlo Ilyes, Flickr, \ccby{2}.}
+\end{frame}
+}
+
+\lecture{instructor}{instructor}
+{
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{ascension_results1}}
+\begin{frame}[b]{Their results showed very small DNA differences between Ascension versus Florida and Venezuela.}
+	
+\hfill\tiny\textcolor{white}{Modified from Strebe, Wikimedia, \ccbysa{3}}
+\end{frame}
+}
+{
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{ascension_results2}}
+\begin{frame}[b]{The results from Hawaii were also consistent.}
+	
+\hfill\tiny\textcolor{white}{Modified from Strebe, Wikimedia, \ccbysa{3}}
+\end{frame}
+}
+
+\lecture{student}{student}
+
+\begin{frame}[t]{The \highlight{conclusion} is that \HiddenWord{Gould's} hypothesis was \textit{supported.}}
+
+	\vspace*{-\baselineskip}
+
+	\hangpara The results agree with the prediction made by \alt<handout>{the}{Gould's} hypothesis.
+
+	\setlength{\columnseprule}{0.4pt}
+
+	\begin{multicols}{2}
+		\hangpara \GrayedOut{Carr-Coleman (1974)}
+		
+		\hangpara \GrayedOut{\textit{If} turtles have returned to Ascension for at least 40 million years,}
+		
+		\hangpara \GrayedOut{\textit{then} \textsc{dna} should differ from other populations by at least 8\%.}
+
+	\columnbreak
+		\hangpara Gould (1978)
+		
+		\hangpara \textit{If} turtles only started using Ascension within last 1 million years,
+		
+		\hangpara \textit{then} \textsc{dna} should differ from other populations by no more than 0.2\%.	
+	\end{multicols}
+
+\end{frame}
+
+\end{document}

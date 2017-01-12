@@ -1,0 +1,175 @@
+%!TEX TS-program = lualatex
+%!TEX encoding = UTF-8 Unicode
+
+\documentclass[12pt, hidelinks]{exam}
+\usepackage{graphicx}
+	\graphicspath{{/Users/goby/Pictures/teach/163/lab/}
+	{img/}} % set of paths to search for images
+
+\usepackage{geometry}
+\geometry{letterpaper, left=1.5in, bottom=1in}                   
+%\geometry{landscape}                % Activate for for rotated page geometry
+\usepackage[parfill]{parskip}    % Activate to begin paragraphs with an empty line rather than an indent
+\usepackage{amssymb, amsmath}
+\usepackage{mathtools}
+	\everymath{\displaystyle}
+
+\usepackage{fontspec}
+\setmainfont[Ligatures={TeX}, BoldFont={* Bold}, ItalicFont={* Italic}, BoldItalicFont={* BoldItalic}, Numbers={OldStyle}]{Linux Libertine O}
+\setsansfont[Scale=MatchLowercase,Ligatures=TeX]{Linux Biolinum O}
+\setmonofont[Scale=MatchLowercase]{Linux Libertine Mono O}
+\usepackage{microtype}
+
+
+% To define fonts for particular uses within a document. For example, 
+% This sets the Libertine font to use tabular number format for tables.
+ %\newfontfamily{\tablenumbers}[Numbers={Monospaced}]{Linux Libertine O}
+% \newfontfamily{\libertinedisplay}{Linux Libertine Display O}
+
+\usepackage{booktabs}
+\usepackage{multicol}
+
+\usepackage{tikz}
+\tikzstyle{block} = [rectangle, draw, fill=white, rounded corners,
+                 minimum size=2em]
+\tikzstyle{branch} = [thick, draw]
+
+
+\usepackage{longtable}
+%\usepackage{siunitx}
+\usepackage{array}
+\newcolumntype{L}[1]{>{\raggedright\let\newline\\\arraybackslash\hspace{0pt}}p{#1}}
+\newcolumntype{C}[1]{>{\centering\let\newline\\\arraybackslash\hspace{0pt}}p{#1}}
+\newcolumntype{R}[1]{>{\raggedleft\let\newline\\\arraybackslash\hspace{0pt}}p{#1}}
+
+\usepackage{enumitem}
+\usepackage{hyperref}
+%\usepackage{placeins} %PRovides \FloatBarrier to flush all floats before a certain point.
+\usepackage{hanging}
+
+\usepackage[sc]{titlesec}
+
+%% Commands for Exam class
+\renewcommand{\solutiontitle}{\noindent}
+\unframedsolutions
+\SolutionEmphasis{\bfseries}
+
+\renewcommand{\questionshook}{%
+	\setlength{\leftmargin}{-\leftskip}%
+}
+
+%Change \half command from 1/2 to .5
+\renewcommand*\half{.5}
+
+\pagestyle{headandfoot}
+\firstpageheader{\textsc{bi}\,063 Evolution and Ecology}{}{\ifprintanswers\textbf{KEY}\else Name: \enspace \makebox[2.5in]{\hrulefill}\fi}
+\runningheader{}{}{\footnotesize{pg. \thepage}}
+\footer{}{}{}
+\runningheadrule
+
+\newcommand*\AnswerBox[2]{%
+    \parbox[t][#1]{0.92\textwidth}{%
+    \begin{solution}#2\end{solution}}
+%    \vspace*{\stretch{1}}
+}
+
+\newenvironment{AnswerPage}[1]
+    {\begin{minipage}[t][#1]{0.92\textwidth}%
+    \begin{solution}}
+    {\end{solution}\end{minipage}
+    \vspace*{\stretch{1}}}
+
+\newlength{\basespace}
+\setlength{\basespace}{5\baselineskip}
+
+%% To hide and show points
+\newcommand{\hidepoints}{%
+	\pointsinmargin\pointformat{}
+}
+
+\newcommand{\showpoints}{%
+	\nopointsinmargin\pointformat{(\thepoints)}
+}
+
+\newcommand{\bumppoints}[1]{%
+	\addtocounter{numpoints}{#1}
+}
+
+\newcommand{\dna}{\textsc{dna}}
+%
+%\makeatletter
+%\def\SetTotalwidth{\advance\linewidth by \@totalleftmargin
+%\@totalleftmargin=0pt}
+%\makeatother
+
+
+%\printanswers
+
+
+\begin{document}
+
+\subsection*{Organismal relationships and \textsc{dna} similarity}
+
+The relationship of organisms can be tested by comparing the similarity of 
+their \dna{}. Organisms that evolved from their common ancestor recently should 
+be genetically very similar. That is, most of the nucleotides in their 
+\dna{} should be the same.  Organisms that evolved farther back in time 
+should be genetically more different. The differences accumulate 
+in organisms over time due to random mutations that occur at a more or less 
+constant rate over time. This means that 
+differences in \textsc{dna} should serve as a kind of \emph{molecular clock} that 
+will tell us how long ago two species had a common ancestor. Here is how this works in practice.
+
+Pretend you are studying a rare (and imaginary) group
+of birds. You want to determine the relationships among these
+birds by using \textsc{dna} sequences. Here are the sequences of a small
+piece of \textsc{dna} from each of the birds:
+
+\begin{longtable}[c]{@{}ll@{}}
+\toprule
+Yellow-throated Garbler \textsc{(y)} & {\ttfamily CTAGC AAGTA CTACT TAGGA}\tabularnewline
+California Garbler \textsc{(c)} & {\ttfamily CTGGC AAGTA CTTCT TAAGG}\tabularnewline
+Blue-throated Garbler \textsc{(b)} & {\ttfamily CTAGC AACTA CTACT TAAGA}\tabularnewline
+Red-footed Chump \textsc{(r)} & {\ttfamily AGGCC ATGGA CGACT ACAGA}\tabularnewline
+Field Twitterer \textsc{(f)} & {\ttfamily CTGGA AAGGC CTAGT TAAGA}\tabularnewline
+Alfredo's Twitterer \textsc{(a)} & {\ttfamily CTGGA AAGGA CTAGG TAAGA}\tabularnewline
+\bottomrule
+\end{longtable}
+
+Fill in the table below with the number of nucleotide differences between
+each pair of species. Count the differences in the \textsc{dna} sequences
+between each pair of organisms.  For example, comparing \textsc{y} and \textsc{b} above, notice that the
+nucleotide in the 8th position is different. It is a ``G'' in \textsc{y}, and a ``C''
+in \textsc{b}. The next difference is at the 18th position. Comparing \textsc{b} and \textsc{f}, there are six positions
+where the nucleotides are different. Do you see them all? (The first
+one is at position 3.) Do the same for all pairs.
+
+\begin{longtable}[c]{@{}rC{0.25in}ccccc@{}}
+\toprule
+& Y & C & B & R & F &
+A\tabularnewline[0.15in]
+Y & 0 & \rule{0.3in}{0.4pt} &
+2 & \rule{0.3in}{0.4pt} &
+\rule{0.3in}{0.4pt} &
+\rule{0.3in}{0.4pt}\tabularnewline[0.15in]
+C & ~~~~~~ & \rule{0.3in}{0.4pt} &
+\rule{0.3in}{0.4pt} & \rule{0.3in}{0.4pt}
+& \rule{0.3in}{0.4pt} &
+\rule{0.3in}{0.4pt}\tabularnewline[0.15in]
+B & ~ & ~ & \rule{0.3in}{0.4pt} &
+\rule{0.3in}{0.4pt} & 6 &
+\rule{0.3in}{0.4pt}\tabularnewline[0.15in]
+R & ~ & ~ & ~ & \rule{0.3in}{0.4pt} &
+\rule{0.3in}{0.4pt} &
+\rule{0.3in}{0.4pt}\tabularnewline[0.15in]
+F & ~ & ~ & ~ & ~ & \rule{0.3in}{0.4pt} &
+\rule{0.3in}{0.4pt}\tabularnewline[0.15in]
+A & ~ & ~ & ~ & ~ & ~ &
+\rule{0.3in}{0.4pt}\tabularnewline[0.15in]
+\bottomrule
+\end{longtable}
+
+
+
+
+\end{document}  

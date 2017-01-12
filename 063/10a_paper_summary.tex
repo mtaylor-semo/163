@@ -1,0 +1,163 @@
+%!TEX TS-program = lualatex
+%!TEX encoding = UTF-8 Unicode
+
+\documentclass[12pt, hidelinks, addpoints]{exam}
+\usepackage{graphicx}
+	\graphicspath{{/Users/goby/Pictures/teach/163/lab/}
+	{img/}} % set of paths to search for images
+
+\usepackage{geometry}
+\geometry{letterpaper, left=1.5in, bottom=1in}                   
+%\geometry{landscape}                % Activate for for rotated page geometry
+\usepackage[parfill]{parskip}    % Activate to begin paragraphs with an empty line rather than an indent
+\usepackage{amssymb, amsmath}
+\usepackage{mathtools}
+	\everymath{\displaystyle}
+
+\usepackage{fontspec}
+\setmainfont[Ligatures={TeX}, BoldFont={* Bold}, ItalicFont={* Italic}, BoldItalicFont={* BoldItalic}, Numbers={OldStyle}]{Linux Libertine O}
+\setsansfont[Scale=MatchLowercase,Ligatures=TeX, Numbers=OldStyle]{Linux Biolinum O}
+%\setmonofont[Scale=MatchLowercase]{Inconsolatazi4}
+\usepackage{microtype}
+
+
+% To define fonts for particular uses within a document. For example, 
+% This sets the Libertine font to use tabular number format for tables.
+ %\newfontfamily{\tablenumbers}[Numbers={Monospaced}]{Linux Libertine O}
+% \newfontfamily{\libertinedisplay}{Linux Libertine Display O}
+
+\usepackage{booktabs}
+\usepackage{multicol}
+\usepackage[normalem]{ulem}
+
+\usepackage{longtable}
+%\usepackage{siunitx}
+\usepackage{array}
+\newcolumntype{L}[1]{>{\raggedright\let\newline\\\arraybackslash\hspace{0pt}}p{#1}}
+\newcolumntype{C}[1]{>{\centering\let\newline\\\arraybackslash\hspace{0pt}}p{#1}}
+\newcolumntype{R}[1]{>{\raggedleft\let\newline\\\arraybackslash\hspace{0pt}}p{#1}}
+
+\usepackage{enumitem}
+\setlist{leftmargin=*}
+\setlist[1]{labelindent=\parindent}
+\setlist[enumerate]{label=\textsc{\alph*}.}
+\setlist[itemize]{label=\color{gray}\textbullet}
+
+\usepackage{hyperref}
+%\usepackage{placeins} %PRovides \FloatBarrier to flush all floats before a certain point.
+\usepackage{hanging}
+
+\usepackage[sc]{titlesec}
+
+%% Commands for Exam class
+\renewcommand{\solutiontitle}{\noindent}
+\unframedsolutions
+\SolutionEmphasis{\bfseries}
+
+\renewcommand{\questionshook}{%
+	\setlength{\leftmargin}{-\leftskip}%
+}
+
+\newcommand{\hidepoints}{%
+	\pointsinmargin\pointformat{}
+}
+
+\newcommand{\showpoints}{%
+	\nopointsinmargin\pointformat{(\thepoints)}
+}
+
+%Change \half command from 1/2 to .5
+\renewcommand*\half{.5}
+
+\pagestyle{headandfoot}
+\firstpageheader{\textsc{bi}\,063 Evolution and Ecology}{}{\ifprintanswers\textbf{KEY}\else Name: \enspace \makebox[2.5in]{\hrulefill}\fi}
+\runningheader{}{}{\footnotesize{pg. \thepage}}
+\footer{}{}{}
+\runningheadrule
+
+\newcommand*\AnswerBox[2]{%
+    \parbox[t][#1]{0.92\textwidth}{%
+    \begin{solution}#2\end{solution}}
+%    \vspace*{\stretch{1}}
+}
+
+\newenvironment{AnswerPage}[1]
+    {\begin{minipage}[t][#1]{0.92\textwidth}%
+    \begin{solution}}
+    {\end{solution}\end{minipage}
+    \vspace*{\stretch{1}}}
+
+\newlength{\basespace}
+\setlength{\basespace}{5\baselineskip}
+
+
+
+\printanswers
+
+\hidepoints
+
+\begin{document}
+
+\subsection*{Summarizing a scientific paper (\numpoints~points)}
+
+\hangpara{1.5em}{1}
+Wood, D. L. and A. J. Bornstein. 2011. Notes on the biology of \textit{Obolaria virginica} (Gentianaceae) in southeast Missouri, and the effects of leaf litter on emergence and flower production. Castanea 76(2): 157–163.
+
+\begin{questions}
+
+\question[1]
+Based on your reading, does the paper present new data based on an original study, provide a commentary about previous studies, or review the current state of knowledge for a particular topic?
+
+\AnswerBox{2\baselineskip}{The paper presents new data based on an original study.}
+
+\question[1]
+Introduction: Did this paper attempt to test a hypothesis? Address or settle a controversy?  Provide new insights on an important problem or system? Introduce a new method? Integrate across several disciplines in an unusual way? If the answer to any of the above questions is yes, then describe why you said this. Identify any hypotheses that are being tested. 
+
+\AnswerBox{1.5\basespace}{%
+The authors estimated population size and the dispersion of the individuals. They also tested the following hypothesis: the number of flowers produced by \textit{Obolaria} is related to stem length in the leaf litter. Plants that have longer stems in the leaf litter will produce fewer flowers. Plants that produce shorter stems in the leaf litter will produce more flowers. }
+
+\question[1]
+Methods: \emph{briefly} describe what was done. 
+
+\AnswerBox{2\basespace}{%
+To estimate population size and dispersion, they counted the number of individuals from 40 1 $\times$ 1 m\textsuperscript{2} random samples from each of four 50 $\times$ 50 plots. Dispersion was estimated using a ratio of variance to mean.  To test the hypothesis, 274 plants were sampled from outside of the four established plots. For each plant, the stem length below the leaf litter was estimated by measuring total stem length and subtracting the above litter stem length. Within-litter stem length was regressed on total stem length to determine residuals. Positive residuals meant that plants had longer within-litter proportion of stems. Negative residuals meant that plants had longer above litter stems than within-litter. The residuals were used to group the plants into longer within- or above- groups. The number of flowers produced for each group was then compared statistically (Mann-Whitney U).
+}
+
+\newpage
+
+\question[1]
+Results: \emph{briefly} give the results of the study.
+
+\AnswerBox{2\basespace}{%
+Population estimate ranged from 833--7820 individuals per 50 $\times$ 50 plot. All dispersion ratios were much greater than 1, indicating a clumped distribution.  Plants with longer within-litter stems (group 1) produced significantly fewer flowers than did plants with longer above-litter stems (group 2). 
+}
+
+%\newpage
+
+\question[1]
+Discussion: What did the results show? What were the main conclusions of the study?
+
+\AnswerBox{2\basespace}{%
+	Their results showed that the plants can attain reasonably high numbers in some areas and have a clumped distribution. The authors suggest that \textit{Obolaria} may not warrant conservation status yet. It may be a common but overlooked plant. Their results agreed with the predictions made by their hypothesis so the hypothesis was supported.  The amount of stems above or below the leaf litter may be determined by light availability. Later in the season, less light is available so the plants don't produce as much energy. They are not able to emerge above the litter quickly. Less energy is available so they produce fewer flowers.
+}
+
+\question[2]
+Your evaluation: \begin{parts}
+	\part Were the conclusions justified? Can you identify any weaknesses in the paper?	
+	\AnswerBox{2\baselineskip}{Yes, the conclusions were justified. Whatever for weaknesses.}		\part What loose ends remain? How might the study be extended?
+
+	\AnswerBox{2\baselineskip}{Other species? Do they improve if litter removed by burning? Whatever.}
+		
+\end{parts}
+
+\question[1]
+Summary: What seems to be the most important, lasting result of feature of this paper?
+
+\AnswerBox{\basespace}{%
+Plants that spend much energy pushing through lots of leaf litter may have a negative affect on the relative fitness of \textit{Obolaria} but whatever the students think, as long as reasonable.
+}
+
+
+\end{questions}
+
+\end{document}  

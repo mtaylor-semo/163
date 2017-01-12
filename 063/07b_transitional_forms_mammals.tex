@@ -1,0 +1,280 @@
+%!TEX TS-program = lualatex
+%!TEX encoding = UTF-8 Unicode
+
+\documentclass[12pt, hidelinks]{exam}
+\usepackage{graphicx}
+	\graphicspath{{/Users/goby/Pictures/teach/163/lab/}
+	{img/}} % set of paths to search for images
+
+\usepackage{geometry}
+\geometry{letterpaper, left=1.5in, bottom=1in}                   
+%\geometry{landscape}                % Activate for for rotated page geometry
+\usepackage[parfill]{parskip}    % Activate to begin paragraphs with an empty line rather than an indent
+\usepackage{amssymb, amsmath}
+\usepackage{mathtools}
+	\everymath{\displaystyle}
+
+\usepackage{fontspec}
+\setmainfont[Ligatures={TeX}, BoldFont={* Bold}, ItalicFont={* Italic}, BoldItalicFont={* BoldItalic}, Numbers={OldStyle}]{Linux Libertine O}
+\setsansfont[Scale=MatchLowercase,Ligatures=TeX, Numbers=OldStyle]{Linux Biolinum O}
+%\setmonofont[Scale=MatchLowercase]{Inconsolatazi4}
+\usepackage{microtype}
+
+
+% To define fonts for particular uses within a document. For example, 
+% This sets the Libertine font to use tabular number format for tables.
+ %\newfontfamily{\tablenumbers}[Numbers={Monospaced}]{Linux Libertine O}
+% \newfontfamily{\libertinedisplay}{Linux Libertine Display O}
+
+\usepackage{booktabs}
+\usepackage{multicol}
+\usepackage[normalem]{ulem}
+
+\usepackage{longtable}
+%\usepackage{siunitx}
+\usepackage{array}
+\newcolumntype{L}[1]{>{\raggedright\let\newline\\\arraybackslash\hspace{0pt}}p{#1}}
+\newcolumntype{C}[1]{>{\centering\let\newline\\\arraybackslash\hspace{0pt}}p{#1}}
+\newcolumntype{R}[1]{>{\raggedleft\let\newline\\\arraybackslash\hspace{0pt}}p{#1}}
+
+\usepackage{enumitem}
+\setlist{leftmargin=*}
+\setlist[1]{labelindent=\parindent}
+\setlist[enumerate]{label=\textsc{\alph*}.}
+\setlist[itemize]{label=\color{gray}\textbullet}
+
+\usepackage{hyperref}
+%\usepackage{placeins} %PRovides \FloatBarrier to flush all floats before a certain point.
+\usepackage{hanging}
+
+\usepackage[sc]{titlesec}
+
+%% Commands for Exam class
+\renewcommand{\solutiontitle}{\noindent}
+\unframedsolutions
+\SolutionEmphasis{\bfseries}
+
+\renewcommand{\questionshook}{%
+	\setlength{\leftmargin}{-\leftskip}%
+}
+
+\newcommand{\hidepoints}{%
+	\pointsinmargin\pointformat{}
+}
+
+\newcommand{\showpoints}{%
+	\nopointsinmargin\pointformat{(\thepoints)}
+}
+
+%Change \half command from 1/2 to .5
+\renewcommand*\half{.5}
+
+\pagestyle{headandfoot}
+\firstpageheader{\textsc{bi}\,063 Evolution and Ecology}{}{\ifprintanswers\textbf{KEY}\else Name: \enspace \makebox[2.5in]{\hrulefill}\fi}
+\runningheader{}{}{\footnotesize{pg. \thepage}}
+\footer{}{}{}
+\runningheadrule
+
+\newcommand*\AnswerBox[2]{%
+    \parbox[t][#1]{0.92\textwidth}{%
+    \begin{solution}#2\end{solution}}
+%    \vspace*{\stretch{1}}
+}
+
+\newenvironment{AnswerPage}[1]
+    {\begin{minipage}[t][#1]{0.92\textwidth}%
+    \begin{solution}}
+    {\end{solution}\end{minipage}
+    \vspace*{\stretch{1}}}
+
+\newlength{\basespace}
+\setlength{\basespace}{5\baselineskip}
+
+
+
+%\printanswers
+
+\hidepoints
+
+\begin{document}
+
+
+\subsection*{Reptiles-mammal transition: fossil evidence}
+
+
+Remember, hypothesis 1 is
+predicting not just that there will be found some remains of organisms
+that are sort of in between reptiles and mammals, but that you should see
+successive stages in this process, going from ``very reptilian'' to
+``very mammalian.''
+
+There were four main ways to tell reptiles from mammals by their bones:
+
+\begin{itemize}
+\item
+  jaws (multiple bones in lower jaw, vs only dentary)
+\item
+  jaw joint (quadrate-articular vs dentary-squamosal)
+\item
+  teeth (simple cones vs varied, with multiple cusps and roots)
+\item
+  secondary palate (absent vs present)
+\end{itemize}
+
+The first two both have to do with jaws so look first at the jaws of
+some extinct animals. Diagrams of the skulls of eight different fossil species are at your
+desk.
+
+Here are what the abbreviations on the diagrams stand for:
+
+\begin{longtable}[c]{@{}L{0.22\textwidth}L{0.22\textwidth}L{0.22\textwidth}L{0.22\textwidth}@{}}
+\toprule
+a- angular & dent -dentary & part - prearticular & qj -
+quadratojugal\tabularnewline
+\midrule
+\endhead
+ang - angular & j - jugal & pf - prefrontal & ref lam - reflected lamina
+of angular\tabularnewline
+art - articular & max - maxilla & po - postorbital & sa -
+surangular\tabularnewline
+d - dentary & pal - palatine & q - quadrate & sq -
+squamosal\tabularnewline
+& & & sur - surangular\tabularnewline
+\bottomrule
+\end{longtable}
+
+In each of the pictures, the dentary has been shaded to make it stand
+out. Since the dentary is the whole jaw in mammals, but a relatively
+small part of the jaw in reptiles, you should be able to arrange these
+in order from most reptilian to most mammalian based on the proportion
+of the lower jaw that is the dentary. Try it: arrange the pages with the
+skull pictures from most reptilian to most mammalian based \emph{only} on the
+size of the dentary in the lower jaw, relative to the size of the entire
+lower jaw.
+
+With your animals arranged from most reptilian to most mammalian based
+only on the dentary, look at the teeth.
+
+\begin{questions}
+
+\question
+Do you notice any distinctive transitional pattern between
+reptilian-like teeth and mammalian-like teeth? Explain.
+
+\AnswerBox{2\baselineskip}{%
+General trend from conical reptilian to differentiated mammal-like.
+}
+
+\subsubsection*{Reptile-mammal transition: how about palates?}
+
+As indicated above, there were four main ways to tell reptiles from
+mammals by their bones.  The third way has to do with the secondary palate, a bony plate that
+separates your mouth from the nasal passages. The secondary palate
+allows you to chew food while breathing at the same time. Lizards and
+snakes, for instance, have to do one at a time—and they solve this
+problem by not doing a lot of chewing at all, just swallowing stuff
+whole and digesting it as best they can afterward.
+
+Here are views of some skulls looking up at the palate:
+
+\begin{tabular}{@{}ccc@{}}
+\includegraphics[width=0.32\textwidth]{07_modern_mammal_skull} &
+\includegraphics[width=0.32\textwidth]{07_morganucodon_skull} &
+\includegraphics[width=0.32\textwidth]{07_procynosuchus_skull} \\
+
+\includegraphics[width=0.32\textwidth]{07_theriodont_skull} &
+\includegraphics[width=0.32\textwidth]{07_thrinaxodon_skull} &
+\\
+\end{tabular}
+
+You can see that some of these organisms have palatine bones that touch,
+forming a secondary palate that separates the mouth from the nasal
+passages, while others have palatine bones that only extend partway in
+from the side (possibly these, when alive, had skin closing off the roof
+of the mouth). Those that have a secondary palate differ in the place
+where the internal nostril (the opening from the nasal passages to the
+mouth) is found. Note that in a modern mammal, the dog, the internal
+nostril is behind the rearmost teeth.
+
+Now try it: put the numbers 1 through 5 in the boxes with the
+skulls above, from most reptilian (1) to most mammalian (5) based \emph{only}
+on the secondary palate and location of the internal nostril.
+
+\question\label{order_question}
+Once you have completed this, compare the order of jaw diagrams with the order of the palette diagrams. Did you get the same overall order for the organisms? Explain.
+
+\AnswerBox{4\baselineskip}{%
+Should be in same overall order. Roughly sphenacodontid, biarmosuchian, theriodont, \textit{Procynosuchus,} \textit{Thrinaxodon,} \textit{Probainognathus,} ictidosaur, and \textit{Morganucodon.}
+}
+
+\question
+Based on your results, what can you conclude about Hypothesis~1 and Hypothesis~2 from the previous assignment? Explain.
+
+\AnswerBox{4\baselineskip}{%
+Hypothesis 1 predicted should be transitional forms between reptiles and mammals. Those transitional forms were found so H1 was supported. Because hypothesis 2 predicted no common ancestor between reptiles and mammals, H2 was falsified.
+}
+
+So far, you have arranged these fossils in order according to how reptilian or mammalian they appear.  The fossils themselves were found in rock formations of various ages, and those rock formations can be dated, in most cases within a range of about 5\% of the total age.  Thus there is a natural sequence for when these organisms lived.  You could put them in order based on the age of the rocks you find their fossils in, from oldest to youngest rocks to see the order in which they appear in the fossil record. 
+
+\question
+If hypothesis~1 is right, mammals evolved from reptile ancestors.  What does hypothesis~1 predict you should you see if you arrange these organisms in order based on the age of the rocks in which their fossils are found?  Explain.
+
+\AnswerBox{4\baselineskip}{%
+	Predicts that the order of the organisms listed in question~\ref{order_question} is the order they should appear in the fossil record. The first listed above should appear first in the fossil record (be the oldest). The last is the list should appear last in the fossil record (be the youngest). 
+}
+
+\question
+If hypothesis 2 is right, mammals, reptiles, and these ``mammal-like reptiles'' are unrelated, and any similarities are due to analogy.   What does hypothesis~2 predict about the order of appearance of these fossil organisms in the fossil record? Explain. 
+
+\AnswerBox{1\baselineskip}{The order should be random.}
+\newpage
+
+Below is a diagram showing the ages of rocks in which the various
+fossils were found. The numbers across the top are millions of
+years before the present. There are some organisms included here that you
+have not seen because pictures of their complete skulls were not available 
+but the skull features are consistent with your results.
+
+\begin{center}
+\includegraphics[width=0.85\textwidth]{07_fossil_appearance}
+\end{center}
+
+Compare the jaw and palate sequences with the time of appearance in the
+fossil record. Note that some of these groups of organisms were around
+only a fairly short time (at least scientists have only found fossils in rocks
+from a short span of time), while other groups lasted much longer. It is possible
+that some of the organisms lived for longer periods but fossils have not yet been
+found outside the times shown. Therefore the order of the groups of organisms in the diagram is based on earliest
+appearance in the fossil record, to represent the time when that
+group first arose. Note also that \textit{Morganucodon} is included
+in ``mammals,'' as the earliest known
+fossil mammal.
+
+These groups represent different taxonomic levels, also. Some of the
+groups above are genus names (\emph{Probainognathus, Morganucodon,
+Thrinaxodon}), while others are families or even larger groups like a class 
+(mammals). This is one reason why some groups did not last as
+long. A single genus might become extinct, while other genera in the
+same family might survive. Do not worry too much about the taxonomic
+levels; the information is included for clarity.
+
+\question
+What do you conclude about hypothesis~1 based on the
+evidence from time of appearance in the fossil record of the various
+mammal-like reptiles? Explain. 
+
+\AnswerBox{4\baselineskip}{%
+The fossils appear in the order predicted by the transitional form evidence and H1.
+}
+
+\question
+What do you conclude about hypothesis 2 based on this
+evidence? Explain.
+
+\AnswerBox{2\baselineskip}{%
+H2 is falsified. If the organisms are related, then the fossils should appear in random order.
+}
+
+\end{questions}
+
+\end{document}  

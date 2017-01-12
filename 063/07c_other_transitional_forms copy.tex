@@ -1,0 +1,463 @@
+%!TEX TS-program = lualatex
+%!TEX encoding = UTF-8 Unicode
+
+\documentclass[12pt, hidelinks]{exam}
+\usepackage{graphicx}
+	\graphicspath{{/Users/goby/Pictures/teach/163/lab/}
+	{img/}} % set of paths to search for images
+
+\usepackage{geometry}
+\geometry{letterpaper, left=1.5in, bottom=1in}                   
+%\geometry{landscape}                % Activate for for rotated page geometry
+\usepackage[parfill]{parskip}    % Activate to begin paragraphs with an empty line rather than an indent
+\usepackage{amssymb, amsmath}
+\usepackage{mathtools}
+	\everymath{\displaystyle}
+
+\usepackage{fontspec}
+\setmainfont[Ligatures={TeX}, BoldFont={* Bold}, ItalicFont={* Italic}, BoldItalicFont={* BoldItalic}, Numbers={OldStyle}]{Linux Libertine O}
+\setsansfont[Scale=MatchLowercase,Ligatures=TeX, Numbers=OldStyle]{Linux Biolinum O}
+%\setmonofont[Scale=MatchLowercase]{Inconsolatazi4}
+\usepackage{microtype}
+
+
+% To define fonts for particular uses within a document. For example, 
+% This sets the Libertine font to use tabular number format for tables.
+ %\newfontfamily{\tablenumbers}[Numbers={Monospaced}]{Linux Libertine O}
+% \newfontfamily{\libertinedisplay}{Linux Libertine Display O}
+
+\usepackage{booktabs}
+\usepackage{multicol}
+\usepackage[normalem]{ulem}
+
+\usepackage{longtable}
+%\usepackage{siunitx}
+\usepackage{array}
+\newcolumntype{L}[1]{>{\raggedright\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+\newcolumntype{C}[1]{>{\centering\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+\newcolumntype{R}[1]{>{\raggedleft\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+
+\usepackage{enumitem}
+\setlist{leftmargin=*}
+\setlist[1]{labelindent=\parindent}
+\setlist[enumerate]{label=\textsc{\alph*}.}
+\setlist[itemize]{label=\color{gray}\textbullet}
+
+\usepackage{hyperref}
+%\usepackage{placeins} %PRovides \FloatBarrier to flush all floats before a certain point.
+\usepackage{hanging}
+
+\usepackage[sc]{titlesec}
+
+%% Commands for Exam class
+\renewcommand{\solutiontitle}{\noindent}
+\unframedsolutions
+\SolutionEmphasis{\bfseries}
+
+\renewcommand{\questionshook}{%
+	\setlength{\leftmargin}{-\leftskip}%
+}
+
+\newcommand{\hidepoints}{%
+	\pointsinmargin\pointformat{}
+}
+
+\newcommand{\showpoints}{%
+	\nopointsinmargin\pointformat{(\thepoints)}
+}
+
+%Change \half command from 1/2 to .5
+\renewcommand*\half{.5}
+
+\pagestyle{headandfoot}
+\firstpageheader{\textsc{bi}\,063 Evolution and Ecology}{}{\ifprintanswers\textbf{KEY}\else Name: \enspace \makebox[2.5in]{\hrulefill}\fi}
+\runningheader{}{}{\footnotesize{pg. \thepage}}
+\footer{}{}{}
+\runningheadrule
+
+\newcommand*\AnswerBox[2]{%
+    \parbox[t][#1]{0.92\textwidth}{%
+    \begin{solution}#2\end{solution}}
+%    \vspace*{\stretch{1}}
+}
+
+\newenvironment{AnswerPage}[1]
+    {\begin{minipage}[t][#1]{0.92\textwidth}%
+    \begin{solution}}
+    {\end{solution}\end{minipage}
+    \vspace*{\stretch{1}}}
+
+\newlength{\basespace}
+\setlength{\basespace}{5\baselineskip}
+
+
+
+%\printanswers
+
+\hidepoints
+
+\begin{document}
+
+
+\subsection*{Other transitional fossil evidence}
+
+Reptiles and mammals are not the only organisms that show evidence of transitional forms in the fossil record. While the list of transitional fossils is large, you will look at a few important transitions.
+
+\subsubsection*{Birds and reptiles }
+
+If birds and reptiles have a common ancestor, you might expect to find
+some intermediates. Birds do not fossilize too well, as their bones are
+very light and fragile, but there are some very famous fossils of an
+organism called \textit{Archaeopteryx lithographica.} These date to about
+150 million years ago (abbreviated \textsc{mya} from here on).
+
+\begin{tabular}[t]{@{}L{0.3\textwidth}R{0.65\textwidth}@{}}
+
+\toprule
+
+\textit{Compsognathus,} a small
+theropod dinosaur
+
+\vspace*{6\baselineskip}
+
+\textit{Archaeopteryx}
+
+\vspace*{7\baselineskip}
+
+\textit{Gallus} (modern chicken)
+
+%\vspace*{1\baselineskip}
+\vfill 
+ &
+
+\includegraphics[width=0.63\textwidth]{07_dino_bird_comparison}\newline{\tiny Illustration from Strickberger, \emph{Evolution}}\\
+\bottomrule
+\end{tabular}
+
+
+\newpage
+
+\begin{tabular}{@{}L{0.45\textwidth}R{0.5\textwidth}@{}}
+
+\toprule
+Skull of \textit{Archaeopteryx:} note the teeth and lower jaw bones. &
+
+\includegraphics[width=0.49\textwidth]{07_archaeopteryx_skull} \\
+
+\midrule
+
+Forelimbs of some relatives of modern birds. 
+(A) \textit{Ornitholestes}, a theropod dinosaur, 
+(B) \textit{Archaeopteryx}, (C) \textit{Sinornis,} an archaic bird from 
+the lower Cretaceous, and (D) the wing of a modern chicken (modified 
+from Carroll 1988, 1997). &
+
+\includegraphics[width=0.46\textwidth]{07_dino_bird_wings}\\
+\bottomrule
+\end{tabular}
+
+\vspace*{\baselineskip}
+
+Photo of one of the best fossils of \textit{Archaeopteryx.} Note feather imprints.
+
+\begin{center}\includegraphics[width=0.75\textwidth]{07_archaeopteryx}\end{center}
+
+\begin{questions}
+
+\question[3]
+Is \emph{Archaeopteryx} intermediate between reptiles and
+birds? Explain. 
+
+\newpage
+
+\subsubsection*{Whales and even-toed land mammals}
+
+One major difference between whales and the land
+mammals is that whales have no hind limbs. Actually, they have tiny
+pelvic bones and some portion of a femur, but nothing that protrudes
+from the body. Presumably, if they evolved from land mammals, there
+should be some evidence of gradual reduction of hind limbs in their
+ancestors.
+
+\begin{tabular}{@{}L{0.35\textwidth}R{0.6\textwidth}@{}}
+\toprule
+Modern even-toed mammals like bison have a unique type of ankle joint called a ``double pulley'' that is not found in other modern land mammals. Fossils like \textit{Indohyus, Pakicetus, Ambulocetus,} and \textit{Rodhocetus} also have a double-pulley ankle joint. 
+
+\vspace*{\baselineskip} 
+
+Whales and dolphins have a uniquely shaped ear bone that is also found in the fossils shown at right but not in other modern land mammals. &
+
+\includegraphics[width=0.57\textwidth]{07_whale_like_fossils}\\[\baselineskip]
+
+\midrule
+\textit{Basilosaurus isis}, a fossil whale with small but complete hind
+limbs. &
+\includegraphics[width=0.57\textwidth]{07_basilosaurus} \\
+\bottomrule
+\end{tabular}
+
+
+
+\question[3]
+Do the whale fossils shown here support the hypothesis that
+whales evolved from land mammals? Explain your answer.
+
+\newpage
+
+
+\subsubsection*{Fish and amphibians}
+
+Fish are the first vertebrates to appear in the fossil record; the first
+land vertebrate is the fossil amphibian \emph{Ichthyostega}. If
+amphibians came from fish ancestors, you should see some intermediates
+indicating the development of feet. Several fossils have been found that
+
+\includegraphics[width=\textwidth]{07_fish_amphib_transition}
+
+\begin{longtable}[c]{@{}L{0.48\textwidth}L{0.48\textwidth}@{}}
+\toprule
+\includegraphics[width=0.45\textwidth]{07_eusthenopteron_skeleton} &
+\includegraphics[width=0.45\textwidth]{07_eusthenopteron_limb} \tabularnewline
+
+\textit{Eusthenopteron} (a lobe-finned
+fish), Devonian ca. 380 \textsc{mya}. &
+Hind limb of \emph{Eusthenopteron}\tabularnewline
+\midrule
+
+\includegraphics[width=0.45\textwidth]{07_ichthyostega_skeleton} &
+\includegraphics[height=2in]{07_ichthyostega_limb}\tabularnewline
+
+
+\emph{Ichthyostega} (early amphibian), Late Devonian ca. 360 \textsc{mya}. &
+Hind limb of \emph{Ichthyostega}\tabularnewline
+\bottomrule
+\end{longtable}
+
+\question[3]
+Do the fossils shown support the hypothesis that amphibians
+evolved from fish? Explain your answer.
+
+
+
+\newpage
+
+\subsubsection*{Humans, hominids, and great apes}
+
+Most of you have a phylogenetic tree that shows humans and chimpanzee (an ape)
+having a common ancestor. Apes appear in the fossil record
+during the Pliocene, about 5 \textsc{mya}. Humans first appear
+during the Pleistocene, less than 2 \textsc{mya}. 
+
+\question[2]
+Based on this, if a hypothesis says that apes and
+humans have a common ancestor, what sort of fossils or sequence of
+fossils of ape-like and/or human-like organisms would it predict? (Do not
+worry about specific anatomic traits here. You will get to that later.)
+Explain.
+
+\AnswerBox{3\baselineskip}{%
+Answer here.
+}
+
+\question[2]
+If a hypothesis says that apes and humans do \emph{not} have a
+common ancestor, what sort of fossils of ape-like and/or human-like
+organisms would it predict? Explain.
+
+\AnswerBox{3\baselineskip}{%
+Answer here.
+}
+
+Apes are not monkeys. Monkeys are organisms in two major groups, the Old
+World monkeys (found in Africa and Asia) and the New World monkeys
+(found in South America). The Macaque is an example of an Old World monkeys. Old World monkeys have relatively short tails;
+New World monkeys have long tails which can be used to grasp objects,
+swing from branches, etc. Apes are tailless, larger than monkeys, and
+have larger brains than monkeys. The apes include chimpanzees (\emph{Pan
+troglodytes}), bonobos or pygmy chimpanzees (\emph{Pan paniscus}),
+Gorillas (\emph{Gorilla gorilla}), and orangutans (\emph{Pongo
+pygmaeus}). Chimps, gorillas, and pygmy chimps are African. Orangutans are
+Asian.
+
+Think about ways that apes and humans differ. First, humans are fully
+bipedal; that is, we walk on two legs. Apes can walk bipedally for short
+distances, but not very efficiently. How are these differences reflected
+in skeletal anatomy?
+
+One difference is the position of the opening in the skull where the
+spine joins to it, and where the spinal cord nerves connect with the
+brain. This opening is called the foramen magnum, which is Latin for
+``big hole'.'
+
+\begin{longtable}[c]{@{}L{0.31\textwidth}L{0.31\textwidth}L{0.31\textwidth}@{}}
+\includegraphics[width=0.3\textwidth]{07_coyote_magnum} &
+\includegraphics[width=0.3\textwidth]{07_chimp_magnum} &
+\includegraphics[width=0.3\textwidth]{07_human_magnum} \\
+Coyote: foramen magnum is in the back, indicating spine is
+horizontal & 
+Chimpanzee: foramen magnum is angled between bottom
+and back, indicating spine exits at an angle & 
+Human: foramen
+magnum is angled directly under or to the front, indicating spine is
+vertical.\tabularnewline
+\bottomrule
+\end{longtable}
+
+In quadrupeds like a dog or coyote, the foramen magnum is right at the
+back of the skull—thus when the dog walks on all fours, the head is
+pointed forward. Chimpanzees have a more upright posture. Like most
+apes, they walk on the knuckles of their hands, and their forelimbs are
+longer than the hind limbs (chimp skeleton showing knuckle-walking
+position). The foramen magnum must be more toward the bottom of the
+skull so that the spine can exit at an angle while the organism looks
+forward. Humans walk fully upright, with the spine more or less
+vertical. The foramen magnum in a human skull is all the way underneath,
+even angled slightly toward the front.
+
+\question[2]\label{foramen_prediction}
+If intermediate fossils exist between apes and humans, what
+would you expect the position of the foramen magnum to be? Explain.
+
+\AnswerBox{4\baselineskip}{%
+Answer here.
+}
+
+
+\emph{\textbf{Pelvis Anatomy}}
+
+Another skeletal difference in bipeds is the shape of the pelvis (hip bones). If
+you look at the chimp's skeleton again, you will see that the hip bones
+are long and thin, and the flat blade (ilium) lies flat against the
+back. Looking downward along the axis of the spine, you can see this
+below.
+
+\begin{longtable}[c]{@{}L{0.35\textwidth}L{0.6\textwidth}@{}}
+\toprule
+Chimp pelvis. The blade of the ilium is flat against the back, that is,
+lies parallel to a line drawn across the back. &
+
+\includegraphics[width=0.55\textwidth]{07_chimp_pelvis}\tabularnewline
+\midrule
+
+Human pelvis. The blade of the ilium wraps around the side of the body,
+almost perpendicular to a line drawn across the back.
+
+\vspace*{\baselineskip}{\tiny Illustrations from Lovejoy, C.O. Evolution of human walking.
+\emph{Scientific American} Nov. 1998, 118--125.} &
+\includegraphics[width=0.55\textwidth]{07_human_pelvis} \tabularnewline
+
+\bottomrule
+\end{longtable}
+
+\question[2]\label{pelvic_prediction}
+If intermediate fossils exist between apes and humans, what
+would you expect their pelvic bones to be like? Explain.
+
+\AnswerBox{3\baselineskip}{%
+Answer here.
+}
+
+The teeth of humans and apes are also different. Note below how large
+the canines are in the chimp compared to the rest of the teeth. Also,
+the arrangement of teeth in the jaw is {\sffamily U}-shaped in apes, 
+and more {\sffamily C}-shaped in humans.
+
+\begin{longtable}[c]{@{}cc@{}}
+\toprule
+\includegraphics[width=0.3\textwidth]{07_chimp_upper_jaw} &
+\includegraphics[width=0.3\textwidth]{07_human_upper_jaw} \tabularnewline
+Chimp upper jaw &
+Human upper jaw \tabularnewline
+\bottomrule
+\end{longtable}
+
+\question[2]\label{jaw_prediction}
+If intermediate fossils exist between apes and humans, what would you expect their teeth and jaws to be like?  Explain. 
+
+\newpage
+
+There are in fact some thousands of fossils of organisms that appear to
+be intermediate between apes and humans; they have been classified with
+us in the family Hominidae, and are known as hominids. These organisms
+were originally divided into two genera, \emph{Australopithecus} and
+\emph{Homo}. Since then, some of these have been reclassified into more
+genera, but use the older names for now. All the
+\emph{Australopithecus} fossils (there are several species) have been
+found in Africa. Fossil species of Homo include \emph{Homo habilis},
+\emph{Homo erectus}, and \emph{Homo sapiens}. All of these are found in
+Africa, and the earliest example of each is African.
+
+Most of the discussion here will center on the genus
+\emph{Australopithecus.} Fossils of this genus have been found as fossils
+ dating from about 4 \textsc{mya} to about 1 \textsc{mya}. Earlier, on 
+page~\pageref{foramen_prediction}, you made a prediction about the 
+location of the foramen magnum on a hypothesized transitional form.
+
+\begin{longtable}[c]{@{}L{0.31\textwidth}L{0.31\textwidth}L{0.31\textwidth}@{}}
+\toprule
+\includegraphics[width=0.3\textwidth]{07_chimp_magnum2} &
+\includegraphics[width=0.3\textwidth]{07_australo_magnum} &
+\includegraphics[width=0.3\textwidth]{07_human_magnum2} \\
+Chimpanzee: foramen magnum is angled between bottom
+and back, indicating spine exits at an angle& 
+\textit{Australopithecus boisei}: The foramen magnum is directly under or toward the front. & 
+Human: foramen
+magnum is angled directly under or to the front, indicating spine is
+vertical.\tabularnewline
+\bottomrule
+\end{longtable}
+
+
+Earlier, on 
+page~\pageref{pelvic_prediction}, you made a prediction about the 
+ the pelvis from a transitional form. Here is a diagram of a pelvis \textit{Australopithecus.}, followed by thediagrams from humans and chimps on the next page. 
+
+
+\begin{longtable}[c]{@{}L{0.35\textwidth}L{0.35\textwidth}@{}}
+
+\toprule
+
+\multicolumn{2}{c}{%
+\includegraphics[width=0.33\textwidth]{07_australo_pelvis}
+}\tabularnewline
+
+\multicolumn{2}{c}{Pelvis of \textit{Australopithecus afarensis.}}\tabularnewline
+
+%\midrule
+
+\includegraphics[width=0.33\textwidth]{07_chimp_pelvis} &
+\includegraphics[width=0.33\textwidth]{07_human_pelvis} \tabularnewline
+
+Chimp pelvis. The blade of the ilium is flat against the back, that is,
+lies parallel to a line drawn across the back. &
+
+Human pelvis. The blade of the ilium wraps around the side of the body,
+almost perpendicular to a line drawn across the back.\tabularnewline
+
+\bottomrule
+\end{longtable}
+
+Earlier, on 
+page~\pageref{jaw_prediction}, you made a prediction about the 
+ the teeth and jaw from a transitional form. Teeth and skulls fossilize particularly well.  Many fossils of Australopithecus teeth and jaws are known.  The illustration below compares the teeth of two \textit{Australopithecus} species to those of chimp and human.
+
+\begin{longtable}[c]{@{}L{0.33\textwidth}L{0.33\textwidth}@{}}
+\toprule
+\includegraphics[width=0.3\textwidth]{07_afarensis_upper_jaw} &
+\includegraphics[width=0.3\textwidth]{07_boisei_upper_jaw} \tabularnewline
+\textit{A. afarensis} upper jaw (one canine pulled partly out from jaw) &
+\textit{A. boisei} upper jaw \tabularnewline
+
+\includegraphics[width=0.3\textwidth]{07_chimp_upper_jaw} &
+\includegraphics[width=0.3\textwidth]{07_human_upper_jaw} \tabularnewline
+Chimp upper jaw &
+Human upper jaw \tabularnewline
+\bottomrule
+\end{longtable}
+
+\question[2]
+ Do the teeth and jaw of members of the genus \textit{Australopithecus} support the hypothesis that Australopithecus was intermediate between apes and humans?  Explain. 
+ 
+ \end{questions}
+ 
+\end{document}  

@@ -1,0 +1,291 @@
+%!TEX TS-program = lualatex
+%!TEX encoding = UTF-8 Unicode
+
+\documentclass[11pt]{article}
+\usepackage{graphicx}
+	\graphicspath{{/Users/goby/Pictures/teach/163/lab/}} % set of paths to search for images
+
+\usepackage{geometry}
+\geometry{letterpaper}                   
+%\geometry{landscape}                % Activate for for rotated page geometry
+%\usepackage[parfill]{parskip}    % Activate to begin paragraphs with an empty line rather than an indent
+\usepackage{amssymb}
+\usepackage{mathtools}
+	\everymath{\displaystyle}
+
+\usepackage{fontspec}
+\setmainfont[Ligatures={Common}, BoldFont={* Bold}, ItalicFont={* Italic}, Numbers={Proportional}]{Linux Libertine O}
+\setsansfont[Scale=MatchLowercase,Ligatures=TeX]{Linux Biolinum O}
+\setmonofont[Scale=MatchLowercase]{Inconsolatazi4}
+\usepackage{microtype}
+
+\usepackage{unicode-math}
+\setmathfont[Scale=MatchLowercase]{Asana-Math.otf}
+%\setmathfont{XITS Math}
+
+% To define fonts for particular uses within a document. For example, 
+% This sets the Libertine font to use tabular number format for tables.
+\newfontfamily{\tablenumbers}[Numbers={Monospaced}]{Linux Libertine O}
+\newfontfamily{\libertinedisplay}{Linux Libertine Display O}
+
+
+\usepackage{booktabs}
+%\usepackage{tabularx}
+\usepackage{longtable}
+\usepackage{siunitx}
+\usepackage[justification=raggedright, singlelinecheck=off]{caption}
+\captionsetup{labelsep=period} % Removes colon following figure / table number.
+\captionsetup{tablewithin=none}  % Sequential numbering of tables and figures instead of
+\captionsetup{figurewithin=none} % resetting numbers within each chapter (Intro, M&M, etc.)
+\captionsetup[table]{skip=0pt}
+
+\usepackage{array}
+\newcolumntype{L}[1]{>{\raggedright\let\newline\\\arraybackslash\hspace{0pt}}p{#1}}
+\newcolumntype{C}[1]{>{\centering\let\newline\\\arraybackslash\hspace{0pt}}p{#1}}
+\newcolumntype{R}[1]{>{\raggedleft\let\newline\\\arraybackslash\hspace{0pt}}p{#1}}
+
+\usepackage{enumitem}
+\usepackage{hyperref}
+%\usepackage{placeins} %PRovides \FloatBarrier to flush all floats before a certain point.
+
+\usepackage{titling}
+\setlength{\droptitle}{-60pt}
+\posttitle{\par\end{center}}
+\predate{}\postdate{}
+
+\newcommand{\VSpace}{\vspace{\baselineskip}}
+
+
+\title{Creating Charts and Graphs with Microsoft Excel 2013}
+\author{BI 153 Lab 4}
+\date{}                                           % Activate to display a given date or no date
+
+\begin{document}
+\maketitle
+
+Your goal for this exercise is to learn how to create simple but effective charts and graphs using Microsoft Excel.\footnote{Charts and graphs are formally different but do not concern yourself with the distinction.}  Excel has many options that let you to create several types of graphs although it has some limitations. Excel also has many options that you should never use for scientific graphs. 
+
+This exercise will teach you how to use Excel to create a column chart (often called a bar chart), a scatterplot, and a line graph. Once learned, you will use this valuable skill to present results in this course, in your future courses, and for the rest of your scientific career. After this exercise, you will receive an assignment to apply your skills to create scatterplots for your \textit{Iris} data. 
+
+\subsection*{Column Chart}
+
+Column charts are often used when you want to compare values among categorical variables. For example, you may use a column chart to compare the average GPA among freshmen, sophomores, juniors and seniors on campus. Here, you’ll create a column chart to show the mean (average) number of insect species collected from two species of trees. Trees were sampled from a treatment plot, where the number of trees per acre was thinned, and from a control plot, where no thinning occurred. Eight trees were surveyed for each tree species.\VSpace
+
+Download the file called “Insect Diversity.xlsx” from the course data website: \url{http://mtaylor4.semo.edu/~goby/bi153/}.\VSpace
+
+The file has three columns. The first is the treatment, indicating whether the plot was thinned or not (the control). The second column represents individual trees, either Douglas Fir (DF) or Lodgepole Pine (LP). The third column is insect richness, which is the number of species of insects that was found on each tree. The data are not in a format suitable for making a column chart. These data are the raw numbers of insects. You need to report the average richness per tree species so you must summarize the data.
+
+\begin{enumerate}
+	\item In cell F3, type “Douglas Fir.” In cell G3, type ‘Lodgepole Pine.” In cell E4, type “Control.” In cell E5, type “Thinned.” 
+
+	\item Calculate the mean insect species richness for Douglas Fir in the Control Group. Click in cell F4. Type \texttt{=average(}. Next, select the cells that you want to average. In this case, select cells C2 through C9, as you did above. After you have selected the last cell, type “)”, and then press the Enter key. 
+
+What if you are not sure of the function name? Click on “Formulas” in the ribbon menu. Click on the “Insert Function” icon at the very left of the ribbon. In the dialog box that appears, type “Average” into the area where it says “Search for a function:”. Highlight \texttt{AVERAGE} in the choices and click the “OK” button. Next, a dialog box appears for you to enter the arguments for the \texttt{AVERAGE} function. For the Douglas Fir control sample, you must select cells C2:C9 by clicking and holding on cell C2 and dragging down to cell C9. The range of cells is added to the dialog box. Press the Enter key or click the “OK” button. If you did this correct, the value should be 65.875.
+
+	\item Repeat Step 2 for the other three cells: Control Lodgepole Pine, Thinned Douglas Fir, and Thinned Lodgepole Pine. 
+\end{enumerate}
+
+The data are now arranged and ready for you to make the column chart.
+
+\begin{enumerate}[resume]
+	\item Select the cells from E3 to G5.
+
+	\item Click on “Insert” on the ribbon menu. Click on the “Column” icon near the center of the ribbon, and then choose the 2-D “Clustered Column,” which if the first icon on the left. If you leave your cursor over the icon for a moment, an explanation of the chart type will appear.
+
+	\item Resize the graph to make it larger by dragging from the corners.
+\end{enumerate}
+
+The graph is adequate but it can be improved with a few simple changes. First, change and enlarge the font. The font in your graphs should be the same font you use in the body of your report. For example, if you are using Times New Roman in your Word document, you should use Times New Roman in your graph. The font size should be at least the same as you use in your report but is often a little larger. For this exercise, use 14 point font.
+
+\begin{enumerate}[resume]
+	\item Place your cursor over one of the tree species names on the X-axis, then right click. Select “Font….”
+
+	\item In the “Latin text font:” area, you can either delete the current font and type “Times New Roman” (exactly) or click on the small button to the right of the “Font:” area and scroll down to select it from the menu. 
+
+	\item Tab over to or click in the “Size:” area and change the value to 14. Press the Enter key or click the ‘OK’ button.
+
+	\item Repeat the last step for the Y-axis.
+\end{enumerate}
+
+Scientific figures usually do not have a symbol legend and chart titles in the chart, so delete them.  You will include the information when you type the figure legend below the actual figure in your Word document. 
+
+\begin{enumerate}[resume]
+	\item Choose the “Design” tab “Chart Tools” ribbon. Click on “Add Chart Element” on the very left side of the ribbon.  
+	
+	\item Scroll down to “Legend” and select “None” from the pop-up to remove the legend.
+	
+	\item Once again, click on “Add Chart Element,” scroll down to Chart Title, then click on “None.”
+
+\end{enumerate}
+
+Add a label to the Y-axis. The X-axis is labeled with the two tree species but your graph gives no indication about what the Y-axis represents.
+
+\begin{enumerate}[resume]
+	\item Click once anywhere in the chart. Click “Design” from the “Chart Tools” section of the ribbon menu. 
+
+	\item Click on “Add Chart Element” on the very left side of the ribbon.  Select “Axis Titles,” then choose “Primary Vertical.”
+
+	\item Right click on the axis label that appears to the left side of the Y-axis. Set the font to Times New Roman and the font size to 14 points. If necessary, click on the “Font style:” menu and select “Regular” to remove the bold face.
+
+	\item Right click on the label. Select the text inside the box and type “Insect Richness”. Click anywhere outside the label to accept your change.
+\end{enumerate}
+
+The columns of the chart were given default colors. You may use color in your charts. Color is often very helpful but you must use color carefully. First, publishing color figures is very expensive (often more than \$600 \emph{per} figure) so black, white, and shades of gray are used unless color is absolutely necessary. Second, you must consider colorblindness. Colorblind readers cannot distinguish some colors. For example, the inability to distinguish between red and green is a form of colorblindness present in about 8\% of males (but rare in females). For this figure, use black and white.
+
+\begin{enumerate}[resume]
+	\item Right click on one of the two columns for “Control.” Choose “Format Data Series…” from the menu.
+
+	\item Click on the “Paint Bucket” icon. Click on “Fill” from the choices below. Select the “Solid fill” radio button. Select the small black square from the “Fill” choices.
+
+	\item Click on “Border.” Select the “Solid Line” radio button. Select the black square for the color.
+
+	\item Click the “X” to close the pane.
+
+	\item Repeat this process for the Thinned treatment but select the small white squares (or a light shade of gray) for Solid Fill color  and the small black square for Border Line Color. Do not select “No Line” because you will see the horizontal lines behind the column. Do not select the white square for the line because you will not see the column.
+\end{enumerate}
+
+If your figure contains grid lines, they must be removed.
+
+\begin{enumerate}[resume]
+	\item Right click on one of the grid lines. 
+	
+	\item Select “Format Gridlines…” from the popup menu. 
+	
+	\item Select the “No line” radio button and close the pane.
+\end{enumerate}
+
+Your graph is now ready to copy into Word for a figure. \emph{Warning}: You do not have to copy your graph into Word for this assignment but be aware that you \emph{must paste the graph into Word as a picture.} You can either copy as picture from Excel (an option on the Home ribbon) or right-click in Word and select Paste Options…. If you do not paste as a picture, then resizing the figure in Word will distort your graph. The figure will not be the same as you have it laid out in Excel.
+
+\subsection*{Scatterplot}
+
+Download the file called “Ecosystem.xlsx” from the course data website: \url{http://mtaylor4.semo.edu/~goby/bi153/}.\VSpace
+
+As you will learn later this semester, the distribution of ecosystems and their associated dominant plant groups, are determined primarily by mean annual temperature (MAT) and mean annual precipitation (rain and snow; MAP). You will build a scatterplot to explore the distribution of three dominant plant groups based on MAT and MAP. You will plot temperature on the X-axis and precipitation on the Y-axis. The plant groups in the data set are Western Redcedar (Cw), Mixed Grassland (Gr) and Subalpine Larch (La). 
+
+\begin{enumerate}
+	\item Use your cursor to select cells C2:D21, which selects MAT and MAP for Western Redcedar.
+
+	\item Click on the “Insert” in the ribbon menu.
+
+	\item Click on the ‘Scatter” icon, then click the upper left icon.
+
+	\item Enlarge the graph by dragging from the corners. Fill most of the white space on the screen to the right of the data. Move the graph if it is covering any of the data. 
+\end{enumerate}
+
+You now have one plant group plotted but it is called ‘series 1”. We need to add data for the other two plant groups and give them informative names. 
+
+\begin{enumerate}[resume]
+	\item Right-click anywhere on the chart, and then click “Select Data….”
+
+	\item Click on “Series 1,” and then click the “Edit” button. Type “Western Redcedar” (do not include the quotes) in the “Series name:” field. Press Enter or click the “OK” button.
+
+	\item Click the “Add” button.
+
+	\item Type “Mixed Grasslands” in the “Series name:” field.
+
+	\item Click in the “Series X values:” field.
+
+	\item Select cells C22:C51 to select MAT for the mixed grasslands. Notice that the cells you selected appear in the “Series X values” field.
+
+	\item Repeat for MAP. Click in the “Series Y values” field, delete the “=\{1\}”, and then select D22:D51 to select the MAP values for the Y-axis. 
+
+	\item Repeat this process for Subalpine Larch. Click the “Add” button, type “Subalpine Larch” for the name, use C52:C81 for “Series X values” and D52:D81 for “Series Y values.” 
+
+	\item Click the “OK” button. You may have to scroll back up. All three plant groups should now be displayed in your graph. 
+\end{enumerate}
+
+At this point, you have an adequate graph but you can improve it. Notice The Y-axis crosses the X-axis at 0 instead of $-$4, which places the Y-axis in an awkward position. Change the Y-axis to cross the X-axis at $-$4.
+
+\begin{enumerate}[resume]
+	\item Place your cursor over one of the numbers on the X-axis, then right click. Select “Format Axis…”.
+
+	\item From the “Format Axis” area, click the “Axis value:” radio button, near the bottom below “Vertical axis crosses:” and then replace the 0.0 in box with $-$4.0. Do not forget the negative sign. Close the pane.
+
+	\item As you did with the previous figures, set the font to Times New Roman, 14 point for the X- and Y-axes. I trust you remember how to do that but, if not, review the instructions above.
+\end{enumerate}
+
+Scatterplots usually do not have grid lines inside the graph. Remove them, then delete the symbol legend.
+
+\begin{enumerate}[resume]
+	\item Right click on one of the horizontal lines across the graph. Select “Format Gridlines….”
+
+	\item Choose the “No line” radio button and close the pane. 
+
+	\item Repeat for the vertical lines, if present.
+	
+	\item Right click on the symbol legend. Select "Delete" from the menu.
+	
+	\item If a chart title was included automatically, click on “Add Chart Element” from the left side of the ribbon, scroll down to Chart Title, then click on “None.” 
+\end{enumerate}
+
+Add labels to the X- and Y-axes to show what they represent.
+
+\begin{enumerate}[resume]
+	\item Click on “Design” in the “Chart Tools” section of the ribbon.
+
+	\item click on “Add Chart Element” from the left side of the ribbon, scroll down to “Axis Titles”, and then select “Primary Vertical.”
+
+	\item Repeat to add a “Primary Horizontal” axis title.
+
+	\item Format the text of each axis to Times New Roman, 14 point. If necessary, set Font style to Regular to remove the bold face.
+
+	\item Edit the text of each label to read “Mean Annual Temperature (degrees C)” for the X-axis and “Mean Annual Precipitation (mm) for the Y-axis.
+
+	\item The “(degrees C)” part of the label can by improved by the use of the degree symbol (°). Right click on the label and select “Edit Text.” Double click on “degrees” to select it.
+
+\begin{center}
+	\includegraphics[width=0.5\textwidth]{insert_symbol}
+\end{center}
+
+	\item Click on “Insert” on the ribbon menu and then click on “Symbol” on the right side of the ribbon. Click the degree symbol near the bottom center of the various symbols. Click in the “Insert” button and then the “Close” button. 
+	
+	\item If necessary, resize your figure so that the axis label does not overlap the axis values.
+\end{enumerate}
+ 
+You now have an excellent scatterplot but you can improve it by enlarging the symbols and removing the color, remembering that color is costly and is useless in photocopies.
+
+\begin{enumerate}[resume]
+	\item Place your cursor over one of the blue circles (Western Redcedar) and right click. Select “Format Data Series….” 
+
+	\item Click on the “Paint Can” icon. Select the “Marker” tab. Click on “Marker Options.” Click the “Built-in” radio button.  Increase the size to 10.
+	
+	\item Change the Type to diamond shape. Change the color to Solid Fill black. Change the border to Solid Line black.
+
+	\item Repeat this process for the green circles that represent Subalpine Larch. Change the marker size to 9. Change the Built-In Type to triangle shape. Chang the color to Solid Fill medium gray.  Change the border to Solid Line black.
+
+	\item Repeat for the red circles that represent the Mixed Grasslands. Change the marker size to 9 (to my eyes, size 10 squares look too big relative to the diamonds and triangles but you are welcome to try size 10). Change the Built-In Type to square shape. Change the color to Solid Fill white.  Change the border to Solid Line black.
+\end{enumerate}
+
+\subsection*{Line Graph}
+
+Download the file called “MissRiver Discharge.xlsx” from the course data website: \url{http://mtaylor4.semo.edu/~goby/bi153/}\VSpace
+
+Line graphs are useful for showing trends in data over time or categories, such as increasing tree diameter with age of the tree, or the accumulation of species sampled over time. Here you will plot the mean monthly river stage (a measure of water depth) from the Mississippi River measured at the U.S. Geological Survey gauge near Thebes, IL to see how river depth changes throughout the year. The gauge records the river stage every hour of every day. I’ve reduced the data to mean monthly discharge for you.
+
+By now, you should be getting proficient at graphing in Excel so this should be quick.
+
+\begin{enumerate}
+	\item Use the cursor to highlight cells B2:C13, which contains January to December data for the year 2011.
+
+	\item Click “Insert” on the ribbon menu, click the “Line” icon near the left center of the ribbon, and then click the upper left icon to insert the line graph.
+
+	\item Right click on the graph, choose “Select Data…” and add the 2012 series, using the same procedure you followed with the scatterplot. Edit the Series 1 name to change it to “2011”. Name the new series “2012”. \emph{Note}: Use the Gauge Height column for the Y values. The Month names for the X-values do not change so do not select them when you add new data series. Select only the Gauge Height values.
+
+	\item Format the text of each axis to Times New Roman, 14 point.
+	
+	\item Add a primary vertical axis title. Edit the label to read “Gauge Height (feet)”. Add a primary horizontal axis title that reads “Month”. Change both to 14 point, Times New Roman font.
+
+	\item Delete the symbol legend. Delete all vertical and horizontal grid lines.
+
+	\item Right click on the upper line for 2011. Format the data series so that the Line Color is solid black.
+
+	\item Right click on the lower line for 2012. Format the color to black and the dash type to dashed (use either the 3rd or 4th choice for a nice dashed line.)
+\end{enumerate}
+
+\subsection*{Miscellaneous}
+
+Pie Charts: Pie charts are not often used with scientific data although they do have some specific uses. People are not good at estimating the area of a circle or comparing the relative sizes of the pie slices. This increases the difficulty of interpreting the figure. In general, use a column chart instead of a pie chart. For this course, use them only if you want to reduce your grade by 50\%.
+
+Excel’s 3-D charts: Avoid them! Many people use them because they look fancy but they are harder to interpret for most types of data. 3-D charts are rarely appropriate. For this course, use them only if you want to reduce your grade by 50\%.
+
+\end{document}  

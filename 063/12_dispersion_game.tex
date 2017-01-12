@@ -1,0 +1,408 @@
+%!TEX TS-program = lualatex
+%!TEX encoding = UTF-8 Unicode
+
+\documentclass[12pt, hidelinks]{exam}
+\usepackage{graphicx}
+	\graphicspath{{/Users/goby/Pictures/teach/163/lab/}
+	{img/}} % set of paths to search for images
+
+\usepackage{geometry}
+\geometry{letterpaper, left=1.5in, bottom=1in}                   
+%\geometry{landscape}                % Activate for for rotated page geometry
+\usepackage[parfill]{parskip}    % Activate to begin paragraphs with an empty line rather than an indent
+\usepackage{amssymb, amsmath}
+\usepackage{mathtools}
+	\everymath{\displaystyle}
+
+\usepackage{fontspec}
+\setmainfont[Ligatures={TeX}, BoldFont={* Bold}, ItalicFont={* Italic}, BoldItalicFont={* BoldItalic}, Numbers={Proportional, OldStyle}]{Linux Libertine O}
+\setsansfont[Scale=MatchLowercase,Ligatures=TeX, Numbers={Proportional,OldStyle}]{Linux Biolinum O}
+\setmonofont[Scale=MatchLowercase]{Linux Libertine Mono O}
+\usepackage{microtype}
+
+\usepackage{unicode-math}
+\setmathfont[Scale=MatchLowercase]{Tex Gyre Pagella Math}
+
+
+% To define fonts for particular uses within a document. For example, 
+% This sets the Libertine font to use tabular number format for tables.
+ %\newfontfamily{\tablenumbers}[Numbers={Monospaced}]{Linux Libertine O}
+% \newfontfamily{\libertinedisplay}{Linux Libertine Display O}
+
+\usepackage{booktabs}
+\usepackage{multicol}
+
+\usepackage{caption}
+\captionsetup{font=small} 
+\captionsetup{singlelinecheck=false}
+\captionsetup[figure]{labelsep=period, format=plain}
+
+\usepackage{longtable}
+%\usepackage{siunitx}
+\usepackage{array}
+\newcolumntype{L}[1]{>{\raggedright\let\newline\\\arraybackslash\hspace{0pt}}p{#1}}
+\newcolumntype{C}[1]{>{\centering\let\newline\\\arraybackslash\hspace{0pt}}p{#1}}
+\newcolumntype{R}[1]{>{\raggedleft\let\newline\\\arraybackslash\hspace{0pt}}p{#1}}
+
+\usepackage{enumitem}
+\setlist{leftmargin=*}
+\setlist[1]{labelindent=\parindent}
+\setlist[enumerate]{label=\textsc{\alph*}.}
+\setlist[itemize]{label=\color{gray}\textbullet}
+
+\usepackage{hyperref}
+%\usepackage{placeins} %PRovides \FloatBarrier to flush all floats before a certain point.
+\usepackage{hanging}
+
+\usepackage[sc]{titlesec}
+
+%% Commands for Exam class
+\renewcommand{\solutiontitle}{\noindent}
+\unframedsolutions
+\SolutionEmphasis{\bfseries}
+
+\renewcommand{\questionshook}{%
+	\setlength{\leftmargin}{-\leftskip}%
+}
+
+%Change \half command from 1/2 to .5
+\renewcommand*\half{.5}
+
+\pagestyle{headandfoot}
+\firstpageheader{\textsc{bi}\,063 Evolution and Ecology}{}{\ifprintanswers\textbf{KEY}\else Name: \enspace \makebox[2.5in]{\hrulefill}\fi}
+\runningheader{}{}{\footnotesize{pg. \thepage}}
+\footer{}{}{}
+\runningheadrule
+
+\newcommand*\AnswerBox[2]{%
+    \parbox[t][#1]{0.92\textwidth}{%
+    \begin{solution}#2\end{solution}}
+    \vspace*{\stretch{1}}
+}
+
+\newenvironment{AnswerPage}[1]
+    {\begin{minipage}[t][#1]{0.92\textwidth}%
+    \begin{solution}}
+    {\end{solution}\end{minipage}
+    \vspace*{\stretch{1}}}
+
+\newlength{\basespace}
+\setlength{\basespace}{5\baselineskip}
+
+\newcommand{\hidepoints}{%
+	\pointsinmargin\pointformat{}
+}
+
+\newcommand{\showpoints}{%
+	\nopointsinmargin\pointformat{(\thepoints)}
+}
+
+\newcommand\chisq{$\chi^2$}
+
+%
+%\makeatletter
+%\def\SetTotalwidth{\advance\linewidth by \@totalleftmargin
+%\@totalleftmargin=0pt}
+%\makeatother
+
+
+%\printanswers
+
+
+\begin{document}
+
+\hidepoints
+
+\subsection*{Dispersion and association\footnote{Reproduced and modified from Dr. S. Borrett, UNC Wilmington Ecology Laboratory Manual.} (10~points)}
+
+\subsubsection*{Dispersion}
+
+Ecologists who study populations and communities of
+organisms are often interested in the spatial distribution of
+individuals because the distribution patterns can provide information
+concerning the biology of a species and the factors limiting that
+organism. Individuals in a population may have one of three general
+types of spatial dispersions: clumped, random, or uniform (Figure~\ref{fig:dispersion_patterns}).
+For example, a clumped distribution may indicate that a species is
+responding to fine gradations in the environment or that it has a form
+of reproduction that keeps juveniles near adults. Conversely, a uniform
+distribution may indicate territoriality or some other aggressive
+interaction among individuals. For this exercise, you will use a
+combination of quadrat sampling and data analysis to characterize the
+dispersion and association of two populations of plants found in a nearby field.
+
+\begin{figure}[h!]
+	\begin{center}
+	\includegraphics[width=\textwidth]{12_dispersion_patterns}
+	\caption{Three ways in which individuals of a population can be
+distributed in space.}\label{fig:dispersion_patterns}
+	\end{center}
+\end{figure}
+
+Ecologists have developed several approaches to count sedentary (non-moving)
+ organisms. The most common method is plot sampling. This
+method is straightforward in that it involves counting the number of
+organisms of interest in a defined area (often, but not necessarily, a
+quadrat). Plot sampling is a highly versatile approach, providing
+information on densities, associations, dispersion patterns, and
+indirect evidence on a variety of community or population processes. We
+will use a quadrat sampling technique in this laboratory.
+
+The primary approach to determining dispersion patterns is to compare
+\emph{observed} patterns with what would be \emph{expected} if the
+dispersion were random (using a statistical test). The \emph{null
+hypothesis} for this investigation is that the individuals of the
+population are randomly dispersed (not clumped or evenly spaced). Why?
+If there is a difference between the observed pattern and the expected
+pattern, then you must further examine the data to determine whether
+individuals are found together (clumped) or are spaced apart (uniform).
+
+Dispersion can be measured by several methods. You will use
+a chi squared test (\kern1.1667pt\chisq{}) to compare the sum of squares
+(a measure of variability) to the mean to determine dispersion patterns
+for this exercise. According to the \chisq{} test, if a species is
+uniformly distributed, variability should be low (similar numbers in all
+quadrats). If species are clumped, variability should be high (some
+quadrats with many individuals, others with few or none). Random
+distributions would have intermediate variability.
+
+\subsubsection*{Analysis of dispersion patterns}
+
+In this exercise, you will determine the dispersion pattern of two
+species. The game board represents the field in which you are interested
+in determining the dispersion pattern of the blue and the green species.
+The field has been divided into quadrats; you will randomly sample 80
+quadrats and record the number of blue and green dots in each quadrat.
+The yellow/orange and brown species are not of interest to your study at
+this time.
+
+1. You will collect your data by randomly sampling 80 quadrats. Which
+quadrats you sample will be determined by drawing pieces of blue paper
+with quadrat coordinates on them (e.g., A5). You will select one piece of
+paper at a time, place it on the board in the appropriate quadrat, and
+record the number of blue and green dots in that quadrat in your Excel
+file. Do not return the blue paper to the pile. Repeat this process
+until you have sampled 80 quadrats. Be sure to record ``$0$'' if one or
+neither color is present in that quadrat.
+
+2. To determine the dispersion pattern, you need to calculate the sample
+mean ($\overline{X}$), the sum of squares ($SS$), a \chisq{} statistic, and the
+degrees of freedom (d.f.). You will us3 a \chisq{} statistic
+because this is most appropriate for discrete count data like these.
+ You will then characterize the dispersion pattern using the
+\chisq{}, the degrees of freedom (d.f.), and Figure~\ref{fig:chi_df}. The formula 
+to calculate the mean ($\overline{X}$) is
+
+
+\[\overline{X} = \dfrac{\sum\limits_{i=1}^n x_i}{n}\]
+
+where $x_i$ is the number of plants in the $i\mathrm{th}$ quadrat, and $n$ is the total number of quadrats.
+
+
+Next, use the mean to calculate the sum of squares ($SS$) which is a measure of the variability in the sample set.  
+
+\[SS =  \sum\limits_{x_i}^n (x_i - \overline{X})^2 \]
+
+
+You calculated the sum of squares in the Mean and Standard Deviation lab as one of the steps to calculate standard deviation. This time, use the sum of squares to calculate the test statistic, \chisq{}. 
+
+\[ \chi^2 = \dfrac{SS}{\overline{X}} = \dfrac{\sum\limits_{x_i}^n (x_i - \overline{X})^2}{\overline{X}}\]
+
+Degrees of freedom is calculated as d.f. $= n-1.$  You can determine the dispersion pattern for the candidate species using Figure~\ref{fig:chi_df}.  
+
+\begin{figure}[h!]
+	\begin{center}
+	\captionsetup{width=0.5\textwidth}
+	\includegraphics[width=0.5\textwidth]{12_chi_df}
+	\caption{Relationship between degrees of freedom and \chisq{}
+statistic to determine the dispersion pattern of a
+population.}\label{fig:chi_df}
+	\end{center}
+\end{figure}
+
+Use Excel to calculate the values described above.
+
+\begin{enumerate}
+
+\item In cell \texttt{A1}, type ``Blue''. In cell \texttt{D1}, type ``Green''. You will record the number of sampled individuals (color dots) in each column. Record all 80 samples in the two columns. Record zeros for any color that was missing from the quadrat.
+
+\item Calculate the mean ($\overline{X}$) number of blue individuals. Click on cell \texttt{A82}, and then type
+``\texttt{=average(A2:A81)}'' and press the Enter key.
+
+\item Calculate the mean  ($\overline{X}$) number of green individuals. Click on cell \texttt{D82}, and then type
+``\texttt{=average(D2:D81)}'' and press the Enter key.
+
+\item Calculate the sum of squares for the blue and the green species. You will do this in
+columns B (blue species) and E (green species). This is calculated as the number of dots in each quadrat ($x$) minus the mean ($\overline{X}$),
+squared. Click in cell \texttt{B2}. Type ``\texttt{=(A2$-$A\$82)\textasciicircum2}'' and press the Enter key. 
+Be sure to include the \$ symbol in \texttt{A\$82}, which tells Excel to use ``absolute addressing.'' When you fill in the rows (next step) with this formula, the first cell reference (\texttt{A2}) will automatically change for each row (\texttt{A3,\,A4,\,\ldots,\,A81}) but the second cell will be \texttt{A82}, with your calculated mean. 
+
+\item Highlight cell \texttt{B2}, place the cursor over the bottom right corner of
+the cell over the small, black square. Your cursor should become a ``$+$''
+sign. Click and drag all the way down the column to cell \texttt{B81} to fill
+in all quadrats.  To get the $SS$, you need to take the sum of these
+values. In cell \texttt{B82}, type ``\texttt{=SUM(B2:B81)}'' and press the Enter key. This value is your Sum of Squares ($SS$).
+
+Repeat this for the green species in column \texttt{E}. Be sure to reference cell \texttt{D82} with the \$ signs for the mean number of green individuals.
+
+\item Calculate your \chisq{} for the blue species by dividing your $SS$ by the mean. Click on cell \texttt{C82}. Type \texttt{=B82/A82)}. Repeat this for the green species in cell \texttt{F82}.
+
+\chisq{} (blue): \rule{0.75in}{0.4pt} \qquad \chisq{} (green): \rule{0.75in}{0.4pt}
+
+
+\item Determine your degrees of freedom (d.f. $= n-1$, where $n =$ \# of sampled
+quadrats). \textsc{Note:} d.f. should be the same for both species.
+
+\item Determine the dispersion pattern for each species using Figure~\ref{fig:chi_df} (on
+previous page).
+
+\vspace*{\baselineskip}
+
+
+Blue: \ifprintanswers\textbf{Random}\else\rule{1.5in}{0.4pt}\fi \qquad Green: \ifprintanswers\textbf{Clumped}\else\rule{1.5in}{0.4pt}\fi
+
+\end{enumerate}
+
+\subsubsection*{Conclusion}
+
+Based on what you have discussed today in class, provide an ecological
+explanation for what could drive the dispersion pattern detected for:
+
+a. the blue species \vspace*{3\baselineskip}
+
+b. the green species \vspace*{2\baselineskip}
+
+\subsubsection*{Analysis of Association}
+
+An interesting aspect of distribution patterns is whether two
+species (1) usually occur together (are positively associated), (2)
+seldom occur together (negatively associated), or (3) are randomly
+associated with respect to each other. If the species are positively
+associated, it may indicate some sort of obligate interaction, such as
+mutualism or predation, or it may indicate similar habitat
+requirements. If they are negatively associated, it may reflect the
+results of competition or different habitat preferences.
+
+To determine how species might be associated, you first compare observed
+patterns to what would be expected if the patterns were random. If the association is not
+random, you can then calculate an Index of Association ($V$) to see whether
+the species are positively or negatively associated and how strong that
+association is. To do this, you must first construct the following table
+using field collected data:
+
+\begin{longtable}{@{}llccc@{}}
+\toprule
+& & \multicolumn{2}{c}{Species 1} &\tabularnewline
+\cline{3-4}
+& & present &absent& row sums\tabularnewline
+\midrule
+Species 2 & present & $a$ & $b$ & $m$ \tabularnewline
+
+	& absent & $c$ & $d$ & $n$ \tabularnewline
+\midrule
+	& column sums & $r$ & $s$ & $N$ (grand total) \tabularnewline
+\bottomrule
+\end{longtable}
+
+$a =$ number of quadrats where both species are present,\newline
+$b =$ number of quadrats with only species 2 present,\newline
+$c =$ number of quadrats with only species 1 present,\newline
+$d =$ number of quadrats with neither species present,\newline
+$m =$ sum of $a+b,$\newline
+$n =$ sum of $c+d,$\newline
+$r =$ sum of $a+c,$\newline
+$s =$ sum of $b+d,$ and\newline
+$N =$ sum of $a+b+c+d.$
+
+To determine if the association is random, use this
+modification of \chisq{} (for 1 d.f.):
+
+%\[\chi^2 = \dfrac{N[(|ad-bc|-(N/2)]^2}{mnrs}.\]
+
+\[\chi^2 = \dfrac{(ad-bc)^2N}{mnrs}.\]
+
+If \chisq{} $>3.84$, then $p<0.05$ and the
+association is \emph{not} random and \emph{is} significant.
+
+If \chisq{} $<3.84$, then $p>0.05$ and the
+association is random and is not significant.
+
+\emph{If the association is significantly different than random}, calculate the Index of Association ($V$) to determine the
+strength of the association and whether it is negative or positive.\vspace*{-\baselineskip}
+
+\[V = \dfrac{ad-bc}{\sqrt{mnrs}}.\]
+
+$V$ ranges from $+1$ to $-1$. A $+1$ means the species are completely
+positively associated (always found together). A $-1$ means they are
+completely negative associated (never found together). Values in between
+indicate weaker positive or negative associations, depending on the sign
+and how close the value of $V$ is to $1$ or $-1$.
+
+Use the equations above to determine the association, or lack thereof,
+between the species in the tables below. \emph{If the association is
+significant} (\chisq{} $>3.84$), then calculate
+the Index of Association ($V$). Show all calculations and provide a
+written conclusion about the relationship between the species.
+
+\begin{questions}
+
+
+\noindent\begin{minipage}[t]{0.3\textwidth}%
+
+\raggedright \question Oxpecker and\newline Water Buffalo.
+
+\vspace*{\baselineskip}
+
+\ifprintanswers $\symbf{\chi^2 = 38.748, p < 0.05}$ \newline
+$\symbf{V = 0.880}$ \fi
+%
+\end{minipage}%
+\hfill
+\noindent\begin{minipage}[t]{0.7\textwidth}%
+\vspace*{-\baselineskip}
+\begin{longtable}[r]{@{}L{0.7in}L{0.6in}C{0.5in}C{0.5in}C{0.5in}@{}}
+\toprule
+& & \multicolumn{2}{c}{Oxpecker} \tabularnewline
+\cline{3-4}
+ &  & Present & Absent & Total\tabularnewline
+%\midrule
+&&&&\tabularnewline[0.5em]
+Water Buffalo & Present & 22 & 2 & \ifprintanswers\textbf{24}\else\rule{0.5in}{0.4pt}\fi\tabularnewline[1em]
+& Absent & 1 & 25 & \ifprintanswers\textbf{26}\else\rule{0.5in}{0.4pt}\fi\tabularnewline[1em]
+& Total & \ifprintanswers\textbf{23}\else\rule{0.5in}{0.4pt}\fi &\ifprintanswers\textbf{27}\else\rule{0.5in}{0.4pt}\fi &50\tabularnewline
+\bottomrule
+\end{longtable}
+\end{minipage}
+
+\vspace*{0.27\textheight}
+
+\begin{minipage}[t]{0.25\textwidth}%
+
+	\raggedright \question Red Clover and Eastern Cottontail.
+
+	\vspace*{\baselineskip}
+
+	\ifprintanswers $\symbf{\chi^2 = 0, p > 0.05}$ \newline
+	$\symbf{V = 0}$ \fi
+%
+\end{minipage}%
+\hfill
+\begin{minipage}[t]{0.65\textwidth}%
+\vspace*{-\baselineskip}
+\begin{longtable}[r]{@{}L{0.7in}L{0.6in}C{0.5in}C{0.5in}C{0.5in}@{}}
+\toprule
+& & \multicolumn{2}{c}{Red clover} \tabularnewline
+\cline{3-4}
+ &  & Present & Absent & Total\tabularnewline
+%\midrule
+&&&&\tabularnewline[0.51em]
+Eastern cottontail & Present & 30 & 15 & \ifprintanswers\textbf{45}\else\rule{0.5in}{0.4pt}\fi\tabularnewline[1em]
+& Absent & 10 & 5 & \ifprintanswers\textbf{15}\else\rule{0.5in}{0.4pt}\fi\tabularnewline[1em]
+& Total & \ifprintanswers\textbf{40}\else\rule{0.5in}{0.4pt}\fi &\ifprintanswers\textbf{20}\else\rule{0.5in}{0.4pt}\fi &60\tabularnewline
+\bottomrule
+\end{longtable}
+\end{minipage}
+
+\end{questions}
+
+\end{document}  

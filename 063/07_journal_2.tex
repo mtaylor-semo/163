@@ -1,0 +1,248 @@
+%!TEX TS-program = lualatex
+%!TEX encoding = UTF-8 Unicode
+
+\documentclass[12pt]{exam}
+\usepackage{graphicx}
+	\graphicspath{{/Users/goby/Pictures/teach/163/lab/}
+	{img/}} % set of paths to search for images
+
+\usepackage{geometry}
+\geometry{letterpaper, left=1.5in, bottom=1in}                   
+%\geometry{landscape}                % Activate for for rotated page geometry
+\usepackage[parfill]{parskip}    % Activate to begin paragraphs with an empty line rather than an indent
+\usepackage{amssymb, amsmath}
+\usepackage{mathtools}
+	\everymath{\displaystyle}
+
+\usepackage{fontspec}
+\setmainfont[Ligatures={TeX}, BoldFont={* Bold}, ItalicFont={* Italic}, BoldItalicFont={* BoldItalic}, Numbers={OldStyle}]{Linux Libertine O}
+\setsansfont[Scale=MatchLowercase,Ligatures=TeX]{Linux Biolinum O}
+\setmonofont[Scale=MatchLowercase]{Inconsolatazi4}
+\usepackage{microtype}
+
+
+% To define fonts for particular uses within a document. For example, 
+% This sets the Libertine font to use tabular number format for tables.
+ %\newfontfamily{\tablenumbers}[Numbers={Monospaced}]{Linux Libertine O}
+% \newfontfamily{\libertinedisplay}{Linux Libertine Display O}
+
+\usepackage{booktabs}
+\usepackage{multicol}
+\usepackage[normalem]{ulem}
+
+\usepackage{longtable}
+%\usepackage{siunitx}
+\usepackage{array}
+\newcolumntype{L}[1]{>{\raggedright\let\newline\\\arraybackslash\hspace{0pt}}p{#1}}
+\newcolumntype{C}[1]{>{\centering\let\newline\\\arraybackslash\hspace{0pt}}p{#1}}
+\newcolumntype{R}[1]{>{\raggedleft\let\newline\\\arraybackslash\hspace{0pt}}p{#1}}
+
+\usepackage{enumitem}
+\setlist{leftmargin=*}
+\setlist[1]{labelindent=\parindent}
+
+\usepackage{hyperref}
+%\usepackage{placeins} %PRovides \FloatBarrier to flush all floats before a certain point.
+\usepackage{hanging}
+
+\usepackage[sc]{titlesec}
+
+%% Commands for Exam class
+\renewcommand{\solutiontitle}{\noindent}
+\unframedsolutions
+\SolutionEmphasis{\bfseries}
+
+\renewcommand{\questionshook}{%
+	\setlength{\leftmargin}{-\leftskip}%
+}
+
+%Change \half command from 1/2 to .5
+\renewcommand*\half{.5}
+
+\pagestyle{headandfoot}
+\firstpageheader{\textsc{bi}\,063 Evolution and Ecology}{}{\ifprintanswers\textbf{KEY}\else Name: \enspace \makebox[2.5in]{\hrulefill}\fi}
+\runningheader{}{}{\footnotesize{pg. \thepage}}
+\footer{}{}{}
+\runningheadrule
+
+\newcommand*\AnswerBox[2]{%
+    \parbox[t][#1]{0.92\textwidth}{%
+    \begin{solution}#2\end{solution}}
+%    \vspace*{\stretch{1}}
+}
+
+\newenvironment{AnswerPage}[1]
+    {\begin{minipage}[t][#1]{0.92\textwidth}%
+    \begin{solution}}
+    {\end{solution}\end{minipage}
+    \vspace*{\stretch{1}}}
+
+\newlength{\basespace}
+\setlength{\basespace}{5\baselineskip}
+
+
+%\usepackage{mdframed}
+%\mdfsetup{%
+%	innerleftmargin=0pt,%
+%	innerrightmargin=0pt,
+%	innertopmargin=0pt,
+%	innerbottommargin=0pt,
+%	hidealllines=true
+%}%end mdfsetup
+
+%
+%\makeatletter
+%\def\SetTotalwidth{\advance\linewidth by \@totalleftmargin
+%\@totalleftmargin=0pt}
+%\makeatother
+
+
+%\printanswers
+
+
+\begin{document}
+
+\subsection*{Journal 2: evidence from transitional forms}
+
+\emph{Read this entire handout throughly. You are responsible for meeting all requirements of this assignment, as detailed below.}
+
+This is your second journal assignment. This and all other journal
+assignments are formal writing assignments. This journal entry will
+require some writing, as you need to \emph{explain} how the evidence
+from transitional forms affects your hypothesis. Use your last
+phylogenetic tree and look at how your hypothesis predicts the organisms
+are related (or not). Your answer to this assignment should take at
+least two typed pages (double space, please!), a probably a little more,
+depending on your hypothesis.
+
+You have now seen pieces of evidence for transitional forms in the
+fossil record. Does it support or falsify your hypothesis? If it
+supports your hypothesis, tell how. If it falsifies your hypothesis,
+tell how, and tell how you would have to revise your hypothesis to fit
+the evidence. Remember to include statements that clearly identify the
+predictions made by your hypothesis and whether the evidence from
+transitional forms agrees or disagrees with the predictions, and then
+tell whether your hypothesis was supported or falsified.
+
+The evidence from transitional forms that you have examined to test 
+your hypothesis is listed below.  Also listed is the component point value 
+for this assignment.
+
+\begin{enumerate}
+
+
+	\item Fish / amphibian transition (5 points).
+
+	\item Reptile / mammal transition (5 points).
+	
+	We examined various skeletal structures, including the 
+	bones of the lower jaw, the type of jaw joints, the bones of 
+	the palate (roof of the mouth), and relative size and shape 
+	of the teeth.
+
+	\item Reptile / bird transition (5 points).
+
+	\item Whale / even-toed hooved mammal transition (5 points).
+
+	\item Hominid transitions (humans and other great apes (5 points).
+
+	\item Geological Time Scale (5 points).
+	
+	Did your predictions about the time of appearance for each group 
+	of organisms (mammals, reptiles, birds, etc.) agree or disagree with 
+	the fossil record and the geological time scale?
+
+\end{enumerate}
+
+\emph{Important Note:} The fossil record also shows evidence of
+transitional forms from amphibians to reptiles. We did not cover this
+evidence in class because to understand the differences requires more
+detail than we can cover in lab (although it may get covered in your lecture).
+You can view some information at this website:
+
+\url{http://www.talkorigins.org/faqs/faq-transitional/part1b.html}. 
+
+But, please accept that this evidence exists, which will help you to
+structure your hypothesis. See the geological time scale on the course
+website for the timing of when amphibians first appeared and when
+reptiles first appeared.
+
+\subsubsection*{Assignment}
+
+Before you begin, review all the assignments on transitional forms.  
+Compare the evidence from the lab exercises to the predictions 
+made by your phylogenetic trees. Does the evidence support your
+hypothesis? Falsify your hypothesis? Give no conclusive evidence? 
+Does the evidence require you to change your hypothesis in any way? 
+Refer to the Scientific Method Overview for how to use evidence to test 
+hypotheses.
+
+Some parts of your hypothesis may be supported and
+some parts may be falsified by the evidence from transitional forms.
+You must discuss both supported and unsupported parts of your
+hypothesis. For supported parts, you must discuss which parts of your
+hypothesis are supported and how the evidence supports your hypothesis.
+For falsified parts of your hypothesis, you must explain which parts are
+not supported, how the evidence falsifies your hypothesis, and then
+explain how your hypothesis must be revised to fit the evidence examined
+so far. You need only address the vertebrates (animals with a
+backbone) for the written journal entry. Your new phylogenetic tree (see
+below) must still include all 21 organisms.
+
+\emph{Clarity of your written thoughts is critical for your journal entry. Writing that is not clear is evidence of
+ thinking that is not clear and will be evaluated accordingly.}
+
+
+\subsubsection*{Grading of Journal 2}
+
+\begin{enumerate}
+
+\item Evaluation of the evidence (30 points).
+
+Each type of transition in the fossil record that we evaluated in class
+has been given a point value (see the evidence above). In addition, the proper order
+of the transitions, based on the geological record, must also be
+discussed. The points will be assigned based on inclusion and thorough
+discussion of the evidence, and how the evidence affected your
+hypothesis. Did the evidence support the predictions made by your
+hypothesis? Did the evidence falsify your hypothesis? If the evidence
+falsified your hypothesis, then you must state how you revised your
+hypothesis to agree with the evidence. Clarity counts towards the total
+points in each category.
+
+\item Spelling, grammar, and mechanics (5 points).
+
+Spelling, grammar and mechanics (sentence structure, etc) are 
+important in any writing but especially informal writing. Use spell 
+check. Proof your assignment carefully before you turn it in. You 
+are entitled to \emph{one free mistake.} After that, each mistake 
+is a 1 point deduction.
+
+\emph{Remember}: This course is part of the University Studies
+program. The University Studies program objectives that are especially
+relevant to this course are 1) the demonstration of your ability for
+critical thinking, reasoning and analyzing, and 2) the demonstration of
+effective written communication. Keep this in mind as you write. Points will be deducted for signs of
+weak reasoning and analysis and poorly written communication.
+
+\item New phylogenetic tree (20 points).
+
+You must also submit a revised phylogenetic tree with this assignment. 
+Your new phylogenetic tree must be consistent with \emph{every} piece of
+evidence evaluated, including the anatomical evidence and the transitional
+form evidence. It must also be consist with what you write
+for your journal entry assignment above. You will lose 3
+points for each missed homology or transitional form, or transitions that do not
+agree with the geological time scale. You will also lose 3 points for each missing organism,
+a missing or incomplete time scale, or any other common errors. \emph{See the first phylogenetic tree exercise for things you should not do.}
+
+\end{enumerate}
+
+\subsubsection*{Due Date} 
+
+Your journal entry and new phylogenetic tree are due at the start of lab next week. Late submissions will not be accepted without a valid excuse. If necessary, review the syllabus for lab policy.
+
+Please do not type a cover page. Just put your name and \textsc{bi} 063 at the
+top, and then start typing your journal assignment.
+
+\end{document}  

@@ -1,0 +1,147 @@
+%!TEX TS-program = lualatex
+%!TEX encoding = UTF-8 Unicode
+
+\documentclass[12pt, addpoints, hidelinks]{exam}
+\usepackage{graphicx}
+	\graphicspath{{/Users/goby/Pictures/teach/163/lab/}
+	{img/}} % set of paths to search for images
+
+\usepackage{geometry}
+\geometry{letterpaper, left=1.5in, bottom=1in}                   
+%\geometry{landscape}                % Activate for for rotated page geometry
+\usepackage[parfill]{parskip}    % Activate to begin paragraphs with an empty line rather than an indent
+\usepackage{amssymb, amsmath}
+\usepackage{mathtools}
+	\everymath{\displaystyle}
+
+\usepackage{fontspec}
+\setmainfont[Ligatures={TeX}, BoldFont={* Bold}, ItalicFont={* Italic}, BoldItalicFont={* BoldItalic}, Numbers={OldStyle}]{Linux Libertine O}
+\setsansfont[Scale=MatchLowercase,Ligatures=TeX]{Linux Biolinum O}
+\setmonofont[Scale=MatchLowercase]{Inconsolatazi4}
+\usepackage{microtype}
+
+
+% To define fonts for particular uses within a document. For example, 
+% This sets the Libertine font to use tabular number format for tables.
+ %\newfontfamily{\tablenumbers}[Numbers={Monospaced}]{Linux Libertine O}
+% \newfontfamily{\libertinedisplay}{Linux Libertine Display O}
+
+\usepackage{booktabs}
+\usepackage{multicol}
+\usepackage[normalem]{ulem}
+
+\usepackage{longtable}
+%\usepackage{siunitx}
+\usepackage{array}
+\newcolumntype{L}[1]{>{\raggedright\let\newline\\\arraybackslash\hspace{0pt}}p{#1}}
+\newcolumntype{C}[1]{>{\centering\let\newline\\\arraybackslash\hspace{0pt}}p{#1}}
+\newcolumntype{R}[1]{>{\raggedleft\let\newline\\\arraybackslash\hspace{0pt}}p{#1}}
+
+\usepackage{enumitem}
+\usepackage{hyperref}
+%\usepackage{placeins} %PRovides \FloatBarrier to flush all floats before a certain point.
+\usepackage{hanging}
+
+\usepackage[sc]{titlesec}
+
+%% Commands for Exam class
+\renewcommand{\solutiontitle}{\noindent}
+\unframedsolutions
+\SolutionEmphasis{\bfseries}
+
+\renewcommand{\questionshook}{%
+	\setlength{\leftmargin}{-\leftskip}%
+}
+
+%Change \half command from 1/2 to .5
+\renewcommand*\half{.5}
+
+\pagestyle{headandfoot}
+\firstpageheader{\textsc{bi}\,063 Evolution and Ecology}{}{\ifprintanswers\textbf{KEY}\else Name: \enspace \makebox[2.5in]{\hrulefill}\fi}
+\runningheader{}{}{\footnotesize{pg. \thepage}}
+\footer{}{}{}
+\runningheadrule
+
+\newcommand*\AnswerBox[2]{%
+    \parbox[t][#1]{0.92\textwidth}{%
+    \begin{solution}#2\end{solution}}
+%    \vspace*{\stretch{1}}
+}
+
+\newenvironment{AnswerPage}[1]
+    {\begin{minipage}[t][#1]{0.92\textwidth}%
+    \begin{solution}}
+    {\end{solution}\end{minipage}
+    \vspace*{\stretch{1}}}
+
+\newlength{\basespace}
+\setlength{\basespace}{5\baselineskip}
+
+%% To hide and show points
+\newcommand{\hidepoints}{%
+	\pointsinmargin\pointformat{}
+}
+
+\newcommand{\showpoints}{%
+	\nopointsinmargin\pointformat{(\thepoints)}
+}
+
+\newcommand{\bumppoints}[1]{%
+	\addtocounter{numpoints}{#1}
+}
+
+%
+%\makeatletter
+%\def\SetTotalwidth{\advance\linewidth by \@totalleftmargin
+%\@totalleftmargin=0pt}
+%\makeatother
+
+
+%\printanswers
+
+
+\begin{document}
+
+\subsection*{Name of exercise (\numpoints\ points)}
+
+Oysters are bivalve mollusks that humans have long exploited for many purposes. Human consume the animal for food and use the shell for buttons, animal food supplements, and more. Humans may have used oysters or other shellfish for at least 150,000 years and have cultivated them for at least 2000 years.\footnote{Beck et al. 2011. Oyster reefs at risk and recommendations for conservation, restoration, and management. BioScience 61: 107--116.}
+
+Oyster beds are large aggregations of oysters that form biogenic reefs under natural conditions. Oyster reefs, or “beds” develop naturally along coastal shores in soft sediments, often in proximity to salt marshes, mangrove forests, seagrass beds, and other estuarine environments. Humans now cultivate large beds oysters for food and other uses. 
+
+\subsubsection*{This is a subsection for working in groups}
+
+Work in groups to answer the following questions. I will collect one question set per group.
+
+\begin{questions}
+
+\question[5]
+Is oyster reef restoration taking a population, habitat, landscape, or ecosystem level approach? Think carefully. More than one answer is possible. Explain your reasoning.
+
+\vspace*{\stretch{1}}
+
+\question[5]
+Identify ecosystem services provided by oyster reefs. For each service, describe how oyster reefs provide that service. List as many services as your group can describe. Think broadly, accounting for nearby habitats.
+
+\vspace*{\stretch{1}}
+
+\newpage
+
+Cities along the Gulf of Mexico and the Atlantic Coast have to contend with hurricanes, strong storms, and winds that increase the likelihood of coastal erosion and damage to infrastructure. To offset the effects of storms, cities have build seawalls, dykes, and other structures to reduce the energy from wave action and storm surge. This is known as shoreline armoring. The problem is that concrete structures do not dissipate the energy of the waves. Instead, the energy is redirected and can make the problem worse. 
+
+Biogenic structures like oyster reefs naturally reduce the energy of waves as they approach shore. Steven Scyphers and his colleagues\footnote{Scyphers et al. 2011. Oyster reefs as natural breakwaters mitigate shoreline loss and facilitate fisheries. PLoS ONE 6(8):e22396. doi:10.1371/journal.pone.0022396} created natural breakwaters with restored oyster reefs to determine how they affected coastal erosion in Mobile Bay, Alabama. They established two sites, each with a constructed oyster reef breakwater and a control without a breakwater.  They measured water depth (bathymetry) at breakwater and control sites. They also measured vegetation retreat from a reference point. The bathymetry results are shown on screen. The lighter the blue, the shallower the water. The distance of vegetation retreat is shown below.
+
+\question[5]
+Did the the restored reefs change bathymetry or vegetation retreat compared to the control sites? Explain.
+
+\newpage
+
+%% Print enough versions of each one to cover the number of groups. No more than 4 per group.
+
+\question[5]
+Assume an agency wanted to attempt restoration of shallow oyster reefs using a habitat-based approach, based on your conclusions above. How do you think the project would be affected by climate change? Think broadly about climate change (temperature, greenhouse gases, etc.) and relate one aspect of climate change specifically to your answer to question \ref{question:project}.
+
+\vspace{\stretch{1}}
+
+\end{questions}
+
+\end{document}  

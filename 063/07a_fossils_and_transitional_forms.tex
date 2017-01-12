@@ -1,0 +1,171 @@
+%!TEX TS-program = lualatex
+%!TEX encoding = UTF-8 Unicode
+
+\documentclass[12pt, hidelinks]{exam}
+\usepackage{graphicx}
+	\graphicspath{{/Users/goby/Pictures/teach/163/lab/}
+	{img/}} % set of paths to search for images
+
+\usepackage{geometry}
+\geometry{letterpaper, left=1.5in, bottom=1in}                   
+%\geometry{landscape}                % Activate for for rotated page geometry
+\usepackage[parfill]{parskip}    % Activate to begin paragraphs with an empty line rather than an indent
+\usepackage{amssymb, amsmath}
+\usepackage{mathtools}
+	\everymath{\displaystyle}
+
+\usepackage{fontspec}
+\setmainfont[Ligatures={TeX}, BoldFont={* Bold}, ItalicFont={* Italic}, BoldItalicFont={* BoldItalic}, Numbers={OldStyle}]{Linux Libertine O}
+\setsansfont[Scale=MatchLowercase,Ligatures=TeX, Numbers=OldStyle]{Linux Biolinum O}
+%\setmonofont[Scale=MatchLowercase]{Inconsolatazi4}
+\usepackage{microtype}
+
+
+% To define fonts for particular uses within a document. For example, 
+% This sets the Libertine font to use tabular number format for tables.
+ %\newfontfamily{\tablenumbers}[Numbers={Monospaced}]{Linux Libertine O}
+% \newfontfamily{\libertinedisplay}{Linux Libertine Display O}
+
+\usepackage{booktabs}
+\usepackage{multicol}
+\usepackage[normalem]{ulem}
+
+\usepackage{longtable}
+%\usepackage{siunitx}
+\usepackage{array}
+\newcolumntype{L}[1]{>{\raggedright\let\newline\\\arraybackslash\hspace{0pt}}p{#1}}
+\newcolumntype{C}[1]{>{\centering\let\newline\\\arraybackslash\hspace{0pt}}p{#1}}
+\newcolumntype{R}[1]{>{\raggedleft\let\newline\\\arraybackslash\hspace{0pt}}p{#1}}
+
+\usepackage{enumitem}
+\setlist{leftmargin=*}
+\setlist[1]{labelindent=\parindent}
+\setlist[enumerate]{label=\textsc{\alph*}.}
+\setlist[itemize]{label=\color{gray}\textbullet}
+
+\usepackage{hyperref}
+%\usepackage{placeins} %PRovides \FloatBarrier to flush all floats before a certain point.
+\usepackage{hanging}
+
+\usepackage[sc]{titlesec}
+
+%% Commands for Exam class
+\renewcommand{\solutiontitle}{\noindent}
+\unframedsolutions
+\SolutionEmphasis{\bfseries}
+
+\renewcommand{\questionshook}{%
+	\setlength{\leftmargin}{-\leftskip}%
+}
+
+\newcommand{\hidepoints}{%
+	\pointsinmargin\pointformat{}
+}
+
+\newcommand{\showpoints}{%
+	\nopointsinmargin\pointformat{(\thepoints)}
+}
+
+%Change \half command from 1/2 to .5
+\renewcommand*\half{.5}
+
+\pagestyle{headandfoot}
+\firstpageheader{\textsc{bi}\,063 Evolution and Ecology}{}{\ifprintanswers\textbf{KEY}\else Name: \enspace \makebox[2.5in]{\hrulefill}\fi}
+\runningheader{}{}{\footnotesize{pg. \thepage}}
+\footer{}{}{}
+\runningheadrule
+
+\newcommand*\AnswerBox[2]{%
+    \parbox[t][#1]{0.92\textwidth}{%
+    \begin{solution}#2\end{solution}}
+%    \vspace*{\stretch{1}}
+}
+
+\newenvironment{AnswerPage}[1]
+    {\begin{minipage}[t][#1]{0.92\textwidth}%
+    \begin{solution}}
+    {\end{solution}\end{minipage}
+    \vspace*{\stretch{1}}}
+
+\newlength{\basespace}
+\setlength{\basespace}{5\baselineskip}
+
+
+%
+%\makeatletter
+%\def\SetTotalwidth{\advance\linewidth by \@totalleftmargin
+%\@totalleftmargin=0pt}
+%\makeatother
+
+\usepackage{wrapfig}
+
+%\printanswers
+
+
+\begin{document}
+
+\subsection*{Transitional forms and the fossil record}% (\numpoints\ points)}
+
+\hidepoints
+
+\begin{wrapfigure}[12]{r}{0pt}
+	\includegraphics[width=0.45\textwidth]{07_transitional_tree_full}
+\end{wrapfigure}Descent with modification means that species descend from a common ancestor but some traits their traits have been modified from the ancestral form. Modified traits do not appear suddenly but become different slowly over time, shown in the tree at right. Descendants \textsc{a} and \textsc{b} are predicted to share Ancestor~1. Soon after speciation (dotted line), the descendants still strongly resemble the ancestor but some traits will be slightly modified. Much later (dashed line), the descendants look less like their ancestor and more like their final forms. 
+
+The changes to the traits may be preserved by fossils called \textit{transitional forms.} A transitional form is an intermediate species found in the fossil record that contains traits of both the ancestor and a descendant. Transitional forms should appear only between organisms that do have a common ancestor.  In the tree above, transitional forms should appear between Ancestor 1 and Descendants \textsc{a} and \textsc{b}. Transitional forms should \textit{not} appear Ancestor 1 and Descendant \textsc{c}.  If a transitional form were found between Ancestor 1 and Descendant \textsc{c}, then the hypothesis would be falsified. Similarly, if a transitional form were found between Ancestor 2 and Descendants \textsc{a} or \textsc{b}, then the hypothesis would be falsified.
+
+\begin{questions}
+
+\question[4]
+Study the two hypotheses on the next page.  Which hypothesis predicts that you would find fossils of organisms that have characteristics intermediate between reptiles and mammals? (In the trees, reptiles would include rattlesnake and alligator.  Mammals include bison, cat, chimpanzee, dog, fox, gorilla, human, and wolf.) Which hypothesis predict that there would not be such fossils?  Explain the predictions made by \textit{each} hypothesis.
+
+\AnswerBox{3\baselineskip}{%
+Hypothesis~1 shows that reptiles and mammals have a common ancestor. Therefore, you should find transitional fossils between reptiles and mammals.  Hypothesis~2 predicts that reptiles and mammals do not have a common ancestor. Therefore, you should not find transitional fossils between the two organisms.
+}
+
+%\includegraphics[width=0.9\textwidth]{07_fossil_tree}
+\newpage
+Hypothesis 1:\\[1ex]
+\includegraphics[width=\textwidth]{07_hypothesis1}\label{hypothesis1}
+
+\vspace*{\baselineskip}
+
+Hypothesis 2:\\[1ex]
+\includegraphics[width=\textwidth]{07_hypothesis2}
+
+What kinds of traits can you use to test these hypotheses (as well as your own)? Typical mammalian traits, like being warm-blooded, giving live birth, and having mammary glands do not appear in fossil mammals. Fortunately, mammals and reptiles have different features in their skulls that allow you to easily tell whether a fossil was a mammal or a reptile.  
+
+Zoologists distinguish between reptiles and mammals primarily by the structure of the lower jaw.  Most reptiles, along with birds and amphibians, have skulls that look roughly like this:
+
+	\begin{center}\includegraphics[width=0.7\textwidth]{07_reptile_skull}\end{center}
+
+Crocodilians (alligators, etc.) and turtles have some differences from this model, but the jaw structure is essentially the same in them, too.  Note that each side of the lower jaw in these organisms is composed of several bones:  the dentary, which carries the teeth (hence the name), somewhere between 2 and 5 other bones, and the articular, which actually makes contact with the skull (articulates with it) to form the jaw joint (hence its name).  The bone in the skull that makes contact with the articular is the quadrate.  Therefore, reptiles, birds, and amphibians have a \emph{quadrate-articular} jaw joint.  
+
+Now look at a mammalian skull:
+
+	\begin{center}\includegraphics[width=0.7\textwidth]{07_mammal_skull} \end{center}
+	
+Note that the dentary is the only bone in the lower jaw of a mammal—one on each side.  The dentary makes contact with a bone in the skull called the squamosal, forming a \emph{dentary-squamosal} jaw joint. 
+
+There are some other bone differences between reptiles and mammals.  Reptiles mostly have no separation between the nasal passages and the mouth.  In mammals, they are separated by a plate of bone called the secondary palate.  Reptiles have teeth that are all simple cones, each with a single root.  Mammals have teeth of a variety of types, some of which have multiple points, or cusps, and multiple roots.  
+
+Look again at the two hypotheses above (page~\pageref{hypothesis1}). Hypothesis 1 shows that reptiles and mammals have a common ancestor. Hypothesis 2 shows that reptiles and mammals are not related.  Now, reptiles are found in the fossil record starting in rocks dating to about 320 million years ago, while the earliest mammal fossils are in rocks dating to about 220 million years ago.\footnote{The techniques by which fossils are dated will be briefly covered in lab.  The dates provided here are the generally accepted dates for various fossils and rock formations, independently confirmed by lots of labs, with a margin of error well under 5\%.  (Ideas and illustrations in this page based on Hopson, JA 1987.  The Mammal-Like Reptiles.  American Biology Teacher 49:16-26)}  So, hypothesis 1 showing that mammals evolved from some early reptile (rather than the other way around). Hypothesis 1 would therefore predict that we should see a series of organisms in the past that get gradually more and more like mammals and less like reptiles (of course, other reptiles continue being reptiles and get more similar to modern reptiles over time).  
+
+\question
+Specifically, in terms of jaw, tooth, and type of jaw joint identified above, what does hypothesis~1 predict you should see in these extinct transitional fossils?  Explain.
+
+\AnswerBox{8\baselineskip}{%
+Hypothesis 1 predicts that the dentary bone should enlarge to become the entire lower jaw, the teeth should change from conical to complex, rooted teeth, and the articular-quadrate joint should get replaced by the dentary-squamosal joint; 
+}
+
+
+\question
+Hypothesis 2, on the other hand, predicts that you should not see a gradual progression from reptile to more and more mammalian, but rather that you will see extinct reptiles and extinct mammals.  Any ``in between'' characteristics will just be chance resemblances.  So, in terms of jaw, tooth,  and type of jaw joint, what does hypothesis~2 predict we'll see in extinct organisms?  Explain.
+
+\AnswerBox{4\baselineskip}{%
+Hypothesis 2 predictions that none of the features should change. Reptile skulls should have multiple bones in the lower jaw, the teeth should always be conical, and they should always have an articular-quadrate bone. Mammal skulls should always have only a dentary bone for the lower jaw, complex rooted teeth, and a dentary-squamosal joint.}
+
+
+\end{questions}
+
+\end{document}  
