@@ -1,0 +1,85 @@
+%!TEX TS-program = lualatex
+%!TEX encoding = UTF-8 Unicode
+
+\documentclass[letterpaper]{tufte-handout}
+
+%\geometry{showframe} % display margins for debugging page layout
+
+\usepackage{fontspec}
+\def\mainfont{Linux Libertine O}
+\setmainfont[Ligatures={Common,TeX}, Contextuals={NoAlternate}, BoldFont={* Bold}, ItalicFont={* Italic}, Numbers={Lining}]{\mainfont}
+\setsansfont[Scale=MatchLowercase]{Linux Biolinum O} 
+\usepackage{microtype}
+
+\usepackage{graphicx} % allow embedded images
+  \setkeys{Gin}{width=\linewidth,totalheight=\textheight,keepaspectratio}
+  \graphicspath{{img/}} % set of paths to search for images
+\usepackage{amsmath}  % extended mathematics
+\usepackage{booktabs} % book-quality tables
+\usepackage{units}    % non-stacked fractions and better unit spacing
+\usepackage{multicol} % multiple column layout facilities
+%\usepackage{fancyvrb} % extended verbatim environments
+%  \fvset{fontsize=\normalsize}% default font size for fancy-verbatim environments
+
+\usepackage{enumitem}
+
+\makeatletter
+% Paragraph indentation and separation for normal text
+\renewcommand{\@tufte@reset@par}{%
+  \setlength{\RaggedRightParindent}{1.0pc}%
+  \setlength{\JustifyingParindent}{1.0pc}%
+  \setlength{\parindent}{1pc}%
+  \setlength{\parskip}{0pt}%
+}
+\@tufte@reset@par
+
+% Paragraph indentation and separation for marginal text
+\renewcommand{\@tufte@margin@par}{%
+  \setlength{\RaggedRightParindent}{0pt}%
+  \setlength{\JustifyingParindent}{0.5pc}%
+  \setlength{\parindent}{0.5pc}%
+  \setlength{\parskip}{0pt}%
+}
+\makeatother
+
+% Set up the spacing using fontspec features
+   \renewcommand\allcapsspacing[1]{{\addfontfeatures{LetterSpace=15}#1}}
+   \renewcommand\smallcapsspacing[1]{{\addfontfeatures{LetterSpace=10}#1}}
+
+\title{BI 163 Study Guide 04}
+
+\date{} % without \date command, current date is supplied
+
+\begin{document}
+
+\maketitle	% this prints the handout title, author, and date
+
+%\printclassoptions
+\section*{Hypothesis Testing}
+
+We\marginnote{\textbf{Read:} pgs. 16--24.} discussed hypothesis testing in greater detail. You should carefully study the assigned reading at right. I did not cover it all in class but I do expect you to know it.
+
+\section*{Vocabulary}
+
+\vspace{-1\baselineskip}
+\begin{multicols}{2}
+null hypothesis\\
+alternative hypothesis\\
+
+\end{multicols}
+
+\section*{Concepts}
+
+You should \emph{write} clear and concise answers to each question in the Concepts section.  Remember to ``think horizontally'' and to ``connect the dots.'' 
+
+\begin{enumerate}
+
+	\item Explain the difference between null and alternative hypotheses.
+
+	\item Why can a hypothesis never be proven correct but always has the possibility of being proven wrong.
+	
+	\item Identify the characteristics of a good hypothesis. Explain each one.
+	
+\end{enumerate}
+
+\end{document}

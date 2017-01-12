@@ -1,0 +1,104 @@
+%!TEX TS-program = lualatex
+%!TEX encoding = UTF-8 Unicode
+
+\documentclass[letterpaper]{tufte-handout}
+
+%\geometry{showframe} % display margins for debugging page layout
+
+\usepackage{fontspec}
+\def\mainfont{Linux Libertine O}
+\setmainfont[Ligatures={Common,TeX}, Contextuals={NoAlternate}, BoldFont={* Bold}, ItalicFont={* Italic}, Numbers={Lining}]{\mainfont}
+\setsansfont[Scale=MatchLowercase]{Linux Biolinum O} 
+\usepackage{microtype}
+
+\usepackage{graphicx} % allow embedded images
+  \setkeys{Gin}{width=\linewidth,totalheight=\textheight,keepaspectratio}
+  \graphicspath{{img/}} % set of paths to search for images
+\usepackage{amsmath}  % extended mathematics
+\usepackage{booktabs} % book-quality tables
+\usepackage{units}    % non-stacked fractions and better unit spacing
+\usepackage{multicol} % multiple column layout facilities
+%\usepackage{fancyvrb} % extended verbatim environments
+%  \fvset{fontsize=\normalsize}% default font size for fancy-verbatim environments
+
+\makeatletter
+% Paragraph indentation and separation for normal text
+\renewcommand{\@tufte@reset@par}{%
+  \setlength{\RaggedRightParindent}{1.0pc}%
+  \setlength{\JustifyingParindent}{1.0pc}%
+  \setlength{\parindent}{1pc}%
+  \setlength{\parskip}{0pt}%
+}
+\@tufte@reset@par
+
+% Paragraph indentation and separation for marginal text
+\renewcommand{\@tufte@margin@par}{%
+  \setlength{\RaggedRightParindent}{0pt}%
+  \setlength{\JustifyingParindent}{0.5pc}%
+  \setlength{\parindent}{0.5pc}%
+  \setlength{\parskip}{0pt}%
+}
+\makeatother
+
+% Set up the spacing using fontspec features
+   \renewcommand\allcapsspacing[1]{{\addfontfeatures{LetterSpace=15}#1}}
+   \renewcommand\smallcapsspacing[1]{{\addfontfeatures{LetterSpace=10}#1}}
+   
+%\ifluatex
+%  \newcommand{\textls}[2][5]{%
+%    \begingroup\addfontfeatures{LetterSpace=#1}#2\endgroup
+%  }
+%  \renewcommand{\allcapsspacing}[1]{\textls[15]{#1}}
+%  \renewcommand{\smallcapsspacing}[1]{\textls[10]{#1}}
+%  \renewcommand{\allcaps}[1]{\textls[15]{\MakeTextUppercase{#1}}}
+%  \renewcommand{\smallcaps}[1]{\smallcapsspacing{\scshape\MakeTextLowercase{#1}}}
+%  \renewcommand{\textsc}[1]{\smallcapsspacing{\textsmallcaps{#1}}}
+%\fi
+   
+\title{BI 163 Study Guide 02\hfill}
+
+\date{} % without \date command, current date is supplied
+
+\begin{document}
+
+\maketitle	% this prints the handout title, author, and date
+
+%\printclassoptions
+
+%\section{Introduction}
+
+The\marginnote{\textbf{Read:} pgs. 16--18, 464 (Scala Naturae and Classification of Species), 548.\\ \vspace*{10\baselineskip}} study guides will help you learn the material. The guides may also contain more information to supplement the lecture.  Read the study guides in advance of lecture to get familiar with the day's topic. Bring the study guide to class to see the vocabulary and questions in context of the lecture discussion. This will help you recall the information during your daily (or every other day) study.
+
+\section{Vocabulary}
+
+\vspace{-1\baselineskip}
+\begin{multicols}{2}
+Carolus Linnaeus\\
+\textit{Systema Natur\ae}\\
+Binomial nomenclature\\
+Taxonomic classification\\
+Inductive reasoning\\
+Deductive reasoning
+\end{multicols}
+
+The vocabulary lists the terms from each lecture that you should know. You must be able to recognize and apply these terms in a broader context.  I will use the terms in lecture and on exams. If you do not know the terms, you may not fully understand the lecture or be able to answer a question on the exam. I expect you to use the proper vocabulary in your answers to questions on exams and assignments.  Get in the habitat of using terms as you learn the material.  I may not cover all terms in class or do so only in passing.  I expect that you will learn them by reading your textbook and using the glossary in your textbook, to put them into the context of evolution and ecology.
+
+\section{Concepts}
+
+You should \emph{write} clear and concise answers to each question in the Concepts section.  The questions are not necessarily independent.  Remember to “think horizontally” and to “connect the dots.”  Study guide questions may be used as a basis for multiple choice, matching or true/false questions, or for short answer questions, but I may also create exam and assignment questions that do not appear on the study guides.  These are guides, not exhaustive test banks.
+
+\begin{enumerate}
+	\item Who was Carolus Linnaeus? What was his contribution to the sciences of taxonomy and classification?
+
+	\item Approximately how many species have been cataloged (described)? About how many species today might exist on Earth?
+	
+	\item Name all eight levels, in proper hierarchical order, of the Linnaean classification system. Why do scientists use this classification system?
+	
+	\item What is binomial nomenclature/ Why must all species have a scientific name? Why not just use common names like robin or blackbird?
+
+	\item Explain the difference between inductive and deductive reasoning. 
+	
+	\item Explain what is meant by science being tentative, objective, and testable.
+\end{enumerate}
+
+\end{document}

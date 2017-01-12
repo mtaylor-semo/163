@@ -1,0 +1,106 @@
+%!TEX TS-program = lualatex
+%!TEX encoding = UTF-8 Unicode
+
+\documentclass[letterpaper]{tufte-handout}
+
+%\geometry{showframe} % display margins for debugging page layout
+
+\usepackage{fontspec}
+\def\mainfont{Linux Libertine O}
+\setmainfont[Ligatures={Common,TeX}, Contextuals={NoAlternate}, BoldFont={* Bold}, ItalicFont={* Italic}, Numbers={OldStyle}]{\mainfont}
+\setsansfont[Scale=MatchLowercase, Numbers={OldStyle}]{Linux Biolinum O} 
+\usepackage{microtype}
+
+\usepackage{graphicx} % allow embedded images
+  \setkeys{Gin}{width=\linewidth,totalheight=\textheight,keepaspectratio}
+  \graphicspath{{img/}} % set of paths to search for images
+\usepackage{amsmath}  % extended mathematics
+\usepackage{booktabs} % book-quality tables
+\usepackage{units}    % non-stacked fractions and better unit spacing
+\usepackage{multicol} % multiple column layout facilities
+%\usepackage{fancyvrb} % extended verbatim environments
+%  \fvset{fontsize=\normalsize}% default font size for fancy-verbatim environments
+
+\usepackage{enumitem}
+
+\makeatletter
+% Paragraph indentation and separation for normal text
+\renewcommand{\@tufte@reset@par}{%
+  \setlength{\RaggedRightParindent}{1.0pc}%
+  \setlength{\JustifyingParindent}{1.0pc}%
+  \setlength{\parindent}{1pc}%
+  \setlength{\parskip}{0pt}%
+}
+\@tufte@reset@par
+
+% Paragraph indentation and separation for marginal text
+\renewcommand{\@tufte@margin@par}{%
+  \setlength{\RaggedRightParindent}{0pt}%
+  \setlength{\JustifyingParindent}{0.5pc}%
+  \setlength{\parindent}{0.5pc}%
+  \setlength{\parskip}{0pt}%
+}
+\makeatother
+
+% Set up the spacing using fontspec features
+   \renewcommand\allcapsspacing[1]{{\addfontfeatures{LetterSpace=15}#1}}
+   \renewcommand\smallcapsspacing[1]{{\addfontfeatures{LetterSpace=10}#1}}
+
+\title{{\scshape bi} 163 Study Guide 08}
+
+\date{} % without \date command, current date is supplied
+
+\begin{document}
+
+\maketitle	% this prints the handout title, author, and date
+
+%\printclassoptions
+\section*{Phenotypes, genotypes, and three modes of selection}
+
+We\marginnote{\textbf{Read:} the glossary entries for \emph{gene} and \emph{allele.} Also read pages 272 (Useful genetic vocabulary), 480--483, 484 (population and gene pool), 488 (natural selection), 492--493, 494.} discussed the the relationship between genes and alleles, and phenotypes and genotypes. We learned how the three modes of selection cause the phenotype to change over time in a population.
+
+\section*{Vocabulary}
+
+\vspace{-1\baselineskip}
+\begin{multicols}{2}
+phenotype \\
+genotype \\
+gene (gene locus)\\
+allele\\
+diploid\\
+homozygous (homozygote)\\
+heterozygous (heterozygote)\\
+population\\
+directional selection\\
+disruptive selection\\
+stabilizing selection\\
+balancing selection\\
+heterozygote advantage
+
+\end{multicols}
+
+\section*{Concepts}
+
+You should \emph{write} clear and concise answers to each question in the Concepts section.  Remember to ``think horizontally'' and to ``connect the dots.'' 
+
+\begin{enumerate}
+
+	\item Explain the difference between the phenotype and the genotype. Explain the relationship between the two.
+
+	\item Explain the difference between a gene\marginnote{I may sometimes use the term \emph{locus} to refer to a gene (plural: \emph{loci}). Formally, a locus is any location on a chromosome.} and an allele. 
+
+	\item What is the difference between alleles and genotypes?  
+
+	\item As you think about genotypes, remember that the definition varies slightly depending on how you use it. In general, the genotype is the genetic makeup of an organism. But, the genotype of a \emph{diploid}\marginnote{\emph{Diploid} refers to organisms that have two alleles for each gene. For some diploid species, the males may be haploid, meaning the males have only one allele for each gene. A few species are tetraploid (4 alleles) or octoploid (8 alleles) but these species are rare.} individual can refer to one gene (e.g., it is AA, Aa, or aa), for multiple genes, or for all genes (the genome).
+
+	\item Remember that organisms differ because they have different alleles, not different genes. Human and mice have the same genes but different alleles at those genes.  (There are differences in gene expression but that is beyond the scope of this lecture.)
+ 
+	\item What is the difference between a heterozygote and a homozygote?
+
+	\item Compare and contrast the three modes of selection discussed in class.  Are they mutually exclusive, or can more than one mode operate on a population simultaneously (think about one phenotypic trait vs multiple phenotypic traits)?  Explain.  Be able to illustrate each mode of selection, and relate it to the relative fitness of different genotypes.  
+
+	\item Be able to apply each mode of selection to a given scenario.  For example, if I describe a population where the two extreme phenotypes have greater fitness than the heterozygotes, which mode of selection is being described?  Write your own description for each mode.
+
+\end{enumerate}
+
+\end{document}

@@ -1,0 +1,114 @@
+%!TEX TS-program = lualatex
+%!TEX encoding = UTF-8 Unicode
+
+\documentclass[letterpaper]{tufte-handout}
+
+%\geometry{showframe} % display margins for debugging page layout
+
+\usepackage{fontspec}
+\def\mainfont{Linux Libertine O}
+\setmainfont[Ligatures={Common,TeX}, Contextuals={NoAlternate}, BoldFont={* Bold}, ItalicFont={* Italic}, Numbers={OldStyle}]{\mainfont}
+\setsansfont[Scale=MatchLowercase, Numbers={OldStyle}]{Linux Biolinum O} 
+\usepackage{microtype}
+
+\usepackage{graphicx} % allow embedded images
+  \setkeys{Gin}{width=\linewidth,totalheight=\textheight,keepaspectratio}
+  \graphicspath{{img/}} % set of paths to search for images
+\usepackage{amsmath}  % extended mathematics
+\usepackage{booktabs} % book-quality tables
+\usepackage{units}    % non-stacked fractions and better unit spacing
+\usepackage{multicol} % multiple column layout facilities
+%\usepackage{fancyvrb} % extended verbatim environments
+%  \fvset{fontsize=\normalsize}% default font size for fancy-verbatim environments
+
+\usepackage{enumitem}
+
+\makeatletter
+% Paragraph indentation and separation for normal text
+\renewcommand{\@tufte@reset@par}{%
+  \setlength{\RaggedRightParindent}{1.0pc}%
+  \setlength{\JustifyingParindent}{1.0pc}%
+  \setlength{\parindent}{1pc}%
+  \setlength{\parskip}{0pt}%
+}
+\@tufte@reset@par
+
+% Paragraph indentation and separation for marginal text
+\renewcommand{\@tufte@margin@par}{%
+  \setlength{\RaggedRightParindent}{0pt}%
+  \setlength{\JustifyingParindent}{0.5pc}%
+  \setlength{\parindent}{0.5pc}%
+  \setlength{\parskip}{0pt}%
+}
+\makeatother
+
+% Set up the spacing using fontspec features
+   \renewcommand\allcapsspacing[1]{{\addfontfeatures{LetterSpace=15}#1}}
+   \renewcommand\smallcapsspacing[1]{{\addfontfeatures{LetterSpace=10}#1}}
+
+\title{{\scshape bi} 163 Study Guide 21}
+\author{Community ecology}
+\date{} % without \date command, current date is supplied
+
+\begin{document}
+
+\maketitle	% this prints the handout title, author, and date
+
+%\printclassoptions
+We\marginnote{\textbf{Read:} 1208–1201215.} discussed the ecology of communities, which are groups of populations of different species.  Communities have types of ecological interactions not found in populations, including interspecific competition, predation, herbivory, and symbiosis.
+
+\section*{Vocabulary}
+
+\vspace{-1\baselineskip}
+\begin{multicols}{2}
+community ecology\\
+interspecific interactions\\
+intraspecific competition\\
+interspecific competition\\
+competitive exclusion\\
+resource partitioning\\
+ecological niche\\
+realized niche\\
+fundamental niche\\
+predation \\
+cryptic coloration (camouflage)\\
+aposomatic coloration\\
+mimicry\\
+herbivory \\
+symbiosis\\
+mutualism\\
+parasitism
+\end{multicols}
+
+\section*{Concepts}
+
+You should \emph{write} clear and concise answers to each question in the Concepts section.  Remember to ``think horizontally'' and to ``connect the dots.'' 
+
+\begin{enumerate}
+
+	\item Describe some of the interspecific interactions that can occur in a community? Why are these interactions an ``emergent property'' of communities?
+	
+	\item Be able to interpret the meaning of $(+ / + )$, $(+ / - )$, $(- / - )$, and $(+ / 0 )$ when discussing types of species interactions in a community. 
+	
+	\item When does competition for resources occur?  Explain the difference between intraspecific and interspecific competition.  Which is most relevant to population ecology, and why?  Which is most relevant to community ecology, and why?
+
+	\item Explain how two species that use the same resource might reduce the extent of competition between them.  How does this affect the number of species that can coexist in a community?  What could possibly happen if these two species don?t reduce the amount of competition?
+
+	\item Explain what is an ecological niche. Explain the difference between the fundamental and the realized niche.
+	
+	\item Explain the competitive exclusion principle. How does this affect the number of species in the community? How have species evolved to avoid competitive exclusion?
+
+	\item Explain how the interactions between predators and their prey leads to evolutionary adaptations in each.  Provide some examples.  Can you think of examples not included in class?
+	
+	\item Explain the difference between predation and herbivory.\marginnote{Does herbivory usually cause the death of the organism being consumed?}
+
+	\item How have predators and prey used coloration to become better adapted in predator-prey interactions?  What about mimicry?
+	
+	\item What are the two types of mimicry discussed in your textbook?\marginnote{See page 1212. I may not cover them in class but you should know them.}
+
+	\item Be able to recognize examples of mutualism, commensalism and parasitism.  Explain how they may affect the fitness of individuals of affect natural selection on those individuals.
+
+
+\end{enumerate}
+
+\end{document}

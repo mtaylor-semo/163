@@ -1,0 +1,106 @@
+%!TEX TS-program = lualatex
+%!TEX encoding = UTF-8 Unicode
+
+\documentclass[letterpaper]{tufte-handout}
+
+%\geometry{showframe} % display margins for debugging page layout
+
+\usepackage{fontspec}
+\def\mainfont{Linux Libertine O}
+\setmainfont[Ligatures={Common,TeX}, Contextuals={NoAlternate}, BoldFont={* Bold}, ItalicFont={* Italic}, Numbers={OldStyle}]{\mainfont}
+\setsansfont[Scale=MatchLowercase, Numbers={OldStyle}]{Linux Biolinum O} 
+\setmonofont{Linux Libertine O}
+\usepackage{microtype}
+
+\usepackage{graphicx} % allow embedded images
+  \setkeys{Gin}{width=\linewidth,totalheight=\textheight,keepaspectratio}
+  \graphicspath{{img/}} % set of paths to search for images
+\usepackage{amsmath}  % extended mathematics
+\usepackage{booktabs} % book-quality tables
+\usepackage{units}    % non-stacked fractions and better unit spacing
+\usepackage{multicol} % multiple column layout facilities
+%\usepackage{fancyvrb} % extended verbatim environments
+%  \fvset{fontsize=\normalsize}% default font size for fancy-verbatim environments
+
+\usepackage{enumitem}
+\usepackage{mhchem}
+
+\makeatletter
+% Paragraph indentation and separation for normal text
+\renewcommand{\@tufte@reset@par}{%
+  \setlength{\RaggedRightParindent}{1.0pc}%
+  \setlength{\JustifyingParindent}{1.0pc}%
+  \setlength{\parindent}{1pc}%
+  \setlength{\parskip}{0pt}%
+}
+\@tufte@reset@par
+
+% Paragraph indentation and separation for marginal text
+\renewcommand{\@tufte@margin@par}{%
+  \setlength{\RaggedRightParindent}{0pt}%
+  \setlength{\JustifyingParindent}{0.5pc}%
+  \setlength{\parindent}{0.5pc}%
+  \setlength{\parskip}{0pt}%
+}
+\makeatother
+
+% Set up the spacing using fontspec features
+   \renewcommand\allcapsspacing[1]{{\addfontfeatures{LetterSpace=15}#1}}
+   \renewcommand\smallcapsspacing[1]{{\addfontfeatures{LetterSpace=10}#1}}
+
+\title{{\scshape bi} 163 Study Guide 14}
+
+\date{} % without \date command, current date is supplied
+
+\begin{document}
+
+\maketitle	% this prints the handout title, author, and date
+
+%\printclassoptions
+\section*{Fossils, the fossil record, and the evolution of eukaryotes }
+
+We\marginnote{\textbf{Read:} 522--530. For fun: read page 533 on plate tectonics for a little background on the changing arrangement of the continents.} fossils, how they are formed, and began to explore major macroevolutionary changes based on evidence from the fossil record. We also covered endosymbiosis.
+
+\section*{Vocabulary}
+
+\vspace{-1\baselineskip}
+\begin{multicols}{2}
+fossil\\
+trace fossils \\
+radiometric dating \\
+relative dating \\
+cyanobacteria \\
+oxygen revolution \\
+endosymbiosis
+\end{multicols}
+
+\section*{Concepts}
+
+You should \emph{write} clear and concise answers to each question in the Concepts section.  Remember to ``think horizontally'' and to ``connect the dots.'' 
+
+\begin{enumerate}
+
+	\item What is a fossil? Name a few types of fossils. 
+
+	\item Explain how does a permineralized fossil forms. What type of conditions (habitat, etc.) are necessary?
+
+	\item Briefly explain radiometric dating.\marginnote{\url{http://evolution.berkeley.edu/evolibrary/article/radiodating_01}} Why is carbon-14 ({\addfontfeatures{Numbers=Lining}\ce{^{14}C}}) rarely used for dating fossils? 
+	
+	\item Many of the radioisotopes that can be used for radiometric dating cannot be used for dating fossils, even though their half-lives are very long. Why is this? How can fossils be dated if the fossils themselves do not contain radioisotopes.
+	
+	\item When did life first appear on Earth? Why types of organisms were they? Why were these organisms important for the eventual evolution of eukaryotes, even though they evolved more than 1.5 billion years before eukaryotes?\label{cyano_question}
+	
+	\item What was the ``oxygen revolution?'' About when did it occur?  How much did the oxygen concentration of the atmosphere (in percent) change during this time? (Study the assigned reading for these details.)
+	
+	\item The answer to question \ref{cyano_question} was one of the important events that facilitated the evolution of eukaryotes. What was the second event?
+	
+	\item Explain endosymbiosis \marginnote{\url{http://undsci.berkeley.edu/lessons/pdfs/endosymbiosis.pdf}} as a theory to explain the presence of mitochondria and chloroplasts in eukaryotic cells.
+	
+	\item Why do all eukaryotic cells have mitochondria but only plants have chloroplasts. Relate this to the endosymbiosis.
+	
+	\item Explain some of the evidence that supports the theory of endosymbiosis.
+	
+	
+\end{enumerate}
+
+\end{document}

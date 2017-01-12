@@ -1,0 +1,117 @@
+%!TEX TS-program = lualatex
+%!TEX encoding = UTF-8 Unicode
+
+\documentclass[letterpaper]{tufte-handout}
+
+%\geometry{showframe} % display margins for debugging page layout
+
+\usepackage{fontspec}
+\def\mainfont{Linux Libertine O}
+\setmainfont[Ligatures={Common,TeX}, Contextuals={NoAlternate}, BoldFont={* Bold}, ItalicFont={* Italic}, Numbers={OldStyle}]{\mainfont}
+\setsansfont[Scale=MatchLowercase, Numbers={OldStyle}]{Linux Biolinum O} 
+\usepackage{microtype}
+
+\usepackage{graphicx} % allow embedded images
+  \setkeys{Gin}{width=\linewidth,totalheight=\textheight,keepaspectratio}
+  \graphicspath{{img/}} % set of paths to search for images
+\usepackage{amsmath}  % extended mathematics
+\usepackage{booktabs} % book-quality tables
+\usepackage{units}    % non-stacked fractions and better unit spacing
+\usepackage{multicol} % multiple column layout facilities
+%\usepackage{fancyvrb} % extended verbatim environments
+%  \fvset{fontsize=\normalsize}% default font size for fancy-verbatim environments
+
+\usepackage{enumitem}
+
+\makeatletter
+% Paragraph indentation and separation for normal text
+\renewcommand{\@tufte@reset@par}{%
+  \setlength{\RaggedRightParindent}{1.0pc}%
+  \setlength{\JustifyingParindent}{1.0pc}%
+  \setlength{\parindent}{1pc}%
+  \setlength{\parskip}{0pt}%
+}
+\@tufte@reset@par
+
+% Paragraph indentation and separation for marginal text
+\renewcommand{\@tufte@margin@par}{%
+  \setlength{\RaggedRightParindent}{0pt}%
+  \setlength{\JustifyingParindent}{0.5pc}%
+  \setlength{\parindent}{0.5pc}%
+  \setlength{\parskip}{0pt}%
+}
+\makeatother
+
+% Set up the spacing using fontspec features
+   \renewcommand\allcapsspacing[1]{{\addfontfeatures{LetterSpace=15}#1}}
+   \renewcommand\smallcapsspacing[1]{{\addfontfeatures{LetterSpace=10}#1}}
+
+\title{{\scshape bi} 163 Study Guide 17}
+
+\date{} % without \date command, current date is supplied
+
+\begin{document}
+
+\maketitle	% this prints the handout title, author, and date
+
+%\printclassoptions
+\section*{Molecular clocks and genome evolution}
+
+We\marginnote{\textbf{Read:} 380--381 and Fig. 18-19 for background on homeotic and other developmental genes, 453--458 (especially 457--458), 538--541, 559--562.} discussed molecular clocks, the evolution of genomes by gene duplication, and the role of homeotic genes in macroevolution.
+
+\section*{Vocabulary}
+
+\vspace{-1\baselineskip}
+\begin{multicols}{2}
+molecular clock \\
+macroevolution  \\
+genome  \\
+gene duplication  \\
+homologous gene  \\
+orthologous gene \\
+paralogous gene \\
+pseudogene \\
+homeotic genes \\
+regulatory genes \\
+\textit{Hox} genes \\
+\textit{Ubx} \\
+\textit{Antp} \\
+\textit{Pax6} \\
+paedomorphosis
+
+\end{multicols}
+
+\section*{Concepts}
+
+You should \emph{write} clear and concise answers to each question in the Concepts section.  Remember to ``think horizontally'' and to ``connect the dots.'' 
+
+\begin{enumerate}
+
+	\item What is a molecular clock? How can it be calibrated?
+
+	\item Can the same molecular clock be used for any gene? Explain. 
+
+	\item Explain the difference between orthologous and paralogous genes. Why are both consider homologous genes. (Remember what homology means.)
+
+	\item Diagram the evolution of orthologs and paralogs. \marginnote{For simplicity, orthologs, paralogs, and homologs are terms commonly used to mean orthologous, paralogous, and homologous genes, respectively.} Properly associate orthologs and paralogs with speciation and duplication events.
+
+	\item Be able to identify paralogs and orthologs from a phylogenetic tree.
+ 
+	\item Briefly explain the two possible fates for a duplicated gene.
+
+	\item What is a pseudogene? How do they evolve?\marginnote{Pseudo- means false or fake.}
+
+	\item What are homeotic genes?\marginnote{Homeotic refers to a broad class of genes that determines the body plan, like the position of legs, wings, and abdomen. \textit{Hox} genes are one group of homeotic genes but not all homeotic genes are \textit{Hox} genes. This is a common source of confusion for students learning about homeotic genes.} 	
+	
+	\item How were homeotic genes first discovered?
+	
+	\item How do homeotic genes function? How can mutation of the homeotic binding site alter the function of homeotic genes? 
+	
+	\item What is the function of \textit{Ubx}?\marginnote{Both \textit{Ubx} and \textit{Antp} are \textit{Hox} genes. \textit{Pax6} is not a \textit{Hox} gene but it is a developmental regulatory gene.} What is the function of \textit{Antp}? What is the function of \textit{Pax6}?
+	
+	\item Explain paedomorphosis.\marginnote{Paedo- means child.  -morphosis means shape.}
+
+
+\end{enumerate}
+
+\end{document}

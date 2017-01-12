@@ -1,0 +1,111 @@
+%!TEX TS-program = lualatex
+%!TEX encoding = UTF-8 Unicode
+
+\documentclass[letterpaper]{tufte-handout}
+
+%\geometry{showframe} % display margins for debugging page layout
+
+\usepackage{fontspec}
+\def\mainfont{Linux Libertine O}
+\setmainfont[Ligatures={Common,TeX}, Contextuals={NoAlternate}, BoldFont={* Bold}, ItalicFont={* Italic}, Numbers={OldStyle}]{\mainfont}
+\setsansfont[Scale=MatchLowercase, Numbers={OldStyle}]{Linux Biolinum O} 
+\usepackage{microtype}
+
+\usepackage{graphicx} % allow embedded images
+  \setkeys{Gin}{width=\linewidth,totalheight=\textheight,keepaspectratio}
+  \graphicspath{{img/}} % set of paths to search for images
+\usepackage{amsmath}  % extended mathematics
+\usepackage{booktabs} % book-quality tables
+\usepackage{units}    % non-stacked fractions and better unit spacing
+\usepackage{multicol} % multiple column layout facilities
+%\usepackage{fancyvrb} % extended verbatim environments
+%  \fvset{fontsize=\normalsize}% default font size for fancy-verbatim environments
+
+\usepackage{enumitem}
+
+\makeatletter
+% Paragraph indentation and separation for normal text
+\renewcommand{\@tufte@reset@par}{%
+  \setlength{\RaggedRightParindent}{1.0pc}%
+  \setlength{\JustifyingParindent}{1.0pc}%
+  \setlength{\parindent}{1pc}%
+  \setlength{\parskip}{0pt}%
+}
+\@tufte@reset@par
+
+% Paragraph indentation and separation for marginal text
+\renewcommand{\@tufte@margin@par}{%
+  \setlength{\RaggedRightParindent}{0pt}%
+  \setlength{\JustifyingParindent}{0.5pc}%
+  \setlength{\parindent}{0.5pc}%
+  \setlength{\parskip}{0pt}%
+}
+\makeatother
+
+% Set up the spacing using fontspec features
+   \renewcommand\allcapsspacing[1]{{\addfontfeatures{LetterSpace=15}#1}}
+   \renewcommand\smallcapsspacing[1]{{\addfontfeatures{LetterSpace=10}#1}}
+
+\title{{\scshape bi} 163 Study Guide 07}
+
+\date{} % without \date command, current date is supplied
+
+\begin{document}
+
+\maketitle	% this prints the handout title, author, and date
+
+%\printclassoptions
+\section*{Descent with modification and phylogenetic trees.}
+
+We\marginnote{\textbf{Read:} pgs. 14-15, 467--468, 549--556, 558.} discussed Darwin's concept of Descent with Modification and learned to interpret phylogenetic trees.
+
+\section*{Vocabulary}
+
+\vspace{-1\baselineskip}
+\begin{multicols}{2}
+Descent with modification\\
+common (shared) ancestor \\
+descendants \\
+branches \\
+nodes \\
+root \\
+basal group \\
+taxon (plural: taxa) \\
+clade \\
+monophyletic group \\
+
+\end{multicols}
+
+\section*{Concepts}
+
+You should \emph{write} clear and concise answers to each question in the Concepts section.  Remember to ``think horizontally'' and to ``connect the dots.'' 
+
+\begin{enumerate}
+
+	\item Explain descent with modification as developed by Darwin. Relate the concept to phylogenetic trees. That is, how do you think we can use phylogenetic trees to study descent with modification. 
+
+	\item Identify common ancestors and descendants.
+
+	\item Why can descent with modification be represented with phylogenetic trees? 
+
+	\item Identify branches, nodes, and roots on a phylogenetic tree. Describe what is represented by each.
+
+	\item Identify a basal group on a tree.
+
+	\item Identify a clade or monophyletic group on a tree. Explain what is meant by a clade or monophyletic group. Given a tree, recognize a group that is \emph{not} monophyletic on a tree.  Be able to make it monophyletic.
+
+	\item Given a phylogenetic tree, be able to tell whether an organism is more closely related on one organism or another, or equally related to both, based on common ancestor and presence in the same clade. 
+
+	\item Explain what is mean that a phylogenetic tree is a hierarchy of clades nested within clades.
+
+	\item Be able to identify identical trees that are displayed in different arrangements (e.g., goal posts vs circle tree).
+
+	\item Remember that phylogenetic trees are hypotheses. Hypotheses make predictions.
+
+	\item Remember that trees can be pruned. Be able to recognize a tree that has been pruned when compared to a tree with all groups present. A good way to practice this is make a larger treee and pick 2--3 groups to drop. Redraw the tree without those groups. Make sure the relationships are still unchanged. Practice with a friend to be sure you get the same results.
+
+	\item Describe how phylogenetic trees are related to modern classification schemes. That is, how can we use phylogenetic trees to help us classify organisms based on common ancestry. Hint: should organisms in the same taxon (genus, family, order, etc.) share the same common ancestor? Why or why not? Relate that to the concept of clades and monophyletic groups.
+
+\end{enumerate}
+
+\end{document}

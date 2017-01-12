@@ -1,0 +1,92 @@
+%!TEX TS-program = lualatex
+%!TEX encoding = UTF-8 Unicode
+
+\documentclass[letterpaper]{tufte-handout}
+
+%\geometry{showframe} % display margins for debugging page layout
+
+\usepackage{fontspec}
+\def\mainfont{Linux Libertine O}
+\setmainfont[Ligatures={Common,TeX}, Contextuals={NoAlternate}, BoldFont={* Bold}, ItalicFont={* Italic}, Numbers={OldStyle}]{\mainfont}
+\setsansfont[Scale=MatchLowercase]{Linux Biolinum O} 
+\usepackage{microtype}
+
+\usepackage{graphicx} % allow embedded images
+  \setkeys{Gin}{width=\linewidth,totalheight=\textheight,keepaspectratio}
+  \graphicspath{{img/}} % set of paths to search for images
+\usepackage{amsmath}  % extended mathematics
+\usepackage{booktabs} % book-quality tables
+\usepackage{units}    % non-stacked fractions and better unit spacing
+\usepackage{multicol} % multiple column layout facilities
+%\usepackage{fancyvrb} % extended verbatim environments
+%  \fvset{fontsize=\normalsize}% default font size for fancy-verbatim environments
+
+\makeatletter
+% Paragraph indentation and separation for normal text
+\renewcommand{\@tufte@reset@par}{%
+  \setlength{\RaggedRightParindent}{1.0pc}%
+  \setlength{\JustifyingParindent}{1.0pc}%
+  \setlength{\parindent}{1pc}%
+  \setlength{\parskip}{0pt}%
+}
+\@tufte@reset@par
+
+% Paragraph indentation and separation for marginal text
+\renewcommand{\@tufte@margin@par}{%
+  \setlength{\RaggedRightParindent}{0pt}%
+  \setlength{\JustifyingParindent}{0.5pc}%
+  \setlength{\parindent}{0.5pc}%
+  \setlength{\parskip}{0pt}%
+}
+\makeatother
+
+% Set up the spacing using fontspec features
+   \renewcommand\allcapsspacing[1]{{\addfontfeatures{LetterSpace=15}#1}}
+   \renewcommand\smallcapsspacing[1]{{\addfontfeatures{LetterSpace=10}#1}}
+
+\title{{\scshape bi} 063 lab study guide 01}
+
+\date{} % without \date command, current date is supplied
+
+\begin{document}
+
+\maketitle	% this prints the handout title, author, and date
+
+%\printclassoptions
+\section*{Science, reasoning, and the scientific method}
+
+We\marginnote{\textbf{Read:} pgs. 16--21 of your textbook.} discussed the nature of science as a way of understanding the natural world. We also learned the five steps of the scientific method that allow scientists to perform objective experiments to test hypotheses.
+
+\section*{Vocabulary}
+
+\vspace{-1\baselineskip}
+\begin{multicols}{2}
+Scientific method \\
+Inductive reasoning \\
+Deductive reasoning \\
+Observation \\
+Hypothesis \\
+Prediction \\
+Experimentation and results \\
+Conclusion
+\end{multicols}
+
+\section{Concepts}
+
+You should \emph{write} clear and concise answers to each question in the Concepts section.  Remember to ``think horizontally'' and to ``connect the dots.'' 
+
+\begin{itemize}
+
+	\item Explain the difference between inductive and deductive reasoning. After reading a paragraph description, be able to identify whether inductive or deductive reasoning is being used. For example, if you read how Isaac Newton performed a series of experiments after watching apples fall to the ground and from those experiments he developed his gravitational laws, then you should recognize that he used inductive reasoning.
+	
+	\item Explain what is meant by science being tentative, objective, and testable. How does this process remove any bias from the scientist?
+	
+	\item List the five steps of the scientific method. Explain the importance of each step to the overall process of the scientific method.
+	
+	\item You should be able to read a description\marginnote{If the hypothesis is true, then the prediction tells the expected results of the experiment. You always compare the experimental results to the prediction to decide whether the hypothesis is supported or falsified. If the results agree with the prediction, then the hypothesis is supported. If the results disagree with the prediction, the hypothesis is falsified.}  of an experiment and identify the five steps of the scientific method as described. That is, you should be able to read the description, write a sentence that tells the observation, another sentence that tells the hypothesis, and so on.  As part of this exercise, you must be able to convert a hypothesis into a prediction, and then tell whether the results agree or disagree with the prediction.  You will get practice doing this in lab and an online exercise.
+	
+	\item When writing the conclusion you must \emph{always} tell whether the hypothesis (not the prediction) was supported or falsified. For example, if you test a hypothesis that birds follow highways for migration, and then your experimental results show that birds to not follow highways, then you would state that your hypothesis was falsified.
+
+\end{itemize}
+
+\end{document}

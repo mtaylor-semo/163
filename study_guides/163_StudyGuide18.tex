@@ -1,0 +1,114 @@
+%!TEX TS-program = lualatex
+%!TEX encoding = UTF-8 Unicode
+
+\documentclass[letterpaper]{tufte-handout}
+
+%\geometry{showframe} % display margins for debugging page layout
+
+\usepackage{fontspec}
+\def\mainfont{Linux Libertine O}
+\setmainfont[Ligatures={Common,TeX}, Contextuals={NoAlternate}, BoldFont={* Bold}, ItalicFont={* Italic}, Numbers={OldStyle}]{\mainfont}
+\setsansfont[Scale=MatchLowercase, Numbers={OldStyle}]{Linux Biolinum O} 
+\usepackage{microtype}
+
+\usepackage{graphicx} % allow embedded images
+  \setkeys{Gin}{width=\linewidth,totalheight=\textheight,keepaspectratio}
+  \graphicspath{{img/}} % set of paths to search for images
+\usepackage{amsmath}  % extended mathematics
+\usepackage{booktabs} % book-quality tables
+\usepackage{units}    % non-stacked fractions and better unit spacing
+\usepackage{multicol} % multiple column layout facilities
+%\usepackage{fancyvrb} % extended verbatim environments
+%  \fvset{fontsize=\normalsize}% default font size for fancy-verbatim environments
+
+\usepackage{enumitem}
+
+\makeatletter
+% Paragraph indentation and separation for normal text
+\renewcommand{\@tufte@reset@par}{%
+  \setlength{\RaggedRightParindent}{1.0pc}%
+  \setlength{\JustifyingParindent}{1.0pc}%
+  \setlength{\parindent}{1pc}%
+  \setlength{\parskip}{0pt}%
+}
+\@tufte@reset@par
+
+% Paragraph indentation and separation for marginal text
+\renewcommand{\@tufte@margin@par}{%
+  \setlength{\RaggedRightParindent}{0pt}%
+  \setlength{\JustifyingParindent}{0.5pc}%
+  \setlength{\parindent}{0.5pc}%
+  \setlength{\parskip}{0pt}%
+}
+\makeatother
+
+% Set up the spacing using fontspec features
+   \renewcommand\allcapsspacing[1]{{\addfontfeatures{LetterSpace=15}#1}}
+   \renewcommand\smallcapsspacing[1]{{\addfontfeatures{LetterSpace=10}#1}}
+
+\title{{\scshape bi} 163 Study Guide 18}
+
+\date{} % without \date command, current date is supplied
+
+\begin{document}
+
+\maketitle	% this prints the handout title, author, and date
+
+%\printclassoptions
+\section*{Organization of life and introduction to population ecology}
+
+We\marginnote{\textbf{Read:} 2--4, 1184--1186, 1190--1193..} covered the hierarchical organization of life. We introduced ecology, then focused on the ecology of populations, and especially population growth.  Remember that a population is individuals of the same species.
+
+\section*{Vocabulary}
+
+\vspace{-1\baselineskip}
+\begin{multicols}{2}
+hierarchical organization \\
+emergent properties \\
+ecology\\
+population ecology\\
+community ecology \\
+ecosystem ecology \\
+population size\\
+population growth\\
+per capita birth rate\\
+per capita death rate\\
+exponential population growth\\
+carrying capacity\\
+logistic population growth\\
+\end{multicols}
+
+\section*{Concepts}
+
+You should \emph{write} clear and concise answers to each question in the Concepts section.  Remember to ``think horizontally'' and to ``connect the dots.'' 
+
+\begin{enumerate}
+
+	
+	\item Know the organismal and biosphere levels of hierarchical organization.\marginnote{A well-rounded biologist also should know the cellular levels.}
+	
+	\item What is meant by ``emergent properties'' when discussing the hierarchical organization of life?
+	
+	\item Define ecology. What is a population? What is population ecology?
+	
+%	\item Explain the difference between population ecology, community ecology, and ecosystem ecology.
+
+	\item How do the current ecological needs (resources)\marginnote{See lecture 11 for four of the processes. By context, you should be able to figure out the fifth.} of an individual relate to evolutionary processes (e.g., natural selection or gene flow)?   Which of the evolutionary processes that we discussed might depend on current ecological needs.  Justify each answer.
+
+\item List and briefly explain the different types of impacts that the environment can have on a population.
+
+\item What does the statement ``populations are dynamic in space and time'' mean?  Are populations always the same size in different areas or over time?  Why or why not?
+
+\item Explain how population size is regulated by births, deaths, immigration and emigration.  How could these be explained by ``the ecological needs of the individuals'' in the population.
+
+\item Explain the difference between exponential population growth and logistic population growth. 
+
+\item	Write the two equations for exponential and logistic population growth. Explain what each of the terms (variables) in each equation represents.
+
+\item Be able to draw and explain what is happening at each step of exponential and logistic growth curves. For logistic growth, be able to identify on the curve where population growth is the fastest.
+
+\textsc{Note:}  The explanation of the logistic growth curve may take more than one lecture, but the relevant material is presented here for you to consider side by side with the exponential growth curve. 
+
+\end{enumerate}
+
+\end{document}

@@ -1,0 +1,105 @@
+%!TEX TS-program = lualatex
+%!TEX encoding = UTF-8 Unicode
+
+\documentclass[letterpaper]{tufte-handout}
+
+%\geometry{showframe} % display margins for debugging page layout
+
+\usepackage{fontspec}
+\def\mainfont{Linux Libertine O}
+\setmainfont[Ligatures={Common,TeX}, Contextuals={NoAlternate}, BoldFont={* Bold}, ItalicFont={* Italic}, Numbers={OldStyle}]{\mainfont}
+\setsansfont[Scale=MatchLowercase, Numbers={OldStyle}]{Linux Biolinum O} 
+\usepackage{microtype}
+
+\usepackage{graphicx} % allow embedded images
+  \setkeys{Gin}{width=\linewidth,totalheight=\textheight,keepaspectratio}
+  \graphicspath{{img/}} % set of paths to search for images
+\usepackage{amsmath}  % extended mathematics
+\usepackage{booktabs} % book-quality tables
+\usepackage{units}    % non-stacked fractions and better unit spacing
+\usepackage{multicol} % multiple column layout facilities
+%\usepackage{fancyvrb} % extended verbatim environments
+%  \fvset{fontsize=\normalsize}% default font size for fancy-verbatim environments
+
+\usepackage{enumitem}
+
+\makeatletter
+% Paragraph indentation and separation for normal text
+\renewcommand{\@tufte@reset@par}{%
+  \setlength{\RaggedRightParindent}{1.0pc}%
+  \setlength{\JustifyingParindent}{1.0pc}%
+  \setlength{\parindent}{1pc}%
+  \setlength{\parskip}{0pt}%
+}
+\@tufte@reset@par
+
+% Paragraph indentation and separation for marginal text
+\renewcommand{\@tufte@margin@par}{%
+  \setlength{\RaggedRightParindent}{0pt}%
+  \setlength{\JustifyingParindent}{0.5pc}%
+  \setlength{\parindent}{0.5pc}%
+  \setlength{\parskip}{0pt}%
+}
+\makeatother
+
+% Set up the spacing using fontspec features
+   \renewcommand\allcapsspacing[1]{{\addfontfeatures{LetterSpace=15}#1}}
+   \renewcommand\smallcapsspacing[1]{{\addfontfeatures{LetterSpace=10}#1}}
+
+\title{{\scshape bi} 163 Study Guide 22}
+\author{Diversity and ecological succession}
+\date{} % without \date command, current date is supplied
+
+\begin{document}
+
+\maketitle	% this prints the handout title, author, and date
+
+%\printclassoptions
+We\marginnote{\textbf{Read:} 1216--1217, 1219--1220, 1222--1225.} discussed what is diversity and how it is measured, how species and disturbance affect diversity, and how ecological succession occurs after a disturbance.
+
+\section*{Vocabulary}
+
+\vspace{-1\baselineskip}
+\begin{multicols}{2}
+diversity \\
+richness \\
+evenness \\
+Shannon diversity index \\
+keystone species \\
+disturbance \\
+intermediate disturbance\\ \hspace*{1em} hypothesis \\
+ecological succession \\
+primary succession \\
+secondary succession \\
+mature (climax) community \\
+generalist species \\
+specialist species \\
+Early successional species \\
+Intermediate successional species \\
+Late successional species \\
+facilitation \\
+inhibition \\
+tolerance
+\end{multicols}
+
+\section*{Concepts}
+
+You should \emph{write} clear and concise answers to each question in the Concepts section.  Remember to ``think horizontally'' and to ``connect the dots.'' 
+
+\begin{enumerate}
+
+	\item What is species diversity? How do species richness and evenness relate to diversity?
+	
+	\item Be able to calculate diversity for a community using Shannon's\marginnote[-\baselineskip]{$H' = -\sum p_i\,\mathrm{ln}\,p_i,$ where $p_i$ is the proportion of each species in a community and $\mathrm{ln}$ is the natural log. Solve Problem 9 on page 1231 for practice.} diversity index. 
+	
+	\item Explain how a keystone species affects diversity in a community.\marginnote{It is important to remember that keystone species are not necessarily common but that they have a huge impact on diversity.}
+	
+	\item What is the difference between primary and secondary ecological succession?
+	
+	\item Describe how succession\marginnote{In most cases, succession refers to secondary succession.} proceeds after a mature community suffered a disturbance that reduced the community to bare soil. Explain when early, intermediate, and late successional species are involved. Name some of the types of plants (broadly, as in grasses, fast growing trees, etc.) are involved. Tell whether they are more likely to be generalist or specialist species.
+	
+	\item Explain the difference between facilitation, inhibition, and tolerance. Explain how these contribute to the process of succession.
+
+\end{enumerate}
+
+\end{document}

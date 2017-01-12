@@ -1,0 +1,114 @@
+%!TEX TS-program = lualatex
+%!TEX encoding = UTF-8 Unicode
+
+\documentclass[letterpaper]{tufte-handout}
+
+%\geometry{showframe} % display margins for debugging page layout
+
+\usepackage{fontspec}
+\def\mainfont{Linux Libertine O}
+\setmainfont[Ligatures={Common,TeX}, Contextuals={NoAlternate}, BoldFont={* Bold}, ItalicFont={* Italic}, Numbers={OldStyle}]{\mainfont}
+\setsansfont[Scale=MatchLowercase, Numbers={OldStyle}]{Linux Biolinum O} 
+\usepackage{microtype}
+
+\usepackage{graphicx} % allow embedded images
+  \setkeys{Gin}{width=\linewidth,totalheight=\textheight,keepaspectratio}
+  \graphicspath{{img/}} % set of paths to search for images
+\usepackage{amsmath}  % extended mathematics
+\usepackage{booktabs} % book-quality tables
+\usepackage{units}    % non-stacked fractions and better unit spacing
+\usepackage{multicol} % multiple column layout facilities
+%\usepackage{fancyvrb} % extended verbatim environments
+%  \fvset{fontsize=\normalsize}% default font size for fancy-verbatim environments
+
+\usepackage{enumitem}
+
+\makeatletter
+% Paragraph indentation and separation for normal text
+\renewcommand{\@tufte@reset@par}{%
+  \setlength{\RaggedRightParindent}{1.0pc}%
+  \setlength{\JustifyingParindent}{1.0pc}%
+  \setlength{\parindent}{1pc}%
+  \setlength{\parskip}{0pt}%
+}
+\@tufte@reset@par
+
+% Paragraph indentation and separation for marginal text
+\renewcommand{\@tufte@margin@par}{%
+  \setlength{\RaggedRightParindent}{0pt}%
+  \setlength{\JustifyingParindent}{0.5pc}%
+  \setlength{\parindent}{0.5pc}%
+  \setlength{\parskip}{0pt}%
+}
+\makeatother
+
+% Set up the spacing using fontspec features
+   \renewcommand\allcapsspacing[1]{{\addfontfeatures{LetterSpace=15}#1}}
+   \renewcommand\smallcapsspacing[1]{{\addfontfeatures{LetterSpace=10}#1}}
+
+\title{{\scshape bi} 163 study guide 23}
+\author{Ecosystems}
+\date{} % without \date command, current date is supplied
+
+\begin{document}
+
+\maketitle	% this prints the handout title, author, and date
+
+%\printclassoptions
+We\marginnote{\textbf{Read:} 1232--1237, 1239--1241, 1217--1219, 1244--1248, 1163--1165.} discussed ecosystems, trophic levels, energy flow, nutrient cycling, and how climate affects the distribution of ecosystems.
+
+\section*{Vocabulary}
+
+\vspace{-1\baselineskip}
+\begin{multicols}{2}
+food web\\
+ecosystem ecology\\
+energy \\
+nutrients \\
+trophic relationships\\
+trophic levels\\
+primary production\\
+gross primary production (\textsc{gpp})\\
+net primary production (\textsc{npp})\\
+biomass\\
+primary producer\\
+primary consumer\\
+secondary consumer\\
+tertiary consumer\\
+decomposers\\
+climate \\
+climograph \\
+rain shadow
+\end{multicols}
+
+\section*{Concepts}
+
+You should \emph{write} clear and concise answers to each question in the Concepts section.  Remember to ``think horizontally'' and to ``connect the dots.'' 
+
+\begin{enumerate}
+
+	\item Briefly describe the types of information contained in a food web diagram that is conveyed about community interactions and about ecosystems.
+
+	\item What do trophic relationships illustrate about an ecosystem?
+
+	\item Describe each of the trophic levels listed above.  Place them in the correct order to show levels with the most available energy to the least available energy.
+
+	\item About much of the sun's energy is converted captured, or fixed, by primary producers? How much energy, on average, is transferred to each higher trophic level?  How does this correspond to biomass and numbers of individuals for higher trophic levels?
+
+	\item Distinguish between gross primary production and net primary production.  Why is net primary production important for understanding ecosystem ecology?
+	
+	\item N\textsc{pp}{} is always lower than\kern.2em\textsc{gpp}. What happens to the difference?\marginnote{Primary production is the production of organic matter, measured as the amount of Carbon produced per unit area per unit time, such as kg C per m\textsuperscript{2} per year. So what happens to the organic matter produced by \textsc{gpp}{} that is not present in\kern.2em\textsc{npp}?}
+
+	\item What are nutrients?
+	
+	\item Does energy flow through an ecosystem or is it recycled?  Why?  Answer the same questions for chemical elements, such as nitrogen, carbon, or phosphorus?
+	
+	\item About how much energy is transferred\marginnote{Think of trophic levels as pyramids. Lower trophic levels go towards the base. Higher trophic levels go towards the top.} (on average) from one trophic level to the next higher trophic level? About how much biomass (on average) can be supported on one trophic level compared to the next lower trophic level.
+
+	\item What is climate?  What two physical factors make up climate? How does climate determine the distribution of ecosystems?  Be able to interpret a climograph.
+
+	\item What is a rain shadow? Explain how rain shadows work.\marginnote{On the figure, leeward means ``down-wind.''}
+
+\end{enumerate}
+
+\end{document}
