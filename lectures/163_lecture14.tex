@@ -1,0 +1,246 @@
+%!TEX TS-program = lualatex
+%!TEX encoding = UTF-8 Unicode
+
+\documentclass[t]{beamer}
+
+%%%% HANDOUTS For online Uncomment the following four lines for handout
+%\documentclass[t,handout]{beamer}  %Use this for handouts.
+%\usepackage{handoutWithNotes}
+%\pgfpagesuselayout{3 on 1 with notes}[letterpaper,border shrink=5mm]
+%	\setbeamercolor{background canvas}{bg=black!5}
+
+%\includeonlylecture{student}
+
+%%% Including only some slides for students.
+%%% Uncomment the following line. For the slides,
+%%% use the labels shown below the command.
+
+%% For students, use \lecture{student}{student}
+%% For mine, use \lecture{instructor}{instructor}
+
+% FONTS
+\usepackage{fontspec}
+\def\mainfont{Linux Biolinum O}
+\setmainfont[Ligatures={Common,TeX}, Contextuals={NoAlternate}, BoldFont={* Bold}, ItalicFont={* Italic}, Numbers={OldStyle}]{\mainfont}
+\setsansfont[Ligatures={Common,TeX}, Scale=MatchLowercase, Numbers=OldStyle, BoldFont={* Bold}, ItalicFont={* Italic},]{Linux Biolinum O} 
+\usepackage{microtype}
+
+\usepackage{graphicx}
+	\graphicspath{{/Users/goby/pictures/teach/163/lecture/}
+	{/Users/goby/pictures/teach/common/}} % set of paths to search for images
+
+\usepackage{multicol}
+%\usepackage{booktabs}
+%\usepackage{textcomp}
+\usepackage{mhchem}
+
+%\usepackage{tikz}
+%	\tikzstyle{every picture}+=[remember picture,overlay]
+%	\usetikzlibrary{arrows}
+
+\mode<presentation>
+{
+  \usetheme{Lecture}
+  \setbeamercovered{invisible}
+  \setbeamertemplate{items}[square]
+}
+
+%%% Creative Commons Licenses. Establish, then add to Beamer template.
+%\newcommand{\ccbysa}[1][4]{\textsc{cc by-sa #1.0}} % Use version 4.0 as default.
+\newcommand{\ccby}[1]{%
+	\ifx&#1&
+	{\textsc{cc by}}%
+\else
+	{\textsc{cc by #1.0}}
+\fi}
+
+
+\newcommand{\ccbysa}[1]{%
+	\ifx&#1&
+	{\textsc{cc by-sa}}%
+\else
+	{\textsc{cc by-sa #1.0}} 
+\fi}
+
+\newcommand{\ccbyncsa}[1]{%
+	\ifx&#1&
+	{\textsc{cc by-nc-sa}}%
+\else
+	{\textsc{cc by-nc-sa #1.0}}
+\fi}
+
+\newcommand{\ccbync}[1]{%
+	\ifx&#1&
+	{\textsc{cc by-nc}}%
+\else
+	{\textsc{cc by-nc #1.0}}
+\fi}
+
+
+\begin{document}
+
+\lecture{student}{student}
+\begin{frame}{Our goal for this lecture is to}
+	
+	\hangpara learn about fossils and the \highlight{fossil record},
+	
+	\hangpara get a sense of the scale of geological and evolutionary time, and
+
+	\hangpara explore the history of life on Earth.
+	
+
+\end{frame}
+%
+
+
+\begin{frame}{What is a \highlight{fossil?} }
+
+
+	\alt<handout>{}{\onslide<2->{%
+	
+	\hangpara{\itshape “A preserved remnant or impression of an organism that lived in the past.” } \hfill— Campbell Biology, 10th ed.
+	
+	
+	\hangpara{\itshape “Any remains, impression, or trace of a living thing of a former geologic age, as a skeleton, footprint, etc.”}\hfill — dictionary.com}
+	
+	}
+
+\end{frame}
+%
+\begin{frame}[t]{Many types of fossils are known, including}
+
+	\vspace*{-\baselineskip}
+
+	\begin{multicols}{2}
+
+		\includegraphics[width=0.48\textwidth]{fossil_permineralized}\vspace*{\baselineskip}
+
+		\includegraphics[width=0.48\textwidth]{fossil_tissue}
+
+	\columnbreak
+
+		\includegraphics[width=0.48\textwidth]{fossil_trace}\vspace*{\baselineskip}
+
+		Permineralized fossils (upper left)\\
+		Trace fossils (upper right)\\
+		Soft tissues (lower left)\\
+		Chemical fossils (not shown)
+
+	\end{multicols}
+
+	\vfilll
+
+	\tiny top row: Mark Wilson, Wikimedia public domain (top row). Lower left: \textcopyright Mary Schweitzer, North Carolina State University.
+
+\end{frame}
+%
+{
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{fossil_formation} }
+\begin{frame}[b]{Fossils form under specific conditions.}
+\hfill \tiny \textcopyright Roberts \& Company
+\end{frame}
+}
+%
+{
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{fossil_radiometric_dating} }
+\begin{frame}[b]{\highlight{Radiometric dating} is used to age fossils.}
+\hfill \tiny \textcopyright Roberts \& Company
+\end{frame}
+}
+%
+\begin{frame}[t]{Organisms leave distinct chemical signatures.}
+
+	\includegraphics[width=\textwidth]{radiometric_elements}
+
+	\vfilll
+	
+	\hfill \tiny mitopencourseware, Flickr, \ccbyncsa{2}.
+
+\end{frame}
+%
+{
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{fossil_relative_dating} }
+\begin{frame}[b]
+\tiny \textcopyright Roberts \& Company \hfill Jill Curie, Wikimedia, \ccbysa{3} 
+\end{frame}
+}
+%
+\begin{frame}[t]{Organisms leave distinct chemical signatures.}
+
+	\includegraphics[width=\textwidth]{fossil_chemicals}
+
+	\vfilll
+	
+	\hfill \tiny Schubotz 2009. Ph.D. Disseration, Üniversität Bremen.
+
+\end{frame}
+%
+{
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{geological_record_lower} }
+\begin{frame}[b]
+\hfill \tiny \textcopyright Pearson Education, Inc.
+\end{frame}
+}
+%
+{
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{geological_record_upper} }
+\begin{frame}[b]
+\hfill \tiny \textcopyright Pearson Education, Inc.
+\end{frame}
+}
+%
+\lecture{instructor}{instructor}
+{
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{fossil_clock1} }
+\begin{frame}[b]
+\hfill \tiny \textcopyright Pearson Education, Inc.
+\end{frame}
+}
+%
+{
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{fossil_clock2} }
+\begin{frame}[b]
+\hfill \tiny \textcopyright Pearson Education, Inc.
+\end{frame}
+}
+%
+\lecture{student}{student}
+{
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{fossil_clock3} }
+\begin{frame}[b]
+\hfill \tiny \textcopyright Pearson Education, Inc.
+\end{frame}
+}
+%
+\begin{frame}[t]{Life on Earth appeared at least 3.8 billion years ago.}
+
+	\includegraphics[width=\textwidth]{fossil_stromatolite}
+	
+	\vfilll
+	
+	\hfill \tiny \textcopyright Pearson Education, Inc.
+\end{frame}
+
+{
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{fossil_oxygen_increase} }
+\begin{frame}[b]{Cyanobacteria caused atmospheric \ce{O2} to increase about 2.4 billion years ago.}
+\tiny \textcopyright Pearson Education, Inc.
+\end{frame}
+}
+%
+{
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{fossil_eukaryote} }
+\begin{frame}[b]{Eukaryotes appeared \emph{at least} 2.1 billion years ago.}
+\tiny \textcolor{white}{Xvazquez, Wikimedia, \ccbysa{2}}
+\end{frame}
+}
+%
+\begin{frame}[t]{Eukaryotic cells evolved through \highlight{endosymbiosis.}}
+	\includegraphics[width=\textwidth]{fossil_endosymbiosis}
+	
+	\vfilll
+	
+	\hfill \tiny \textcopyright Pearson Education, Inc.
+\end{frame}
+
+\end{document}

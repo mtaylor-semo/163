@@ -1,0 +1,312 @@
+%!TEX TS-program = lualatex
+%!TEX encoding = UTF-8 Unicode
+
+%\documentclass[t]{beamer}
+
+%%%% HANDOUTS For online Uncomment the following four lines for handout
+\documentclass[t,handout]{beamer}  %Use this for handouts.
+\usepackage{handoutWithNotes}
+\pgfpagesuselayout{3 on 1 with notes}[letterpaper,border shrink=5mm]
+%	\setbeamercolor{background canvas}{bg=black!5}
+
+\includeonlylecture{student}
+
+%%% Including only some slides for students.
+%%% Uncomment the following line. For the slides,
+%%% use the labels shown below the command.
+
+%% For students, use \lecture{student}{student}
+%% For mine, use \lecture{instructor}{instructor}
+
+% FONTS
+\usepackage{fontspec}
+\def\mainfont{Linux Biolinum O}
+\setmainfont[Ligatures={Common,TeX}, Contextuals={NoAlternate}, BoldFont={* Bold}, ItalicFont={* Italic}, Numbers={OldStyle}]{\mainfont}
+\setsansfont[Ligatures={Common,TeX}, Scale=MatchLowercase, Numbers=OldStyle, BoldFont={* Bold}, ItalicFont={* Italic},]{Linux Biolinum O} 
+\usepackage{microtype}
+
+\usepackage{graphicx}
+	\graphicspath{{/Users/goby/pictures/teach/163/lecture/}
+	{/Users/goby/pictures/teach/common/}} % set of paths to search for images
+
+\usepackage{multicol}
+\usepackage{booktabs}
+\usepackage{array}
+\newcolumntype{L}[1]{>{\raggedright\let\newline\\\arraybackslash\hspace{0pt}}p{#1}}
+\newcolumntype{C}[1]{>{\centering\let\newline\\\arraybackslash\hspace{0pt}}p{#1}}
+\newcolumntype{R}[1]{>{\raggedleft\let\newline\\\arraybackslash\hspace{0pt}}p{#1}}
+%\usepackage{textcomp}
+%\usepackage{mhchem}
+\usepackage{enumitem}
+%\usepackage[export]{adjustbox}
+
+
+\usepackage{tikz}
+	\tikzstyle{every picture}+=[remember picture,overlay]
+	\usetikzlibrary{arrows}
+\usetikzlibrary{positioning}
+
+\mode<presentation>
+{
+  \usetheme{Lecture}
+  \setbeamercovered{invisible}
+  \setbeamertemplate{items}[square]
+}
+
+%%% Creative Commons Licenses. Establish, then add to Beamer template.
+%\newcommand{\ccbysa}[1][4]{\textsc{cc by-sa #1.0}} % Use version 4.0 as default.
+\newcommand{\ccby}[1]{%
+	\ifx&#1&
+	{\textsc{cc by}}%
+\else
+	{\textsc{cc by #1.0}}
+\fi}
+
+
+\newcommand{\ccbysa}[1]{%
+	\ifx&#1&
+	{\textsc{cc by-sa}}%
+\else
+	{\textsc{cc by-sa #1.0}} 
+\fi}
+
+\newcommand{\ccbyncsa}[1]{%
+	\ifx&#1&
+	{\textsc{cc by-nc-sa}}%
+\else
+	{\textsc{cc by-nc-sa #1.0}}
+\fi}
+
+\newcommand{\ccbync}[1]{%
+	\ifx&#1&
+	{\textsc{cc by-nc}}%
+\else
+	{\textsc{cc by-nc #1.0}}
+\fi}
+
+
+\begin{document}
+
+\lecture{student}{student}
+
+\begin{frame}{Our goal for this lecture is to }
+
+	\hangpara learn about the \highlight{hierarchical organization} of life.
+	
+	\hangpara introduce \highlight{ecology,} and
+	
+	\hangpara demonstrate \highlight{population growth,}
+	
+	\hangpara using \highlight{exponential} and \highlight{logistic} growth models.
+
+\end{frame}
+%
+\begin{frame}{Life is a hierarchy of increasing complexity.}
+\vspace*{-0.5\baselineskip}	
+\hangpara \begin{tabular}{@{}L{34mm}L{34mm}L{34mm}@{}}
+\toprule
+\onslide<1->Cellular 	&
+Organismal 		&
+Biosphere 		\\
+\midrule
+&	&	\\
+\onslide<2->Cell		&
+\onslide<3->Organism	&
+\onslide<9->\alt<handout>{\rule{30mm}{0.4pt}}{Landscape}\\[1em]
+%
+\onslide<2->Organelle		&
+\onslide<3->Organ System	&
+\onslide<8->\alt<handout>{\rule{30mm}{0.4pt}}{Ecosystem}\\[1em]
+%
+\onslide<2->Macromolecules	&
+\onslide<3->Organ			&
+\onslide<7->\alt<handout>{\rule{30mm}{0.4pt}}{Community} \\[1em]
+%
+\onslide<2->Molecule		&
+\onslide<3->Tissue			&
+\onslide<6->\alt<handout>{\rule{30mm}{0.4pt}}{Species}	\\[1em]
+%
+\onslide<2->Atom			&
+						&
+\onslide<5->\alt<handout>{\rule{30mm}{0.4pt}}{Population}\\[1em]
+%\bottomrule
+\end{tabular}
+
+\only<4>{\alt<handout>{}{\hangpara In groups, discuss what levels make up the biosphere.}}
+
+\onslide<10->\hangpara\highlight{Emergent properties} are properties of life present at one level that were not present in lower levels.
+
+\onslide<11->\hangpara What levels do you think are encompassed by evolution?  By ecology? 
+\end{frame}
+%
+{
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{ecosystem} }
+\begin{frame}[b]{\hfill What is ecology?}
+	\tiny\textcolor{white}{Jeff Taylor, Wikimedia, \ccbysa{3}.}%Elwha River Photo by
+\end{frame}
+}
+%
+\begin{frame}[t]{Ecology has many fields of study.}
+	\begin{minipage}[t]{0.6\textwidth}
+		\vspace{0pt}
+		\includegraphics[width=0.99\textwidth]{ecology_disciplines}
+	\end{minipage}
+	\hfill
+	\begin{minipage}[t]{0.3\textwidth}
+		\vspace{0pt}
+		\highlight{Population}\\
+		\highlight{Community}\\
+		\highlight{Ecosystem}\\
+		Landscape\\
+		Evolutionary\\
+		Behavioral\\
+		Nutritional\\
+		many more\dots
+	\end{minipage}	
+\end{frame}
+%
+{
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{population_meerkats} }
+\begin{frame}[b]{\textcolor{white}{What is a population?}}
+
+	\tiny\textcolor{white}{Spencer Wright, Flickr, \ccby{2}.}
+\end{frame}
+}
+%
+{
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{population_dynamics} }
+\begin{frame}[b]{Populations vary in space and time.}
+
+	\hfill \tiny Fig. 53.3 \textcopyright Pearson Education, Inc.
+\end{frame}
+}
+{
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{Ecoli} }
+\begin{frame}[b]{\textcolor{white}{Meet \textit{Escherichia coli.}}}
+\tiny \hfill \textcolor{white}{NIAID, National Institutes of Health, public domain.}%E. coli
+\end{frame}
+}
+
+\begin{frame}{}
+
+	\hangpara\Large What factors do we need to account for population growth under \highlight{idealized} conditions? 
+	
+\end{frame}
+
+
+\begin{frame}{Population growth depends on birth and death rates.}
+
+	\hangpara \textit{b} = per capita birth rate (number born per 1000 individuals). \pause
+	
+	\hangpara \textit{d} = per capita death rate (number died per 1000 individuals). \pause
+	
+	\hangpara \textit{r} = \textit{b} – \textit{d} = intrinsic rate of population growth. \pause
+	
+	\hangpara If \textit{r} \textgreater{} 0, then population is growing larger.
+	
+	\hangpara If \textit{r} \textless{} 0 then population is growing smaller.
+	
+	
+\end{frame}
+
+
+
+\begin{frame}{\highlight{Exponential growth} occurs only in idealized conditions.}
+	\begin{center}
+		\Huge $\frac{\Delta N}{\Delta t} = rN$
+	\end{center}
+	
+	\hangpara $\Delta N = $ change in population size,
+
+	\hangpara $\Delta t = $ change in time,
+	
+	\hangpara $r = $ intrinsic rate of population growth, and
+	
+	\hangpara $N = $ size of the population.
+	
+\end{frame}
+
+
+{
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{exponential_growth} }
+\begin{frame}[b]
+\end{frame}
+}
+
+
+{
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{human_population_growth} }
+\begin{frame}[b]
+
+
+\end{frame}
+}
+
+\begin{frame}{}
+
+	\hangpara\Large Most populations do not grow under idealized conditions.
+	
+	\hangpara\Large What else do we need to account for?
+	
+	\pause
+	\hangpara \highlight{Carrying capacity.}
+	
+\end{frame}
+
+
+\begin{frame}{\highlight{Logistic growth} occurs in natural conditions.}
+	\begin{center}
+		\Huge $\frac{\Delta N}{\Delta t} = rN\frac{(K-N)}{K}$
+	\end{center}
+	
+	\hangpara $\Delta N = $change in population size,
+
+	\hangpara $\Delta t = $ change in time,
+	
+	\hangpara $r = $ intrinsic rate of population growth, 
+	
+	\hangpara $N = $ size of the population, and
+	
+	\hangpara \highlight{$K = $ carrying capacity.}
+	
+\end{frame}
+
+\begin{frame}
+
+\hangpara Assume $r = 1.0$.
+
+\hangpara If $K = 3000$ and $N = 1000$, \pause then
+
+\hangpara {\Large $\frac{(K-N)}{K} = \frac{(3000-1000)}{3000} =  \frac{2}{3}$.}
+
+\hangpara This means that 2/3 of resources are \emph{still available} for population growth. \pause Therefore,
+
+\hangpara {\Large $\frac{\Delta N}{\Delta t} = rN\frac{(K-N)}{K}$}  $= (1.0)(1000)(\frac{2}{3}) = 666.67$ individuals added.
+
+\end{frame}
+
+
+\begin{frame}
+
+\hangpara Assume $r = 1.0$.
+
+\hangpara If $K = 3000$ and $N = 2000$, \pause then
+
+\hangpara {\Large $\frac{(K-N)}{K} = \frac{(3000-2000)}{3000} =  \frac{1}{3}$.}
+
+\hangpara This means that 1/3 of resources are available for population growth. \pause Therefore,
+
+\hangpara {\Large $\frac{\Delta N}{\Delta t} = rN\frac{(K-N)}{K}$}  $= (1.0)(1000)(\frac{1}{3}) = 333.33$ individuals added.
+
+\end{frame}
+
+
+
+{
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{logistic_growth} }
+\begin{frame}{}
+\end{frame}
+}
+
+
+\end{document}

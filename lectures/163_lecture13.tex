@@ -1,0 +1,321 @@
+%!TEX TS-program = lualatex
+%!TEX encoding = UTF-8 Unicode
+
+\documentclass[t]{beamer}
+
+%%%% HANDOUTS For online Uncomment the following four lines for handout
+%\documentclass[t,handout]{beamer}  %Use this for handouts.
+%\usepackage{handoutWithNotes}
+%\pgfpagesuselayout{3 on 1 with notes}[letterpaper,border shrink=5mm]
+%	\setbeamercolor{background canvas}{bg=black!5}
+
+%\includeonlylecture{student}
+
+%%% Including only some slides for students.
+%%% Uncomment the following line. For the slides,
+%%% use the labels shown below the command.
+
+%% For students, use \lecture{student}{student}
+%% For mine, use \lecture{instructor}{instructor}
+
+% FONTS
+\usepackage{fontspec}
+\def\mainfont{Linux Biolinum O}
+\setmainfont[Ligatures={Common,TeX}, Contextuals={NoAlternate}, BoldFont={* Bold}, ItalicFont={* Italic}, Numbers={OldStyle}]{\mainfont}
+\setsansfont[Ligatures={Common,TeX}, Scale=MatchLowercase, Numbers=OldStyle, BoldFont={* Bold}, ItalicFont={* Italic},]{Linux Biolinum O} 
+\usepackage{microtype}
+
+\usepackage{graphicx}
+	\graphicspath{{/Users/goby/pictures/teach/163/lecture/}
+	{/Users/goby/pictures/teach/common/}} % set of paths to search for images
+
+%\usepackage{multicol}
+\usepackage{booktabs}
+%\usepackage{textcomp}
+
+\usepackage{tikz}
+	\tikzstyle{every picture}+=[remember picture,overlay]
+%	\usetikzlibrary{arrows}
+
+\mode<presentation>
+{
+  \usetheme{Lecture}
+  \setbeamercovered{invisible}
+  \setbeamertemplate{items}[square]
+}
+
+%%% Creative Commons Licenses. Establish, then add to Beamer template.
+%\newcommand{\ccbysa}[1][4]{\textsc{cc by-sa #1.0}} % Use version 4.0 as default.
+\newcommand{\ccby}[1]{%
+	\ifx&#1&
+	{\textsc{cc by}}%
+\else
+	{\textsc{cc by #1.0}}
+\fi}
+
+
+\newcommand{\ccbysa}[1]{%
+	\ifx&#1&
+	{\textsc{cc by-sa}}%
+\else
+	{\textsc{cc by-sa #1.0}} 
+\fi}
+
+\newcommand{\ccbyncsa}[1]{%
+	\ifx&#1&
+	{\textsc{cc by-nc-sa}}%
+\else
+	{\textsc{cc by-nc-sa #1.0}}
+\fi}
+
+\newcommand{\ccbync}[1]{%
+	\ifx&#1&
+	{\textsc{cc by-nc}}%
+\else
+	{\textsc{cc by-nc #1.0}}
+\fi}
+
+
+\begin{document}
+
+\lecture{instructor}{instructor}
+\begin{frame}{High score = 98. Mean score = 74.1.}
+
+\includegraphics[width=\textwidth, page=1]{163exam1grades.pdf}
+
+\end{frame}
+
+\lecture{student}{student}
+\begin{frame}{Our goal for this lecture is to learn}
+	
+	\hangpara how \highlight{reproductive isolation} evolves,
+	
+	\hangpara learn how \highlight{allopatric} distributions contribute to speciation,
+	
+	\hangpara learn what happens in \highlight{hybrid zones}, 
+	
+	\hangpara learn what are \highlight{ring species,} and
+	
+	\hangpara ask whether speciation can occur with gene flow.
+	
+	\hangpara 
+
+\end{frame}
+%
+
+
+\begin{frame}{\highlight{Speciation} occurs when two new species evolve from single ancestor.}
+
+	\centering
+	\begin{tikzpicture}
+		[remember picture, overlay,
+		myLine/.style={color=black,very thick},
+		myArrow/.style={color=orange6, thick, ->}]
+
+		\draw [myLine] (-3,-2) -- (0,-2);
+		\draw [myLine] (0,-2) -- (0,-0.7); % vertical lines
+		\draw [myLine] (0,-2) -- (0,-3.3);
+		\draw [myLine] (0,-0.7) -- (3,-0.7); % descendants
+		\draw [myLine] (0,-3.3) -- (3,-3.3); 
+
+		% Speciation
+		\node [color=orange6] (speciation) at (-1.5,-3.1) {Speciation};
+		\node [circle, draw=orange6, thick, minimum size=3mm] (speccirc) at (0,-2) {};
+		\draw [color=orange6, thick] (speciation) edge (speccirc);
+		
+		% Ancestor 
+		\node [color=blue6] at (-1.5,-1.8) {Ancestor};
+		
+		% Descendants
+		\node [color=blue6] at (1.5,-0.5) {New Species};
+		\node [color=blue6] at (1.5,-3.1) {New Species};
+
+	\end{tikzpicture}
+\end{frame}
+
+\begin{frame}{Isolating mechanisms are \highlight{prezygotic} or \highlight{postzygotic}.}
+	\vspace{2\baselineskip}
+	\centering
+	\begin{tabular}{l l l}
+	\toprule
+	{\large \highlight{Prezygotic}}	& or &	{\large Postzygotic}\\
+	\midrule
+	Habitat	& & Sterility \\
+	Behavioral & &	Inviability \\
+	Temporal	& &	Breakdown \\
+	Mechanical 	& & 	\\
+	Gamete Incompatibility	& & \\
+	\bottomrule
+	\end{tabular}
+
+	\hangpara Study pages 502--503 for details of mechanisms we do not cover in lecture.
+\end{frame}
+
+{
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{prezygotic_habitat} }
+\begin{frame}[b]{\textcolor{white}{Columbine flowers live in different \textcolor{orange5}{habitats.}} }
+\tiny \textcolor{white}{Dcrjsr, Wikimedia, \ccbysa{3}. \hfill Steve Berardi, Flickr, \ccbyncsa{2}. \href{https://www.youtube.com/watch?v=Iwfs2TDYg-8}{Video}}
+\end{frame}
+}
+
+{
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{prezygotic_behavior} }
+\begin{frame}[b]{}
+\hfill \tiny  \textcolor{white}{Vince Smith, Wikimedia, \ccbysa{2}. \href{https://www.youtube.com/watch?v=z922by9_6Fw}{Video} }
+\end{frame}
+}
+
+{
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{prezygotic_gamete} }
+\begin{frame}[b]{\textcolor{white}{Many marine species have} \textcolor{orange5}{incompatible gametes.}}
+\tiny \textcolor{white}{Emma Hickerson, \textsc{noaa}, public domain. \href{https://www.youtube.com/watch?v=wsaZ8-I7akg}{Video}}
+\end{frame}
+}
+
+
+{
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{allo_sym_speciation} }
+\begin{frame}[b]{\highlight{Allopatric speciation} occurs from geographic isolation.}
+\hfill \tiny \textcopyright Pearson Education, Inc.
+\end{frame}
+}
+
+{
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{allopatric_chipmunks} }
+\begin{frame}[b]
+\hfill \tiny \textcopyright Pearson Education, Inc.
+\end{frame}
+}
+
+{
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{allopatric_snapping_shrimp} }
+\begin{frame}[b]{Allopatric speciation can be detected with phylogenetic trees.}
+\tiny  Julio Duarte, Flickr, \ccbyncsa{2} \hfill Knowlton et al. 1993. Science 260: 1629.
+\end{frame}
+}
+
+{
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{allopatric_shrimp2} }
+\begin{frame}[b]
+\tiny  \textcopyright Pearson Education, Inc.
+\end{frame}
+}
+
+\begin{frame}{Isolating mechanisms are \highlight{prezygotic} or \highlight{postzygotic}.}
+	\vspace{2\baselineskip}
+	\centering
+	\begin{tabular}{l l l}
+	\toprule
+	{\large Prezygotic}	& or &	{\large \highlight{Postzygotic}}\\
+	\midrule
+	Habitat	& & Sterility \\
+	Behavioral & &	Inviability \\
+	Temporal	& &	Breakdown \\
+	Mechanical 	& & 	\\
+	Gamete Incompatibility	& & \\
+	\bottomrule
+	\end{tabular}
+
+	\hangpara Study pages 502--503 for details of mechanisms we do not cover in lecture.
+\end{frame}
+
+{
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{postzygotic_sterility} }
+\begin{frame}[b]{\highlight{Hybrid sterility} means that hybrid offspring cannot reproduce.}
+\hfill \tiny\textcolor{white}{\textcopyright Pearson Education, Inc.}
+\end{frame}
+}
+
+
+{
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{postzygotic_inviability} }
+\begin{frame}[b]{}
+\hfill \tiny\textcolor{white}{\textcopyright Sinauer Associates, Inc.}
+\end{frame}
+}
+
+{
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{hybrid_zone_toads} }
+\begin{frame}[b]{\textit{Bombina} hybrids have reduced fitness relative to parent species.}
+\tiny \textcopyright Pearson Education, Inc.
+\end{frame}
+}
+
+\begin{frame}[t]{\highlight{Hybrid zones} can form if reproductive isolation has not evolved completely.}
+
+	\alt<handout>{}{\includegraphics<1>[width=\textwidth]{hybrid_zone1}
+	\includegraphics<2>[width=\textwidth]{hybrid_zone2}}
+	\includegraphics<3>[width=\textwidth]{hybrid_zone3}
+
+	\vfilll 
+	
+\onslide<1->\hfill \tiny \textcopyright Pearson Education, Inc.	
+\end{frame}
+
+\begin{frame}[t]{Hybrid zones can have three possible outcomes. \phantom{if isolation has not evolved completely.}}
+
+	\includegraphics[width=\textwidth]{hybrid_zone4}
+
+	\vfilll 
+
+\hfill \tiny \textcopyright Pearson Education, Inc.	
+\end{frame}
+
+{
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{hybrid_zone_toads} }
+\begin{frame}[b]{\textit{Bombina} toads have a stable hybrid zone.}
+\tiny \textcopyright Pearson Education, Inc.
+\end{frame}
+}
+
+\lecture{instructor}{instructor}
+{
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{hybrid_reinforcement1} }
+\begin{frame}[b]{Two flycatcher species may hybridize with each other.}
+\hfill \tiny \textcopyright Pearson Education, Inc.
+\end{frame}
+}
+%
+\lecture{student}{student}
+{
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{hybrid_reinforcement2} }
+\begin{frame}[b]{\highlight{Reinforcement} reduces chance of forming hybrids.}
+\hfill \tiny \textcopyright Pearson Education, Inc.
+\end{frame}
+}
+
+\begin{frame}[t]
+	\alt<handout>{}{\frametitle<1>{How many species do you see?}
+	\frametitle<2>{Do you still see the same number?}}
+	\frametitle<3>{Females of these species use visual cues to identify males.}
+
+	\centering
+	\alt<handout>{}{\includegraphics<1>[width=\textwidth]{cichlid_species1}
+	\includegraphics<2>[width=\textwidth]{cichlid_species2}}
+	\includegraphics<3>[width=\textwidth]{cichlid_species3}
+		
+	\vfilll
+	
+	\hfill \tiny \textcopyright Pearson Education, Inc.
+\end{frame}
+
+
+\begin{frame}[t]{\highlight{Fusion} reverses the speciation process.}
+
+	\centering
+	\includegraphics[height=0.85\textheight]{hybrid_fusion}
+
+	\vfilll
+	
+	\hfill \tiny \textcopyright Pearson Education, Inc.
+\end{frame}
+
+{
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{ensatina_ring_species} }
+\begin{frame}[b]{\highlight{Ring species} can interbreed along a ring but not where the ends of the ring meet.}
+	
+\tiny Devitt et al. 2011. BMC Evolutionary Biology 11: 245.
+\end{frame}
+}
+
+\end{document}

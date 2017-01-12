@@ -1,0 +1,295 @@
+%!TEX TS-program = lualatex
+%!TEX encoding = UTF-8 Unicode
+
+%\documentclass[t]{beamer}
+
+%%%% HANDOUTS For online Uncomment the following four lines for handout
+\documentclass[t,handout]{beamer}  %Use this for handouts.
+\usepackage{handoutWithNotes}
+\pgfpagesuselayout{3 on 1 with notes}[letterpaper,border shrink=5mm]
+%	\setbeamercolor{background canvas}{bg=black!5}
+
+\includeonlylecture{student}
+
+%%% Including only some slides for students.
+%%% Uncomment the following line. For the slides,
+%%% use the labels shown below the command.
+
+%% For students, use \lecture{student}{student}
+%% For mine, use \lecture{instructor}{instructor}
+
+
+%\usepackage{pgf,pgfpages}
+%\pgfpagesuselayout{4 on 1}[letterpaper,border shrink=5mm]
+
+% FONTS
+\usepackage{fontspec}
+\def\mainfont{Linux Biolinum O}
+\setmainfont[Ligatures={Common,TeX}, Contextuals={NoAlternate}, BoldFont={* Bold}, ItalicFont={* Italic}, Numbers={OldStyle}]{\mainfont}
+\setsansfont[Ligatures={Common,TeX}, Scale=MatchLowercase, Numbers=OldStyle]{Linux Biolinum O} 
+\usepackage{microtype}
+
+\usepackage{graphicx}
+	\graphicspath{{/Users/goby/pictures/teach/163/lecture/}
+	{/Users/goby/pictures/teach/common/}} % set of paths to search for images
+
+\usepackage{multicol}
+\usepackage{booktabs}
+%\usepackage{textcomp}
+
+\usepackage{tikz}
+	\tikzstyle{every picture}+=[remember picture,overlay]
+	\usetikzlibrary{arrows}
+
+\mode<presentation>
+{
+  \usetheme{Lecture}
+  \setbeamercovered{invisible}
+  \setbeamertemplate{items}[square]
+}
+
+%\usefonttheme[onlymath]{serif}
+%\usecolortheme[named=blue7]{structure}
+
+\newcommand{\btVFill}{\vskip0pt plus 1filll}
+
+%\usepackage{ccicons}
+
+
+%%% Creative Commons Licenses. Establish, then add to Beamer template.
+%\newcommand{\ccbysa}[1][4]{\textsc{cc by-sa #1.0}} % Use version 4.0 as default.
+\newcommand{\ccby}[1]{%
+	\ifx&#1&
+	{\textsc{cc by}}%
+\else
+	{\textsc{cc by #1.0}}
+\fi}
+
+
+\newcommand{\ccbysa}[1]{%
+	\ifx&#1&
+	{\textsc{cc by-sa}}%
+\else
+	{\textsc{cc by-sa #1.0}} 
+\fi}
+
+\newcommand{\ccbyncsa}[1]{%
+	\ifx&#1&
+	{\textsc{cc by-nc-sa}}%
+\else
+	{\textsc{cc by-nc-sa #1.0}}
+\fi}
+
+\newcommand{\ccbync}[1]{%
+	\ifx&#1&
+	{\textsc{cc by-nc}}%
+\else
+	{\textsc{cc by-nc #1.0}}
+\fi}
+
+
+\begin{document}
+
+\lecture{student}{student}
+\begin{frame}[t]{Our goals for this lecture are to learn}
+
+	
+	\hangpara	the difference between \highlight{phenotype} and \highlight{genotype,} and
+
+	\hangpara how phenotype changes in response to different \highlight{modes of selection.}
+	
+\end{frame}
+
+%
+{
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{individuals_vary}}
+\begin{frame}[b]
+\hfill\textcolor{white}{\tiny \textcopyright Entomart, Wikimedia}
+\end{frame}
+}
+% Why do populations vary?
+\begin{frame}[t]{The traits of an organism is called the \highlight{phenotype.}}
+	\centering
+	\includegraphics[width=0.8\textwidth]{individuals_vary_plain}\par
+	
+	\btVFill
+	
+	\hfill\tiny \textcopyright Entomart, Wikimedia
+
+\end{frame}
+%
+\begin{frame}[t]{What causes the \highlight{phenotype} to vary?}
+	\centering
+	\includegraphics[width=0.8\textwidth]{individuals_vary_plain}
+	
+		\btVFill
+	
+	\hfill\tiny \textcopyright Entomart, Wikimedia
+
+\end{frame}
+%
+\begin{frame}[t]{The phenotype is determined by the \highlight{genotype.}}
+
+	\begin{multicols}{2}
+	
+		\includegraphics[width=0.45\textwidth]{punnett_square_genotype_phenotype}
+	
+	\columnbreak
+
+	The genotype is the genetic makeup of the organism.\vspace*{2\baselineskip}
+	
+	The genotype is the combination of alleles for one or more gene.
+	
+	\end{multicols}
+	
+	\btVFill
+	
+	\tiny Madeleine Price Ball, Wikimedia, \textsc{cc0}
+
+\end{frame}
+
+% Genotype and phenotype
+%\lecture{instructor}{instructor}
+{
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{chromosomes}}
+\begin{frame}[c,plain]
+	\begin{tikzpicture}[remember picture, overlay]
+
+	\alt<handout>{}{\visible <1,6->{
+		\node at (0.45,2) [right] {The \highlight{genotype} is the genetic makeup of the organism.};}
+	
+	\visible <7>{
+		\node at (0.45,1.4)[right] {The \highlight{phenotype} is the physical expression of the genotype.};
+	}}
+		
+	
+	\alt<handout>{}{\visible <2>{
+		\draw (3,-2.5) -- (3,0.5) -- (3.9,0.5) -- (3.9,-2.5) -- cycle ;
+		\draw (6,-2.5) -- (6,0.5) -- (6.9,0.5) -- (6.9,-2.5) -- cycle ;
+		\draw (9,-2.5) -- (9,0.5) -- (9.9,0.5) -- (9.9,-2.5) -- cycle ;
+	
+		\node at (6.4, 2) (gene) {Gene or Locus};
+	
+		\draw (gene.south west) -- (3.9,0.5);
+		\draw (gene.south) -- (6.45,0.5);
+		\draw (gene.south east) -- (9,0.5);
+	}}
+	
+	\visible <3-4>{
+		\node at (3.45,0.25) (Callele) {$C$};
+		\node at (3.45,-2.25) {$C$};
+
+		\node at (6.45,0.25) (aallele) {$a$};
+		\node at (6.45,-2.25) {$a$};
+	}
+
+	\visible <3,5>{
+		\node at (9.45,0.25) (Tallele) {$T$};
+		\node at (9.45,-2.25) {$t$};
+	}
+	
+	\alt<handout>{}{\visible <3>{
+		\node at (6.4, 2) (allele) {Allele};
+		\draw (allele.south west) -- (Callele.north east);
+		\draw (allele.south) -- (aallele.north);
+		\draw (allele.south east) -- (Tallele.north west);
+	}}
+
+	\visible <4> {
+		\draw (3,-2.5) -- (3,0.5) -- (3.9,0.5) -- (3.9,-2.5) -- cycle ;
+		\draw (6,-2.5) -- (6,0.5) -- (6.9,0.5) -- (6.9,-2.5) -- cycle ;
+
+		\node at (3.45, 1.25) (hc) {\highlight{Homozygous,} $C$ allele};
+		\node at (6.45, -3.5) (ac) {Homozygous, $a$ allele};
+
+		\draw (hc.south) -- (3.45,0.5);
+		\draw (ac.north) -- (6.45,-2.5);
+	}
+	
+	\visible <5> {
+		\draw (9,-2.5) -- (9,0.5) -- (9.9,0.5) -- (9.9,-2.5) -- cycle ;
+
+		\node at (9.45, 1.25) (tc) {\highlight{Heterozygous,} $T$ allele};
+
+		\draw (tc.south) -- (9.45,0.5);
+	}
+	\end{tikzpicture}
+\end{frame}
+}
+%
+\lecture{student}{student}
+
+\begin{frame}[t]{If natural selection changes the phenotype, what also had to change?}
+
+\hangpara Three \highlight{modes of selection} describe \emph{how} the phenotype changes in a population.
+
+\hangpara The modes do not say \emph{why} the phenotype changes.
+
+\end{frame}
+%
+\begin{frame}{\highlight{Directional} selection shifts the population toward \emph{one} extreme phenotype.}
+	\centering
+	\begin{columns}[T]
+		\begin{column}{0.5\textwidth}
+			\centering
+			\includegraphics[width=0.9\textwidth]{mode_original}
+		\end{column}
+		\begin{column}{0.5\textwidth}
+			\pause\includegraphics[width=0.9\textwidth]{mode_directional}
+		\end{column}
+	\end{columns}
+\end{frame}
+%
+{
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{scissortail_flycatcher} }
+\begin{frame}[b]{Females prefer longer tails in male scissortail flycatchers.}
+
+	\hfill\tiny{TexasEagle, Flickr, \ccbync{2}}
+
+\end{frame}
+}
+%
+\begin{frame}{\highlight{Disruptive} selection shifts the population toward \emph{both} extreme phenotypes.}
+	\centering
+	\begin{columns}[T]
+		\begin{column}{0.5\textwidth}
+			\centering
+			\includegraphics[width=0.9\textwidth]{mode_original}
+		\end{column}
+		\begin{column}{0.5\textwidth}
+			\includegraphics[width=0.9\textwidth]{mode_disruptive}
+		\end{column}
+	\end{columns}
+\end{frame}
+%
+{
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{geospiza_fortis} }
+\begin{frame}[b,plain]{Beak size is diverging in \textit{Geospiza fortis.}}
+
+	\tiny\textcolor{white}{Mark Putney, Flickr, \ccbysa{2}} \pause\hfill\includegraphics[width=0.45\textwidth]{geospiza_fortis_disruptive}
+
+\end{frame}
+}
+%
+\begin{frame}{\highlight{Stabilizing} selection shifts the population toward the intermediate phenotype.}
+	\centering
+	\begin{columns}[T]
+		\begin{column}{0.5\textwidth}
+			\centering
+			\includegraphics[width=0.9\textwidth]{mode_original}
+		\end{column}
+		\begin{column}{0.5\textwidth}
+			\includegraphics[width=0.9\textwidth]{mode_stabilizing}
+		\end{column}
+	\end{columns}
+\end{frame}
+%
+{
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{balancing_selection} }
+\begin{frame}[b]{}
+
+\tiny\textcopyright Pearson Education, Inc.
+\end{frame}
+}
+
+\end{document}

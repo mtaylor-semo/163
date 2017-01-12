@@ -1,0 +1,200 @@
+\documentclass[t]{beamer}
+
+%%%% HANDOUTS For online Uncomment the following four lines for handout
+%\documentclass[t,handout]{beamer}  %Use this for handouts.
+%\usepackage{handoutWithNotes}
+%\pgfpagesuselayout{3 on 1 with notes}[letterpaper,border shrink=5mm]
+%\pgfpagesuselayout{4 on 1}[border shrink=2mm]
+%	\setbeamercolor{background canvas}{bg=black!5}
+
+\includeonlylecture{student}
+
+
+
+%\usepackage{pgf,pgfpages}
+%\pgfpagesuselayout{4 on 1}[letterpaper,border shrink=5mm]
+
+\usepackage{amsmath,amssymb}
+\usepackage{graphicx}
+	\graphicspath{{/Users/goby/pictures/teach/153/lecture/}} % set of paths to search for images
+%\usepackage{units}
+\usepackage{booktabs}
+\usepackage{multicol}
+%	\setlength{\columnsep=1em}
+%\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{helvet}
+\usepackage{textcomp}
+\usepackage{setspace}
+\usepackage{tikz}
+	\tikzstyle{every picture}+=[remember picture,overlay]
+
+\mode<presentation>
+{
+  \usetheme{Lecture}
+  \setbeamercovered{invisible}
+  \setbeamertemplate{items}[square]
+}
+
+\usefonttheme[onlymath]{serif}
+
+\begin{document}
+
+%\begin{frame}{Anscombe's Quartet \tiny (Informational only.)}
+%	\begin{center}
+%	\small
+%	\begin{tabular}{@{}rrcrrcrrcrr@{}} \toprule
+%	\multicolumn{2}{c}{I} & \phantom{|} & \multicolumn{2}{c}{II} & \phantom{l} & \multicolumn{2}{c}{III} & \phantom{l} & \multicolumn{2}{c}{IV}\\
+%
+%\cmidrule{1-2} \cmidrule{4-5} \cmidrule{7-8} \cmidrule{10-11}
+%$x$ & $y$ && $x$ & $y$ && $x$ & $y$ && $x$ & $y$\\	
+%10.0 & 8.04 & & 10.0 & 9.14  & &  10.0 & 7.46  & &  8.0 & 6.58\\
+%8.0 & 6.95 & & 8.0 & 8.14 & & 8.0 & 6.77 & & 8.0 & 5.76\\
+%13.0 & 7.58 & & 13.0 & 8.74 & & 13.0 & 12.74 & & 8.0 & 7.71\\
+%9.0 & 8.81 & & 9.0 & 8.77 & & 9.0 & 7.11 & & 8.0 & 8.84\\
+%11.0 & 8.33 & & 11.0 & 9.26 & & 11.0 & 7.81 & & 8.0 & 8.47\\
+%14.0 & 9.96 & & 14.0 & 8.10 & & 14.0 & 8.84 & & 8.0 & 7.04\\
+%6.0 & 7.24 & & 6.0 & 6.13 & & 6.0 & 6.08 & & 8.0 & 5.25\\
+%4.0 & 4.26 & & 4.0 & 3.10 & & 4.0 & 5.39 & & 19.0 & 12.50\\
+%12.0 & 10.84 & & 12.0 & 9.13 & & 12.0 & 8.15 & & 8.0 & 5.56\\
+%7.0 & 4.82 & & 7.0 & 7.26 & & 7.0 & 6.42 & & 8.0 & 7.91\\
+%5.0 & 5.68 & & 5.0 & 4.74 & & 5.0 & 5.73 & & 8.0 & 6.89\\
+%\bottomrule
+%\end{tabular}
+%\end{center}
+%
+%\vspace{-1\baselineskip}
+%\hangpara For all $x$ columns, $\bar{X} = 9.00$ and $\sigma^2 = 11.00$\\
+%For all $y$ columns, $\bar{Y} = 7.50$ and $\sigma^2 = 4.12$
+%\end{frame}
+%
+%{
+%\usebackgroundtemplate{\includegraphics[width=\paperwidth]{anscombes_quartet} }
+%\begin{frame}{}
+%\end{frame}
+%}
+%
+%{
+%\usebackgroundtemplate{\includegraphics[width=\paperwidth]{iris_results.pdf} }
+%\begin{frame}{}
+%\end{frame}
+%}
+
+
+% Lecture goals
+
+\begin{frame}[t]{A sobering view\dots}
+
+	\vspace*{-\baselineskip}
+	
+	\hangpara $N$ = 164 \hfill $\overline{X}$ = 66.9 \pm 1.1 points. \hfill High = 100 (2 students)\\[2ex]
+
+	\includegraphics[width=\textwidth]{153exam1grades_sp16}
+	
+\end{frame}
+
+\begin{frame}{Our goal for this lecture is to}
+
+	\hangpara show how real populations grow compared to the logistic growth curve, and
+	
+	\hangpara learn how \highlight{negative feedback} controls \highlight{density-dependent} population growth, and
+	
+	\hangpara learn how \highlight{density-independent} factors control population growth.
+	
+\end{frame}
+
+{
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{real_populations_daphnia} }
+\begin{frame}{Populations initially \highlight{exceed} carrying capacity.}
+\end{frame}
+}
+
+{
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{real_populations_sparrow} }
+\begin{frame}{Populations \highlight{fluctuate around} carrying capacity.}
+\end{frame}
+}
+
+
+\begin{frame}{}
+
+	\hangpara \highlight{Density-dependent} population regulation occurs when high population density \highlight{decreases birth rate} or \highlight{increases death rate}.
+	
+	\hangpara What would happen to population size ($N$) over time?
+	
+\end{frame}
+
+{
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{density_dependent_song_sparrow} }
+\begin{frame}[b]{}
+\Tiny\textcolor{gray!20!white}{Song sparrow \textit{Melospiza melodia} photo by Keith, Wikimedia Commons.}
+\end{frame}
+}
+
+{
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{density_dependent_sparrow_nest} }
+\begin{frame}[b]{}
+\Tiny\textcolor{gray!20!white}{Song sparrow \textit{Melospiza melodia} nest photo by K.P. McFarland, Flickr, Creative Commons.}
+\end{frame}
+}
+
+
+\begin{frame}[b]{How does clutch size change? Why?}
+	\begin{center}
+		\includegraphics[height=0.8\textheight]{density_dependent_clutchsize.pdf}
+	\end{center}	
+
+	\tiny Arcese and Smith 1988, J. Animal Ecology 57: 119-136.
+\end{frame}
+
+\begin{frame}[b]{How does nest failure change? Why?}
+	\begin{center}
+		\includegraphics[height=0.8\textheight]{density_dependent_failure.pdf}
+	\end{center}	
+
+	\tiny Arcese and Smith 1988, J. Animal Ecology 57: 119-136.
+\end{frame}
+
+
+{
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{density_dependent_territory} }
+\begin{frame}[b]{}
+\Tiny\textcolor{orange5}{Gannets \textit{Morus serrator}, Muriwai Regional Park, New Zealand photo by Foliash, Wikimedia Commons.}
+\end{frame}
+}
+
+{
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{density_dependent_lynx_hare} }
+\begin{frame}[b]{}
+\end{frame}
+}
+
+
+\begin{frame}{}
+
+	\hangpara \highlight{Density-independent} population regulation decreases birth rate or increases death rate \highlight{regardless} of current population size.
+		
+\end{frame}
+
+{
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{density_independent_dunes} }
+\begin{frame}[b]{}
+\hfill\Tiny Dune grass in primary dune photo by Sandy Richard, Flickr, Creative Commons.
+\end{frame}
+}
+
+{
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{isle_royale} }
+\begin{frame}{}
+\end{frame}
+}
+
+{
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{isle_royale_popsize} }
+\begin{frame}{}
+\end{frame}
+}
+
+
+
+\end{document}

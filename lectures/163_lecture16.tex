@@ -1,0 +1,315 @@
+%!TEX TS-program = lualatex
+%!TEX encoding = UTF-8 Unicode
+
+\documentclass[t]{beamer}
+
+%%%% HANDOUTS For online Uncomment the following four lines for handout
+%\documentclass[t,handout]{beamer}  %Use this for handouts.
+%\usepackage{handoutWithNotes}
+%\pgfpagesuselayout{3 on 1 with notes}[letterpaper,border shrink=5mm]
+%	\setbeamercolor{background canvas}{bg=black!5}
+
+%\includeonlylecture{student}
+
+%%% Including only some slides for students.
+%%% Uncomment the following line. For the slides,
+%%% use the labels shown below the command.
+
+%% For students, use \lecture{student}{student}
+%% For mine, use \lecture{instructor}{instructor}
+
+% FONTS
+\usepackage{fontspec}
+\def\mainfont{Linux Biolinum O}
+\setmainfont[Ligatures={Common,TeX}, Contextuals={NoAlternate}, BoldFont={* Bold}, ItalicFont={* Italic}, Numbers={OldStyle}]{\mainfont}
+\setsansfont[Ligatures={Common,TeX}, Scale=MatchLowercase, Numbers=OldStyle, BoldFont={* Bold}, ItalicFont={* Italic},]{Linux Biolinum O} 
+\usepackage{microtype}
+
+\usepackage{graphicx}
+	\graphicspath{{/Users/goby/pictures/teach/163/lecture/}
+	{/Users/goby/pictures/teach/common/}} % set of paths to search for images
+
+\usepackage{multicol}
+\usepackage{booktabs}
+%\usepackage{textcomp}
+%\usepackage{mhchem}
+\usepackage{enumitem}
+\usepackage[export]{adjustbox}
+
+
+\usepackage{tikz}
+	\tikzstyle{every picture}+=[remember picture,overlay]
+%	\usetikzlibrary{arrows}
+
+\mode<presentation>
+{
+  \usetheme{Lecture}
+  \setbeamercovered{invisible}
+  \setbeamertemplate{items}[square]
+}
+
+%%% Creative Commons Licenses. Establish, then add to Beamer template.
+%\newcommand{\ccbysa}[1][4]{\textsc{cc by-sa #1.0}} % Use version 4.0 as default.
+\newcommand{\ccby}[1]{%
+	\ifx&#1&
+	{\textsc{cc by}}%
+\else
+	{\textsc{cc by #1.0}}
+\fi}
+
+
+\newcommand{\ccbysa}[1]{%
+	\ifx&#1&
+	{\textsc{cc by-sa}}%
+\else
+	{\textsc{cc by-sa #1.0}} 
+\fi}
+
+\newcommand{\ccbyncsa}[1]{%
+	\ifx&#1&
+	{\textsc{cc by-nc-sa}}%
+\else
+	{\textsc{cc by-nc-sa #1.0}}
+\fi}
+
+\newcommand{\ccbync}[1]{%
+	\ifx&#1&
+	{\textsc{cc by-nc}}%
+\else
+	{\textsc{cc by-nc #1.0}}
+\fi}
+
+
+\begin{document}
+
+\lecture{student}{student}
+
+\begin{frame}{Our goal for this lecture is to continue}
+	
+	\hangpara learning some important macroevolutionary changes, and
+	
+	\hangpara learning the \highlight{transitional forms} that show the changes, and
+	
+	\hangpara to briefly discuss \highlight{mass extunctions.}
+
+\end{frame}
+%
+\lecture{instructor}{instructor}
+{
+\setbeamercolor{background canvas}{bg=black}
+\begin{frame}[t]
+	\includegraphics[width=\textwidth]{continents_miocene}
+	
+	\vfilll
+	
+	\hfill \tiny \textcolor{white}{\href{http://scotese.com}{scotese.com}}
+\end{frame}
+}
+%
+\lecture{student}{student}
+
+
+{
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{artiodactyla_phylogeny1} }
+\begin{frame}[b]
+
+\tiny Spaulding et al. 2009. PLoS \textsc{one} 4(9): e7962.
+\end{frame}
+}
+
+{
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{artiodactyla_phylogeny2} }
+\begin{frame}[b]
+
+\tiny Spaulding et al. 2009. PLoS \textsc{one} 4(9): e7962.
+\end{frame}
+}
+
+{
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{cetacean_transition} }
+\begin{frame}[b]
+
+\end{frame}
+}
+%
+{
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{auditory_bulla} }
+\begin{frame}[b]{Whales and even-toed mammals have different types of a bony ear structure.}
+
+\end{frame}
+}
+%
+\begin{frame}[t]{But, whales and terrestrial cetaceans have the same type of bony ear structure.}
+	\includegraphics[width=\textwidth]{auditory_bulla_indohyus}
+\end{frame}
+%
+\begin{frame}[t]{Terrestrial cetaceans and artiodactyls have a double-pulley ankle joint.}
+	\includegraphics[width=\textwidth]{double_pulley_ankle}
+	
+	\vfilll
+	
+	\hfill \tiny \textcopyright Pearson Education, Inc.
+\end{frame}
+%
+{
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{cetacean_appendages} }
+\begin{frame}[b]
+
+\end{frame}
+}
+%
+{
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{cetacean_nostrils} }
+\begin{frame}[b]{Nostril position shifted with adaption to aquatic habitat.}
+
+\tiny \textcopyright Roberts \& Company
+\end{frame}
+}
+%
+{
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{cetacean_habitat} }
+\begin{frame}[b]{Their habitat shifted from fresh to salt water.}
+
+\tiny \textcopyright Roberts \& Company
+\end{frame}
+}
+%
+\lecture{instructor}{instructor}
+{
+\setbeamercolor{background canvas}{bg=black}
+\begin{frame}[t]
+	\includegraphics[width=\textwidth]{continents_pleistocene}
+	
+	\vfilll
+	
+	\hfill \tiny \textcolor{white}{\href{http://scotese.com}{scotese.com}}
+\end{frame}
+}
+%
+\lecture{student}{student}
+
+\begin{frame}[t]{How many species do you see?}
+	\includegraphics[width=\textwidth]{hominid_skulls}
+	
+	\vspace*{-\baselineskip}
+	\pause
+	\alt<handout>{}{%
+	\begin{multicols}{3}
+	\begin{enumerate}[leftmargin=*,label=\textsc{\Alph*}.]
+	{\tiny
+	\item Chimpanzee, modern\\
+	\item \textit{Australopithecus africanus}, 2.6 \textsc{mya}\\
+	\item \textit{A. africanus}, 2.5 \textsc{mya}\\
+	\item \textit{Homo habilis}, 1.9 \textsc{mya}\\
+	\item \textit{H. habilis}, 1.8 \textsc{mya}\\
+	\item \textit{H. rudolfensis}, 1.8 \textsc{mya}\\
+	\item \textit{H. erectus}, 1.75 \textsc{mya}\\
+	\item \textit{H. ergaster}, 1.75 \textsc{mya}\\
+	\item \textit{H. heidelbergensis}, 300–125 \textsc{kya}\\
+	\item \textit{H. neanderthalensis}, 70 \textsc{kya}\\
+	\item \textit{H. neanderthalensis}, 60 \textsc{kya}\\
+	\item \textit{H. neanderthalensis}, 45 \textsc{kya}\\
+	\item \textit{H. sapiens}, Cro-Magnon, 30 \textsc{kya}\\
+	\item \textit{H. sapiens}, modern}\\
+	\end{enumerate}
+	\end{multicols}
+	}
+	
+\end{frame}
+%
+{
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{human_transition} }
+\begin{frame}[b]
+\hfill \tiny \textcopyright Roberts \& Company
+\end{frame}
+}
+%
+\begin{frame}[t]{Hominins evolved in east central Africa nearly 4 \textsc{mya}.}
+	\includegraphics[width=\textwidth]{hominid_origins}
+\end{frame}
+%
+{
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{hominid_timeline} }
+\begin{frame}[b]{Four major groups of hominins show adaptive shifts.}
+\hfill \tiny \textcopyright Foley and Gamble 2009. Phil. Trans. R. Soc. B 364:  3267.
+\end{frame}
+}
+%
+\begin{frame}[t]{Bipedalism evolved before large brain size}
+	\includegraphics[width=\textwidth]{hominin_brain_size}
+
+\end{frame}
+%
+{
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{bipedalism} }
+\begin{frame}[b]{What is the advantage of \highlight{bipedalism?}}
+\hfill \tiny \textcopyright McGraw-Hill
+\end{frame}
+}
+%
+{
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{hominid_advances} }
+\begin{frame}[b]{Adaptations associated wth bipedalism and brain size increase.}
+\hfill \tiny \textcopyright Foley and Gamble 2009. Phil. Trans. R. Soc. B 364:  3267.
+\end{frame}
+}
+%
+{
+\begin{frame}[b]{\textit{Homo} left Africa in waves.}
+	\centering
+	\includegraphics[width=\textwidth]{human_dispersal}
+
+	\vfilll
+
+	\tiny\hfill \textcopyright McGraw-Hill.
+\end{frame}
+}
+%
+{
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{mass_extinctions} }
+\begin{frame}[b]{Five \highlight{mass extinctions} have occurred since the Cambrian.}
+\hfill \tiny \textcopyright Pearson Education, Inc.
+\end{frame}
+}
+%
+\begin{frame}[t]{A mass extinction occurs when at least 75\% of species go extinct.}
+\centering
+\begin{tabular}{@{}lrr@{}}
+	\toprule
+	Event & Genera & Species \\
+	\midrule
+	End Ordovician	&	57\% & 86\% \\
+	Late Devonian & 35\% & 75\% \\
+	End Permian	& 59\% & 96\% \\
+	End Triassic	& 47\% & 80\% \\
+	End Cretaceous (\textsc{k/t}) & 40\% & 76\% \\
+	\bottomrule
+\end{tabular}
+
+\end{frame}
+%
+\begin{frame}[t]{The causes of mass extinction all cause \highlight{rapid climate change.}}
+
+	\begin{multicols}{2}
+	\hangpara Asteroid impact
+	
+	\hangpara Volcanism
+	
+	\hangpara Glaciation
+	
+	\hangpara Methane gas
+	
+	\hangpara Changing ocean currents
+	
+	\hangpara Not all of these apply to every mass extinction.
+	
+	\columnbreak
+	
+	\includegraphics[width=0.4\textwidth, frame]{kt_asteroid_impact_site}\\
+	{\footnotesize 180 km (112 mi) crater created by\\10 km asteroid impact.}
+
+	\end{multicols}
+	
+\end{frame}
+%
+\end{document}

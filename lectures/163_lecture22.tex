@@ -1,0 +1,476 @@
+%!TEX TS-program = lualatex
+%!TEX encoding = UTF-8 Unicode
+
+\documentclass[t]{beamer}
+
+%%%% HANDOUTS For online Uncomment the following four lines for handout
+%\documentclass[t,handout]{beamer}  %Use this for handouts.
+%\usepackage{handoutWithNotes}
+%\pgfpagesuselayout{3 on 1 with notes}[letterpaper,border shrink=5mm]
+
+%\includeonlylecture{student}
+
+%%% Including only some slides for students.
+%%% Uncomment the following line. For the slides,
+%%% use the labels shown below the command.
+
+%% For students, use \lecture{student}{student}
+%% For mine, use \lecture{instructor}{instructor}
+
+% FONTS
+
+\usepackage{fontspec}
+\def\mainfont{Linux Biolinum O}
+\setmainfont[Ligatures={Common,TeX}, Contextuals={NoAlternate}, Numbers={Proportional, OldStyle}]{\mainfont}
+\setsansfont[Ligatures={Common,TeX}, Scale=MatchLowercase, Numbers={Proportional,OldStyle}, BoldFont={* Bold}, ItalicFont={* Italic},]\mainfont
+
+\newfontface\lining[Numbers={Lining}]\mainfont
+
+
+\usepackage{amsmath,amssymb}
+\usefonttheme[onlymath]{serif}
+\usepackage{unicode-math}
+\setmathfont[Scale=MatchLowercase]{TeX Gyre Pagella Math}
+
+\usepackage{microtype}
+
+
+\mode<presentation>
+{
+	\usetheme{Lecture}
+	\setbeamercovered{invisible}
+	\setbeamertemplate{items}[default]
+%	\usefonttheme{professionalfonts}
+}
+
+
+\usepackage{graphicx}
+	\graphicspath{{/Users/goby/pictures/teach/163/lecture/}
+	{/Users/goby/pictures/teach/common/}} % set of paths to search for images
+
+\usepackage{xcolor}
+
+\def\mygray{gray!50}
+
+\usepackage{multicol}
+\usepackage{booktabs}
+\usepackage{array}
+\newcolumntype{L}[1]{>{\raggedright\let\newline\\\arraybackslash\hspace{0pt}}p{#1}}
+\newcolumntype{C}[1]{>{\centering\let\newline\\\arraybackslash\hspace{0pt}}p{#1}}
+\newcolumntype{R}[1]{>{\raggedleft\let\newline\\\arraybackslash\hspace{0pt}}p{#1}}
+%\usepackage{textcomp}
+%\usepackage{mhchem}
+\usepackage{enumitem}
+%\usepackage[export]{adjustbox}
+
+\usepackage{calc} %For widthof, in one slide below.
+\makeatletter
+\def\@hspace#1{\begingroup\setlength\dimen@{#1}\hskip\dimen@\endgroup}
+\makeatother
+
+\usepackage{tikz}
+%		%tikzstyle{every picture} conflicts for some reason with the pgfplots stuff above.
+	\tikzstyle{every picture}+=[remember picture,overlay]
+	\usetikzlibrary{arrows}
+%\usetikzlibrary{positioning}
+
+\begin{document}
+
+\lecture{student}{student}
+
+\begin{frame}{Our goal for this lecture is to learn about}
+
+	\hangpara \highlight{species diversity},
+	
+	\hangpara \highlight {keystone species}, and
+	
+	\hangpara \highlight {ecological succession.}
+	
+\end{frame}
+%
+\begin{frame}{\highlight{Species diversity} measures the number and relative abundance of species in a community.}
+
+	\hangpara \highlight{Species richness:} The number of species in a community.
+	
+	\hangpara \highlight{Evenness:} The relative abundance of each species in a community.
+	
+	\hangpara \highlight{Shannon diversity index} is a widely used measure of diversity.
+	
+	\[H' = -\sum p_i\,\mathrm{ln}\,p_i\]
+	
+\end{frame}
+{
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{community_diversity_example} }
+\begin{frame}[t]{Which community has the greatest diversity?}
+
+	\pause
+
+	\vspace*{10\baselineskip}
+	
+	Community 1: \\$H\prime = -(0.25\,\mathrm{ln}\,0.25 + 0.25\,\mathrm{ln}\,0.25 +0.25\,\mathrm{ln}\,0.25 +0.25\,\mathrm{ln}\,0.25) = 1.39$
+
+	\vspace*{\baselineskip}
+	
+	Community 2: \\$H\prime = -(0.80\,\mathrm{ln}\,0.80 + 0.05\,\mathrm{ln}\,0.05 +0.05\,\mathrm{ln}\,0.05 +0.10\,\mathrm{ln}\,0.10) = 0.71$
+	
+	\vfilll
+
+	\hfill \tiny Fig.~54.11~Pearson Education, Inc.
+
+\end{frame}
+}
+%
+{
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{keystone_species} }
+\begin{frame}[b]
+
+\hfill \tiny \textcolor{white}{\copyright\,Dave Cowles, Walla Walla University}
+\end{frame}
+}
+%
+\begin{frame}[t]{\textit{Pisaster} sea stars increased tide pool diversity.}
+
+	\includegraphics[width=\textwidth]{keystone_results}
+	
+	\vfilll
+	
+	\hfill \tiny Fig.~54.18 \copyright\,Pearson Education, Inc.
+\end{frame}
+%
+{
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{keystone_herbivore_effects} }
+\begin{frame}[b]{Herbivores maintain diversity through keystone actions.}
+
+	\hfill \tiny Fig.~13.4 \copyright\,Sinauer Associates, Inc.
+\end{frame}
+}
+%
+\begin{frame}[t]{The loss of sea urchins caused a lose of diversity on Jamaican coral reefs.}
+
+	{\centering \includegraphics[height=0.75\textheight]{keystone_urchin_grazing} \par
+	}
+	
+	\vfilll
+	
+	\hfill \tiny Pecht and Pecht 2015. PeerJ Preprints.
+\end{frame}
+
+%
+{
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{disturbance_diversity} }
+\begin{frame}[b]
+
+\hfill \tiny \textcolor{white}{\textsc{noaa}, public domain.}
+\end{frame}
+}
+%
+{
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{disturbance_intermediate} }
+\begin{frame}[b]{Diversity can be greatest at intermediate levels of disturbance.}
+
+	\hfill \tiny Fig.~54.20 \copyright\,Pearson Education, Inc.
+\end{frame}
+}
+%
+\lecture{instructor}{instructor}
+
+{
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{grand_tetons_burn} }
+\begin{frame}[b]
+
+\hfill \tiny \textcolor{white}{Google Earth}
+\end{frame}
+}
+%
+\lecture{student}{student}
+
+{
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{succession_intro} }
+\begin{frame}[t]
+
+	\vspace*{0.2\textheight}
+
+	\hspace*{65mm} \parbox{50mm}{\raggedright Disasters lead to \highlight{ecological succession.}}
+	
+	\vspace*{\baselineskip}
+	
+	\hspace*{65mm} \parbox{50mm}{\raggedright Ecological succession describes how community structure changes over time.}
+
+	\vspace*{\baselineskip}
+	
+	\hspace*{65mm} \parbox{50mm}{\raggedright Community structure refers to the composition of species present in the community.}
+	
+	\vfilll
+	
+	\hfill \tiny Greg Willis, Wikimedia \ccbysa{2}
+
+\end{frame}
+}
+%
+\lecture{instructor}{instructor}
+
+{
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{succession_helens_before} }
+\begin{frame}[b]
+
+	\tiny \textcolor{white}{17 May 1980, one day before eruption. \hfill \textsc{usgs}, public domain}
+
+\end{frame}
+}
+%
+{
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{succession_helens_after} }
+\begin{frame}[b]
+
+	\tiny \textcolor{white}{Some time after the eruption. \hfill \textsc{usgs}, public domain}
+
+\end{frame}
+}
+%
+\lecture{student}{student}
+
+{
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{succession_helens} }
+\begin{frame}[b]{\highlight{Primary succession} occurs when rock must turn into soil.}
+
+	\begin{tikzpicture}
+
+		\draw [ultra thick, ->] (18em, 17em) -- (18em, 13em);
+		
+	\end{tikzpicture}
+
+	\hfill \tiny \textcolor{white}{Dabldoyou, Wikimedia, \ccbysa{4}}
+
+\end{frame}
+}
+%
+{
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{succession_helens} }
+\begin{frame}[b]{\highlight{Secondary succession} occurs when soil is already present.}
+
+	\begin{tikzpicture}
+
+		\draw [ultra thick, white, ->] (18em, 11em) -- (18em, 7em);
+
+	\end{tikzpicture}
+
+	\hfill \tiny \textcolor{white}{Dabldoyou, Wikimedia, \ccbysa{4}}
+
+\end{frame}
+}
+%
+{
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{succession_stages} }
+\begin{frame}[b]{Secondary succession follows a progression after a disturbance to return to a mature community.}
+
+	\begin{tikzpicture}
+			
+		\onslide<1->\draw (-0.5em, 18.2em) --  node [above, midway] {Mature} (7em, 18.2em);
+		
+		\onslide<2->\draw (7.8em, 18.2em) --  node [above, midway] {Disturbance removes community to soil} (31.5em, 18.2em);
+
+		\onslide<3->\draw (-0.5em, 4.5em) --  node [below, midway, text width=7em] {Early\\ successional species} (7em, 4.5em);
+
+		\onslide<4->\draw (7.8em, 4.5em) --  node [below, midway, text width=14em] {Intermediate successional species} (23.5em, 4.5em);
+
+		\onslide<5->\draw (24em, 4.5em) --  node [below, midway, text width=7em] {Late\\ successional species} (31.5em, 4.5em);
+
+	\end{tikzpicture}
+
+	\hfill \tiny Katelyn Murphy, Wikimedia, \ccbysa{4}
+
+
+\end{frame}
+%
+%% EARLY SUCCESSION
+{
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{succession_forest_stages} }
+\begin{frame}[b]{\highlight{Early successional species} (pioneer species) are generalists that facilitate the arrival of later species.}
+
+	\begin{tikzpicture}
+
+		% Stage 1
+		\node[draw,circle,minimum size=0.35cm,inner sep=0pt] at (8em,18.5em) {\footnotesize\lining 1};
+		\node (legend1) [draw,circle,minimum size=0.35cm,inner sep=0pt] at (0em,19em) {\footnotesize\lining 1};
+		\node at (legend1.east) [text width = 2em, right] {\scriptsize Rock};
+
+		\node[draw,circle,minimum size=0.3cm,inner sep=0pt] at (9.3em,2.5em) {\scriptsize\lining 1};
+
+		% Stage 2
+		\node[draw,circle,minimum size=0.35cm,inner sep=0pt, orange6] at (12.5em,18.5em) {\footnotesize\lining 2};
+		\node (legend2) [draw,circle,minimum size=0.35cm,inner sep=0pt, orange6] at (0em,17em) {\footnotesize\lining 2};
+		\node at (legend2.east) [orange6, text width = 2em, right] {\scriptsize Mosses\\[-5pt] Grasses};
+
+		\node[draw,circle,minimum size=0.3cm,inner sep=0pt] at (13em,2.5em) {\scriptsize\lining 2};
+
+		%Stage3
+		\node[draw,circle,minimum size=0.35cm,inner sep=0pt, orange6] at (17em,18.5em) {\footnotesize\lining 3};
+		\node (legend3) [draw,circle,minimum size=0.35cm,inner sep=0pt, orange6] at (0em,15em) {\footnotesize\lining 3};
+		\node at (legend3.east) [orange6, text width = 4em, right] {\scriptsize Grasses\\[-5pt] Perennials};
+
+		\node[draw,circle,minimum size=0.3cm,inner sep=0pt] at (16.5em,2.5em) {\scriptsize\lining 3};
+
+		%Stage4
+		\node[draw,circle,minimum size=0.35cm,inner sep=0pt] at (20.2em,18.5em) {\footnotesize\lining 4};
+		\node (legend4) [draw,circle,minimum size=0.35cm,inner sep=0pt] at (0em,13em) {\footnotesize\lining 4};
+		\node at (legend4.east) [text width = 4em, right] {\scriptsize Woody\\[-5pt] pioneers};
+
+		\node[draw,circle,minimum size=0.3cm,inner sep=0pt] at (20em,2.5em) {\scriptsize\lining 4};
+
+		%Stage5
+		\node[draw,circle,minimum size=0.35cm,inner sep=0pt] at (24em,18.5em) {\footnotesize\lining 5};
+		\node (legend4) [draw,circle,minimum size=0.35cm,inner sep=0pt] at (0em,11em) {\footnotesize\lining 5};
+		\node at (legend4.east) [text width = 5em, right] {\scriptsize Fast\\[-5pt] growing trees};
+
+		\node[draw,circle,minimum size=0.3cm,inner sep=0pt] at (23.7em,2.5em) {\scriptsize\lining 5};
+
+		%Stage6
+		\node[draw,circle,minimum size=0.35cm,inner sep=0pt] at (28.2em,18.5em) {\footnotesize\lining 6};
+		\node (legend4) [draw,circle,minimum size=0.35cm,inner sep=0pt] at (0em,9em) {\footnotesize\lining 6};
+		\node at (legend4.east) [text width = 4em, right] {\scriptsize Mature\\[-5pt] forest};
+
+		\node[draw,circle,minimum size=0.3cm,inner sep=0pt] at (27.3em,2.5em) {\scriptsize\lining 6};
+
+
+	\end{tikzpicture}
+
+	\hfill \tiny LucasMartinFrey, Wikimedia, \ccby{3}
+
+\end{frame}
+}
+%
+%% INTERMEDIATE SUCCESSION
+{
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{succession_forest_stages} }
+%\setbeamertemplate{background}[grid][color=black!50!white, step=1em]
+\begin{frame}[b]{\highlight{Intermediate successional species} are generalists or specialists that facilitate, inhibit, or tolerate other species.}
+
+	\begin{tikzpicture}
+
+		% Stage 1
+		\node[draw,circle,minimum size=0.35cm,inner sep=0pt] at (8em,18.5em) {\footnotesize\lining 1};
+		\node (legend1) [draw,circle,minimum size=0.35cm,inner sep=0pt] at (0em,19em) {\footnotesize\lining 1};
+		\node at (legend1.east) [text width = 2em, right] {\scriptsize Rock};
+
+		\node[draw,circle,minimum size=0.3cm,inner sep=0pt] at (9.3em,2.5em) {\scriptsize\lining 1};
+
+		% Stage 2
+		\node[draw,circle,minimum size=0.35cm,inner sep=0pt] at (12.5em,18.5em) {\footnotesize\lining 2};
+		\node (legend2) [draw,circle,minimum size=0.35cm,inner sep=0pt] at (0em,17em) {\footnotesize\lining 2};
+		\node at (legend2.east) [text width = 2em, right] {\scriptsize Mosses\\[-5pt] Grasses};
+
+		\node[draw,circle,minimum size=0.3cm,inner sep=0pt] at (13em,2.5em) {\scriptsize\lining 2};
+
+		%Stage3
+		\node[draw,circle,minimum size=0.35cm,inner sep=0pt] at (17em,18.5em) {\footnotesize\lining 3};
+		\node (legend3) [draw,circle,minimum size=0.35cm,inner sep=0pt] at (0em,15em) {\footnotesize\lining 3};
+		\node at (legend3.east) [text width = 4em, right] {\scriptsize Grasses\\[-5pt] Perennials};
+
+		\node[draw,circle,minimum size=0.3cm,inner sep=0pt] at (16.5em,2.5em) {\scriptsize\lining 3};
+
+		%Stage4
+		\node[draw,circle,minimum size=0.35cm,inner sep=0pt, orange6] at (20.2em,18.5em) {\footnotesize\lining 4};
+		\node (legend4) [draw,circle,minimum size=0.35cm,inner sep=0pt, orange6] at (0em,13em) {\footnotesize\lining 4};
+		\node at (legend4.east) [orange6, text width = 4em, right] {\scriptsize Woody\\[-5pt] pioneers};
+
+		\node[draw,circle,minimum size=0.3cm,inner sep=0pt] at (20em,2.5em) {\scriptsize\lining 4};
+
+		%Stage5
+		\node[draw,circle,minimum size=0.35cm,inner sep=0pt, orange6] at (24em,18.5em) {\footnotesize\lining 5};
+		\node (legend4) [draw,circle,minimum size=0.35cm,inner sep=0pt, orange6] at (0em,11em) {\footnotesize\lining 5};
+		\node at (legend4.east) [orange6, text width = 5em, right] {\scriptsize Fast\\[-5pt] growing trees};
+
+		\node[draw,circle,minimum size=0.3cm,inner sep=0pt] at (23.7em,2.5em) {\scriptsize\lining 5};
+
+		%Stage6
+		\node[draw,circle,minimum size=0.35cm,inner sep=0pt] at (28.2em,18.5em) {\footnotesize\lining 6};
+		\node (legend4) [draw,circle,minimum size=0.35cm,inner sep=0pt] at (0em,9em) {\footnotesize\lining 6};
+		\node at (legend4.east) [text width = 4em, right] {\scriptsize Mature\\[-5pt] forest};
+
+		\node[draw,circle,minimum size=0.3cm,inner sep=0pt] at (27.3em,2.5em) {\scriptsize\lining 6};
+
+
+	\end{tikzpicture}
+
+	\hfill \tiny LucasMartinFrey, Wikimedia, \ccby{3}
+
+\end{frame}
+}
+%
+%% LATE SUCCESSION
+{
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{succession_forest_stages} }
+\begin{frame}[b]{\highlight{Late successional species} (climax species) are specialists that define the mature community.}
+
+	\begin{tikzpicture}
+
+		% Stage 1
+		\node[draw,circle,minimum size=0.35cm,inner sep=0pt] at (8em,18.5em) {\footnotesize\lining 1};
+		\node (legend1) [draw,circle,minimum size=0.35cm,inner sep=0pt] at (0em,19em) {\footnotesize\lining 1};
+		\node at (legend1.east) [text width = 2em, right] {\scriptsize Rock};
+
+		\node[draw,circle,minimum size=0.3cm,inner sep=0pt] at (9.3em,2.5em) {\scriptsize\lining 1};
+
+		% Stage 2
+		\node[draw,circle,minimum size=0.35cm,inner sep=0pt] at (12.5em,18.5em) {\footnotesize\lining 2};
+		\node (legend2) [draw,circle,minimum size=0.35cm,inner sep=0pt] at (0em,17em) {\footnotesize\lining 2};
+		\node at (legend2.east) [text width = 2em, right] {\scriptsize Mosses\\[-5pt] Grasses};
+
+		\node[draw,circle,minimum size=0.3cm,inner sep=0pt] at (13em,2.5em) {\scriptsize\lining 2};
+
+		%Stage3
+		\node[draw,circle,minimum size=0.35cm,inner sep=0pt] at (17em,18.5em) {\footnotesize\lining 3};
+		\node (legend3) [draw,circle,minimum size=0.35cm,inner sep=0pt] at (0em,15em) {\footnotesize\lining 3};
+		\node at (legend3.east) [text width = 4em, right] {\scriptsize Grasses\\[-5pt] Perennials};
+
+		\node[draw,circle,minimum size=0.3cm,inner sep=0pt] at (16.5em,2.5em) {\scriptsize\lining 3};
+
+		%Stage4
+		\node[draw,circle,minimum size=0.35cm,inner sep=0pt] at (20.2em,18.5em) {\footnotesize\lining 4};
+		\node (legend4) [draw,circle,minimum size=0.35cm,inner sep=0pt] at (0em,13em) {\footnotesize\lining 4};
+		\node at (legend4.east) [text width = 4em, right] {\scriptsize Woody\\[-5pt] pioneers};
+
+		\node[draw,circle,minimum size=0.3cm,inner sep=0pt] at (20em,2.5em) {\scriptsize\lining 4};
+
+		%Stage5
+		\node[draw,circle,minimum size=0.35cm,inner sep=0pt] at (24em,18.5em) {\footnotesize\lining 5};
+		\node (legend4) [draw,circle,minimum size=0.35cm,inner sep=0pt] at (0em,11em) {\footnotesize\lining 5};
+		\node at (legend4.east) [text width = 5em, right] {\scriptsize Fast\\[-5pt] growing trees};
+
+		\node[draw,circle,minimum size=0.3cm,inner sep=0pt] at (23.7em,2.5em) {\scriptsize\lining 5};
+
+		%Stage6
+		\node[draw,circle,minimum size=0.35cm,inner sep=0pt, orange6] at (28.2em,18.5em) {\footnotesize\lining 6};
+		\node (legend4) [draw,circle,minimum size=0.35cm,inner sep=0pt, orange6] at (0em,9em) {\footnotesize\lining 6};
+		\node at (legend4.east) [orange6, text width = 4em, right] {\scriptsize Mature\\[-5pt] forest};
+
+		\node[draw,circle,minimum size=0.3cm,inner sep=0pt] at (27.3em,2.5em) {\scriptsize\lining 6};
+
+
+	\end{tikzpicture}
+
+	\hfill \tiny LucasMartinFrey, Wikimedia, \ccby{3}
+
+\end{frame}
+}
+%
+{
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{succession_quail_habitat} }
+\begin{frame}[b]{Bobwhite quail requires early successional habitat.}
+
+	\hfill \tiny \textcolor{white}{\textsc{usda}, Flickr, \ccby{2}}
+
+\end{frame}
+}
+%
+{
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{succession_kirtland_warbler} }
+\begin{frame}[b]{Kirtland's warbler requires intermediate successional habitat.}
+
+	\hfill \tiny \textsc{usfws}, Flickr, \ccby{2}
+
+\end{frame}
+}
+%
+%
+\end{document}

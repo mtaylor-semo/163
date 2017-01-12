@@ -1,0 +1,269 @@
+%!TEX TS-program = lualatex
+%!TEX encoding = UTF-8 Unicode
+
+\documentclass[t]{beamer}
+
+%%%% HANDOUTS For online Uncomment the following four lines for handout
+%\documentclass[t,handout]{beamer}  %Use this for handouts.
+%\usepackage{handoutWithNotes}
+%\pgfpagesuselayout{3 on 1 with notes}[letterpaper,border shrink=5mm]
+
+%\includeonlylecture{student}
+
+%%% Including only some slides for students.
+%%% Uncomment the following line. For the slides,
+%%% use the labels shown below the command.
+
+%% For students, use \lecture{student}{student}
+%% For mine, use \lecture{instructor}{instructor}
+
+
+%\usepackage{pgf,pgfpages}
+%\pgfpagesuselayout{4 on 1}[letterpaper,border shrink=5mm]
+
+% FONTS
+\usepackage{fontspec}
+\def\mainfont{Linux Biolinum O}
+\setmainfont[Ligatures={Common,TeX}, Contextuals={NoAlternate}, BoldFont={* Bold}, ItalicFont={* Italic}, Numbers={Proportional}]{\mainfont}
+\setsansfont[Scale=MatchLowercase]{Linux Biolinum O} 
+\usepackage{microtype}
+
+\usepackage{graphicx}
+	\graphicspath{{/Users/goby/pictures/teach/163/lecture/}
+	{/Users/goby/pictures/teach/common/}} % set of paths to search for images
+
+%\usepackage{units}
+\usepackage{booktabs}
+\usepackage{multicol}
+%\usepackage{textcomp}
+
+\usepackage{tikz}
+%	\tikzstyle{every picture}+=[remember picture,overlay]
+
+\mode<presentation>
+{
+  \usetheme{Lecture}
+  \setbeamercovered{invisible}
+  \setbeamertemplate{items}[square]
+}
+
+%\usefonttheme[onlymath]{serif}
+%\usecolortheme[named=blue7]{structure}
+
+\newcommand{\btVFill}{\vskip0pt plus 1filll}
+
+\newcommand\HiddenWord[1]{%
+	\alt<handout>{\rule{\widthof{#1}}{\fboxrule}}{#1}%
+}
+
+\newcommand\GrayedOut[1]{%
+	\alt<handout>{#1}{\textcolor{gray}{#1}}%
+}
+
+
+\begin{document}
+
+\lecture{student}{student}
+
+\begin{frame}[t]{Our goals for this lecture are to}
+
+	\hangpara explore the details of hypothesis testing, and.
+	
+	\hangpara discuss types of ideas.
+		
+\end{frame}
+
+\begin{frame}[t]{Successful experiments depend on a well-formed hypothesis.}
+
+	\hangpara Observation: some aspect of the natural world that interests you.
+
+	\hangpara \highlight{Hypothesis:} A plausible explanation, taking into account what is already known.
+	
+	\hangpara Prediction: Tells what to expect if you do the experiment.\\ “\textit{If} I do X, \textit{then} I will see Y” is a prediction.
+	
+	\hangpara Experiment and results: Set up the conditions to test the prediction.
+	
+	\hangpara Conclusion: The results \textit{support} or \textit{falsify} the hypothesis, or are inconclusive.
+
+\end{frame}
+
+{
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{hypothesis_housefly_tasting}}
+\begin{frame}[b,plain]{}
+\tiny \hspace*{60mm} \href{https://www.shutterstock.com/video/clip-3173380-stock-footage-house-fly-insect-on-food-table-walking-eating-cleaning-his-hands-leaving-dirt-and-disease.html}{Walking} | \href{https://youtu.be/N23E4jYTExk}{Feeding} \hfill Richard Bartz, Wikimedia Commons.
+\end{frame}
+}
+
+\lecture{instructor}{instructor}
+{
+\setbeamercolor{background canvas}{bg=black}
+\begin{frame}[b,plain]{}
+\end{frame}
+}
+
+\lecture{student}{student}
+
+{
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{hypothesis_fly_feet}}
+\begin{frame}[b,plain]{}
+\hfill \tiny Coffee, Pixabay, Public Domain.
+\end{frame}
+}
+
+{
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{hypothesis_null_alternative}}
+\begin{frame}[b,plain]{}
+\tiny Fredrik Andreasson, Flickr CC by 2.0.
+\end{frame}
+}
+
+\lecture{instructor}{instructor}
+{
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{hypothesis_fly_experiment1}}
+\begin{frame}[b]
+
+\hfill\tiny\textcolor{white}{USGS Bee Inventory and Monitoring, Flickr Public Domain.}
+\end{frame}
+}
+
+{
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{hypothesis_fly_experiment2}}
+\begin{frame}[b]
+
+\hfill\tiny\textcolor{white}{USGS Bee Inventory and Monitoring, Flickr Public Domain.}
+\end{frame}
+}
+
+{
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{hypothesis_fly_experiment3}}
+\begin{frame}[b]
+
+\hfill\tiny\textcolor{white}{USGS Bee Inventory and Monitoring, Flickr Public Domain.}
+\end{frame}
+}
+
+\lecture{student}{student}
+
+{
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{hypothesis_fly_experiment4}}
+\begin{frame}[b]
+
+\hfill\tiny\textcolor{white}{USGS Bee Inventory and Monitoring, Flickr Public Domain.}
+\end{frame}
+}
+
+
+\lecture{instructor}{instructor}
+
+{
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{plot_twist}}
+\begin{frame}[b,plain]{}
+\end{frame}
+}
+
+\lecture{student}{student}
+
+{
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{hypothesis_bristles_taste}}
+\begin{frame}[b]
+
+\hfill\tiny Katja Schulz, Wikimedia Commons.
+\end{frame}
+}
+
+{
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{hypothesis_all_possible}}
+\begin{frame}[b]{The data can be consistent with multiple hypotheses.}
+
+\end{frame}
+}
+
+
+\begin{frame}[t]{Because it would take an infinite amount of data to rule out all possible hypotheses,}
+
+\hangpara You can \emph{never} prove a hypothesis.
+
+\hangpara You can only \highlight{support} or \highlight{falsifiy} a hypothesis.
+
+\end{frame}
+
+
+\lecture{instructor}{instructor}
+
+\begin{frame}[t]{Good hypotheses share important characteristics.}
+
+\hangpara They must be falsifiable. Not false—\emph{falsifiable}.
+
+\end{frame}
+
+\lecture{student}{student}
+
+{
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{hypothesis_flying_teapot}}
+\begin{frame}[b]
+
+\end{frame}
+}
+
+%
+\begin{frame}[t]{Good hypotheses share important characteristics.}
+
+\hangpara They must be falsifiable. Not false—\emph{falsifiable}.
+
+
+\hangpara They must make predictions about something you do not already know.
+\pause
+
+\hangpara It must be conceivable that the predictions are wrong. 
+\pause
+
+\hangpara If the predictions disagree with the data, then the hypothesis is falsified.
+
+\end{frame}
+
+\begin{frame}[t,plain]{Work in pairs to define the following terms.}
+	\vspace{2ex}
+
+	\onslide<1->\hangpara\highlight{Belief}\onslide<2->\alt<handout>{}{\highlight{:} acceptance of, or confidence in, an alleged fact or body of facts as true or right without positive knowledge or proof.}
+
+	\onslide<1->\hangpara\highlight{Fact}\onslide<3->\alt<handout>{}{\highlight{:} a truth known by actual experience or observation.}
+
+	\onslide<4->\hangpara\highlight{Hypothesis}\onslide<5->\alt<handout>{}{\highlight{:} a tentative explanation for an observation, phenomenon, or scientific problem that can be tested by further investigation.}
+	
+	\onslide<4->\hangpara\highlight{Theory}\onslide<6->\alt<handout>{}{\highlight{:} A theory in technical use is a more or less verified or established explanation accounting for known facts or phenomena.}
+
+\end{frame}
+%
+{
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{sjgould_background}}
+\begin{frame}[t]{Theories explain facts.}
+
+
+	\hangpara\highlight{Fact:} “\ldots confirmed to such a degree that it would be perverse to withhold provisional consent.”
+	
+	\hangpara\highlight{Theory:} “\ldots structures of ideas that explain and interpret facts.”
+	
+	\hangpara\hspace*{60mm}\parbox[t]{2in}{\raggedright —Stephen Jay Gould, Evolution as Fact and Theory, \textit{Discover}, May 1981.}
+
+\end{frame}
+}
+
+%
+\begin{frame}[t]{Facts are the observations, theories are the natural processes or mechanisms that explain the facts.}
+
+
+	\hangpara Gravity is a fact, explained by the General Theory of Relativity.
+	\pause
+
+	\hangpara The sun is the center of the solar system (fact), explained by the Heliocentric Theory.
+	\pause
+		
+	\hangpara Diseases are caused by various microbial organisms (fact), explained by the Germ Theory of Disease.
+	\pause
+
+	\hangpara Evolution is a fact, explained by the Theory of Natural Selection and other related theories.
+
+\end{frame}
+
+
+\end{document}

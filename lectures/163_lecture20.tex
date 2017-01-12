@@ -1,0 +1,396 @@
+%!TEX TS-program = lualatex
+%!TEX encoding = UTF-8 Unicode
+
+\documentclass[t]{beamer}
+
+%%%% HANDOUTS For online Uncomment the following four lines for handout
+%\documentclass[t,handout]{beamer}  %Use this for handouts.
+%\usepackage{handoutWithNotes}
+%\pgfpagesuselayout{3 on 1 with notes}[letterpaper,border shrink=5mm]
+
+%\includeonlylecture{student}
+
+%%% Including only some slides for students.
+%%% Uncomment the following line. For the slides,
+%%% use the labels shown below the command.
+
+%% For students, use \lecture{student}{student}
+%% For mine, use \lecture{instructor}{instructor}
+
+
+
+% FONTS
+\usepackage{fontspec}
+\def\mainfont{Linux Biolinum O}
+\setmainfont[Ligatures={Common,TeX}, Contextuals={NoAlternate}, BoldFont={* Bold}, ItalicFont={* Italic}, Numbers={Proportional, OldStyle}]{\mainfont}
+\setsansfont[Ligatures={Common,TeX}, Scale=MatchLowercase, Numbers={Proportional,OldStyle}, BoldFont={* Bold}, ItalicFont={* Italic},]{Linux Biolinum O} 
+\usepackage{microtype}
+
+\usepackage{amsmath,amssymb}
+%\usepackage{unicode-math}
+%\setmathfont[Scale=MatchLowercase]{TeX Gyre Termes Math}
+
+\usepackage{graphicx}
+	\graphicspath{{/Users/goby/pictures/teach/163/lecture/}
+	{/Users/goby/pictures/teach/common/}} % set of paths to search for images
+
+\usepackage{color}
+%\definecolor{biolum}{RGB}{111,253,254}
+\definecolor{biolum}{RGB}{6,174,249}
+
+\usepackage{multicol}
+\usepackage{booktabs}
+\usepackage{array}
+\newcolumntype{L}[1]{>{\raggedright\let\newline\\\arraybackslash\hspace{0pt}}p{#1}}
+\newcolumntype{C}[1]{>{\centering\let\newline\\\arraybackslash\hspace{0pt}}p{#1}}
+\newcolumntype{R}[1]{>{\raggedleft\let\newline\\\arraybackslash\hspace{0pt}}p{#1}}
+%\usepackage{textcomp}
+%\usepackage{mhchem}
+\usepackage{enumitem}
+%\usepackage[export]{adjustbox}
+
+
+\usepackage{tikz}
+	\tikzstyle{every picture}+=[remember picture,overlay]
+	\usetikzlibrary{arrows}
+\usetikzlibrary{positioning}
+
+\mode<presentation>
+{
+  \usetheme{Lecture}
+  \setbeamercovered{invisible}
+  \setbeamertemplate{items}[square]
+}
+
+
+\begin{document}
+
+\lecture{student}{student}
+
+\begin{frame}{Our goal for this lecture is to}
+
+	\hangpara learn how \highlight{source} and \highlight{sink} populations\\are interconnected to form \highlight{metapopulations.}
+	
+\end{frame}
+%
+%{
+%\usebackgroundtemplate{\includegraphics[width=\paperwidth]{wombat} }
+%\begin{frame}[b]
+%	\hfill \tiny \textcolor{white}{J.J. Harrison, Wikimedia, \ccbysa{3}}
+%\end{frame}
+%}
+%%
+%{
+%\usebackgroundtemplate{\includegraphics[width=\paperwidth]{wombat_range} }
+%\begin{frame}{}
+%
+%\end{frame}
+%}
+%
+\begin{frame}{\highlight{Metapopulations} are larger groups of smaller subpopulations.}
+
+	\hangpara They have patches of suitable habitat surrounded by unsuitable habitat.
+	
+	\hangpara They are subject to local extinction and recolonization.
+	
+	\hangpara Interactions occur more often within subpopulations than among subpopulations.
+
+\end{frame}
+%
+{
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{metapopulation_glanville_fritillary} }
+\begin{frame}[b]
+	\hfill \tiny	\textcolor{white}{Marie-Lan Nguyen, Flickr, \ccby{2}}
+\end{frame}
+}
+%
+{
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{metapopulation_fritillary_patches} }
+\begin{frame}[b]
+	\tiny \textcopyright Pearson Education, Inc.
+\end{frame}
+}
+%
+\begin{frame}{A hypothetical metapopulation.}
+	\centering
+	\includegraphics[height=0.8\textheight]{metapopulation_class}
+	
+	\vfilll
+	
+	\hfill \tiny \textcopyright T. G. Barnes, University of Kentucky Cooperative Extension Service.
+\end{frame}
+
+%
+\begin{frame}{What do \highlight{source} and \highlight{sink} mean?}
+	\centering
+	\includegraphics[height=0.8\textheight]{metapopulation_class}
+	
+	\vfilll
+	
+	\hfill \tiny \textcopyright T. G. Barnes, University of Kentucky Cooperative Extension Service.
+\end{frame}
+%
+\begin{frame}[c]{}
+	\begin{multicols}{2}
+		\onslide<1->\includegraphics[width=0.45\textwidth]{metapopulation_class}
+
+
+	\columnbreak
+		\onslide<1->\hangpara \highlight{Source populations} have high emigration and low local extinction.
+		
+		\onslide<2>\hangpara \highlight{Sink populations} have high local extinction but are recolonized by occasional immigration. 
+	
+	\end{multicols}
+
+\end{frame}
+%
+\begin{frame}{Why are some habitat patches \highlight{sources} and others \highlight{sinks?}}
+	\centering
+	\includegraphics[height=0.8\textheight]{metapopulation_class}
+
+	\vfilll
+	
+	\hfill \tiny \textcopyright T. G. Barnes, University of Kentucky Cooperative Extension Service.
+	
+\end{frame}
+%
+\begin{frame}[t]{What are the characteristics of a source?}
+	\begin{minipage}{0.5\textwidth}
+		\begin{center}
+			\vspace{1\baselineskip}
+			\includegraphics[width=0.9\textwidth]{metapopulation_class}
+		\end{center}
+	\end{minipage}\begin{minipage}{0.5\textwidth}
+		\flushleft
+		
+		\hangpara \textcolor{white}{A}\vspace{-1\baselineskip}
+		
+		\hangpara \makebox[0.8\textwidth]{\hrulefill}
+		
+		\hangpara \makebox[0.8\textwidth]{\hrulefill}
+		
+		\hangpara \makebox[0.8\textwidth]{\hrulefill}
+		
+		\hangpara \makebox[0.8\textwidth]{\hrulefill}
+		
+	\end{minipage}	
+\end{frame}
+
+%
+\lecture{instructor}{instructor}
+
+\begin{frame}[t]{Source populations}
+	\begin{minipage}{0.5\textwidth}
+		\begin{center}
+			\vspace{1\baselineskip}
+			\includegraphics[width=0.9\textwidth]{metapopulation_class}
+		\end{center}
+	\end{minipage}\begin{minipage}{0.5\textwidth}
+		\flushleft
+		
+		\hangpara \textcolor{white}{A}\vspace{-1\baselineskip}
+		
+		\hangpara are in the center of the range,\pause
+		
+		\hangpara have high \highlight{habitat quality,}\pause
+		
+		\hangpara have more births than deaths, \pause
+		
+		\hangpara and so have \highlight{more emigration} than immigration.
+		
+	\end{minipage}	
+\end{frame}
+
+%
+\lecture{student}{student}
+
+\begin{frame}[t]{What are the characteristics of a sink?}
+	\begin{minipage}{0.5\textwidth}
+		\begin{center}
+			\vspace{1\baselineskip}
+			\includegraphics[width=0.9\textwidth]{metapopulation_class}
+		\end{center}
+	\end{minipage}\begin{minipage}{0.5\textwidth}
+		\flushleft
+		
+		\hangpara \textcolor{white}{A}\vspace{-1\baselineskip}
+		
+		\hangpara \makebox[0.8\textwidth]{\hrulefill}
+		
+		\hangpara \makebox[0.8\textwidth]{\hrulefill}
+		
+		\hangpara \makebox[0.8\textwidth]{\hrulefill}
+		
+		\hangpara \makebox[0.8\textwidth]{\hrulefill}
+		
+	\end{minipage}	
+\end{frame}
+%
+\lecture{instructor}{instructor}
+
+\begin{frame}[t]{Sink populations}
+	\begin{minipage}{0.5\textwidth}
+		\begin{center}
+			\vspace{1\baselineskip}
+			\includegraphics[width=0.9\textwidth]{metapopulation_class}
+		\end{center}
+	\end{minipage}\begin{minipage}{0.5\textwidth}
+		\flushleft
+		
+		\hangpara \textcolor{white}{A}\vspace{-1\baselineskip}
+		
+		\hangpara are near the margins of the range,\pause
+		
+		\hangpara have low habitat quality,\pause
+		
+		\hangpara have more deaths than births,\pause
+		
+		\hangpara and so have \highlight{more immigration} than emigration.
+		
+	\end{minipage}	
+\end{frame}
+%
+\lecture{student}{student}
+
+\begin{frame}{Why do sink populations go extinct?}
+	\begin{minipage}{0.5\textwidth}
+		\begin{center}
+			\vspace{1\baselineskip}
+			\includegraphics[width=0.9\textwidth]{metapopulation_class}
+		\end{center}
+	\end{minipage}\begin{minipage}{0.5\textwidth}
+		\flushleft
+		
+		\hangpara \textcolor{white}{A}\vspace{-1\baselineskip}
+		
+		\hangpara \makebox[0.8\textwidth]{\hrulefill}
+		
+		\hangpara \makebox[0.8\textwidth]{\hrulefill}
+		
+		\hangpara \makebox[0.8\textwidth]{\hrulefill}
+		
+		\hangpara \makebox[0.8\textwidth]{\hrulefill}
+		
+		\hangpara \makebox[0.8\textwidth]{\hrulefill}
+		
+	\end{minipage}	
+\end{frame}
+%
+\lecture{instructor}{instructor}
+
+\begin{frame}[t]{Sink populations go extinct because of}
+	\begin{minipage}{0.5\textwidth}
+		\begin{center}
+			\vspace{1\baselineskip}
+			\includegraphics[width=0.9\textwidth]{metapopulation_class}
+		\end{center}
+	\end{minipage}\begin{minipage}{0.5\textwidth}
+		\flushleft
+		
+		\hangpara \textcolor{white}{A}\vspace{-1\baselineskip}
+		
+		\hangpara habitat quality,\pause
+		
+		\hangpara $d + e > b + i$,\pause
+		
+		\hangpara distance of sink from source,\pause
+		
+		\hangpara size of sink patch,\pause
+		
+		\hangpara and random events.
+		
+	\end{minipage}	
+\end{frame}
+%
+\lecture{student}{student}
+
+\begin{frame}{What does sink recolonization depend on?}
+	\begin{minipage}{0.5\textwidth}
+		\begin{center}
+			\vspace{1\baselineskip}
+			\includegraphics[width=0.9\textwidth]{metapopulation_class}
+		\end{center}
+	\end{minipage}\begin{minipage}{0.5\textwidth}
+		\flushleft
+		
+		\hangpara \textcolor{white}{A}\vspace{-1\baselineskip}
+		
+		\hangpara \makebox[0.8\textwidth]{\hrulefill}
+		
+		\hangpara \makebox[0.8\textwidth]{\hrulefill}
+		
+		\hangpara \makebox[0.8\textwidth]{\hrulefill}
+		
+		\hangpara \makebox[0.8\textwidth]{\hrulefill}
+		
+		\hangpara \makebox[0.8\textwidth]{\hrulefill}
+		
+		\hangpara \makebox[0.8\textwidth]{\hrulefill}		
+	\end{minipage}		
+\end{frame}
+%
+\lecture{instructor}{instructor}
+
+\begin{frame}[t]{Sink recolonization depends on}
+	\begin{minipage}{0.5\textwidth}
+		\begin{center}
+			\vspace{1\baselineskip}
+			\includegraphics[width=0.9\textwidth]{metapopulation_class}
+		\end{center}
+	\end{minipage}\begin{minipage}{0.5\textwidth}
+		\flushleft
+		
+		\hangpara \textcolor{white}{A}\vspace{-1\baselineskip}
+		
+		\hangpara habitat quality,\pause
+		
+		\hangpara rate of source emigration,\pause
+		
+		\hangpara distance of sink from source,\pause
+		
+		\hangpara size of sink patch,\pause
+		
+		\hangpara unsuitable habitat between patches,\pause
+		
+		\hangpara and random events.
+		
+	\end{minipage}	
+\end{frame}
+%
+\begin{frame}[t]{Organisms can move among patches through \highlight{corridors} of suitable habitat.}
+
+	\centering \includegraphics[width=0.85\textwidth]{metapopulation_corridors}
+
+	\vfilll
+	
+	\hfill \tiny \textcopyright T. G. Barnes, University of Kentucky Cooperative Extension Service.
+\end{frame}
+%
+\lecture{instructor}{instructor}
+
+{
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{deep_sea_adaptations_biolum} }
+\begin{frame}[b]{\textcolor{biolum}{Cool stuff in biology: bioluminescence}}
+
+	\tiny\textcolor{white}{\href{https://www.youtube.com/watch?v=UXl8F-eIoiM}{Link to video}}
+\end{frame}
+}
+%
+{
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{cool_shit_vomit_biolum} }
+\begin{frame}[b]{\textcolor{biolum}{Don't you wish that you could vomit bioluminescence?}}
+
+\hfill \tiny \textcolor{biolum}{\textsc{noaa} Ocean Explorer, Flickr, \ccbysa{2}}
+\end{frame}
+}
+%
+{
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{cool_shit_dragonfish} }
+\begin{frame}[b]
+
+\tiny \textcolor{biolum}{\textcopyright\,Edith Widder, Ocean Research \& Conservation Assoc.}
+\end{frame}
+}
+
+%
+\end{document}

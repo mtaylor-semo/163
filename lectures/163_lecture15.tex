@@ -1,0 +1,511 @@
+%!TEX TS-program = lualatex
+%!TEX encoding = UTF-8 Unicode
+
+\documentclass[t]{beamer}
+
+%%%% HANDOUTS For online Uncomment the following four lines for handout
+%\documentclass[t,handout]{beamer}  %Use this for handouts.
+%\usepackage{handoutWithNotes}
+%\pgfpagesuselayout{3 on 1 with notes}[letterpaper,border shrink=5mm]
+%	\setbeamercolor{background canvas}{bg=black!5}
+
+%\includeonlylecture{student}
+
+%%% Including only some slides for students.
+%%% Uncomment the following line. For the slides,
+%%% use the labels shown below the command.
+
+%% For students, use \lecture{student}{student}
+%% For mine, use \lecture{instructor}{instructor}
+
+% FONTS
+\usepackage{fontspec}
+\def\mainfont{Linux Biolinum O}
+\setmainfont[Ligatures={Common,TeX}, Contextuals={NoAlternate}, BoldFont={* Bold}, ItalicFont={* Italic}, Numbers={OldStyle}]{\mainfont}
+\setsansfont[Ligatures={Common,TeX}, Scale=MatchLowercase, Numbers=OldStyle, BoldFont={* Bold}, ItalicFont={* Italic},]{Linux Biolinum O} 
+\usepackage{microtype}
+
+\usepackage{graphicx}
+	\graphicspath{{/Users/goby/pictures/teach/163/lecture/}
+	{/Users/goby/pictures/teach/common/}} % set of paths to search for images
+
+\usepackage{multicol}
+%\usepackage{booktabs}
+%\usepackage{textcomp}
+\usepackage{mhchem}
+
+\usepackage{tikz}
+	\tikzstyle{every picture}+=[remember picture,overlay]
+%	\usetikzlibrary{arrows}
+
+\mode<presentation>
+{
+  \usetheme{Lecture}
+  \setbeamercovered{invisible}
+  \setbeamertemplate{items}[square]
+}
+
+%%% Creative Commons Licenses. Establish, then add to Beamer template.
+%\newcommand{\ccbysa}[1][4]{\textsc{cc by-sa #1.0}} % Use version 4.0 as default.
+\newcommand{\ccby}[1]{%
+	\ifx&#1&
+	{\textsc{cc by}}%
+\else
+	{\textsc{cc by #1.0}}
+\fi}
+
+
+\newcommand{\ccbysa}[1]{%
+	\ifx&#1&
+	{\textsc{cc by-sa}}%
+\else
+	{\textsc{cc by-sa #1.0}} 
+\fi}
+
+\newcommand{\ccbyncsa}[1]{%
+	\ifx&#1&
+	{\textsc{cc by-nc-sa}}%
+\else
+	{\textsc{cc by-nc-sa #1.0}}
+\fi}
+
+\newcommand{\ccbync}[1]{%
+	\ifx&#1&
+	{\textsc{cc by-nc}}%
+\else
+	{\textsc{cc by-nc #1.0}}
+\fi}
+
+
+\begin{document}
+
+\lecture{student}{student}
+
+\begin{frame}[t]{Evidence for \highlight{endosymbiosis.} }
+
+	\hangpara Mitochondria and chloroplasts
+	
+	\hangpara \hspace*{1em} have circular \textsc{dna} like bacteria,
+	
+	\hangpara \hspace*{1em} divide like bacteria,
+	
+	\hangpara \hspace*{1em} have plasma membranes like bacteria, and
+	
+	\hangpara \hspace*{1em} are most closely related to bacteria.
+	
+\end{frame}
+
+\begin{frame}{Our goal for this lecture is to}
+	
+	\hangpara learn some important macroevolutionary changes, and
+	
+	\hangpara learn the \highlight{transitional} forms that show the changes.
+
+\end{frame}
+%
+{
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{fossil_ediacaran_biota} }
+\begin{frame}[b]{The \highlight{Ediacaran Period} was 635--542 \textsc{mya}.}
+\hfill \tiny \textcopyright Roberts \& Company
+\end{frame}
+}
+%
+\lecture{instructor}{instructor}
+{
+\setbeamercolor{background canvas}{bg=black}
+\begin{frame}[t]
+	\includegraphics[width=\textwidth]{continents_ediacaran}
+	
+	\vfilll
+	
+	\hfill \tiny \textcolor{white}{\href{http://scotese.com}{scotese.com}}
+\end{frame}
+}
+%
+\lecture{student}{student}
+
+{
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{ediacaran_fauna_time} }
+\begin{frame}[b]
+\hfill \tiny \textcopyright Roberts \& Company
+\end{frame}
+}
+%
+{
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{ediacaran_diversity} }
+\begin{frame}[b]{The fauna had diverse body forms that do not exist today.}
+\hfill \tiny \textcopyright Roberts \& Company
+\end{frame}
+}
+%
+\begin{frame}{Ancestors of modern phyla first evolved in the Ediacaran or even earlier. }
+
+	\includegraphics[width=\textwidth]{modern_phyla_origins}
+
+	\vfilll
+	
+	\hfill \tiny \textcopyright Roberts \& Company
+
+\end{frame}
+%
+\lecture{instructor}{instructor}
+{
+\setbeamercolor{background canvas}{bg=black}
+\begin{frame}[t]
+	\includegraphics[width=\textwidth]{continents_cambrian}
+	
+	\vfilll
+	
+	\hfill \tiny \textcolor{white}{\href{http://scotese.com}{scotese.com}}
+\end{frame}
+}
+%
+\lecture{student}{student}
+
+\begin{frame}{Modern phyla diversified during the \highlight{Cambrian radiation.} }
+
+	\includegraphics[width=\textwidth]{cambrian_radiation}
+	
+	\hangpara There was no explosion!
+
+	\vfilll
+	
+	\hfill \tiny \textcopyright Roberts \& Company
+
+\end{frame}
+%
+{
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{adaptive_radiation_honeycreepers} }
+\begin{frame}[b]
+\hfill \tiny \textcopyright Roberts \& Company
+\end{frame}
+}
+%
+{
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{adaptive_radiation_silverswords} }
+\begin{frame}[b]{Radiations can be identified on phylogenetic trees.}
+\hfill \tiny \textcopyright Roberts \& Company
+\end{frame}
+}
+%
+\lecture{instructor}{instructor}
+{
+\setbeamercolor{background canvas}{bg=black}
+\begin{frame}[t]
+	\includegraphics[width=\textwidth]{continents_devonian}
+	
+	\vfilll
+	
+	\hfill \tiny \textcolor{white}{\href{http://scotese.com}{scotese.com}}
+\end{frame}
+}
+%
+\lecture{student}{student}
+
+{
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{tetrapod_trackways} }
+\begin{frame}[b]{Tetrapods colonized land about 390 \textsc{mya}.}
+\hfill \tiny \textcopyright Roberts \& Company
+\end{frame}
+}
+
+{
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{fish_ichthyostega} }
+\begin{frame}[t]{What would you predict for an intermediate fossil?}
+
+\begin{multicols}{2}
+
+\phantom{fred}
+
+\columnbreak
+
+\textit{Eusthenopteron} was a lobe-finned fish that lived ca. 408 \textsc{mya}.
+
+\vspace*{\baselineskip}
+
+\textit{Ichthyostega} was an early “amphibian” that lived ca. 350 \textsc{mya}.
+
+\vspace*{\baselineskip}
+
+They share homologies like appendages and skull structure.
+
+\vspace*{\baselineskip}
+
+When would an intermediate organism have lived? In what kind of habitat? What kind of features might it have had?
+
+\end{multicols}
+
+\vfilll
+
+\hfill \tiny \textcopyright Roberts \& Company
+\end{frame}
+}
+%
+\begin{frame}[t]{\textit{Tiktaalik} is a \highlight{transitional form} that lived \textasciitilde375 \textsc{mya}.}
+	
+	\vspace*{-\baselineskip}
+	
+	\begin{multicols}{2}
+	
+	\begin{center}
+	\includegraphics[width=0.42\textwidth]{tiktaalik_skull} \\ \vspace*{1ex}
+	\includegraphics[width=0.42\textwidth]{tiktaalik_paddle}\\
+	\includegraphics[width=0.42\textwidth]{tiktaalik_prop}
+	\end{center}
+
+	\columnbreak
+	
+	It has some fish-like characters:\\
+	\hspace*{1em} scales\\	
+	\hspace*{1em} fins\\
+	\hspace*{1em} gills \emph{and} lungs
+
+	\vspace*{\baselineskip}
+	
+	It has some tetrapod-like characters:\\
+	\hspace*{1em} neck	\\
+	\hspace*{1em} enlarged ribs\\
+	\hspace*{1em} flattened head\\
+	\hspace*{1em} functional wrist
+	
+	\end{multicols}
+
+\end{frame}
+%
+{
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{transitional_form_fishes} }
+\begin{frame}[b]
+\hfill \tiny \textcopyright Roberts \& Company
+\end{frame}
+}
+%
+{
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{transitional_form} }
+\begin{frame}[b]
+\hfill \tiny \textcopyright Roberts \& Company
+\end{frame}
+}
+%
+{
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{inner_fish} }
+\begin{frame}[b]
+
+\onslide<2>{ 
+\begin{tikzpicture}
+
+	\draw (-0.15, 2.7) [thick, color=orange5] rectangle (9.25, 9.25);
+		
+\end{tikzpicture}}
+
+\hfill \tiny Amemiya et al. 2013. Nature 496: 311.
+\end{frame}
+}
+%
+\begin{frame}[t]{Reptiles, mammals, and birds share an amniote ancestor.}
+	\vspace*{-0.5\baselineskip}
+	\begin{center}
+		\includegraphics[width=\textwidth]{amniote_phylogeny}
+	\end{center}
+
+	\vfilll
+	
+	\hfill \tiny \textcopyright Pearson Education, Inc.
+\end{frame}
+%
+{
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{reptile_like_mammals} }
+\begin{frame}[b]{Reptile-like mammals suggest that mammals evolved from reptilian ancestors.}
+
+\end{frame}
+}
+%
+{
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{reptile_mammal_skulls} }
+\begin{frame}[b]
+
+	\hfill \tiny \textcopyright Pearson Education, Inc.
+\end{frame}
+}
+%
+{
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{articular_quadrate_reduction} }
+\begin{frame}[b]
+
+	\Tiny \textcopyright Kardong 2002. \textit{Vertebrates: Comparative Anatomy, Function, Evolution},  3rd ed.
+\end{frame}
+}
+%
+\begin{frame}[t]{The mammalian ear bones evolved from the reptilian jaw bones.}
+
+	\vspace*{-\baselineskip}
+	
+	\begin{center}
+		\includegraphics[height=0.8\textheight]{jawjoints_earbones}
+	\end{center}
+	\vfilll
+	
+	\hfill \tiny \href{http://evolution.berkeley.edu/evolibrary/article/homology_06}{evolution.berkeley.edu}
+\end{frame}
+%
+\lecture{instructor}{instructor}
+{
+\setbeamercolor{background canvas}{bg=black}
+\begin{frame}[t]
+	\includegraphics[width=\textwidth]{continents_triassic}
+	
+	\vfilll
+	
+	\hfill \tiny \textcolor{white}{\href{http://scotese.com}{scotese.com}}
+\end{frame}
+}
+%
+\lecture{student}{student}
+
+{
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{archaeopteryx_lithographica}}
+\begin{frame}[t]
+\end{frame}
+}
+%
+{
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{archaeopteryx_transition}}
+\begin{frame}[t]
+\end{frame}
+}
+%
+{
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{theropod_phylogeny1}}
+\begin{frame}[b]
+
+\hfill \tiny \textcopyright Roberts \& Company.
+\end{frame}
+}
+%
+\begin{frame}[t]{The embryonic ostrich manus has five digits.}
+	\centering\includegraphics[height=0.82\textheight]{ostrich_manus}
+	
+	\vfilll
+	
+	\hfill \tiny Feduccia and Nowicki 2002. Naturwissenschaften 89: 391.
+\end{frame}
+%
+{
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{sinosauropteryx_fossil}}
+\begin{frame}[t,plain]{\textcolor{white}{\textit{Sinosauropteryx}, a theropod dinosaur, had filamentous feathers.}}
+\end{frame}
+}
+%
+{
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{zhenyuanlong_fossil}}
+\begin{frame}[b]{\textit{Zhenuanlong} had flight-like feathers but did not fly.}
+
+\hfill \tiny \textcolor{white}{Lü and Brusatte 2015, Scientific Reports 5: 11775.}
+\end{frame}
+}
+%
+{
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{feathered_dinosaurs}}
+\begin{frame}[t]
+\end{frame}
+}
+%
+{
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{theropod_phylogeny} }
+\begin{frame}[b]{Birds evolved from theropod dinosaurs about 150 \textsc{mya}.}
+\hfill \tiny \textcopyright Roberts \& Company
+\end{frame}
+}
+%
+{
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{t_rex_feathers}}
+\begin{frame}[b]
+
+\onslide<2>{ 
+\begin{tikzpicture}
+
+	\draw (0.1, 6.55) [thick, color=orange5] rectangle (4.5, 8.15);
+		
+\end{tikzpicture}}
+
+\tiny Brusatte et al. 2014. Current Biology 24: 2386. \hfill Xu et al. 2012. Nature 484: 92. 
+\end{frame}
+}
+%
+{
+\begin{frame}[b]{Dinosaurs are not extinct. They fly around us every day.}
+	\centering
+	\includegraphics[height=0.85\textheight]{dinosaur_genetics}
+
+	\vfilll
+
+	\tiny\hfill Schweitzer et al. 2009. Science 324: 626.
+\end{frame}
+}
+%
+%{
+%\usebackgroundtemplate{\includegraphics[width=\paperwidth]{cetacean_transition} }
+%\begin{frame}[b]
+%
+%\end{frame}
+%}
+%%
+%{
+%\usebackgroundtemplate{\includegraphics[width=\paperwidth]{auditory_bulla} }
+%\begin{frame}[b]{Whales and even-toed mammals have different types of a bony ear structure.}
+%
+%\end{frame}
+%}
+%%
+%\begin{frame}[t]{But, whales and terrestrial cetaceans have the same type of bony ear structure.}
+%	\includegraphics[width=\textwidth]{auditory_bulla_indohyus}
+%\end{frame}
+%%
+%\begin{frame}[t]{Terrestrial cetaceans and artiodactyls have a double-pulley ankle joint.}
+%	\includegraphics[width=\textwidth]{double_pulley_ankle}
+%	
+%	\vfilll
+%	
+%	\hfill \tiny Pearson Education, Inc.
+%\end{frame}
+%%
+%{
+%\usebackgroundtemplate{\includegraphics[width=\paperwidth]{cetacean_appendages} }
+%\begin{frame}[b]
+%
+%\end{frame}
+%}
+%
+%{
+%\usebackgroundtemplate{\includegraphics[width=\paperwidth]{human_transition} }
+%\begin{frame}[b]
+%\hfill \tiny \textcopyright Roberts \& Company
+%\end{frame}
+%}
+%%
+%{
+%\usebackgroundtemplate{\includegraphics[width=\paperwidth]{bipedalism} }
+%\begin{frame}[b]{What is the advantage of \highlight{bipedalism?}}
+%\hfill \tiny \textcopyright McGraw-Hill
+%\end{frame}
+%}
+%%
+%{
+%\begin{frame}[b]{Humans first evolved in east central Africa.}
+%	\centering
+%	\includegraphics[width=\textwidth]{human_dispersal}
+%
+%	\vfilll
+%
+%	\tiny\hfill McGraw-Hill.
+%\end{frame}
+%}
+%%
+%{
+%\usebackgroundtemplate{\includegraphics[width=\paperwidth]{mass_extinctions} }
+%\begin{frame}[b]{Five \highlight{mass extinctions} have occurred since the Cambrian.}
+%\hfill \tiny \textcopyright Pearson Education, Inc.
+%\end{frame}
+%}
+%%
+
+\end{document}
