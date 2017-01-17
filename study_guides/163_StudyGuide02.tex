@@ -21,6 +21,8 @@
 %\usepackage{fancyvrb} % extended verbatim environments
 %  \fvset{fontsize=\normalsize}% default font size for fancy-verbatim environments
 
+\usepackage{enumitem}
+
 \makeatletter
 % Paragraph indentation and separation for normal text
 \renewcommand{\@tufte@reset@par}{%
@@ -43,19 +45,8 @@
 % Set up the spacing using fontspec features
    \renewcommand\allcapsspacing[1]{{\addfontfeatures{LetterSpace=15}#1}}
    \renewcommand\smallcapsspacing[1]{{\addfontfeatures{LetterSpace=10}#1}}
-   
-%\ifluatex
-%  \newcommand{\textls}[2][5]{%
-%    \begingroup\addfontfeatures{LetterSpace=#1}#2\endgroup
-%  }
-%  \renewcommand{\allcapsspacing}[1]{\textls[15]{#1}}
-%  \renewcommand{\smallcapsspacing}[1]{\textls[10]{#1}}
-%  \renewcommand{\allcaps}[1]{\textls[15]{\MakeTextUppercase{#1}}}
-%  \renewcommand{\smallcaps}[1]{\smallcapsspacing{\scshape\MakeTextLowercase{#1}}}
-%  \renewcommand{\textsc}[1]{\smallcapsspacing{\textsmallcaps{#1}}}
-%\fi
-   
-\title{BI 163 Study Guide 02\hfill}
+
+\title{BI 163 Study Guide 05}
 
 \date{} % without \date command, current date is supplied
 
@@ -64,41 +55,58 @@
 \maketitle	% this prints the handout title, author, and date
 
 %\printclassoptions
+\section*{Types of Ideas and the History of Evolutionary Thought}
 
-%\section{Introduction}
+We\marginnote{\textbf{Read:} pgs. 21, 462--470.} discussed types of ideas, defined evolution, and provided historical context for evolutionary thought that led to the publication of \textit{On the Origin of Species} by Charles Darwin.
 
-The\marginnote{\textbf{Read:} pgs. 16--18, 464 (Scala Naturae and Classification of Species), 548.\\ \vspace*{10\baselineskip}} study guides will help you learn the material. The guides may also contain more information to supplement the lecture.  Read the study guides in advance of lecture to get familiar with the day's topic. Bring the study guide to class to see the vocabulary and questions in context of the lecture discussion. This will help you recall the information during your daily (or every other day) study.
-
-\section{Vocabulary}
+\section*{Vocabulary}
 
 \vspace{-1\baselineskip}
 \begin{multicols}{2}
-Carolus Linnaeus\\
-\textit{Systema Natur\ae}\\
-Binomial nomenclature\\
-Taxonomic classification\\
-Inductive reasoning\\
-Deductive reasoning
+belief\\
+fact\\
+hypothesis\\
+theory\\
+Thomas Robert Malthus\\
+Jean Baptiste de Lamarck \\
+Georges Cuvier \\
+Charles Lyell \\
+Charles Darwin \\
+\textsc{h.m.s.} Beagle \\
+Alfred Russel Wallace \\
+artificial selection 
 \end{multicols}
 
-The vocabulary lists the terms from each lecture that you should know. You must be able to recognize and apply these terms in a broader context.  I will use the terms in lecture and on exams. If you do not know the terms, you may not fully understand the lecture or be able to answer a question on the exam. I expect you to use the proper vocabulary in your answers to questions on exams and assignments.  Get in the habitat of using terms as you learn the material.  I may not cover all terms in class or do so only in passing.  I expect that you will learn them by reading your textbook and using the glossary in your textbook, to put them into the context of evolution and ecology.
+\section*{Concepts}
 
-\section{Concepts}
-
-You should \emph{write} clear and concise answers to each question in the Concepts section.  The questions are not necessarily independent.  Remember to “think horizontally” and to “connect the dots.”  Study guide questions may be used as a basis for multiple choice, matching or true/false questions, or for short answer questions, but I may also create exam and assignment questions that do not appear on the study guides.  These are guides, not exhaustive test banks.
+You should \emph{write} clear and concise answers to each question in the Concepts section.  Remember to ``think horizontally'' and to ``connect the dots.'' 
 
 \begin{enumerate}
-	\item Who was Carolus Linnaeus? What was his contribution to the sciences of taxonomy and classification?
 
-	\item Approximately how many species have been cataloged (described)? About how many species today might exist on Earth?
-	
-	\item Name all eight levels, in proper hierarchical order, of the Linnaean classification system. Why do scientists use this classification system?
-	
-	\item What is binomial nomenclature/ Why must all species have a scientific name? Why not just use common names like robin or blackbird?
+	\item Explain the difference between belief and fact, and hypothesis and theory. How does the scientific definition of theory differ its “common” use in everyday language.
 
-	\item Explain the difference between inductive and deductive reasoning. 
+	\item Explain the relationship between theories and facts.
 	
-	\item Explain what is meant by science being tentative, objective, and testable.
+	\item You do not need to know most of the background that I presented for Charles Darwin (e.g., his childhood, \&c.). We will cover the two ideas from his book in subsequent lectures.
+	
+	\item You should know these few facts about these scientists for their historical context:
+
+	\begin{enumerate}[label=\alph*.]
+
+	\item Thomas Robert Malthus wrote the \textit{Principle of Populations} that described how the human population would suffer if the rate of population growth exceeded the rate of food production. Darwin incorporated this idea into natural selection, where organisms would “struggle” for limited resources. 
+	
+	\item Jean Baptiste de Lamarck was one of the first scientists to propose that organisms change over time. He proposed that the mechanism of change was “inheritance of acquired characteristics,” which stated that if a structure (like a giraffe's neck) or physiology of an individual changed through use, then the change would be inherited by that individual's offspring. That hypothesis turned out to be incorrect.
+
+	\item George Cuvier is sometimes called the “father of paleontology.” Paleontology is the study of fossils and the fossil record. Cuvier was the first to propose that many species that lived in the past went extinct. Cuvier also popularized the idea that the Earth underwent great catastrophes that caused rapid change to the environment and caused the extinctions.
+
+	\item Charles Lyell was a geologist. He supported ``uniformitarianism,'' the idea that the Earth changed very slowly over long periods of time. This is the opposite of Cuvier's catastrophism. Most importantly, Lyell was the first to argue that the Earth was much older than 6000 years old, as was widely believed at the time.
+
+	\item Alfred Russel Wallace was a naturalist that spent lots of time around Australia and the Malay Peninsula (southeast Asia). While working around the Malaysian Peninsula, Wallace developed his own idea of natural selection, independent of Charles Darwin.  Darwin and Wallace published a paper outlining the process of natural selection. Darwin then went on to publish \textit{On the Origin of Species.}
+
+	\end{enumerate}
+	
+	\item It is always good to know the foundational history of scientific thought. Embrace it!
+
 \end{enumerate}
 
 \end{document}

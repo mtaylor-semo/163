@@ -19,6 +19,15 @@
 # *.eps
 *.pdf
 
+## Lecture related files.
+*.txt
+*.doc
+*.docx
+*.ppt
+*.pptx
+*.jpg
+*.png
+
 ## Bibliography auxiliary files (bibtex/biblatex/biber):
 *.bbl
 *.bcf
