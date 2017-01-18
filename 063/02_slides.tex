@@ -1,0 +1,143 @@
+%!TEX TS-program = lualatex
+%!TEX encoding = UTF-8 Unicode
+
+\documentclass[t]{beamer}
+
+%%%% HANDOUTS For online Uncomment the following four lines for handout
+%\documentclass[t,handout]{beamer}  %Use this for handouts.
+%\usepackage{handoutWithNotes}
+%\pgfpagesuselayout{3 on 1 with notes}[letterpaper,border shrink=5mm]
+
+
+%%% Including only some slides for students.
+%%% Uncomment the following line. For the slides,
+%%% use the labels shown below the command.
+%\includeonlylecture{student}
+
+%% For students, use \lecture{student}{student}
+%% For mine, use \lecture{instructor}{instructor}
+
+
+%\usepackage{pgf,pgfpages}
+%\pgfpagesuselayout{4 on 1}[letterpaper,border shrink=5mm]
+
+% FONTS
+\usepackage{fontspec}
+\def\mainfont{Linux Biolinum O}
+\setmainfont[Ligatures={Common,TeX}, Contextuals={NoAlternate}, BoldFont={* Bold}, ItalicFont={* Italic}, Numbers={OldStyle, Proportional}]{\mainfont}
+\setsansfont[Scale=MatchLowercase, Numbers=OldStyle]{Linux Biolinum O} 
+\usepackage{microtype}
+
+\usepackage{graphicx}
+	\graphicspath{{/Users/goby/pictures/teach/163/lecture/}
+	{/Users/goby/pictures/teach/common/}} % set of paths to search for images
+
+%\usepackage{units}
+\usepackage{booktabs}
+%\usepackage{textcomp}
+
+\usepackage{tikz}
+%	\tikzstyle{every picture}+=[remember picture,overlay]
+
+\mode<presentation>
+{
+  \usetheme{Lecture}
+  \setbeamercovered{invisible}
+%  \setbeamertemplate{items}[square]
+}
+
+%\usefonttheme[onlymath]{serif}
+%\usecolortheme[named=blue7]{structure}
+
+\begin{document}
+
+\lecture{student}{student}
+
+\begin{frame}[t]{Our goals for this lab are to }
+
+	\hangpara learn the \highlight{Linnaean classification system,}
+	
+	\hangpara learn what is \highlight{binomial nomenclature,}
+	
+	\hangpara learn how \highlight{taxonomy} and classification are related,
+	
+	\hangpara develop a classification system, and 
+	
+	\hangpara compare the classification of several species.	
+	
+\end{frame}
+
+%\lecture{instructor}{instructor}
+%
+%{
+%\usebackgroundtemplate{\includegraphics[width=\paperwidth]{bird_paradise.jpg}}
+%\begin{frame}[b,plain]
+%	\Tiny\textcolor{white}{Greater Bird of Paradise \textcopyright Tim Laman, All Rights Reserved. \href{http://www.youtube.com/watch?v=KIYkpwyKEhY}{Link to Video} }
+%\end{frame}
+%}
+%
+%{
+%\usebackgroundtemplate{\includegraphics[width=\paperwidth]{goliath_beetle}}
+%\begin{frame}[b,plain]
+%%	\hfill\Tiny \textit{Eupatorus gracilicornis}, Didier Descouens, Wikimedia Commons.
+%\end{frame}
+%}
+
+{
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{beetle_fondness}}
+\begin{frame}[b]
+	\hfill\tiny \textit{Eupatorus gracilicornis}, Didier Descouens, \ccbysa{4}
+\end{frame}
+}
+
+\lecture{student}{student}
+{
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{how_many_species}}
+\begin{frame}[b]
+	\tiny The Emirr, Wikimedia \ccbysa{3}
+\end{frame}
+}
+
+
+\lecture{instructor}{instructor}
+{
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{table_of_diversity}}
+\begin{frame}[b]{About 1.2 million species of \textasciitilde11 million species have been described.}
+
+	\vspace*{13\baselineskip}
+	
+	{\large Should these species be organized by similarity or relatedness? }
+
+	\vfilll
+
+	\hfill\tiny Mora et al. 2011, PLoS ONE.
+\end{frame}
+}
+
+\lecture{student}{student}
+{
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{systema_naturae}}
+\begin{frame}[b]
+\end{frame}
+}
+
+\lecture{student}{student}
+{
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{classification_hierarchy}}
+\begin{frame}[b]
+\end{frame}
+}
+
+{
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{binomial_nomenclature}}
+\begin{frame}[b]
+\end{frame}
+}
+
+{
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{taxonomic_classification}}
+\begin{frame}[b]
+\end{frame}
+}
+
+\end{document}

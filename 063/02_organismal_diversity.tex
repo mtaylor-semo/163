@@ -1,27 +1,27 @@
 %!TEX TS-program = lualatex
 %!TEX encoding = UTF-8 Unicode
 
-\documentclass[11pt, addpoints]{exam}
+\documentclass[11pt]{exam}
 \usepackage{graphicx}
 	\graphicspath{{/Users/goby/Pictures/teach/151/}
-	{img/}} % set of paths to search for images
+	{/Users/goby/Pictures/teach/163/lab/}} % set of paths to search for images
 
 \usepackage{geometry}
 \geometry{letterpaper, bottom=1in}                   
 %\geometry{landscape}                % Activate for for rotated page geometry
-%\usepackage[parfill]{parskip}    % Activate to begin paragraphs with an empty line rather than an indent
+\usepackage[parfill]{parskip}    % Activate to begin paragraphs with an empty line rather than an indent
 \usepackage{amssymb, amsmath}
 \usepackage{mathtools}
 	\everymath{\displaystyle}
 
 \usepackage{fontspec}
-\setmainfont[Ligatures={TeX}, BoldFont={* Bold}, ItalicFont={* Italic}, BoldItalicFont={* BoldItalic}, Numbers={Proportional}]{Linux Libertine O}
+\setmainfont[Ligatures={TeX}, BoldFont={* Bold}, ItalicFont={* Italic}, BoldItalicFont={* BoldItalic}, Numbers={OldStyle,Proportional}]{Linux Libertine O}
 \setsansfont[Scale=MatchLowercase,Ligatures=TeX]{Linux Biolinum O}
-%\setmonofont[Scale=MatchLowercase]{Inconsolatazi4}
+\setmonofont[Scale=MatchLowercase]{Inconsolatazi4}
 \usepackage{microtype}
 
-\usepackage{unicode-math}
-\setmathfont[Scale=MatchLowercase]{Asana Math}
+%\usepackage{unicode-math}
+%\setmathfont[Scale=MatchLowercase]{Asana Math}
 %\setmathfont[Scale=MatchLowercase]{XITS Math}
 
 % To define fonts for particular uses within a document. For example, 
@@ -31,6 +31,7 @@
 
 \usepackage{booktabs}
 \usepackage{multicol}
+
 \usepackage[normalem]{ulem}
 
 %\usepackage{tabularx}
@@ -42,43 +43,78 @@
 \newcolumntype{R}[1]{>{\raggedleft\let\newline\\\arraybackslash\hspace{0pt}}p{#1}}
 
 \usepackage{enumitem}
+\setlist{leftmargin=*}
+\setlist[1]{labelindent=\parindent}
+\setlist[enumerate]{label=\textsc{\alph*}.}
+
 \usepackage{hyperref}
-%\usepackage{placeins} %PRovides \FloatBarrier to flush all floats before a certain point.
-\usepackage{hanging}
+%\usepackage{hanging}
+
+\usepackage[sc]{titlesec}
+
 
 \renewcommand{\solutiontitle}{\noindent}
 \unframedsolutions
 \SolutionEmphasis{\bfseries}
 
+\renewcommand{\questionshook}{%
+	\setlength{\leftmargin}{-\leftskip}%
+}
+%Change \half command from 1/2 to .5
+%\renewcommand*\half{.5}
+
+
+\makeatletter
+\def\SetTotalwidth{\advance\linewidth by \@totalleftmargin
+\@totalleftmargin=0pt}
+\makeatother
+
+
+
 \pagestyle{headandfoot}
-\firstpageheader{BI 151: Biological Reasoning}{}{\ifprintanswers\textbf{KEY}\else Name: \enspace \makebox[2.5in]{\hrulefill}\fi}
+\firstpageheader{BI 063: Evolution and Ecology}{}{\ifprintanswers\textbf{KEY}\else Name: \enspace \makebox[2.5in]{\hrulefill}\fi}
 \runningheader{}{}{\footnotesize{pg. \thepage}}
 \footer{}{}{}
 \runningheadrule
 
-\printanswers
+\newcommand*\AnswerBox[2]{%
+    \parbox[t][#1]{0.92\textwidth}{%
+    \begin{solution}#2\end{solution}}
+    \vspace*{\stretch{1}}
+}
+
+\newenvironment{AnswerPage}[1]
+    {\begin{minipage}[t][#1]{0.92\textwidth}%
+    \begin{solution}}
+    {\end{solution}\end{minipage}
+    \vspace*{\stretch{1}}}
+
+\newlength{\basespace}
+\setlength{\basespace}{5\baselineskip}
+
+%\printanswers
 
 \begin{document}
 
-\subsection*{Organismal Diversity (\numpoints\ points)}
+\subsection*{Organismal diversity, classification, and taxonomy}
 
-Organisms were once (prior to 1866) classified into two kingdoms -
+Organisms were once (prior to 1866) classified into two kingdoms—
 plants and animals. The organization of some biology curricula still
-reflects this — for instance, the Missouri State Legislature's
+reflects this—for instance, the Missouri State Legislature's
 required courses for teacher education in biology specify botany and
 zoology, but not microbiology or study of fungi, etc. Until fairly
 recently, the generally accepted classification system put all organisms
 into five kingdoms. Over the past several years, though, taxonomists
 have become increasingly aware that some organisms classified as
 bacteria (most of them living in extreme environments like hot springs
-and salt flats) were chemically so different from other bacteria —
-and all other organisms — that they should have their own distinct
-group. More recently various other kingdoms have been proposed. Higher
-level taxonomy is always somewhat controversial; while organisms do
-group in a set of nested categories, it's hard to decide how big a group
-you're going to call a genus, or family, or order, or kingdom. And new
-information is found all the time that necessitates modifications in
-taxonomy. Anyway, here's is one particular classification scheme:
+and salt flats) were chemically so different from other bacteria—and all
+other organisms—that they should have their own distinct
+group. More recently, other new kingdoms have been proposed. Higher
+level taxonomy is always somewhat debated; while organisms do
+group in a set of nested categories, it is hard to decide how big a group
+you're going to call a kingdom, or order, or family, or genus. New discoveries
+sometimes require modifications to
+taxonomy. Here is is one particular classification scheme:
 
 We divide living things into three domains (also known as
 “superkingdoms"):
@@ -86,10 +122,10 @@ We divide living things into three domains (also known as
 \begin{itemize}
 \item
   Eukaryota (organisms with internal membranes in their cells, including
-  a nuclear envelope),
+  a nuclear envelope);
 \item
   Eubacteria (organisms with no internal membranes in their cells, thus
-  no nucleus), and
+  no nucleus); and
 \item
   Archaea (bacteria-like organisms with a wildly different internal
   organization and chemistry).
@@ -101,23 +137,23 @@ kingdoms, including:
 
 \begin{itemize}
 \item
-  Plantae or Viridiplantae (plants — multicellular organisms with
-  cell walls and chlorophyll)
+  Plantae or Viridiplantae (plants—multicellular organisms with
+  cell walls and chlorophyll);
 \item
-  Metazoa or Animalia (animals — multicellular organisms without cell
-  walls)
+  Metazoa or Animalia (animals—multicellular organisms without cell
+  walls);
 \item
   Fungi (multicellular organisms with cell walls that do not
-  photosynthesize)
+  photosynthesize);
 \item
-  Protista (sometimes called protoctista) — all eukaryotes that don't
+  Protista (sometimes called protoctista)—all eukaryotes that do not
   fit in the other kingdoms. These include a number of single-celled
   eukaryotes, including \emph{Paramecium} and \emph{Amoeba}. Most
   scientists no longer recognize Protista as a kingdom but, because the
   classification status for the organisms in this group is in a state of
-  flux, it will serve for the purpose of this course.
+  flux, it will serve for the purpose of this course; and
 \item
-  And several more kingdoms that you don't need to worry about.
+  several more kingdoms that you do not need to worry about.
 \end{itemize}
 
 Each kingdom is progressively broken up into smaller and smaller
@@ -164,7 +200,7 @@ Generic and Specific names, called the Species name.
 A species name is always written as the Genus + Species name. The genus
 name is always capitalized, while the specific name is not. Further, the
 name is italicized \emph{or} underlined but not both. For example: The
-common garden tomato is written as \vspace{\baselineskip}
+common garden tomato is written as \vspace*{\baselineskip}
 
 \emph{Lycopersicon esculentum} or \uline{Lycopersicon esculentum}.\vspace{\baselineskip}
 
@@ -173,25 +209,25 @@ Note too that the genus name alone is also italicized or underlined, like \vspac
 \emph{Elacatinus} or \uline{Elacatinus}.\vspace{\baselineskip}
 
 Here are a few examples of the names of all the levels of classification
-for a few select organisms from the domain Eukarya:
+for four organisms from the domain Eukarya:
 
 \begin{longtable}[c]{@{}lllll@{}}
 \toprule
-\textbf{Kingdom} & Metazoa & Metazoa & Metazoa & Plantae\tabularnewline
-\textbf{Phylum} & Chordata & Chordata & Arthropoda &
+Kingdom & Metazoa & Metazoa & Metazoa & Plantae\tabularnewline
+Phylum & Chordata & Chordata & Arthropoda &
 Anthophyta\tabularnewline
-\textbf{Class} & Mammalia & Mammalia & Insecta &
+Class & Mammalia & Mammalia & Insecta &
 Dicotyledones\tabularnewline
-\textbf{Order} & Carnivora & Carnivora & Hymenoptera &
+Order & Carnivora & Carnivora & Hymenoptera &
 Fagales\tabularnewline
-\textbf{Family} & Canidae & Canidae & Sphecidae &
+Family & Canidae & Canidae & Sphecidae &
 Fagaceae\tabularnewline
-\textbf{Genus} & \emph{Canis} & \emph{Canis} & \emph{Sceliphron} &
+Genus & \emph{Canis} & \emph{Canis} & \emph{Sceliphron} &
 \emph{Quercus}\tabularnewline
-\textbf{Species} & \emph{Canis lupus} & \emph{Canis familiaris} &
+Species & \emph{Canis lupus} & \emph{Canis familiaris} &
 \emph{Sceliphron caementarium} & \emph{Quercus alba}\tabularnewline
  & & & &\tabularnewline
-\textbf{common name} & Wolf & Dog & Mud dauber wasp & White
+common name & Wolf & Dog & Mud dauber wasp & White
 Oak\tabularnewline
 \bottomrule
 \end{longtable}
@@ -199,71 +235,68 @@ Oak\tabularnewline
 
 \subsection*{Assignment}
 
-
-\begin{questions}
-
-\question[4]
-For each of the following organisms (some
-identified fairly specifically, some naming broader groups), use the
-web, your brain, and/or the library to \textbf{find out its top-level
-classification}. If it's a eukaryote, tell the kingdom that it's in; if
-it's in one of the other two domains, just tell the domain. Refer to the
-examples above, and use the links. Hint: not all kingdoms (or domains)
-are represented. (0.5 points per blank).
-
-\fullwidth{%
-\noindent\begin{longtable}[l]{@{}L{0.65in}L{1.75in}L{0.85in}L{1.75in}@{}}
-\toprule
-Organism & Kingdom (Domain for \textit{E. coli}) & Organism & Domain\tabularnewline
-\midrule
-& & & \\
-alligator 	& \ifprintanswers{Animalia/Metazoa}\else\rule{1.7in}{0.4pt}\fi &
- cat 		& \ifprintanswers{Animalia/Metazoa}\else\rule{1.7in}{0.4pt}\fi \tabularnewline[1.5ex]
+%\question
+%For each of the following organisms (some
+%identified fairly specifically, some naming broader groups), use the
+%web, your brain, and/or the library to \textbf{find out its top-level
+%classification}. If it is a eukaryote, tell the kingdom that it is in; if
+%it is in one of the other two domains, just tell the domain. Refer to the
+%examples above, and use the links. Hint: not all kingdoms (or domains)
+%are represented.
 %
-\textit{E. coli} 	& \ifprintanswers{(Eu)Bacteria}\else\rule{1.7in}{0.4pt}\fi & 
-macaque 	& \ifprintanswers{Animalia/Metazoa}\else\rule{1.7in}{0.4pt}\fi \tabularnewline[1.5ex]
+%\fullwidth{%
+%\noindent\begin{longtable}[l]{@{}L{0.65in}L{1.75in}L{0.85in}L{1.75in}@{}}
+%\toprule
+%Organism & Kingdom (Domain for \textit{E. coli}) & Organism & Kingdom\tabularnewline
+%\midrule
+%& & & \\
+%alligator 	& \ifprintanswers{Animalia/Metazoa}\else\rule{1.7in}{0.4pt}\fi &
+% cat 		& \ifprintanswers{Animalia/Metazoa}\else\rule{1.7in}{0.4pt}\fi \tabularnewline[1.5ex]
+%%
+%\textit{E. coli} 	& \ifprintanswers{(Eu)Bacteria}\else\rule{1.7in}{0.4pt}\fi & 
+%macaque 	& \ifprintanswers{Animalia/Metazoa}\else\rule{1.7in}{0.4pt}\fi \tabularnewline[1.5ex]
+%%
+%ant 		& \ifprintanswers{Animalia/Metazoa}\else\rule{1.7in}{0.4pt}\fi &
+%\emph{Homo sapiens} & \ifprintanswers{Animalia/Metazoa}\else\rule{1.7in}{0.4pt}\fi \tabularnewline[1.5ex]
+%%
+%bass 	& \ifprintanswers{Animalia/Metazoa}\else\rule{1.7in}{0.4pt}\fi &
+%maple 	& \ifprintanswers{Animalia/Metazoa}\else\rule{1.7in}{0.4pt}\fi  \tabularnewline[1.5ex]
+%\bottomrule
+%\end{longtable}
+%}
 %
-ant 		& \ifprintanswers{Animalia/Metazoa}\else\rule{1.7in}{0.4pt}\fi &
-\emph{Homo sapiens} & \ifprintanswers{Animalia/Metazoa}\else\rule{1.7in}{0.4pt}\fi \tabularnewline[1.5ex]
+
 %
-bass 	& \ifprintanswers{Animalia/Metazoa}\else\rule{1.7in}{0.4pt}\fi &
-maple 	& \ifprintanswers{Animalia/Metazoa}\else\rule{1.7in}{0.4pt}\fi  \tabularnewline[1.5ex]
-\bottomrule
-\end{longtable}
-}
+As you saw in the table above, each species is a member of a genus. 
+A genus will contain one or more species. Each genus is part of a family. 
+A family will contain one genus or several genera (plural of genus). 
+Each family belongs to an order, each order belongs to a phylum, each phylum 
+belongs to a kingdom, and each kingdom belongs to one of the three domains.
 
+%You will now use some national databases to discover the classification
+%information for some other organisms.  
 
-\fullwidth{%
-You must now find out more detailed classification
-information for some organisms to complete a table on the last page. 
-As you saw in the table above, each species is a member of a genus,
-which may contain several species. Each genus is part of a family,
-which can contain several genera (plural of genus). Each family is part
-of an order, an order is part of a phylum, a phylum is part of a
-kingdom, a kingdom is part of a domain.
-
-You can find out all of these taxonomic levels for a species by looking
+One way you can find out all of these taxonomic levels for a species by looking
 it up in the National Center for Biotechnology Information (NCBI), part
-of the National Institutes of Health. It's a huge searchable database
+of the National Institutes of Health. It is a huge searchable database
 of freely available information, paid for by your tax dollars. For this
 assignment, go to the Taxonomy Home Page
 (\url{http://www.ncbi.nlm.nih.gov/Taxonomy/}). Go to it now, and follow along
 in this worksheet. The taxonomy home page looks like this:
 
 \begin{center}
-	\includegraphics[width=0.9\textwidth]{01_taxonomy_browser01}
+	\includegraphics[width=\textwidth]{01_taxonomy_browser01}
 \end{center}
 
 Type the common name of the species you want to look up in the “search
 for" box (arrow). Then click “Search”. If you type in “broccoli” (and spell it right) you'll get
 this page:
-}
 
-\newpage
 
-\fullwidth{%
+%\newpage
+
 \begin{center}
-	\includegraphics[width=0.9\textwidth]{01_taxonomy_browser02}
+	\includegraphics[width=\textwidth]{01_taxonomy_browser02}
 \end{center}
 
 If you hold the cursor over one of the words in the “Lineage” list,
@@ -271,63 +304,62 @@ you'll see a little box pop up after a moment. Here I had the cursor on
 “Brassicales,” and the box with “order” popped up. You
 can use this technique to find all the taxonomic levels for broccoli. 
 Just work your way up from the species name, looking for the taxonomic
-levels in the table (some will say “no rank” — just skip them and
+levels in the table (some will say “no rank”—just skip them and
 keep looking). Then copy the terms into the appropriate boxes in the
 table on the next page, and do the same for the other organisms I asked about.
 
-Fill in the table on the next page for each of the species shown. Sometimes you will
-search and you will get a list of species names instead of a page like the
+Fill in the table below for each species listed. Sometimes your search
+will return a list of species names instead of a page like the
 one for broccoli. Just click on the species that you want, and that
 will take you to the right page.
-}
 
-\newpage
+%\newpage
 
-\question[14]
+\begin{questions}
+
+\question
 Fill in the following table. Be sure to use proper treatment of
-species names. (0.5 pts per blank.)
-
-\end{questions}
+species names.
 
 \begin{longtable}[l]{@{}L{0.75in}L{1.1in}L{1.1in}L{1.1in}L{1.1in}@{}}
 \toprule
 & & & & \\
-\textbf{Kingdom} & \ifprintanswers{Metazoa}\else\rule{1in}{0.4pt}\fi %
+Kingdom & \ifprintanswers{Metazoa}\else\rule{1in}{0.4pt}\fi %
 			  & \ifprintanswers{Viridiplantae}\else\rule{1in}{0.4pt}\fi %
 			  & \ifprintanswers{Metazoa}\else\rule{1in}{0.4pt}\fi %
 			  & \ifprintanswers{Metazoa}\else\rule{1in}{0.4pt}\fi \tabularnewline[3ex]
 			  %
-\textbf{Phylum} 	& \ifprintanswers{Chordata}\else\rule{1in}{0.4pt}\fi %
+Phylum 	& \ifprintanswers{Chordata}\else\rule{1in}{0.4pt}\fi %
 			& \ifprintanswers{Streptophyta}\else\rule{1in}{0.4pt}\fi %
 			& \ifprintanswers{Chordata}\else\rule{1in}{0.4pt}\fi %
 			& \ifprintanswers{Chordata}\else\rule{1in}{0.4pt}\fi \tabularnewline[3ex]
 %
-\textbf{Class} 	& \ifprintanswers{Mammalia}\else\rule{1in}{0.4pt}\fi %
+Class 	& \ifprintanswers{Mammalia}\else\rule{1in}{0.4pt}\fi %
 			& \ifprintanswers{Liliopsida}\else\rule{1in}{0.4pt}\fi %
 			& \ifprintanswers{Mammalia}\else\rule{1in}{0.4pt}\fi %
 			& \ifprintanswers{Mammalia}\else\rule{1in}{0.4pt}\fi \tabularnewline[3ex]
 %
-\textbf{Order} 	& Cetartiodactyla %
+Order 	& Cetartiodactyla %
 			& \ifprintanswers{Poales}\else\rule{1in}{0.4pt}\fi %
 			& \ifprintanswers{Primates}\else\rule{1in}{0.4pt}\fi %
 			& \ifprintanswers{Primates}\else\rule{1in}{0.4pt}\fi \tabularnewline[3ex]
 %
-\textbf{Family} & \ifprintanswers{Bovidae}\else\rule{1in}{0.4pt}\fi %
+Family	& \ifprintanswers{Bovidae}\else\rule{1in}{0.4pt}\fi %
 			& \ifprintanswers{Poaceae}\else\rule{1in}{0.4pt}\fi %
 			& \ifprintanswers{Hominidae}\else\rule{1in}{0.4pt}\fi%
 			& \ifprintanswers{Hominidae}\else\rule{1in}{0.4pt}\fi \tabularnewline[3ex]
 %
-\textbf{Genus} 	& \ifprintanswers{\textit{Bison}}\else\rule{1in}{0.4pt}\fi %
+Genus 	& \ifprintanswers{\textit{Bison}}\else\rule{1in}{0.4pt}\fi %
 			& \ifprintanswers{\textit{Triticum}}\else\rule{1in}{0.4pt}\fi %
 			& \ifprintanswers{\textit{Pan}}\else\rule{1in}{0.4pt}\fi %
 			& \ifprintanswers{\textit{Homo}}\else\rule{1in}{0.4pt}\fi \tabularnewline[3ex]
 %
-\textbf{Species} & \ifprintanswers{\textit{Bison bison}}\else\rule{1in}{0.4pt}\fi %
+Species & \ifprintanswers{\textit{Bison bison}}\else\rule{1in}{0.4pt}\fi %
 			& \ifprintanswers{\textit{Triticum aestivum}}\else\rule{1in}{0.4pt}\fi %
 			& \ifprintanswers{\textit{Pan troglodytes}}\else\rule{1in}{0.4pt}\fi %
 			& \ifprintanswers{\textit{Homo sapiens}}\else\rule{1in}{0.4pt}\fi\tabularnewline[3ex]
 %
-\textbf{common name} & American bison %
+common name & American bison %
 			& bread wheat %
 			& chimpanzee %
 			& human\tabularnewline
@@ -335,11 +367,11 @@ species names. (0.5 pts per blank.)
 \end{longtable}
 
 
-Note the name of our species. It's \emph{Homo sapiens}.
+Note the name of our species. It is \emph{Homo sapiens}.
 These are Latin words. “Homo” means “human", and “sapiens" means
-“wise”. \emph{Homo sapiens} is \emph{not} plural — Latin words don't
+“wise”. \emph{Homo sapiens} is \emph{not} plural—Latin words do not
 form plurals by adding an “s” the way English words do. That means that
-there is \emph{no such thing} as “a \textit{Homo sapien}”. That's just wrong—don't
+there is \emph{no such thing} as “a \textit{Homo sapien}”. That is wrong—do not
 write it, or you will have points counted off. 
 
 By the way, the word “species” is similar, also being originally Latin.
@@ -347,6 +379,53 @@ One species, two species. No change in singular and plural forms. There
 is an English word “specie”, but it doesn’t mean anything related to
 biology. Look it up.
 
+\question
+Compare the taxonomy of the Red Maple tree.
 
+Taxonomic information can be obtained from sources other than the NCBI. You will compare the taxonomy for Red Maple, a species of tree, from the NCBI Taxonomy Browser with the Integrated Taxonomic Information System (\url{http://www.itis.gov}), another source of taxonomic information. Go to each website, search for Red Maple, and fill in the table on the next page with the taxonomy. At the ITIS website, be sure to select one of the accepted plant names. Do not select the name under Kingdom Animalia. 
+
+\newpage
+
+\begin{longtable}[l]{@{}L{0.75in}L{1.1in}L{1.1in}@{}}
+\toprule
+& \hfil NCBI\hfill & \hfil ITIS \hfill \tabularnewline
+\midrule
+ & & \\
+Kingdom & 
+\ifprintanswers{Viridiplantae}\else\rule{1in}{0.4pt}\fi & 
+\ifprintanswers{Plantae}\else\rule{1in}{0.4pt}\fi \tabularnewline[3ex]
+%
+Phylum & 
+\ifprintanswers{Streptophyta}\else\rule{1in}{0.4pt}\fi & 
+\ifprintanswers{None given}\else\rule{1in}{0.4pt}\fi \tabularnewline[3ex]
+%
+Class & 
+\ifprintanswers{None given}\else\rule{1in}{0.4pt}\fi & 
+\ifprintanswers{Magnoliopsida}\else\rule{1in}{0.4pt}\fi \tabularnewline[3ex]
+%
+Order & 
+\ifprintanswers{Sapindales}\else\rule{1in}{0.4pt}\fi & 
+\ifprintanswers{Sapindales}\else\rule{1in}{0.4pt}\fi \tabularnewline[3ex]
+%
+Family & 
+\ifprintanswers{Aceraceae}\else\rule{1in}{0.4pt}\fi & 
+\ifprintanswers{Sapindaceae}\else\rule{1in}{0.4pt}\fi \tabularnewline[3ex]
+%
+Genus & 
+\ifprintanswers{Acer}\else\rule{1in}{0.4pt}\fi & 
+\ifprintanswers{\textit{Acer}}\else\rule{1in}{0.4pt}\fi \tabularnewline[3ex]
+%
+Species & 
+\ifprintanswers{rubrum}\else\rule{1in}{0.4pt}\fi & 
+\ifprintanswers{rubrum}\else\rule{1in}{0.4pt}\fi \tabularnewline[3ex]
+%
+Common Name & Red Maple & Red Maple \tabularnewline[3ex]
+\bottomrule
+\end{longtable}
+
+\question
+Do the two sources give the same answers for each taxonomic level? Explain how they are similar and how they are different.
+
+\end{questions}
 
 \end{document}  
