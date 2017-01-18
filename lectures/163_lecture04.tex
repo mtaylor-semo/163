@@ -1,15 +1,14 @@
 %!TEX TS-program = lualatex
 %!TEX encoding = UTF-8 Unicode
 
-%\documentclass[t]{beamer}
+\documentclass[t]{beamer}
 
 %%%% HANDOUTS For online Uncomment the following four lines for handout
-\documentclass[t,handout]{beamer}  %Use this for handouts.
-\usepackage{handoutWithNotes}
-\pgfpagesuselayout{3 on 1 with notes}[letterpaper,border shrink=5mm]
-%	\setbeamercolor{background canvas}{bg=black!5}
+%\documentclass[t,handout]{beamer}  %Use this for handouts.
+%\usepackage{handoutWithNotes}
+%\pgfpagesuselayout{3 on 1 with notes}[letterpaper,border shrink=5mm]
 
-\includeonlylecture{student}
+%\includeonlylecture{student}
 
 %%% Including only some slides for students.
 %%% Uncomment the following line. For the slides,
@@ -18,9 +17,6 @@
 %% For students, use \lecture{student}{student}
 %% For mine, use \lecture{instructor}{instructor}
 
-
-%\usepackage{pgf,pgfpages}
-%\pgfpagesuselayout{4 on 1}[letterpaper,border shrink=5mm]
 
 % FONTS
 \usepackage{fontspec}
@@ -45,47 +41,9 @@
 {
   \usetheme{Lecture}
   \setbeamercovered{invisible}
-  \setbeamertemplate{items}[square]
+%  \setbeamertemplate{items}[square]
 }
 
-%\usefonttheme[onlymath]{serif}
-%\usecolortheme[named=blue7]{structure}
-
-\newcommand{\btVFill}{\vskip0pt plus 1filll}
-
-%\usepackage{ccicons}
-
-
-%%% Creative Commons Licenses. Establish, then add to Beamer template.
-%\newcommand{\ccbysa}[1][4]{\textsc{cc by-sa #1.0}} % Use version 4.0 as default.
-\newcommand{\ccby}[1]{%
-	\ifx&#1&
-	{\textsc{cc by}}%
-\else
-	{\textsc{cc by #1.0}}
-\fi}
-
-
-\newcommand{\ccbysa}[1]{%
-	\ifx&#1&
-	{\textsc{cc by-sa}}%
-\else
-	{\textsc{cc by-sa #1.0}} 
-\fi}
-
-\newcommand{\ccbyncsa}[1]{%
-	\ifx&#1&
-	{\textsc{cc by-nc-sa}}%
-\else
-	{\textsc{cc by-nc-sa #1.0}}
-\fi}
-
-\newcommand{\ccbync}[1]{%
-	\ifx&#1&
-	{\textsc{cc by-nc}}%
-\else
-	{\textsc{cc by-nc #1.0}}
-\fi}
 
 
 \begin{document}
@@ -104,7 +62,7 @@
 {
 \usebackgroundtemplate{\includegraphics[width=\paperwidth]{individuals_vary}}
 \begin{frame}[b]
-\hfill\textcolor{white}{\tiny \textcopyright Entomart, Wikimedia}
+\hfill\textcolor{white}{\tiny \copyright\, Entomart, Wikimedia}
 \end{frame}
 }
 % Why do populations vary?
@@ -112,9 +70,9 @@
 	\centering
 	\includegraphics[width=0.8\textwidth]{individuals_vary_plain}\par
 	
-	\btVFill
+	\vfilll
 	
-	\hfill\tiny \textcopyright Entomart, Wikimedia
+	\hfill\tiny \copyright\, Entomart, Wikimedia
 
 \end{frame}
 %
@@ -122,9 +80,9 @@
 	\centering
 	\includegraphics[width=0.8\textwidth]{individuals_vary_plain}
 	
-		\btVFill
+		\vfilll
 	
-	\hfill\tiny \textcopyright Entomart, Wikimedia
+	\hfill\tiny \copyright\, Entomart, Wikimedia
 
 \end{frame}
 %
@@ -142,7 +100,7 @@
 	
 	\end{multicols}
 	
-	\btVFill
+	\vfilll
 	
 	\tiny Madeleine Price Ball, Wikimedia, \textsc{cc0}
 
@@ -244,7 +202,7 @@
 \usebackgroundtemplate{\includegraphics[width=\paperwidth]{scissortail_flycatcher} }
 \begin{frame}[b]{Females prefer longer tails in male scissortail flycatchers.}
 
-	\hfill\tiny{TexasEagle, Flickr, \ccbync{2}}
+	\hfill \tiny TexasEagle, Flickr, \ccbync{2}
 
 \end{frame}
 }
@@ -264,7 +222,7 @@
 %
 {
 \usebackgroundtemplate{\includegraphics[width=\paperwidth]{geospiza_fortis} }
-\begin{frame}[b,plain]{Beak size is diverging in \textit{Geospiza fortis.}}
+\begin{frame}[b]{Beak size is diverging in \textit{Geospiza fortis.}}
 
 	\tiny\textcolor{white}{Mark Putney, Flickr, \ccbysa{2}} \pause\hfill\includegraphics[width=0.45\textwidth]{geospiza_fortis_disruptive}
 
@@ -288,7 +246,7 @@
 \usebackgroundtemplate{\includegraphics[width=\paperwidth]{balancing_selection} }
 \begin{frame}[b]{}
 
-\tiny\textcopyright Pearson Education, Inc.
+\tiny \copyright\,Pearson Education, Inc.
 \end{frame}
 }
 
