@@ -19,14 +19,38 @@
 # *.eps
 *.pdf
 
-## Lecture related files.
-*.txt
+## Lecture-related documents:
 *.doc
 *.docx
 *.ppt
 *.pptx
+*.xls
+*.xlsx
 *.jpg
 *.png
+*.psd
+*.ai
+*.dat
+*.pct
+*.gif
+*.pxm
+*.wmf
+*.zip
+*.txt
+.DS_Store
+
+## Folders
+exams/
+_current_semester/
+past_semesters/
+support/
+future_lab_manual/
+lectures_old/
+test_bank/
+support/
+study_guides/**/
+063/**/
+lab-manual/
 
 ## Bibliography auxiliary files (bibtex/biblatex/biber):
 *.bbl
