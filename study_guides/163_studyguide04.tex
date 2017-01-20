@@ -1,0 +1,146 @@
+%!TEX TS-program = lualatex
+%!TEX encoding = UTF-8 Unicode
+
+\documentclass[letterpaper]{tufte-handout}
+
+%\geometry{showframe} % display margins for debugging page layout
+
+\usepackage{fontspec}
+\def\mainfont{Linux Libertine O}
+\setmainfont[Ligatures={Common,TeX}, Contextuals={NoAlternate}, BoldFont={* Bold}, ItalicFont={* Italic}, Numbers={OldStyle}]{\mainfont}
+\setsansfont[Scale=MatchLowercase, Numbers={OldStyle}]{Linux Biolinum O} 
+\usepackage{microtype}
+
+\usepackage{graphicx} % allow embedded images
+  \setkeys{Gin}{width=\linewidth}
+  \graphicspath{	{/Users/goby/teach/163/lectures/}}%}%
+
+%\usepackage{amsmath}  % extended mathematics
+%\usepackage{booktabs} % book-quality tables
+%\usepackage{units}    % non-stacked fractions and better unit spacing
+%\usepackage{multicol} % multiple column layout facilities
+%\usepackage{fancyvrb} % extended verbatim environments
+%  \fvset{fontsize=\normalsize}% default font size for fancy-verbatim environments
+
+\usepackage{enumitem}
+
+\makeatletter
+% Paragraph indentation and separation for normal text
+\renewcommand{\@tufte@reset@par}{%
+  \setlength{\RaggedRightParindent}{1.0pc}%
+  \setlength{\JustifyingParindent}{1.0pc}%
+  \setlength{\parindent}{1pc}%
+  \setlength{\parskip}{0pt}%
+}
+\@tufte@reset@par
+
+% Paragraph indentation and separation for marginal text
+\renewcommand{\@tufte@margin@par}{%
+  \setlength{\RaggedRightParindent}{0pt}%
+  \setlength{\JustifyingParindent}{0.5pc}%
+  \setlength{\parindent}{0.5pc}%
+  \setlength{\parskip}{0pt}%
+}
+\makeatother
+
+% Set up the spacing using fontspec features
+   \renewcommand\allcapsspacing[1]{{\addfontfeatures{LetterSpace=15}#1}}
+   \renewcommand\smallcapsspacing[1]{{\addfontfeatures{LetterSpace=10}#1}}
+
+\newcommand\lecturefile{163_lecture04_fullsize}
+
+\title{{\scshape bi} 163 Study Guide 04}
+
+\date{} % without \date command, current date is supplied
+
+\begin{document}
+
+\maketitle	% this prints the handout title, author, and date
+
+%\printclassoptions
+\section*{Phenotypes, genotypes, and three modes of selection}
+
+We\marginnote{\textbf{Read:} the glossary entries for \emph{gene} and \emph{allele.} Also read pages 272 (Useful genetic vocabulary), 480--483, 484 (population and gene pool), 488 (natural selection), 492--493, 494.} discussed the the relationship between genes and alleles, and phenotypes and genotypes. We learned how the three modes of selection cause the phenotype to change over time in a population.
+
+\section*{Vocabulary}
+
+\vspace{-1\baselineskip}
+\begin{multicols}{2}
+phenotype \\
+genotype \\
+gene (gene locus)\\
+allele\\
+diploid\\
+homozygous (homozygote)\\
+heterozygous (heterozygote)\\
+population\\
+directional selection\\
+disruptive selection\\
+stabilizing selection\\
+balancing selection\\
+heterozygote advantage
+
+\end{multicols}
+
+\section*{Concepts}
+
+You should \emph{write} clear and concise answers to each question in the Concepts section.  Remember to ``think horizontally'' and to ``connect the dots.'' 
+
+\begin{enumerate}
+
+	\item Explain the difference between the phenotype and the genotype. Explain the relationship between the two.
+	
+	\item Explain the difference between a gene\marginnote{I may sometimes use the term \emph{locus} to refer to a gene (plural: \emph{loci}). Formally, a locus is any location on a chromosome.} and an allele. 
+
+	\item What is the difference between alleles and genotypes?  Genes and genotypes?
+
+	\item As you think about genotypes, remember that the definition varies slightly depending on how you use it. In general, the genotype is the genetic makeup of an organism. But, the genotype of a \emph{diploid}\marginnote{\emph{Diploid} refers to organisms that have two copies of each chromosome and so have two alleles for each gene. For some diploid species, the males may be haploid, meaning the males have only one allele for each gene. A few species are haploid (one allele), tetraploid (4 alleles) or octoploid (8 alleles) but these species are rare.} individual can refer to one gene (e.g., it is \emph{AA}, \emph{Aa}, or \emph{aa}), for multiple genes (e.g., \emph{Aabb}, \emph{aaBbCc}) or for all genes (the genome).
+
+	\item Organisms differ because they have different sets of alleles, not different genes. Human and mice have the same genes but different alleles at those genes.  (There are differences in gene expression but that is beyond the scope of this lecture.)
+ 
+	\item What is the difference between a heterozygote and a homozygote?
+
+	\item Compare and contrast the three modes of selection\marginnote{Carefully study Fig. 23.13 in your textbook.} discussed in class.  
+	
+	
+	\item  Are the three modes mutually exclusive\marginnote{For example, can stabilizing selection and directional selection affect tail length \emph{at the same time} of a bird? Can stabilizing selection act on the wing length while directional selection act on the tail length?} or can more than one mode operate on a population simultaneously? Explain.  Be able to illustrate each mode of selection, and relate it to the relative fitness of different genotypes.  
+	
+	\item What is the relationship\marginnote{For example, which phenotype(s) would have the greatest relative fitness in the stabilizing mode of selection?} between relative fitness and the mode of selection?
+
+	\item Be able to apply each mode of selection to a given scenario.  For example, if I describe a population where the two extreme phenotypes have greater relative fitness than the heterozygotes, which mode of selection is being described?  Write your own description for each mode.
+	
+	\item Remember \marginnote{A goal of an evolutionary biologist might be to discover the process (why) that caused the pattern.}that the modes of selection describe \emph{how} the phenotype is changing but not \emph{why} the phenotype is changing. The modes of selection are patterns that we can observe. Natural selection is \emph{not} a mode of selection. Natural selection is a process that can cause a mode of selection to occur. 
+	
+\end{enumerate}
+
+
+\section*{Example exam questions}
+
+These are examples only and not exhaustive. One or more of these questions may or may not appear on the exam.
+
+\bigskip
+
+\noindent \rule{1in}{0.4pt} The physical expression\marginnote{Watch for key words, like “physical expression” to guide you to the correct answer.} of the combination of alleles for several genes in an organism.
+
+\bigskip
+
+\noindent \rule{1in}{0.4pt} Has two alleles at a gene.\marginnote{This question does not say anything about whether the alleles are the same or different. Do not assume anything. Answer based only on what the question asks Which vocabulary term above is the best match?}
+
+
+\vspace*{4\baselineskip}
+
+\noindent True\hspace{1em}False\hspace{1em} A heterozygote has two different alleles for all genes.\marginnote{For \emph{all} genes in its genome?}
+
+\bigskip
+
+\noindent Organisms living in the northern rocky intertidal face competing selective forces. Larger individuals benefit by having a larger internal volume, which helps to conserve body temperature. However, smaller individuals are less likely to be dislodged by large waves from storms. Thus, selection may favor intermediate body size phenotype for any particular species. The mode of selection is
+
+\smallskip
+
+\textsc{a}. directional selection.\\
+\textsc{b}. stabilizing selection. \\
+\textsc{c}. disruptive selection. \\
+\textsc{d}. phenotype selection. \\
+\textsc{e}. natural selection.
+
+\end{document}
