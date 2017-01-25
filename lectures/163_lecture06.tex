@@ -7,9 +7,8 @@
 %\documentclass[t,handout]{beamer}  %Use this for handouts.
 %\usepackage{handoutWithNotes}
 %\pgfpagesuselayout{3 on 1 with notes}[letterpaper,border shrink=5mm]
-%	\setbeamercolor{background canvas}{bg=black!5}
 
-\includeonlylecture{student}
+%\includeonlylecture{student}
 
 %%% Including only some slides for students.
 %%% Uncomment the following line. For the slides,
@@ -62,43 +61,11 @@
 {
   \usetheme{Lecture}
   \setbeamercovered{invisible}
-  \setbeamertemplate{items}[square]
+%  \setbeamertemplate{items}[square]
 }
 
 %\usefonttheme[onlymath]{serif}
 %\usecolortheme[named=blue7]{structure}
-
-
-%%% Creative Commons Licenses. Establish, then add to Beamer template.
-%\newcommand{\ccbysa}[1][4]{\textsc{cc by-sa #1.0}} % Use version 4.0 as default.
-\newcommand{\ccby}[1]{%
-	\ifx&#1&
-	{\textsc{cc by}}%
-\else
-	{\textsc{cc by #1.0}}
-\fi}
-
-
-\newcommand{\ccbysa}[1]{%
-	\ifx&#1&
-	{\textsc{cc by-sa}}%
-\else
-	{\textsc{cc by-sa #1.0}} 
-\fi}
-
-\newcommand{\ccbyncsa}[1]{%
-	\ifx&#1&
-	{\textsc{cc by-nc-sa}}%
-\else
-	{\textsc{cc by-nc-sa #1.0}}
-\fi}
-
-\newcommand{\ccbync}[1]{%
-	\ifx&#1&
-	{\textsc{cc by-nc}}%
-\else
-	{\textsc{cc by-nc #1.0}}
-\fi}
 
 
 \begin{document}
@@ -106,11 +73,9 @@
 \lecture{student}{student}
 \begin{frame}{Our goal for this lecture is to }
 	
-	\hangpara explain \highlight{genetic drift,} 
+	\hangpara explain \highlight{genetic drift} 
 
-	\hangpara and other ways that populations evolve,
-	
-	\hangpara discuss what are species.
+	\hangpara and other ways that populations evolve.
 	
 \end{frame}
 %
@@ -126,7 +91,7 @@
 \end{frame}
 
 
-\begin{frame}{Evolution occurs when there is}
+\begin{frame}{Evolution occurs when at least one of the following occurs in a population.}
 	
 	\hangpara natural selection,
 
@@ -134,11 +99,9 @@
 	
 	\hangpara mutation,
 	
-	\hangpara non-random mating, and
+	\hangpara non-random mating, or
 
 	\hangpara genetic drift.
-
-
 	
 \end{frame}
 %
@@ -183,7 +146,7 @@
 
 	\hangpara Most mutations are \highlight{neutral mutations.}\pause
 	
-	\hangpara Mutations that occur in a gene create new alleles.\pause
+	\hangpara Mutations that occur in a gene can create new alleles.\pause
 	
 	\hangpara Some new alleles can be detrimental or beneficial.\pause
 
@@ -218,7 +181,7 @@
 %\begin{frame}[b]{}
 %\end{frame}
 %}
-\begin{frame}[t]{\highlight{Genetic drift} is change in allele frequencies due to random events.}
+\begin{frame}[t]{\highlight{Genetic drift} is change in \emph{random} change of allele frequencies.}
 	\vspace*{-\baselineskip}
 	\begin{center}
 		\includegraphics[width=0.7\textwidth]{genetic_drift}
@@ -227,19 +190,17 @@
 	\vspace*{-\baselineskip}
 	
 	\hangpara Genetic drift is strongest in small populations.
-	
 
 \end{frame}
 {
-\usebackgroundtemplate{\includegraphics[width=\paperwidth]{snowgeese_drift_blurred} }
+%\usebackgroundtemplate{\includegraphics[width=\paperwidth]{snowgeese_drift_blurred} }
 \begin{frame}{Genetic drift \emph{always} causes a \highlight{loss of heterozygosity.}}
 	\includegraphics[width=\textwidth]{loss_of_heterozygosity}
 \end{frame}
 }
-
-
+%
 {
-\usebackgroundtemplate{\includegraphics[width=\paperwidth]{snowgeese_drift_blurred} }
+%\usebackgroundtemplate{\includegraphics[width=\paperwidth]{snowgeese_drift_blurred} }
 \begin{frame}{Two types of drift cause \highlight{rapid} loss of heterozygosity.}
 
 	\begin{multicols}{2}
@@ -259,125 +220,82 @@
 \hfill \tiny \textcopyright Pearson Education, Inc.
 \end{frame}
 }
-
+%
 \lecture{instructor}{instructor}
+
 {
 \usebackgroundtemplate{\includegraphics[width=\paperwidth]{pacific_ocean} }
 \begin{frame}[b]{}
 \end{frame}
 }
-
+%
 {
 \usebackgroundtemplate{\includegraphics[width=\paperwidth]{pingelap_atoll} }
 \begin{frame}[b]{}
 \hfill \tiny \textcolor{white}{Google Earth}
 \end{frame}
 }
-
+%
 {
 \usebackgroundtemplate{\includegraphics[width=\paperwidth]{tropical_island_normal} }
 \begin{frame}[b]{}
 \tiny Benedict Adam, Flickr, \ccby{2}.
 \end{frame}
 }
-
-
-
+%
 {
 \usebackgroundtemplate{\includegraphics[width=\paperwidth]{tropical_island_blurred} }
 \begin{frame}[b]{}
 \begin{tikzpicture}
-\blurry{\tiny\textcolor{gray}{Benedict Adam, Flickr, \ccby{2}.}}
+\blurry{\tiny\textcolor{gray}{Benedict Adam, Flickr, \ccby{2}}}
 \end{tikzpicture}
 \end{frame}
 }
-
+%
 \lecture{student}{student}
+
 {
 \usebackgroundtemplate{\includegraphics[width=\paperwidth]{pingelap_atoll} }
 \begin{frame}[b]{\textcolor{white}{1 in 17 people on Pingelap have achromatopsia.}}
 \hfill \tiny \textcolor{white}{Google Earth}
 \end{frame}
 }
-
+%
 {
 \usebackgroundtemplate{\includegraphics[width=\paperwidth]{founder_effect_silver_eye} }
 \begin{frame}[b,plain]{}
 \tiny \textcopyright Pearson Education \hfill Toby Hudson, Wikimedia, \ccbysa{3}
 \end{frame}
 }
+%
+\lecture{instructor}{instructor}
 
-% Subdividing evolution
-\begin{frame}{Evolution can be divided into three related processes.}
-
-	\hangpara \alert<1,5,7>{Microevolution:} evolution within populations.
-	\pause
-
-	\hangpara \alert<2,6>{Speciation:} the evolution of new species.
-	\pause
-
-	\hangpara \alert<3,8>{Macroevolution:} evolution above the species level.
-	\pause
-
-	\centering
-	\begin{tikzpicture}
-		[remember picture, overlay,
-		myLine/.style={color=black,very thick},
-		myArrow/.style={color=orange6, thick, ->}]
-
-		\visible<4>{
-			\draw [myLine] (-3,-2) -- (0,-2);
-			\draw [myLine] (0,-2) -- (0,-0.7); % vertical lines
-			\draw [myLine] (0,-2) -- (0,-3.3);
-			\draw [myLine] (0,-0.7) -- (3,-0.7); % descendants
-			\draw [myLine] (0,-3.3) -- (3,-3.3); 
-		}
-
-		% Draw the tree
-		\visible<5->{
-			\draw [myLine] (-3,-2) -- (0,-2);
-		} % ancestor
-
-		\visible<6->{
-			\draw [myLine] (0,-2) -- (0,-0.7); % vertical lines
-			\draw [myLine] (0,-2) -- (0,-3.3);
-		}
-		
-		\visible<7->{
-			\draw [myLine] (0,-0.7) -- (3,-0.7); % descendants
-			\draw [myLine] (0,-3.3) -- (3,-3.3); 
-		}
-
-		% Ancestor microevolution
-		\visible<5>{
-			\node [color=orange6] at (-1.5,-1.8) {Microevolution};
-		} % ancestor
-	
-		% Speciation
-		\visible<6>{
-			\node [color=orange6] (speciation) at (-1.5,-3.1) {Speciation};
-			\node [circle, draw=orange6, thick, minimum size=3mm] (speccirc) at (0,-2) {};
-			\draw [color=orange6, thick] (speciation) edge (speccirc);
-		}
-		
-		% Descendant microevolution
-		\visible<7>{
-			\node [color=orange6] at (1.5,-0.5) {Microevolution}; % descendants
-			\node [color=orange6] at (1.5,-3.1) {Microevolution};
-		}
-
-		% Macroevolution
-		\visible<8>{
-			\node [color=orange6] (macro) at (1.5,-2) {Macroevolution};
-			\draw [myArrow] (macro.north) to (1.5,-0.8);
-			\draw [myArrow] (macro.south) to (1.5,-3.2);
-		}
-
-	\end{tikzpicture}
-
-
-%	\vspace{\baselineskip}
-%	\hangpara Speciation and macroevolution require microevolution to occur.
+{
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{hms_bounty} }
+\begin{frame}[b]{}
+\hfill \textcolor{white}{\tiny Yasmina, Wikimedia, \ccby{3}}
 \end{frame}
-
+}
+%
+{
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{tahiti} }
+\begin{frame}[b]{}
+\hfill \textcolor{white}{\tiny Moises Gonzalez, Flickr, ccbync{2}}
+\end{frame}
+}
+%
+{
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{bounty_mutiny} }
+\begin{frame}[b]{}
+\hfill \textcolor{white}{\tiny National Maritime Museum, Wikimedia, public domain.}
+\end{frame}
+}
+%
+{
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{mutineer_route} }
+\begin{frame}[b]{}
+\tiny Benton et al. 2015. Investigative Genetics 6: 12.
+\end{frame}
+}
+%
 \end{document}
