@@ -1,0 +1,169 @@
+%!TEX TS-program = lualatex
+%!TEX encoding = UTF-8 Unicode
+
+\documentclass[letterpaper]{tufte-handout}
+
+%\geometry{showframe} % display margins for debugging page layout
+
+\usepackage{fontspec}
+\def\mainfont{Linux Libertine O}
+\setmainfont[Ligatures={Common,TeX}, Contextuals={NoAlternate}, BoldFont={* Bold}, ItalicFont={* Italic}, Numbers={OldStyle}]{\mainfont}
+\setsansfont[Scale=MatchLowercase, Numbers={OldStyle}]{Linux Biolinum O} 
+\usepackage{microtype}
+
+\usepackage{graphicx} % allow embedded images
+  \setkeys{Gin}{width=\linewidth}
+  \graphicspath{	{/Users/goby/teach/163/lectures/}}%}%
+
+\usepackage{amsmath}  % extended mathematics
+\usepackage{booktabs} % book-quality tables
+\usepackage{units}    % non-stacked fractions and better unit spacing
+\usepackage{multicol} % multiple column layout facilities
+%\usepackage{fancyvrb} % extended verbatim environments
+%  \fvset{fontsize=\normalsize}% default font size for fancy-verbatim environments
+
+\usepackage{enumitem}
+
+\makeatletter
+% Paragraph indentation and separation for normal text
+\renewcommand{\@tufte@reset@par}{%
+  \setlength{\RaggedRightParindent}{1.0pc}%
+  \setlength{\JustifyingParindent}{1.0pc}%
+  \setlength{\parindent}{1pc}%
+  \setlength{\parskip}{0pt}%
+}
+\@tufte@reset@par
+
+% Paragraph indentation and separation for marginal text
+\renewcommand{\@tufte@margin@par}{%
+  \setlength{\RaggedRightParindent}{0pt}%
+  \setlength{\JustifyingParindent}{0.5pc}%
+  \setlength{\parindent}{0.5pc}%
+  \setlength{\parskip}{0pt}%
+}
+\makeatother
+
+% Set up the spacing using fontspec features
+   \renewcommand\allcapsspacing[1]{{\addfontfeatures{LetterSpace=15}#1}}
+   \renewcommand\smallcapsspacing[1]{{\addfontfeatures{LetterSpace=10}#1}}
+
+\newcommand\lecturefile{163_lecture07_fullsize}
+
+\title{{\scshape bi} 163 Study Guide 07}
+
+\date{} % without \date command, current date is supplied
+
+\begin{document}
+
+\maketitle	% this prints the handout title, author, and date
+
+%\printclassoptions
+\section{Hardy-Weinberg equilibrium and microevolution in populations}
+We\marginnote{\textbf{Read:} Pgs. 206--210 for information on genes, alleles, genotypes and phenotypes. Review the reading assigned for Lecture 2.} covered two equations that are necessary to establish whether a population is in Hardy-Weinberg equilibrium. One equation is used to calculate allele frequencies. The other equation is used to calculate genotype frequencies. You must remember which equation is used for to calculate allele frequencies and which is used to calculate genotype frequencies. Failure to do so is the most common mistake made when students attempt to solve Hardy-Weinberg problems.
+
+\section{Allele Frequency}
+
+The equation for calculating \emph{allele frequencies} is 
+\begin{equation*}
+	p+q = 1,
+\end{equation*}
+
+where $p$ is the frequency of allele 1, and $q$ is the frequency of allele 2. In class, we will use only two alleles for a single locus\marginnote{In reality, most genes have many more than two alleles. The calculation of allele frequencies is the same, but with a variable added for each allele. If a gene has three alleles, for example, the equation would be expanded to $p+q+r=1$}, such as $T$ and $t$.  Two variables ($p$ and $q$) are needed to represent two alleles.  Why not use $A$ and $a$ instead of $p$ and $q$?  The vast majority of genes have names longer than a single letter, such as \emph{sonic hedgehog} (\emph{shh}) or \emph{bone morphogenetic protein 4} (\emph{bmp4}). Writing equations with long gene names would get confusing. Variable names like $p$ and $q$ are easier to understand.  In addition, we do not have to concern ourselves with dominant, recessive, or codominant alleles, or other types of gene expression. 
+
+\begin{marginfigure}[0.5in]
+	\includegraphics[page=7]{\lecturefile}
+\end{marginfigure}
+
+I use frequency and proportion interchangeably. They mean the same thing.  Given all alleles in a population, the proportion that is \emph{one particular allele} is the frequency of that allele.  The frequency of an allele represents how common the allele is in the population, expressed as a decimal fraction. For example, if a population has 124 total alleles and 31 of them are the $p$ allele, then $p= 34/124 = 0.25$.  This means that 25\% of the alleles in the population are the $p$ allele.  The remaining proportion (75\%) are the $q$ allele.
+
+\section{Genotype Frequency}
+
+\begin{marginfigure}[0.35in]
+	\includegraphics[page=10]{\lecturefile}
+\end{marginfigure}
+
+Diploid organisms have two alleles for each gene locus. The combination of alleles is the genotype for the gene locus. The genotype might be homozygous (two copies of the same allele) or heterozygous (two different alleles).  Given two alleles, there are three possible genotypes. Set aside $p$ and $q$ for the moment but consider two alleles, $T$ and $t$. The three possible genotypes are $TT$, $tt$, and $Tt$.  The \emph{genotype frequencies} in a population is calculated by
+
+\begin{equation*}
+p^2 + 2pq+q^2=1,
+\end{equation*}
+where $p^2$ is the frequency of one homozygous genotype (e.g., $TT$), $q^2$ is the frequency of the other homozygous genotype ($aa$), and $2pq$ is the frequency of the heterozygous genotype ($Tt$).  Three terms are needed to represent the three possible genotypes. 
+
+How are the two Hardy-Weinberg equations related?  Consider a large, randomly mating population with two alleles.  The alleles are present at frequencies $p$ and $q$.  The proportion of each genotype produced in the next generation is calculated by multiplying $p+q$ times itself\marginnote{Think of individuals \emph{multiplying} (mating) in a population.},
+\begin{equation*}
+(p+q)^2=
+(p+q)(p+q) =
+p^2 + pq + qp + q^2 =
+p^2 + 2pq + q^2.
+\end{equation*}
+
+
+\section{Vocabulary}
+\vspace{-1\baselineskip}
+\begin{multicols}{2}
+microevolution\\
+gene (gene locus)\\
+allele\\
+diploid\\
+homozygous (homozygote)\\
+heterozygous (heterozygote)\\
+population\\
+Hardy-Weinberg Equations\\
+Hardy-Weinberg Equilibrium\\
+\end{multicols}
+
+\section{Concepts}
+
+You should \emph{write} clear and concise answers to each question in the Concepts section.  Remember to ``think horizontally'' and to ``connect the dots.'' 
+
+\begin{enumerate}
+
+	\item What does it mean to say that a population is in Hardy-Weinberg equilibrium?\marginnote{Recall what happens if the five assumptions of Hardy-Weinberg equations are met.}
+
+	\item Know the two formulas that, together, are the Hardy-Weinberg Equations.
+
+	\item What do the Hardy-Weinberg equations demonstrate about allele frequencies in a population?
+
+	\item What is the difference between a heterozygote and a homozygote?
+
+	\item What is the difference between alleles and genotypes?  What is the difference between allele frequencies and genotype frequencies?
+
+	\item Which of the two Hardy-Weinberg formulas represent the frequencies of two alleles (at one gene locus) in a population?  Which of the two Hardy-Weinberg formulas represent the frequencies of the three possible genotypes (at one gene locus) in a population?
+
+	\item Be able to use the Hardy-Weinberg equations to derive allele frequencies and genotype frequencies in a population.  Be able to derive allele frequencies based on numbers on different phenotypes and genotypes in a population (like the flower example we worked in class). 
+	
+%	\begin{itemize}
+%		\item[$\triangleright$] We will have a lab devoted to Hardy-Weinberg problems and we will do some practice exercises in class.
+%	\end{itemize}
+
+\end{enumerate}
+
+\section*{Example exam questions}
+
+These are examples only and not exhaustive. One or more of these questions may or may not appear on the exam.
+
+\bigskip
+
+\noindent True\hspace{1em}False\hspace{1em} If \textit{p} = 0.3, then homozygosity = 0.09.\marginnote{How many was can individuals in a population be homozygous?}
+
+\bigskip \bigskip
+
+\noindent Among Caucasians in the U.S., about 1 in 2500 individuals have the disease cystic fibrosis. Cystic fibrosis occurs when individuals are homozygous for the \textit{c} allele. Based on this information, fill in the following table with the frequencies for alleles and genotypes. Be sure to write out your calculations. I will give you Hardy-Weinberg problem worth as much as 15 points on the exam. You will be required to show your work.
+
+\bigskip
+
+\begin{tabular}{@{}ll@{}}
+\toprule
+	& Frequency\tabularnewline
+\midrule
+	& \tabularnewline
+\textit{C}	&	\rule{0.6in}{0.4pt}\tabularnewline[2em]
+\textit{c}	&	\rule{0.6in}{0.4pt}\tabularnewline[2em]
+\textit{CC}	&	\rule{0.6in}{0.4pt}\tabularnewline[2em]
+\textit{Cc}	&	\rule{0.6in}{0.4pt}\tabularnewline[2em]
+\textit{cc}	&	\rule{0.6in}{0.4pt}\tabularnewline
+\bottomrule
+\end{tabular}
+
+
+\end{document}
