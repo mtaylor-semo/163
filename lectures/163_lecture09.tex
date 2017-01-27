@@ -1,0 +1,504 @@
+%!TEX TS-program = lualatex
+%!TEX encoding = UTF-8 Unicode
+
+\documentclass[t]{beamer}
+
+%%%% HANDOUTS For online Uncomment the following four lines for handout
+%\documentclass[t,handout]{beamer}  %Use this for handouts.
+%\usepackage{handoutWithNotes}
+%\pgfpagesuselayout{3 on 1 with notes}[letterpaper,border shrink=5mm]
+
+%\includeonlylecture{student}
+
+%%% Including only some slides for students.
+%%% Uncomment the following line. For the slides,
+%%% use the labels shown below the command.
+
+%% For students, use \lecture{student}{student}
+%% For mine, use \lecture{instructor}{instructor}
+
+% FONTS
+\usepackage{fontspec}
+\def\mainfont{Linux Biolinum O}
+\setmainfont[Ligatures={Common,TeX}, Contextuals={NoAlternate}, BoldFont={* Bold}, ItalicFont={* Italic}, Numbers={OldStyle}]{\mainfont}
+\setsansfont[Ligatures={Common,TeX}, Scale=MatchLowercase, Numbers=OldStyle, BoldFont={* Bold}, ItalicFont={* Italic},]{Linux Biolinum O} 
+\usepackage{microtype}
+
+\usepackage{graphicx}
+	\graphicspath{{/Users/goby/pictures/teach/163/lecture/}
+	{/Users/goby/pictures/teach/common/}} % set of paths to search for images
+
+\usepackage{multicol}
+\usepackage{booktabs}
+%\usepackage{textcomp}
+
+\usepackage{tikz}
+	\tikzstyle{every picture}+=[remember picture,overlay]
+%	\usetikzlibrary{arrows}
+
+
+\mode<presentation>
+{
+  \usetheme{Lecture}
+  \setbeamercovered{invisible}
+	\setbeamercolor{alerted text}{fg=orange6}
+}
+
+\begin{document}
+
+\lecture{student}{student}
+
+\begin{frame}{Our goal for this lecture and the next is to learn}
+	
+	\hangpara what is a \highlight{species,}
+
+	\hangpara how \highlight{reproductive isolation} evolves,
+	
+	\hangpara learn how \highlight{allopatric} distributions contribute to speciation,
+	
+	\hangpara learn what happens in \highlight{hybrid zones}, and
+	
+%	\hangpara learn what are \highlight{ring species,} and
+	
+	\hangpara ask whether speciation can occur with gene flow.
+	
+\end{frame}
+%
+%
+% Subdividing evolution
+%\begin{frame}{Evolution can be divided into three related processes.}
+%
+%	\hangpara \alert<1>{Microevolution:} evolution within populations.
+%
+%	\hangpara \alert<2>{Speciation:} the evolution of new species.
+%
+%	\hangpara Macroevolution: evolution above the species level.
+%
+%	\centering
+%	\begin{tikzpicture}
+%		[remember picture, overlay,
+%		myLine/.style={color=black,very thick},
+%		myArrow/.style={color=orange6, thick, ->}]
+%
+%
+%		% Draw the tree
+%		\visible<1->{
+%			\draw [myLine] (-3,-2) -- (0,-2);
+%		} % ancestor
+%
+%		\visible<2->{
+%			\draw [myLine] (0,-2) -- (0,-0.7); % vertical lines
+%			\draw [myLine] (0,-2) -- (0,-3.3);
+%		}
+%		
+%		\visible<2->{
+%			\draw [myLine] (0,-0.7) -- (3,-0.7); % descendants
+%			\draw [myLine] (0,-3.3) -- (3,-3.3); 
+%		}
+%
+%		% Ancestor microevolution
+%		\visible<1>{
+%			\node [color=orange6] at (-1.5,-1.8) {Microevolution};
+%		} % ancestor
+%	
+%		% Speciation
+%		\visible<2>{
+%			\node [color=orange6] (speciation) at (-1.5,-3.1) {Speciation};
+%			\node [circle, draw=orange6, thick, minimum size=3mm] (speccirc) at (0,-2) {};
+%			\draw [color=orange6, thick] (speciation) edge (speccirc);
+%		}
+%		
+%		% Descendant microevolution
+%		\visible<2>{
+%			\node [color=orange6] at (1.5,-0.5) {Microevolution}; % descendants
+%			\node [color=orange6] at (1.5,-3.1) {Microevolution};
+%		}
+%
+%%		% Macroevolution
+%%		\visible<8>{
+%%			\node [color=orange6] (macro) at (1.5,-2) {Macroevolution};
+%%			\draw [myArrow] (macro.north) to (1.5,-0.8);
+%%			\draw [myArrow] (macro.south) to (1.5,-3.2);
+%%		}
+%
+%	\end{tikzpicture}
+%
+%
+%%	\vspace{\baselineskip}
+%%	\hangpara Speciation and macroevolution require microevolution to occur.
+%\end{frame}
+%
+\lecture{student}{student}
+
+{
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{atelopus_zeteki.jpg} }
+\begin{frame}[b]{What is a \highlight{species?} }
+
+%	\hfill \tiny	\textcolor{gray}{\textit{Atelopus zeteki} photo by Brian Gratwicke, Flickr, Creative Commons.}
+	\hfill \tiny Brian Gratwicke, Flickr \ccby{2}
+\end{frame}
+}
+%
+\begin{frame}{``Species'' is not easily defined.}
+
+	\vspace{2\baselineskip}
+
+	\centering
+	\begin{tabular}{l l}
+	\toprule
+		\highlight{Morphological}	&	Genealogical\\
+		\highlight{Biological}		&	Genotypic\\
+		General Lineage		&	Recognition\\
+		Phylogenetic (I)			&	Phenetic\\
+		Phylogenetic (II)		&	Cladistic\\
+		Evolutionary			&	Diagnostic\\
+		Ecological				&	Polytypic\\
+		Typological			&	Population\\
+		Cohesion				&	\\
+	\bottomrule
+	\end{tabular}
+\end{frame}
+%
+{
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{morphological_species} }
+\begin{frame}[b]{}
+%	\hfill \tiny \textcolor{gray}{\textit{Atelopus limosus} and \textit{Dendrobates auratus} photos by Brian Gratwicke, Flickr, Creative Commons.}
+	\hfill \tiny Brian Gratwicke, Flickr \ccby{2}
+\end{frame}
+}
+%
+{
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{dendrobates_morphological} }
+\begin{frame}[b]{}
+	\hfill \tiny \textcolor{white}{Wikimedia Commons.}
+\end{frame}
+}
+%
+\begin{frame}[t]{\textit{Hypsiboas} is a genus of \highlight{cryptic species.}}
+	\centering
+	\begin{multicols}{2}
+		\includegraphics[width=0.45\textwidth]{hypsiboas_frogs.pdf} \vfill
+	\columnbreak
+		\includegraphics[width=0.5\textwidth]{hypsiboas_map} \vfill
+	\end{multicols}
+
+	\vfilll
+
+	\hfill \tiny Funk et al., 2012. Proc. R. Soc. London B 279: 1806-1814.
+\end{frame}
+%
+\begin{frame}{}
+	\vspace{1\baselineskip}
+	\begin{multicols}{2}
+
+		\onslide<1->{Body shape is not reliable.\vspace{\baselineskip}
+	
+		\includegraphics[width=0.46\textwidth]{hypsiboas_body_pc}}
+
+	\columnbreak
+
+		%\pause
+		\onslide<2->{Mating calls are reliable.\vspace{\baselineskip}
+		\includegraphics[width=0.5\textwidth]{hypsiboas_body_calls}}
+	
+	\end{multicols}
+
+	\vfilll
+
+	\onslide<1->{\hfill \tiny Funk et al., 2012. Proc. R. Soc. London B 279: 1806-1814.}
+\end{frame}
+
+\begin{frame}{The \highlight{cryptic species} are genetically distinct.}
+
+	\vspace*{-0.5\baselineskip}
+	
+	\centering
+	\begin{multicols}{2}
+	
+		\includegraphics[width=0.45\textwidth]{hypsiboas_frogs.pdf} \vfill
+	
+	\columnbreak
+	
+		\includegraphics[height=0.78\textheight]{hypsiboas_phylog} \vfill
+	
+	\end{multicols}
+
+	\vfilll
+
+	\hfill \tiny Funk et al., 2012. Proc. R. Soc. London B 279: 1806-1814.
+
+\end{frame}
+%
+{
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{biological_species_penguins.jpg} }
+\begin{frame}[b]
+
+	\hfill \tiny \textcolor{white}{Liam Quinn, Flickr \ccbysa{2}}
+	%{King penguins photo by Liam Quinn, Flickr, Creative Commons.}
+
+\end{frame}
+}
+%
+{
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{interbreed_creepers} }
+\begin{frame}[b]{\textcolor{white}{Can these sister species} \textcolor{orange5}{interbreed?}}
+
+	\tiny\textcolor{white}{Alan Vernon, Wikimedia \ccbysa{2} \hfill Francesco Veronesi, Wikimedia, \ccbysa{2}}
+	%{Brown creeper photo by Alan Vernon, Wikimedia Commons. Short-Toed Creeper photo by Thomas van de Vosse, Flickr, Creative Commons.}
+\end{frame}
+}
+%
+{
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{interbreed_zebras} }
+\begin{frame}[b]{\textcolor{white}{Can these two species} \textcolor{orange5}{interbreed?}}
+
+	\tiny\textcolor{white}{Rainbirder, Wikimedia, \ccbysa{2} \hfill Daderot, Wikimedia public domain}
+	%{Grévy's zebra photo by Rainbirder, Wikimedia Commons. Hagerman's zebra, Utah Museum of Natural History, photo by Daderot, Wikimedia Commons.}
+\end{frame}
+}
+%
+{
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{asexual_rotifer} }
+\begin{frame}[b]{How do you test for interbreeding in \highlight{asexual species?}}
+
+	\tiny Damián H. Zanette, Wikimedia public domain
+
+\end{frame}
+}
+%
+\begin{frame}{\highlight{Speciation} occurs when two new species evolve from single ancestor.}
+
+	\centering
+	\begin{tikzpicture}
+		[remember picture, overlay,
+		myLine/.style={color=black,very thick},
+		myArrow/.style={color=orange6, thick, ->}]
+
+		\draw [myLine] (-3,-2) -- (0,-2);
+		\draw [myLine] (0,-2) -- (0,-0.7); % vertical lines
+		\draw [myLine] (0,-2) -- (0,-3.3);
+		\draw [myLine] (0,-0.7) -- (3,-0.7); % descendants
+		\draw [myLine] (0,-3.3) -- (3,-3.3); 
+
+		% Speciation
+		\node [color=orange6] (speciation) at (-1.5,-3.1) {Speciation};
+		\node [circle, draw=orange6, thick, minimum size=3mm] (speccirc) at (0,-2) {};
+		\draw [color=orange6, thick] (speciation) edge (speccirc);
+		
+		% Ancestor 
+		\node [color=blue6] at (-1.5,-1.8) {Ancestor};
+		
+		% Descendants
+		\node [color=blue6] at (1.5,-0.5) {New Species};
+		\node [color=blue6] at (1.5,-3.1) {New Species};
+
+	\end{tikzpicture}
+\end{frame}
+%
+\begin{frame}{Isolating mechanisms are \highlight{prezygotic} or \highlight{postzygotic}.}
+	\vspace{2\baselineskip}
+	\centering
+	\begin{tabular}{l l l}
+	\toprule
+	{\large \highlight{Prezygotic}}	& or &	{\large Postzygotic}\\
+	\midrule
+	Habitat	& & Sterility \\
+	Behavioral & &	Inviability \\
+	Temporal	& &	Breakdown \\
+	Mechanical 	& & 	\\
+	Gamete Incompatibility	& & \\
+	\bottomrule
+	\end{tabular}
+
+	\hangpara Study pages 502--503 for details of mechanisms we do not cover in lecture.
+\end{frame}
+%
+{
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{prezygotic_habitat} }
+\begin{frame}[b]{\textcolor{white}{Columbine flowers live in different \textcolor{orange5}{habitats.}} }
+	\tiny \textcolor{white}{Dcrjsr, Wikimedia, \ccbysa{3}. \hfill Steve Berardi, Flickr, \ccbyncsa{2}. \href{https://www.youtube.com/watch?v=Iwfs2TDYg-8}{Video}}
+\end{frame}
+}
+%
+{
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{prezygotic_behavior} }
+\begin{frame}[b]{}
+	\hfill \tiny  \textcolor{white}{Vince Smith, Wikimedia, \ccbysa{2}. \href{https://www.youtube.com/watch?v=z922by9_6Fw}{Video} }
+\end{frame}
+}
+%
+{
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{prezygotic_gamete} }
+\begin{frame}[b]{\textcolor{white}{Many marine species have} \textcolor{orange5}{incompatible gametes.}}
+
+	\hfill \tiny \textcolor{white}{Emma Hickerson, \textsc{noaa}, public domain. \href{https://www.youtube.com/watch?v=wsaZ8-I7akg}{Video}}
+
+\end{frame}
+}
+%
+{
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{allo_sym_speciation} }
+\begin{frame}[b]{\highlight{Allopatric speciation} occurs from geographic isolation.}
+
+	\hfill \tiny \textcopyright Pearson Education, Inc.
+
+\end{frame}
+}
+%
+{
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{allopatric_chipmunks} }
+\begin{frame}[b]
+
+	\hfill \tiny \textcopyright Pearson Education, Inc.
+
+\end{frame}
+}
+%
+{
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{allopatric_snapping_shrimp} }
+\begin{frame}[b]{Allopatric speciation can be detected with phylogenetic trees.}
+
+	\tiny  Julio Duarte, Flickr, \ccbyncsa{2} \hfill Knowlton et al. 1993. Science 260: 1629.
+
+\end{frame}
+}
+%
+{
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{allopatric_shrimp2} }
+\begin{frame}[b]
+
+	\tiny  \copyright Pearson Education, Inc.
+
+\end{frame}
+}
+%
+\begin{frame}{Isolating mechanisms are \highlight{prezygotic} or \highlight{postzygotic}.}
+	\vspace{2\baselineskip}
+	\centering
+	\begin{tabular}{l l l}
+		\toprule
+		{\large Prezygotic}	& or &	{\large \highlight{Postzygotic}}\\
+		\midrule
+		Habitat	& & Sterility \\
+		Behavioral & &	Inviability \\
+		Temporal	& &	Breakdown \\
+		Mechanical 	& & 	\\
+		Gamete Incompatibility	& & \\
+		\bottomrule
+	\end{tabular}
+
+	\hangpara Study pages 502--503 for details of mechanisms we do not cover in lecture.
+\end{frame}
+%
+{
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{postzygotic_sterility} }
+\begin{frame}[b]{\highlight{Hybrid sterility} means that hybrid offspring cannot reproduce.}
+
+	\hfill \tiny\textcolor{white}{\copyright Pearson Education, Inc.}
+
+\end{frame}
+}
+%
+{
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{postzygotic_inviability} }
+\begin{frame}[b]{}
+
+	\hfill \tiny\textcolor{white}{\textcopyright Sinauer Associates, Inc.}
+
+\end{frame}
+}
+%
+{
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{hybrid_zone_toads} }
+\begin{frame}[b]{\textit{Bombina} hybrids have reduced fitness relative to parent species.}
+
+	\tiny \textcopyright Pearson Education, Inc.
+
+\end{frame}
+}
+%
+\begin{frame}[t]{\highlight{Hybrid zones} can form if reproductive isolation has not evolved completely.}
+
+	\alt<handout>{}{\includegraphics<1>[width=\textwidth]{hybrid_zone1}
+	\includegraphics<2>[width=\textwidth]{hybrid_zone2}}
+	\includegraphics<3>[width=\textwidth]{hybrid_zone3}
+
+	\vfilll 
+	
+	\onslide<1->\hfill \tiny \textcopyright Pearson Education, Inc.	
+\end{frame}
+%
+\begin{frame}[t]{Hybrid zones can have three possible outcomes. \phantom{if isolation has not evolved completely.}}
+
+	\includegraphics[width=\textwidth]{hybrid_zone4}
+
+	\vfilll 
+
+	\hfill \tiny \copyright Pearson Education, Inc.	
+
+\end{frame}
+%
+{
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{hybrid_zone_toads} }
+\begin{frame}[b]{\textit{Bombina} toads have a stable hybrid zone.}
+
+	\tiny \textcopyright Pearson Education, Inc.
+
+\end{frame}
+}
+%
+\lecture{instructor}{instructor}
+{
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{hybrid_reinforcement1} }
+\begin{frame}[b]{Two flycatcher species may hybridize with each other.}
+
+	\hfill \tiny \textcopyright Pearson Education, Inc.
+
+\end{frame}
+}
+%
+\lecture{student}{student}
+{
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{hybrid_reinforcement2} }
+\begin{frame}[b]{\highlight{Reinforcement} reduces chance of forming hybrids.}
+
+	\hfill \tiny \textcopyright Pearson Education, Inc.
+
+\end{frame}
+}
+%
+\begin{frame}[t]
+	\alt<handout>{}{\frametitle<1>{How many species do you see? One or two?}
+	\frametitle<2>{Do you still see the same number?}}
+	\frametitle<3>{Females of these species use visual cues to identify males.}
+
+	\centering
+	\alt<handout>{}{\includegraphics<1>[width=\textwidth]{cichlid_species1}
+	\includegraphics<2>[width=\textwidth]{cichlid_species2}}
+	\includegraphics<3>[width=\textwidth]{cichlid_species3}
+		
+	\vfilll
+	
+	\hfill \tiny \textcopyright Pearson Education, Inc.
+\end{frame}
+%
+\begin{frame}[t]{\highlight{Fusion} reverses the speciation process.}
+
+	\centering
+	\includegraphics[height=0.85\textheight]{hybrid_fusion}
+
+	\vfilll
+	
+	\hfill \tiny \textcopyright Pearson Education, Inc.
+\end{frame}
+%
+%{
+%\usebackgroundtemplate{\includegraphics[width=\paperwidth]{ensatina_ring_species} }
+%\begin{frame}[b]{\highlight{Ring species} can interbreed along a ring but not where the ends of the ring meet.}
+%	
+%	\tiny Devitt et al. 2011. BMC Evolutionary Biology 11: 245.
+%\end{frame}
+%}
+%
+
+\end{document}
