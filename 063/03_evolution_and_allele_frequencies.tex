@@ -8,6 +8,9 @@
 \usepackage{geometry}
 \geometry{letterpaper, bottom=1in}                   
 
+\usepackage{afterpage}
+\usepackage{pdflscape}
+
 \newlength{\myindent}
 \setlength{\myindent}{\parindent}
 \newcommand{\ind}{\hspace*{\myindent}}
@@ -25,8 +28,8 @@
 \setmonofont[Scale=MatchLowercase]{Inconsolatazi4}
 \usepackage{microtype}
 
-%\usepackage{unicode-math}
-%\setmathfont[Scale=MatchLowercase]{Asana Math}
+\usepackage{unicode-math}
+\setmathfont[Scale=MatchLowercase]{Asana Math}
 %\setmathfont[Scale=MatchLowercase]{XITS Math}
 
 % To define fonts for particular uses within a document. For example, 
@@ -40,7 +43,9 @@
 \usepackage{multirow}
 \usepackage{multicol}
 
-\usepackage{caption}
+\usepackage[justification=raggedright, labelsep=period]{caption}
+\captionsetup{singlelinecheck=off}
+\captionsetup{skip=0.2em}
 
 %\usepackage{tabularx}
 %\usepackage{siunitx}
@@ -49,10 +54,13 @@
 \newcolumntype{C}[1]{>{\centering\let\newline\\\arraybackslash\hspace{0pt}}p{#1}}
 \newcolumntype{R}[1]{>{\raggedleft\let\newline\\\arraybackslash\hspace{0pt}}p{#1}}
 
+\newcolumntype{M}[1]{>{\centering\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+
+
 \usepackage{enumitem}
 \setlist{leftmargin=*}
 \setlist[1]{labelindent=\parindent}
-\setlist[enumerate]{label=\textsc{\alph*}.}
+\setlist[enumerate]{label=\textsc{\alph*}., ref=\textsc{\alph*}}
 
 \usepackage{hyperref}
 %\usepackage{hanging}
@@ -105,9 +113,9 @@
 
 \begin{document}
 
-\subsection*{Evolution: natural selection and gene flow }
+\subsection*{Evolution: natural selection and gene flow\footnote{Modified from Morgan and Carter 2005. \emph{Investigating Biology Laboratory Manual,} 5th Ed., Pearson Education Inc.}}
 
-Evolution is be defined as genetic change in a population over time. The genetic change that happens in a population over time is the change in allele frequencies. Alleles are versions of genes that determine the traits of individuals, such as eye color and hair color. Frequency tells how common or rare different alleles are in a population. Alleles that are common have a high frequency. Alleles that are uncommon or rare in a population have a low frequency.  
+Evolution is be defined as genetic change in a population over time. The genetic change that happens in a population over time is the change in allele frequencies. Alleles are versions of genes that determine the traits of individuals, such as eye color and hair color. Frequency tells how common or uncommon different alleles are in a population. Common alleles have a high frequency while uncommon alleles have a low frequency.  
 
 Biologists have identified five evolutionary processes that cause populations to evolve: natural selection, gene flow, genetic drift, mutation, and non-random mating. You will explore natural selection and gene flow in this lab.  The first part of this lab will teach you how to calculate allele frequencies in a population. The second part will teach you how to use allele frequencies to calculate genotype frequencies.  The last two parts will demonstrate how natural selection and gene flow change allele and genotype frequencies in a population over time. 
 
@@ -152,7 +160,7 @@ If only two alleles in a population, then only three genotypes are possible. If 
 	
 	\item Calculate the frequencies by dividing the number of each allele by the total number of alleles in the population.
 	
-	Example: The frequency of the \allele{A} allele is 160/200 = 0.8. The frequency of the \allele{a} allele is 40/200 = 0.2. Notice that 0.8 + 0.2 = 1. These two numbers must add up to 1 to show that you have accounted for all of the alleles in the population. Another way to think about this is that 0.8 $\times$ 100\% = 80\% of the alleles in the population are the \allele{A} allele. 20 $\times$ 100\% = 20\% of the alleles in the population are the \allele{a} allele. Adding together 80\% and 20\% shows that 100\% of the alleles in the population have been accounted for. \emph{If the frequencies do not add up to 1, carefully check your math of find and correct your error.}
+	Example: The frequency of the \allele{A} allele is 160/200 = 0.8. The frequency of the \allele{a} allele is 40/200 = 0.2.  The frequencies must add up to 1 to show that you have accounted for all of the alleles in the population. Another way to think about this is that 0.8 $\times$ 100\% = 80\% of the alleles in the population are the \allele{A} allele. 0.2 $\times$ 100\% = 20\% of the alleles in the population are the \allele{a} allele. Adding together 80\% and 20\% shows that 100\% of the alleles in the population have been accounted for. \emph{If the frequencies do not add up to 1, carefully check your math to find and correct your error.}
 	
 \end{enumerate}
 
@@ -179,7 +187,7 @@ Ask your instructor to check your answers before proceeding to the next section.
 
 \subsubsection*{How to calculate genotype frequencies}
 
-If you know the allele frequencies in a population then you can easily estimate the genotype frequencies in the population. Like allele frequencies, genotype frequencies represent how common or rare each genotype is in a population.  You can estimate genotype frequencies using a Punnett square, which you may already know how to use.  A Punnett square show the possible genotypes that can be produced by two parents of known genotypes. For example, if two \allele{Cc} parents mate, then the possible genotypes of their offspring are
+If you know the allele frequencies in a population then you can estimate the genotype frequencies in the population. Like allele frequencies, genotype frequencies represent how common each genotype is in a population.  You can estimate genotype frequencies with a Punnett square, which you may already know how to use.  A Punnett square shows the possible genotypes that can be produced by two parents of known genotypes. For example, if two \allele{Cc} parents mate, then the possible genotypes of their offspring are
 
 \begin{center}
 	\begin{tabular}{cc|c|c|}
@@ -201,7 +209,7 @@ Imagine you flip two coins (or flip the same coin twice). The first coin (or fli
 
 \begin{multicols}{2}
 \begin{center}
-	\begin{tabular}{cc|C{0.5in}|C{0.5in}|}
+	\begin{tabular}{cc|M{0.5in}|M{0.5in}|}
 		\multicolumn{2}{c}{}	& \multicolumn{2}{c}{Coin 1}\tabularnewline
 		\multicolumn{2}{c}{}	& \multicolumn{1}{c}{H}	& \multicolumn{1}{c}{T} \tabularnewline
 		\cline{3-4}
@@ -215,7 +223,7 @@ Imagine you flip two coins (or flip the same coin twice). The first coin (or fli
 \columnbreak
 
 \begin{center}
-	\begin{tabular}{cc|C{0.5in}|C{0.5in}|}
+	\begin{tabular}{cc|M{0.5in}|M{0.5in}|}
 		\multicolumn{2}{c}{}	& \multicolumn{2}{c}{Coin 1}\tabularnewline
 		\multicolumn{2}{c}{}	& \multicolumn{1}{c}{0.5}	& \multicolumn{1}{c}{0.5} \tabularnewline
 		\cline{3-4}
@@ -238,7 +246,7 @@ The same logic applies for allele frequencies if the population size is very lar
 
 \begin{multicols}{2}
   \begin{center}
-  	\begin{tabular}{cc|C{0.5in}|C{0.5in}|}
+  	\begin{tabular}{cc|M{0.5in}|M{0.5in}|}
   		\multicolumn{2}{c}{}	& \multicolumn{2}{c}{Egg}\tabularnewline
   		\multicolumn{2}{c}{}	& \multicolumn{1}{c}{\allele{D}}	& \multicolumn{1}{c}{\allele{d}} \tabularnewline
   		\cline{3-4}
@@ -252,7 +260,7 @@ The same logic applies for allele frequencies if the population size is very lar
   \columnbreak
   
   \begin{center}
-  	\begin{tabular}{cc|C{0.5in}|C{0.5in}|}
+  	\begin{tabular}{cc|M{0.5in}|M{0.5in}|}
   		\multicolumn{2}{c}{}	& \multicolumn{2}{c}{Egg}\tabularnewline
   		\multicolumn{2}{c}{}	& \multicolumn{1}{c}{0.6}	& \multicolumn{1}{c}{0.4} \tabularnewline
   		\cline{3-4}
@@ -267,11 +275,11 @@ The same logic applies for allele frequencies if the population size is very lar
 The probability of getting the \allele{DD} genotype is 0.36. The probability of getting the \allele{dd} genotype is 0.16. The probability of of getting the \allele{Dd} genotype is 0.24 $+$ 0.24 = 0.48. Remember that probabilities and frequencies are the same thing?  In a very large, randomly mating population with allele frequencies 0.6 and 0.4, the genotype frequencies will be very close to 0.36, 0.48, and 0.16.
 
 \question
-Calculate the possible genotypes and their frequencies in a population with allele \allele{E} that has a frequency of 0.1 and \allele{e} that has a frequency of 0.9. Fill in the tables below with your results. 
+Calculate the possible genotypes and their frequencies in a population with allele \allele{E} that has a frequency of 0.2 and \allele{e} that has a frequency of 0.8. Fill in the tables below with your results. 
 
 \begin{multicols}{2}
   \begin{center}
-  	\begin{tabular}{cc|C{0.5in}|C{0.5in}|}
+  	\begin{tabular}{cc|M{0.5in}|M{0.5in}|}
   		\multicolumn{2}{c}{}	& \multicolumn{2}{c}{Egg}\tabularnewline
   		\multicolumn{2}{c}{}	& \multicolumn{1}{c}{\allele{E}}	& \multicolumn{1}{c}{\allele{e}} \tabularnewline
   		\cline{3-4}
@@ -285,9 +293,9 @@ Calculate the possible genotypes and their frequencies in a population with alle
   \columnbreak
   
   \begin{center}
-  	\begin{tabular}{cc|C{0.5in}|C{0.5in}|}
+  	\begin{tabular}{cc|M{0.5in}|M{0.5in}|}
   		\multicolumn{2}{c}{}	& \multicolumn{2}{c}{Egg}\tabularnewline
-  		\multicolumn{2}{c}{}	& \multicolumn{1}{c}{0.2}	& \multicolumn{1}{c}{0.8} \tabularnewline
+  		\multicolumn{2}{c}{}	& \multicolumn{1}{c}{0.1}	& \multicolumn{1}{c}{0.9} \tabularnewline
   		\cline{3-4}
   		\multirow{2}{*}{Sperm}	& 0.2		& 	 &  \tabularnewline[2em]
   		\cline{3-4}
@@ -309,8 +317,7 @@ The color of the peppered moth is determined by one gene with two alleles. The \
 
 For this exercise, you will simulate how allele frequencies changed in a population of peppered moths due to the Industrial Revolution. 
 
-
-\question\label{ques:prediction}
+\question\label{ques:selection_prediction}
 Predict how the frequency of each allele should change from before the Industrial Revolution to after the Industrial Revolution?
 
 \AnswerBox{2\baselineskip}{The \allele{d} allele should become less frequent over time. The \allele{D} allele should increase in frequency.}
@@ -319,65 +326,193 @@ Predict how the frequency of each allele should change from before the Industria
 
 \medskip
 
-You will work in pairs. One of you will sample alleles from the population. The other one of you will record the results. You should take turns doing these tasks.  In the kit on your table, you have two jars with light and dark beads, some paper sacks, some glass finger bowls, and an anti-slip mat. Each color of bead represents a different allele. For this simulation, you will use a starting frequency of 0.9 light alleles (the light colored bead) and 0.1 dark alleles (the dark bead). You will need enough beads to represent a population size of 50 individuals.
+You will work in pairs. One of you will sample alleles from the population while the other will record the results. You should take turns doing these tasks.  In the kit on your table, you have two containers with light and dark beads, some paper sacks, and some glass finger bowls. Each color of bead represents a different allele. For this simulation, you will use a starting frequency of 0.9 light alleles (the light colored bead) and 0.1 dark alleles (the dark bead). You will need enough beads to represent a population size of 50 individuals.
 
 \begin{enumerate}
 
 	\item Calculate the total number of alleles and write it in the blank. \hfill \rule{0.5in}{0.4pt}\\ \emph{Remember that peppered moths are diploid.} 
 	
-	\item Calculate the number of light alleles you need for a frequency of 0.9. \hfill \rule{0.5in}{0.4pt} \\ Count out that number of light beads and place them in a paper sack. Count the beads on the anti-slip mat so that the beads do not roll around.
+	\item Calculate the number of light alleles you need for a frequency of 0.9. \hfill \rule{0.5in}{0.4pt} \\ Count out that number of light beads and place them in a paper sack. 
 	
-	\item Calculate the number of dark alleles you need for a frequency of 0.1. \hfill \rule{0.5in}{0.4pt} \\ Count out that number of dark beads and add them to the sack with the light beads. Shake the bag to mix the alleles.
+	\item Calculate the number of dark alleles you need for a frequency of 0.1. \hfill \rule{0.5in}{0.4pt} \\ Count out that number of dark beads and add them to the sack with the light beads. Shake the sack to mix the alleles.
 	
-	\item Ask your instructor to check your calculations so that you start with the correct number of alleles.
+	\item This is Generation 0. Using 0.9 and 0.1 for the starting allele frequencies, calculate the genotype frequencies for Generation 0 and record them in Table~\ref{tab:selection_results} on page~\pageref{tab:selection_results}. \emph{Ask your instructor to check your calculations so that you start with the correct number of alleles.}
 	
-	\item Reach into the bag and draw two alleles at random. Record the genotype (\allele{DD,} \allele{Dd,} or \allele{dd}) on a separate sheet of paper. Return the two alleles back to the population. (Put them back in the bag with the other beads).
+	\item \label{selection_sample_start} Reach into the bag and draw two alleles at random. Record the genotype (\allele{DD,} \allele{Dd,} or \allele{dd}) on a separate sheet of paper. Return the two alleles back to the population. (Put them back in the bag with the other beads).
 	
 	\textsc{Note:} Returning the beads to the bag is called \textbf{sampling with replacement.} Returning the alleles to the population simulates a very large population. Drawing the alleles at random simulates random mating.
 	
-	\item Repeat this until you have sampled the genotypes for 50 individuals. Remember to return the alleles to the population after each sample. This is your new population. 
+	\item Repeat Step~\ref{selection_sample_start} until you have sampled the genotypes for 50 individuals. Record the genotype for each individual you sample. Remember to return the alleles to the population after each sample. 
 	
-	\item The Industrial Revolution has now caused the tree bark to become darker, affecting the survivorship of the moths. Dark moths are less visible to predators so only 10\% are eaten by predators. In contrast, 50\% of the light moths are eaten. 
+	\item Add up the number of individuals for each genotype. These individuals are the offspring from Generation 0. Some of these individuals will not survive, thanks to the darker trees caused by the Industrial Revolution. Dark moths are less visible to predators so only 10\% are eaten by predators. In contrast, 50\% of the light moths are eaten. 
 	
-	How many light moths must you remove from your new population to reflect the change in survivorship? How many dark moths? Can natural selection distinguish between dark moths with \allele{DD} and \allele{dd} genotypes? \textbf{How will you decide which dark moths to remove?}  Remove the appropriate number of individuals of each phenotype.
+	How many light moths must you remove from the offspring to reflect the change in survivorship? How many dark moths? Can natural selection distinguish between dark moths with \allele{DD} and \allele{dd} genotypes? How will you decide which dark moths to remove? Remove the appropriate number of individuals of each phenotype.
 	
-	\item Calculate new allele frequencies for the remaining population. Reestablish the populations with these new allele frequencies for the 100 alleles. Record the new frequencies in Table~\ref{tab:selection_results} (page~\pageref{tab:selection_results}) for Generation 1.
+	\item \label{selection_sample_stop} The surviving offspring are now Generation~1. Calculate new allele frequencies for this generation. Reestablish the populations with these new allele frequencies for the 100 alleles (see example below). Record the new allele frequencies in Table~\ref{tab:selection_results}.
 	
-	\item Continue the selection procedure for five more generations (a total of six generations; your instructor may ask you to repeat the process for extra generations if necessary). Record the allele frequencies for each generation. Calculate the genotype frequencies for each generation. 
+	\textit{Ask your instructor to check your calculation to be sure you start Generation 1 with the correct allele frequencies.}
+	
+	\textsc{Example:} Assume that after predation, you have the following number of survivors:
+	
+	Number of individuals: 14 \allele{dd}, 21 \allele{Dd}, and 3 \allele{DD}.\\
+	Number of alleles: $49$ \allele{d} and $27$ \allele{D}.\\
+	Total number of alleles: $76$
+
+	Frequency of \allele{d:} $49/76 = 0.64$\\
+	Frequency of \allele{D:} $24/76 = 0.36$ (Round to two digits after the decimal.)
+
+	Adjust the number of beads in your population so that you have 64 beads that represent the \allele{d} allele and 36 beads that represent the \allele{D} allele.  
+	
+	\item Repeat Steps~\ref{selection_sample_start}–\ref{selection_sample_stop} for five more generations (a total of six generations). Record the allele frequencies for each generation in Table~\ref{tab:selection_results}. Calculate the genotype frequencies for the final generation. 
 	
 \end{enumerate}
 
 \question
-Summarize your results. Did the results agree with the prediction you made in question~\ref{ques:prediction}? Explain.
-
-\AnswerBox{4\baselineskip}{Their results will hopefully agree.}
-
-\question
-Sketch a graph of the change in \allele{D} and \allele{d} over time.
-
-\AnswerBox{4\baselineskip}{Their results will hopefully agree.}
+Describe how the genotype frequencies changed over time for your population.
 
 \newpage
 
+\question
+Sketch a graph of the frequencies of \allele{D} and \allele{d} changed over time.
+
+\vspace*{\stretch{3}}
+
+%\vskip0pt plus 1filll
+
+%\newpage
+
+\begin{table}[b!]
 \begin{longtable}[l]{@{}C{0.75in}C{0.75in}C{0.75in}C{0.75in}C{0.75in}C{0.75in}@{}}
-	\caption{Allele and genotype frequencies for peppered moths.}\label{tab:selection_results}\tabularnewline
-	\toprule
-	 & \multicolumn{2}{c}{Allele Frequency}	&	\multicolumn{3}{c}{Genotype Frequency}\tabularnewline
-	\cmidrule(lr){2-3} \cmidrule(l){4-6}
-	Generation & \allele{D}	& \allele {d} & \allele{DD} & \allele {Dd} & \allele {dd} \tabularnewline
-	\midrule
-	&	&	&	&	& \tabularnewline
-	0	& 0.1 & 0.9	& \rule{0.5in}{0.4pt}	& \rule{0.5in}{0.4pt}	& \rule{0.5in}{0.4pt} \tabularnewline[2em]
-	1	& \rule{0.5in}{0.4pt} & \rule{0.5in}{0.4pt}	& \rule{0.5in}{0.4pt}	& \rule{0.5in}{0.4pt}	& \rule{0.5in}{0.4pt} \tabularnewline[2em]
-	2	& \rule{0.5in}{0.4pt} & \rule{0.5in}{0.4pt}	& \rule{0.5in}{0.4pt}	& \rule{0.5in}{0.4pt}	& \rule{0.5in}{0.4pt} \tabularnewline[2em]		
-	3	& \rule{0.5in}{0.4pt} & \rule{0.5in}{0.4pt}	& \rule{0.5in}{0.4pt}	& \rule{0.5in}{0.4pt}	& \rule{0.5in}{0.4pt} \tabularnewline[2em]
-	4	& \rule{0.5in}{0.4pt} & \rule{0.5in}{0.4pt}	& \rule{0.5in}{0.4pt}	& \rule{0.5in}{0.4pt}	& \rule{0.5in}{0.4pt} \tabularnewline[2em]	
-	5	& \rule{0.5in}{0.4pt} & \rule{0.5in}{0.4pt}	& \rule{0.5in}{0.4pt}	& \rule{0.5in}{0.4pt}	& \rule{0.5in}{0.4pt} \tabularnewline[2em]
-	6	& \rule{0.5in}{0.4pt} & \rule{0.5in}{0.4pt}	& \rule{0.5in}{0.4pt}	& \rule{0.5in}{0.4pt}	& \rule{0.5in}{0.4pt} \tabularnewline[2em]
-	7	& \rule{0.5in}{0.4pt} & \rule{0.5in}{0.4pt}	& \rule{0.5in}{0.4pt}	& \rule{0.5in}{0.4pt}	& \rule{0.5in}{0.4pt} \tabularnewline[2em]
-	8	& \rule{0.5in}{0.4pt} & \rule{0.5in}{0.4pt}	& \rule{0.5in}{0.4pt}	& \rule{0.5in}{0.4pt}	& \rule{0.5in}{0.4pt} \tabularnewline[2em]
-	\bottomrule 
+  \caption{Allele and genotype frequencies for peppered moths.}
+  \label{tab:selection_results}\tabularnewline
+  \toprule
+  &
+  \multicolumn{2}{c}{Allele Frequency}	&
+  \multicolumn{3}{c}{Genotype Frequency}\tabularnewline
+%
+  \cmidrule(lr){2-3} 
+  \cmidrule(l){4-6}
+%
+  Generation	&
+  \allele{D}		&
+  \allele {d} 	&
+  \allele{DD} 	&
+  \allele {Dd} 	&
+  \allele {dd}	\tabularnewline
+%
+  \midrule
+  & & & & & \tabularnewline
+%
+0		&
+0.1	&
+0.9	&
+\rule{0.5in}{0.4pt}	&
+\rule{0.5in}{0.4pt}	&
+\rule{0.5in}{0.4pt}	\tabularnewline[2em]
+%
+1	&
+\rule{0.5in}{0.4pt}	&
+\rule{0.5in}{0.4pt}	&
+& % \rule{0.5in}{0.4pt}	&
+& % \rule{0.5in}{0.4pt}	&
+\tabularnewline[2em]
+ % \rule{0.5in}{0.4pt} \tabularnewline[2em]
+%
+2	&
+ \rule{0.5in}{0.4pt} &
+ \rule{0.5in}{0.4pt}	&
+& % \rule{0.5in}{0.4pt}	&
+& % \rule{0.5in}{0.4pt}	&
+\tabularnewline[2em]
+ % \rule{0.5in}{0.4pt} \tabularnewline[2em]
+	3	&
+ \rule{0.5in}{0.4pt} &
+ \rule{0.5in}{0.4pt}	&
+& % \rule{0.5in}{0.4pt}	&
+& % \rule{0.5in}{0.4pt}	&
+\tabularnewline[2em]
+ % \rule{0.5in}{0.4pt} \tabularnewline[2em]
+	4	&
+ \rule{0.5in}{0.4pt} &
+ \rule{0.5in}{0.4pt}	&
+ & % \rule{0.5in}{0.4pt}	&
+& % \rule{0.5in}{0.4pt}	&
+\tabularnewline[2em]
+ % \rule{0.5in}{0.4pt} \tabularnewline[2em]
+	5	&
+ \rule{0.5in}{0.4pt} &
+ \rule{0.5in}{0.4pt}	&
+& % \rule{0.5in}{0.4pt}	&
+& % \rule{0.5in}{0.4pt}	&
+\tabularnewline[2em]
+ % \rule{0.5in}{0.4pt} \tabularnewline[2em]
+6	&
+\rule{0.5in}{0.4pt}	&
+\rule{0.5in}{0.4pt}	&
+\rule{0.5in}{0.4pt}	&
+\rule{0.5in}{0.4pt}	&
+\rule{0.5in}{0.4pt}	\tabularnewline[2em]
+%7	&
+%\rule{0.5in}{0.4pt}	&
+%\rule{0.5in}{0.4pt}	&
+%\rule{0.5in}{0.4pt}	&
+%\rule{0.5in}{0.4pt}	&
+%\rule{0.5in}{0.4pt}	\tabularnewline[2em]
+%8	&
+%\rule{0.5in}{0.4pt}	&
+%\rule{0.5in}{0.4pt}	&
+%\rule{0.5in}{0.4pt}	&
+%\rule{0.5in}{0.4pt}	&
+%\rule{0.5in}{0.4pt}	\tabularnewline[2em]
+\bottomrule 
 \end{longtable}
+\end{table}
+
+\question
+Did the results agree with the prediction you made in question~\ref{ques:selection_prediction}? Explain.
+
+\vspace{3\baselineskip}
+
+\question
+What mode of selection best matches your results? Explain.
+
+\AnswerBox{1\baselineskip}{Directional selection. The population phenotype is changing in one direction, from light phenotype to dark phenotype.}
+
+\subsubsection*{Evolution by gene flow}
+
+Gene flow is defined as the movement of individuals among populations.  If an individual moves to a different population and reproduces, then its alleles are introduced into the new population.  This can alter allele frequencies of both populations. You will simulate gene flow using two populations with different allele frequencies.
+
+For this exercise, you will simulate the movement of individuals between two populations. Each population will have 50 individuals each. Population 1 will have starting allele frequencies of 0.9 (\allele{d} allele) and 0.1 (\allele{D} allele). Population 2 will have a starting allele frequency of 0.5 for both alleles. Every generation, 10 individuals will move from Population 1 to Population 2, while 10 individuals move from Population 2 to Population 1.
+
+\question\label{ques:migration_prediction}
+Predict how the frequency of each allele will change for \emph{each} of the two populations due to gene flow. 
+
+\AnswerBox{3\baselineskip}{Population 1: the frequency of \allele{d} should decrease and \allele{D} should increase. Population 2: the frequency of \allele{d} should increase and \allele{D} should decrease.}
+
+\textsc{Procedure}
+
+\medskip
+
+\begin{enumerate}
+
+	\item Count 90 light and 10 dark beads and place them together in one bag. You can use the population from the peppered moth simulation, but be sure to return it to the starting conditions of 90 light and 10 dark beads. Label the bag Population 1.
+	
+	\item Count 50 dark and 50 light beads and place them together in another bag. Label the bag Population 2.  Record the starting allele frequencies in the Generation 0 row in Table~\ref{tab:migration_results} on page~\pageref{tab:migration_results}.
+	
+	\item Select 10 individuals at random (how many alleles?) from each population and exchange them between the two populations. (Take the beads from the Population 1 bag and add them to the Population 2 bag. Take the beads from the Population 2 bag and add them to the Population 1 bag. Exchange them \emph{after} counting out the 10 individuals from each population.)
+	
+	\item Select 50 individuals from each population, \emph{sampling with replacement.} Record the genotypes and the number of \allele{D} and \allele{d} alleles for each population.
+	
+	\item Calculate the new allele and genotype frequencies in the two populations following migration. Record your results in the Generation~1 row in Table~\ref{tab:migration_results}. The population size of each population should still be 50 individuals.
+	
+	\item Repeat this procedure for 5 more generations (6 total). 
+
+\end{enumerate}
+
+\question
+Sketch a graph of the frequencies of \allele{D} and \allele{d} changed over time.
+
+\AnswerBox{4\baselineskip}{Their results will hopefully agree.}
 
 \question
 Describe how the genotype frequencies changed over time for your population.
@@ -385,19 +520,188 @@ Describe how the genotype frequencies changed over time for your population.
 \AnswerBox{2\baselineskip}{The \allele{dd} frequency should slowly decrease. The \allele{Dd} frequency increases first, followed by \allele{DD} frequency.}
 
 \question
-What mode of selection best matches your results? Explain
+Did the results agree with the prediction you made in question~\ref{ques:migration_prediction}? Explain.
 
-\AnswerBox{1\baselineskip}{Directional selection. The population phenotype is changing in one direction, from light phenotype to dark phenotype.}
-
-
-\newpage
-
-\subsubsection*{Evolution by gene flow}
-
-Gene flow is defined as the movement of individuals among populations.  If an individual moves to a different population and reproduces, then its alleles are introduced into the new population.  This can alter allele frequencies of both populations. You will simulate gene flow using two populations with different allele frequencies.
+\AnswerBox{4\baselineskip}{Their results will hopefully agree.}
 
 
+%\afterpage{%
+\begin{landscape}
+
+\begin{longtable}[l]{@{}%
+	C{0.75in}
+	C{0.55in}
+	C{0.55in}
+	C{0.55in}
+	C{0.55in}
+	C{0.55in}
+	C{0.55in}
+	C{0.55in}
+	C{0.55in}
+	C{0.55in}
+	C{0.55in}@{}}
+	\caption{Allele and genotype frequencies for migration.}
+	\label{tab:migration_results}\tabularnewline
+  \toprule
+  &
+  \multicolumn{5}{c}{Population 1} &
+  \multicolumn{5}{c}{Population 2}\tabularnewline
+%
+  \cmidrule(lr){2-6} \cmidrule(lr){7-11}
+ %
+  & 
+  \multicolumn{2}{c}{Allele Frequency}		&
+  \multicolumn{3}{c}{Genotype Frequency}	&
+  \multicolumn{2}{c}{Allele Frequency}		&
+  \multicolumn{3}{c}{Genotype Frequency}\tabularnewline
+%
+  \cmidrule(lr){2-3}
+  \cmidrule(lr){4-6}
+  \cmidrule(lr){7-8}
+  \cmidrule(lr){9-11}
+%
+  Generation	&
+  \allele{D}		&
+  \allele {d}		&
+  \allele{DD}	&
+  \allele {Dd}	&
+  \allele {dd}	&
+  \allele{D}		&
+  \allele {d}		&
+  \allele{DD}	&
+  \allele {Dd}	&
+  \allele {dd}	\tabularnewline
+%
+  \midrule
+ & & & & & & & & & & \tabularnewline
+%Row 1: Generation 0
+0		& 
+0.1 	& 
+0.9	& 
+\rule{0.45in}{0.4pt}	& 
+\rule{0.45in}{0.4pt}	& 
+\rule{0.45in}{0.4pt}	& 
+0.5 	&
+0.5	&
+\rule{0.45in}{0.4pt}	&
+\rule{0.45in}{0.4pt}	&
+\rule{0.45in}{0.4pt}	\tabularnewline[2em]
+%Row 2: Generation 1
+1		&
+\rule{0.45in}{0.4pt}	&
+\rule{0.45in}{0.4pt}	&
+& %\rule{0.45in}{0.4pt}	&
+& %\rule{0.45in}{0.4pt}	&
+& %\rule{0.45in}{0.4pt}	&
+\rule{0.45in}{0.4pt} 	&
+\rule{0.45in}{0.4pt}	&
+& %\rule{0.45in}{0.4pt}	&
+& %\rule{0.45in}{0.4pt}	&
+\tabularnewline[2em]
+% \rule{0.45in}{0.4pt}	\tabularnewline[2em]
+%Row 3: Generation 2
+2	&
+\rule{0.45in}{0.4pt}	&
+\rule{0.45in}{0.4pt}	&
+& %\rule{0.45in}{0.4pt}	&
+& %\rule{0.45in}{0.4pt}	&
+& %\rule{0.45in}{0.4pt}	&
+\rule{0.45in}{0.4pt} 	&
+\rule{0.45in}{0.4pt}	&
+& %\rule{0.45in}{0.4pt}	&
+& %\rule{0.45in}{0.4pt}	&
+\tabularnewline[2em]
+% \rule{0.45in}{0.4pt}	\tabularnewline[2em]
+%Row 4: Generation 3
+3	&
+\rule{0.45in}{0.4pt}	&
+\rule{0.45in}{0.4pt}	&
+& %\rule{0.45in}{0.4pt}	&
+& %\rule{0.45in}{0.4pt}	&
+& %\rule{0.45in}{0.4pt}	&
+\rule{0.45in}{0.4pt} 	&
+\rule{0.45in}{0.4pt}	&
+& %\rule{0.45in}{0.4pt}	&
+& %\rule{0.45in}{0.4pt}	&
+\tabularnewline[2em]
+% \rule{0.45in}{0.4pt}	\tabularnewline[2em]
+%Row 5: Generation 4
+4	&
+\rule{0.45in}{0.4pt}	&
+\rule{0.45in}{0.4pt}	&
+& %\rule{0.45in}{0.4pt}	&
+& %\rule{0.45in}{0.4pt}	&
+& %\rule{0.45in}{0.4pt}	&
+\rule{0.45in}{0.4pt} 	&
+\rule{0.45in}{0.4pt}	&
+& %\rule{0.45in}{0.4pt}	&
+& %\rule{0.45in}{0.4pt}	&
+\tabularnewline[2em]
+% \rule{0.45in}{0.4pt}	\tabularnewline[2em]
+%Row 6: Generation 5
+5	&
+\rule{0.45in}{0.4pt}	&
+\rule{0.45in}{0.4pt}	&
+& %\rule{0.45in}{0.4pt}	&
+& %\rule{0.45in}{0.4pt}	&
+& %\rule{0.45in}{0.4pt}	&
+\rule{0.45in}{0.4pt} 	&
+\rule{0.45in}{0.4pt}	&
+& %\rule{0.45in}{0.4pt}	&
+& %\rule{0.45in}{0.4pt}	&
+\tabularnewline[2em]
+% \rule{0.45in}{0.4pt}	\tabularnewline[2em]
+%Row 7: Generation 6
+6	&
+ \rule{0.45in}{0.4pt}	&
+ \rule{0.45in}{0.4pt}	&
+ \rule{0.45in}{0.4pt}	&
+ \rule{0.45in}{0.4pt}	&
+ \rule{0.45in}{0.4pt}	&
+ \rule{0.45in}{0.4pt}	&
+ \rule{0.45in}{0.4pt}	&
+ \rule{0.45in}{0.4pt}	&
+ \rule{0.45in}{0.4pt}	&
+ \rule{0.45in}{0.4pt}	\tabularnewline[2em]
+%Row 8: Generation 7
+%	7	&
+% \rule{0.45in}{0.4pt}	&
+% \rule{0.45in}{0.4pt}	&
+% \rule{0.45in}{0.4pt}	&
+% \rule{0.45in}{0.4pt}	&
+% \rule{0.45in}{0.4pt}	&
+% \rule{0.45in}{0.4pt}	&
+% \rule{0.45in}{0.4pt}	&
+% \rule{0.45in}{0.4pt}	&
+% \rule{0.45in}{0.4pt}	&
+% \rule{0.45in}{0.4pt}	\tabularnewline[2em]
+%%Row 9: Generation 8
+%8	&
+% \rule{0.45in}{0.4pt}	&
+% \rule{0.45in}{0.4pt}	&
+% \rule{0.45in}{0.4pt}	&
+% \rule{0.45in}{0.4pt}	&
+% \rule{0.45in}{0.4pt}	&
+% \rule{0.45in}{0.4pt}	&
+% \rule{0.45in}{0.4pt}	&
+% \rule{0.45in}{0.4pt}	&
+% \rule{0.45in}{0.4pt}	&
+% \rule{0.45in}{0.4pt	}	\tabularnewline[2em]
+	\bottomrule 
+\end{longtable}
+
+\end{landscape}
+%\clearpage
+%}
 
 \end{questions}
+%
+%\subsubsection*{Reestablishing a population with new allele frequencies}
+%
+%During the natural selection simulation, the number of individuals remaining after you account for predation will be lower than the starting number of 50 individuals. You will need to adjust the number of beads in your population to bring the total population size back to 50 individuals (100 alleles). For example, after one sample and predation, your results may be:
+%
+
+
+
 
 \end{document}  
