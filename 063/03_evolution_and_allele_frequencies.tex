@@ -95,14 +95,14 @@
 \newcommand*\AnswerBox[2]{%
     \parbox[t][#1]{0.92\textwidth}{%
     \begin{solution}#2\end{solution}}
-    \vspace*{\stretch{1}}
+    \vspace{\stretch{1}}
 }
 
 \newenvironment{AnswerPage}[1]
     {\begin{minipage}[t][#1]{0.92\textwidth}%
     \begin{solution}}
     {\end{solution}\end{minipage}
-    \vspace*{\stretch{1}}}
+    \vspace{\stretch{1}}}
 
 \newlength{\basespace}
 \setlength{\basespace}{5\baselineskip}
@@ -140,27 +140,27 @@ If only two alleles in a population, then only three genotypes are possible. If 
 \begin{enumerate}
 	\item Count the total number of individuals in the population. Multiply the number of individuals by 2 to get the total number of alleles in the population for that gene. (Remember these are diploid individuals so each individual contributes two alleles to the population.) 
 	
-	Example: The population size is 100 individuals. Then the total number of alleles is 100 $\times$ 2 = 200.
+	Example: The population size is 100 individuals. Then the total number of alleles is $100 \times 2 = 200.$
 	
 	\item Count the number of individuals that have the \allele{AA} genotype. Multiply by 2 to get the number of \allele{A} alleles contributed by the \allele{AA} individuals.
 	
-	Example: The population has 64 \allele{AA} individuals. 64 $\times$ 2 = 128 \allele{A} alleles that come from \allele{AA} individuals.
+	Example: The population has 64 \allele{AA} individuals. $64 \times 2 = 128$ \allele{A} alleles that come from \allele{AA} individuals.
 	
 	\item Count the number of individuals that have the \allele{aa} genotype. Multiply by 2 to get the number of \allele{a} alleles contributed by the \allele{aa} individuals.
 	
-	Example: The population has 4 \allele{aa} individuals. 4 $\times$ 2 = 8 \allele{a} alleles that come from \allele{aa} individuals.
+	Example: The population has 4 \allele{aa} individuals. $4 \times 2 = 8$ \allele{a} alleles that come from \allele{aa} individuals.
 	
 	\item Count the number of individuals that have the \allele{Aa} genotype. Heterozygous individuals contribute one of each type of allele. Therefore, multiply the number of heterozygotes by 1 to get the number of \allele{A} alleles contributed by the \allele{Aa} individuals. That will also be the number of \allele{a} alleles contributed by the \allele{Aa} individuals.
 	
-	Example: The population has 32 \allele{Aa} individuals. 32 $\times$ 1 = 32 \allele{A} alleles and 32 \allele{a} alleles that come from \allele{Aa} individuals.
+	Example: The population has 32 \allele{Aa} individuals. $32 \times 1 = 32$ \allele{A} alleles and $32$ \allele{a} alleles that come from \allele{Aa} individuals.
 	
 	\item Add together the number of alleles contributed by each genotype to get the total number of each allele in the population. 
 	
-	Example: The \allele{AA} genotype contributed 128 \allele{A} alleles and the \textit{Aa} genotype contributed 32 \textit{A} alleles. 128 $+$ 32 = 160 \allele{A} alleles.  The \allele{aa} genotype contributed 8 \allele{a} alleles and the \allele{Aa} genotype contributed 32 \allele{a} alleles. 8 $+$ 32 = 40 \allele{a} alleles. Notice that 160 $+$ 40 = 200, the total number of alleles in the population. \emph{If the numbers of each allele to not add up to the total number of alleles, carefully check your math to find and correct your error.}
+	Example: The \allele{AA} genotype contributed 128 \allele{A} alleles and the \textit{Aa} genotype contributed 32 \textit{A} alleles. $128 + 32 = 160$ \allele{A} alleles.  The \allele{aa} genotype contributed 8 \allele{a} alleles and the \allele{Aa} genotype contributed 32 \allele{a} alleles. $8 + 32 = 40$ \allele{a} alleles. Notice that $160 + 40 = 200,$ the total number of alleles in the population. \emph{If the numbers of each allele to not add up to the total number of alleles, carefully check your math to find and correct your error.}
 	
 	\item Calculate the frequencies by dividing the number of each allele by the total number of alleles in the population.
 	
-	Example: The frequency of the \allele{A} allele is 160/200 = 0.8. The frequency of the \allele{a} allele is 40/200 = 0.2.  The frequencies must add up to 1 to show that you have accounted for all of the alleles in the population. Another way to think about this is that 0.8 $\times$ 100\% = 80\% of the alleles in the population are the \allele{A} allele. 0.2 $\times$ 100\% = 20\% of the alleles in the population are the \allele{a} allele. Adding together 80\% and 20\% shows that 100\% of the alleles in the population have been accounted for. \emph{If the frequencies do not add up to 1, carefully check your math to find and correct your error.}
+	Example: The frequency of the \allele{A} allele is $160/200 = 0.8$. The frequency of the \allele{a} allele is 40/200 = 0.2.  The frequencies must add up to 1 to show that you have accounted for all of the alleles in the population. Another way to think about this is that $0.8 \times 100\% = 80\%$ of the alleles in the population are the \allele{A} allele. $0.2 \times 100\% = 20\%$ of the alleles in the population are the \allele{a} allele. Adding together 80\% and 20\% shows that 100\% of the alleles in the population have been accounted for. \emph{If the frequencies do not add up to 1, carefully check your math to find and correct your error.}
 	
 \end{enumerate}
 
@@ -181,7 +181,7 @@ Calculate the allele frequencies for a population of 98 \allele{bb}, 84 \allele{
 
 \vspace*{\baselineskip}
 
-Ask your instructor to check your answers before proceeding to the next section. 
+\emph{Ask your instructor to check your answers before proceeding to the next section.}
 
 \newpage
 
@@ -203,7 +203,7 @@ If you know the allele frequencies in a population then you can estimate the gen
 
 \bigskip
 
-The key to using Punnett squares to calculate genotype frequencies is to know that frequencies are equal to probabilities. You can see this using a coin.  A coin has a head side and a tail side (two sides total, of course, for a fair coin). The frequency of heads is 1/2 = 0.5 and the frequency for tails is 1/2 = 0.5.  If you flip the coin, the probability of landing heads-up is 0.5. The probability of landing tails up is also 0.5. Frequencies equal probabilities.
+The key to using Punnett squares to calculate genotype frequencies is to know that frequencies are equal to probabilities. You can see this using a coin.  A coin has a head side and a tail side (two sides total, of course, for a fair coin). The frequency of heads is $1/2 = 0.5$ and the frequency for tails is $1/2 = 0.5$.  If you flip the coin, the probability of landing heads-up is 0.5. The probability of landing tails up is also 0.5. Frequencies equal probabilities.
 
 Imagine you flip two coins (or flip the same coin twice). The first coin (or flip) has a 0.5 probability of landing heads-up and a 0.5 probability of landing tails up. The second coin (or flip) has the same probabilities for heads or tails. Using H for heads and T for tails in a Punnett square, the possible results (left table) and the probabilities (right table) of two flips is
 
@@ -238,9 +238,9 @@ Imagine you flip two coins (or flip the same coin twice). The first coin (or fli
 
 \bigskip
 
-The probability of getting flipping two heads is the probability of landing heads-up for the first coin (0.5) times the probability of landing heads-up for the second coin (0.5): 0.5 $\times$ 0.5 = 0.25. The probability of two coins (or two flips) landing heads-up is 25\%. The probability of flipping two coins tails-up is also 0.5 $\times$ 0.5 = 0.25.   
+The probability of flipping two heads is the probability of landing heads-up for the first coin (0.5) times the probability of landing heads-up for the second coin (0.5): $0.5 \times 0.5 = 0.25$. The probability of two coins (or two flips) landing heads-up is 25\%. The probability of flipping two coins tails-up is also $0.5 \times 0.5 = 0.25$.   
 
-Notice that you can get 1 head and 1 tail two different ways. The first flip lands heads-up and the second flip lands tails-up (left table, lower left cell). Or, the first flip can land tails-up and the second flip lands heads-up (left table, upper right cell). To get the total probability of getting 1 head and 1 tail from two flips, add together the two probabilities, e.g., 0.25 $+$ 0.25 = 0.5. Thus, if you make two flips, you are twice as likely to get 1 head and 1 tail than you are to get either 2 heads or 2 tails.
+Notice that you can get 1 head and 1 tail two different ways. The first flip lands heads-up and the second flip lands tails-up (left table, lower left cell). Or, the first flip can land tails-up and the second flip lands heads-up (left table, upper right cell). To get the total probability of getting 1 head and 1 tail from two flips, add together the two probabilities, e.g., $0.25 + 0.25 = 0.5$. Thus, if you make two flips, you are twice as likely to get 1 head and 1 tail than you are to get either 2 heads or 2 tails.
 
 The same logic applies for allele frequencies if the population size is very large and if mating is random (recall two of the assumptions from above). Assume that allele \allele{D} has a frequency of 0.6 and allele \allele{d} has a frequency of 0.4. An egg from a randomly drawn female in the population has a 0.6 probability of having the \allele{D} allele and 0.4 probability of having the \allele{d} allele. A sperm from a randomly drawn male in the population also has the same 0.6 and 0.4 probabilities for the \allele{D} and \allele{d} alleles, respectively. In the Punnett square, the possible genotypes (left) and their probabilities (right) are
 
@@ -272,7 +272,7 @@ The same logic applies for allele frequencies if the population size is very lar
   \end{center}
 \end{multicols}
 
-The probability of getting the \allele{DD} genotype is 0.36. The probability of getting the \allele{dd} genotype is 0.16. The probability of of getting the \allele{Dd} genotype is 0.24 $+$ 0.24 = 0.48. Remember that probabilities and frequencies are the same thing?  In a very large, randomly mating population with allele frequencies 0.6 and 0.4, the genotype frequencies will be very close to 0.36, 0.48, and 0.16.
+The probability of getting the \allele{DD} genotype is 0.36. The probability of getting the \allele{dd} genotype is 0.16. The probability of of getting the \allele{Dd} genotype is $0.24 + 0.24 = 0.48$. Remember that probabilities and frequencies are the same thing?  In a very large, randomly mating population with allele frequencies 0.6 and 0.4, the genotype frequencies will be very close to 0.36, 0.48, and 0.16.
 
 \question
 Calculate the possible genotypes and their frequencies in a population with allele \allele{E} that has a frequency of 0.2 and \allele{e} that has a frequency of 0.8. Fill in the tables below with your results. 
@@ -295,7 +295,7 @@ Calculate the possible genotypes and their frequencies in a population with alle
   \begin{center}
   	\begin{tabular}{cc|M{0.5in}|M{0.5in}|}
   		\multicolumn{2}{c}{}	& \multicolumn{2}{c}{Egg}\tabularnewline
-  		\multicolumn{2}{c}{}	& \multicolumn{1}{c}{0.1}	& \multicolumn{1}{c}{0.9} \tabularnewline
+  		\multicolumn{2}{c}{}	& \multicolumn{1}{c}{0.2}	& \multicolumn{1}{c}{0.8} \tabularnewline
   		\cline{3-4}
   		\multirow{2}{*}{Sperm}	& 0.2		& 	 &  \tabularnewline[2em]
   		\cline{3-4}
@@ -309,9 +309,9 @@ Ask your instructor to check your results to be sure you understand how to calcu
 
 \subsubsection*{Evolution by natural selection}
 
-Natural selection is the differences in survival and reproductive success (relative fitness) among individuals in a population based on the interaction of their phenotype (traits) with the environment. This exercise is based on a famous study of the peppered moth (\textit{Bison betularia}), which lives in Great Britain. The peppered moth has two phenotypes, a light-colored form with dark speckles (hence, the common name) and a dark form that is nearly black. The peppered moth rests during the day on trees. The bark of the trees was also lightly colored so the light form moths were hard for predators to find. The dark moths were much easier for predators to find because the dark did not blend in with the light-colored tree bark. 
+Natural selection is the differences in survival and reproductive success (relative fitness) among individuals in a population based on the interaction of their phenotype (traits) with the environment. This exercise is based on a famous study of the peppered moth (\textit{Bison betularia}), which lives in Great Britain. The peppered moth has two phenotypes, a light-colored form with dark speckles (hence, the common name) and a dark form that is nearly black. The peppered moth rests during the day on trees. The bark of the trees was also lightly colored so the light moths were hard for predators to find. The dark moths were much easier for predators to find because the dark did not blend in with the light-colored tree bark. 
 
-In the early 1800s, most peppered moths were the light form, probably because they were protected by their \emph{cryptic coloration} (camouflage). The dark form was very rare because they did not blend in with the bark. Following the Industrial Revolution, soot and other pollution from factories caused the bark of the trees to become much darker. Over time, the frequency of the dark form increased and the frequency of the light form decreased. 
+In the early 1800s, most peppered moths were lightly colored, probably because they were protected by their \emph{cryptic coloration} (camouflage). Dark moths were very rare because they did not blend in with the bark. Following the Industrial Revolution, soot and other pollution from factories caused the bark of the trees to become much darker. Over time, the frequency of the dark moths increased and the frequency of the light moths decreased. 
 
 The color of the peppered moth is determined by one gene with two alleles. The \allele{D} allele causes pigment production but the \allele{d} allele does not. If at least one dark allele is present then pigment will be produced, so moths that are homozygous \allele{DD} or heterozygous \allele{Dd} genotypes are dark. Only moths that are homozygous \allele{dd} are light. 
 
@@ -326,7 +326,7 @@ Predict how the frequency of each allele should change from before the Industria
 
 \medskip
 
-You will work in pairs. One of you will sample alleles from the population while the other will record the results. You should take turns doing these tasks.  In the kit on your table, you have two containers with light and dark beads, some paper sacks, and some glass finger bowls. Each color of bead represents a different allele. For this simulation, you will use a starting frequency of 0.9 light alleles (the light colored bead) and 0.1 dark alleles (the dark bead). You will need enough beads to represent a population size of 50 individuals.
+You will work in pairs. One of you will sample alleles from the population while the other will record the results. You should take turns doing these tasks.  In the kit on your table, you have two containers with light and dark beads, some paper sacks, and some glass finger bowls. Each color of bead represents a different allele. For this simulation, you will use a starting frequency of 0.9 light alleles (the light bead) and 0.1 dark alleles (the dark bead). You will need enough beads to represent a population size of 50 individuals.
 
 \begin{enumerate}
 
@@ -346,9 +346,9 @@ You will work in pairs. One of you will sample alleles from the population while
 	
 	\item Add up the number of individuals for each genotype. These individuals are the offspring from Generation 0. Some of these individuals will not survive, thanks to the darker trees caused by the Industrial Revolution. Dark moths are less visible to predators so only 10\% are eaten by predators. In contrast, 50\% of the light moths are eaten. 
 	
-	How many light moths must you remove from the offspring to reflect the change in survivorship? How many dark moths? Can natural selection distinguish between dark moths with \allele{DD} and \allele{dd} genotypes? How will you decide which dark moths to remove? Remove the appropriate number of individuals of each phenotype.
+	How many light moths must you remove from the offspring to reflect the change in survivorship? How many dark moths? Can natural selection distinguish between dark moths with \allele{DD} and \allele{Dd} genotypes? How will you decide which dark moths to remove? Remove the appropriate number of individuals of each phenotype.
 	
-	\item \label{selection_sample_stop} The surviving offspring are now Generation~1. Calculate new allele frequencies for this generation. Reestablish the populations with these new allele frequencies for the 100 alleles (see example below). Record the new allele frequencies in Table~\ref{tab:selection_results}.
+	\item \label{selection_sample_stop} The surviving offspring are now Generation~1. Calculate new allele frequencies for this generation. Reestablish the population with these new allele frequencies for the 100 alleles (see example below). Record the new allele frequencies in Table~\ref{tab:selection_results}.
 	
 	\textit{Ask your instructor to check your calculation to be sure you start Generation 1 with the correct allele frequencies.}
 	
@@ -372,16 +372,8 @@ Describe how the genotype frequencies changed over time for your population.
 
 \newpage
 
-\question
-Sketch a graph of the frequencies of \allele{D} and \allele{d} changed over time.
 
-\vspace*{\stretch{3}}
-
-%\vskip0pt plus 1filll
-
-%\newpage
-
-\begin{table}[b!]
+%\begin{table}[t!]
 \begin{longtable}[l]{@{}C{0.75in}C{0.75in}C{0.75in}C{0.75in}C{0.75in}C{0.75in}@{}}
   \caption{Allele and genotype frequencies for peppered moths.}
   \label{tab:selection_results}\tabularnewline
@@ -451,7 +443,7 @@ Sketch a graph of the frequencies of \allele{D} and \allele{d} changed over time
 \rule{0.5in}{0.4pt}	&
 \rule{0.5in}{0.4pt}	&
 \rule{0.5in}{0.4pt}	&
-\rule{0.5in}{0.4pt}	\tabularnewline[2em]
+\rule{0.5in}{0.4pt}	\tabularnewline
 %7	&
 %\rule{0.5in}{0.4pt}	&
 %\rule{0.5in}{0.4pt}	&
@@ -466,17 +458,24 @@ Sketch a graph of the frequencies of \allele{D} and \allele{d} changed over time
 %\rule{0.5in}{0.4pt}	\tabularnewline[2em]
 \bottomrule 
 \end{longtable}
-\end{table}
+%\end{table}
+
+\question
+Sketch a graph of the frequencies of \allele{D} and \allele{d} changed over time.
+
+\AnswerBox{1\basespace}{%
+}
 
 \question
 Did the results agree with the prediction you made in question~\ref{ques:selection_prediction}? Explain.
 
-\vspace{3\baselineskip}
+\AnswerBox{1\baselineskip}{%
+}
 
 \question
 What mode of selection best matches your results? Explain.
 
-\AnswerBox{1\baselineskip}{Directional selection. The population phenotype is changing in one direction, from light phenotype to dark phenotype.}
+\AnswerBox{0\baselineskip}{Directional selection. The population phenotype is changing in one direction, from light phenotype to dark phenotype.}
 
 \subsubsection*{Evolution by gene flow}
 
@@ -503,9 +502,9 @@ Predict how the frequency of each allele will change for \emph{each} of the two 
 	
 	\item Select 50 individuals from each population, \emph{sampling with replacement.} Record the genotypes and the number of \allele{D} and \allele{d} alleles for each population.
 	
-	\item Calculate the new allele and genotype frequencies in the two populations following migration. Record your results in the Generation~1 row in Table~\ref{tab:migration_results}. The population size of each population should still be 50 individuals.
+	\item Calculate the new allele frequencies fore each population following migration. Record your results in the Generation~1 row in Table~\ref{tab:migration_results}. The population size of each population should still be 50 individuals.
 	
-	\item Repeat this procedure for 5 more generations (6 total). 
+	\item Repeat this procedure for 5 more generations (6 total). Calculate the genotype frequencies of each population for the final generation.
 
 \end{enumerate}
 
@@ -517,13 +516,17 @@ Sketch a graph of the frequencies of \allele{D} and \allele{d} changed over time
 \question
 Describe how the genotype frequencies changed over time for your population.
 
-\AnswerBox{2\baselineskip}{The \allele{dd} frequency should slowly decrease. The \allele{Dd} frequency increases first, followed by \allele{DD} frequency.}
+\AnswerBox{3\baselineskip}{The \allele{dd} frequency should slowly decrease. The \allele{Dd} frequency increases first, followed by \allele{DD} frequency.}
 
 \question
 Did the results agree with the prediction you made in question~\ref{ques:migration_prediction}? Explain.
 
-\AnswerBox{4\baselineskip}{Their results will hopefully agree.}
+\AnswerBox{3\baselineskip}{Their results will hopefully agree.}
 
+\question[Checkout]
+Based on the results of your migration simulation, explain why gene flow between two populations should prevent them from becoming genetically different (that is, have different alleles).
+
+\AnswerBox{3\baselineskip}{Gene flow should prevent them from becoming genetically different become movement carries alleles between two populations.}
 
 %\afterpage{%
 \begin{landscape}
@@ -662,7 +665,7 @@ Did the results agree with the prediction you made in question~\ref{ques:migrati
  \rule{0.45in}{0.4pt}	&
  \rule{0.45in}{0.4pt}	&
  \rule{0.45in}{0.4pt}	&
- \rule{0.45in}{0.4pt}	\tabularnewline[2em]
+ \rule{0.45in}{0.4pt}	\tabularnewline
 %Row 8: Generation 7
 %	7	&
 % \rule{0.45in}{0.4pt}	&
@@ -686,7 +689,7 @@ Did the results agree with the prediction you made in question~\ref{ques:migrati
 % \rule{0.45in}{0.4pt}	&
 % \rule{0.45in}{0.4pt}	&
 % \rule{0.45in}{0.4pt}	&
-% \rule{0.45in}{0.4pt	}	\tabularnewline[2em]
+% \rule{0.45in}{0.4pt	}	\tabularnewline
 	\bottomrule 
 \end{longtable}
 
