@@ -1,0 +1,158 @@
+%!TEX TS-program = lualatex
+%!TEX encoding = UTF-8 Unicode
+
+\documentclass[12pt]{exam}
+\usepackage{graphicx}
+	\graphicspath{{/Users/goby/Pictures/teach/163/lab/}} % set of paths to search for images
+
+\usepackage{geometry}
+\geometry{letterpaper, bottom=1in}                   
+
+\usepackage{afterpage}
+\usepackage{pdflscape}
+
+\newlength{\myindent}
+\setlength{\myindent}{\parindent}
+\newcommand{\ind}{\hspace*{\myindent}}
+
+
+%\geometry{landscape}                % Activate for for rotated page geometry
+\usepackage[parfill]{parskip}    % Activate to begin paragraphs with an empty line rather than an indent
+%\usepackage{amssymb, amsmath}
+%\usepackage{mathtools}
+%	\everymath{\displaystyle}
+
+\usepackage{fontspec}
+\setmainfont[Ligatures={TeX}, BoldFont={* Bold}, ItalicFont={* Italic}, BoldItalicFont={* BoldItalic}, Numbers={OldStyle,Proportional}]{Linux Libertine O}
+\setsansfont[Scale=MatchLowercase,Ligatures=TeX, Numbers=OldStyle]{Linux Biolinum O}
+\setmonofont[Scale=MatchLowercase]{Inconsolatazi4}
+\usepackage{microtype}
+
+\usepackage{unicode-math}
+\setmathfont[Scale=MatchLowercase]{Asana Math}
+%\setmathfont[Scale=MatchLowercase]{XITS Math}
+
+% To define fonts for particular uses within a document. For example, 
+% This sets the Libertine font to use tabular number format for tables.
+\newfontfamily{\tablenumbers}[Numbers={Monospaced}]{Linux Libertine O}
+\newfontfamily{\libertinedisplay}{Linux Libertine Display O}
+
+\usepackage{longtable}
+
+\usepackage{booktabs}
+\usepackage{multirow}
+\usepackage{multicol}
+
+\usepackage[justification=raggedright, labelsep=period]{caption}
+\captionsetup{singlelinecheck=off}
+\captionsetup{skip=0.2em}
+
+%\usepackage{tabularx}
+%\usepackage{siunitx}
+\usepackage{array}
+\newcolumntype{L}[1]{>{\raggedright\let\newline\\\arraybackslash\hspace{0pt}}p{#1}}
+\newcolumntype{C}[1]{>{\centering\let\newline\\\arraybackslash\hspace{0pt}}p{#1}}
+\newcolumntype{R}[1]{>{\raggedleft\let\newline\\\arraybackslash\hspace{0pt}}p{#1}}
+
+\newcolumntype{M}[1]{>{\centering\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+
+
+\usepackage{enumitem}
+\setlist{leftmargin=*}
+\setlist[1]{labelindent=\parindent}
+\setlist[enumerate]{label=\textsc{\alph*}., ref=\textsc{\alph*}}
+
+\usepackage{hyperref}
+%\usepackage{hanging}
+
+\usepackage[sc]{titlesec}
+
+
+\renewcommand{\solutiontitle}{\noindent}
+\unframedsolutions
+\SolutionEmphasis{\bfseries}
+
+\renewcommand{\questionshook}{%
+	\setlength{\leftmargin}{-\leftskip}%
+}
+%Change \half command from 1/2 to .5
+%\renewcommand*\half{.5}
+
+
+\makeatletter
+\def\SetTotalwidth{\advance\linewidth by \@totalleftmargin
+\@totalleftmargin=0pt}
+\makeatother
+
+
+
+\pagestyle{headandfoot}
+\firstpageheader{BI 063: Evolution and Ecology}{}{\ifprintanswers\textbf{KEY}\else Name: \enspace \makebox[2.5in]{\hrulefill}\fi}
+\runningheader{}{}{\footnotesize{pg. \thepage}}
+\footer{}{}{}
+\runningheadrule
+
+\newcommand*\AnswerBox[2]{%
+    \parbox[t][#1]{0.92\textwidth}{%
+    \begin{solution}#2\end{solution}}
+    \vspace{\stretch{1}}
+}
+
+\newenvironment{AnswerPage}[1]
+    {\begin{minipage}[t][#1]{0.92\textwidth}%
+    \begin{solution}}
+    {\end{solution}\end{minipage}
+    \vspace{\stretch{1}}}
+
+\newlength{\basespace}
+\setlength{\basespace}{5\baselineskip}
+
+\newcommand{\allele}[1]{\textit{#1}}
+
+%\printanswers
+
+\begin{document}
+
+\subsection*{Natural selection in bacteria\footnote{Modified from \textbf{WHO?}}}
+
+All species can evolve through the process of natural selection, including bacteria. Modern bacteria are frequently exposed to chemical agents, such as antibiotic drugs and antimicrobial soaps, as humans attempt to control bacterial disease and contamination. Many bacteria have evolved resistance to common agents intended to control bacteria. For example, about 94\% of the different strains of \textit{Staphylococcus aureus}, a common source of staph infections, were killed by penicillin when the drug was introduced in the early 1940s. In less than a decade, only 50\% of strains were susceptible. Within another decade, severe outbreaks of \textit{S. aureus} in hospitals were common (Livermore 2000).  
+
+In some cases, stronger concentrations of drugs are necessary because weaker concentrations are no longer effective. You will test different concentrations of Triclosan, a once widely used antimicrobial agent, on the harmless soil bacterium \textit{Bacillus cereus.}
+
+
+\subsubsection*{Materials}
+
+You will work in groups of 3-4 students (everyone at your table). Each group of students  will use the following items.
+
+\begin{itemize}
+
+	\item Five petri plates with LB agar.
+	
+	\item Four 1.5 ml microcentrifuge tubes of triclosan at concentrations of 0.1\%, 0.3\%, 0.5\% and 0.7\%.
+	
+	\item One 1.5 ml microcentrifuge tube with 50\% ethanol. This is a control.
+
+\end{itemize}
+
+Each table has the following items to be shared between the two groups.
+
+\begin{itemize}
+
+	\item One test tube culture of the bacterium, \textit{Bacillus cereus.}
+	
+	\item One biohazard bag.
+	
+	\item One box of swabs.
+	
+\end{itemize}
+
+\subsubsection*{Procedure}
+
+	Work in groups of four. 
+
+
+
+\subsubsection*{Literature Cited}
+
+Livermore, D.\,M. 2000. Antibiotic resistance to staphylococci. International Journal of Antimicrobial Agents 16 (Suppl. 1): S3-10.
+\end{document}  
