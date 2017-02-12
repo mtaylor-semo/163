@@ -1,0 +1,240 @@
+%!TEX TS-program = lualatex
+%!TEX encoding = UTF-8 Unicode
+
+\documentclass[12pt, hidelinks]{exam}
+\usepackage{graphicx}
+	\graphicspath{{/Users/goby/Pictures/teach/163/lab/}
+	{img/}} % set of paths to search for images
+
+\usepackage{geometry}
+\geometry{letterpaper, left=1.5in, bottom=1in}                   
+%\geometry{landscape}                % Activate for for rotated page geometry
+\usepackage[parfill]{parskip}    % Activate to begin paragraphs with an empty line rather than an indent
+\usepackage{amssymb, amsmath}
+\usepackage{mathtools}
+	\everymath{\displaystyle}
+
+\usepackage{fontspec}
+\setmainfont[Ligatures={TeX}, BoldFont={* Bold}, ItalicFont={* Italic}, BoldItalicFont={* BoldItalic}, Numbers={OldStyle}]{Linux Libertine O}
+\setsansfont[Scale=MatchLowercase,Ligatures=TeX]{Linux Biolinum O}
+\setmonofont[Scale=MatchLowercase]{Linux Libertine Mono O}
+\newfontfamily\liningnum[Numbers=Lining]{Linux Libertine O}
+\usepackage{microtype}
+
+
+% To define fonts for particular uses within a document. For example, 
+% This sets the Libertine font to use tabular number format for tables.
+ %\newfontfamily{\tablenumbers}[Numbers={Monospaced}]{Linux Libertine O}
+% \newfontfamily{\libertinedisplay}{Linux Libertine Display O}
+
+\usepackage{booktabs}
+\usepackage{multicol}
+
+\usepackage{tikz}
+\tikzstyle{block} = [rectangle, draw, fill=white, rounded corners,
+                 minimum size=2em]
+\tikzstyle{branch} = [thick, draw]
+
+
+\usepackage{longtable}
+%\usepackage{siunitx}
+\usepackage{array}
+\newcolumntype{L}[1]{>{\raggedright\let\newline\\\arraybackslash\hspace{0pt}}p{#1}}
+\newcolumntype{C}[1]{>{\centering\let\newline\\\arraybackslash\hspace{0pt}}p{#1}}
+\newcolumntype{R}[1]{>{\raggedleft\let\newline\\\arraybackslash\hspace{0pt}}p{#1}}
+
+\usepackage{enumitem}
+\usepackage{hyperref}
+%\usepackage{placeins} %PRovides \FloatBarrier to flush all floats before a certain point.
+\usepackage{hanging}
+
+\usepackage[sc]{titlesec}
+
+%% Commands for Exam class
+\renewcommand{\solutiontitle}{\noindent}
+\unframedsolutions
+\SolutionEmphasis{\bfseries}
+
+\renewcommand{\questionshook}{%
+	\setlength{\leftmargin}{-\leftskip}%
+}
+
+%Change \half command from 1/2 to .5
+\renewcommand*\half{.5}
+
+\pagestyle{headandfoot}
+\firstpageheader{\textsc{bi}\,063 Evolution and Ecology}{}{\ifprintanswers\textbf{KEY}\else Name: \enspace \makebox[2.5in]{\hrulefill}\fi}
+\runningheader{}{}{\footnotesize{pg. \thepage}}
+\footer{}{}{}
+\runningheadrule
+
+\newcommand*\AnswerBox[2]{%
+    \parbox[t][#1]{0.92\textwidth}{%
+    \begin{solution}#2\end{solution}}
+%    \vspace*{\stretch{1}}
+}
+
+\newenvironment{AnswerPage}[1]
+    {\begin{minipage}[t][#1]{0.92\textwidth}%
+    \begin{solution}}
+    {\end{solution}\end{minipage}
+    \vspace*{\stretch{1}}}
+
+\newlength{\basespace}
+\setlength{\basespace}{5\baselineskip}
+
+%% To hide and show points
+\newcommand{\hidepoints}{%
+	\pointsinmargin\pointformat{}
+}
+
+\newcommand{\showpoints}{%
+	\nopointsinmargin\pointformat{(\thepoints)}
+}
+
+\newcommand{\bumppoints}[1]{%
+	\addtocounter{numpoints}{#1}
+}
+
+\newcommand{\dna}{\textsc{dna}}
+%
+%\makeatletter
+%\def\SetTotalwidth{\advance\linewidth by \@totalleftmargin
+%\@totalleftmargin=0pt}
+%\makeatother
+
+
+%\printanswers
+
+
+\begin{document}
+
+\subsection*{Using shared characters to make phylogenetic trees}
+
+An important aspect of evolutionary biology is to determine the relationships among species, genera, families, and other taxonomic levels. Relationships can be estimated with many different (and complementary) methods.  Most methods result in a \emph{phylogenetic tree,} similar to a family genealogy. Below are trees that show a hypothetical family genealogy (left) and relationships among a group of organisms (right). 
+
+\textbf{INsert trees}
+
+Just like the genealogy shows the relationships among family members, a phylogenetic tree shows relationships among organisms.  There is one important difference between family genealogies and phylogenetic trees. Family genealogies show \emph{known} relationships. Phylogenetic trees are \emph{hypotheses} about relationships. You will learn more about how to interpret phylogenetic trees in the next exercise. In this exercise, you will learn one way to make a phylogenetic tree.
+
+As you learned in lecture, species share traits that they inherited from a common ancestor. Similar traits shared among species can be used to make hypothesis about relationships, in the form of a phylogenetic tree. \emph{Not all characters shared between species are suitable for making phylogenetic trees.} The choice of characters to use is based on careful study. You will use hypothetical characters or characters that have been tested and found to be suitable during these exercises.
+
+An easy way to make phylogenetic trees using characters is by noting whether a character is present or absent in a species. If the character is present in multiple species, then those species are hypothesized to have a common ancestor.  The presence of a character can be noted by a “{\liningnum 1” and the absence is noted by a “0}.” (Any character can be used, but 1s and 0s are easily analyzed by computers.) Here is a small data set of species and characters.
+
+{\liningnum
+\begin{center}
+	\begin{tabular}{llll}
+	\toprule
+		Species	&	C1	&	C2	&	C3	\tabularnewline
+	\midrule
+		A	&	1	&	0	&	0	\tabularnewline
+		B	&	1	&	1	&	1	\tabularnewline
+		C	& 1	&	1	&	0	\tabularnewline
+	\bottomrule
+	\end{tabular}
+\end{center}
+}
+
+Character C{\liningnum 1} is shared among species A, B, and C. That means all three species share a common ancestor. Character C{\liningnum 2} is shared between only species B and C. That means B and C also share a more recent common ancestor that is not shared with species A. Notice that character C{\liningnum 3} is not shared; it is found only in species B. \emph{Characters that are not shared are not useful for making phylogenetic trees,} even if the character is of biological interest.
+
+\newpage
+
+Here is a list of list of characters that is found in several species of birds. 
+
+{\liningnum
+\begin{tabular}{ll}
+\toprule
+Character	&	Description	\tabularnewline
+\midrule
+C1	&	Has color on its throat.	\tabularnewline
+C2	&	Flies faster than an unladen swallow \tabularnewline
+C3	&	Knows how to tweet. \tabularnewline
+C4	&	Knows that the bird is a word. \tabularnewline
+C5	&	Rocks in the tree tops all day long. \tabularnewline
+C6	&	Has hipster blue feet. Ironically. \tabularnewline
+\bottomrule
+\end{tabular}
+}
+
+\vspace{\baselineskip}
+
+Here is a list of bird species and the characters each has from the list above. The single-letter codes after each species name serves as a unique identifier and correspond to the table on the next page.
+
+\begin{longtable}[l]{@{}lL{3.5in}@{}}
+\toprule
+Species	&	Characters Present	\tabularnewline
+\midrule
+Alfredo's Twitterer \textsc{(a)} & Knows how to tweet. Knows that the bird is a word. Rocks in the tree tops all day long.\tabularnewline
+Blue-throated Garbler \textsc{(b)} & Has color on its throat. Flies faster than an unladen swallow. Knows that the bird is a word. Rocks in the tree tops all day long. \tabularnewline
+California Garbler \textsc{(c)} & Flies faster than an unladen swallow. Knows that the bird is a word. Rocks in the tree tops all day long. \tabularnewline
+Field Twitterer \textsc{(f)} & Knows how to tweet. Knows that the bird is a word. Rocks in the tree tops all day long. \tabularnewline
+Red-footed Chump \textsc{(r)} & Rocks in the tree tops all day long. Has hipster blue feet. Ironically. \tabularnewline
+Yellow-throated Garbler \textsc{(y)} & Has color on its throat. Flies faster than an unladen swallow. Knows that the bird is a word. Rocks in the tree tops all day long. \tabularnewline
+\bottomrule
+\end{longtable}
+
+\newpage
+
+Use the data above to complete the presence-absence data table. Write a {\liningnum 1} if the species has that character and a {\liningnum 0} if it does not. Notice that the order of the birds in the first column is different from the order given above. Character C{\liningnum 6} has been filled in for you as a guide. You may work in pairs.
+
+{\liningnum
+\begin{longtable}[c]{@{}cC{0.32in}C{0.32in}C{0.32in}C{0.32in}C{0.32in}C{0.32in}@{}}
+\toprule
+Species & C1 & C2 & C3 & C4 & C5 & C6\tabularnewline
+\midrule
+	&	&	&	&	&	\tabularnewline
+B	&
+	\rule{0.3in}{0.4pt}	& 
+	\rule{0.3in}{0.4pt}	& 
+	\rule{0.3in}{0.4pt}	&
+	\rule{0.3in}{0.4pt}	&
+	\rule{0.3in}{0.4pt}	&
+	0	\tabularnewline[0.15in]
+%
+Y	& 
+	\rule{0.3in}{0.4pt}	&
+	\rule{0.3in}{0.4pt}	&
+	\rule{0.3in}{0.4pt}	&
+	\rule{0.3in}{0.4pt}	&
+	\rule{0.3in}{0.4pt}	&
+	0	\tabularnewline[0.15in]
+%
+C	&
+	\rule{0.3in}{0.4pt}	&
+	\rule{0.3in}{0.4pt}	&
+	\rule{0.3in}{0.4pt}	&
+	\rule{0.3in}{0.4pt}	& 
+	\rule{0.3in}{0.4pt}	&
+	0	\tabularnewline[0.15in]
+%
+F	&
+	\rule{0.3in}{0.4pt}	&
+	\rule{0.3in}{0.4pt}	&
+	\rule{0.3in}{0.4pt}	&
+	\rule{0.3in}{0.4pt}	&
+	\rule{0.3in}{0.4pt}	&
+	0	\tabularnewline[0.15in]
+%
+A	&	
+	\rule{0.3in}{0.4pt}	&
+	\rule{0.3in}{0.4pt}	&
+	\rule{0.3in}{0.4pt}	&
+	\rule{0.3in}{0.4pt}	&
+	\rule{0.3in}{0.4pt}	&
+	0	\tabularnewline[0.15in]
+%
+R	&
+	\rule{0.3in}{0.4pt}	&
+	\rule{0.3in}{0.4pt}	&
+	\rule{0.3in}{0.4pt}	&
+	\rule{0.3in}{0.4pt}	&
+	\rule{0.3in}{0.4pt}	&
+	1	\tabularnewline[0.15in]
+\bottomrule
+\end{longtable}
+}
+
+Once the class has finished compiling the presence/absence data, your instructor will review the results with the entire class. Then, you will learn how to use the data to make a phylogenetic tree.
+
+
+\end{document}  
