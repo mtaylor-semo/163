@@ -1,0 +1,488 @@
+%!TEX TS-program = lualatex
+%!TEX encoding = UTF-8 Unicode
+
+\documentclass[t]{beamer}
+
+%%%% HANDOUTS For online Uncomment the following four lines for handout
+%\documentclass[t,handout]{beamer}  %Use this for handouts.
+%\usepackage{handoutWithNotes}
+%\pgfpagesuselayout{3 on 1 with notes}[letterpaper,border shrink=5mm]
+
+%\includeonlylecture{student}
+
+%%% Including only some slides for students.
+%%% Uncomment the following line. For the slides,
+%%% use the labels shown below the command.
+
+%% For students, use \lecture{student}{student}
+%% For mine, use \lecture{instructor}{instructor}
+
+
+%\usepackage{pgf,pgfpages}
+%\pgfpagesuselayout{4 on 1}[letterpaper,border shrink=5mm]
+
+% FONTS
+\usepackage{fontspec}
+\def\mainfont{Linux Biolinum O}
+\setmainfont[Ligatures={Common,TeX}, Contextuals={NoAlternate}, BoldFont={* Bold}, ItalicFont={* Italic}, Numbers={OldStyle}]{\mainfont}
+\setsansfont[Ligatures={Common,TeX}, Scale=MatchLowercase, Numbers=OldStyle]{Linux Biolinum O} 
+\usepackage{microtype}
+
+\usepackage{graphicx}
+	\graphicspath{{/Users/goby/pictures/teach/163/lecture/}
+	{/Users/goby/pictures/teach/common/}} % set of paths to search for images
+
+%\usepackage{units}
+\usepackage{booktabs}
+\usepackage{multicol}
+
+\usepackage{tikz}
+	\tikzstyle{every picture}+=[remember picture,overlay]
+	\usetikzlibrary{trees}
+
+\mode<presentation>
+{
+  \usetheme{Lecture}
+  \setbeamercovered{invisible}
+%  \setbeamertemplate{items}[square]
+}
+
+%\usefonttheme[onlymath]{serif}
+%\usecolortheme[named=blue7]{structure}
+
+\begin{document}
+
+\begin{frame}{Our goal for this lecture is to}
+	
+	\hangpara learn how to interpret phylogenetic trees.
+
+\end{frame}
+
+%
+
+%
+\begin{frame}{A genealogy shows ancestor and descendant relationships.}
+
+\begin{multicols}{2}
+
+	\hangpara Bob and Carol are siblings.
+
+	\hangpara Thelma and Darryl are shared, or common, ancestors of Bob and Carol.
+	
+	\hangpara Bob and Carol are equally related to each other.
+
+\columnbreak
+
+	\includegraphics[width=0.25\textwidth]{bob_carol}
+
+\end{multicols}
+
+\end{frame}
+%
+\begin{frame}{A genealogy shows ancestor and descendant relationships.}
+
+\begin{multicols}{2}
+
+	\hangpara The most recent common ancestor of Bob and Carol is Thelma.
+
+	\hangpara The most recent common ancestor of Ted and Alice is Louise.
+	
+	\hangpara Florence, the grandmother, is the common ancestor for all four children.
+
+\columnbreak
+
+	\includegraphics[width=0.45\textwidth]{bob_carol_ted_alice}
+
+\end{multicols}
+
+\end{frame}
+%
+\begin{frame}{A phylogeny is a \emph{hypothesis} of ancestor and descendant relationships.}
+
+\begin{multicols}{2}
+
+	\hangpara Identify descendant relationships.
+
+	\hangpara Specific ancestors are unknown.
+	
+	\hangpara Vertical axis represents time not generations.
+
+\columnbreak
+
+	\includegraphics[width=0.45\textwidth]{badger_otter}
+
+\end{multicols}
+
+\end{frame}
+%
+{
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{vertebrate_phylogeny_vertical}}
+\begin{frame}[b]{Here is a hypothesis.}
+
+\tiny Modified from \textcopyright Pearson Education, Inc.
+\end{frame}
+}
+%
+%
+{
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{vertebrate_phylogeny_rotated}}
+\begin{frame}[b]{Groups can be rearranged without changing the hypothesis.}
+
+\tiny Modified from \textcopyright Pearson Education, Inc.
+\end{frame}
+}
+%
+%
+{
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{vertebrate_phylogeny_horizontal}}
+\begin{frame}[b]{The tree can be turned sideways.}
+
+\tiny Modified from \textcopyright Pearson Education, Inc.
+\end{frame}
+}
+%
+
+%
+{
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{phylogeny_branches}}
+\begin{frame}[b]
+
+\tiny Modified from \textcopyright Pearson Education, Inc.
+\end{frame}
+}
+%
+{
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{phylogeny_nodes}}
+\begin{frame}[b]
+
+\tiny Modified from \textcopyright Pearson Education, Inc.
+\end{frame}
+}
+%
+{
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{phylogeny_time}}
+\begin{frame}[b]
+
+\tiny Modified from \textcopyright Pearson Education, Inc.
+\end{frame}
+}
+% Phylogenies are falsifiable
+{
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{phylogenies_falsifiable}}
+\begin{frame}[b]
+
+\hfill\tiny Source unknown.
+\end{frame}
+}
+%
+%\lecture{instructor}{instructor}
+% Phylogenies can have polytomies
+{
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{polytomy}}
+\begin{frame}[b]
+
+\tiny Burke Lab (burkelab.research.wesleyan.edu).
+\end{frame}
+}
+%
+%\lecture{student}{student}
+%% Your must not have polytomies
+%{
+%\usebackgroundtemplate{\includegraphics[width=\paperwidth]{polytomy1}}
+%\begin{frame}[b]
+%
+%\tiny Burke Lab (burkelab.research.wesleyan.edu).
+%\end{frame}
+%}
+%
+% Trees have roots
+{
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{phylogeny_root}}
+\begin{frame}[b]{Trees may have have roots.}
+
+\tiny Burke Lab (burkelab.research.wesleyan.edu).
+\end{frame}
+}
+% Basal
+{
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{phylogeny_basal_gnathostomes}}
+\begin{frame}[b]{\highlight{Basal} groups branch off near the root.}
+
+%\tiny Burke Lab (burkelab.research.wesleyan.edu).
+\end{frame}
+}
+%
+{
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{phylogeny_basal_vertebrates}}
+\begin{frame}[b]{\highlight{Basal} groups have evolved for as long as other groups.}
+
+%\tiny Burke Lab (burkelab.research.wesleyan.edu).
+\end{frame}
+}
+%
+%\lecture{instructor}{instructor}
+% Branch Lengths
+{
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{branch_lengths}}
+\begin{frame}[b]{Branch lengths do not always represent time.}
+
+\hfill\tiny Crawford et al. 2012. Biology Letters doi:10.1098/rsbl.2012.0331.
+\end{frame}
+}
+%
+%\lecture{student}{student}
+%{
+%\usebackgroundtemplate{\includegraphics[width=\paperwidth]{branch_lengths1}}
+%\begin{frame}[b]{Branch lengths do not always represent time.}
+%
+%\hfill\tiny Crawford et al. 2012. Biology Letters doi:10.1098/rsbl.2012.0331.
+%\end{frame}
+%}
+% Clades
+\begin{frame}[t]{Phylogenetic trees are composed of \highlight{clades.}}
+
+\begin{multicols}{2}
+
+	\includegraphics[height=0.75\textheight]{monophyletic_group}
+
+\columnbreak
+
+	\hangpara A \highlight{clade} or \highlight{monophyletic group} contains an ancestor and \emph{all} of its descendants.
+
+\end{multicols}
+
+	\vfilll
+
+\tiny \textcopyright Pearson Education, Inc.
+\end{frame}
+%
+\begin{frame}[t]{These shaded groups are \emph{not} clades.}
+
+	\includegraphics[width=\textwidth]{monophyletic_not}
+
+	\vfilll
+
+\tiny \textcopyright Pearson Education, Inc.
+\end{frame}
+%
+% Phylogenetic hierarchy
+\lecture{instructor}{instructor}
+{
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{phylogeny_hierarchy1}}
+\begin{frame}[b]{Trees are a hierarchy of clades nested within clades.}
+
+\tiny \textcopyright Pearson Education, Inc.
+\end{frame}
+}
+{
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{phylogeny_hierarchy2}}
+\begin{frame}[b]{Trees are a hierarchy of clades nested within clades.}
+
+\tiny \textcopyright Pearson Education, Inc.
+\end{frame}
+}
+\lecture{student}{student}
+{
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{phylogeny_hierarchy3}}
+\begin{frame}[b]{Trees are a hierarchy of clades nested within clades.}
+
+\tiny \textcopyright Pearson Education, Inc.
+\end{frame}
+}
+% Phylogenetic relatedness based on clades
+{
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{phylogeny_relatedness}}
+\begin{frame}[b]{Taxa in the same clade are more closely related than those outside the clade.}
+
+%\tiny \textcopyright Pearson Education, Inc.
+\end{frame}
+}
+%% Phylogeny informs classification.
+
+%
+\lecture{instructor}{instructor}
+{
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{vertebrate_phylo1}}
+\begin{frame}[b]
+
+	\tiny Fig. 34.2, \textcopyright Pearson Education, Inc.
+\end{frame}
+}
+%
+\lecture{student}{student}
+%
+{
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{vertebrate_phylo2}}
+\begin{frame}[t]{\onslide<2->{What is a fish?}}
+
+%	\hangpara Phylogenies help our classification.
+	
+	\vfilll
+	
+	\tiny Fig. 34.2, \tiny \textcopyright Pearson Education, Inc.
+\end{frame}
+}
+%
+\lecture{instructor}{instructor}
+{
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{vertebrate_phylo3}}
+\begin{frame}[t]{The classes of vertebrates I learned were}
+
+	\vfilll
+	
+	\tiny Fig. 34.2, \tiny \textcopyright Pearson Education, Inc.
+\end{frame}
+}
+%
+\lecture{student}{student}
+{
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{vertebrate_phylo4}}
+\begin{frame}[t]{The classes of vertebrates I learned were}
+
+	\vspace*{-0.5\baselineskip}
+	
+	\hangpara “Fishes” are shaded. What is the problem with this classification?
+		
+\end{frame}
+}
+{
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{vertebrate_phylo5}}
+\begin{frame}[t]{The classes of vertebrates I teach are}
+
+	\vspace*{-0.5\baselineskip}
+	
+	\hangpara So, what is a fish? \alt<handout>{}{\pause \highlight{You are!}}
+	
+\end{frame}
+}
+
+
+% Trees can be pruned.
+{
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{archosaur_phylogeny1}}
+\begin{frame}[b]{Trees can be pruned but relationships are the same.}
+
+\end{frame}
+}
+
+{
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{archosaur_phylogeny2}}
+\begin{frame}[b]{Trees can be pruned but relationships are the same.}
+
+\end{frame}
+}
+{
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{archosaur_phylogeny3}}
+\begin{frame}[b]{Trees can be pruned but relationships are the same.}
+
+\end{frame}
+}
+
+% Different ways of drawing phylogenies
+{
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{phylogeny_three_ways}}
+\begin{frame}[b]
+
+\hfill\tiny Source unknown.
+\end{frame}
+}
+%
+
+% Two Dinosaur Phylogenies
+%{
+%\usebackgroundtemplate{\includegraphics[width=\paperwidth]{dino_phylogenies}}
+%\begin{frame}[b]{Phylogenies can be displayed in different ways.}
+%
+%\tiny Pisani et al. 2001 \hfill \textcopyright Sinauer Associates, Inc.
+%\end{frame}
+%}
+%
+
+% Mammalian phylogenies
+{
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{mammal_circle_phylogeny}}
+\begin{frame}[b]
+
+\hfill\tiny Bininida-Emonds et al. 2007. Nature 446: 507.
+\end{frame}
+}
+%
+{
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{rodent_phylogeny}}
+\begin{frame}[b]
+
+\hfill\tiny Blanga-Kanfi et al. 2009. BMC Evolutionary Biology 9: 71.
+\end{frame}
+}
+%
+%\lecture{instructor}{instructor}
+%%
+%\begin{frame}[t]{How did behavior and color evolve in gobies?}
+%	\includegraphics[width=\textwidth]{genie_cleaner}
+%	
+%	\vfilll
+%	
+%	\hfill\tiny \textcopyright Paul Humann.
+%	
+%\end{frame}
+%%
+%\begin{frame}[t]{How did behavior and color evolve in gobies?}
+%
+%	\vspace*{-0.5\baselineskip}
+%	
+%	\begin{center}
+%	
+%	\includegraphics[height=0.83\textheight]{horsti_sponge}
+%	
+%	\end{center}
+%	
+%	\vfilll
+%	
+%	\hfill\tiny \textcopyright Jim Christensen.
+%	
+%\end{frame}
+%%
+%\begin{frame}[t]{How did behavior and color evolve in gobies?}
+%
+%	\vspace*{-0.5\baselineskip}
+%	
+%	\begin{center}
+%	
+%	\includegraphics[height=0.83\textheight]{atronasus_hover}
+%	
+%	\end{center}
+%	
+%	\vfilll
+%	
+%	\hfill\tiny Photographer not remembered, unfortunately.
+%	
+%\end{frame}
+%%
+%\begin{frame}[t]{How did behavior and color evolve in gobies?}
+%	\includegraphics[width=\textwidth]{elacatinus_color}
+%	
+%	\vfilll
+%
+%	\hfill\tiny \textcopyright Paul Humann.
+%	
+%\end{frame}
+%%
+%\lecture{student}{student}
+%%
+%{
+%\usebackgroundtemplate{\includegraphics[width=\paperwidth]{goby_phylogeny}}
+%\begin{frame}[b]
+%
+%\hfill\tiny Taylor and Hellberg 2005. Evolution 59: 374.
+%\end{frame}
+%}
+%%
+{
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{mental_gland_morphology}}
+\begin{frame}[b]
+
+\hfill\tiny Sever et al. 2016. Copeia 104: 83.
+\end{frame}
+}
+%
+\end{document}
