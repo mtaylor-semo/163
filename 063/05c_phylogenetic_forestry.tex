@@ -2,7 +2,7 @@
 %!TEX encoding = UTF-8 Unicode
 
 \documentclass[12pt, hidelinks]{exam}
-\usepackage[demo]{graphicx}
+\usepackage{graphicx}
 	\graphicspath{{/Users/goby/Pictures/teach/163/lab/}
 	{img/}} % set of paths to search for images
 
@@ -82,14 +82,14 @@
 \newcommand*\AnswerBox[2]{%
     \parbox[t][#1]{0.92\textwidth}{%
     \begin{solution}#2\end{solution}}
-%    \vspace*{\stretch{1}}
+    \vspace{\stretch{1}}
 }
 
 \newenvironment{AnswerPage}[1]
     {\begin{minipage}[t][#1]{0.92\textwidth}%
     \begin{solution}}
     {\end{solution}\end{minipage}
-    \vspace*{\stretch{1}}}
+    \vspace{\stretch{1}}}
 
 \newlength{\basespace}
 \setlength{\basespace}{5\baselineskip}
@@ -113,7 +113,7 @@ and a crocodile. %(I omitted the time scale for convenience. Your
 
 %\vspace*{\baselineskip}
 \begin{center}%croc/lizard
-	\noindent\includegraphics[width=0.9\textwidth]{03b_phylo_forestry1}
+	\noindent\includegraphics[width=0.9\textwidth]{05c_phylo_forestry1}
 \end{center}
 
 \begin{questions}
@@ -122,7 +122,7 @@ and a crocodile. %(I omitted the time scale for convenience. Your
 Do you think these two phylogenies diagram the same
 hypothesis? Explain.
 
-\AnswerBox{5\baselineskip}{They are the same. Both crocodile and lizard
+\AnswerBox{3\baselineskip}{They are the same. Both crocodile and lizard
 share the same ancestor.}
 
 \question
@@ -131,7 +131,7 @@ other? In other words, does the hypothesis on the left predict that a
 crocodile evolved from a lizard? Does the hypothesis on the right
 predict that a lizard evolved from a crocodile? Explain.
 
-\AnswerBox{5\baselineskip}{They do not. This is common for people to 
+\AnswerBox{3\baselineskip}{They do not. This is common for people to 
 interpret but the trees predict they have the same ancestor but the ancestor
 is not specified by the trees.}
 
@@ -149,7 +149,7 @@ been around the longest.
 
 \begin{center}% Hypothesized ancestor
 
-	\noindent\includegraphics[width=0.9\textwidth]{03b_phylo_forestry2}
+	\noindent\includegraphics[width=0.9\textwidth]{05c_phylo_forestry2}
 \end{center}
 
 Here are the same two phylogenies, but drawn a different way. These
@@ -165,7 +165,7 @@ Let us explore common ancestry by adding an ostrich to our hypothesis.
 %\vspace*{\baselineskip}
 
 \begin{center}
-	\noindent\includegraphics[width=\textwidth]{03b_add_ostrich}
+	\noindent\includegraphics[width=\textwidth]{05c_add_ostrich}
 \end{center}
 
 \begin{questions}
@@ -193,7 +193,7 @@ crocodile and the lizard share a more recent common ancestor with each
 other than either does with the ostrich. Both hypotheses are identical.
 
 \begin{center}
-	\noindent\includegraphics[width=\textwidth]{03b_add_ostrich_labeled}
+	\noindent\includegraphics[width=\textwidth]{05c_add_ostrich_labeled}
 \end{center}
 
 Remember that the vertical axis represents time. Therefore, according to
@@ -221,7 +221,7 @@ diverged from their common ancestor.
 What do the white diamonds in the hypothesis above
 represent?
 
-\AnswerBox{7\baselineskip}{Diamonds represent the time at which the ostrich
+\AnswerBox{2\baselineskip}{Diamonds represent the time at which the ostrich
 diverged from the common ancestor shared with the ancestor of the crocodile/lizard.}
 
 \end{questions}
@@ -232,26 +232,26 @@ containing more distantly related organisms and their ancestors. %Compare
 %the two diagrams below to the two hypotheses above.
 
 \begin{center}
-	\noindent\includegraphics[width=\textwidth]{03b_nested_hierarchy1}
+	\noindent\includegraphics[width=\textwidth]{05c_nested_hierarchy1}
 \end{center}
 
-The different shades indicate distinct clusters in the hierarchy. The
-crocodile and lizard cluster together in the black rectangle, indicating
+The different shades indicate distinct groups in the hierarchy. The
+crocodile and lizard group together in the black rectangle, indicating
 that they share a more recent common ancestor than either does with the
-ostrich. This highlights the closer relationship between the crocodile
+ostrich. This shows the closer relationship between the crocodile
 and the lizard. The relationship between the crocodile and lizard is
 nested within the larger grey rectangle that also contains the ostrich.
-This indicates that all three organisms share a common but older
+This shows that all three organisms share a common but older
 ancestor, which again highlights how the ostrich is equally related to
 the crocodile and the lizard. Notice that the figure on the right
 illustrates the same relationship among all three organisms as the
-figure on the left. This emphasizes that horizontal order on a phylogeny
-does not change the relationship among the species. Compare the diagram 
+figure on the left. \emph{The horizontal order on a phylogeny
+does not change the relationship among the species.} Compare the diagram 
 above to the shaded phylogeny below. The crocodile/lizard cluster is nested within
 the larger ostrich/crocodile/lizard cluster.
 
 \begin{center}
-	\noindent\includegraphics[width=\textwidth]{03b_nested_phylo}
+	\noindent\includegraphics[width=\textwidth]{05c_nested_phylo}
 \end{center}
 
 
@@ -259,7 +259,7 @@ Here is another diagram, with the wolf added.
 
 
 \begin{center}
-	\noindent\includegraphics{03b_nested_hierarchy2}
+	\noindent\includegraphics{05c_nested_hierarchy2}
 \end{center}
 
 \newpage
@@ -269,7 +269,7 @@ Here is another diagram, with the wolf added.
 
 \question\label{wolf_added}
 Draw a phylogenetic tree that is consistent with the nested
-hierarchy drawn above. Your instructor will come around to check your work.
+hierarchy drawn above. Ask your instructor to check your work.
 
 \AnswerBox{10\baselineskip}{Draw it yourself!}
 
@@ -292,14 +292,14 @@ questions.
 According to the phylogenetic tree, is the wolf more closely
 related to the crocodile or to the lizard? Explain.
 
-\AnswerBox{4\baselineskip}{The wolf is equally related to the crocodile and
+\AnswerBox{3\baselineskip}{The wolf is equally related to the crocodile and
 lizard because they share the same ancestor.}
 
 \question
 According to the phylogenetic tree, is the ostrich more
 closely related to the crocodile or to the wolf? Explain.
 
-\AnswerBox{4\baselineskip}{The ostrich is more closely related to the 
+\AnswerBox{3\baselineskip}{The ostrich is more closely related to the 
 crocodile because it shares a more recent ancestor with the crocodile (and lizard)
 than it does with the wolf.}
 
@@ -320,13 +320,13 @@ with the wolf.
 \setcounter{question}{7}
 
 \question
-Convince yourself by drawing on your phylogeny above an
+Convince yourself by drawing on your phylogeny from question~\ref{wolf_added} an
 arrow that points to the branch that represents the most recent common
 ancestor of the ostrich, the crocodile and the lizard. Label this arrow
 \#1. Then, draw an arrow that points to the branch that represents the
 most recent common ancestor of all four organisms. Label this arrow \#2.
 
-\AnswerBox{3\baselineskip}{Should have arrows in the appropriate spot.}
+\AnswerBox{1\baselineskip}{Should have arrows in the appropriate spot.}
 
 \question
 Feeling confidant now? Turn the following diagram into
@@ -336,7 +336,7 @@ horizontal order of the names.
 \end{questions}
 
 \begin{center}
-	\noindent\includegraphics{03b_nested_hierarchy3}
+	\noindent\includegraphics{05c_nested_hierarchy3}
 \end{center}
 
 Tree 1: \hspace*{0.4\textwidth}Tree 2:
@@ -345,7 +345,7 @@ Tree 1: \hspace*{0.4\textwidth}Tree 2:
 
 \newpage
 
-When you are done, ask me to verify the accuracy of your phylogenetic
+When you are done, ask your instructor to verify the accuracy of your phylogenetic
 trees. Then, use one of those two trees to answer the next two
 questions.
 
@@ -356,14 +356,14 @@ questions.
 According to the hypothesis, is the penguin or the ostrich
 more closely related to the wolf? Explain.
 
-\AnswerBox{5\baselineskip}{Both are equally related to the wolf because 
+\AnswerBox{3\baselineskip}{Both are equally related to the wolf because 
 share the same ancestor with the wolf.}
 
 \question
 According to the hypothesis, is the ostrich or the
 crocodile more closely related to the wolf? Explain.
 
-\AnswerBox{5\baselineskip}{Both are equally related to the wolf because
+\AnswerBox{3\baselineskip}{Both are equally related to the wolf because
 both share the same ancestor with the wolf.}
 
 
@@ -376,6 +376,7 @@ relationships among organisms but clarity is preferable to confusion.
 \question[Checkout]
 Turn the last phylogenetic tree (Tree 3) from the previous handout into a nested hierarchy.
 
+\AnswerBox{10\baselineskip}{Nested hierarchy goes here.}
 
 \end{questions}
 
