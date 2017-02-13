@@ -1,0 +1,161 @@
+%!TEX TS-program = lualatex
+%!TEX encoding = UTF-8 Unicode
+
+\documentclass[letterpaper]{tufte-handout}
+
+%\geometry{showframe} % display margins for debugging page layout
+
+\usepackage{fontspec}
+\def\mainfont{Linux Libertine O}
+\setmainfont[Ligatures={Common,TeX}, Contextuals={NoAlternate}, BoldFont={* Bold}, ItalicFont={* Italic}, Numbers={OldStyle}]{\mainfont}
+\setsansfont[Scale=MatchLowercase, Numbers={OldStyle}]{Linux Biolinum O} 
+\usepackage{microtype}
+
+\usepackage{graphicx} % allow embedded images
+  \setkeys{Gin}{width=\linewidth}
+  \graphicspath{	{/Users/goby/teach/163/lectures/}
+  {/Users/goby/Pictures/teach/163/lecture/}}%}%
+
+\usepackage{amsmath}  % extended mathematics
+\usepackage{booktabs} % book-quality tables
+\usepackage{units}    % non-stacked fractions and better unit spacing
+\usepackage{multicol} % multiple column layout facilities
+%\usepackage{fancyvrb} % extended verbatim environments
+%  \fvset{fontsize=\normalsize}% default font size for fancy-verbatim environments
+
+\usepackage{enumitem}
+
+\makeatletter
+% Paragraph indentation and separation for normal text
+\renewcommand{\@tufte@reset@par}{%
+  \setlength{\RaggedRightParindent}{1.0pc}%
+  \setlength{\JustifyingParindent}{1.0pc}%
+  \setlength{\parindent}{1pc}%
+  \setlength{\parskip}{0pt}%
+}
+\@tufte@reset@par
+
+% Paragraph indentation and separation for marginal text
+\renewcommand{\@tufte@margin@par}{%
+  \setlength{\RaggedRightParindent}{0pt}%
+  \setlength{\JustifyingParindent}{0.5pc}%
+  \setlength{\parindent}{0.5pc}%
+  \setlength{\parskip}{0pt}%
+}
+\makeatother
+
+% Set up the spacing using fontspec features
+   \renewcommand\allcapsspacing[1]{{\addfontfeatures{LetterSpace=15}#1}}
+   \renewcommand\smallcapsspacing[1]{{\addfontfeatures{LetterSpace=10}#1}}
+
+\title{{\scshape bi} 163 Study Guide 09}
+
+\date{} % without \date command, current date is supplied
+
+\begin{document}
+
+\maketitle	% this prints the handout title, author, and date
+
+%\printclassoptions
+\section*{Species and speciation}
+
+We\marginnote{\textbf{Read:} 500--513.} covered different ways of thinking about what is a species and problems with each species concept. We also learned how biological reproductive isolation causes new species to evolve. We explored the role of geography in the speciation process, how hybrid zones form, and possible speciation outcomes from hybrid zones.
+
+\section*{Vocabulary}
+
+\vspace{-1\baselineskip}
+\begin{multicols}{2}
+speciation \\
+macroevolution \\
+species concepts\\
+morphological species concept\\
+cryptic species\\
+biological species concept\\
+reproductive isolation \\
+speciation \\
+reproductive isolation \\
+prezygotic barriers \\
+postzygotic barriers \\
+habitat isolation \\
+behavioral isolation \\
+temporal isolation \\
+mechanical isolation \\
+gamete incompatibility \\
+hybrid sterility \\
+hybrid inviability \\
+hybrid breakdown \\
+allopatric speciation \\
+sympatric speciation \\
+hybrid zone \\
+stability \\
+reinforcement \\
+fusion %\\
+%ring species 
+\end{multicols}
+
+\section*{Concepts}
+
+You should \emph{write} clear and concise answers to each question in the Concepts section.  Remember to ``think horizontally'' and to ``connect the dots.'' 
+
+\begin{enumerate}
+
+	\item Compare and contrast the two species concepts given above.
+
+	\item What are cryptic species?
+
+	\item Explain the biological species concept.  Does this concept apply to sexually reproducing species?  Does this concept apply to asexually reproducing species?
+	
+	\item Explain two problems applying the biological species concept that is not related to whether the species reproduces sexually or asexually.
+
+	\item What does the biological species concept emphasize in the speciation process?
+
+	\item What is speciation?  
+
+	\item Explain \marginnote{More than one type of prezygotic and postzygotic barrier can contribute to speciation.}
+ the difference between prezygotic and postzygotic isolation barriers. Provide examples for each of the prezygotic and postzygotic barriers.
+ 
+	\item Briefly describe how each of the prezygotic and postzygotic\marginnote{Reproductive isolation occurs when some aspect about the biology of the organism causes the inability to reproduce, such as being adapted to different habitats, or producing sterile hybrid offspring.} isolation barriers can lead to reproductive isolation.
+
+	\item Explain how allopatric speciation can contribute to the evolution of biological reproductive isolation.
+	
+	\item Explain the difference between allopatric and sympatric speciation. \marginnote{Remember that allopatric and sympatric speciation refer to geography, not biological reproductive isolation. Allopatric speciation means that a population was divided into two geographic areas with no gene flow (see below). Biological reproductive isolation must still evolve for speciation to occur.}% Organisms can have allopatric distribution but not be different species.}
+	
+	\begin{marginfigure}%[0.5in]
+		\centering\includegraphics[width=0.7\columnwidth]{allopatric_diagram}
+	\end{marginfigure}
+
+	
+	\item Describe how phylogenetic trees can be used to look for evidence of allopatric speciation.
+	
+	\item Explain how hybrid zones can form. Compare and contrast each of the three possible outcomes from hybrid zones (stability, reinforcement, fusion). Explain which of the three outcomes continues or maintains the speciation process and which can lead to the loss of species.
+	
+%	\item Explain what is a ring species and how they form.
+
+\section*{Example exam questions}
+
+These are examples only and not exhaustive. One or more of these questions may or may not appear on the exam.
+
+\bigskip
+
+\noindent \rule{1in}{0.4pt} Different reproductive behaviors prevent copulation.
+
+\bigskip
+
+\noindent True\hspace{1em}False\hspace{1em} Reinforcement enhances the chance of forming hybrids.
+
+\bigskip
+
+\noindent Two closely related species of maple trees occur together in the southeastern United States.  Pollen from each species is distributed by the wind.  If the pollen from one species lands on the stigma (female pollen receptor) of the other species but a protein interaction between the pollen and stigma prevents fertilization, then which reproductive barrier keeps the two maple species isolated?
+
+\smallskip
+
+\noindent \textsc{a}. mechanical.\\
+\noindent \textsc{b}. behavioral. \\
+\noindent \textsc{c}. habitat. \\
+\noindent \textsc{d}. gametic. \\
+\noindent \textsc{e}. temporal.
+
+
+\end{enumerate}
+
+\end{document}
