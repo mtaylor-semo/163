@@ -1,0 +1,329 @@
+%!TEX TS-program = lualatex
+%!TEX encoding = UTF-8 Unicode
+
+\documentclass[12pt, addpoints]{exam}
+\usepackage{graphicx}
+	\graphicspath{{/Users/goby/Pictures/teach/163/lab/}
+	{img/}} % set of paths to search for images
+
+\usepackage{geometry}
+\geometry{letterpaper, left=1.5in, bottom=1in}                   
+%\geometry{landscape}                % Activate for for rotated page geometry
+%\usepackage[parfill]{parskip}    % Activate to begin paragraphs with an empty line rather than an indent
+\usepackage{amssymb, amsmath}
+\usepackage{mathtools}
+	\everymath{\displaystyle}
+
+\usepackage{fontspec}
+\setmainfont[Ligatures={TeX}, BoldFont={* Bold}, ItalicFont={* Italic}, BoldItalicFont={* BoldItalic}, Numbers={Proportional}]{Linux Libertine O}
+\setsansfont[Scale=MatchLowercase,Ligatures=TeX]{Linux Biolinum O}
+%\setmonofont[Scale=MatchLowercase]{Inconsolatazi4}
+\usepackage{microtype}
+
+\usepackage{unicode-math}
+\setmathfont[Scale=MatchLowercase]{Asana Math}
+%\setmathfont[Scale=MatchLowercase]{XITS Math}
+
+% To define fonts for particular uses within a document. For example, 
+% This sets the Libertine font to use tabular number format for tables.
+\newfontfamily{\tablenumbers}[Numbers={Monospaced}]{Linux Libertine O}
+\newfontfamily{\libertinedisplay}{Linux Libertine Display O}
+
+\usepackage{booktabs}
+\usepackage{multicol}
+\usepackage[normalem]{ulem}
+
+%\usepackage{tabularx}
+\usepackage{longtable}
+%\usepackage{siunitx}
+\usepackage{array}
+\newcolumntype{L}[1]{>{\raggedright\let\newline\\\arraybackslash\hspace{0pt}}p{#1}}
+\newcolumntype{C}[1]{>{\centering\let\newline\\\arraybackslash\hspace{0pt}}p{#1}}
+\newcolumntype{R}[1]{>{\raggedleft\let\newline\\\arraybackslash\hspace{0pt}}p{#1}}
+
+\usepackage{enumitem}
+\usepackage{hyperref}
+%\usepackage{placeins} %PRovides \FloatBarrier to flush all floats before a certain point.
+\usepackage{hanging}
+
+\usepackage[sc]{titlesec}
+
+
+\renewcommand{\solutiontitle}{\noindent}
+\unframedsolutions
+\SolutionEmphasis{\bfseries}
+
+%Change \half command from 1/2 to .5
+\renewcommand*\half{.5}
+
+
+\makeatletter
+\def\SetTotalwidth{\advance\linewidth by \@totalleftmargin
+\@totalleftmargin=0pt}
+\makeatother
+
+
+\pagestyle{headandfoot}
+\firstpageheader{BI 063: Evolution and Ecology}{}{\ifprintanswers\textbf{KEY}\else Name: \enspace \makebox[2.5in]{\hrulefill}\fi}
+\runningheader{}{}{\footnotesize{pg. \thepage}}
+\footer{}{}{}
+\runningheadrule
+
+\newcommand*\AnswerBox[2]{%
+    \parbox[t][#1]{0.92\textwidth}{%
+    \begin{solution}#2\end{solution}}
+%    \vspace*{\stretch{1}}
+}
+
+\newenvironment{AnswerPage}[1]
+    {\begin{minipage}[t][#1]{0.92\textwidth}%
+    \begin{solution}}
+    {\end{solution}\end{minipage}
+    \vspace*{\stretch{1}}}
+
+\newlength{\basespace}
+\setlength{\basespace}{5\baselineskip}
+
+%\printanswers
+
+\begin{document}
+
+\subsection*{Jack Noire and the law of nature (\numpoints\ points)}
+
+The universe is a deck of cards, and I am Mother Nature. I have
+stacked the deck according to a natural law of my own devising. You are
+a scientist; your goal is to discover the natural law that describes the
+order of the cards in the deck.
+
+I will reveal one card at a time to you. As each card is revealed,
+you evaluate your current hypotheses, and write new hypotheses to fit
+the new evidence. Only normal cards appear (no green ones, no jokers, etc.) 
+but more than one deck could be used (so there could be multiple copies of a
+given card).
+
+\vspace*{\baselineskip}
+
+\noindent\textsc{Consider First:}
+
+\begin{itemize}
+\item
+  From one observation, are you prepared to guess what the law of nature
+  might be?
+\item
+  Why or why not?
+\item
+  Are there many possibilities?
+\end{itemize}
+
+Identify eight potential laws (hypotheses) below, and for each potential law, state
+in the appropriate column what next card (or group/class/category of
+cards) would (a) support and (b) falsify it.
+
+
+\begin{longtable}[l]{@{}|L{3.02in}|C{0.75in}|C{0.75in}|C{0.5in}|@{}}
+\hline
+ & \multicolumn{2}{@{}c|@{}}{Card(s) that would} & \\
+Potential law (hypothesis) & Support & Falsify & conc. \tabularnewline
+\hline
+& & &\tabularnewline[0.8cm]
+\hline
+& & &\tabularnewline[0.8cm]
+\hline
+& & &\tabularnewline[0.8cm]
+\hline
+& & &\tabularnewline[0.8cm]
+\hline
+& & &\tabularnewline[0.8cm]
+\hline
+& & &\tabularnewline[0.8cm]
+\hline
+& & &\tabularnewline[0.8cm]
+\hline
+& & &\tabularnewline[0.8cm]
+\hline
+\end{longtable}
+
+\noindent\textsc{Test 1: look at the next card and evaluate your hypotheses.} 
+On the chart above, put your conclusion in the last column (conc.):\vspace*{0.33\baselineskip}
+
+Which, if any, potential laws have been \textit{proven}? Indicate with
+a P. \vspace*{0.33\baselineskip}
+
+Which, if any, potential laws have been \textit{supported}? Indicate
+with an S.\vspace*{0.33\baselineskip}
+
+Which, if any, potential laws have been \textit{falsified}? Indicate
+with an F.\vspace*{1\baselineskip}
+
+\noindent\textsc{Copy any hypotheses that were supported into the table below}. 
+Skip any hypotheses that were falsified. Hopefully, you did not say that some
+hypotheses were proven. Remember that science is tentative. Your hypotheses
+can be supported or falsified but never proven. If you did, change your P to
+an S and include it below.\vspace*{\baselineskip}
+
+\noindent\textsc{Have any new potential laws been suggested by the data?} If so, 
+put the new hypotheses into the table below. For each potential law, state in the 
+appropriate column what next card  (or group/class/category of cards) would 
+(a) support and (b) falsify it.
+
+
+\begin{longtable}[l]{@{}|L{3.02in}|C{0.75in}|C{0.75in}|C{0.5in}|@{}}
+\hline
+ & \multicolumn{2}{@{}c|@{}}{Card(s) that would} & \\
+Potential law (hypothesis) & Support & Falsify & conc. \tabularnewline
+\hline
+& & &\tabularnewline[0.8cm]
+\hline
+& & &\tabularnewline[0.8cm]
+\hline
+& & &\tabularnewline[0.8cm]
+\hline
+& & &\tabularnewline[0.8cm]
+\hline
+& & &\tabularnewline[0.8cm]
+\hline
+& & &\tabularnewline[0.8cm]
+\hline
+& & &\tabularnewline[0.8cm]
+\hline
+& & &\tabularnewline[0.8cm]
+\hline
+\end{longtable}
+
+\newpage
+
+\noindent\textsc{Test 2: look at the next card and evaluate your hypotheses.} 
+On the chart above, put your conclusion in the last column (conc.):\vspace*{0.33\baselineskip}
+
+Which, if any, potential laws have been \textit{supported}? Indicate
+with an S.\vspace*{0.33\baselineskip}
+
+Which, if any, potential laws have been \textit{falsified}? Indicate
+with an F.\vspace*{1\baselineskip}
+
+\noindent\textsc{Copy any hypotheses that were supported into the table below}. 
+Skip any hypotheses that were falsified. \vspace*{\baselineskip}
+
+\noindent\textsc{Have any new potential laws been suggested by the data?} If so, 
+put the new hypotheses into the table below. For each potential law, state in the 
+appropriate column what next card  (or group/class/category of cards) would 
+(a) support and (b) falsify it.
+
+\begin{longtable}[l]{@{}|L{3.02in}|C{0.75in}|C{0.75in}|C{0.5in}|@{}}
+\hline
+ & \multicolumn{2}{@{}c|@{}}{Card(s) that would} & \\
+Potential law (hypothesis) & Support & Falsify & conc. \tabularnewline
+\hline
+& & &\tabularnewline[0.8cm]
+\hline
+& & &\tabularnewline[0.8cm]
+\hline
+& & &\tabularnewline[0.8cm]
+\hline
+& & &\tabularnewline[0.8cm]
+\hline
+& & &\tabularnewline[0.8cm]
+\hline
+& & &\tabularnewline[0.8cm]
+\hline
+& & &\tabularnewline[0.8cm]
+\hline
+& & &\tabularnewline[0.8cm]
+\hline
+\end{longtable}
+
+\noindent\textsc{Test 3: look at the next card and evaluate your hypotheses.} 
+On the chart above, put your conclusion in the last column (conc.):\vspace*{0.33\baselineskip}
+
+Which, if any, potential laws have been \textit{supported}? Indicate
+with an S.\vspace*{0.33\baselineskip}
+
+Which, if any, potential laws have been \textit{falsified}? Indicate
+with an F.\vspace*{1\baselineskip}
+
+\newpage
+
+\noindent\textsc{Copy any hypotheses that were supported into the table below}. 
+Skip any hypotheses that were falsified. \vspace*{\baselineskip}
+
+\noindent\textsc{Have any new potential laws been suggested by the data?} If so, 
+put the new hypotheses into the table below. For each potential law, state in the 
+appropriate column what next card  (or group/class/category of cards) would 
+(a) support and (b) falsify it.
+
+\begin{longtable}[l]{@{}|L{3.02in}|C{0.75in}|C{0.75in}|C{0.5in}|@{}}
+\hline
+ & \multicolumn{2}{@{}c|@{}}{Card(s) that would} & \\
+Potential law (hypothesis) & Support & Falsify & conc. \tabularnewline
+\hline
+& & &\tabularnewline[0.8cm]
+\hline
+& & &\tabularnewline[0.8cm]
+\hline
+& & &\tabularnewline[0.8cm]
+\hline
+& & &\tabularnewline[0.8cm]
+\hline
+& & &\tabularnewline[0.8cm]
+\hline
+& & &\tabularnewline[0.8cm]
+\hline
+& & &\tabularnewline[0.8cm]
+\hline
+& & &\tabularnewline[0.8cm]
+\hline
+\end{longtable}
+
+\noindent\textsc{Test 4: look at the next card and evaluate your hypotheses.} 
+On the chart above, put your conclusion in the last column (conc.):\vspace*{0.33\baselineskip}
+
+Which, if any, potential laws have been \textit{supported}? Indicate
+with an S.\vspace*{0.33\baselineskip}
+
+Which, if any, potential laws have been \textit{falsified}? Indicate
+with an F.\vspace*{1\baselineskip}
+
+Mother Nature may run the game longer than four rounds. Continue to track whether
+your hypotheses have been supported or falsified. Continue to think of new hypotheses
+that fit all evidence seen so far (the exposed cards) and that predict the next card.
+Mother Nature will finish this game before the end of lab.
+
+\newpage
+
+\noindent\textsc{Jack Noire follow-up assignment}\hfill Name: \rule{2.25in}{0.4pt}
+
+%\vspace*{2\baselineskip}
+
+\vspace*{1\baselineskip}
+
+\begin{questions}
+
+\question[10]
+\noindent List five aspects of hypothesis testing and the process of science that are
+illustrated by Jack Noire.
+
+\ifprintanswers 
+	\textbf{More answers than those below are possible. I emphasize these points as the game proceeds.}
+	\vspace*{1\baselineskip}
+\else
+	\vspace*{-1.5\baselineskip}
+\fi
+
+\begin{parts}
+
+\part \ifprintanswers\textbf{Hypotheses are supported / falsified, never proven}\fi\vspace*{5\baselineskip}
+
+\part \ifprintanswers\textbf{New evidence can falsify a previously supported hypothesis.}\fi\vspace*{5\baselineskip}
+
+\part \ifprintanswers\textbf{New evidence can lead to new hypotheses.}\fi\vspace*{5\baselineskip}
+
+\part \ifprintanswers\textbf{Many hypotheses can be consistent with the same evidence.}\fi\vspace*{5\baselineskip}
+
+\part \ifprintanswers\textbf{Hypotheses make specific predictions (of experimental outcomes).}\fi\vspace*{5\baselineskip}
+
+
+\end{parts}
+
+\end{questions}
+
+\end{document}  
