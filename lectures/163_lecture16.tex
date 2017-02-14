@@ -1,15 +1,15 @@
 %!TEX TS-program = lualatex
 %!TEX encoding = UTF-8 Unicode
 
-\documentclass[t]{beamer}
+%\documentclass[t]{beamer}
 
 %%%% HANDOUTS For online Uncomment the following four lines for handout
-%\documentclass[t,handout]{beamer}  %Use this for handouts.
-%\usepackage{handoutWithNotes}
-%\pgfpagesuselayout{3 on 1 with notes}[letterpaper,border shrink=5mm]
+\documentclass[t,handout]{beamer}  %Use this for handouts.
+\usepackage{handoutWithNotes}
+\pgfpagesuselayout{3 on 1 with notes}[letterpaper,border shrink=5mm]
 %	\setbeamercolor{background canvas}{bg=black!5}
 
-%\includeonlylecture{student}
+\includeonlylecture{student}
 
 %%% Including only some slides for students.
 %%% Uncomment the following line. For the slides,
@@ -31,15 +31,20 @@
 
 \usepackage{multicol}
 \usepackage{booktabs}
+\usepackage{array}
+\newcolumntype{L}[1]{>{\raggedright\let\newline\\\arraybackslash\hspace{0pt}}p{#1}}
+\newcolumntype{C}[1]{>{\centering\let\newline\\\arraybackslash\hspace{0pt}}p{#1}}
+\newcolumntype{R}[1]{>{\raggedleft\let\newline\\\arraybackslash\hspace{0pt}}p{#1}}
 %\usepackage{textcomp}
 %\usepackage{mhchem}
 \usepackage{enumitem}
-\usepackage[export]{adjustbox}
+%\usepackage[export]{adjustbox}
 
 
 \usepackage{tikz}
 	\tikzstyle{every picture}+=[remember picture,overlay]
-%	\usetikzlibrary{arrows}
+	\usetikzlibrary{arrows}
+\usetikzlibrary{positioning}
 
 \mode<presentation>
 {
@@ -84,232 +89,224 @@
 
 \lecture{student}{student}
 
-\begin{frame}{Our goal for this lecture is to continue}
+\begin{frame}{Our goal for this lecture is to }
+
+	\hangpara learn about the \highlight{hierarchical organization} of life.
 	
-	\hangpara learning some important macroevolutionary changes, and
+	\hangpara introduce \highlight{ecology,} and
 	
-	\hangpara learning the \highlight{transitional forms} that show the changes, and
+	\hangpara demonstrate \highlight{population growth,}
 	
-	\hangpara to briefly discuss \highlight{mass extunctions.}
+	\hangpara using \highlight{exponential} and \highlight{logistic} growth models.
 
 \end{frame}
 %
-\lecture{instructor}{instructor}
-{
-\setbeamercolor{background canvas}{bg=black}
-\begin{frame}[t]
-	\includegraphics[width=\textwidth]{continents_miocene}
-	
-	\vfilll
-	
-	\hfill \tiny \textcolor{white}{\href{http://scotese.com}{scotese.com}}
-\end{frame}
-}
+\begin{frame}{Life is a hierarchy of increasing complexity.}
+\vspace*{-0.5\baselineskip}	
+\hangpara \begin{tabular}{@{}L{34mm}L{34mm}L{34mm}@{}}
+\toprule
+\onslide<1->Cellular 	&
+Organismal 		&
+Biosphere 		\\
+\midrule
+&	&	\\
+\onslide<2->Cell		&
+\onslide<3->Organism	&
+\onslide<9->\alt<handout>{\rule{30mm}{0.4pt}}{Landscape}\\[1em]
 %
-\lecture{student}{student}
-
-
-{
-\usebackgroundtemplate{\includegraphics[width=\paperwidth]{artiodactyla_phylogeny1} }
-\begin{frame}[b]
-
-\tiny Spaulding et al. 2009. PLoS \textsc{one} 4(9): e7962.
-\end{frame}
-}
-
-{
-\usebackgroundtemplate{\includegraphics[width=\paperwidth]{artiodactyla_phylogeny2} }
-\begin{frame}[b]
-
-\tiny Spaulding et al. 2009. PLoS \textsc{one} 4(9): e7962.
-\end{frame}
-}
-
-{
-\usebackgroundtemplate{\includegraphics[width=\paperwidth]{cetacean_transition} }
-\begin{frame}[b]
-
-\end{frame}
-}
+\onslide<2->Organelle		&
+\onslide<3->Organ System	&
+\onslide<8->\alt<handout>{\rule{30mm}{0.4pt}}{Ecosystem}\\[1em]
 %
-{
-\usebackgroundtemplate{\includegraphics[width=\paperwidth]{auditory_bulla} }
-\begin{frame}[b]{Whales and even-toed mammals have different types of a bony ear structure.}
-
-\end{frame}
-}
+\onslide<2->Macromolecules	&
+\onslide<3->Organ			&
+\onslide<7->\alt<handout>{\rule{30mm}{0.4pt}}{Community} \\[1em]
 %
-\begin{frame}[t]{But, whales and terrestrial cetaceans have the same type of bony ear structure.}
-	\includegraphics[width=\textwidth]{auditory_bulla_indohyus}
-\end{frame}
+\onslide<2->Molecule		&
+\onslide<3->Tissue			&
+\onslide<6->\alt<handout>{\rule{30mm}{0.4pt}}{Species}	\\[1em]
 %
-\begin{frame}[t]{Terrestrial cetaceans and artiodactyls have a double-pulley ankle joint.}
-	\includegraphics[width=\textwidth]{double_pulley_ankle}
-	
-	\vfilll
-	
-	\hfill \tiny \textcopyright Pearson Education, Inc.
-\end{frame}
-%
-{
-\usebackgroundtemplate{\includegraphics[width=\paperwidth]{cetacean_appendages} }
-\begin{frame}[b]
-
-\end{frame}
-}
-%
-{
-\usebackgroundtemplate{\includegraphics[width=\paperwidth]{cetacean_nostrils} }
-\begin{frame}[b]{Nostril position shifted with adaption to aquatic habitat.}
-
-\tiny \textcopyright Roberts \& Company
-\end{frame}
-}
-%
-{
-\usebackgroundtemplate{\includegraphics[width=\paperwidth]{cetacean_habitat} }
-\begin{frame}[b]{Their habitat shifted from fresh to salt water.}
-
-\tiny \textcopyright Roberts \& Company
-\end{frame}
-}
-%
-\lecture{instructor}{instructor}
-{
-\setbeamercolor{background canvas}{bg=black}
-\begin{frame}[t]
-	\includegraphics[width=\textwidth]{continents_pleistocene}
-	
-	\vfilll
-	
-	\hfill \tiny \textcolor{white}{\href{http://scotese.com}{scotese.com}}
-\end{frame}
-}
-%
-\lecture{student}{student}
-
-\begin{frame}[t]{How many species do you see?}
-	\includegraphics[width=\textwidth]{hominid_skulls}
-	
-	\vspace*{-\baselineskip}
-	\pause
-	\alt<handout>{}{%
-	\begin{multicols}{3}
-	\begin{enumerate}[leftmargin=*,label=\textsc{\Alph*}.]
-	{\tiny
-	\item Chimpanzee, modern\\
-	\item \textit{Australopithecus africanus}, 2.6 \textsc{mya}\\
-	\item \textit{A. africanus}, 2.5 \textsc{mya}\\
-	\item \textit{Homo habilis}, 1.9 \textsc{mya}\\
-	\item \textit{H. habilis}, 1.8 \textsc{mya}\\
-	\item \textit{H. rudolfensis}, 1.8 \textsc{mya}\\
-	\item \textit{H. erectus}, 1.75 \textsc{mya}\\
-	\item \textit{H. ergaster}, 1.75 \textsc{mya}\\
-	\item \textit{H. heidelbergensis}, 300–125 \textsc{kya}\\
-	\item \textit{H. neanderthalensis}, 70 \textsc{kya}\\
-	\item \textit{H. neanderthalensis}, 60 \textsc{kya}\\
-	\item \textit{H. neanderthalensis}, 45 \textsc{kya}\\
-	\item \textit{H. sapiens}, Cro-Magnon, 30 \textsc{kya}\\
-	\item \textit{H. sapiens}, modern}\\
-	\end{enumerate}
-	\end{multicols}
-	}
-	
-\end{frame}
-%
-{
-\usebackgroundtemplate{\includegraphics[width=\paperwidth]{human_transition} }
-\begin{frame}[b]
-\hfill \tiny \textcopyright Roberts \& Company
-\end{frame}
-}
-%
-\begin{frame}[t]{Hominins evolved in east central Africa nearly 4 \textsc{mya}.}
-	\includegraphics[width=\textwidth]{hominid_origins}
-\end{frame}
-%
-{
-\usebackgroundtemplate{\includegraphics[width=\paperwidth]{hominid_timeline} }
-\begin{frame}[b]{Four major groups of hominins show adaptive shifts.}
-\hfill \tiny \textcopyright Foley and Gamble 2009. Phil. Trans. R. Soc. B 364:  3267.
-\end{frame}
-}
-%
-\begin{frame}[t]{Bipedalism evolved before large brain size}
-	\includegraphics[width=\textwidth]{hominin_brain_size}
-
-\end{frame}
-%
-{
-\usebackgroundtemplate{\includegraphics[width=\paperwidth]{bipedalism} }
-\begin{frame}[b]{What is the advantage of \highlight{bipedalism?}}
-\hfill \tiny \textcopyright McGraw-Hill
-\end{frame}
-}
-%
-{
-\usebackgroundtemplate{\includegraphics[width=\paperwidth]{hominid_advances} }
-\begin{frame}[b]{Adaptations associated wth bipedalism and brain size increase.}
-\hfill \tiny \textcopyright Foley and Gamble 2009. Phil. Trans. R. Soc. B 364:  3267.
-\end{frame}
-}
-%
-{
-\begin{frame}[b]{\textit{Homo} left Africa in waves.}
-	\centering
-	\includegraphics[width=\textwidth]{human_dispersal}
-
-	\vfilll
-
-	\tiny\hfill \textcopyright McGraw-Hill.
-\end{frame}
-}
-%
-{
-\usebackgroundtemplate{\includegraphics[width=\paperwidth]{mass_extinctions} }
-\begin{frame}[b]{Five \highlight{mass extinctions} have occurred since the Cambrian.}
-\hfill \tiny \textcopyright Pearson Education, Inc.
-\end{frame}
-}
-%
-\begin{frame}[t]{A mass extinction occurs when at least 75\% of species go extinct.}
-\centering
-\begin{tabular}{@{}lrr@{}}
-	\toprule
-	Event & Genera & Species \\
-	\midrule
-	End Ordovician	&	57\% & 86\% \\
-	Late Devonian & 35\% & 75\% \\
-	End Permian	& 59\% & 96\% \\
-	End Triassic	& 47\% & 80\% \\
-	End Cretaceous (\textsc{k/t}) & 40\% & 76\% \\
-	\bottomrule
+\onslide<2->Atom			&
+						&
+\onslide<5->\alt<handout>{\rule{30mm}{0.4pt}}{Population}\\[1em]
+%\bottomrule
 \end{tabular}
 
+\only<4>{\alt<handout>{}{\hangpara In groups, discuss what levels make up the biosphere.}}
+
+\onslide<10->\hangpara\highlight{Emergent properties} are properties of life present at one level that were not present in lower levels.
+
+\onslide<11->\hangpara What levels do you think are encompassed by evolution?  By ecology? 
 \end{frame}
 %
-\begin{frame}[t]{The causes of mass extinction all cause \highlight{rapid climate change.}}
-
-	\begin{multicols}{2}
-	\hangpara Asteroid impact
-	
-	\hangpara Volcanism
-	
-	\hangpara Glaciation
-	
-	\hangpara Methane gas
-	
-	\hangpara Changing ocean currents
-	
-	\hangpara Not all of these apply to every mass extinction.
-	
-	\columnbreak
-	
-	\includegraphics[width=0.4\textwidth, frame]{kt_asteroid_impact_site}\\
-	{\footnotesize 180 km (112 mi) crater created by\\10 km asteroid impact.}
-
-	\end{multicols}
-	
+{
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{ecosystem} }
+\begin{frame}[b]{\hfill What is ecology?}
+	\tiny\textcolor{white}{Jeff Taylor, Wikimedia, \ccbysa{3}.}%Elwha River Photo by
+\end{frame}
+}
+%
+\begin{frame}[t]{Ecology has many fields of study.}
+	\begin{minipage}[t]{0.6\textwidth}
+		\vspace{0pt}
+		\includegraphics[width=0.99\textwidth]{ecology_disciplines}
+	\end{minipage}
+	\hfill
+	\begin{minipage}[t]{0.3\textwidth}
+		\vspace{0pt}
+		\highlight{Population}\\
+		\highlight{Community}\\
+		\highlight{Ecosystem}\\
+		Landscape\\
+		Evolutionary\\
+		Behavioral\\
+		Nutritional\\
+		many more\dots
+	\end{minipage}	
 \end{frame}
 %
+{
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{population_meerkats} }
+\begin{frame}[b]{\textcolor{white}{What is a population?}}
+
+	\tiny\textcolor{white}{Spencer Wright, Flickr, \ccby{2}.}
+\end{frame}
+}
+%
+{
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{population_dynamics} }
+\begin{frame}[b]{Populations vary in space and time.}
+
+	\hfill \tiny Fig. 53.3 \textcopyright Pearson Education, Inc.
+\end{frame}
+}
+{
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{Ecoli} }
+\begin{frame}[b]{\textcolor{white}{Meet \textit{Escherichia coli.}}}
+\tiny \hfill \textcolor{white}{NIAID, National Institutes of Health, public domain.}%E. coli
+\end{frame}
+}
+
+\begin{frame}{}
+
+	\hangpara\Large What factors do we need to account for population growth under \highlight{idealized} conditions? 
+	
+\end{frame}
+
+
+\begin{frame}{Population growth depends on birth and death rates.}
+
+	\hangpara \textit{b} = per capita birth rate (number born per 1000 individuals). \pause
+	
+	\hangpara \textit{d} = per capita death rate (number died per 1000 individuals). \pause
+	
+	\hangpara \textit{r} = \textit{b} – \textit{d} = intrinsic rate of population growth. \pause
+	
+	\hangpara If \textit{r} \textgreater{} 0, then population is growing larger.
+	
+	\hangpara If \textit{r} \textless{} 0 then population is growing smaller.
+	
+	
+\end{frame}
+
+
+
+\begin{frame}{\highlight{Exponential growth} occurs only in idealized conditions.}
+	\begin{center}
+		\Huge $\frac{\Delta N}{\Delta t} = rN$
+	\end{center}
+	
+	\hangpara $\Delta N = $ change in population size,
+
+	\hangpara $\Delta t = $ change in time,
+	
+	\hangpara $r = $ intrinsic rate of population growth, and
+	
+	\hangpara $N = $ size of the population.
+	
+\end{frame}
+
+
+{
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{exponential_growth} }
+\begin{frame}[b]
+\end{frame}
+}
+
+
+{
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{human_population_growth} }
+\begin{frame}[b]
+
+
+\end{frame}
+}
+
+\begin{frame}{}
+
+	\hangpara\Large Most populations do not grow under idealized conditions.
+	
+	\hangpara\Large What else do we need to account for?
+	
+	\pause
+	\hangpara \highlight{Carrying capacity.}
+	
+\end{frame}
+
+
+\begin{frame}{\highlight{Logistic growth} occurs in natural conditions.}
+	\begin{center}
+		\Huge $\frac{\Delta N}{\Delta t} = rN\frac{(K-N)}{K}$
+	\end{center}
+	
+	\hangpara $\Delta N = $change in population size,
+
+	\hangpara $\Delta t = $ change in time,
+	
+	\hangpara $r = $ intrinsic rate of population growth, 
+	
+	\hangpara $N = $ size of the population, and
+	
+	\hangpara \highlight{$K = $ carrying capacity.}
+	
+\end{frame}
+
+\begin{frame}
+
+\hangpara Assume $r = 1.0$.
+
+\hangpara If $K = 3000$ and $N = 1000$, \pause then
+
+\hangpara {\Large $\frac{(K-N)}{K} = \frac{(3000-1000)}{3000} =  \frac{2}{3}$.}
+
+\hangpara This means that 2/3 of resources are \emph{still available} for population growth. \pause Therefore,
+
+\hangpara {\Large $\frac{\Delta N}{\Delta t} = rN\frac{(K-N)}{K}$}  $= (1.0)(1000)(\frac{2}{3}) = 666.67$ individuals added.
+
+\end{frame}
+
+
+\begin{frame}
+
+\hangpara Assume $r = 1.0$.
+
+\hangpara If $K = 3000$ and $N = 2000$, \pause then
+
+\hangpara {\Large $\frac{(K-N)}{K} = \frac{(3000-2000)}{3000} =  \frac{1}{3}$.}
+
+\hangpara This means that 1/3 of resources are available for population growth. \pause Therefore,
+
+\hangpara {\Large $\frac{\Delta N}{\Delta t} = rN\frac{(K-N)}{K}$}  $= (1.0)(1000)(\frac{1}{3}) = 333.33$ individuals added.
+
+\end{frame}
+
+
+
+{
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{logistic_growth} }
+\begin{frame}{}
+\end{frame}
+}
+
+
 \end{document}
