@@ -1,0 +1,381 @@
+%!TEX TS-program = lualatex
+%!TEX encoding = UTF-8 Unicode
+
+\documentclass[12pt, hidelinks]{exam}
+\usepackage{graphicx}
+	\graphicspath{{/Users/goby/Pictures/teach/163/lab/}
+	{img/}} % set of paths to search for images
+
+\usepackage{geometry}
+\geometry{left=1.5in, bottom=1in}                   
+%\geometry{landscape}                % Activate for for rotated page geometry
+\usepackage[parfill]{parskip}    % Activate to begin paragraphs with an empty line rather than an indent
+%\usepackage{amssymb, amsmath}
+%\usepackage{mathtools}
+%	\everymath{\displaystyle}
+
+\usepackage{pdflscape}
+
+\usepackage{fontspec}
+\setmainfont[Ligatures={TeX}, BoldFont={* Bold}, ItalicFont={* Italic}, BoldItalicFont={* BoldItalic}, Numbers={OldStyle}]{Linux Libertine O}
+\setsansfont[Scale=MatchLowercase,Ligatures=TeX]{Linux Biolinum O}
+\setmonofont[Scale=MatchLowercase]{Linux Libertine Mono O}
+\usepackage{microtype}
+
+%\usepackage{unicode-math}
+%\setmathfont[Scale=MatchLowercase]{Asana Math}
+%\setmathfont[Scale=MatchLowercase]{XITS Math}
+
+% To define fonts for particular uses within a document. For example, 
+% This sets the Libertine font to use tabular number format for tables.
+\newfontfamily{\dnatable}[Numbers={Monospaced}]{Linux Libertine Mono O}
+\newfontfamily{\regfont}[ItalicFont={* Italic}]{Linux Libertine O}
+
+\usepackage{booktabs}
+\usepackage{multicol}
+
+\usepackage[justification=raggedright, labelsep=period]{caption}
+\captionsetup{singlelinecheck=off}
+\captionsetup{skip=0.2em}
+
+%\usepackage{tabularx}
+\usepackage{longtable}
+%\usepackage{siunitx}
+\usepackage{array}
+\newcolumntype{L}[1]{>{\raggedright\let\newline\\\arraybackslash\hspace{0pt}}p{#1}}
+\newcolumntype{C}[1]{>{\centering\let\newline\\\arraybackslash\hspace{0pt}}p{#1}}
+\newcolumntype{R}[1]{>{\raggedleft\let\newline\\\arraybackslash\hspace{0pt}}p{#1}}
+
+\usepackage{enumitem}
+\usepackage{enumitem}
+\setlist{leftmargin=*}
+\setlist[1]{labelindent=\parindent}
+\setlist[enumerate]{label=\textsc{\alph*}.}
+
+\usepackage{hyperref}
+%\usepackage{placeins} %PRovides \FloatBarrier to flush all floats before a certain point.
+%\usepackage{hanging}
+
+\usepackage[sc]{titlesec}
+
+\renewcommand{\solutiontitle}{\noindent}
+\unframedsolutions
+\SolutionEmphasis{\bfseries}
+
+\renewcommand{\questionshook}{%
+	\setlength{\leftmargin}{-\leftskip}%
+}
+
+%Change \half command from 1/2 to .5
+\renewcommand*\half{.5}
+
+
+%% Allows fullwidth command to break across pages.
+%% See 
+%\makeatletter
+%\def\SetTotalwidth{\advance\linewidth by \@totalleftmargin
+%\@totalleftmargin=0pt}
+%\makeatother
+
+
+\pagestyle{headandfoot}
+\firstpageheader{\textsc{bi} 063: Evolution and Ecology}{}{\ifprintanswers\textbf{KEY}\else Name: \enspace \makebox[2.5in]{\hrulefill}\fi}
+\runningheader{}{}{\footnotesize{pg. \thepage}}
+\footer{}{}{}
+\runningheadrule
+
+\newcommand*\AnswerBox[2]{%
+    \parbox[t][#1]{0.92\textwidth}{%
+    \begin{solution}#2\end{solution}}
+    \vspace{\stretch{1}}
+}
+
+\newenvironment{AnswerPage}[1]
+    {\begin{minipage}[t][#1]{0.92\textwidth}%
+    \begin{solution}}
+    {\end{solution}\end{minipage}
+    \vspace{\stretch{1}}}
+
+\newlength{\basespace}
+\setlength{\basespace}{5\baselineskip}
+
+%\printanswers
+
+\begin{document}
+
+\subsection*{Evolution of lizards on the Canary Islands\footnote{Based on a laboratory exercise developed \href{https://www.ucmp.berkeley.edu/forsrec/Filson.html}{R.P. Filson at the University of California Berkeley.}}}
+
+Volcanic islands that form in the oceans, like the Hawaiian Islands, create natural experiments in evolution. The islands cannot be inhabited by organisms until after they have formed. Islands become inhabited through founder events. Older islands should be founded or colonized first and thus have older species. Younger islands would be colonized later and thus have younger species. These predictions can be tested by combing the geology of islands with biological evidence such as morphology and genetics.
+
+In this exercise, you will study three lizard species, \textit{Gallotia. atlantica, G. stehlini,} and \textit{G. galloti} (Figure~\ref{fig:gallotia_lizard}). Further, \textit{G. galloti} has four morphologically distinct island populations. These lizards inhabit the Canary Islands, just west of the continent of Africa (Figure~\ref{fig:canary_islands}).
+
+\begin{multicols}{2}
+
+	\begin{center}
+		\includegraphics[width=\columnwidth]{lizard_biogeo_gallotia}
+		
+		\captionof{figure}{\textit{Gallotia galloti} from Tenerife. {\small Photo by Jörg Hempel, \textsc{cc-by-sa 3.0}.}\label{fig:gallotia_lizard}}
+	\end{center}
+\columnbreak
+	
+	\begin{center}
+	
+		\includegraphics[width=\columnwidth]{lizard_biogeo_canary_islands}
+	
+		\captionof{figure}{The Canary Islands. {\small Based on Anguita et al. 1986.}\label{fig:canary_islands}}
+	\end{center}
+\end{multicols}
+
+The Canary Island chain starts
+about 85 km (50 miles) west of the continent, following a geological fault line from
+the Atlas Mountains in northern Africa. As Africa drifts eastward by plate tectonics, 
+new sections of the fault line move over the hot spot, creating new volcanic islands
+ (Similar hot spots cause the formation of the Hawaiian Islands, and the hot springs and eruptions of Old Faithful in Yellowstone National Park.) Thus
+the most eastern island, Lanzarote, is oldest, while the smaller western
+island, Hierro, is the youngest, about 0.8 million years old and closest to the hot spot location.
+
+The arrival of the \emph{Gallotia} lizards was probably by rafting. Rafts of natural vegetation are often
+washed out to sea when high river levels cause river banks to collapse,
+carrying away both plants and clinging animals. The distance and size of the islands affect the chance of colonization of the islands by the lizards, as well as subsequent gene flow and chances for speciation, summarized by a few general principles.
+
+\begin{enumerate}
+
+	\item The closer the island to another land mass, the higher the
+probability of colonization.
+
+	\item The older the island, the more likely it will be colonized.
+	
+	\item The larger the island, the more species are likely to become
+established on the island.
+
+	\item Geographic isolation among islands reduces gene flow among populations of the lizards.
+	
+	\item Over time, colonial populations become genetically divergent from
+their parent population due to combinations of natural selection, mutation, and
+genetic drift.
+
+\end{enumerate} 
+
+\subsubsection*{Evolutionary questions}
+
+Evolutionary biologists are interested
+in the following questions. What is the phylogenetic history of the three
+species and seven populations of \emph{Gallotia} lizards on the Canary
+Islands? Does the presence of four morphologically different populations
+of \emph{G. galloti} on the four westernmost islands
+(Figure~\ref{fig:gallotia_distribution}) imply continuing evolution? In this
+exercise, you will use data from geography, geological history,
+morphology (body size), and molecular genetics to answer
+these questions.
+
+\begin{center}
+
+	\includegraphics[width=\textwidth]{lizard_biogeo_distribution}
+	
+	\captionof{figure}{Distribution of \textit{Gallotia atlantica, G. stehlini,} and \textit{G. galloti.} \textit{Gallotia galloti} has colonized the four westernmost islands and each population is morphologically distinct from the others. {\small Redrawn from Thorpe et al., 1993.}\label{fig:distribution}}
+
+\end{center}
+
+\subsubsection*{Part 1: Lizard phylogeny based on geographic distance}
+
+Using Figure~\ref{fig:canary_islands}, measure the distance in kilometers of each island to the mainland (Africa). List these distances on a separate page. Include the following islands: Lanzarote, Fuerteventura, Gran Canaria, Tenerife, Gomera, Palma, and Hierro.
+
+\begin{questions}
+
+\question\label{ques:colonization_order_prediction}
+Which island is most likely to have been colonized first and which last? Tell why you think so.
+
+\AnswerBox{3\baselineskip}{%
+Fuerteventura (or/and Fuerteventura) should be colonized first as it is the largest and closest to Africa. Hierro is smallest and farthest so it was probably colonized last (most recently).}
+
+\question
+Using Figure~\ref{fig:distribution} and your geographic reasoning from Question~\ref{ques:colonization_order_prediction}, draw a phylogenetic tree of the species and populations of \emph{Gallotia.} Draw your tree on a separate sheet of paper. Label your end branches with the following species and population names: 
+
+\begin{tabular}{@{}L{0.8in}L{0.8in}L{0.8in}L{0.8in}L{0.8in}L{0.8in}@{}}
+	\textit{atlantica}				&
+	\textit{stehlini} 				&
+	\textit{galloti} Tenerife	&
+	\textit{galloti} Palma 		&
+	\textit{galloti} Gomera	&
+	\textit{galloti} Hierro		\tabularnewline
+\end{tabular}
+
+Ask your instructor to check your tree before proceeding to the next part. Be prepared to explain your reasoning.
+
+
+\subsubsection*{Part 2: Phylogeny based on geological history.}
+
+Check your hypothetical phylogenetic tree against the geological 
+data in Table~\ref{tab:geological_history}. The maximum age of 
+each island was estimated by sampling volcanic rocks found on all 
+islands. The ratio of radioactive potassium to its breakdown product, 
+argon, was used to estimate the age of the rocks.
+
+
+\begin{longtable}[l]{@{}C{1.1in}C{0.8in}C{0.75in}C{0.75in}C{0.75in}C{0.74in}@{}}
+\caption{Maximum age of the Canary Islands in millions of years. {\small Anguita et al. 1986.
+\label{tab:geological_history}}}\tabularnewline
+	\toprule
+	Lanzarote \& 
+	Feuerteventura	& 
+	Gran Canaria 	& 
+	Tenerife			&
+	Gomera			&
+	Palma 				&
+	Hierro				\tabularnewline
+	\midrule
+	24.0					&
+	17.1					&
+	15.1					&
+	5.3					&
+	2.0					&
+	0.8					\tabularnewline
+	\bottomrule
+\end{longtable}
+
+%\vspace{\baselineskip}
+
+\question
+Explain how the data in Table~\ref{tab:geological_history} support your phylogenetic tree. Or what changes should you make and why?
+
+\vspace{7\baselineskip}
+
+\subsubsection*{Part 3: Phylogeny based on molecular genetics}
+
+Studies by Roger Thorpe and colleagues (1993, 1994) have tested various phylogenetic hypotheses by comparing genetic differences among the populations of the \textit{Gallotia} lizards on the Canary Islands. The gene for cytochrome b, which is coded by \textsc{dna} found in every cell’s mitochondria, was used in his studies. Cytochrome b is an important substance for cell metabolism and has probably been around since the first prokaryotes. Changes in its nucleotide base sequence (\textsc{A, T, C,} and \textsc{G}) that do not disrupt the gene’s function provides a kind of evolutionary clock. The rate of these changes due to mutations is relatively constant. 
+
+When two populations are isolated and gene flow between them is restricted, the number of nucleotide differences accumulate over time. This means that the more time that has passed since two species last shared a common ancestor, the more differences there should be in their \textsc{dna.}  Thorpe and his colleagues compared the \textsc{dna} for the three species of lizards, and included the four populations of \textit{G. galloti.} Their results appear on page~\ref{tab:dna_results} of this exercise. 
+
+\question
+Fill in Table~\ref{tab:dna_similarity} by comparing the \textsc{dna} sequences between each pair of lizard species or populations (Table~\ref{tab:dna_results} on page~\pageref{tab:dna_results}). \emph{You can tear off the last page if that helps you.}
+
+\vspace{\baselineskip}
+
+{\captionof{table}[DNA sequence similarity]{D\textsc{na} sequence similarity for Canary Island lizards.\label{tab:dna_similarity}}
+
+	\includegraphics[width=0.95\textwidth]{lizard_biogeo_pairwise_dna}
+}
+
+\question
+Use these data like you did with the presence absence matrix to make a phylogenetic tree. Draw the tree on a separate sheet of paper, such as the sheet you used for your first phylogenetic tree. First, read the important information on the next page.
+
+\textsc{Important:} Low numbers express greater genetic similarity between two species, which means they share a more recent common ancestor. For example, \textit{G. galloti} from Gomera and Hierro will show the fewest number of differences, meaning share a more recent common ancestor compared to any of the other pairs. Pairs with high numbers are have less genetic similarity and so their common ancestry is farther back in time.
+
+\textsc{Hint:} Interpret these number broadly. Consider species with 30–45 differences to have the \emph{same number} of differences. Do the same for 15–29 differences. Treat numbers less than 10 as is.That should make tree construction easier. 
+
+\question
+Which two populations or species are most closely related? Justify your answer. 
+
+\AnswerBox{2\baselineskip}{Answer here}
+
+\question
+Which population is least related to the rest? Why do you say so? 
+
+\AnswerBox{2\baselineskip}{Answer here}
+
+Refer to your phylogenetic tree based on genetic similarities found in Table~\ref{tab:dna_similarity}. Compare it to the phylogeny chart you drew based on the geographic distances and geologic age of the islands. 
+
+\question Describe the difference(s) between your two phylogenies? 
+
+\AnswerBox{2\baselineskip}{Answer here}
+
+\question
+Use your two phylogenies to tell which species, \textit{G. stehlini} or \textit{G. atlantica,} is the ancestor of the other? Explain your reasoning. 
+
+\AnswerBox{2\baselineskip}{Answer here}
+
+\question
+Predict what is likely to happen to the four populations of \textit{G. galloti} on the four westernmost islands. State what evolutionary conditions will support this prediction, and why.
+
+\AnswerBox{4\baselineskip}{Answer here}
+
+\newpage
+
+Tenerife is the largest island with \textit{G. galloti} (Figure~\label{fig:gallotia_distribution}). Tenerife is moist and lush in the north while arid and barren in the south. The \textit{G. galloti} sequence you used earlier was from a northern lizard. 
+
+\question
+Would you predict any \textsc{dna} differences between lizards that life on the northern part of Tenerife compared to lizards that live on the southern part? Explain.
+
+\AnswerBox{2\baselineskip}{Answer here}
+
+\question
+Would you expect the number of differences between northern and southern \textit{G. galloti} to be less or more than the number of differences than between the pairs of \textit{G. galloti} shown in Table~\ref{tab:dna_similarity}? Why?
+
+\AnswerBox{2\baselineskip}{Answer here}
+
+\question
+Table~\ref{tab:galloti} shows the sequences for northern and southern \textit{G. galloti.} As you did before, count the number of differences between this pair.
+
+{\dnatable
+\begin{longtable}[l]{ll}
+\caption{D\textsc{na} for \textit{G. galloti} from northern and southern Tenerife. A period \\indicates the same nucleotide as northern \textit{D. galloti.}\label{tab:galloti}}\tabularnewline
+\toprule
+{\regfont North} & TTCAAGGCAATACACCATCGTTATTTACGTGAAATATTGG \tabularnewline
+{\regfont South} & .C......A..G.....C......C...A.....C..C.. \tabularnewline
+\bottomrule
+\end{longtable}
+}
+
+Number of differences:
+
+\vspace{\baselineskip}
+
+\question
+Did the results agree with your prediction? 
+
+\vspace{2\baselineskip}
+
+\question
+Provide an explanation based on habitat, natural selection, and gene flow that might explain the genetic differences between the northern and southern lizards on Tenerife.
+
+\AnswerBox{3\baselineskip}{Answer here}
+
+
+\end{questions}
+
+
+\newpage
+
+\begin{landscape}
+
+{\fontsize{11pt}{13pt}\selectfont
+\dnatable
+\begin{longtable}[l]{lccccccccccc}
+\caption{D\textsc{na} for \textit{Gallotia} lizards from the Canary Islands. \textit{Gallotia stehlini} is the reference sequence. A period \\indicates the same nucleotide as \textit{D. stehlini.}\label{tab:dna_results}}\tabularnewline
+\toprule
+{\regfont\textit{G. stehlini}}	& GACTC & AATCA & TTCAA & CACAG & GCCTC & TTCCT & AGCCA & TGCAC & ACATT & TGCCC \tabularnewline
+{\regfont\textit{G. atlantica}}	& ....T & ...T. & ..... & T.... & ....A & ...T. & ...A. & ..... & ..... & ..... \tabularnewline
+{\regfont\textit{G. galloti} (P)}	& ....T & ...T. & .C... & T.... & ....A & ...T. & G..A. & .A... & ....C & C.... \tabularnewline
+{\regfont\textit{G. galloti} (T)}	& ....T & ...T. & ..... & T.... & ....A & ...T. & G..A. & .A... & ....C & C.... \tabularnewline
+{\regfont\textit{G. galloti} (G)}	& ....T & ...T. & .C... & T.... & ....A & ...T. & G..A. & ..... & ....C & C.... \tabularnewline
+{\regfont\textit{G. galloti} (H)}	& ....T & ...T. & .C... & T.... & ....A & ...T. & G..A. & ..... & ....C & C.... \tabularnewline%[1ex]
+&&&&&&&&&&\tabularnewline
+{\regfont\textit{G. stehlini}}	& ACATC & CACCG & TGATG & TCCAA & CACGG & ATGAC & TCATT & CGCAA & TGTCC & AACGG \tabularnewline
+{\regfont\textit{G. atlantica}}	& ..... & ..... & ..... & .T... & ..T.. & T.... & .T..C & ..A.. & .A... & ..... \tabularnewline
+{\regfont\textit{G. galloti} (P)}	& ....T & ..T.. & ...C. & ..... & ..... & T.... & .A..C & ..A.. & .A... & ..... \tabularnewline
+{\regfont\textit{G. galloti} (T)}	& ....T & ..T.. & ...C. & ..... & ..... & T.... & .T... & ..A.. & .A... & ..T.. \tabularnewline
+{\regfont\textit{G. galloti} (G)}	& ..... & ..... & ...C. & ..... & ..... & T..G. & .T..C & ..A.. & CA... & ..T.. \tabularnewline
+{\regfont\textit{G. galloti} (H)}	& ....T & ..... & ...C. & ..... & ..... & T..G. & .T..C & ..A.. & CA... & ..T.. \tabularnewline
+&&&&&&&&&&\tabularnewline
+{\regfont\textit{G. stehlini}}	& CGCTT & TTCTT & CATCT & TACGC & GCATA & TCGGA & CGTGG & CCTGT & ATTAC & ATACC \tabularnewline
+{\regfont\textit{G. atlantica}}	& A..C. & ..T.. & T.... & ...AT & ...C. & .T... & ..... & ..... & .C... & ....T \tabularnewline
+{\regfont\textit{G. galloti} (P)}	& A..C. & ..T.. & T.... & ...AT & A..C. & .T... & ..G.. & ..... & ..... & ....T \tabularnewline
+{\regfont\textit{G. galloti} (T)}	& A..C. & ..T.. & T.... & ...AT & A..C. & .T... & ..... & ...A. & .C... & ....T \tabularnewline
+{\regfont\textit{G. galloti} (G)}	& A..C. & ..T.. & T.... & ...AT & A..C. & .T... & ..G.. & .T.A. & ..... & ...T. \tabularnewline
+{\regfont\textit{G. galloti} (H)}	& A..C. & ..T.. & T.... & ...AT & A..C. & .T... & ..G.. & TT.A. & ..... & ...T. \tabularnewline
+&&&&&&&&&&\tabularnewline
+{\regfont\textit{G. stehlini}}	& TATTT & ACTGA & AACCT & GAAAC & ATTGG & AGTCC & TCCTC & CTTCT & GCTAG & TTATA \tabularnewline
+{\regfont\textit{G. atlantica}}	& ..... & GT... & ...T. & ..... & ..C.. & ...A. & .T..A & ..A.. & T.... & .C... \tabularnewline
+{\regfont\textit{G. galloti} (P)}	& .G... & ..... & ..... & ....T & ..... & ...A. & .T..T & ..C.. & AT... & .C... \tabularnewline
+{\regfont\textit{G. galloti} (T)}	& ..... & ..... & ..... & ....T & ..... & ...A. & .T..T & ..C.. & AT... & .C... \tabularnewline
+{\regfont\textit{G. galloti} (G)}	& ..... & .T... & ...A. & ....T & ..C.. & ...A. & .T... & ..C.. & A...G & .C... \tabularnewline
+{\regfont\textit{G. galloti} (H)}	& .G... & .T... & ...A. & ....T & ..C.. & G..A. & .T... & ..C.. & A...G & .C... \tabularnewline
+\bottomrule
+\end{longtable}
+}
+
+\end{landscape}
+
+
+
+\end{document}  
