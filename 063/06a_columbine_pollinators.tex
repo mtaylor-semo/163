@@ -1,0 +1,274 @@
+%!TEX TS-program = lualatex
+%!TEX encoding = UTF-8 Unicode
+
+\documentclass[12pt, hidelinks]{exam}
+\usepackage{graphicx}
+	\graphicspath{{/Users/goby/Pictures/teach/163/lab/}
+	{img/}} % set of paths to search for images
+
+\usepackage{geometry}
+\geometry{left=1.5in, bottom=1in}                   
+%\geometry{landscape}                % Activate for for rotated page geometry
+\usepackage[parfill]{parskip}    % Activate to begin paragraphs with an empty line rather than an indent
+%\usepackage{amssymb, amsmath}
+%\usepackage{mathtools}
+%	\everymath{\displaystyle}
+
+\usepackage{pdflscape}
+
+\usepackage{fontspec}
+\setmainfont[Ligatures={TeX}, BoldFont={* Bold}, ItalicFont={* Italic}, BoldItalicFont={* BoldItalic}, Numbers={OldStyle}]{Linux Libertine O}
+\setsansfont[Scale=MatchLowercase,Ligatures=TeX]{Linux Biolinum O}
+\setmonofont[Scale=MatchLowercase]{Linux Libertine Mono O}
+\usepackage{microtype}
+
+%\usepackage{unicode-math}
+%\setmathfont[Scale=MatchLowercase]{Asana Math}
+%\setmathfont[Scale=MatchLowercase]{XITS Math}
+
+% To define fonts for particular uses within a document. For example, 
+% This sets the Libertine font to use tabular number format for tables.
+\newfontfamily{\dnatable}[Numbers={Monospaced}]{Linux Libertine Mono O}
+\newfontfamily{\regfont}[ItalicFont={* Italic}]{Linux Libertine O}
+
+\usepackage{booktabs}
+\usepackage{multicol}
+
+\usepackage[justification=raggedright, labelsep=period]{caption}
+\captionsetup{singlelinecheck=off}
+\captionsetup{skip=0.2em}
+
+%\usepackage{tabularx}
+\usepackage{longtable}
+%\usepackage{siunitx}
+\usepackage{array}
+\newcolumntype{L}[1]{>{\raggedright\let\newline\\\arraybackslash\hspace{0pt}}p{#1}}
+\newcolumntype{C}[1]{>{\centering\let\newline\\\arraybackslash\hspace{0pt}}p{#1}}
+\newcolumntype{R}[1]{>{\raggedleft\let\newline\\\arraybackslash\hspace{0pt}}p{#1}}
+
+\usepackage{enumitem}
+\usepackage{enumitem}
+\setlist{leftmargin=*}
+\setlist[1]{labelindent=\parindent}
+\setlist[enumerate]{label=\textsc{\alph*}.}
+
+\usepackage{hyperref}
+%\usepackage{placeins} %PRovides \FloatBarrier to flush all floats before a certain point.
+%\usepackage{hanging}
+
+\usepackage[sc]{titlesec}
+
+\renewcommand{\solutiontitle}{\noindent}
+\unframedsolutions
+\SolutionEmphasis{\bfseries}
+
+\renewcommand{\questionshook}{%
+	\setlength{\leftmargin}{-\leftskip}%
+}
+
+%Change \half command from 1/2 to .5
+\renewcommand*\half{.5}
+
+
+%% Allows fullwidth command to break across pages.
+%% See 
+%\makeatletter
+%\def\SetTotalwidth{\advance\linewidth by \@totalleftmargin
+%\@totalleftmargin=0pt}
+%\makeatother
+
+
+\pagestyle{headandfoot}
+\firstpageheader{\textsc{bi} 063: Evolution and Ecology}{}{\ifprintanswers\textbf{KEY}\else Name: \enspace \makebox[2.5in]{\hrulefill}\fi}
+\runningheader{}{}{\footnotesize{pg. \thepage}}
+\footer{}{}{}
+\runningheadrule
+
+\newcommand*\AnswerBox[2]{%
+    \parbox[t][#1]{0.92\textwidth}{%
+    \begin{solution}#2\end{solution}}
+    \vspace{\stretch{1}}
+}
+
+\newenvironment{AnswerPage}[1]
+    {\begin{minipage}[t][#1]{0.92\textwidth}%
+    \begin{solution}}
+    {\end{solution}\end{minipage}
+    \vspace{\stretch{1}}}
+
+\newlength{\basespace}
+\setlength{\basespace}{5\baselineskip}
+
+%\printanswers
+
+\begin{document}
+
+\subsection*{Pollinators and speciation in columbine plants}
+
+Columbines (genus \textit{Aquilegia}), a diverse group of plants
+with about 70 known species. Columbine flowers have an unusual
+morphology. The inner petals have long spurs that extend backwards
+between the outer sepals. The spurs are filled with nectar that attracts
+pollinators, such as bumblebees, hummingbirds, and hawkmoths. In
+columbines, spur length and flower color vary among species. Spurs vary from
+1–15 cm and may be straight or curved. Sepal, petal and spur colors are
+typically blue, red, white, or yellow.
+
+\begin{center}
+	\includegraphics{06_columbine_parts}
+
+	{\footnotesize
+	www.fs.fed.us/wildflowers/beauty/columbines/flower.shtml}
+\end{center}
+
+For this exercise, you will work in pairs or in a group of three students. Together,
+ you will use a phylogeny of 30 \textit{Aquilegia} species and
+varieties to explore how changes of flower color and spur length
+correspond to changes in columbine pollinators.
+
+The phylogeny is on the next page. Match the species on the phylogeny
+ to the flower color (blue, red, yellow or white), the spur length (short, medium or long), and the
+pollinator (bumblebees, hummingbirds, or hawkmoths). Then,
+search for evolutionary patterns. For example, do the columbine species
+with red flowers share the same common ancestor or did red flower color
+evolve multiple times? Do all columbine species with short spurs share a
+common ancestor? What about columbine species that are pollinated by
+hawkmoths?
+
+Once you have established the patterns on the tree, answer the questions 
+on the next page.
+%compare your results
+%with the results of the other members in your group. Do you find a
+%relationship between flower color, spur length and pollinator?
+
+
+\begin{questions}
+
+\question
+Do you detect an association between flower color and pollinator? Explain.
+
+\vspace{2\baselineskip}
+
+\question
+Do you detect an association between spur length and pollinator? Explain.
+
+\vspace{2\baselineskip}
+
+\question
+How many pollinator shifts (from one pollinator group to
+another) do you identify on the tree? 
+
+
+\question
+Propose how pollinators might have contributed to speciation in columbine plants.
+
+\end{questions}
+
+\newpage
+
+\subsubsection*{Columbine spur length and flower colors}
+
+Spurs are short (7--12 mm), medium (14--24 mm) or long (26--130 mm).  
+Flower color is typically blue, red, white or yellow. In some species,
+the color is very pale or faded. The color refers to the color of the
+spurs and the sepals. In some species, the petals have a different color
+than the sepals and spurs. For example, most of the species with red
+flowers have yellow petals. The information in the table has been simplified
+but the results of this exercise are not affected.
+
+Match spur length and the flower colors to the species codes on the phylogeny.
+
+\begin{tabular}[c]{@{}lll@{}}
+\toprule
+Species & Spur Length & Flower Color\tabularnewline
+\midrule
+BA 				& Medium	& Red (often pale)\tabularnewline
+BR 				& Short 	& Blue\tabularnewline
+CA 				& Medium	& Red\tabularnewline
+CH.CHI 		& Long 		& Yellow\tabularnewline
+CH.NM 		& Long 		& Yellow\tabularnewline
+CHAP 			& Long 		& Yellow\tabularnewline
+COAL 			& Long 		& Pale blue to white\tabularnewline
+COOC.CO	& Long 		& Pale blue to white\tabularnewline
+COOC.UT 	& Long		& White\tabularnewline
+COOC.WY 	& Long		& Pale blue to white\tabularnewline
+DE 				& Medium	& Red\tabularnewline
+EL 				& Medium	& Red\tabularnewline
+EX 				& Medium	& Red\tabularnewline
+FL 				& Medium	& Yellow\tabularnewline
+FO.E 			& Medium	& Red\tabularnewline
+FO.W 			& Medium	& Red\tabularnewline
+HI 				& Long		& Yellow\tabularnewline
+JO				& Short 	& Blue\tabularnewline
+LA 				& Short 	& Pale purple to white\tabularnewline
+LO.AZ 			& Long		& Yellow\tabularnewline
+LO.TX 			& Long		& Yellow\tabularnewline
+MI					& Long		& Pink (occasionally pale)\tabularnewline
+PI 				& Long 		& White\tabularnewline
+PU				& Long 		& White\tabularnewline
+SA				& Short		& Blue\tabularnewline
+SC 				& Long 		& Blue\tabularnewline
+SH 				& Medium	& Red\tabularnewline
+SK				& Medium	& Red\tabularnewline
+Sp. nov.\footnotemark	& Long & White\tabularnewline
+TR 				& Medium	& Red\tabularnewline
+\bottomrule
+\end{tabular}
+
+
+\footnotetext{Sp. nov. means \emph{species novum}, which designates a new
+species without a formal scientific name.}
+
+\newpage
+
+\subsubsection*{Columbine Species and Pollinators}
+
+Most columbines are pollinated by only bumblebees, only hummingbirds or
+only hawkmoths. A few species have two pollinators, which is indicated
+in the table. Both pollinators contribute about equally to pollination
+success in columbines.
+
+Match spur length and the flower colors to the species codes on the phylogeny.
+
+\begin{tabular}[c]{@{}ll@{}}
+\toprule
+Species & Pollinator\tabularnewline
+\midrule
+BA 				& Hummingbirds / Hawkmoths\tabularnewline
+BR 				& Bumblebees\tabularnewline
+CA 				& Hummingbirds\tabularnewline
+CH.CHI 		& Hawkmoths\tabularnewline
+CH.NM 		& Hawkmoths\tabularnewline
+CHAP 			& Hawkmoths\tabularnewline
+COAL 			& Hawkmoths\tabularnewline
+COOC.CO	& Bumblebees\tabularnewline
+COOC.UT 	& Hawkmoths\tabularnewline
+COOC.WY 	& Bumblebees\tabularnewline
+DE 				& Hummingbirds\tabularnewline
+EL 				& Hummingbirds\tabularnewline
+EX 				& Hummingbirds\tabularnewline
+FL 				& Hummingbirds\tabularnewline
+FO.E 			& Hummingbirds\tabularnewline
+FO.W 			& Hummingbirds\tabularnewline
+HI 				& Hawkmoths\tabularnewline
+JO 				& Bumblebees\tabularnewline
+LA 				& Bumblebees\tabularnewline
+LO.AZ 			& Hawkmoths\tabularnewline
+LO.TX 			& Hawkmoths\tabularnewline
+MI 				& Hummingbirds / Hawkmoths\tabularnewline
+PI 				& Hawkmoths\tabularnewline
+PU 				& Hawkmoths\tabularnewline
+SA 				& Bumblebees\tabularnewline
+SC 				& Hawkmoths\tabularnewline
+SH 				& Hummingbirds\tabularnewline
+SK 				& Hummingbirds\tabularnewline
+Sp. nov.		& Hawkmoths\tabularnewline
+TR 				& Hummingbirds\tabularnewline
+\bottomrule
+\end{tabular}
+
+\newpage
+
+	\includegraphics[width=0.85\textwidth]{06_columbine_phylogeny}
+
+\end{document}  
