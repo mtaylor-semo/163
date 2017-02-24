@@ -7,7 +7,6 @@
 %\documentclass[t,handout]{beamer}  %Use this for handouts.
 %\usepackage{handoutWithNotes}
 %\pgfpagesuselayout{3 on 1 with notes}[letterpaper,border shrink=5mm]
-%	\setbeamercolor{background canvas}{bg=black!5}
 
 %\includeonlylecture{student}
 
@@ -23,6 +22,7 @@
 \def\mainfont{Linux Biolinum O}
 \setmainfont[Ligatures={Common,TeX}, Contextuals={NoAlternate}, BoldFont={* Bold}, ItalicFont={* Italic}, Numbers={OldStyle}]{\mainfont}
 \setsansfont[Ligatures={Common,TeX}, Scale=MatchLowercase, Numbers=OldStyle, BoldFont={* Bold}, ItalicFont={* Italic},]{Linux Biolinum O} 
+\newfontfamily{\liningtab}[Numbers=Lining]{Linux Biolinum O}
 \usepackage{microtype}
 
 \usepackage{graphicx}
@@ -30,9 +30,14 @@
 	{/Users/goby/pictures/teach/common/}} % set of paths to search for images
 
 \usepackage{multicol}
-%\usepackage{booktabs}
+\usepackage{longtable}
+\usepackage{booktabs}
 %\usepackage{textcomp}
 \usepackage{mhchem}
+
+\usepackage[justification=raggedright, labelsep=period]{caption}
+\captionsetup{singlelinecheck=off}
+\captionsetup{skip=0.2em}
 
 %\usepackage{tikz}
 %	\tikzstyle{every picture}+=[remember picture,overlay]
@@ -110,18 +115,86 @@
 %
 {
 \usebackgroundtemplate{\includegraphics[width=\paperwidth]{fossil_radiometric_dating} }
-\begin{frame}[b]{\highlight{Radiometric dating} is used to age fossils.}
+\begin{frame}[b]{\highlight{Radiometric dating} is used to help age fossils.}
 \hfill \tiny \textcopyright Roberts \& Company
 \end{frame}
 }
 %
-\begin{frame}[t]{Organisms leave distinct chemical signatures.}
+\begin{frame}[t]{Combinations of isotopes provide cross check of age.}
 
 	\includegraphics[width=\textwidth]{radiometric_elements}
 
 	\vfilll
 	
 	\hfill \tiny mitopencourseware, Flickr, \ccbyncsa{2}.
+
+\end{frame}
+%
+\begin{frame}[t]{The parent element decreases by half for each half-life period. The daughter element increases in proportion.}
+
+    {\liningtab
+    \begin{longtable}[c]{@{}lccccccc@{}}
+    \multicolumn{8}{l}{Percent remaining after each half-life.}\tabularnewline
+    \toprule
+    	& \multicolumn{7}{c}{Half-life Number}\tabularnewline
+    	\cmidrule{2-8}
+    Isotope	& 0 & 1 & 2 & 3 & 4 & 5 & 6 \tabularnewline
+    \midrule
+    Parent element 	& 100 & 50 & 25 & 12.5 & 6.25   & 3.125 & 1.5625 \tabularnewline
+    Daugher element & 0     & 50 & 75 & 87.5 & 93.75 & 96.875 & 98.4375 \tabularnewline 
+    \bottomrule
+    \end{longtable}
+    
+    \pause
+    
+    \begin{longtable}{@{}lccccccc@{}}
+    \multicolumn{8}{l}{Number of atoms remaining after each half-life.}\tabularnewline
+    \toprule
+    	& \multicolumn{7}{c}{Half-life Number}\tabularnewline
+    	\cmidrule{2-8}
+    Isotope	& 0 & 1 & 2 & 3 & 4 & 5 & 6 \tabularnewline
+    \midrule
+    Parent Element 	& 256 & 128 & 64 & 32 & 16   & 8 & 4 \tabularnewline
+    Daugher element & 0   & 128 & 192 & 224 & 240 & 248 & 252 \tabularnewline 
+    \bottomrule
+    \end{longtable}
+    }%liningtab
+    
+\end{frame}
+%
+\begin{frame}{Simple example: What is the age of a sample if\dots}
+
+	\vspace{-\baselineskip}
+
+	\onslide<1->{
+		\hangpara Isotope A has a half-life of 50 million years, and the sample contains \\
+		25\% of the parent element and 75\% of the daughter element?
+
+	\hangpara A: Age $=$ 2 half lives $\times$ 50 \textsc{my}/half life $=$ \highlight{100 million years old.}
+	}%onslide1
+
+	\onslide<2->{
+		\hangpara Isotope B has a half-life of 20 million years, and the sample contains \\
+		3.125\% of the parent element and 96.875\% of the daughter element?
+
+		\hangpara B: Age $=$ 5 half lives $\times$ 20 \textsc{my}/half life $=$ \highlight{100 million years old.}
+	}%onslide2
+	
+	
+	\onslide<1->{
+	    {\liningtab
+    		\begin{longtable}[c]{@{}lccccccc@{}}
+	    \toprule
+    		& \multicolumn{7}{c}{Half-life Number}\tabularnewline
+    		\cmidrule{2-8}
+	    Isotope	& 0 & 1 & 2 & 3 & 4 & 5 & 6 \tabularnewline
+    		\midrule
+	    Parent element 	& 100 & 50 & 25 & 12.5 & 6.25   & 3.125 & 1.5625 \tabularnewline
+    		Daugher element & 0     & 50 & 75 & 87.5 & 93.75 & 96.875 & 98.4375 \tabularnewline 
+	    \bottomrule
+    		\end{longtable}
+    		}%liningtab
+	}%onslide1
 
 \end{frame}
 %
