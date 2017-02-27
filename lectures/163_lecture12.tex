@@ -29,6 +29,8 @@
 	\graphicspath{{/Users/goby/pictures/teach/163/lecture/}
 	{/Users/goby/pictures/teach/common/}} % set of paths to search for images
 
+\usepackage[pgf]{adjustbox}
+
 \usepackage{multicol}
 \usepackage{longtable}
 \usepackage{booktabs}
@@ -39,9 +41,37 @@
 \captionsetup{singlelinecheck=off}
 \captionsetup{skip=0.2em}
 
-%\usepackage{tikz}
-%	\tikzstyle{every picture}+=[remember picture,overlay]
-%	\usetikzlibrary{arrows}
+\usepackage{tikz}
+	\tikzstyle{every picture}+=[remember picture,overlay]
+	\usetikzlibrary{arrows, arrows.meta}
+	\usetikzlibrary{positioning, backgrounds}
+
+\usepackage{forest}
+\forestset{
+    every leaf node/.style={
+        if n children=0{#1}{}
+    },
+    every tree node/.style={
+        if n children=0{}{#1}
+    },
+    mytree/.style={
+        for tree={
+            edge path={
+            \noexpand\path [draw, very thick, \forestoption{edge}] (!u.parent anchor) |- (.child anchor)\forestoption{edge label};
+            },
+            every tree node={draw=none,inner sep=0, outer sep=0, minimum size=0},
+            every leaf node/.style={align=left},
+            grow=east,
+            parent anchor=east, 
+            child anchor=west,
+            anchor=west,
+            l sep=5mm,
+            s sep=3mm,
+            draw=none,
+    			if n children=0{tier=word}{}
+        }
+    }
+}
 
 \mode<presentation>
 {
@@ -56,7 +86,9 @@
 	
 	\hangpara learn about fossils and the \highlight{fossil record},
 	
-	\hangpara get a sense of the scale of geological and evolutionary time, and
+	\hangpara get a sense of the scale of geological and evolutionary time, 
+	
+	\hangpara learn how eukaryotic cells evolved through \highlight{endosymbiosis,} and
 
 	\hangpara explore the history of life on Earth.
 	
@@ -282,7 +314,14 @@
 	
 	\hfill \tiny \textcopyright Pearson Education, Inc.
 \end{frame}
+%
+{
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{endosymbiosis_appearance} }
+\begin{frame}
 
+\end{frame}
+}
+%
 \begin{frame}[t]{Evidence for \highlight{endosymbiosis.} }
 
 	\hangpara Mitochondria and chloroplasts
