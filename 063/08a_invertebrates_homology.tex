@@ -1,0 +1,539 @@
+ %!TEX TS-program = lualatex
+%!TEX encoding = UTF-8 Unicode
+
+\documentclass[12pt, hidelinks]{exam}
+
+\printanswers
+
+
+\usepackage{xcolor}
+\usepackage{graphicx}
+	\graphicspath{{/Users/goby/Pictures/teach/163/lab/}
+	{img/}} % set of paths to search for images
+
+\usepackage{pdflscape}
+
+\usepackage{geometry}
+\geometry{letterpaper, left=1.5in, bottom=1in}                   
+%\geometry{landscape}                % Activate for for rotated page geometry
+\usepackage[parfill]{parskip}    % Activate to begin paragraphs with an empty line rather than an indent
+\usepackage{amssymb, amsmath}
+\usepackage{mathtools}
+	\everymath{\displaystyle}
+
+\usepackage{fontspec}
+\setmainfont[Ligatures={TeX}, BoldFont={* Bold}, ItalicFont={* Italic}, BoldItalicFont={* BoldItalic}, Numbers={OldStyle}]{Linux Libertine O}
+\setsansfont[Scale=MatchLowercase,Ligatures=TeX]{Linux Biolinum O}
+%\setmonofont[Scale=MatchLowercase]{Inconsolatazi4}
+\usepackage{microtype}
+
+\usepackage{wrapfig}
+% To define fonts for particular uses within a document. For example, 
+% This sets the Libertine font to use tabular number format for tables.
+ %\newfontfamily{\tablenumbers}[Numbers={Monospaced}]{Linux Libertine O}
+% \newfontfamily{\libertinedisplay}{Linux Libertine Display O}
+
+\usepackage{booktabs}
+\usepackage{multicol}
+
+\usepackage{longtable}
+%\usepackage{siunitx}
+\usepackage{array}
+\newcolumntype{L}[1]{>{\raggedright\let\newline\\\arraybackslash\hspace{0pt}}p{#1}}
+\newcolumntype{C}[1]{>{\centering\let\newline\\\arraybackslash\hspace{0pt}}p{#1}}
+\newcolumntype{R}[1]{>{\raggedleft\let\newline\\\arraybackslash\hspace{0pt}}p{#1}}
+
+\usepackage{tikz}
+\usetikzlibrary{backgrounds}
+
+\usetikzlibrary{shapes, arrows, arrows.meta}
+
+\tikzstyle{decision} = [chamfered rectangle, chamfered rectangle xsep=2cm, draw, text width=10em, text centered]
+\tikzstyle{block} = [rectangle, draw, text width=10em, text centered, rounded corners, minimum height=4em]
+\tikzstyle{result} = [draw, ellipse, minimum width=2cm]
+
+\tikzstyle{line} = [draw, arrows={-Stealth[length=3mm]}]
+
+\usepackage{forest}
+
+\forestset{
+  mytree/.style={
+    for tree={
+      edge+={ultra thick},
+      edge path'={
+        (!u.parent anchor) -| (.child anchor)
+      },
+      grow'=north,
+      parent anchor=children,
+      child anchor=parent,
+      anchor=base,
+      l sep=1cm,
+      s sep=2mm,
+      if n children=0{tier=word, align=center, base=bottom}{coordinate, tree node}
+    }
+  }
+}
+\forestset{
+  declare dimen register={timeline offset},
+  timeline offset'=10mm,
+  declare toks register={timeline target},
+  timeline target=,
+  declare boolean={tree node}{0},
+  timelinetree/.style={
+    for tree={
+      edge+={ultra thick},
+      edge path'={
+        (!u.parent anchor) -| (.child anchor)
+      },
+      grow=north,
+      parent anchor=children,
+      child anchor=parent,
+      anchor=base,
+      l sep=1cm,
+      s sep=3mm,
+      if n children=0{tier=word, align=center, base=bottom, not tree node}{coordinate, tree node}
+    }
+  },
+%
+	age/.style={
+		tikz+={
+			\begin{scope}[on background layer] 
+				\draw [gray, thick, dotted] () -- ( -| timeline base) node[black,anchor=east]{#1}; 
+			\end{scope} 
+		}
+	},
+%
+  timeline/.style={
+    before drawing tree={
+      timeline target/.option=name,
+      tempdima/.option=y,
+      for tree={
+        if={>OR>{y}{tempdima}}{timeline target/.option=name}{},
+      }
+    },
+    tikz+={
+      \begin{scope}[on background layer]
+        \draw ([xshift=-\foresteregister{timeline offset}]current bounding box.west |- .parent anchor) coordinate (timeline base) -- (\foresteregister{timeline target}.child anchor -| timeline base) node [above] {\textsc{mya}};
+      \end{scope}
+    },
+  },
+}
+
+%\setarrowdefault{,,,-stealth}
+\usepackage[version=4, arrows=pgf{Stealth}{0.085ex}]{mhchem}
+
+\usepackage{enumitem}
+%\setenumerate{label=\Alph.}
+\setlist{leftmargin=*}
+\setlist[1]{labelindent=\parindent}
+\setlist[enumerate]{label=\textsc{\alph*}.}
+\setlist[itemize]{label=\color{gray}\textbullet}
+
+\usepackage{hyperref}
+%\usepackage{placeins} %PRovides \FloatBarrier to flush all floats before a certain point.
+\usepackage{hanging}
+
+\usepackage[sc]{titlesec}
+
+%% Commands for Exam class
+\renewcommand{\solutiontitle}{\noindent}
+\unframedsolutions
+\SolutionEmphasis{\bfseries}
+
+% Shifts margins left. Question numbers appear in margin.
+% This allows "fullwidth" to left align with text that is outside 
+% if the questions environment.
+\renewcommand{\questionshook}{%
+	\setlength{\leftmargin}{-\leftskip}%
+}
+
+%\renewcommand{\partshook}{%
+%	\setlength{\leftmargin}{-\leftskip}%
+%}
+
+%Change \half command from 1/2 to .5
+%\renewcommand*\half{.5}
+
+\pagestyle{headandfoot}
+\firstpageheader{\textsc{bi}\,063 Evolution and Ecology}{}{\ifprintanswers\textbf{KEY}\else Name: \enspace \makebox[2.5in]{\hrulefill}\fi}
+\runningheader{}{}{\footnotesize{pg. \thepage}}
+\footer{}{}{}
+\runningheadrule
+
+\newcommand*\AnswerBox[2]{%
+    \parbox[t][#1]{0.92\textwidth}{%
+    \begin{solution}#2\end{solution}}
+    \vspace{\stretch{1}}
+}
+
+\newenvironment{AnswerPage}[1]
+    {\begin{minipage}[t][#1]{0.92\textwidth}%
+    \begin{solution}}
+    {\end{solution}\end{minipage}
+    \vspace{\stretch{1}}}
+
+\newlength{\basespace}
+\setlength{\basespace}{5\baselineskip}
+
+
+
+\begin{document}
+
+\subsection*{Using homology: invertebrates, plants, and fungi}
+
+After the last exercise, you should have a phylogenetic tree of the major vertebrate groups that looks similar to the tree below. Yours may look slightly different, depending on the arrangement of the branches you used. The dotted lines are for reference only, to show you how the times (in millions of years ago) line up with the nodes.
+
+\begin{center}
+  \begin{forest}
+    timelinetree,
+    timeline
+      [vertebrate ancestor, age=485
+      		[, age=419
+  			[fishes]
+          [, age=359
+              [,
+                  [amphibians]
+              ]
+              [,age=299
+                  [
+                      [mammals]
+                  ]
+                  [,age=206
+                      [reptiles]
+                      [birds]
+                  ]
+              ]
+          ]]
+      ]
+  \end{forest}
+\end{center}
+
+The goal for this exercise is to complete the phylogenetic for several of the major organismal groups. The tree would be too large if we included all of the phyla. By the end of this exercise, your phylogenetic tree will include vertebrates, invertebrates (animals without backbones), fungi (like mushrooms), plants, and bacteria.
+
+\subsubsection*{Invertebrate larvae}
+
+Many invertebrates animals (animals without backbones or internal skeletons)
+ go through an embryonic type of stage called a larval stage. 
+A larva (plural: larvae) is a free living developmental stage that is morphologically distinct from the adult. In
+many cases, the larva is a feeding stage which later metamorphoses into
+an adult. Examples of larvae you probably know about are caterpillars
+which metamorphose into butterflies and tadpoles which metamorphose into
+frogs. For many marine invertebrates the larval stage is also a
+dispersal stage. Their larvae will float near the surface of the ocean,
+drift with the currents, and feed in the plankton. In later stages they
+drop out of the plankton, settle, and metamorphose into adults.
+
+Below are pictures of \emph{trochophore} larvae found in of several kinds of
+invertebrates, including the Phylum Mollusca (e.g., snails and clams) and the 
+Phylum Annelida (e.g., earthworms and many marine worms).
+
+Like the vertebrate embryo pictures, these invertebrate larvae photos\footnote{Images A,B,D,E from 
+Young, CM. 2002. Atlas of Marine Invertebrate Larvae, Image C from Jackson 
+et al. 2007. BMC Evolutionary Biology 7:160.}  have been adjusted so they are
+the same size and and on the same background. 
+
+\begin{longtable}[c]{@{}lll@{}}
+\toprule
+\includegraphics[height=4cm]{08_invert_larva_A_feather_duster} 	&
+\includegraphics[height=4cm]{08_invert_larva_B_clam}			& \tabularnewline
+%
+A \ifprintanswers\textbf{\large feather duster}\fi				 	&
+B \ifprintanswers\textbf{\large clam}\fi						& \tabularnewline[4ex]
+\midrule
+\includegraphics[height=4cm]{08_invert_larva_C_marine_snail} 	&
+\includegraphics[height=4cm]{08_invert_larva_D_chiton} 			&
+\includegraphics[height=4cm]{08_invert_larva_E_marine_worm} 	\tabularnewline
+C  \ifprintanswers\textbf{\large marine snail}\fi 						&
+D \ifprintanswers\textbf{chiton}\fi 						&
+E \ifprintanswers\textbf{marine worm}\fi						\tabularnewline[4ex]
+\bottomrule
+\end{longtable}
+
+\begin{questions}
+
+\question
+Can you determine which is the marine snail? How about the
+clam, feather duster (worm), marine worm, and chiton (a mollusk)?
+
+\AnswerBox{1\baselineskip}{%
+The question is not whether I can. The question is whether you can (see above).
+}
+
+\question
+Identify at least one structure shared by all of the trochophore larvae pictured above.
+
+\AnswerBox{1\baselineskip}{Students usually recognize the cilia band.}
+
+\newpage
+
+\begin{minipage}{0.75\textwidth}%
+You probably noted the band of hair-like structures
+going around the larvae. This band is known as the \emph{prototroch} (labeled pt
+in the diagram at right). The hair-like structures are
+called cilia that allow the larvae to swim. They work like tiny
+oars.
+\end{minipage}\hfill
+\begin{minipage}{0.25\textwidth}%
+\centering\includegraphics[width=0.9in]{08_prototroch}\\%
+{\footnotesize Trochophore stage\footnotemark}%
+\end{minipage}
+\footnotetext{Figure from \url{http://scaa.usask.ca/gallery/lacalli/tutorial/tutorial_all.php}. retrieved: February 26, 2008}
+
+\question
+Based on what you know so far, would you consider the
+prototroch on these larvae an analogy or homology? Explain.
+
+\AnswerBox{4\baselineskip}{Analogy. Cilia serves common swimming function.}
+
+
+%\subsubsection*{Marine and terrestrial snails}
+
+\begin{minipage}{0.75\textwidth}%
+Let's focus on marine snail development for a moment. Marine snails go 
+through an extra step in their development.
+They start as eggs, hatch as a trochophore larvae, metamorphose into a
+\emph{veliger larvae} and finally metamorphose into an adult snail.
+The veliger looks like an adult snail but has a ciliated velum.
+\end{minipage}\hfill
+\begin{minipage}{0.25\textwidth}%
+\centering\includegraphics[width=0.75in]{08_veliger}\\
+{\footnotesize Veliger stage\footnotemark}
+\end{minipage}
+\footnotetext{Figure from Hymen, LH. 1967 The Invertebrates Vol VI.}
+
+\question
+What do you think the velum is for? (Remember it has cilia.) Explain.
+
+\AnswerBox{4\baselineskip}{Most will velum is for swimming say for swimming.}
+
+
+\question
+Now look at a terrestrial snail, which spends its
+entire life on land. Would you expect a terrestrial snail to
+have a ciliated larval stage? Why or why not? (Remember the
+function of cilia.)
+
+\AnswerBox{4\baselineskip}{Most will say they would not expect land snails to have ciliated stage.}
+
+\begin{minipage}{0.75\textwidth}%
+It turns out terrestrial snails do have the
+trochophore and veliger larval stages but \emph{both stages occur in the egg.} The veliger stage (right)
+metamorphoses into the adult inside the egg before the egg hatches. 
+\end{minipage}\hfill
+\begin{minipage}{0.25\textwidth}%
+\centering\includegraphics[width=1in]{08_land_snail_egg}\\
+{\footnotesize Land snail egg}
+\end{minipage}
+
+\question
+Does a ciliated larva serve a function in a terrestrial snail? Explain.
+
+\AnswerBox{4\baselineskip}{No. Swimming is not necessary in an egg so cilia unncessary.}
+
+\question
+What does this evidence say about trochophore larvae in
+general? Is having a trochophore larvae a homology or analogy? Explain.
+
+\AnswerBox{4\baselineskip}{Homology. Even organisms that do not swim as larvae have a trochophore stage. }
+
+
+\question
+Mollusks (snails and clams) and annelids (like earthworms and many marine worms) have trochophore larvae. Based on this evidence, would you say that mollusks and annelid worms share a common ancestor? Explain.
+
+\AnswerBox{3\baselineskip}{Yes. Trochophore larvae represent a homology between the two groups. Therefore, these two groups much share a common ancestor. }
+
+\newpage
+
+\subsubsection*{Homology and analogy: leaves}
+
+Now you will use the homology and analogy flow chart to determine whether leaves in plants are homologous or analogous.
+
+\question\label{ques:leaf}
+Examine the leaves of a maple tree and the leaf of
+an oak tree.\footnote{Your instructor may provide leaves from other species of trees.} \emph{Please
+handle the specimens carefully.} Describe their structural similarity.
+
+\AnswerBox{3\baselineskip}{Broad, thin, lots of surface area.}
+
+\question
+What is the function of the leaves in the oak and the maple?
+
+\AnswerBox{3\baselineskip}{Capture light for photosynthesis}
+
+\question
+Is the similarity you described above necessary in order to serve
+this function? Explain. 
+
+\AnswerBox{3\baselineskip}{Yes is a reasonable answer.}
+
+\question
+What do you conclude? Is the structural similarity you described in
+question~\ref{ques:leaf} explained by homology or analogy? Explain.
+
+\AnswerBox{3\baselineskip}{Analogy is a reasonable conclusion.}
+
+\question
+Now, look at the kelp (a type of algae) and the cactus plant. Kelp do 
+not have leaves. They have a broad flat structure called a blade where
+some photosynthesis takes place. However, photosynthesis occurs over
+the entire surface of kelp and other algae.
+
+Cactus have leaves but they are used for defense. Can you identify the leaves on the
+cactus? The leaves are the spines spread around the cactus. The spines are not
+capable of photosynthesis so where do you think photosynthesis occurs in cactus? 
+(\textsc{Hint:} green is a good indicator of where photosynthesis takes place.)
+Does this knowledge change your thoughts about leaves being necessary for
+photosynthesis? Explain. %(You do not need to modify your earlier answers.)
+
+\AnswerBox{5\baselineskip}{}
+
+\subsubsection*{Autotrophs and heterotrophs}
+
+All life on Earth is based on organic compounds, like carbohydrates (e.g., sugars, starches), proteins, and nucleic acids (e.g., \textsc{dna, rna}. To make these organic compounds, organisms need a source of carbon. The carbon source can be an inorganic compound such as \ce{CO2}, or an organic compound such as a sugar.  All life on Earth also needs a source of energy to power work inside cells. Sources of energy include sunlight and organic compounds like carbohydrates.
+
+Organisms can be divided into groups based on their source of carbon and their source of energy. Organisms that use inorganic compounds as a carbon source are called \emph{autotrophs.} Autotrophs that use sunlight as a source of energy are called \emph{photoautotrophs.} 
+Organisms that use organic compounds as a carbon source are called \emph{heterotrophs.} Heterotrophs that use organic chemical compounds as an energy source are called \emph{chemoheterotrophs.}\footnote{A few bacterial groups are chemoautotrophs or photoheterotrophs.} This use of chemical compounds and energy  by the organisms is the basis of metabolism. The types of metabolism are summarized below.
+
+\begin{longtable}{L{1.5in}L{1in}L{1in}}
+\toprule
+Metabolism Type	&	Carbon Source	&	Energy Source \tabularnewline
+\midrule
+{Photoautotroph}	& Inorganic Compounds	& Sunlight	\tabularnewline
+Chemoheterotroph	& Organic Compounds	& Organic Compounds \tabularnewline
+\bottomrule
+\end{longtable}
+
+\newpage
+
+\question
+Nearly all plants and algae are photoautotrophs. Based on the information above about metabolism, do you conclude that photoautotrophic metabolism is a homology or analogy for plants and algae? In other words, is photoautotrophy the only way in which organisms can obtain carbon and energy? (\textsc{Hint:} not all plants are photoautotrophs. A few are chemoheterotrophs.) Explain.
+
+\AnswerBox{3\baselineskip}{Photoautrophic metablism is a homology.}
+
+\question
+All fungi (mushrooms, yeast, etc.) and animals are chemoheterotrophs. Based on the information above about metabolism, do you conclude that chemoheterotrophic metabolism is a homology or analogy for fungi and animals? Explain.
+
+\AnswerBox{3\baselineskip}{Chemoheterotrophic metabolism is a homology.}
+
+\subsubsection*{Gastrulation}
+
+\begin{minipage}{0.75\textwidth}%
+In the last lab, you looked at embryos, a development stage for
+vertebrate animals. Above, you looked at larvae, a development
+stage for most  invertebrate animals. Before the embryo or larval stage, all 
+animals go through a development stage called the \emph{gastrula.}  
+Gastrulas have an opening called the \emph{blastopore.} The blastopore will
+become the mouth for most invertebrate organisms, including molluscs and annelids.
+ Organisms with a blastopore that
+ becomes the mouth are classified as a \emph{protostomes.} 
+\end{minipage}\hfill
+\begin{minipage}{0.25\textwidth}%
+\centering\includegraphics[width=0.9in]{08_blastopore}\\%
+{\footnotesize Gastrula stage}%
+\end{minipage}
+
+The blastopore will become the anus for all vertebrates.  Organisms with a blastopore that becomes
+the anus are classified as \emph{deuterostomes}. 
+
+\newpage
+
+\question
+Based on the information above, is the blastopore becoming a mouth a 
+homology or analogy for protostomes? (Protostomes do have an anus.)
+
+\AnswerBox{3\baselineskip}{Should be a homology.}
+
+\question
+Based on the information above, is the blastopore becoming an anus a 
+homology or analogy for deuterostomes? (Deuterostomes do have a mouth.)
+
+\AnswerBox{3\baselineskip}{Should be a homology.}
+
+\question
+Echinoderms (including sea stars\footnote{Sea stars, not starfish.} and sea urchins) 
+and arthropods (including insects, crabs and spiders) are invertebrates. 
+Echinoderms have a blastopore that forms the anus. 
+%Mollusks and annelids have a blastopore that becomes the mouth. 
+Arthropods have a blastopore that forms the mouth.
+Based on this, are echinoderms more closely related to vertebrates
+or mollusks and annelids? Are arthropods more closely related to vertebrates or mollusks 
+annelids? Explain.
+
+\AnswerBox{4\baselineskip}{Echinoderms are more closely related to vertebrates because
+echinoderms share the deuterostome homology with the vertebrates. Arthropods are more closely related to annelids.}
+
+\question
+You have identified or learned of homologies for major taxonomic groups in the Domain Eukarya. All that remains are the bacteria. Bacteria lack most of the features we've used so far. Can you think of something that bacteria share with all eukaryotes that can be used to test for homology and analogy?
+
+\AnswerBox{2\baselineskip}{Hopefully they will think of \textsc{dna}. If they say proteins, say yes and guide them to \textsc{dna.}}
+
+\question[Checkout]
+The table on page~\pageref{presence_table} summarizes the homologies found for the different taxonomic groups examined so far. Use this table to construct a phylogenetic tree. You can draw the tree on the last page of this handout or a separate sheet. Show it to your instructor to get credit for the day.
+
+
+\end{questions}
+
+\newpage
+
+\begin{longtable}{@{}L{1in}L{0.25in}L{0.25in}L{0.25in}L{0.25in}L{0.25in}L{0.25in}L{0.25in}L{0.25in}L{0.25in}@{}}
+\toprule
+Taxon			&	A	&	B	&	C	&	D	&	E	&	F	&	G	&	H	&	I	\tabularnewline
+\midrule
+Plants			&	1	&	1	&	1	&	0	&	0	&	0	&	0	&	0	&	0	\tabularnewline
+Algae			&	1	&	1	&	1	&	0	&	0	&	0	&	0	&	0	&	0	\tabularnewline
+Fungi			&	1	&	0	&	0	&	1	&	1	&	0	&	0	&	0	&	0	\tabularnewline
+Mollusks		&	1	&	0	&	0	&	1	&	0	&	1	&	1	&	1	&	0	\tabularnewline
+Annelids		&	1	&	0	&	0	&	1	&	0	&	1	&	1	&	1	&	0	\tabularnewline
+Arthropods	&	1	&	0	&	0	&	1	&	0	&	1	&	0	&	1	&	0	\tabularnewline
+Echinoderms	&	1	&	0	&	0	&	1	&	0	&	1	&	0	&	0	&	1	\tabularnewline
+Vertebrates	&	1	&	0	&	0	&	1	&	0	&	1	&	0	&	0	&	1	\tabularnewline
+\bottomrule
+\end{longtable}\label{presence_table}
+
+Key to letter codes:
+
+\begin{multicols}{2}
+	\raggedcolumns
+	\begin{enumerate}
+		\item Cell with nucleus.
+		\item Photoautotrophic metabolism.
+		\item Cell walls composed of cellulose.
+		\item Chemoheterotrophic metabolism.
+		\item Cell walls composed of chiton.
+		\item Cell walls absent.
+		\item Trochophore larvae.
+		\item Protostome development.
+		\item Deuterostome development.
+	\end{enumerate}
+\end{multicols}
+
+\newpage
+
+\thispagestyle{empty}
+
+\ifprintanswers
+\begin{landscape}
+
+  \begin{forest}
+    mytree,
+    [
+    	  [[[[algae][plants]]]
+      [[fungi]
+      [
+		[[[mollusks][annelids]]
+		[
+			[arthropods]
+		]]
+		[[echinoderm]
+      	  [[fishes]
+            [[[amphibians]]
+                [[mammals]
+                  [[birds][reptiles]]]]]]
+          ]]
+      ]]
+  \end{forest}
+\end{landscape}
+\fi
+
+
+\end{document}  
