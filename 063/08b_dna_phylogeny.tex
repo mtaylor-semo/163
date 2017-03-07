@@ -20,6 +20,7 @@
 %\setmonofont[Scale=MatchLowercase]{Inconsolatazi4}
 \usepackage{microtype}
 
+\usepackage{pdflscape}
 
 % To define fonts for particular uses within a document. For example, 
 % This sets the Libertine font to use tabular number format for tables.
@@ -29,8 +30,74 @@
 \usepackage{booktabs}
 \usepackage{multicol}
 
+\usepackage{adjustbox}
+
 \usepackage{tikz}
-%\usepackage{plotmarks}
+\usetikzlibrary{backgrounds}
+
+\usepackage{forest}
+\forestset{
+  mytree/.style={
+    for tree={
+      edge+={ultra thick},
+      edge path'={
+        (!u.parent anchor) -| (.child anchor)
+      },
+      grow'=north,
+      parent anchor=children,
+      child anchor=parent,
+      anchor=base,
+      l sep=1cm,
+      s sep=2mm,
+      if n children=0{tier=word, align=center, base=bottom}{coordinate, tree node}
+    }
+  }
+}
+\forestset{
+  declare dimen register={timeline offset},
+  timeline offset'=10mm,
+  declare toks register={timeline target},
+  timeline target=,
+  declare boolean={tree node}{0},
+  timelinetree/.style={
+    for tree={
+      edge+={ultra thick},
+      edge path'={
+        (!u.parent anchor) -| (.child anchor)
+      },
+      grow=north,
+      parent anchor=children,
+      child anchor=parent,
+      anchor=base,
+%      l sep=1cm,
+      s sep=2mm,
+      if n children=0{tier=word, align=center, base=bottom, not tree node}{coordinate, tree node}
+    }
+  },
+%
+	age/.style={
+		tikz+={
+			\begin{scope}[on background layer] 
+				\draw [gray, thick, dotted] () -- ( -| timeline base) node[black,anchor=east]{#1}; 
+			\end{scope} 
+		}
+	},
+%
+  timeline/.style={
+    before drawing tree={
+      timeline target/.option=name,
+      tempdima/.option=y,
+      for tree={
+        if={>OR>{y}{tempdima}}{timeline target/.option=name}{},
+      }
+    },
+    tikz+={
+      \begin{scope}[on background layer]
+        \draw ([xshift=-\foresteregister{timeline offset}]current bounding box.west |- .parent anchor) coordinate (timeline base) -- (\foresteregister{timeline target}.child anchor -| timeline base) node [above] {\textsc{mya}};
+      \end{scope}
+    },
+  },
+}
 
 \usepackage{longtable}
 %\usepackage{siunitx}
@@ -41,10 +108,11 @@
 \newcolumntype{R}[1]{>{\raggedleft\let\newline\\\arraybackslash\hspace{0pt}}p{#1}}
 
 \usepackage{enumitem}
+%\setenumerate{label=\Alph.}
 \setlist{leftmargin=*}
 \setlist[1]{labelindent=\parindent}
-%\setlist[enumerate]{label=\textsc{\alph*}.}
-%\setlist[itemize]{label=\color{gray}\textbullet}
+\setlist[enumerate]{label=\textsc{\alph*}.}
+\setlist[itemize]{label=\color{gray}\textbullet}
 
 %\usepackage{caption}
 %	\captionsetup{labelsep=period, justification=raggedright} % Removes colon following figure / table number.
@@ -100,69 +168,165 @@
 
 \newcommand{\dna}{\textsc{dna}}
 
-%\printanswers
-
-\hidepoints
+\printanswers
 
 \begin{document}
 
-\subsection*{Use dna sequence to make a phylogenetic tree}
+\subsection*{Use dna sequence to make phylogenetic trees}
 
 You have used homologous characters to construct phylogenetic trees that 
-show the relationships among various taxonomic groups. Another character
-that can be used to build phylogenetic trees is \textsc{dna} sequences.\footnote{Time
-has not allowed us to demonstrate the homology of \textsc{dna.}}
-D\textsc{na} is found in all living organisms, from vertebrates to bacteria. 
+show the relationships among various taxonomic groups. Another method
+that can be used to build phylogenetic trees is by comparing \dna{} sequences.
+D\textsc{na} is found in all living organisms, from vertebrates to bacteria. As 
+organisms evolve, mutations cause their \dna{} to change. The mutations
+accumulate in the related lineages since they last shared a common ancestor.
+Species that shared a common ancestor recently will have relatively few mutational
+differences. Species that shared a common ancestor farther back in time will
+have more mutational differences. Thus, the number of mutational differences
+can be used to construct phylogenetic trees.
 
-%% If time permits, 
+%Earlier, you compared the \dna{} sequence from seven species of made-up birds. 
+%The \dna{} sequence from each species was only 20 nucleotides long. That was useful
+%to show you how to use \dna{} sequences to make a phylogenetic tree. But, real studies
+%often use \dna{} sequences that are several hundred to several thousand nucleotides long
+%from dozens of species. Trying to find all of those differences by eye would be nearly impossible
+%to do accurately. On the other hand, hundreds of sequences can be converted into a phylogenetic tree very 
+%rapidly by computer. 
 
-Earlier, you compared the \dna{} sequence from seven species of made-up birds. 
-The \dna{} sequence from each species was only 20 nucleotides long. That was useful
-to show you how to use \dna{} sequences to make a phylogenetic tree. But, real studies
-often use \dna{} sequences that are several hundred to several thousand nucleotides long
-from dozens of species. Trying to find all of those differences by eye would be nearly impossible
-to do accurately. On the other hand, hundreds of sequences can be converted into a phylogenetic tree very 
-rapidly by computer. 
+For this exercise, you will use a common analytical tool to build two phylogenetic trees using \dna{} sequence
+from two different genes. Each tree will contain representative species for the major groups of organisms you have
+used in the last few labs. After you have the trees, you will draw a complete phylogeny and then map on the
+various homologies you have studied to see how the \dna{} sequence data and the homological data support one another.
 
-You will use a common analytical tool to build three phylogenetic trees using \dna{} sequence
-from three different genes. Each tree will contain a subset of the 21 organisms you have been using for your hypothesis. After you have the three trees, you will draw a complete phylogeny of the 21 organisms based on the individual trees.
-
-You will analyze three genes, one at a time, using your laptop computer or one that has been provided for you (log in with your \textsc{se k}ey).   Work in pairs (or three if necessary) to complete the following \ref{final_step} steps for \emph{each} gene.
+You will analyze two genes, one at a time, using your laptop computer or one that has been provided for you (log in with your \textsc{se k}ey).   Work in pairs (or three if necessary) to complete the following \ref{final_step} steps for \emph{each} gene.
 
 \begin{enumerate}
 
-	\item Open a web browser. Go to \url{http://mtaylor4.semo.edu/~goby/bi163/}. Click on one of the gene names (18\textsc{s}, \textsc{atp}6, \textsc{rag}1).\footnote{18\textsc{s} is a gene that encodes the small subunit of ribosomes used to translate m\textsc{rna} to make proteins. A\textsc{tp}6 is part of a gene that encodes an enzyme used in cellular respiration. \textsc{rag}1 is part of a gene that encodes a protein used in the vertebrate immune system.} 
+	\item Open a web browser. Go to \url{http://mtaylor4.semo.edu/~goby/bi163/}. Click on one of the gene names (18\textsc{s} or \textsc{coi}).\footnote{18\textsc{s} is a gene that encodes the small subunit of ribosomes used to translate m\textsc{rna} to make proteins. C\textsc{oi} is part of a gene that encodes an enzyme used in aerobic respiration.}% \textsc{rag}1 is part of a gene that encodes a protein used in the vertebrate immune system.} 
 	
 	\item Copy the \emph{entire} sequence set (select all, or ctrl/cmd-A). Remember which sequence you copied because you will need to know in a few more steps.
 	
-	\item Go back to the list of genes. Click on the \textsc{ra}x\textsc{ml} link. This will take you to the \textsc{ra}x\textsc{ml} site\footnote{\textsc{ra}x\textsc{ml} uses an analytical technique called maximum likelihood. Maximum likelihood finds the best phylogenetic tree based on different models of \dna{} evolution.} to analyze the \dna{} sequences. 
+	\item Go back to the list of genes. Click on the \textsc{ra}x\textsc{ml} link. This will take you to the \textsc{ra}x\textsc{ml} site\footnote{\textsc{ra}x\textsc{ml} uses a technique called maximum likelihood, a mathematically intensive method that finds the best phylogenetic tree based on different models of \dna{} evolution.} to analyze the \dna{} sequences. 
 	
 	\item Paste your sequence set into the large area at the top of the page. If the sequences from a previous analysis is still there, delete it and then paste your new sequences.
 	
 	\item Scroll down to nearly the end of the ``Other Options'' section. Look for ``Outgroup name(s).'' Click that check box. Enter  one of the following outgroup names into the box \emph{exactly}, depending on which sequence you are analyzing. 
 	
-		\begin{tabular}{@{}ll@{}}
+		{\centering\begin{tabular}{@{}ll@{}}
 		\toprule
 		Gene name &	Outgroup name\\
 		\midrule
-		18\textsc{s}	&  Ecoli\\
-		\textsc{atp}6	& fungus\\
-		\textsc{rag}1	& bass\\
+		18\textsc{s}	&  bacteria\\
+		\textsc{coi}	& mollusk\\
+%		\textsc{rag}1	& bass\\
 		\bottomrule		
-		\end{tabular}
+		\end{tabular}\par
+		}
 	
 	\item Scroll back to the top. Click the ``Compute'' button. In a few moments, the analysis will present you with a list of output files. If an \emph{Erreur} warning pops up, close it. It will not affect your analysis.
 	
 	\item Click on ``View tree'' to see the phylogenetic tree based on that \dna{} sequence.
 	
-	\item Draw the tree on a piece of paper. You can save the tree as a \textsc{png} file to your computer or flash drive. However, near the end of the assignment, you will need to see all three trees at the same time so drawing each tree on a separate piece of paper may be easiest. \label{final_step}
+	\item Draw the tree on a piece of paper. You can save the tree as a \textsc{png} file to your computer or flash drive. However, near the end of the assignment, you will need to see both trees at the same time so drawing each tree on a separate piece of paper may be easiest. \label{final_step}
 	
-	\item Repeat this process for the other two genes.
+	\item Repeat this process for the other gene.
 
 \end{enumerate}
 
-Now that you have drawn all three phylogenetic trees, assemble them into one large tree with all 21 organisms. Each individual tree contains some of the 21 organisms. Part of each tree ``overlaps'' with at least one of the other trees. Through careful inspection, you should be able to see how the three trees piece together. Your final tree must be consistent with all of the other evidence you have gathered. Inspect your final tree to be sure it is consistent with the homologies and transitional forms you identified in earlier labs.
+\begin{questions}
 
-When you think you have the correct tree, ask you instructor to verify it for correctness. After your instructor has verified the tree, be sure every one in your group makes a copy of the final tree.
+\question
+Now that you have drawn both phylogenetic trees, assemble them into one large tree with all taxonomic groups. The tree from each gene has representatives for \emph{some} but not all of the taxonomic groups. Each tree ``overlaps'' partly with the other tree. With careful inspection, you should be able to see how the two trees piece together. 
+
+\textsc{Note:} Many taxonomic groups have more than one representative (e.g., bird1, bird2, etc.). You only need to draw one branch for the group (e.g., birds).
+
+\question[Checkout]
+The table on the next page contains a list of homologies for the taxonomic groups, many of them studied in previous exercises. On your final phylogeny, make a tick mark at the appropriate common ancestor where each homology first evolved. Write the letter code next to the tick mark. \textit{Ignore Paramecium.} Once done, ask your instructor to check your work.
+
+\end{questions}
+
+\newpage
+
+\thispagestyle{empty}
+
+\begin{landscape}
+
+\begin{longtable}{@{}L{1in}L{0.25in}L{0.25in}L{0.25in}L{0.25in}L{0.25in}L{0.25in}L{0.25in}L{0.25in}L{0.25in}L{0.25in}L{0.25in}L{0.25in}L{0.25in}@{}}
+\toprule
+Taxon			&	A	&	B	&	C	&	D	&	E	&	F	&	G	&	H	&	I	&	J	&	K	&	L	&	M	\tabularnewline
+\midrule
+Bacteria		&	0	&	0	&	0	&	0	&	0	&	0	&	0	&	0	&	0	&	0	&	0	&	0	&	0	\tabularnewline
+Paramecium	&	1	&	0	&	0	&	1	&	0	&	0	&	0	&	0	&	0	&	0	&	0	&	0	&	0	\tabularnewline
+Plants			&	1	&	1	&	1	&	1	&	0	&	0	&	0	&	0	&	0	&	0	&	0	&	0	&	0	\tabularnewline
+Algae			&	1	&	1	&	1	&	1	&	0	&	0	&	0	&	0	&	0	&	0	&	0	&	0	&	0	\tabularnewline
+Fungi			&	1	&	0	&	0	&	1	&	1	&	0	&	0	&	0	&	0	&	0	&	0	&	0	&	0	\tabularnewline
+Mollusks		&	1	&	0	&	0	&	1	&	0	&	1	&	1	&	1	&	0	&	0	&	0	&	0	&	0	\tabularnewline
+Annelids		&	1	&	0	&	0	&	1	&	0	&	1	&	1	&	1	&	0	&	0	&	0	&	0	&	0	\tabularnewline
+Arthropods	&	1	&	0	&	0	&	1	&	0	&	1	&	0	&	1	&	0	&	0	&	0	&	0	&	0	\tabularnewline
+Echinoderms	&	1	&	0	&	0	&	1	&	0	&	1	&	0	&	0	&	1	&	0	&	0	&	0	&	0	\tabularnewline
+Mammals		&	1	&	0	&	0	&	1	&	0	&	1	&	0	&	0	&	1	&	1	&	1	&	1	&	0	\tabularnewline
+Reptiles		&	1	&	0	&	0	&	1	&	0	&	1	&	0	&	0	&	1	&	1	&	1	&	1	&	1	\tabularnewline
+Birds				&	1	&	0	&	0	&	1	&	0	&	1	&	0	&	0	&	1	&	1	&	1	&	1	&	1	\tabularnewline
+Amphibians	&	1	&	0	&	0	&	1	&	0	&	1	&	0	&	0	&	1	&	1	&	1	&	0	&	0	\tabularnewline
+Fishes			&	1	&	0	&	0	&	1	&	0	&	1	&	0	&	0	&	1	&	1	&	0	&	0	&	0	\tabularnewline
+
+\bottomrule
+\end{longtable}\label{presence_table}
+
+Key to letter codes:
+
+\begin{multicols}{3}
+	\raggedcolumns
+	\begin{enumerate}
+		\item Cell with nucleus.
+		\item Cells with chloroplasts.
+		\item Cell walls composed of cellulose.
+		\item Cells with mitochondria.
+		\item Cell walls composed of chiton.
+		\item Cell walls absent.
+		\item Trochophore larvae.
+		\item Protostome development.
+		\item Deuterostome development.
+		\item	Internal skeleton with vertebrae.
+		\item Tetrapods.
+		\item Amniotic egg.
+		\item Diapsid skulls.
+	\end{enumerate}
+\end{multicols}
+
+
+\newpage
+
+\thispagestyle{empty}
+
+
+\ifprintanswers
+\begin{center}
+
+\adjustbox{width=\linewidth}{
+  \begin{forest}
+    mytree,
+    [
+    	[	[bacteria]
+		[	[Paramecium]
+    	  [[[[algae][plants]]]
+      [[fungi]
+      [
+		[[[mollusks][annelids]]
+		[
+			[arthropods]
+		]]
+		[[echinoderms]
+      	  [[fishes]
+            [[[amphibians]]
+                [[mammals]
+                  [[birds][reptiles]]]]]]
+          ]]
+      ]]]]
+  \end{forest}}
+\end{center}
+\fi
+
+\end{landscape}
 
 \end{document}  
