@@ -27,6 +27,8 @@
 %\setmonofont[Scale=MatchLowercase]{Inconsolatazi4}
 \usepackage{microtype}
 
+\usepackage{adjustbox}
+
 \usepackage{wrapfig}
 % To define fonts for particular uses within a document. For example, 
 % This sets the Libertine font to use tabular number format for tables.
@@ -358,21 +360,22 @@ handle the specimens carefully.} Describe their structural similarity.
 \question
 What is the function of the leaves in the oak and the maple?
 
-\AnswerBox{3\baselineskip}{Capture light for photosynthesis}
+\AnswerBox{4\baselineskip}{Capture light for photosynthesis}
 
 \question
 Is the similarity you described above necessary in order to serve
 this function? Explain. 
 
-\AnswerBox{3\baselineskip}{Yes is a reasonable answer.}
+\AnswerBox{4\baselineskip}{Yes is a reasonable answer.}
 
 \question
 What do you conclude? Is the structural similarity you described in
 question~\ref{ques:leaf} explained by homology or analogy? Explain.
 
-\AnswerBox{3\baselineskip}{Analogy is a reasonable conclusion.}
+\AnswerBox{4\baselineskip}{Analogy is a reasonable conclusion.}
 
-\question
+\newpage
+
 Now, look at the kelp (a type of algae) and the cactus plant. Kelp do 
 not have leaves. They have a broad flat structure called a blade where
 some photosynthesis takes place. However, photosynthesis occurs over
@@ -382,14 +385,53 @@ Cactus have leaves but they are used for defense. Can you identify the leaves on
 cactus? The leaves are the spines spread around the cactus. The spines are not
 capable of photosynthesis so where do you think photosynthesis occurs in cactus? 
 (\textsc{Hint:} green is a good indicator of where photosynthesis takes place.)
+
+
+\question
 Does this knowledge change your thoughts about leaves being necessary for
 photosynthesis? Explain. %(You do not need to modify your earlier answers.)
 
-\AnswerBox{5\baselineskip}{Leaves not necessary for photosynthesis so leaves are a homology.}
+\AnswerBox{3\baselineskip}{Leaves not necessary for photosynthesis so leaves are a homology.}
 
-\subsubsection*{Mitochondria and chloroplasts}
+\bigskip
 
-All eukaryotic cells (single-celled eukaryotes, plants, fungi, animals) have mitochondria.  The mitochondria is where aerobic respiration takes place. Aerobic respiration uses oxygen 
+\textsc{Mitochondria and chloroplasts}
+
+\bigskip
+
+A distinctive character in the cells of all eukaryotic organisms 
+(single-celled eukaryotes, plants, fungi, animals)  is the presence of 
+organelles that perform specific functions. For example, the eukaryotic 
+nucleus contains the chromosomes and is where transcription takes place. 
+Other organelles found in eukaryotic cells are the \emph{mitochondria} and
+the \emph{chloroplasts.}\footnote{Review your lecture notes on endosymbiosis.}
+
+The function of mitochondria, present in \emph{all} eukaryotic cells, is to take energy 
+contained in organic chemical compounds (e.g., glucose  and other carbohydrates) 
+and store it in \textsc{atp} molecules where it can be used to do work inside the cell.
+Mitochondria can only process energy contained in other organic compounds.
+Another organelle found only in some eukaryotic organisms (algae and plants)
+is the \emph{chloroplast.} The function of chloroplasts is to capture light energy from the sun and
+store in in organic chemical compounds, like glucose and other carbohydrates. Chloroplasts
+can only obtain energy from the sun. 
+
+Only eukaryotes have mitochondria and chloroplasts. Bacterial cells are able to obtain energy
+from chemical compounds or light without mitochondria or chloroplasts.
+
+\question
+Based on this information, are mitochondria a homology or analogy for eukaryotic
+organisms? Explain. (Remember, some bacteria can perform the same function without this
+organelle.)
+
+\AnswerBox{4\baselineskip}{Mitochondrial function is a homology.}
+
+\question
+Based on this information, are chloroplasts a homology or analogy for algae and plants?
+ Explain. (Remember, some bacteria can perform the same function without this
+organelle.)
+
+\AnswerBox{4\baselineskip}{Chloroplast function is a homology.}
+
 
 %\subsubsection*{Autotrophs and heterotrophs}
 %
@@ -422,7 +464,11 @@ All eukaryotic cells (single-celled eukaryotes, plants, fungi, animals) have mit
 %
 %\AnswerBox{3\baselineskip}{Chemoheterotrophic metabolism is a homology.}
 
-\subsubsection*{Gastrulation}
+\bigskip
+
+\textsc{Gastrulation}
+
+\bigskip
 
 \begin{minipage}{0.75\textwidth}%
 In the last lab, you looked at embryos, a development stage for
@@ -441,8 +487,6 @@ Gastrulas have an opening called the \emph{blastopore.} The function of the blas
 
 The function of the blastopore, for vertebrates, is to become the anus.  Organisms with a blastopore that becomes
 the anus are classified as \emph{deuterostomes}. 
-
-\newpage
 
 \question
 Based on the information above, is the blastopore becoming the mouth a 
@@ -486,8 +530,9 @@ The table on page~\pageref{presence_table} summarizes the homologies found for t
 \toprule
 Taxon			&	A	&	B	&	C	&	D	&	E	&	F	&	G	&	H	&	I	\tabularnewline
 \midrule
-Plants			&	1	&	1	&	1	&	0	&	0	&	0	&	0	&	0	&	0	\tabularnewline
-Algae			&	1	&	1	&	1	&	0	&	0	&	0	&	0	&	0	&	0	\tabularnewline
+Bacteria		&	0	&	0	&	0	&	0	&	0	&	0	&	0	&	0	&	0	\tabularnewline
+Plants			&	1	&	1	&	1	&	1	&	0	&	0	&	0	&	0	&	0	\tabularnewline
+Algae			&	1	&	1	&	1	&	1	&	0	&	0	&	0	&	0	&	0	\tabularnewline
 Fungi			&	1	&	0	&	0	&	1	&	1	&	0	&	0	&	0	&	0	\tabularnewline
 Mollusks		&	1	&	0	&	0	&	1	&	0	&	1	&	1	&	1	&	0	\tabularnewline
 Annelids		&	1	&	0	&	0	&	1	&	0	&	1	&	1	&	1	&	0	\tabularnewline
@@ -503,9 +548,9 @@ Key to letter codes:
 	\raggedcolumns
 	\begin{enumerate}
 		\item Cell with nucleus.
-		\item Photoautotrophic metabolism.
+		\item Cells with chloroplasts.
 		\item Cell walls composed of cellulose.
-		\item Chemoheterotrophic metabolism.
+		\item Cells with mitochondria.
 		\item Cell walls composed of chiton.
 		\item Cell walls absent.
 		\item Trochophore larvae.
@@ -540,6 +585,7 @@ Key to letter codes:
 %      ]]
 %  \end{forest}
 \begin{center}
+\adjustbox{width=\linewidth}{%
   \begin{forest}
     mytree,
     [
@@ -560,7 +606,7 @@ Key to letter codes:
 %                  [[birds][reptiles]]]]]]
           ]]
       ]]
-  \end{forest}
+  \end{forest}}
 \end{center}
 
 %\end{landscape}
