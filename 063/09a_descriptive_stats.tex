@@ -1,0 +1,814 @@
+%!TEX TS-program = lualatex
+%!TEX encoding = UTF-8 Unicode
+
+\documentclass[12pt]{exam}
+\usepackage{graphicx}
+	\graphicspath{{/Users/goby/Pictures/teach/163/lab/}
+	{img/}} % set of paths to search for images
+
+\usepackage{geometry}
+\geometry{letterpaper, left=1.5in, bottom=1in}                   
+%\geometry{landscape}                % Activate for for rotated page geometry
+\usepackage[parfill]{parskip}    % Activate to begin paragraphs with an empty line rather than an indent
+\usepackage{amssymb, amsmath}
+\usepackage{mathtools}
+	\everymath{\displaystyle}
+
+\usepackage[table]{xcolor}
+
+\usepackage{fontspec}
+\setmainfont[Ligatures={TeX}, BoldFont={* Bold}, ItalicFont={* Italic}, BoldItalicFont={* BoldItalic}, Numbers={OldStyle}]{Linux Libertine O}
+\setsansfont[Scale=MatchLowercase,Ligatures=TeX]{Linux Biolinum O}
+\setmonofont[Scale=MatchLowercase]{Inconsolatazi4}
+\newfontfamily{\tablenumbers}[Numbers={Monospaced,Lining}]{Linux Libertine O}
+\usepackage{microtype}
+
+\usepackage{unicode-math}
+\setmathfont[Scale=MatchLowercase]{TeX Gyre Termes Math}
+
+\usepackage{amsbsy}
+%\usepackage{bm}
+
+% To define fonts for particular uses within a document. For example, 
+% This sets the Libertine font to use tabular number format for tables.
+ %\newfontfamily{\tablenumbers}[Numbers={Monospaced}]{Linux Libertine O}
+% \newfontfamily{\libertinedisplay}{Linux Libertine Display O}
+
+\usepackage{multicol}
+%\usepackage[normalem]{ulem}
+
+\usepackage{longtable}
+\usepackage{caption}
+	\captionsetup{format=plain, justification=raggedright, singlelinecheck=off,labelsep=period,skip=3pt} % Removes colon following figure / table number.
+%\usepackage{siunitx}
+\usepackage{booktabs}
+\usepackage{array}
+\newcolumntype{L}[1]{>{\raggedright\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+\newcolumntype{C}[1]{>{\centering\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+\newcolumntype{R}[1]{>{\raggedleft\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+
+\usepackage{enumitem}
+\setlist{leftmargin=*}
+\setlist[1]{labelindent=\parindent}
+\setlist[enumerate]{label=\textsc{\alph*}.}
+\setlist[itemize]{label=\color{gray}\textbullet}
+%\usepackage{hyperref}
+%\usepackage{placeins} %PRovides \FloatBarrier to flush all floats before a certain point.
+%\usepackage{hanging}
+
+\usepackage[sc]{titlesec}
+
+%% Commands for Exam class
+\renewcommand{\solutiontitle}{\noindent}
+\unframedsolutions
+\SolutionEmphasis{\bfseries}
+
+\renewcommand{\questionshook}{%
+	\setlength{\leftmargin}{-\leftskip}%
+}
+
+%Change \half command from 1/2 to .5
+\renewcommand*\half{.5}
+
+\pagestyle{headandfoot}
+\firstpageheader{\textsc{bi}\,063 Evolution and Ecology}{}{\ifprintanswers\textbf{KEY}\else Name: \enspace \makebox[2.5in]{\hrulefill}\fi}
+\runningheader{}{}{\footnotesize{pg. \thepage}}
+\footer{}{}{}
+\runningheadrule
+
+\newcommand*\AnswerBox[2]{%
+    \parbox[t][#1]{0.92\textwidth}{%
+    \begin{solution}#2\end{solution}}
+%    \vspace*{\stretch{1}}
+}
+
+\newenvironment{AnswerPage}[1]
+    {\begin{minipage}[t][#1]{0.92\textwidth}%
+    \begin{solution}}
+    {\end{solution}\end{minipage}
+    \vspace*{\stretch{1}}}
+
+\newlength{\basespace}
+\setlength{\basespace}{5\baselineskip}
+
+%% To hide and show points
+\newcommand{\hidepoints}{%
+	\pointsinmargin\pointformat{}
+}
+
+\newcommand{\showpoints}{%
+	\nopointsinmargin\pointformat{(\thepoints)}
+}
+
+\newcommand{\bumppoints}[1]{%
+	\addtocounter{numpoints}{#1}
+}
+
+\newcommand*\meanY{\overline{Y\kern1.67pt}\kern-1.67pt}
+\newcommand*\meansubY{\overline{Y}}
+%\newcommand*\meanY{\overline{Y}}
+\newcommand*\ttest{\emph{t}-test}
+\newcommand*\Popa{Population~\textsc{a}}
+\newcommand*\Popb{Population~\textsc{b}}
+\newcommand*\popa{population~\textsc{a}} %lower case
+\newcommand*\popb{population~\textsc{b}} %lower case
+\newcommand*\Corbicula{\textit{Corbicula}}
+\newcommand*\AnswerBlank{\rule{0.75in}{0.4pt}\kern0.67pt.}
+%
+%\makeatletter
+%\def\SetTotalwidth{\advance\linewidth by \@totalleftmargin
+%\@totalleftmargin=0pt}
+%\makeatother
+
+
+%\printanswers
+
+
+\begin{document}
+
+\subsection*{Descriptive statistics}
+
+Statistical analyses are a very important set of tools for scientists. Like it or not, you must learn this important set of skills to be a successful scientist. This exercise is a gentle introduction to basic statistics, including the mean, variance, standard deviation, and the standard error of the mean. The math and theory are minimized but you must know a little theory to understand the statistics.  You will also learn to use Excel to perform many of these calculations.
+
+\textbf{Important:} You must study this handout in detail on your own. You must know the meanings of all terms in bold. Material in the this and future exercises on statistics \emph{will} be included on exams.
+
+An important part of biological research is hypothesis testing. Hypothesis
+testing uses data sampled from one or more populations to make
+inferences about those populations. For example, a scientist
+might test the hypothesis that a population of a flowering plant that lives high on 
+a mountain side will bloom later than a population of the same plant that
+lives near the base of the mountain. Another scientist might test the hypothesis
+that warming global temperatures will cause both populations of the flowering plant to 
+bloom earlier.  In the first case, the scientist is directly comparing a biological
+trait of two populations. In the second case, the scientist is testing how
+the biological trait in both populations responds to a change in their environment.
+
+
+Every hypothesis is actually two related hypotheses, the null hypothesis 
+and the research hypothesis, also known as the alternative hypothesis.
+
+\begin{enumerate}
+	\item \textbf{Null hypothesis:} There is \emph{no} difference between between populations or samples.
+	Any differences are probably due to natural variation and other random effects. Null in effect means, no difference. The null hypothesis can be represented by $\left(H_0\right)$.
+	
+	In the first flowering plant case above, the null hypothesis would be that the 
+	time of blooming is \emph{not} different between the population high on the mountain 
+	and the one at the base of the mountain. In the second case, the null
+	hypothesis would that warming global temperatures does \emph{not} change the time
+	of blooming.
+	
+	\item \textbf{Research hypothesis:} There \emph{is} a significant difference between populations or samples. Or,  that changing a variable will affect the population(s). Any differences are probably not random
+	and have a biological explanation. The research hypothesis can be represented by $\left(H_1\right)$ and is also known as the \textbf{alternative
+	hypothesis.}
+	
+	In the first flowering plant case above, the research hypothesis would be that the 
+	time of blooming \emph{is} different between the population high on the mountain 
+	and the one at the base of the mountain. In the second case, the research
+	hypothesis would that warming global temperatures \emph{does} change the time
+	of blooming.
+
+\end{enumerate}
+
+Scientists are often interested in how a difference in one variable might 
+affect a second variable, which might be tested in an experiment. Complex 
+experiments often have many variables. No matter how many variables
+are included in an experiment, they are usually one of two types.
+
+\begin{enumerate}
+\item
+  \textbf{Explanatory variable:} a manipulated or controlled variable in an experiment
+  or study whose presence or degree determines a change in the response
+  variable. The explanatory variable is also known as the \textbf{independent
+  variable.}
+  
+  In the flowering plant case above, the explanatory variables would be
+  either the altitude on the mountain (high or low) or the warming global 
+  temperature.
+   
+\item
+  \textbf{Response variable:} an observed variable in an experiment or
+  study that changes in response to the presence or degree of one
+  or more explanatory variables. The response variable is also known as the
+  \textbf{dependent variable.} 
+  
+  In the flowering plant example above, the response variable for both
+  hypotheses would be the time of blooming.
+  
+\end{enumerate}
+
+To gauge your understanding so far, read the following passage and then
+answer the questions that follow.
+
+Dr. Noymer was interested in the effect on populations of the global flu
+epidemic that happened in 1918. He hypothesized that babies less than
+one year old, with their
+weak immune systems, would die in a higher percentage than adults aged
+25–34 when the year with the epidemic (1918) was compared to to the year
+before (1917).
+
+
+\begin{questions}
+
+\question
+What is the explanatory variable? 
+
+\AnswerBox{2\baselineskip}{Age.}
+
+
+\question
+What is the response variable?
+
+\AnswerBox{2\baselineskip}{% 
+Whether the babies/adults got sick or not.
+}
+
+\question
+Write a null hypothesis based on Noymer's conjecture.
+
+\AnswerBox{2\baselineskip}{%
+The increased percentage of babies and adults getting sick will not be different between 1917 and 1918.
+}
+
+\question
+Write a research hypothesis based on Noymer's conjecture.
+
+\AnswerBox{2\baselineskip}{%
+That babies will show a greater increase in sickness than adults from 1917 to 1918.
+}
+
+\newpage
+
+Noymer's results, adapted from \emph{Age-specific death rates (per
+100,000), Influenza \& Pneumonia, USA} (Noymer, 2007), are given in Table~\ref{us_deaths}. 
+They could not tell flu and pneumonia apart, so they were both counted together.
+
+{\setlength{\LTcapwidth}{3in}\tablenumbers
+\begin{longtable}{@{}R{0.5in}R{0.5in}R{0.5in}R{1in}@{}}
+\caption{U.S. deaths per 100,000 attributed to influenza and
+pneumonia during 1917–1918.}\label{us_deaths}\tabularnewline
+\toprule
+Age & 1917 & 1918 & Increase in deaths\tabularnewline
+\midrule
+\textless{}1 & 2944.5 & 4540.9 & 152\%\tabularnewline
+1–4 & 422.7 & 1436.2 &\tabularnewline
+5–14 & 47.9 & 352.7 &\tabularnewline
+15–24 & 78 & 1175.7 &\tabularnewline
+25–34 & 117.7 & 1998 & 1707\%\tabularnewline
+35–44 & 193.2 & 1097.6 &\tabularnewline
+45–54 & 292.3 & 686.8 &\tabularnewline
+\bottomrule
+\end{longtable}}
+
+\question
+What do these data say about the null hypothesis?
+
+\AnswerBox{2\baselineskip}{%
+They appear to falsify it. The percent increase was much larger for adults than babies.
+}
+
+\question
+Was Noymer's research hypothesis proven true? Supported? Supported
+weakly? Falsified? Explain.
+
+\AnswerBox{2\baselineskip}{%
+Falsified. He predicted that more babies would get sick. Instead, more adults got sick.
+}
+
+\subsubsection*{Hypothesis testing}
+
+Scientists can rarely collect data from all individuals in a population. Instead, scientists collect data from subsets of individuals sampled from a population to make inferences about the \emph{entire} population. \textbf{Hypothesis testing} asks whether that sampled data would be expected under a specific null hypothesis. For example, hypothesis testing is used to determine whether two groups respond differently to an change in an explanatory variable. The null hypothesis states that the change would \emph{not} have an affect on the population.
+
+Scientists use probability to decide when to accept or reject the null hypothesis. Most statistical analyses return a \textbf{\textit{p}-value,} which is \emph{the probability of obtaining the data if the null hypothesis is true.} If the \textit{p}-value is high, then the sampled data can be explained by the null hypothesis, so the null hypothesis would be accepted. If the \textit{p}-value is low, then the sampled data are not consistent with the null hypothesis, so the null hypothesis would be rejected.
+
+\textbf{Alpha ($\alpha$)} is the \textit{p}-value chosen as the boundary between accepting and rejecting the null hypothesis. The boundary used most often in scientific studies is $\alpha = 0.05,$ for reasons beyond the scope of this exercise. If the $p$-value returned by the analysis is greater than $0.05,$ then the null hypothesis is accepted. If the $p$-value is below $0.05,$ then the hypothesis is rejected. Other values for $\alpha$ can be used, such as $0.01.$
+
+\subsubsection*{Measures of central tendency: the mean}
+
+A statistic is a one-number description of a set of data, or numbers
+used as measurements or counts—lengths of arms, number of days, number
+of fish in a catch—or, rarely, a number in that set. The most basic statistics 
+include measures of \emph{central tendency.} A measure of central tendency 
+is one number that describes most of the values in a data set. Three methods 
+are commonly used to describe the central tendency of a data set. 
+
+\begin{enumerate}
+
+	\item \textbf{Mean:} Arithmetic mean or the
+arithmetic average. Add all the scores together and divide by the number
+of scores.
+
+	\item \emph{Median:} In an ordered set of numbers, the number in the middle:
+take the number of scores and divide by 2, count down the distribution
+to find the median. The score at the 50th percentile.
+
+	\item \emph{Mode:} the most frequent score in the set of
+scores.
+
+\end{enumerate}
+
+
+%%%%%%%%%%
+
+%Suppose that a biologist has used a 1–4 scale to describe the density of
+%ground-level vegetation in different habitats as part of a survey for
+%the local conservation district. 1~=~no vegetation, 2~=~a few plants
+%(mostly soil), 3~=~mostly plants and 4~=~no visible soil. Twenty samples
+%were taken randomly in each habitat.
+%
+%The mean (=~average) score of a forest habitat was 1.5, and for a meadow, the score
+%was 3.0. When reading the report, the administrator concludes that the
+%density of vegetation was two times higher in the meadow than in the
+%forest.
+%
+%\question
+% Is mean the appropriate statistic to use here to convey biologically 
+% meaningful information about forest and meadow vegetation?
+% 
+% \AnswerBox{3\baselineskip}{No. The categories do not measure the actual amount of vegetation present.}
+% 
+% \question
+%Should the biologist accept the administrator's conclusion? Why might it be challenged?
+%
+%\AnswerBox{3\baselineskip}{No. The information does not reliably indicate the actual amount of vegetation present.}
+
+%One way to determine whether two things are really different is through various statistics. 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+Below, you will calculate the sample mean, a statistic you are probably familiar with. 
+To calculate the mean, sum together the individual measurements, and then divide by the total number
+of measurements. The formula to calculate the sample mean $\left(\meanY \right)$ is
+
+\[ \meanY = \frac{\sum\limits^n_{i=1} Y_i}{n}. \]
+
+The formula may look intimidating but, if you have ever calculated an 
+average, you have used that formula. Each individual measurement is represented as $Y_i \dots Y_n$, 
+where $n$ is the total number of measurements. The numerator $\sum^n_{i=1} Y_i$ tells you to sum (the uppercase Greek letter sigma $\textstyle\sum$) each measurement, from the first 
+$(i=1)$ to the total number $(n)$ of measurements. Then, divide the sum by the 
+total number of measurements.
+
+For example, assume you recorded the height of four individuals as 
+66.0, 68.7, 64.2, and 59.6 inches. For this sample, $n$ = 4, $Y_1$ = 66.0, 
+$Y_2$ = 68.7, $Y_3$ = 64.2, and $Y_4$ = 59.6. The sample mean is therefore calculated as
+
+\[ \meanY = \frac{66.0 + 68.7 + 64.2 + 59.6}{4} = 64.6\,\mathrm{inches.} \]
+
+\subsubsection*{Calculate sample means}
+
+You will measure the shell width of individuals
+\textit{Corbicula fluminea,} the Asian clam, an invasive species 
+found in rivers and streams throughout North America. Each pair
+of students has shells of \Corbicula{} representing two populations.
+\Popa{} was collected from a small stream. \Popb{}
+was collected from a large river.\footnote{The shells were actually collected from 
+a few places around southeast Missouri.} You
+and your partner will calculate important statistics for each population.
+Your goal will be to determine whether the mean or average shell width
+of each population is the same or different.
+
+\question
+Write a null hypotheses about average shell width for each population.
+
+\AnswerBox{2\baselineskip}{The average shell size will not differ between the two populations.}
+
+\question
+Write a research hypotheses about average shell width for each population.
+
+\AnswerBox{2\baselineskip}{The average shell size will differ between the two populations.}
+
+%\newpage
+
+\question
+What is the explanatory variable?
+
+\AnswerBox{2\baselineskip}{Whether the population is from a stream or river.}
+
+\question
+What is the response variable?
+
+\AnswerBox{2\baselineskip}{Shell size.}
+
+
+\question
+Calculate the mean shell width for two populations of \textit{Corbicula.} 
+
+\emph{Method: } Select haphazardly 15 individuals from each population. Measure \emph{in millimeters}
+ the width of each shell at the widest point with the ruler. Record each measurement in
+ Table~\ref{corbicula_means} on the next page.
+ 
+ \emph{Keep the shells of each population separate.} The shells for \popa{}
+ have a black dot inside the shell. Do not mix the populations.
+
+\newpage
+
+{\setlength{\LTcapwidth}{3.99in}\tablenumbers
+\begin{longtable}{@{}|R{1.3in}|C{1.3in}|C{1.3in}|@{}}
+\caption{Shell widths (mm) for two populations of \textit{Corbicula.}\label{corbicula_means}}\tabularnewline
+\hline
+Sample number & \Popa{} & \Popb{} \tabularnewline
+\hline
+1 & & \tabularnewline[2ex]
+\hline
+2 & & \tabularnewline[2ex]
+\hline
+3 & & \tabularnewline[2ex]
+\hline
+4 & & \tabularnewline[2ex]
+\hline
+5 & & \tabularnewline[2ex]
+\hline
+6 & & \tabularnewline[2ex]
+\hline
+7 & & \tabularnewline[2ex]
+\hline
+8 & & \tabularnewline[2ex]
+\hline
+9 & & \tabularnewline[2ex]
+\hline
+10 & & \tabularnewline[2ex]
+\hline
+11 & & \tabularnewline[2ex]
+\hline
+12 & & \tabularnewline[2ex]
+\hline
+13 & & \tabularnewline[2ex]
+\hline
+14 & & \tabularnewline[2ex]
+\hline
+15 & & \tabularnewline[2ex]
+\hline
+Mean $\left(\meanY\right)$ & & \tabularnewline[2ex]
+\hline
+\end{longtable}}
+
+\question\label{corbicula_mean_comparison}
+Does one population appear to have wider shells than the other population? Explain.
+
+\AnswerBox{2\baselineskip}{\Popb{} is probably wider than \popa{}.}
+
+\newpage
+
+\subsubsection*{Standard deviation}
+
+Scientists are often interested in the \emph{distribution} of their
+data. A distribution is a graph with the range of values on the \textsc{x}-axis,
+and the sampling probability of values on the \textsc{y}-axis. You are probably familiar
+with a ``bell curve'' or normal distribution. Figure~\ref{fig:normal_distribution} 
+shows the distribution of the height of a random sample of 9000 U.\,S.\ adults.
+The mean height is 66.5 inches. Most individuals sampled had a height close
+to the mean. Values near the mean have a high probability of being sampled 
+(the \textsc{y}-axis). Some individuals sampled were much shorter or taller than average.
+Values far from the mean have a low probability of being sampled.
+
+\medskip
+
+\hfil\begin{minipage}{0.8\textwidth}
+	\includegraphics[width=\textwidth]{09_normal_distribution}
+	\captionof{figure}{Distribution of U.\,S.\ adult height (inches) for a random 
+	sample of 9000 individuals. Mean height is 66.5 inches (vertical line).
+	\label{fig:normal_distribution}}
+\end{minipage}\hfill
+
+\medskip
+
+The shape of the distribution is determined by the \emph{dispersion} of the 
+individual measurements around the mean. If most measurements are close 
+to the mean, then the normal distribution will be narrow (Fig.~\ref{fig:stdev}\textsc{a}).
+If most measurements are widely dispersed, then the normal distribution will be
+wide (Fig.~\ref{fig:stdev}\textsc{b}). 
+
+The dispersion of the data around the mean is represented by the
+\textbf{standard deviation}, a statistic that tells how far on average any
+\emph{one} measurement is from the mean of \emph{all} measurements in 
+the data. If most values are close to the mean, then the standard deviation
+with be small. If the values are widely dispersed, then the standard deviation
+will be larger. Therefore, a data set with a small standard deviation is less 
+variable than a data with a large standard deviation. Notice in Fig.~\ref{fig:stdev} the change of scale 
+for the sample probability on the
+\textsc{y}-axis between the two distributions. If standard deviation is small 
+(Fig.~\ref{fig:stdev}\textsc{a}), then values close to the mean have a much greater 
+probability of being sampled than if the standard deviation is large (Fig.~\ref{fig:stdev}\textsc{b}).
+
+
+\medskip
+
+\hfil\begin{minipage}{0.9\textwidth}
+	\includegraphics[width=\textwidth]{09_standard_deviation}
+	\captionof{figure}{Distribution of U.\,S.\ adult height (inches) for a random sample of 
+	9000 individuals with $\meanY = 66.5$ inches and standard deviations of 2 
+	(\textsc{a}) and 8 (\textsc{b}) inches. For reference, the standard deviation for 
+	the U.\,S.\ adult height shown in Fig.~\ref{fig:normal_distribution} is 4.4 inches.\label{fig:stdev}}
+\end{minipage}\hfill
+
+\medskip
+
+The formula to calculate the standard deviation $(s)$ of a sample is
+
+\[ s = \sqrt{\frac{\sum\left(Y_i - \meanY\right)^2}{n-1}}. \]
+
+You should be familiar with each variable in the formula but, if necessary, review the earlier section on the mean. To calculate the standard deviation, subtract the mean from each measurement $\left(Y_i - \meanY\right)$, square the result, sum those values, divide by $n-1$, and then take the square root. 
+
+Table~\ref{tab:height_sd} shows how to calculate the standard deviation for the four height 
+measurements used earlier. The mean height was $\meanY = 64.6$ inches.
+
+{\setlength{\LTcapwidth}{3.9in}\tablenumbers
+\begin{longtable}{@{}|C{0.75in}|C{0.75in}|C{1.25in}|C{0.75in}|@{}}
+\caption{Standard deviation for four random adult heights.\label{tab:height_sd}} \tabularnewline
+\hline
+Sample & $Y_i$ 	& $\left(Y_i-\meanY\right)$	& $\left(Y_i-\meanY\right)^2$ \tabularnewline[2ex]
+\hline
+1	&	66.0	&	1.4	& 1.96 \tabularnewline
+\hline
+2	&	68.7	&	4.1	& 16.81 \tabularnewline
+\hline
+3	&	64.2	&	$-$0.4	& 0.16 \tabularnewline
+\hline
+4	&	59.6	&	$-$5.0	& 25.0 \tabularnewline
+\hline
+
+\cellcolor{gray!20}&\cellcolor{gray!20}& $\textstyle\sum\left(Y_i-\meanY\right)^2$ & 43.93\tabularnewline[2ex]
+\hline
+\cellcolor{gray!20} &\cellcolor{gray!20}& $s^2 = \frac{\textstyle\sum\left(Y_i-\meanY\right)^2}{n-1}$ & 14.64\tabularnewline[3.5ex]
+\hline
+\cellcolor{gray!20}&\cellcolor{gray!20}& $s = \sqrt{\frac{\textstyle\sum\left(Y_i-\meanY\right)^2}{n-1}}$  & 3.83\tabularnewline[5ex]
+\hline
+\end{longtable}}
+
+
+\newpage
+
+\question
+Copy the widths $(Y_i)$ you measured for \popa{} from Table~\ref{corbicula_means} into Table~\ref{tab:sdA}. Calculate the standard deviation for \popa{}.
+
+\bigskip
+
+\Popa{}: $\meanY =$ \AnswerBlank{}
+
+\medskip
+
+{\setlength{\LTcapwidth}{4.85in}\tablenumbers
+\begin{longtable}{@{}|C{1in}|C{1in}|C{1.25in}|C{1.25in}|@{}}
+\caption{Standard deviation for \Corbicula{} shell widths from \popa{}.\label{tab:sdA}} \tabularnewline
+\hline
+Sample & $Y_i$ 	& $\left(Y_i-\meanY \right)$	& $\left(Y-\meanY \right)^2$ \tabularnewline[2ex]
+\hline
+1 & & & \tabularnewline[2ex]
+\hline
+2 & & & \tabularnewline[2ex]
+\hline
+3 & & & \tabularnewline[2ex]
+\hline
+4 & & & \tabularnewline[2ex]
+\hline
+5 & & & \tabularnewline[2ex]
+\hline
+6 & & & \tabularnewline[2ex]
+\hline
+7 & & & \tabularnewline[2ex]
+\hline
+8 & & & \tabularnewline[2ex]
+\hline
+9 & & & \tabularnewline[2ex]
+\hline
+10 & & & \tabularnewline[2ex]
+\hline
+11 & & & \tabularnewline[2ex]
+\hline
+12 & & & \tabularnewline[2ex]
+\hline
+13 & & & \tabularnewline[2ex]
+\hline
+14 & & & \tabularnewline[2ex]
+\hline
+15 & & & \tabularnewline[2ex]
+\hline
+\cellcolor{gray!20}&\cellcolor{gray!20}& $\textstyle\sum\left(Y_i-\meanY \right)^2$ & \tabularnewline[5ex]
+\hline
+\cellcolor{gray!20} &\cellcolor{gray!20}& $s^2 = \frac{\textstyle\sum\left(Y_i-\meanY\right)^2}{n-1}$ & \tabularnewline[5ex]
+\hline
+\cellcolor{gray!20}&\cellcolor{gray!20}& $s = \sqrt{\frac{\textstyle\sum\left(Y_i-\meanY\right)^2}{n-1}}$  & \tabularnewline[5ex]
+\hline
+\end{longtable}}
+
+\bigskip
+
+\question
+Write the mean shell width $\left(\meanY\right)$ for population \textsc{b}, and then calculate the standard deviation on a separate sheet of paper. Write the statistic below.
+
+\bigskip
+
+$\meanY =$  \AnswerBlank{} \qquad $s =$  \AnswerBlank{}
+
+\bigskip
+
+\question Which population of \Corbicula{} appears to have the greater variability? Explain.
+
+\AnswerBox{2\baselineskip}{Could be either.}
+
+\subsubsection*{Standard error of the mean}
+
+If you took another random sample of 15 shells from one of the populations, do you think you would get the same mean as your first sample (assuming you returned the first sample to the population)? What if you took four random samples?  Figure~\ref{fig:stderr} shows the distribution for a large population with a mean of 66.5 inches (the solid vertical line) and a standard deviation of 4.4 inches. Four samples of 15 individuals each were taken from the population, and the mean of each sample was plotted (dotted lines). None of the sampled means equal the actual population mean, due to the nature of random sampling.
+
+\hfil\begin{minipage}{0.8\textwidth}
+	\includegraphics[width=\textwidth]{09_standard_error}
+	\captionof{figure}{Means (dotted lines) from four independent samples of 15 individuals each from from a large population with a mean of 66.5 inches (solid line) and a standard deviation of 4.4 inches.\label{fig:stderr}}
+\end{minipage}\hfill
+
+\bigskip
+
+The sample mean is an \emph{estimate} of the true population mean but scientists 
+need to know the \emph{precision} of the estimated population mean. Precision 
+is measured by the \textbf{standard error.} More precise estimates have smaller 
+standard errors, so most estimates of the mean are probably close to the true population mean. Less precise estimates have larger standard errors, so more estimates of the mean are not as close to the true population mean. \emph{Precision tends to increase as sample size increases.} The formula to calculate the standard error of the mean\footnote{A standard error can be calculated for many statistics but it is most often calculated for the mean.} is
+
+\[ \mathrm{SE}_{\meansubY} = \frac{s}{\sqrt{n}}. \]
+
+The standard error is very important in statistics and research so you should 
+\emph{always} report the mean together with its standard error. 
+For example, earlier in this handout, the mean was calculated for four height measurements 
+of 66.0, 68.7, 64.2, and 59.6 inches, for which $\meanY = 64.6$ inches and $s=3.8$ inches. 
+The standard error is therefore
+
+\[	\mathrm{SE}_{\meansubY} = \frac{3.8}{\sqrt{4}} = 1.9\,\mathrm{inches} \]
+
+In a scientific study, or your lab reports, you would report the mean for those three values as $\meanY = 64.6 \pm 1.9$ inches.
+
+\question
+Calculate the standard error of the mean for each population of \textit{Corbicula.}
+
+\bigskip
+
+\Popa{}: $\mathrm{SE}_{\meansubY} =$  \AnswerBlank{} \qquad 
+\Popb{}: $\mathrm{SE}_{\meansubY} =$  \AnswerBlank{}
+
+\bigskip
+
+\subsubsection*{The t-test: comparing two population means}
+
+You now have the statistics necessary to test the null hypothesis that the two populations of \Corbicula{} do not differ by the width of their shells. Your calculated means may even be different. However, as you saw in the section on the standard error, the difference between your calculated means might be due to sampling differences; the populations may not actually differ in mean size at all.
+
+You will test your hypothesis with the two-sample \ttest{}.\footnote{The \ttest{} also has one-sample and paired sample versions.} The two-sample \ttest{} compares the means of two independent samples and tests whether they were taken from the same statistical population. Formally, you are testing the null hypothesis that the two populations of \Corbicula{} do \emph{not} differ by shell width. 
+
+\hspace*{1em} $H_0$: The two populations of \Corbicula{} do not differ in mean shell width.\\
+\hspace*{1em} $H_1$: The two populations of \Corbicula{} differ in mean shell width.
+
+If the null hypothesis $\left(H_0\right)$ is supported, then the populations do not differ by mean shell width. The research hypothesis $\left(H_1\right)$ would therefore be falsified. If the null hypothesis is falsified, then the populations do have different mean shell widths. The research hypothesis would therefore be supported.
+
+The formula for the two-sample \ttest{} with equal sample sizes\footnote{The variances are assumed to be equal.} is
+
+%\begin{equation*}
+%t = \dfrac{\meanY_1 - \meanY_2}{\sqrt{\dfrac{\sum{\left(Y_{i1} - \meanY_1\right)^2} + \sum{\left(Y_{i2} - \meanY_2\right)^2}}{n_1 + n_2 -2} \times \left[\dfrac{1}{n_1} + \dfrac{1}{n_2}\right]}}.
+%\end{equation*}
+
+\begin{equation*}
+t = \dfrac{\meanY_1 - \meanY_2}{\sqrt{\dfrac{\left(n_1 - 1\right)s_1^2 + \left(n_2 - 1\right)s_2^2}{n_1 + n_2 -2} \times \left[\dfrac{1}{n_1} + \dfrac{1}{n_2}\right]}}.
+\end{equation*}
+
+Holy crap! The formula looks daunting but you know every variable shown, and you have already performed most of these calculations. $\meanY_{i}$ represents the mean for each group, where the subscript $i$ indicates which group (e.g., \popa{} or \popb{}). It does not matter which population is group 1, as long as you are consistent throughout the analysis. $n_i$ is the sample size. $s^2$ is called the variance and is simply the standard deviation $\left(s\right)$ squared. (Look back at Table~\ref{tab:sdA} and you will see where you calculated the variance for \popa{}.) 
+
+The four person sample U.\,S.\ adult height used throughout this exercise had $\meanY = 64.6$ inches, $s = 3.8,$ and $n = 4.$ Assume the mean height for another random sample of four individuals was 67.3 inches with a standard deviation of 4.3 inches.
+
+Calculate the value of $t$ as follows.
+
+\begin{enumerate}
+
+\item Calculate the numerator,
+
+\begin{equation*}
+\meanY_1 - \meanY_2 = 64.6 - 67.3 = -2.7
+\end{equation*}
+
+\item Calculate the entire denominator, using the standard deviation for each population,
+
+\begin{equation*}
+	\begin{split}
+		\sqrt{\dfrac{\left(n_1 - 1\right)s_1^2 + \left(n_2 - 1\right)s_2^2}{n_1 + n_2 -2} \times \left[\dfrac{1}{n_1} + \dfrac{1}{n_2}\right]} = & \\
+%
+		\sqrt{\dfrac{\left(4 - 1\right)3.8^2 + \left(4 - 1\right)4.3^2}{4 + 4 - 2} \times \left[\dfrac{1}{4} + \dfrac{1}{4}\right]} = & \\
+%
+		\sqrt{\dfrac{\left(3 \times 14.44\right) + \left(3 \times18.49 \right)}{6} \times \dfrac{2}{4}} = & \\
+%
+		\sqrt{\dfrac{43.32 + 55.47}{6} \times 0.5} = & \\
+		\sqrt{8.23} = &\ 2.87.
+	\end{split}
+\end{equation*}
+
+\item Finally, divide the numerator by the denominator,
+
+\begin{equation*}
+	t = \frac{-2.7}{2.87} = -0.94
+\end{equation*}
+
+\end{enumerate}
+
+
+The negative $t$ value indicates the mean of the second group was larger than the first group but is otherwise not important. (What would a positive $t$ value indicate?) You compare your calculated $t$ value to a table of critical $t$ values to determine if the two means of the two populations are different. Such tables are provided in statistical books and online. You can find a small $t$ table on page \pageref{tab:ttable}. \emph{Disregard the negative sign.} Treat your $t$ value as if it was positive. 
+
+To find the proper $t$ value in the table, you must calculate the \emph{degrees of freedom} (df; explained on page~\pageref{degrees_freedom}) for your sample. Recall  when you calculated the standard deviation (pages~\pageref{tab:height_sd} and~\pageref{tab:sdA}), that you divided by $n-1$ during one step. That $n-1$ was the degrees of freedom. For the $t$-test, each sample had $n-1$ degrees of freedom but you sum them together for your total degrees of freedom. That was the $n_1 + n_2 -2$ component in the denominator of the formula to calculate $t$. In the height example, each sample had 4 measurements so the degrees of freedom for each sample is $4-1 = 3$. Therefore, the total degrees of freedom was $4 + 4 - 2 = 6$.
+
+\question
+What is the total degrees of freedom for your \Corbicula{} study? \bigskip
+
+Degrees of freedom:  \AnswerBlank{}
+
+\bigskip
+
+Find the critical value of $t$ for $\alpha = 0.05$ and the proper degrees of  freedom in the table on page~\pageref{tab:ttable}. 
+
+\question 
+What is the critical $t$ value for $\alpha = 0.05$ and the proper degrees of freedom?  \bigskip
+
+Critical \textit{t}: \AnswerBlank{}
+
+\bigskip
+
+\question
+Is the value of $t$ you calculated larger or smaller than the critical value of $t$?
+
+\AnswerBox{2\baselineskip}{Whatever}
+
+If your calculated $t$ value is smaller than the critical value in the table, then the populations are not different, and you would accept the null hypothesis. The observed differences are probably due to random sampling. If your calculated $t$ value is larger than the tabled value, then the two populations are different, and you reject the null hypothesis and accept the research hypothesis.
+
+\question
+Which hypothesis did you accept? Which hypothesis did you reject? Explain how you used your $t$ value and the table of critical $t$ values 
+
+
+
+
+
+
+\end{questions}
+
+
+\newpage
+
+\subsubsection*{Degrees of freedom (df)}\label{degrees_freedom}
+
+The simple way to think about degrees of freedom is the number of values used to calculate a statistic, minus any intermediate statistics that were used in the calculation. For example, when you calculated the standard deviation for one of your \Corbicula{} populations, you used 15 measurements. However, you had to subtract each observation from the mean, which you calculated previously. The mean was an intermediate statistic used to calculate the new statistic, standard deviation. That is why part of the formula was $n-1$ to account for the one intermediate statistic. 
+
+Degrees of freedom are good: more degrees of freedom increase the accuracy of the estimated parameter. Think of it in relation to sample size: larger sample size increases the degrees of freedom to estimate a parameter. If you used 100 individuals to estimate \Corbicula{} width instead of just 15, your estimate for mean shell width would be more accurate. Your estimates for $s$ and $\mathrm{SE}_{\meansubY}$ would also be more accurate. However, failure to account for the number of intermediate statistics would bias your estimates.
+
+The concept of degrees of freedom is somewhat difficult to fully understand without mathematical depth. You will not have to define degrees of freedom for an exam. Just recognize that degrees of freedom correct for bias and that when you see something like $n-1$ or $n-2$ in a formula, that is the degrees of freedom required for that statistic to correct for bias.
+
+
+\newpage
+
+\subsubsection*{The t distribution}
+
+\newsavebox\ltmcbox
+
+\begin{multicols}{2}
+
+Critical values of $t$ are sampled from a $t$~distribution (Fig.~\ref{fig:t_distribution}). The distribution looks like a normal distribution but the shape  changes slightly with degrees of freedom. The mean value of $t$ is always zero. $t$~values close to zero means the two groups were probably sampled from the same statistical population. $t$~values farther from zero means the two groups are less likely to belong to the same statistical population. For each value of $\alpha$ and degree of freedom, there is a \emph{critical value} of~$t$, above which the null hypothesis is rejected. The critical value of $t$~for $\alpha = 0.05$ and 6~degrees of freedom is 2.45 (Table~\ref{tab:ttable}), corresponding to the area of the distribution that has a low probability of yielding your data when the null hypothesis is true (Fig.~\ref{fig:t_distribution}).  A calculated $t$~value larger than 2.45 or lower than $-$2.45 (the shaded areas) means the two groups are different and not due to random effects.
+
+\columnbreak
+
+\setbox\ltmcbox\vbox{
+\makeatletter\col@number\@ne
+{\setlength{\LTcapwidth}{2.2in}\tablenumbers
+\begin{longtable}{@{}R{0.35in}R{0.35in}R{0.35in}R{0.35in}R{0.35in}@{}}
+\caption{Critical values of $t$ for two- tailed tests. Disregard negative signs.\label{tab:ttable}} \tabularnewline
+\toprule
+ & \multicolumn{4}{c}{$\alpha$} \\
+ \cmidrule(l){2-5}
+df & 0.10 & 0.05 & 0.02 & 0.01 \tabularnewline
+\midrule
+1 & 6.31 & 12.71 & 31.82 & 63.66 \tabularnewline
+2 & 2.92 & 4.30 & 6.96 & 9.92 \tabularnewline
+3 & 2.35 & 3.18 & 4.54 & 5.84 \tabularnewline
+4 & 2.13 & 2.78 & 3.75 & 4.60 \tabularnewline
+5 & 2.02 & 2.57 & 3.36 & 4.03 \tabularnewline
+6 & 1.94 & \textbf{2.45} & 3.14 & 3.71 \tabularnewline
+7 & 1.89 & 2.36 & 3.00 & 3.50 \tabularnewline
+8 & 1.86 & 2.31 & 2.90 & 3.36 \tabularnewline
+9 & 1.83 & 2.26 & 2.82 & 3.25 \tabularnewline
+10 & 1.81 & 2.23 & 2.76 & 3.17 \tabularnewline
+\dots & & & & \tabularnewline
+%20 & 1.72 & 2.09 & 2.53 & 2.85 \tabularnewline
+21 & 1.72 & 2.08 & 2.52 & 2.83 \tabularnewline
+22 & 1.72 & 2.07 & 2.51 & 2.82 \tabularnewline
+23 & 1.71 & 2.07 & 2.50 & 2.81 \tabularnewline
+24 & 1.71 & 2.06 & 2.49 & 2.80 \tabularnewline
+25 & 1.71 & 2.06 & 2.49 & 2.79 \tabularnewline
+26 & 1.71 & 2.06 & 2.48 & 2.78 \tabularnewline
+27 & 1.70 & 2.05 & 2.47 & 2.77 \tabularnewline
+28 & 1.70 & 2.05 & 2.47 & 2.76 \tabularnewline
+29 & 1.70 & 2.05 & 2.46 & 2.76 \tabularnewline
+30 & 1.70 & 2.04 & 2.46 & 2.75 \tabularnewline
+\bottomrule
+\end{longtable}}
+\unskip
+\unpenalty
+\unpenalty}
+\unvbox\ltmcbox
+
+\end{multicols}
+
+\bigskip
+
+\hfil\begin{minipage}{0.8\textwidth}
+	\includegraphics[width=\columnwidth]{09_t_distribution}
+	\captionof{figure}{$t$ distribution for $\alpha = 0.05$ and 6 degrees of freedom.\label{fig:t_distribution}}
+\end{minipage}\hfill
+
+\end{document}  
