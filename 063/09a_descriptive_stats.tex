@@ -2,6 +2,11 @@
 %!TEX encoding = UTF-8 Unicode
 
 \documentclass[12pt]{exam}
+
+
+%\printanswers
+
+
 \usepackage{graphicx}
 	\graphicspath{{/Users/goby/Pictures/teach/163/lab/}
 	{img/}} % set of paths to search for images
@@ -119,9 +124,6 @@
 %\def\SetTotalwidth{\advance\linewidth by \@totalleftmargin
 %\@totalleftmargin=0pt}
 %\makeatother
-
-
-%\printanswers
 
 
 \begin{document}
@@ -623,15 +625,18 @@ standard errors, so most estimates of the mean are probably close to the true po
 
 \[ \mathrm{SE}_{\meansubY} = \frac{s}{\sqrt{n}}. \]
 
-The standard error is very important in statistics and research so you should 
-\emph{always} report the mean together with its standard error. 
+%The standard error is very important in statistics and research so you should 
+%\emph{always} report the mean together with its standard error. 
+The mean must always be reported with a measure of variability, such as the standard error
+or the standard deviation. The choice depends on whether you are interested in the precision 
+%of the population estimate (standard error) or the variability within the sample (standard deviation).
 For example, earlier in this handout, the mean was calculated for four height measurements 
 of 66.0, 68.7, 64.2, and 59.6 inches, for which $\meanY = 64.6$ inches and $s=3.8$ inches. 
 The standard error is therefore
 
 \[	\mathrm{SE}_{\meansubY} = \frac{3.8}{\sqrt{4}} = 1.9\,\mathrm{inches} \]
 
-In a scientific study, or your lab reports, you would report the mean for those three values as $\meanY = 64.6 \pm 1.9$ inches.
+If the interest of your study was variability of the population mean, then you would report the mean for those three values as $\meanY = 64.6 \pm 1.9$ inches. If the interest of your study was variation \emph{within} the population, then you would report the mean as $\meanY = 64.6 \pm 3.8$ inches. 
 
 \question
 Calculate the standard error of the mean for each population of \textit{Corbicula.}
@@ -641,7 +646,7 @@ Calculate the standard error of the mean for each population of \textit{Corbicul
 \Popa{}: $\mathrm{SE}_{\meansubY} =$  \AnswerBlank{} \qquad 
 \Popb{}: $\mathrm{SE}_{\meansubY} =$  \AnswerBlank{}
 
-\bigskip
+%\bigskip
 
 \subsubsection*{The t-test: comparing two population means}
 
@@ -693,6 +698,8 @@ Calculate the value of $t$ as follows.
 	\end{split}
 \end{equation*}
 
+\newpage
+
 \item Finally, divide the numerator by the denominator,
 
 \begin{equation*}
@@ -729,10 +736,12 @@ Is the value of $t$ you calculated larger or smaller than the critical value of 
 
 If your calculated $t$ value is smaller than the critical value in the table, then the populations are not different, and you would accept the null hypothesis. The observed differences are probably due to random sampling. If your calculated $t$ value is larger than the tabled value, then the two populations are different, and you reject the null hypothesis and accept the research hypothesis.
 
+\newpage
+
 \question
 Which hypothesis did you accept? Which hypothesis did you reject? Explain how you used your $t$ value and the table of critical $t$ values 
 
-
+\AnswerBox{6\baselineskip}{Whatever}
 
 
 
@@ -740,7 +749,6 @@ Which hypothesis did you accept? Which hypothesis did you reject? Explain how yo
 \end{questions}
 
 
-\newpage
 
 \subsubsection*{Degrees of freedom (df)}\label{degrees_freedom}
 
@@ -748,7 +756,7 @@ The simple way to think about degrees of freedom is the number of values used to
 
 Degrees of freedom are good: more degrees of freedom increase the accuracy of the estimated parameter. Think of it in relation to sample size: larger sample size increases the degrees of freedom to estimate a parameter. If you used 100 individuals to estimate \Corbicula{} width instead of just 15, your estimate for mean shell width would be more accurate. Your estimates for $s$ and $\mathrm{SE}_{\meansubY}$ would also be more accurate. However, failure to account for the number of intermediate statistics would bias your estimates.
 
-The concept of degrees of freedom is somewhat difficult to fully understand without mathematical depth. You will not have to define degrees of freedom for an exam. Just recognize that degrees of freedom correct for bias and that when you see something like $n-1$ or $n-2$ in a formula, that is the degrees of freedom required for that statistic to correct for bias.
+The concept of degrees of freedom is somewhat difficult to understand fully without mathematical depth. You will not have to define degrees of freedom for an exam. Just recognize that degrees of freedom correct for bias and that when you see something like $n-1$ or $n-2$ in a formula, that is the degrees of freedom required for that statistic to correct for bias.
 
 
 \newpage
