@@ -1,0 +1,245 @@
+%!TEX TS-program = lualatex
+%!TEX encoding = UTF-8 Unicode
+
+\documentclass[t]{beamer}
+
+%%%% HANDOUTS For online Uncomment the following four lines for handout
+%\documentclass[t,handout]{beamer}  %Use this for handouts.
+%\usepackage{handoutWithNotes}
+%\pgfpagesuselayout{3 on 1 with notes}[letterpaper,border shrink=5mm]
+
+
+%%% Including only some slides for students.
+%%% Uncomment the following line. For the slides,
+%%% use the labels shown below the command.
+%\includeonlylecture{student}
+
+%% For students, use \lecture{student}{student}
+%% For mine, use \lecture{instructor}{instructor}
+
+
+%\usepackage{pgf,pgfpages}
+%\pgfpagesuselayout{4 on 1}[letterpaper,border shrink=5mm]
+
+% FONTS
+\usepackage{fontspec}
+\def\mainfont{Linux Biolinum O}
+\setmainfont[Ligatures={Common,TeX}, Contextuals={NoAlternate}, BoldFont={* Bold}, ItalicFont={* Italic}, Numbers={OldStyle, Proportional}]{\mainfont}
+\setsansfont[Scale=MatchLowercase, Numbers=OldStyle]{Linux Biolinum O} 
+\usepackage{microtype}
+
+\usepackage{unicode-math}
+\setmathfont[Scale=MatchLowercase]{TeX Gyre Termes Math}
+
+\usepackage{graphicx}
+	\graphicspath{{/Users/goby/pictures/teach/163/lecture/}
+	{/Users/goby/pictures/teach/163/lab/}} % set of paths to search for images
+
+\usepackage{amssymb, amsmath}
+\usepackage{mathtools}
+	\everymath{\displaystyle}
+
+%\usepackage{units}
+\usepackage{booktabs}
+%\usepackage{textcomp}
+
+\usepackage{tikz}
+%	\tikzstyle{every picture}+=[remember picture,overlay]
+
+\mode<presentation>
+{
+  \usetheme{Lecture}
+  \setbeamercovered{invisible}
+%  \setbeamertemplate{items}[square]
+}
+
+\usefonttheme[onlymath]{serif}
+\newcommand*\meanY{\overline{Y\kern1.67pt}\kern-1.67pt}
+\newcommand*\meansubY{\overline{Y}}
+
+\begin{document}
+
+\lecture{student}{student}
+
+\begin{frame}[t]{Our goals for this lab are to learn}
+
+	\hangpara the difference between null and research hypotheses,
+		
+	\hangpara the difference between explanatory and response variables,
+	
+	\hangpara how to calculate the mean, standard deviation, and standard error for a sample,
+	
+	\hangpara how to use a $t$-test to test your hypotheses.
+	
+\end{frame}
+%
+\begin{frame}{\highlight{Carefully and thoroughly} study the lab handout. On an exam, you might be asked to}
+
+\hangpara write null and research hypotheses,
+
+\hangpara identify explanatory and response variables,
+
+\hangpara calculate one or more descriptive statistics, and
+
+\hangpara interpret a $t$-test to decide whether to accept or reject a null hypothesis.
+
+\hangpara We might even ask questions about the lecture material!
+
+\end{frame}
+%
+\begin{frame}{\highlight{Hypothesis testing} uses data sampled from one or more populations to make inferences about those populations}
+
+\hangpara  \highlight{Null hypothesis:} There is \emph{no} difference between between populations or samples. 	Any differences are probably due to natural variation and other random effects. 
+	
+\hangpara  \highlight{Research hypothesis:} There \emph{is} a difference between populations or samples. Or, changing a variable will affect the population(s). Any differences are probably not random
+	and have a biological explanation. 
+	
+\end{frame}
+%
+\begin{frame}{Scientists usually manipulate and measure variables.}
+
+\hangpara  \highlight{Explanatory variable:} a manipulated or controlled variable in an experiment
+  or study whose presence or degree determines a change in the response
+  variable.  
+	
+\hangpara  \highlight{Response hypothesis:} an observed variable in an experiment or
+  study that changes in response to the presence or degree of one
+  or more explanatory variables.  
+	
+\end{frame}
+%
+\begin{frame}[t]{Take 15 minutes to read the experiment on pages 2–3 and answers questions 1–6.}
+
+\end{frame}
+%
+\begin{frame}[t]{\highlight{Descriptive statistics} are numbers that summarize data and estimate population parameters.}
+
+\hangpara Common descriptive statistics include the:
+
+\hangpara \hspace{1em} \highlight{mean,}
+
+\hangpara \hspace{1em} \highlight{standard deviation,} and
+
+\hangpara \hspace{1em} \highlight{standard error.}
+
+\end{frame}
+%
+\begin{frame}{\highlight{Hypothesis testing} asks whether the data sampled would be expected under a specific null hypothesis.}
+
+\end{frame}
+%
+{
+%\usebackgroundtemplate{\includegraphics[width=\paperwidth]{09_normal_curve}}
+\begin{frame}[t]{The arithmetic \highlight{mean} is a measure of central tendency in the data.}
+
+	\vspace*{-\baselineskip}
+	
+	{\centering 
+	\includegraphics[width=\textwidth]{09_normal_distribution} \par
+	}
+	
+	\hangpara The U.S. adult population height: $\meanY = 66.5 \pm 4.43$ inches.
+	
+\end{frame}
+}
+%
+\begin{frame}[t]{The formula to calculate the mean $\left(\meanY\kern1.67pt\right)$ of a sample is}
+
+{\Large
+\[ \meanY = \frac{\sum\limits^n_{i=1} Y_i}{n} \]
+}
+
+\pause\hangpara e.g.,
+
+\[ \meanY = \frac{66.0 + 68.7 + 64.2 + 59.6}{4} = 64.6\,\mathrm{inches.} \]
+
+\end{frame}
+%
+\begin{frame}[t]{The \highlight{standard deviation} is a measure of variability \emph{within} the data.}
+
+	\vspace*{-0.5\baselineskip}
+	
+	{\centering 
+	\includegraphics[width=\textwidth]{09_standard_deviation} \par
+	}
+	
+	\hangpara U.S. adult height: $\meanY = 66.5 \pm 2$ inches (left) or $ \pm\ 8$ inches (right). 
+	
+\end{frame}
+%
+\begin{frame}[t]{The formula to calculate the standard deviation $(s)$ of a sample is}
+
+{\Large
+\[ s = \sqrt{\frac{\sum\left(Y_i - \meanY\kern1.67pt\right)^2}{n-1}} \]
+}
+
+\hangpara The standard deviation tells how far on average any
+\emph{one} measurement is from the mean of \emph{all} measurements in 
+the data. 
+
+\end{frame}
+%
+\begin{frame}[t]{The \highlight{standard error} is a measure of variability of the estimated mean.}
+
+	\vspace*{-\baselineskip}
+	
+	{\centering 
+	\includegraphics[width=\textwidth]{09_standard_error} \par
+	}
+	
+	\hangpara Repeated samples yield different means due to random sampling. 
+	
+\end{frame}
+%
+\begin{frame}[t]{The formula to calculate the standard error of the mean for a sample is}
+
+{\Large
+\[ \mathrm{SE}_{\meansubY} = \frac{s}{\sqrt{n}} \]
+}
+
+\hangpara Larger sample sizes increase the precision of the estimated mean.
+
+\end{frame}
+%
+%
+\begin{frame}[t]{\highlight{Hypothesis testing} asks whether the sampled data would be expected under a specific null hypothesis.}
+
+	\vspace{-\baselineskip}
+	
+	{\centering
+	\includegraphics[height=0.85\textheight]{09_adult_height}\par
+	}
+
+\end{frame}
+%
+\begin{frame}[t]{The null hypothesis is that male and female height were sampled from the same statistical population.}
+
+	\vspace{-\baselineskip}
+
+	{\centering
+	\includegraphics[height=0.85\textheight]{09_adult_height_male_female}\par
+	}
+
+\end{frame}
+%
+\begin{frame}{The $t$-test determines if the means of two independent samples  were taken from the same statistical population.}
+
+	\vspace{-\baselineskip}
+	
+	{\centering
+	\includegraphics[width=\textwidth]{09_t_distrib}\par
+	}
+
+\end{frame}
+%
+\begin{frame}[t]{The formula for the $t$-test is}
+
+\begin{equation*}
+t = \dfrac{\meanY_1 - \meanY_2}{\sqrt{\dfrac{\left(n_1 - 1\right)s_1^2 + \left(n_2 - 1\right)s_2^2}{n_1 + n_2 -2} \times \left[\dfrac{1}{n_1} + \dfrac{1}{n_2}\right]}}
+\end{equation*}
+
+\end{frame}
+%
+
+
+\end{document}
