@@ -130,33 +130,53 @@
 
 \subsection*{The $t$-test in Excel}
 
-The $t$-test is relatively simple to calculate by hand but would quickly grow tedious if you had a large dataset to analyze. Fortunately, you can analyze a dataset with a $t$-test easily in Excel. Excel provides several functions for the $t$-test. You will use two of those functions, and another function to calculate degrees of freedom.
+The $t$-test is relatively simple to calculate by hand but would quickly grow tedious if you had a large dataset to analyze. Fortunately, you can analyze a dataset with a $t$-test easily in Excel. Excel provides several functions for the $t$-test. You will use two of those functions, and a few other functions to calculate degrees of freedom and to cross check your earlier results.
 
 \emph{Perform these steps exactly as described. Failure to follow these instructions could result in failure to earn your points for this lab.} 
 
 \begin{enumerate}
 	\item Type "\Popa" into \xcell{B1}. Type "\Popb" into \xcell{C1}.
 
-	\item Enter your measurements for shell width \emph{from the previous exercise} for \Popa{} into cells {\liningnum B2 through B16}. Enter one measurement per cell.
+	\item Enter your measurements for shell width \emph{from the earlier part of this exercise} for \Popa{} into cells {\liningnum B2 through B16}. Enter one measurement per cell.
 	
 	\item Enter your measurements for shell width for \Popb{} into cells {\liningnum C2 through C16}.
 	
 	\item Enter "Deg. Freedom" in \xcell{A18}.
+
+	\item Enter "Variance" in \xcell{A19}.
 	
-	\item Enter "$p$-value" in \xcell{A19}.
+	\item Enter "Std. Dev." in \xcell{A20}.
+
+	\item Enter "$p$-value" in \xcell{A21}.
 	
-	\item Enter "$t$-value" in \xcell{A20}.
+	\item Enter "$t$-value" in \xcell{A22}.
 	 
 \end{enumerate}
 
 \subsubsection*{Degrees of freedom}
 
-One of the Excel functions you need to perform the $t$-test requires the degrees of freedom. Recall from the previous exercise that degrees of freedom is $n-1$ \emph{for each population.} You know your sample size is 15 individuals from each population so the total sample size is 30 individuals. You must subtract 1 degree of freedom for each population so the total degrees of freedom is 28. You will use Excel's \texttt{COUNT{}} function to count the number of individuals.
+One of the Excel functions you need to perform the $t$-test requires the degrees of freedom. Recall from the previous exercise that degrees of freedom is $n-1$ \emph{for each population.} The \texttt{COUNT()} function counts the number of cells selected. You are using the \texttt{COUNT()} function to count the number of individuals sampled. You must subtract 1 degree of freedom for each population.
 
 
 \begin{enumerate}[resume]
 
-	\item \label{df_calc} Click on cell \xcell{B18}. Enter \texttt{=COUNT(B2:C16)-2} and press Enter. If the result is not 28, check that you entered the formula correctly, or ask your instructor for help.
+	\item \label{df_calc} Click on \xcell{B18}. Enter \texttt{=COUNT(B2:B16)-1} and press Enter. Click on \xcell{C18}. Enter \texttt{=COUNT(C2:C16)-1} and press Enter. If the result is not 14 for each entry, check that you entered the formula correctly, or ask your instructor for help.
+	
+\end{enumerate}
+
+\subsection*{Variance and standard deviation}
+
+In the earlier part of this exercise, you calculated the variance and the standard deviation. The $t$-test uses the variance and the \texttt{T.TEST()} function in Excel includes the variance automatically. Here, you will use the \texttt{VAR()} and \texttt{STDEV()} functions in Excel as a check of your math. The values you get from these functions should match the values you calculated earlier.  If they do not, then you should double check your math before proceeding.
+
+\begin{enumerate}[resume]
+
+	\item Click on \xcell{B19}. Type \texttt{=VAR(B2:B16)} and press Enter. Click on \xcell{C19}. Type \texttt{=VAR(C2:C16)} and press Enter. 
+
+	\item Click on \xcell{B20}. Type \texttt{=STDEV.S(B2:B16)} and press Enter. Click on \xcell{C20}. Type \texttt{=STDEV.S(C2:C16)} and press Enter. 
+	
+		If you get a \texttt{\#NAME} error, use \texttt{STDEV()} instead, without the \texttt{.S}. You will get the same result. The \texttt{\#NAME} error may occur if you are using an older version of Excel. 
+		
+		\textbf{Important:} Check that the standard deviation $\left(s\right)$ here is the same value you calculated be hand. If they disagree, then you will have incorrectly calculated the $t$ value by hand. Double check your math and be sure you have the same result before proceding.
 	
 \end{enumerate}
 
@@ -165,7 +185,7 @@ One of the Excel functions you need to perform the $t$-test requires the degrees
 Excel provides two functions to perform a $t$-test. The first function you will use is \texttt{T.TEST(),} which returns the \emph{p}-value (probability) that you would have obtained your data assuming the null hypothesis is true. That is, the function returns the probability that the two samples are from the same population (have the same mean).  The format for the Excel function is \texttt{T.TEST(array1, array2, tails, type)}. \texttt{Array1} is your first sample (\Popa, cells {\liningnum B2:B16} in this case) and \texttt{array2} is your second sample (\Popb, cells {\liningnum C2:C16}). \texttt{Tails} can be either 1 or 2, which refers to whether you are doing a one-sided or two-sided test. You are doing a two-sided test because your research hypothesis is that the two populations have different shell widths. One population could be larger \emph{or} smaller than the other, so $t$ could be positive or negative (the two tails). If you made a specific prediction about shell width, such as \popb{} had a smaller shell width than \popa, then you would use a one-tailed test. Here, use a two-tailed test.  \texttt{Type} can be 1, 2, or 3. We performed a type~2 test, which specifies the two samples have equal variance. The other types are type~1 (paired samples) and type~3 (the two samples have unequal variance).
 
 \begin{enumerate}[resume]
-	\item To calculate the probability using the \texttt{T.TEST()} function, click in \xcell{B19} and enter\\ \texttt{=T.TEST(B2:B16,C2:C16,2,2)}. 
+	\item To calculate the probability using the \texttt{T.TEST()} function, click in \xcell{B21} and enter\\ \texttt{=T.TEST(B2:B16,C2:C16,2,2)}. 
 	
 	If you get a \texttt{\#NAME} error, use \texttt{TTEST()} instead, without the period. You will get the same result. The \texttt{\#NAME} error may occur if you are using an older version of Excel. 
 
@@ -176,7 +196,7 @@ Excel provides two functions to perform a $t$-test. The first function you will 
 The second function you need is \texttt{T.INV.2T(),} which gives you the actual $t$ value. This function needs the degrees of freedom and the $p$-value returned by \texttt{T.TEST()}, which is why you did those steps first. The format for the second function is \texttt{T.INV.2T(probability, deg\_freedom)}. \texttt{Probability} is the exact $p$-value returned by the \texttt{T.TEST()} function. Degrees of freedom is the value you calculated in step~\textsc{\ref{df_calc}} This returns the $t$ value for a 2-tailed test (which is the \texttt{.2T} part of the function name).
 
 \begin{enumerate}[resume]
-	\item Click on \xcell{B20} and enter \texttt{=T.INV.2T(B19,B18)}. You could enter 28 for degrees of freedom but do not. What if you added more data? You would have to manually edit all of your formulas. By properly using cells references, your calculations are automatically adjusted. 
+	\item Click on \xcell{B21} and enter \texttt{=T.INV.2T(B20,(B18+C18-2))}. You could enter 28 for degrees of freedom but do not. What if you added more data? You would have to manually edit all of your formulas. By properly using cells references, your calculations are automatically adjusted. 
 	
 	If you get a \texttt{\#NAME} error, use \texttt{TINV()} instead, without the period or \texttt{2T}. You will get the same result. The \texttt{\#NAME} error may occur if you are using an older version of Excel. 
 \end{enumerate}
