@@ -39,9 +39,14 @@
 \usepackage{mathtools}
 	\everymath{\displaystyle}
 
-%\usepackage{units}
+\usepackage{multicol}
+\usepackage{longtable}
 \usepackage{booktabs}
 %\usepackage{textcomp}
+\usepackage{array}
+\newcolumntype{L}[1]{>{\raggedright\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+\newcolumntype{C}[1]{>{\centering\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+\newcolumntype{R}[1]{>{\raggedleft\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
 
 \usepackage{tikz}
 %	\tikzstyle{every picture}+=[remember picture,overlay]
@@ -50,7 +55,7 @@
 {
   \usetheme{Lecture}
   \setbeamercovered{invisible}
-%  \setbeamertemplate{items}[square]
+  \setbeamertemplate{items}[default]
 }
 
 \usefonttheme[onlymath]{serif}
@@ -108,7 +113,7 @@
 	
 \end{frame}
 %
-\begin{frame}[t]{Take 15 minutes to read the experiment on pages 2–3 and answers questions 1–6.}
+\begin{frame}[t]{Take 10–15 minutes to read the experiment on pages 2–3 and answers questions 1–6.}
 
 \end{frame}
 %
@@ -124,15 +129,11 @@
 
 \end{frame}
 %
-\begin{frame}{\highlight{Hypothesis testing} asks whether the data sampled would be expected under a specific null hypothesis.}
-
-\end{frame}
-%
 {
 %\usebackgroundtemplate{\includegraphics[width=\paperwidth]{09_normal_curve}}
-\begin{frame}[t]{The arithmetic \highlight{mean} is a measure of central tendency in the data.}
+\begin{frame}[t]{The arithmetic \highlight{mean} $\left(\meanY\kern1.67pt\right)$ is a measure of central tendency in the data.}
 
-	\vspace*{-\baselineskip}
+	\vspace*{-0.5\baselineskip}
 	
 	{\centering 
 	\includegraphics[width=\textwidth]{09_normal_distribution} \par
@@ -204,7 +205,7 @@ the data.
 %
 \begin{frame}[t]{\highlight{Hypothesis testing} asks whether the sampled data would be expected under a specific null hypothesis.}
 
-	\vspace{-\baselineskip}
+	\vspace{-0.5\baselineskip}
 	
 	{\centering
 	\includegraphics[height=0.85\textheight]{09_adult_height}\par
@@ -214,7 +215,7 @@ the data.
 %
 \begin{frame}[t]{The null hypothesis is that male and female height were sampled from the same statistical population.}
 
-	\vspace{-\baselineskip}
+	\vspace{-0.5\baselineskip}
 
 	{\centering
 	\includegraphics[height=0.85\textheight]{09_adult_height_male_female}\par
@@ -224,7 +225,46 @@ the data.
 %
 \begin{frame}{The $t$-test determines if the means of two independent samples  were taken from the same statistical population.}
 
-	\vspace{-\baselineskip}
+\begin{equation*}
+t = \dfrac{\meanY_1 - \meanY_2}{\sqrt{\dfrac{\left(n_1 - 1\right)s_1^2 + \left(n_2 - 1\right)s_2^2}{n_1 + n_2 -2} \times \left[\dfrac{1}{n_1} + \dfrac{1}{n_2}\right]}}
+\end{equation*}
+
+\pause\vspace{\baselineskip}
+
+\hangpara Don't panic! You will have calculated the values needed for this formula.
+
+\end{frame}
+%
+
+\begin{frame}[t]{The $t$ value is compared to values in a table.}
+
+%\hangpara Assume you measured heights for two samples of 4 adults each.
+
+\begin{longtable}{@{}R{0.35in}R{0.35in}R{0.35in}R{0.35in}R{0.35in}@{}}
+\toprule
+ & \multicolumn{4}{c}{$\alpha$} \\
+ \cmidrule(l){2-5}
+df & 0.10 & 0.05 & 0.02 & 0.01 \tabularnewline
+\midrule
+1 & 6.31 & 12.71 & 31.82 & 63.66 \tabularnewline
+2 & 2.92 & 4.30 & 6.96 & 9.92 \tabularnewline
+3 & 2.35 & 3.18 & 4.54 & 5.84 \tabularnewline
+4 & 2.13 & 2.78 & 3.75 & 4.60 \tabularnewline
+5 & 2.02 & 2.57 & 3.36 & 4.03 \tabularnewline
+6 & 1.94 & \textbf{2.45} & 3.14 & 3.71 \tabularnewline
+7 & 1.89 & 2.36 & 3.00 & 3.50 \tabularnewline
+8 & 1.86 & 2.31 & 2.90 & 3.36 \tabularnewline
+9 & 1.83 & 2.26 & 2.82 & 3.25 \tabularnewline
+10 & 1.81 & 2.23 & 2.76 & 3.17 \tabularnewline
+\bottomrule
+\end{longtable}
+
+\end{frame}
+
+
+\begin{frame}[t]{Calculated $t$ values larger than the tabled values indicate differences among your groups.}
+
+%	\vspace{-\baselineskip}
 	
 	{\centering
 	\includegraphics[width=\textwidth]{09_t_distrib}\par
@@ -232,14 +272,18 @@ the data.
 
 \end{frame}
 %
-\begin{frame}[t]{The formula for the $t$-test is}
 
-\begin{equation*}
-t = \dfrac{\meanY_1 - \meanY_2}{\sqrt{\dfrac{\left(n_1 - 1\right)s_1^2 + \left(n_2 - 1\right)s_2^2}{n_1 + n_2 -2} \times \left[\dfrac{1}{n_1} + \dfrac{1}{n_2}\right]}}
-\end{equation*}
+\begin{frame}[t]{Today's procedure:}
+
+	\hangpara Write null and research hypotheses about shell widths for two populations of Asian clams. Identify the explanatory and response variables.
+	
+	\hangpara Each pair of students will measure the mean shell width for two populations of Asian clams. Measure 15 individuals from each population. 
+	
+	\hangpara Calculate descriptive statistics: mean, standard deviation, and standard error.
+	
+	\hangpara Perform a $t$-test to test your hypothesis.
+	
 
 \end{frame}
-%
-
 
 \end{document}
