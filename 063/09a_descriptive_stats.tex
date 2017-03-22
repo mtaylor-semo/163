@@ -688,7 +688,7 @@ Calculate the value of $t$ as follows.
 \meanY_1 - \meanY_2 = 64.6 - 67.3 = -2.7
 \end{equation*}
 
-\item Calculate the entire denominator, using the standard deviation for each population,
+\item Calculate the entire denominator, using the variance ($s^2$, standard deviation squared) for each population,
 
 \begin{equation*}
 	\begin{split}
@@ -713,24 +713,31 @@ Calculate the value of $t$ as follows.
 
 \end{enumerate}
 
-
-The negative $t$ value indicates the mean of the second group was larger than the first group but is otherwise not important. (What would a positive $t$ value indicate?) You compare your calculated $t$ value to a table of critical $t$ values to determine if the two means of the two populations are different. Such tables are provided in statistical books and online. You can find a small $t$ table on page \pageref{tab:ttable}. \emph{Disregard the negative sign.} Treat your $t$ value as if it was positive. 
-
-To find the proper $t$ value in the table, you must calculate the \emph{degrees of freedom} (df; explained on page~\pageref{degrees_freedom}) for your sample. Recall  when you calculated the standard deviation (pages~\pageref{tab:height_sd} and~\pageref{tab:sdA}), that you divided by $n-1$ during one step. That $n-1$ was the degrees of freedom. For the $t$-test, each sample had $n-1$ degrees of freedom but you sum them together for your total degrees of freedom. That was the $n_1 + n_2 -2$ component in the denominator of the formula to calculate $t$. In the height example, each sample had 4 measurements so the degrees of freedom for each sample is $4-1 = 3$. Therefore, the total degrees of freedom was $4 + 4 - 2 = 6$.
+The negative $t$ value indicates the mean of the second group was larger than the first group but is otherwise not important. (What would a positive $t$ value indicate?) 
 
 \question
-What is the total degrees of freedom for your \Corbicula{} study? \bigskip
+What is the $t$ value that you calculated for the \Corbicula{} populations?\label{final_t_value} \bigskip
+
+$t$-value:  \AnswerBlank{}
+
+\bigskip
+
+Next, calculate the \emph{degrees of freedom} (df; explained on page~\pageref{degrees_freedom}) for your sample. Recall  when you calculated the standard deviation (pages~\pageref{tab:height_sd} and~\pageref{tab:sdA}), that you divided by $n-1$ during one step. That $n-1$ was the degrees of freedom. For the $t$-test, each sample had $n-1$ degrees of freedom but you sum them together for your total degrees of freedom. That i the $n_1 + n_2 -2$ component in the denominator of the formula to calculate $t$. In the height example, each sample had 4 measurements so the degrees of freedom for each sample is $4-1 = 3$. Therefore, the total degrees of freedom was $4 + 4 - 2 = 6$.
+
+\question
+What is the total degrees of freedom for your \Corbicula{} study? Read the preceding paragraph to learn how to calculate degrees of freedom.\bigskip
 
 Degrees of freedom:  \AnswerBlank{}
 
 \bigskip
 
-Find the critical value of $t$ for $\alpha = 0.05$ and the proper degrees of  freedom in the table on page~\pageref{tab:ttable}. 
+
+Finally, compare your calculated $t$ value to a table of critical $t$ values to determine if the means of the two populations are different. Such tables are provided in statistical books and online. Find the critical value of $t$ for $\alpha = 0.05$ and the proper degrees of  freedom in the table on page~\pageref{tab:ttable}. Look for the row with the proper degrees of freedom and find where it intersects with $\alpha = 0.05$. That is the critical $t$ value. Treat your $t$ value as if it was positive. \emph{Disregard the negative sign.}  
 
 \question 
-What is the critical $t$ value for $\alpha = 0.05$ and the proper degrees of freedom?  \bigskip
+What is the critical $t$ value for $\alpha = 0.05$ and the proper degrees of freedom? Read the preceding paragraph to learn how to find the critical value of $t$ in the table. \bigskip
 
-Critical \textit{t}: \AnswerBlank{}
+Critical \textit{t}: \AnswerBlank{}  The $t$ value you calculated above (Question~\ref{final_t_value}) is \emph{not} the critical $t$ value.
 
 \bigskip
 
@@ -741,7 +748,6 @@ Is the value of $t$ you calculated larger or smaller than the critical value of 
 
 If your calculated $t$ value is smaller than the critical value in the table, then the populations are not different, and you would accept the null hypothesis. The observed differences are probably due to random sampling. If your calculated $t$ value is larger than the tabled value, then the two populations are different, and you reject the null hypothesis and accept the research hypothesis.
 
-\newpage
 
 \question
 Which hypothesis did you accept? Which hypothesis did you reject? Explain how you used your $t$ value and the table of critical $t$ values 
