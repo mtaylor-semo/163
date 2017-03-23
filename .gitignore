@@ -37,6 +37,7 @@
 *.wmf
 *.zip
 *.txt
+*.Rhistory
 .DS_Store
 
 ## Folders
