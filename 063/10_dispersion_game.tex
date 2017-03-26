@@ -18,6 +18,7 @@
 \setmainfont[Ligatures={TeX}, BoldFont={* Bold}, ItalicFont={* Italic}, BoldItalicFont={* BoldItalic}, Numbers={Proportional, OldStyle}]{Linux Libertine O}
 \setsansfont[Scale=MatchLowercase,Ligatures=TeX, Numbers={Proportional,OldStyle}]{Linux Biolinum O}
 \setmonofont[Scale=MatchLowercase]{Linux Libertine Mono O}
+\newfontfamily{\liningnum}[Numbers=Lining]{Linux Libertine O}
 \usepackage{microtype}
 
 \usepackage{unicode-math}
@@ -77,27 +78,23 @@
 \newcommand*\AnswerBox[2]{%
     \parbox[t][#1]{0.92\textwidth}{%
     \begin{solution}#2\end{solution}}
-    \vspace*{\stretch{1}}
+    \vspace{\stretch{1}}
 }
 
 \newenvironment{AnswerPage}[1]
     {\begin{minipage}[t][#1]{0.92\textwidth}%
     \begin{solution}}
     {\end{solution}\end{minipage}
-    \vspace*{\stretch{1}}}
+    \vspace{\stretch{1}}}
 
 \newlength{\basespace}
 \setlength{\basespace}{5\baselineskip}
 
-\newcommand{\hidepoints}{%
-	\pointsinmargin\pointformat{}
-}
-
-\newcommand{\showpoints}{%
-	\nopointsinmargin\pointformat{(\thepoints)}
-}
 
 \newcommand\chisq{$\chi^2$}
+\newcommand*\meanY{\overline{Y}\kern0.67pt}
+\newcommand*\AnswerBlank{\rule{0.75in}{0.4pt}\kern0.67pt.}
+\newcommand*\xcell[1]{cell~\liningnum{#1}}
 
 %
 %\makeatletter
@@ -111,16 +108,14 @@
 
 \begin{document}
 
-\hidepoints
-
-\subsection*{Dispersion and association\footnote{Reproduced and modified from Dr. S. Borrett, UNC Wilmington Ecology Laboratory Manual.} (10~points)}
+\subsection*{Testing for dispersion of individuals in populations\footnote{Reproduced and modified from Dr. S. Borrett, UNC Wilmington Ecology Laboratory Manual.}}
 
 \subsubsection*{Dispersion}
 
 Ecologists who study populations and communities of
 organisms are often interested in the spatial distribution of
-individuals because the distribution patterns can provide information
-concerning the biology of a species and the factors limiting that
+individuals because the patterns can provide information
+about the biology of a species and the factors limiting that
 organism. Individuals in a population may have one of three general
 types of spatial dispersions: clumped, random, or uniform (Figure~\ref{fig:dispersion_patterns}).
 For example, a clumped distribution may indicate that a species is
@@ -129,11 +124,11 @@ of reproduction that keeps juveniles near adults. Conversely, a uniform
 distribution may indicate territoriality or some other aggressive
 interaction among individuals. For this exercise, you will use a
 combination of quadrat sampling and data analysis to characterize the
-dispersion and association of two populations of plants found in a nearby field.
+dispersion for two populations of plants found in a nearby field.
 
 \begin{figure}[h!]
 	\begin{center}
-	\includegraphics[width=\textwidth]{12_dispersion_patterns}
+	\includegraphics[width=\textwidth]{10_dispersion_patterns}
 	\caption{Three ways in which individuals of a population can be
 distributed in space.}\label{fig:dispersion_patterns}
 	\end{center}
@@ -143,7 +138,8 @@ Ecologists have developed several approaches to count sedentary (non-moving)
  organisms. The most common method is plot sampling. This
 method is straightforward in that it involves counting the number of
 organisms of interest in a defined area (often, but not necessarily, a
-quadrat). Plot sampling is a highly versatile approach, providing
+quadrat, which is a defined sampling area, such as a square meter). 
+Plot sampling is a versatile technique that can provide
 information on densities, associations, dispersion patterns, and
 indirect evidence on a variety of community or population processes. We
 will use a quadrat sampling technique in this laboratory.
@@ -158,250 +154,225 @@ pattern, then you must further examine the data to determine whether
 individuals are found together (clumped) or are spaced apart (uniform).
 
 Dispersion can be measured by several methods. You will use
-a chi squared test (\kern1.1667pt\chisq{}) to compare the sum of squares
+a chi-squared test (\kern1.1667pt\chisq{}) to compare the sum of squares
 (a measure of variability) to the mean to determine dispersion patterns
 for this exercise. According to the \chisq{} test, if a species is
 uniformly distributed, variability should be low (similar numbers in all
 quadrats). If species are clumped, variability should be high (some
 quadrats with many individuals, others with few or none). Random
-distributions would have intermediate variability.
+distributions would have intermediate variability because some individuals
+will be close together and other individuals will be farther apart.
 
 \subsubsection*{Analysis of dispersion patterns}
 
 In this exercise, you will determine the dispersion pattern of two
 species. The game board represents the field in which you are interested
 in determining the dispersion pattern of the blue and the green species.
-The field has been divided into quadrats; you will randomly sample 80
-quadrats and record the number of blue and green dots in each quadrat.
+The field has been divided into quadrats; you will randomly sample quadrats
+and record the record the number of blue and green dots in each quadrat.
 The yellow/orange and brown species are not of interest to your study at
-this time.
+this time. As part of this exercise, you will also examine how sample
+size can affect your ability to detect patterns in nature.
 
-1. You will collect your data by randomly sampling 80 quadrats. Which
-quadrats you sample will be determined by drawing pieces of blue paper
-with quadrat coordinates on them (e.g., A5). You will select one piece of
-paper at a time, place it on the board in the appropriate quadrat, and
-record the number of blue and green dots in that quadrat in your Excel
-file. Do not return the blue paper to the pile. Repeat this process
-until you have sampled 80 quadrats. Be sure to record ``$0$'' if one or
-neither color is present in that quadrat.
+\begin{enumerate}
 
-2. To determine the dispersion pattern, you need to calculate the sample
-mean ($\overline{X}$), the sum of squares ($SS$), a \chisq{} statistic, and the
-degrees of freedom (d.f.). You will us3 a \chisq{} statistic
+\item To determine the dispersion pattern, you need to calculate the sample
+mean $\left( \meanY\right) $, the sum of squares $(SS)$, a \chisq{} statistic, and the
+degrees of freedom (d.f.). You will use a \chisq{} statistic
 because this is most appropriate for discrete count data like these.
  You will then characterize the dispersion pattern using the
 \chisq{}, the degrees of freedom (d.f.), and Figure~\ref{fig:chi_df}. The formula 
-to calculate the mean ($\overline{X}$) is
+to calculate the mean $\left( \meanY \right)$ is
 
 
-\[\overline{X} = \dfrac{\sum\limits_{i=1}^n x_i}{n}\]
+\[\meanY = \dfrac{\sum\limits_{i=1}^n Y_i}{n}\]
 
-where $x_i$ is the number of plants in the $i\mathrm{th}$ quadrat, and $n$ is the total number of quadrats.
-
-
-Next, use the mean to calculate the sum of squares ($SS$) which is a measure of the variability in the sample set.  
-
-\[SS =  \sum\limits_{x_i}^n (x_i - \overline{X})^2 \]
+where $Y_i$ is the number of plants in the $i\mathrm{th}$ quadrat, and $n$ is the total number of quadrats.
 
 
-You calculated the sum of squares in the Mean and Standard Deviation lab as one of the steps to calculate standard deviation. This time, use the sum of squares to calculate the test statistic, \chisq{}. 
+Use the mean to calculate the sum of squares ($SS$) which is a measure of the variability in the sample set.  
 
-\[ \chi^2 = \dfrac{SS}{\overline{X}} = \dfrac{\sum\limits_{x_i}^n (x_i - \overline{X})^2}{\overline{X}}\]
+\[SS =  \sum\limits_{i=1}^n \left( Y_i - \meanY \right) ^2 \]
+
+
+You calculated the sum of squares in the Descriptive Statistics lab as one of the steps to needed to calculate standard deviation. This time, you will use the sum of squares to calculate the test statistic, \chisq{}. 
+
+\[ \chi^2 = \dfrac{SS}{\meanY} = \dfrac{\sum\limits_{i=1}^n \left( Y_i - \meanY \right) ^2}{\meanY}\]
 
 Degrees of freedom is calculated as d.f. $= n-1.$  You can determine the dispersion pattern for the candidate species using Figure~\ref{fig:chi_df}.  
+
+\end{enumerate}
 
 \begin{figure}[h!]
 	\begin{center}
 	\captionsetup{width=0.5\textwidth}
-	\includegraphics[width=0.5\textwidth]{12_chi_df}
-	\caption{Relationship between degrees of freedom and \chisq{}
+	\includegraphics[width=0.5\textwidth]{10_chi_df}
+	\caption{Relationship between degrees of freedom and the \chisq{}
 statistic to determine the dispersion pattern of a
 population.}\label{fig:chi_df}
 	\end{center}
 \end{figure}
 
-Use Excel to calculate the values described above.
+\begin{enumerate}[resume]
+
+\item Now, set up a file in Excel to record your data.
+
+In \xcell{A1}, type “Blue”. In \xcell{D1}, type “Green”. You will record the number of sampled individuals (color dots) in these columns for sampling effort~\#1. At the bottom of the Excel worksheet, click the $+$ next to Sheet 1 to add an additional sheet. If you see Sheet 2, just click on it instead. In Sheet 2,
+type “Blue” in \xcell{A1} and “Green” in \xcell{D1}. You will record your data
+in this sheet for sampling effort~\#2.
+
+\end{enumerate}
+
+\subsubsection*{Sampling effort \#1: non-random sampling}
+
+You arrive at your field site (the game board) and must decide
+how to best collect your data. The field has previously been divided
+into 130 quadrats. Out of convenience, based on the proximity to the
+parking lot and the fact that it is \emph{really} hot and you do not want to
+walk very far, you decide to sample \textbf{all quadrats in rows 6–9}
+for a total of 40 quadrats sampled. 
 
 \begin{enumerate}
 
-\item In cell \texttt{A1}, type ``Blue''. In cell \texttt{D1}, type ``Green''. You will record the number of sampled individuals (color dots) in each column. Record all 80 samples in the two columns. Record zeros for any color that was missing from the quadrat.
+\item Collect your data. Starting in quadrat {\liningnum A6} and sampling every quadrat
+through {\liningnum J9}, record the number of blue and green dots in each quadrat
+in the Excel file you started. Be sure to record “0” for each
+color that is missing in that quadrat.
 
-\item Calculate the mean ($\overline{X}$) number of blue individuals. Click on cell \texttt{A82}, and then type
-``\texttt{=average(A2:A81)}'' and press the Enter key.
 
-\item Calculate the mean  ($\overline{X}$) number of green individuals. Click on cell \texttt{D82}, and then type
-``\texttt{=average(D2:D81)}'' and press the Enter key.
+\item Calculate the mean $\left( \meanY \right)$ number of blue individuals. Click on \xcell{A42}, and then type “\texttt{=average(A2:A41)}.”
+
+ An alternate method to do this is to type “\texttt{=average(}”, select cells {\liningnum A2 to A41}, type~“\texttt{)}”, and then press the Enter key. Use whichever method you prefer.
+
+\item Calculate the mean  $\left( \meanY \right)$ number of green individuals. Click on \xcell{D42}, and then type
+“\texttt{=average(D2:D41)}.”
 
 \item Calculate the sum of squares for the blue and the green species. You will do this in
-columns B (blue species) and E (green species). This is calculated as the number of dots in each quadrat ($x$) minus the mean ($\overline{X}$),
-squared. Click in cell \texttt{B2}. Type ``\texttt{=(A2$-$A\$82)\textasciicircum2}'' and press the Enter key. 
-Be sure to include the \$ symbol in \texttt{A\$82}, which tells Excel to use ``absolute addressing.'' When you fill in the rows (next step) with this formula, the first cell reference (\texttt{A2}) will automatically change for each row (\texttt{A3,\,A4,\,\ldots,\,A81}) but the second cell will be \texttt{A82}, with your calculated mean. 
+columns B (blue species) and E (green species). This is calculated as the number of dots in each quadrat $\left( Y_i \right)$ minus the mean $\left( \meanY \right)$,
+squared. Click in \xcell{B2}. Type “\texttt{=(A2$-$A\$42)\textasciicircum2}” and press the Enter key. 
+Be sure to include the \$ symbol in \texttt{A\$42}, which tells Excel to use “absolute addressing.” When you fill in the rows (next step) with this formula, the first cell reference (\texttt{A2}) will automatically change for each row (\texttt{A3,\,A4,\,\dots,\,A41}) but the second cell will be always \texttt{A42}, with your calculated mean. 
 
-\item Highlight cell \texttt{B2}, place the cursor over the bottom right corner of
-the cell over the small, black square. Your cursor should become a ``$+$''
-sign. Click and drag all the way down the column to cell \texttt{B81} to fill
+\item Highlight \xcell{B2}, place the cursor over the bottom right corner of
+the cell over the small, black square. Your cursor should become a “$+$”
+sign. Click and drag all the way down the column to \xcell{B41} to fill
 in all quadrats.  To get the $SS$, you need to take the sum of these
-values. In cell \texttt{B82}, type ``\texttt{=SUM(B2:B81)}'' and press the Enter key. This value is your Sum of Squares ($SS$).
+values. In \xcell{B42}, type “\texttt{=SUM(B2:B41)}” and press the Enter key. This value is your Sum of Squares $(SS)$.
 
-Repeat this for the green species in column \texttt{E}. Be sure to reference cell \texttt{D82} with the \$ signs for the mean number of green individuals.
+Repeat this for the green species in column E. Be sure to reference \xcell{D42} with the \$ sign for the mean number of green individuals.
 
-\item Calculate your \chisq{} for the blue species by dividing your $SS$ by the mean. Click on cell \texttt{C82}. Type \texttt{=B82/A82)}. Repeat this for the green species in cell \texttt{F82}.
+\item Calculate your \chisq{} for the blue species by dividing your $SS$ by the mean. Click on \xcell{C42}. Type “\texttt{=B42/A42)}.” Repeat this for the green species in \xcell{F42}.
 
-\chisq{} (blue): \rule{0.75in}{0.4pt} \qquad \chisq{} (green): \rule{0.75in}{0.4pt}
+\bigskip
 
+\chisq{} (blue): \AnswerBlank{} \qquad \chisq{} (green): \AnswerBlank{}
 
 \item Determine your degrees of freedom (d.f. $= n-1$, where $n =$ \# of sampled
 quadrats). \textsc{Note:} d.f. should be the same for both species.
 
-\item Determine the dispersion pattern for each species using Figure~\ref{fig:chi_df} (on
-previous page).
+\item Determine the dispersion pattern for each species using Figure~\ref{fig:chi_df} (on page~\pageref{fig:chi_df}).
 
-\vspace*{\baselineskip}
-
+\bigskip
 
 Blue: \ifprintanswers\textbf{Random}\else\rule{1.5in}{0.4pt}\fi \qquad Green: \ifprintanswers\textbf{Clumped}\else\rule{1.5in}{0.4pt}\fi
 
 \end{enumerate}
 
-\subsubsection*{Conclusion}
-
-Based on what you have discussed today in class, provide an ecological
-explanation for what could drive the dispersion pattern detected for:
-
-a. the blue species \vspace*{3\baselineskip}
-
-b. the green species \vspace*{2\baselineskip}
-
-\subsubsection*{Analysis of Association}
-
-An interesting aspect of distribution patterns is whether two
-species (1) usually occur together (are positively associated), (2)
-seldom occur together (negatively associated), or (3) are randomly
-associated with respect to each other. If the species are positively
-associated, it may indicate some sort of obligate interaction, such as
-mutualism or predation, or it may indicate similar habitat
-requirements. If they are negatively associated, it may reflect the
-results of competition or different habitat preferences.
-
-To determine how species might be associated, you first compare observed
-patterns to what would be expected if the patterns were random. If the association is not
-random, you can then calculate an Index of Association ($V$) to see whether
-the species are positively or negatively associated and how strong that
-association is. To do this, you must first construct the following table
-using field collected data:
-
-\begin{longtable}{@{}llccc@{}}
-\toprule
-& & \multicolumn{2}{c}{Species 1} &\tabularnewline
-\cline{3-4}
-& & present &absent& row sums\tabularnewline
-\midrule
-Species 2 & present & $a$ & $b$ & $m$ \tabularnewline
-
-	& absent & $c$ & $d$ & $n$ \tabularnewline
-\midrule
-	& column sums & $r$ & $s$ & $N$ (grand total) \tabularnewline
-\bottomrule
-\end{longtable}
-
-$a =$ number of quadrats where both species are present,\newline
-$b =$ number of quadrats with only species 2 present,\newline
-$c =$ number of quadrats with only species 1 present,\newline
-$d =$ number of quadrats with neither species present,\newline
-$m =$ sum of $a+b,$\newline
-$n =$ sum of $c+d,$\newline
-$r =$ sum of $a+c,$\newline
-$s =$ sum of $b+d,$ and\newline
-$N =$ sum of $a+b+c+d.$
-
-To determine if the association is random, use this
-modification of \chisq{} (for 1 d.f.):
-
-%\[\chi^2 = \dfrac{N[(|ad-bc|-(N/2)]^2}{mnrs}.\]
-
-\[\chi^2 = \dfrac{(ad-bc)^2N}{mnrs}.\]
-
-If \chisq{} $>3.84$, then $p<0.05$ and the
-association is \emph{not} random and \emph{is} significant.
-
-If \chisq{} $<3.84$, then $p>0.05$ and the
-association is random and is not significant.
-
-\emph{If the association is significantly different than random}, calculate the Index of Association ($V$) to determine the
-strength of the association and whether it is negative or positive.\vspace*{-\baselineskip}
-
-\[V = \dfrac{ad-bc}{\sqrt{mnrs}}.\]
-
-$V$ ranges from $+1$ to $-1$. A $+1$ means the species are completely
-positively associated (always found together). A $-1$ means they are
-completely negative associated (never found together). Values in between
-indicate weaker positive or negative associations, depending on the sign
-and how close the value of $V$ is to $1$ or $-1$.
-
-Use the equations above to determine the association, or lack thereof,
-between the species in the tables below. \emph{If the association is
-significant} (\chisq{} $>3.84$), then calculate
-the Index of Association ($V$). Show all calculations and provide a
-written conclusion about the relationship between the species.
+\newpage
 
 \begin{questions}
 
+\question
+Looking at your entire study site (the game board), do you think 
+the non-random sampling method you used allowed you to accurately 
+determine the dispersion patterns of the
+blue and green dots? In other words, did your sampling method allow you
+to collect the data needed to answer your research question? Explain why
+or why not.
 
-\noindent\begin{minipage}[t]{0.3\textwidth}%
+\vspace{6\baselineskip}
 
-\raggedright \question Oxpecker and\newline Water Buffalo.
+\subsubsection*{Sampling effort \#2: random sampling}
 
-\vspace*{\baselineskip}
+This time, the quadrats you sample will be determined randomly (like real
+scientists, rather
+than by laziness relative to the parking lot) by drawing pieces of blue
+paper with quadrat coordinates on them (ex. {\liningnum A5}). You will select one
+piece of paper at a time, place it on the board in the appropriate
+quadrat, and record the number of blue and green dots in that quadrat in
+Sheet 2 in your Excel file. Do not return the blue paper to the pile.
+Repeat this process until you have sampled \textbf{90 quadrats}.
+\emph{Be sure to record “{\liningnum 0}” if one or neither color is present in that
+	quadrat}
 
-\ifprintanswers $\symbf{\chi^2 = 38.748, p < 0.05}$ \newline
-$\symbf{V = 0.880}$ \fi
-%
-\end{minipage}%
-\hfill
-\noindent\begin{minipage}[t]{0.7\textwidth}%
-\vspace*{-\baselineskip}
-\begin{longtable}[r]{@{}L{0.7in}L{0.6in}C{0.5in}C{0.5in}C{0.5in}@{}}
-\toprule
-& & \multicolumn{2}{c}{Oxpecker} \tabularnewline
-\cline{3-4}
- &  & Present & Absent & Total\tabularnewline
-%\midrule
-&&&&\tabularnewline[0.5em]
-Water Buffalo & Present & 22 & 2 & \ifprintanswers\textbf{24}\else\rule{0.5in}{0.4pt}\fi\tabularnewline[1em]
-& Absent & 1 & 25 & \ifprintanswers\textbf{26}\else\rule{0.5in}{0.4pt}\fi\tabularnewline[1em]
-& Total & \ifprintanswers\textbf{23}\else\rule{0.5in}{0.4pt}\fi &\ifprintanswers\textbf{27}\else\rule{0.5in}{0.4pt}\fi &50\tabularnewline
-\bottomrule
-\end{longtable}
-\end{minipage}
 
-\vspace*{0.27\textheight}
 
-\begin{minipage}[t]{0.25\textwidth}%
+\begin{enumerate}
+\item Calculate the mean number of blue individuals. Click on cell \xcell{A42}, and then type
+“\texttt{=average(A2:A91)}.”
 
-	\raggedright \question Red Clover and Eastern Cottontail.
 
-	\vspace*{\baselineskip}
+\item Calculate the mean number of green individuals. Click on \xcell{D92}, and then type
+“\texttt{=average(D2:D91)}.”
 
-	\ifprintanswers $\symbf{\chi^2 = 0, p > 0.05}$ \newline
-	$\symbf{V = 0}$ \fi
-%
-\end{minipage}%
-\hfill
-\begin{minipage}[t]{0.65\textwidth}%
-\vspace*{-\baselineskip}
-\begin{longtable}[r]{@{}L{0.7in}L{0.6in}C{0.5in}C{0.5in}C{0.5in}@{}}
-\toprule
-& & \multicolumn{2}{c}{Red clover} \tabularnewline
-\cline{3-4}
- &  & Present & Absent & Total\tabularnewline
-%\midrule
-&&&&\tabularnewline[0.51em]
-Eastern cottontail & Present & 30 & 15 & \ifprintanswers\textbf{45}\else\rule{0.5in}{0.4pt}\fi\tabularnewline[1em]
-& Absent & 10 & 5 & \ifprintanswers\textbf{15}\else\rule{0.5in}{0.4pt}\fi\tabularnewline[1em]
-& Total & \ifprintanswers\textbf{40}\else\rule{0.5in}{0.4pt}\fi &\ifprintanswers\textbf{20}\else\rule{0.5in}{0.4pt}\fi &60\tabularnewline
-\bottomrule
-\end{longtable}
-\end{minipage}
+
+\item Calculate the sum of squares for the blue and the green species. You will do this in columns B (blue species) and E (green species). This is calculated as the number of dots in each quadrat $\left( Y_i \right)$ minus the mean $\left( \meanY \right)$,
+squared. Click in \xcell{B2}. Type “\texttt{=(A2$-$A\$92)\textasciicircum2}” and press the Enter key. 
+Be sure to include the \$ symbol in \texttt{A\$92}, which tells Excel to use “absolute addressing.” When you fill in the rows (next step) with this formula, the first cell reference (\texttt{A2}) will automatically change for each row (\texttt{A3,\,A4,\,\dots,\,A41}) but the second cell will be always \texttt{A92}, with your calculated mean. 
+
+\item Highlight \xcell{B2}, place the cursor over the bottom right corner of
+the cell over the small, black square. Your cursor should become a “$+$”
+sign. Click and drag all the way down the column to \xcell{B91} to fill
+in all quadrats.  To get the $SS$, you need to take the sum of these
+values. In \xcell{B92}, type “\texttt{=SUM(B2:B91)}” and press the Enter key. This value is your Sum of Squares $(SS)$.
+
+Repeat this for the green species in column \texttt{E}. Be sure to reference \xcell{D92} with the \$ sign for the mean number of green individuals.
+
+\item Calculate your \chisq{} for the blue species by dividing your $SS$ by the mean. Click on \xcell{C92}. Type “\texttt{=B92/A92)}.” Repeat this for the green species in \xcell{F92}.
+
+\bigskip
+
+\chisq{} (blue): \AnswerBlank{} \qquad \chisq{} (green): \AnswerBlank{}
+
+\bigskip
+
+\item Determine your degrees of freedom (df $= n-1,$ where $n =$ \# of sampled
+quadrats). Note: the df should be the same for both species.
+
+\item Determine the dispersion pattern for each species using Figure 1 (on
+page~\pageref{fig:chi_df}).
+
+\bigskip
+
+Blue: \ifprintanswers\textbf{Random}\else\rule{1.5in}{0.4pt}\fi \qquad Green: \ifprintanswers\textbf{Clumped}\else\rule{1.5in}{0.4pt}\fi
+
+%\bigskip
+
+\end{enumerate}
+
+\subsubsection*{Conclusion (check out)}
+
+\question
+Did you get the same dispersion pattern for sampling effort \#1 and
+sampling effort \#2? If not, why do you think there was a difference?
+
+\AnswerBox{3\baselineskip}{%
+	Answer Here
+}
+
+\question
+What was the difference in your sampling method in effort \#1 compared to effort \#2?
+
+\AnswerBox{3\baselineskip}{%
+	Answer Here
+}
+
+\question
+Explain the importance of non-random sampling and collecting a large
+sample size when conducting ecological field work.
+
+\AnswerBox{3\baselineskip}{%
+	Answer Here
+}
 
 \end{questions}
 
