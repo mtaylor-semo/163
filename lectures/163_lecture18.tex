@@ -1,14 +1,14 @@
 %!TEX TS-program = lualatex
 %!TEX encoding = UTF-8 Unicode
 
-\documentclass[t]{beamer}
+%\documentclass[t]{beamer}
 
 %%%% HANDOUTS For online Uncomment the following four lines for handout
-%\documentclass[t,handout]{beamer}  %Use this for handouts.
-%\usepackage{handoutWithNotes}
-%\pgfpagesuselayout{3 on 1 with notes}[letterpaper,border shrink=5mm]
+\documentclass[t,handout]{beamer}  %Use this for handouts.
+\usepackage{handoutWithNotes}
+\pgfpagesuselayout{3 on 1 with notes}[letterpaper,border shrink=5mm]
 
-%\includeonlylecture{student}
+\includeonlylecture{student}
 
 %%% Including only some slides for students.
 %%% Uncomment the following line. For the slides,
@@ -19,7 +19,7 @@
 
 
 
-% FONTS
+% Fonts
 \usepackage{fontspec}
 \def\mainfont{Linux Biolinum O}
 \setmainfont[Ligatures={Common,TeX}, Contextuals={NoAlternate}, BoldFont={* Bold}, ItalicFont={* Italic}, Numbers={Proportional, OldStyle}]{\mainfont}
@@ -366,31 +366,31 @@
 	\hfill \tiny \textcopyright T. G. Barnes, University of Kentucky Cooperative Extension Service.
 \end{frame}
 %
-\lecture{instructor}{instructor}
-
-{
-\usebackgroundtemplate{\includegraphics[width=\paperwidth]{deep_sea_adaptations_biolum} }
-\begin{frame}[b]{\textcolor{biolum}{Cool stuff in biology: bioluminescence}}
-
-	\tiny\textcolor{white}{\href{https://www.youtube.com/watch?v=UXl8F-eIoiM}{Link to video}}
-\end{frame}
-}
+%\lecture{instructor}{instructor}
 %
-{
-\usebackgroundtemplate{\includegraphics[width=\paperwidth]{cool_shit_vomit_biolum} }
-\begin{frame}[b]{\textcolor{biolum}{Don't you wish that you could vomit bioluminescence?}}
-
-\hfill \tiny \textcolor{biolum}{\textsc{noaa} Ocean Explorer, Flickr, \ccbysa{2}}
-\end{frame}
-}
+%{
+%\usebackgroundtemplate{\includegraphics[width=\paperwidth]{deep_sea_adaptations_biolum} }
+%\begin{frame}[b]{\textcolor{biolum}{Cool stuff in biology: bioluminescence}}
 %
-{
-\usebackgroundtemplate{\includegraphics[width=\paperwidth]{cool_shit_dragonfish} }
-\begin{frame}[b]
-
-\tiny \textcolor{biolum}{\textcopyright\,Edith Widder, Ocean Research \& Conservation Assoc.}
-\end{frame}
-}
+%	\tiny\textcolor{white}{\href{https://www.youtube.com/watch?v=UXl8F-eIoiM}{Link to video}}
+%\end{frame}
+%}
+%%
+%{
+%\usebackgroundtemplate{\includegraphics[width=\paperwidth]{cool_shit_vomit_biolum} }
+%\begin{frame}[b]{\textcolor{biolum}{Don't you wish that you could vomit bioluminescence?}}
+%
+%\hfill \tiny \textcolor{biolum}{\textsc{noaa} Ocean Explorer, Flickr, \ccbysa{2}}
+%\end{frame}
+%}
+%%
+%{
+%\usebackgroundtemplate{\includegraphics[width=\paperwidth]{cool_shit_dragonfish} }
+%\begin{frame}[b]
+%
+%\tiny \textcolor{biolum}{\textcopyright\,Edith Widder, Ocean Research \& Conservation Assoc.}
+%\end{frame}
+%}
 
 %
 \end{document}
