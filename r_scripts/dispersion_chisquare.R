@@ -1,0 +1,24 @@
+#setwd('~/teach/163/063/')
+
+lower <- qchisq(0.05,0:100)
+upper <- qchisq(0.95,0:100)
+midline <- qchisq(0.5,0:100)
+df <- (0:100)
+
+op <- par(family='serif', mar=c(3.1,3,0,0))
+plot(df, upper, type='n', axes=F, xlab='',ylab="")
+polygon(c(0,df,rev(df)), c(0,upper,rev(lower)), col='grey85',border=NA)
+axis(1,pos=0)
+axis(2,pos=0, las=1)
+lines(df, upper)
+lines(df, lower)
+lines(df[0:59],midline[0:59], lty=2)
+lines(df[63:100],midline[63:100], lty=2)
+
+mtext(bquote(chi^2), side=2, line=2, las=2)
+mtext('Degrees of Freedom', side=1, line=2)
+text(30, 80, 'Clumped')
+text(80, 30, 'Uniform')
+text(60,60, 'Random')
+par(op)
+
