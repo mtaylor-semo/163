@@ -128,20 +128,19 @@ dispersion for two populations of plants found in a nearby field.
 
 \begin{figure}[h!]
 	\begin{center}
-	\includegraphics[width=\textwidth]{10_dispersion_patterns}
-	\caption{Three ways in which individuals of a population can be
-distributed in space.}\label{fig:dispersion_patterns}
+	\captionsetup{width=0.8\textwidth}
+	\includegraphics[width=0.8\textwidth]{10_dispersion_patterns}
+	\caption{Three dispersion patterns for individuals in a population.}\label{fig:dispersion_patterns}
 	\end{center}
 \end{figure}
 
 Ecologists have developed several approaches to count sedentary (non-moving)
- organisms. The most common method is plot sampling. This
+ organisms. The most common method is quadrat sampling. This
 method is straightforward in that it involves counting the number of
-organisms of interest in a defined area (often, but not necessarily, a
-quadrat, which is a defined sampling area, such as a square meter). 
-Plot sampling is a versatile technique that can provide
+organisms of interest in a defined area, such as a square meter. 
+Quadrat sampling is a versatile technique that can provide
 information on densities, associations, dispersion patterns, and
-indirect evidence on a variety of community or population processes. We
+indirect evidence on a variety of community or population processes. You
 will use a quadrat sampling technique in this laboratory.
 
 The primary approach to determining dispersion patterns is to compare
@@ -154,9 +153,10 @@ pattern, then you must further examine the data to determine whether
 individuals are found together (clumped) or are spaced apart (uniform).
 
 Dispersion can be measured by several methods. You will use
-a chi-squared test (\kern1.1667pt\chisq{}) to compare the sum of squares
+a chi-squared test (\kern1.1667pt\chisq{}) to compare the variance
 (a measure of variability) to the mean to determine dispersion patterns
-for this exercise. According to the \chisq{} test, if a species is
+for this exercise. \textbf{If the dispersion pattern is random, then the mean will equal
+	the variance, etc.} According to the \chisq{} test, if a species is
 uniformly distributed, variability should be low (similar numbers in all
 quadrats). If species are clumped, variability should be high (some
 quadrats with many individuals, others with few or none). Random
@@ -177,27 +177,23 @@ size can affect your ability to detect patterns in nature.
 \begin{enumerate}
 
 \item To determine the dispersion pattern, you need to calculate the sample
-mean $\left( \meanY\right) $, the sum of squares $(SS)$, a \chisq{} statistic, and the
-degrees of freedom (d.f.). You will use a \chisq{} statistic
-because this is most appropriate for discrete count data like these.
- You will then characterize the dispersion pattern using the
-\chisq{}, the degrees of freedom (d.f.), and Figure~\ref{fig:chi_df}. The formula 
-to calculate the mean $\left( \meanY \right)$ is
+\textbf{mean} $\left( \meanY\right)$, the variance $(s^2)$, the degrees of freedom (d.f.), 
+and a \chisq{} (chi-squared) statistic. You learned how to calculate the mean in the previous lab. You will use
+the mean to calculate the \textbf{variance} $(s^2)$, which is a measure of the variability in your sample. Variance is calculated as 
 
+\[s^2 =  \frac{\sum\limits_{i=1}^n \left( Y_i - \meanY \right)^2}{n-1}. \]
 
-\[\meanY = \dfrac{\sum\limits_{i=1}^n Y_i}{n}\]
+You calculated the variance in the Descriptive Statistics lab as one of the steps to needed to calculate standard deviation. The \emph{degrees of freedom} is the $n-1$ part of the equation above, where $n$ is the number of quadrats that you sampled.
 
-where $Y_i$ is the number of plants in the $i\mathrm{th}$ quadrat, and $n$ is the total number of quadrats.
+You will use the variance this time to calculate the test statistic, \chisq{}, which is calculated
+as
 
+\[ \chi^2 = \dfrac{s^2}{\meanY}. \] %= \dfrac{\frac{\sum\limits_{i=1}^n \left( Y_i - \meanY \right) ^2}{n-1}}{\meanY}.\]
 
-Use the mean to calculate the sum of squares ($SS$) which is a measure of the variability in the sample set.  
+The \chisq{} statistic is most appropriate for discrete count data, which is the type of data you will collection. Further, the \chisq{} statistic will allow you test hypotheses about dispersion patterns. 
 
-\[SS =  \sum\limits_{i=1}^n \left( Y_i - \meanY \right) ^2 \]
-
-
-You calculated the sum of squares in the Descriptive Statistics lab as one of the steps to needed to calculate standard deviation. This time, you will use the sum of squares to calculate the test statistic, \chisq{}. 
-
-\[ \chi^2 = \dfrac{SS}{\meanY} = \dfrac{\sum\limits_{i=1}^n \left( Y_i - \meanY \right) ^2}{\meanY}\]
+You will then characterize the dispersion pattern using the
+\chisq{}, the degrees of freedom (d.f.), and Figure~\ref{fig:chi_df}.
 
 Degrees of freedom is calculated as d.f. $= n-1.$  You can determine the dispersion pattern for the candidate species using Figure~\ref{fig:chi_df}.  
 
@@ -205,8 +201,8 @@ Degrees of freedom is calculated as d.f. $= n-1.$  You can determine the dispers
 
 \begin{figure}[h!]
 	\begin{center}
-	\captionsetup{width=0.5\textwidth}
-	\includegraphics[width=0.5\textwidth]{10_chi_df}
+	\captionsetup{width=0.7\textwidth}
+	\includegraphics[width=0.7\textwidth]{10_chi_df}
 	\caption{Relationship between degrees of freedom and the \chisq{}
 statistic to determine the dispersion pattern of a
 population.}\label{fig:chi_df}
