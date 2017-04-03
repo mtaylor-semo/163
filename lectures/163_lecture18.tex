@@ -1,14 +1,14 @@
 %!TEX TS-program = lualatex
 %!TEX encoding = UTF-8 Unicode
 
-%\documentclass[t]{beamer}
+\documentclass[t]{beamer}
 
 %%%% HANDOUTS For online Uncomment the following four lines for handout
-\documentclass[t,handout]{beamer}  %Use this for handouts.
-\usepackage{handoutWithNotes}
-\pgfpagesuselayout{3 on 1 with notes}[letterpaper,border shrink=5mm]
+%\documentclass[t,handout]{beamer}  %Use this for handouts.
+%\usepackage{handoutWithNotes}
+%\pgfpagesuselayout{3 on 1 with notes}[letterpaper,border shrink=5mm]
 
-\includeonlylecture{student}
+%\includeonlylecture{student}
 
 %%% Including only some slides for students.
 %%% Uncomment the following line. For the slides,
@@ -357,6 +357,8 @@
 	\end{minipage}	
 \end{frame}
 %
+\lecture{student}{student}
+
 \begin{frame}[t]{Organisms can move among patches through \highlight{corridors} of suitable habitat.}
 
 	\centering \includegraphics[width=0.85\textwidth]{metapopulation_corridors}
@@ -366,6 +368,63 @@
 	\hfill \tiny \textcopyright T. G. Barnes, University of Kentucky Cooperative Extension Service.
 \end{frame}
 %
+\lecture{instructor}{instructor}
+
+{
+	\usebackgroundtemplate{\includegraphics[width=\paperwidth]{metapopulation_exercise} }
+	\begin{frame}[b]{}
+	\end{frame}
+}
+%
+\begin{frame}[c]{}
+	\begin{minipage}{0.8\textwidth}
+		\begin{center}
+			\vspace{1\baselineskip}
+			\includegraphics[width=0.9\textwidth]{metapopulation_exercise}
+		\end{center}
+	\end{minipage}\begin{minipage}{0.19\textwidth}
+		\flushleft
+		
+		\textbf{Source}\\
+		
+		\vspace*{9\baselineskip}
+		
+		\vspace*{2ex}
+		
+		\textbf{Sink} 
+		
+	\end{minipage}	
+\end{frame}
+%
+\begin{frame}[c]{}
+	\begin{minipage}{0.8\textwidth}
+		\begin{center}
+			\vspace{1\baselineskip}
+			\includegraphics[width=0.9\textwidth]{metapopulation_exercise}
+		\end{center}
+	\end{minipage}\begin{minipage}{0.19\textwidth}
+		\flushleft
+		
+		\textbf{Source}\\
+		4H\\
+		7H\\
+		
+		\vspace{1ex}
+		8H=5H\\
+		6M\\
+		2M\\
+		10L\\
+		
+		\vspace{1ex}
+		9L\\
+		1M\\
+		3L\\
+		\textbf{Sink} 
+		
+	\end{minipage}	
+\end{frame}
+%
+
 %\lecture{instructor}{instructor}
 %
 %{
