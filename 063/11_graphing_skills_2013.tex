@@ -3,7 +3,7 @@
 
 \documentclass[12pt, hidelinks]{exam}
 
-\printanswers
+%\printanswers
 
 \usepackage{graphicx}
 \graphicspath{{/Users/goby/Pictures/teach/163/lab/}
@@ -123,29 +123,33 @@ First, you will create a column chart to show the number of earthquakes of magni
 	\AnswerBox{2\baselineskip}{Number of earthquakes}
 	
 	
-	Download the file called “ok\_quakes.xlsx” from the course data website:\\ \url{http://mtaylor4.semo.edu/~goby/bi163/}.\bigskip
+	Download the file called “oklahoma\_earthquakes.xlsx” from the course data website:\\ \url{http://mtaylor4.semo.edu/~goby/bi163/}.\bigskip
 	
 	The first column of data is the year. The second column is the number of earthquakes of magnitude 3.0 or higher that occurred in Oklahoma each year.
 
 \begin{enumerate}
-	\item Select the data in both columns.
+	\item Select cells {\liningnum B1 to B38}.”
 	
-	\item Click on “Insert” on the ribbon menu. Click on the “Column” icon near the center of the ribbon, and then choose the 2-D “Clustered Column,” which if the first icon on the left. If you leave your cursor over the icon for a moment, an explanation of the chart type will appear.
+	\item Click on “Insert” on the ribbon menu. Click on the “Column” icon near the center of the ribbon, and then choose the 2-D “Clustered Column,” which is the first icon on the left. If you leave your cursor over the icon for a moment, an explanation of the chart type will appear.
 	
 	\item Resize the graph to make it larger by dragging from the corners.
 	
+	\item Right-click on the graph and choose “Select Data\dots” from the menu.
+	
+	\item Click on “Earthquakes” on the left-hand side of the dialog box, and then click the “Edit” button on the \emph{right-hand} side, for “Horizontal (Category) Axis Labels.” Select cells {\liningnum A2 to A38}. Click the “OK” button, then click the next “OK” button.
+	
+	You should now have years on the \textsc{x}-axis and the number of earthquakes for each year on the \textsc{y}-axis.
+	
 \end{enumerate}
 
-\textbf{ADD STEPS to make \axis{x} the years if not done automatically}
-
-The graph is adequate but it can be improved with a few simple changes. First, change and enlarge the font. The font in your graphs should be the same font you use in the body of your report. For example, if you are using Times New Roman in your Word document, you should use Times New Roman in your graph. The font size should be at least the same as you use in your report but is often a little larger. For this exercise, use 14 point font, regular style (not bold).
+The graph is adequate but it can be improved with a few simple changes. First, change and enlarge the font. The font in your graphs should be the same font you use in the body of your report. For example, if you are using Times New Roman in your Word document, you should use Times New Roman in your graph. The font size should be at least the same as you use in your report but is often a little larger. For this exercise, use 12 point font, regular style (not bold).
 
 \begin{enumerate}[resume]
-	\item Place your cursor over one of the tree species names on the \axis{x}, then right-click. Select “Font\dots”.
+	\item Place your cursor over one of the years on the \axis{x}, then right-click. Select “Font\dots”.
 	
 	\item In the “Latin text font:” area, you can either delete the current font and type “Times New Roman” (exactly) or click on the small button to the right of the “Font:” area and scroll down to select it from the menu. 
 	
-	\item Tab over to or click in the “Size:” area and change the value to 14. Press the Enter key or click the ‘OK’ button.
+	\item Tab over to or click in the “Size:” area and change the value to 12. Press the Enter key or click the “OK” button.
 	
 	\item Repeat the last step for the \axis{y}.
 \end{enumerate}
@@ -170,7 +174,7 @@ Add a label to the \axis{y}. The \axis{x} is labeled with the two tree species b
 	
 	\item Click on “Add Chart Element” on the very left side of the ribbon.  Select “Axis Titles,” then choose “Primary Vertical.”
 
-	\item Right-click on the axis label that appears to the left side of the \axis{y}. Set the font to Times New Roman and the font size to 14 points. If necessary, click on the “Font style:” menu and select “Regular” to remove the bold face.
+	\item Right-click on the axis label that appears to the left side of the \axis{y}. Set the font to Times New Roman and the font size to 12 points. If necessary, click on the “Font style:” menu and select “Regular” to remove the bold face.
 
 	\item Right-click on the label. Select the text inside the box and type “Number of earthquakes.” Click anywhere outside the label to accept your change.
 	
@@ -184,7 +188,7 @@ a black and white printer, which loses the color information
 For this figure, use black columns.
 
 \begin{enumerate}[resume]
-	\item Right-click on one of the two columns for “Control.” Choose “Format Data Series\dots” from the menu.
+	\item Right-click on any one of columns. Choose “Format Data Series\dots” from the menu.
 	
 	\item Click on the “Paint Bucket” icon. Click on “Fill” from the choices below. Select the “Solid fill” radio button. Select the small black square from the “Fill” choices.
 	
@@ -192,7 +196,6 @@ For this figure, use black columns.
 	
 	\item Click the “X” to close the pane.
 	
-	\item Repeat this process for the Thinned treatment but select the small white squares (or a light shade of gray) for Solid Fill color  and the small black square for Border Line Color. Do not select “No Line” because you will see the horizontal lines behind the column. Do not select the white square for the line because you will not see the column.
 \end{enumerate}
 
 If your figure contains grid lines, they must be removed.
@@ -213,12 +216,14 @@ You now have scientific-quality figure that would be suitable for publication.
 \question
 Fracking has become more common in Oklahoma. Fracking produces waste water that is injected into the ground for disposal. Fracking increased dramatically in Oklahoma in 2010 and later. Based on your figure, how does the number of earthquakes from 1980–2009 compare to the number of earthquakes since 2010?
 
-\AnswerBox{4\baselineskip}{The number of earthquakes since 2010 is far, far greater than the 30 years before hand.}
+\AnswerBox{1\baselineskip}{The number of earthquakes since 2010 is far, far greater than the 30 years before hand.}
+
+\newpage
 
 \question
 Which three years have the greatest number of earthquakes? How many earthquakes occurred in each of these years?
 
-\AnswerBox{4\baselineskip}{See if they think to look up the numbers in the Excel sheet.}
+\AnswerBox{3\baselineskip}{See if they think to look up the numbers in the Excel sheet.}
 
 The recent increase in the number of earthquakes suggests wastewater disposal from the fracking industry \emph{might} be the cause but this would have to be tested. Such tests are complex but you can do a visual inspection to see if there \emph{appears} to be an association.
 
@@ -240,7 +245,7 @@ Use your web browser to visit this official website published by the Office Of T
 \question
 Does there appear to be an association between the earthquakes and the disposal wells during 1980–2009, or do the earthquakes appear to be located randomly with respect to the wells? Explain.
 
-\AnswerBox{4\baselineskip}{random pattern}
+\AnswerBox{3\baselineskip}{random pattern or weak association.}
 
 \begin{enumerate}
 	\item Uncheck the three boxes for 1980–2009. Leave the disposal wells box checked.
@@ -252,7 +257,9 @@ Does there appear to be an association between the earthquakes and the disposal 
 \question
 Does there appear to be an association between the earthquakes and the disposal wells during the three years with greatest earthquake activity, or do the earthquakes appear to be located randomly with respect to the wells? Explain.
 
-\AnswerBox{4\baselineskip}{Definite association between quakes and wells.}
+\AnswerBox{2\baselineskip}{Definite association between quakes and wells.}
+
+\newpage
 
 Not all disposal wells cause earthquakes but these data show a clear association between the location of earthquakes and the waste water disposal wells. Other studies using more detailed data strongly support the hypothesis that deep, rapid injection of waste water is the cause of the sudden increase in Oklahoma earthquakes.
 
@@ -270,7 +277,7 @@ Which variable is the response variable?
 
 \AnswerBox{2\baselineskip}{Insect richness.}
 
-Download the file called “Insect Diversity.xlsx” from the course data website:\\ \url{http://mtaylor4.semo.edu/~goby/bi163/}.\bigskip
+Download the file called “insect\_diversity.xlsx” from the course data website:\\ \url{http://mtaylor4.semo.edu/~goby/bi163/}.\bigskip
 
 The file has three columns. The first is the treatment, indicating whether the plot was thinned or not (the control). The second column represents individual trees, either Douglas Fir (\textsc{df}) or Lodgepole Pine (\textsc{lp}). The third column is insect richness, which is the number of species of insects that was found on each tree. 
 
@@ -281,7 +288,7 @@ The data are not in a format suitable for making a column chart. These data are 
 
 	\item \label{tree_mean} Calculate the mean insect species richness for Douglas Fir in the Control Group. Click in \xcell{F4}. Type \texttt{=average(}. Next, select the cells that you want to average. In this case, select cells {\liningnum C2} through {\liningnum C9}, as you did above. After you have selected the last cell, type “)”, and then press the Enter key. 
 
-	What if you are not sure of the function name? Click on “Formulas” in the ribbon menu. Click on the “Insert Function” icon at the very left of the ribbon. In the dialog box that appears, type “Average” into the area where it says “Search for a function:”. Highlight \texttt{AVERAGE} in the choices and click the “OK” button. Next, a dialog box appears for you to enter the arguments for the \texttt{AVERAGE} function. For the Douglas Fir control sample, you must select cells {liningnum C2:C9} by clicking and holding on \xcell{C2} and dragging down to \xcell{C9}. The range of cells is added to the dialog box. Press the Enter key or click the “OK” button. If you did this correct, the value should be 65.875.
+	What if you are not sure of the function name? Click on “Formulas” in the ribbon menu. Click on the “Insert Function” icon at the very left of the ribbon. In the dialog box that appears, type “Average” into the area where it says “Search for a function:”. Highlight \texttt{AVERAGE} in the choices and click the “OK” button. Next, a dialog box appears for you to enter the arguments for the \texttt{AVERAGE} function. For the Douglas Fir control sample, you must select cells {\liningnum C2:C9} by clicking and holding on \xcell{C2} and dragging down to \xcell{C9}. The range of cells is added to the dialog box. Press the Enter key or click the “OK” button. If you did this correctly, the value should be 65.875.
 
 	\item Repeat Step~\ref{tree_mean} for the other three cells: Control Lodgepole Pine, Thinned Douglas Fir, and Thinned Lodgepole Pine. 
 
@@ -300,11 +307,11 @@ The data are now arranged and ready for you to make the column chart.
 	
 	\item Insert a 2-D clustered column chart as you did above and resize it as necessary.
 	
-	\item Change the font and size to Times New Roman, 14 point.
+	\item Change the font and size to Times New Roman, 12 point.
 	
 	\item Delete the legend inside the figure.
 	
-	\item Add a \axis{y} label, Times New Roman, 14 point, regular style, that reads “Insect Diversity.” \emph{Be sure to remove the bold face if Excel added it.}
+	\item Add a \axis{y} label, Times New Roman, 12 point, regular style, that reads “Insect Diversity.” \emph{Be sure to remove the bold face if Excel added it.}
 	
 	\item Remove any horizontal or vertical grid lines, if they appear on your figure.
 	
@@ -312,18 +319,18 @@ The data are now arranged and ready for you to make the column chart.
 	
 \end{enumerate}
 
-For this figure, you will add error bars to show the standard deviations of each mean. 	\textbf{BE SURE THE FOLLOWING WORKS IN NEW EXCEL}
+For this figure, you will add error bars to show the standard deviations, to show the variability of the data around the mean for each species and treatment.
 
 
 \begin{enumerate}[resume]
 	
 	\item Click the left (control) bar for Douglas Fir. It should select both Control bars (for Douglas Fir and Lodgepole Pine). 
 	
-	\item Choose the “Layout” tab. Click the “Error Bars” icon on the right side of the ribbon. If necessary, move the dialog box that opens to one side so that you can see cells {\liningnum I4:J5}.
+	\item Choose the “Design” tab. Click the “Add Chart Element” on the left side of the ribbon. Choose “Error Bars” from the menu. Select the “More Error Bars Options\dots” from the bottom of that menu.
 	
-	\item Select “More Error Bars Options\dots”. Click on “Vertical Error Bars” on the top left side of the dialog box.
+	\item  Click on “Vertical Error Bars” on the top left side of the dialog box.
 	
-	\item Click on the “Custom” radio button, and then click on “Specify Value”.
+	\item On the right side of the screen, click on the “Custom” radio button, and then click on “Specify Value”.  If necessary, move the dialog box that opens to one side so that you can see cells {\liningnum I4:J5}.
 	
 	\item \label{fir_error} Delete the “\texttt{=\{1\}}” from the “Positive Error Value” field. With your cursor, select cells {\liningnum I4:I5}. Repeat this for the “Negative Error Value.” Select the same two cells ({\liningnum I4:I5}). Click the “OK” button.
 	
@@ -340,8 +347,12 @@ Which species of tree has the insect higher richness. Use numbers from the data 
 \question
 Does thinning of trees appear to affect species richness living in each tree species? Tell how you know.
 
-\AnswerBox{4\baselineskip}{Yes. The unthinned controls for both species have greater average richness compared to thinned plots.}
+\AnswerBox{3\baselineskip}{Yes. The unthinned controls for both species have greater average richness compared to thinned plots.}
 
+\question
+How do you think the length of the error bars would change if you increased sample size for each tree species and treatment?
+
+\AnswerBox{3\baselineskip}{The amount of variability will \emph{probably} decrease so the error bars would get shorter.}
 
 \subsection*{Scatterplot}
 
@@ -396,11 +407,11 @@ At this point, you have an adequate graph but you can improve it. Notice The \ax
 
 	\item From the “Format Axis” area, click the “Axis value:” radio button, near the bottom below “Vertical axis crosses:” and then replace the 0.0 in box with $-$4.0. Do not forget the negative sign. Close the pane.
 
-	\item As you did with the previous figures, set the font to Times New Roman, 14 point, regular style for the \textsc{x}- and \textsc{y}-axes. I trust you remember how to do that but, if not, review the instructions above.
+	\item As you did with the previous figures, set the font to Times New Roman, 12 point, regular style for the \textsc{x}- and \textsc{y}-axes. I trust you remember how to do that but, if not, review the instructions above.
 	
 	\item Delete the symbol legend. Delete any horizontal or vertical grid lines.
 
-	\item Add labels to the \textsc{x}- and \textsc{y}-axes. Format the text of each axis to Times New Roman, 14 point. Set Font style to Regular to remove the bold face.
+	\item Add labels to the \textsc{x}- and \textsc{y}-axes. Format the text of each axis to Times New Roman, 12 point. Set Font style to Regular to remove the bold face.
 
 	\item Edit the text of each label to read “Mean Annual Temperature (degrees C)” for the \axis{x} and “Mean Annual Precipitation (mm) for the \axis{y}.
 
@@ -464,7 +475,7 @@ Which variable is the response variable?
 
 \AnswerBox{2\baselineskip}{Mean monthly river stage}
 
-Download the file called “miss\_river\_discharge.xlsx” from the course data website:\\ \url{http://mtaylor4.semo.edu/~goby/bi163/}\bigskip
+Download the file called “mississippi\_river\_stages.xlsx” from the course data website:\\ \url{http://mtaylor4.semo.edu/~goby/bi163/}
 
 By now, you should be good at graphing in Excel so the final graph should be quick.
 
@@ -475,9 +486,9 @@ By now, you should be good at graphing in Excel so the final graph should be qui
 
 	\item Right-click on the graph, choose “Select Data\dots” and add the 2012 series, using the same procedure you followed with the scatterplot. Edit the Series 1 name to change it to “2011”. Name the new series “2012”. \emph{Note}: Use the Gauge Height column for the \textsc{y} values. The Month names for the \textsc{x}-values do not change so do not select them when you add new data series. Select only the Gauge Height values.
 
-	\item Add a primary vertical axis title. Edit the label to read “Gauge Height (feet)”. Add a primary horizontal axis title that reads “Month”. Change both to 14 point, Times New Roman font, regular style.
+	\item Add a primary vertical axis title. Edit the label to read “Gauge Height (feet)”. Add a primary horizontal axis title that reads “Month”. Change both to 12 point, Times New Roman font, regular style.
 
-	\item Edit both axes to use 14 point, Times New Roman Regular font, regular style.
+	\item Edit both axes to use 12 point, Times New Roman Regular font, regular style.
 
 	\item Delete the symbol legend. Delete any horizontal and vertical grid lines.
 
@@ -489,17 +500,14 @@ By now, you should be good at graphing in Excel so the final graph should be qui
 \question
 One of the years you plotted was a drought year across the U.S., including southeast Missouri. The other year was a flood year, where the flooding was so bad in southeast Missouri that they had to blow up a levee at Bird's Point to release some of the water from the river. Based on your graph, which line represents the drought year and which year represents the flood year. Explain how you decided.
 
-\AnswerBox{4\baselineskip}{The flood year has a much higher river stage in the spring. The drought year has a much lower river stage overall.}
+\AnswerBox{2\baselineskip}{The flood year has a much higher river stage in the spring. The drought year has a much lower river stage overall.}
+
+\newpage
 
 \question
 In both years, the river stage is higher in April and May and lower in September and October. Explain why.
 
-\AnswerBox{4\baselineskip}{Snow melt and spring rains bring the river levels up in spring. No melt and summer dryness leads to low river stages in summer.}
-
-%\question
-%About how much difference (in feet) is there between the maximum river stages for both years? About how much difference (in feet) is there between the minimum river stages for both years?
-%
-%\AnswerBox{4\baselineskip}{The maximum difference is about 15 feet. The minimum difference is about 6–7 feet. Again, students with a knack for the obvious can look at the raw data.}
+\AnswerBox{3\baselineskip}{Snow melt and spring rains bring the river levels up in spring. No melt and summer dryness leads to low river stages in summer.}
 
 \end{questions}
 
