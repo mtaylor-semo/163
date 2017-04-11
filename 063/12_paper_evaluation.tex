@@ -1,7 +1,12 @@
-%!TEX TS-program = lualatex
+ %!TEX TS-program = lualatex
 %!TEX encoding = UTF-8 Unicode
 
-\documentclass[12pt, hidelinks, addpoints]{exam}
+\documentclass[12pt, hidelinks]{exam}
+
+
+%\printanswers
+
+
 \usepackage{graphicx}
 	\graphicspath{{/Users/goby/Pictures/teach/163/lab/}
 	{img/}} % set of paths to search for images
@@ -78,32 +83,29 @@
 \newcommand*\AnswerBox[2]{%
     \parbox[t][#1]{0.92\textwidth}{%
     \vspace{-0.5\baselineskip}\begin{solution}\textbf{#2}\end{solution}}
-%    \vspace*{\stretch{1}}
+    \vspace{\stretch{1}}
 }
 
 \newenvironment{AnswerPage}[1]
     {\begin{minipage}[t][#1]{0.92\textwidth}%
     \begin{solution}}
     {\end{solution}\end{minipage}
-    \vspace*{\stretch{1}}}
+    \vspace{\stretch{1}}}
 
 \newlength{\basespace}
 \setlength{\basespace}{5\baselineskip}
 
-
-
-%\printanswers
 
 \hidepoints
 
 \begin{document}
 
 
-\subsection*{Evaluating a scientific paper (\numpoints~points)}
+\subsection*{Evaluating a scientific paper}
 
 \begin{questions}
 
-\question[1]
+\question
 List the author(s). Name the institution that each author is associated with. 
 Besides the author(s), who else contributed to this study? (\textsc{Hint:} You have to look elsewhere in the paper to answer the last part of this question.)
 
@@ -111,59 +113,90 @@ Besides the author(s), who else contributed to this study? (\textsc{Hint:} You h
 Diane Wood and Allan Bornstein, both from \textsc{semo}.
 }
 
-\question[1]
+\question
 List three other studies upon which this study was based. Why is it important to look at previous studies? How does this study contribute to the scientific literature?
 
 \AnswerBox{1.75\basespace}{%
 Three citations. Previous studies show what is already known. This study adds information on the biology of \textit{Obolaria} and shows that plants that have to grow through lots of leaf litter may affect their ability to produce flowers.
 }
 
-\question[1]
-What organism was studied? What kind of organism is it?
+\question
+What kind of organism was studied? What is the scientific name of the organism? 
 
 \AnswerBox{2\baselineskip}{A plant, \textit{Obolaria virginica.}}
 
 
-\question[1]
+\question
 What question(s) does the study address? Is a hypothesis
 clearly stated? What is the prediction(s) made by the hypothesis?
 
 \AnswerBox{1.75\basespace}{What is the population size of \textit{Obolaria?} What type of dispersal pattern does it have? Does leaf litter affect the number of flowers produced? The hypothesis is that the number of flowers produced by \textit{Obolaria} is related to stem length in the leaf litter. They predicted that plants that have longer stems in the leaf litter will produce fewer flowers. Plants that produce shorter stems in the leaf litter will produce more flowers. }
 
-\question[1]
+\question
 Where was the study conducted?
 
 \AnswerBox{2\baselineskip}{Trail of Tears State Park, Cape Girardeau County, MO}
 
-\question[1]
+\question
 Was the study observational or experimental? What type of data were collected? 
 
 \AnswerBox{\basespace}{This was an observational study because no experimental manipulations were performed. The authors counted the number of plants per plot to estimate population size and dispersion. They measured total stem length and above-litter stem length.}
 
 
-\question[1]
-How were the data analyzed? Do the figures and tables provide
-appropriate visualization of the data?
+%\question
+%How were the data analyzed? Do the figures and tables provide
+%appropriate visualization of the data?
+%
+%\AnswerBox{1.75\basespace}{The data were graphed and a regression line was plotted. Points above the regression line were placed in group 1 (longer stems in the leaf litter). Points below the line were placed in group 2 (longer stems above the litter). A Mann-Whitney U non-parametric test was used to compare flower production between groups 1 and 2.}
 
-\AnswerBox{1.75\basespace}{The data were graphed and a regression line was plotted. Points above the regression line were placed in group 1 (longer stems in the leaf litter). Points below the line were placed in group 2 (longer stems above the litter). A Mann-Whitney U non-parametric test was used to compare flower production between groups 1 and 2.}
-
-\question[1]
+\question
 What were the results of the study?
 
 \AnswerBox{1.75\basespace}{Population estimates ranged from 833--7820 individuals per 50 $\times$ 50 plot. All dispersion ratios were much greater than 1, indicating a clumped distribution. Plants with longer within-litter stems (group 1) produced significantly fewer flowers than did plants with longer above-litter stems (group 2).}
 
-\question[1]
+\question
 What were the main conclusions of the study? Did the study address the hypothesis?
 
 \AnswerBox{\basespace}{\textit{Obolaria} may be more common than realized. Large amounts of leaf litter may negatively affect the ability of \textit{Obolaria} to grow and produce flowers. Their hypothesis was supported.}
 
-\question[1]
+\question
 After reading the paper, do you think that the title adequately
 communicates the paper's content?
 
 \AnswerBox{\baselineskip}{Why yes, I do.}
 
 
+\newpage
+
+\subsubsection*{Recreating the study figures}
+
+You will practice your graphing skills by recreating as closely as possible the scatter plots from Figures 2 and 3 from the \textit{Obolaria} study. If you do not remember how to make or modify scatterplots, then review the handout from last week. \medskip
+
+
+Download the file called “obolaria\_data.xlsx” from the course data website:\\ \url{http://mtaylor4.semo.edu/~goby/bi163/}.\bigskip
+
+
+The spreadsheet has columns for total stem length and the stem length \emph{above} the litter. Figure 2 uses stem length \emph{below} the litter as the response variable. In a column to the right of the existing data, subtract the above ground stem length from the total stem length to get the below litter stem length. You must do this for each individual. Call the column something obvious stem length below the litter.
+
+
+Figure 3 uses the ratio of stem length below the litter to stem length above the litter. In a column to the right of the one you just added, divide the below litter stem length by the above litter stem length. Do not reverse the order or you will get incorrect results.
+
+
+Figure 2 has a trend line. A trend line shows the overall direction of change in the data set. That is, a trend line shows how the response variable changes as the explanatory variable changes. A positive trend shows that the response variable tends to increase as the explanatory variable increases. A negative trends shows that the response variable tends to decrease as the explanatory variable increases.
+
+To add a linear trend line, right-click on one of the data points. Select “Add Trendline\dots”. Select ”Linear” for the type. If necessary, change the line to a solid line instead of dashed. Close the dialog box when finished.
+
+\question[Checkout]
+Write your interpretation of each figure. Show your figure recreations to and discuss your interpretation with your instructor.
+
+\begin{AnswerPage}{2\basespace}
+	Figure 2: Stem length within litter increases as total length increases. Not surprising. The figure was used to identify two groups, though with greater proportion of stem length within the litter (above the line) and those with a greater proportion of stem length above the litter (below the line).\bigskip
+	
+	Figure 3. Individuals with relatively little below litter stem lengths (those with most of the stem above the litter) produced far more flowers than those with a greater within-litter stem length.
+\end{AnswerPage}
+
+
 \end{questions}
+
 
 \end{document}  
