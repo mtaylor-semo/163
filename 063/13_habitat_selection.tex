@@ -1,0 +1,400 @@
+%!TEX TS-program = lualatex
+%!TEX encoding = UTF-8 Unicode
+
+\documentclass[12pt, hidelinks]{exam}
+
+\printanswers
+
+\usepackage{graphicx}
+	\graphicspath{{/Users/goby/Pictures/teach/163/lab/}
+	{img/}} % set of paths to search for images
+
+\usepackage{geometry}
+\geometry{letterpaper, left=1.5in, bottom=1in}                   
+%\geometry{landscape}                % Activate for for rotated page geometry
+\usepackage[parfill]{parskip}    % Activate to begin paragraphs with an empty line rather than an indent
+\usepackage{amssymb, amsmath}
+\usepackage{mathtools}
+	\everymath{\displaystyle}
+
+\usepackage{fontspec}
+\setmainfont[Ligatures={TeX}, BoldFont={* Bold}, ItalicFont={* Italic}, BoldItalicFont={* BoldItalic}, Numbers={Proportional, OldStyle}]{Linux Libertine O}
+\setsansfont[Scale=MatchLowercase,Ligatures=TeX, Numbers={Proportional,OldStyle}]{Linux Biolinum O}
+\setmonofont[Scale=MatchLowercase]{Linux Libertine Mono O}
+\newfontfamily{\liningnum}[Numbers=Lining]{Linux Libertine O}
+\usepackage{microtype}
+
+\usepackage[table]{xcolor}
+
+\usepackage{unicode-math}
+\setmathfont[Scale=MatchLowercase]{Tex Gyre Pagella Math}
+
+
+% To define fonts for particular uses within a document. For example, 
+% This sets the Libertine font to use tabular number format for tables.
+ %\newfontfamily{\tablenumbers}[Numbers={Monospaced}]{Linux Libertine O}
+% \newfontfamily{\libertinedisplay}{Linux Libertine Display O}
+
+\usepackage{booktabs}
+\usepackage{multicol}
+
+\usepackage{caption}
+\captionsetup{format=plain, justification=raggedright, singlelinecheck=off,labelsep=period,skip=3pt} % Removes colon following figure / table number.
+
+%\usepackage{caption}
+%\captionsetup{font=small} 
+%\captionsetup{singlelinecheck=false}
+%\captionsetup[figure]{labelsep=period, format=plain}
+
+\usepackage{longtable}
+%\usepackage{siunitx}
+\usepackage{array}
+\newcolumntype{L}[1]{>{\raggedright\let\newline\\\arraybackslash\hspace{0pt}}p{#1}}
+\newcolumntype{C}[1]{>{\centering\let\newline\\\arraybackslash\hspace{0pt}}p{#1}}
+\newcolumntype{R}[1]{>{\raggedleft\let\newline\\\arraybackslash\hspace{0pt}}p{#1}}
+
+\usepackage{enumitem}
+\setlist{leftmargin=*}
+\setlist[1]{labelindent=\parindent}
+\setlist[enumerate]{label=\textsc{\alph*}.}
+\setlist[itemize]{label=\color{gray}\textbullet}
+
+\usepackage{hyperref}
+%\usepackage{placeins} %PRovides \FloatBarrier to flush all floats before a certain point.
+\usepackage{hanging}
+
+\usepackage[sc]{titlesec}
+
+%% Commands for Exam class
+\renewcommand{\solutiontitle}{\noindent}
+\unframedsolutions
+\SolutionEmphasis{\bfseries}
+
+\renewcommand{\questionshook}{%
+	\setlength{\leftmargin}{-\leftskip}%
+}
+
+%Change \half command from 1/2 to .5
+\renewcommand*\half{.5}
+
+\pagestyle{headandfoot}
+\firstpageheader{\textsc{bi}\,063 Evolution and Ecology}{}{\ifprintanswers\textbf{KEY}\else Name: \enspace \makebox[2.5in]{\hrulefill}\fi}
+\runningheader{}{}{\footnotesize{pg. \thepage}}
+\footer{}{}{}
+\runningheadrule
+
+\newcommand*\AnswerBox[2]{%
+    \parbox[t][#1]{0.92\textwidth}{%
+    \begin{solution}#2\end{solution}}
+    \vspace{\stretch{1}}
+}
+
+\newenvironment{AnswerPage}[1]
+    {\begin{minipage}[t][#1]{0.92\textwidth}%
+    \begin{solution}}
+    {\end{solution}\end{minipage}
+    \vspace{\stretch{1}}}
+
+\newlength{\basespace}
+\setlength{\basespace}{5\baselineskip}
+
+
+\newcommand\chisq{$\chi^2$}
+\newcommand*\meanY{\overline{Y}\kern0.67pt}
+
+\newcommand*\AnswerBlank[1]{%
+	\ifprintanswers%
+		\textbf{#1}
+	\else%
+		\rule{0.75in}{0.4pt}\kern0.67pt.\fi%
+	}
+
+%\newcommand*\AnswerBlank{\rule{0.75in}{0.4pt}\kern0.67pt.}
+\newcommand*\xcell[1]{cell~\liningnum{#1}}
+
+%
+%\makeatletter
+%\def\SetTotalwidth{\advance\linewidth by \@totalleftmargin
+%\@totalleftmargin=0pt}
+%\makeatother
+
+
+
+\begin{document}
+
+\subsection*{Testing for habitat selection by pill bugs.}
+
+Many species can survive under a wide range of environmental conditions but have the greatest chance of survival and therefore higher relative fitness under optimum conditions. Individuals will often move from one area to another to find conditions better suited to survival. 
+
+
+For this experiment, you will test whether \textit{Armadillidium vulgare} (pill bugs, roly-polies, doodle bugs) have a preference for the amount of moisture in their habitat. Pill bugs can be found under rotting logs and in leaf litter on the forest floor. The pill bugs will be able to choose from among three moisture levels: dry, moderate, and high.
+
+\begin{questions}
+
+\question \label{ques:hypothesis}
+Write a hypothesis that states which moisture level (or levels) the pill bugs will choose?
+
+\AnswerBox{0.35\basespace}{Most will probably choose one of the moister levels.}
+
+
+\question
+Turn your hypothesis is a prediction. Remember that your prediction should predict the results of the experiment that would support your hypothesis. 
+
+\AnswerBox{0.35\basespace}{%
+	If given a choice of three moisture levels, most pill bugs will end up in the chamber with \rule{0.75in}{0.4pt} amount of moisture.
+}
+
+\subsubsection*{Set up your experiment.}
+
+\begin{enumerate}
+	
+	\item Work in teams of 2–3 students. Decide on a catchy but easy to remember name for your group.
+	
+	\item Remove the lid from each habitat chamber. 
+	
+	\item Add about 1 cm of sand to each container.
+	
+	\item Add 10 ml of water to one chamber. Add 5 ml of water to another chamber. Leave one chamber without any water.
+	
+	\item Add a thin layer of crumbled leaf litter to each chamber. Add just enough (2–3 mm thick) to provide a shelter for the pill bugs to shelter in.
+	
+	\item Add the same number of pill bugs to each chamber. Your instructor will tell you how many to use.
+	
+	\item Assemble the three chambers into a single stack. Arrange the chambers so that the chamber with the most moisture is on the bottom and the dry chamber is on top. 
+	
+	\item Place a piece of masking tape on the top of the upper chamber. Write your team name and section number on the tape.
+	
+	\item Place the chambers in the box indicated by your instructor.
+	
+\end{enumerate}
+
+\subsubsection*{Collect your data}
+
+
+{\scshape \textbf{Important:}} At least one of your team must return to the lab in within two days to count the number of individuals in each chamber. Your instructor will tell you when the lab is open. 
+
+\begin{enumerate}
+	\item Remove your chambers from the box and count the number of individuals in each chamber. \emph{Count dead individuals as being present in the chamber you find them in.}
+	
+	\item Write your team name and results on the sheet provided.
+	
+	\item Put live individuals in the tank or aquarium provided. Discard dead individuals in the trash.
+	
+	\item Discard the leaf litter and sand from the chambers into the trash can in the lab. Use a paper towel to wipe out the containers.
+	
+	\item Reassemble your empty and cleaned chambers and place them on the back counter. 
+	
+	\item \textbf{If your team does not report its results on the official sheet, you will receive at most 50\% of the total possible points for this exercise. Be sure at least one of you returns to lab, count pill bugs, and reports the results.}
+		
+\end{enumerate}
+
+\subsubsection*{Final results and analysis}
+
+The results from the team experiments will be pooled together to make the final data set that you will use for analysis. Your lecture or lab instructor will provide you with those data by the end of the week. You will use the pooled data to perform a \chisq{} (chi-squared) test to determine whether the pill bugs were randomly distributed or chose among the offered habitats.
+
+\subsubsection*{The $\chi^2$ test.}
+
+The \chisq{} (chi-squared) test is used to determine whether an observed pattern differs from an expected pattern. For example, pillbugs should have roughly equa numbers of individuals in each habitat type if they are not choosing their habitats. 
+
+The formula to calculate \chisq{} is
+
+\[ \chi^2 = \sum_{i=1}^n \dfrac{(O_i-E_i)^2}{E_i}, \]
+
+where $O_i$ is the observed value, $E_i$ is the expected value, $i$ is each observation, and $n$ is the total number of observations. 
+
+For each observation, subtract the expected value from the observed value, and then square it. Divide that result by the expected value. Repeat this for each observation, and then sum them all together to get the \chisq{} value.
+
+The following example shows you how to calculate \chisq{}. Assume that you had $n=4$ habitats and 40 individuals. The number of individuals observed in each of the four habitats were:
+
+{\liningnum
+\begin{longtable}{@{}rR{0.8in}@{}}
+	\toprule
+	Habitat ($i$) &	Number Observed \tabularnewline
+	\midrule
+	1	& 7 \tabularnewline
+	2	& 15  \tabularnewline
+	3	& 8	 \tabularnewline
+	4	& 10 \tabularnewline
+	\bottomrule
+\end{longtable}
+}
+
+You will to test the null hypothesis that the individuals are randomly distributed among the four habitats. The research hypothesis might be that the individuals are selecting one or more habitats non-randomly.
+
+\begin{enumerate}
+
+\item Calculate the \emph{expected number of individuals} in each habitat. If the individuals are distributed randomly among the four habitats, then each habitat should have about the same number of individuals. For this example, divide the total number of individuals by the number of habitats:  
+
+\[ 40/4 = 10. \]
+
+\item Subtract the expected number of individuals from the observed number, and then square that value.
+
+{\liningnum
+\begin{longtable}{@{}rR{0.8in}R{0.8in}R{0.8in}R{0.8in}@{}}
+	\toprule
+	Habitat ($i$) &	Observed & Expected & $\left(O_i-E_i \right)$ & $\left(O_i-E_i \right)^2$\tabularnewline
+	\midrule
+	1	& 7  & 10 & -3 & 9 \tabularnewline
+	2	& 15 & 10 & 4  & 16 \tabularnewline
+	3	& 8	 & 10 & -2 & 4 \tabularnewline
+	4	& 10 & 10 & 1  & 1 \tabularnewline
+	\bottomrule
+\end{longtable}
+}
+
+\item Divide each result by the expected values.
+
+{\liningnum
+\begin{longtable}{@{}rR{0.8in}R{0.8in}R{0.8in}R{0.8in}R{0.8in}@{}}
+	\toprule
+	Habitat ($i$) &	Observed & Expected & $\left(O_i-E_i \right)$ & $\left(O_i-E_i \right)^2$ & $\frac{\left(O_i-E_i \right)^2}{E}$\tabularnewline
+	\midrule
+	1	& 7  & 10 & -3 & 9  & 0.9 \tabularnewline
+	2	& 14 & 10 & 4  & 16 & 1.6 \tabularnewline
+	3	& 8	 & 10 & -2 & 4  & 0.4 \tabularnewline
+	4	& 11 & 10 & 1  & 1  & 0.1 \tabularnewline
+	\bottomrule
+\end{longtable}
+}
+
+\item Add together the final results to obtain \chisq{}.
+
+{\liningnum
+\begin{longtable}{@{}rR{0.8in}R{0.8in}R{0.8in}R{0.8in}R{0.8in}@{}}
+	\toprule
+	Habitat ($i$) &	Observed & Expected & $\left(O_i-E_i \right)$ & $\left(O_i-E_i \right)^2$ & $\frac{\left(O_i-E_i \right)^2}{E}$\tabularnewline
+	\midrule
+	1	& 7  & 10 & -3 & 9  & 0.9 \tabularnewline
+	2	& 14 & 10 & 4  & 16 & 1.6 \tabularnewline
+	3	& 8	 & 10 & -2 & 4  & 0.4 \tabularnewline
+	4	& 11 & 10 & 1  & 1  & 0.1 \tabularnewline
+	\midrule
+	    &    &    &    & $\chi^2=$ & 3.0 \tabularnewline
+	\bottomrule
+\end{longtable}
+}
+
+	\item Calculate degrees of freedom. Degrees of freedom is calculated as the number of habitats minus 1 so,
+	
+	\[ \mathrm{df} = 4 - 1 = 3.\]
+
+\end{enumerate}
+
+As you did with the $t$-test, you have to compare your calculated \chisq{} to a table of critical \chisq{} values, using $\alpha=0.05.$ and your degrees of freedom (df), to find the critical value. Critical values of \chisq{} are shown in Table~\ref{tab:chi_table}.
+
+\newsavebox\ltmcbox
+
+\setbox\ltmcbox\vbox{
+\makeatletter\col@number\@ne
+{\setlength{\LTcapwidth}{2.2in}\liningnum
+\begin{longtable}{@{}rrrrr@{}}
+	\caption{Critical values of $\chi^2$.\label{tab:chi_table}} \tabularnewline
+\toprule
+ & \multicolumn{4}{c}{$\alpha$} \tabularnewline
+ \cmidrule(l){2-5}
+df & 0.1 & \textbf{0.05} & 0.01 & 0.001 \tabularnewline
+\midrule
+ 1 &  2.71 &  3.84 &  6.63 & 10.83 \tabularnewline
+ 2 &  4.61 &  5.99 &  9.21 & 13.82 \tabularnewline
+\textbf{3} &  6.25 &  \textbf{7.81} & 11.34 & 16.27 \tabularnewline
+ 4 &  7.78 &  9.49 & 13.28 & 18.47 \tabularnewline
+ 5 &  9.24 & 11.07 & 15.09 & 20.52 \tabularnewline
+ 6 & 10.64 & 12.59 & 16.81 & 22.46 \tabularnewline
+ 7 & 12.02 & 14.07 & 18.48 & 24.32 \tabularnewline
+ 8 & 13.36 & 15.51 & 20.09 & 26.12 \tabularnewline
+ 9 & 14.68 & 16.92 & 21.67 & 27.88 \tabularnewline
+10 & 15.99 & 18.31 & 23.21 & 29.59 \tabularnewline
+\bottomrule
+\end{longtable}}
+\unskip
+\unpenalty
+\unpenalty}
+\unvbox\ltmcbox
+
+
+If your calculated \chisq{} is less than the critical value in the table, then you accept the null hypothesis. In this example, for $\alpha=0.05$ and 3 degrees of freedom, $\chi^2 = 3.0$ is less than the critical value of 7.81 (bolded in the table). The distribution of the 40 individuals among the 4 habitats is probably random.
+
+	
+	\question
+	If the calculated value of \chisq{} is larger than the critical value in the table, do you accept or reject the \emph{research} hypothesis?
+	
+	\AnswerBox{0.5\basespace}{Accept the research hypothesis.}
+	
+	\question
+	Assume that you calculated $\chi^2 = 17.03$, that you want to use $\alpha = 0.01,$ and that your study has 6 degrees of freedom. Do you accept or reject the null hypothesis? Tell why.
+
+	\AnswerBox{\basespace}{Reject the null hypothesis. The calculated value is greater than the tabled value of 16.81.}
+
+	\question[Checkout]
+	Assume you performed a similar habitat selection study with 120 individuals and 5 habitats. You observed the following number of individuals in each habitat: 23, 32, 19, 13, and 33. Calculate degrees of freedom and \chisq{}, and look up the critical value of \chisq{}.\bigskip
+	
+	Degrees of Freedom: \AnswerBlank{4} \bigskip 
+	
+	Calculated \chisq{}: \AnswerBlank{10.58} \bigskip
+	
+	Critical \chisq{}: \AnswerBlank{9.49}
+	
+	\question.
+	Do you accept or reject the null hypothesis?  Tell why.
+	
+	\AnswerBox{\basespace}{%
+		Reject the null hypothesis. The calculated value (10.58) is larger than the critical value (9.49) so the null hypothesis is rejected.
+	}
+		
+	Discuss your answers with your instructor to receive credit for lab today.
+	
+\end{questions}
+	
+
+\subsection*{Lab report}
+
+You will write a formal lab report. Your lab instructor will tell you the due date and whether to submit it in lab or online. Your report must contain the following sections. 
+ 
+\subsubsection*{Introduction (1 paragraph; 5 points)} 
+
+This section should begin with general observations made regarding
+pill bugs and their habitat. Next, state your hypothesis (you developed this as a team in question~\ref{ques:hypothesis}).
+From your hypothesis, make clear predictions in if/then form. Review your handouts from
+the first week on the scientific method.
+
+\subsubsection*{Methods (2 paragraphs, 5 points)} 
+
+This section should be written in narrative form and in past tense. Do
+not make a list of materials. You will mention the materials you used
+throughout this section as relevant. \emph{This is not like writing a
+	recipe, you are not providing instructions for your reader}. Rather, you
+are explaining to the reader how you set up the experiment and collected
+your data.
+
+As you write, consider which aspects are important to report to allow
+the reader to understand how you set up your experiment. For example, it
+is not necessary to tell that you labeled your chambers with tape and your team name. Likewise, you do not need to tell that you used a graduated cylinder to measure water. In the methods, you might
+write something like, ``We added 10 ml of water to one chamber, 5 ml of water to another chamber, and one chamber had no added water.'' (\emph{Do not use that example sentence verbatim because that would be plagiarism.})
+
+The second paragraph should explain how you
+collected your data. This section must be written in \emph{past tense} because you have
+already completed the experiment and data collection. No credit will be
+awarded for methods sections written in list or bullet form. As above, you do not need to tell how you disposed of the pill bugs or that your instructor provided you with the data. But, you do need to indicate that your results were pooled with the results of other experiments to obtain the final data set.
+
+\subsubsection*{Results (1 paragraph, 5 points)}
+
+The results section will have \emph{two parts}. The results should tell how many individuals were in each chamber for the pooled results, your calculated \chisq value, the critical \chisq value, and whether you accept or reject the null hypothesis. Do not give all of these values in a single sentence.
+
+
+\subsubsection*{Discussion (2 paragraphs, 10 points)} 
+
+In this section, you summarize and interpret your results. Use what
+was discussed in class as well as this handout to guide
+your discussion. But, \emph{do not} directly copy from any material provided.
+You must address the following questions in narrative form, \emph{in your own words,} with two
+paragraphs.
+
+Was your hypothesis supported by your results? Explain why or why not. 
+The results should agree with your prediction for your hypothesis to be supported. 
+
+Finally, place your experimental results in the broader context of ecology or natural
+selection. Explain why your results might be important to the
+scientific community.
+
+
+\end{document}  
