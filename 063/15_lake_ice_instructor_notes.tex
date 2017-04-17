@@ -1,0 +1,183 @@
+%!TEX TS-program = lualatex
+%!TEX encoding = UTF-8 Unicode
+
+\documentclass[12pt]{exam}
+\usepackage{graphicx}
+	\graphicspath{{/Users/goby/Pictures/teach/163/lab/}
+	{img/}} % set of paths to search for images
+
+\usepackage{geometry}
+\geometry{letterpaper, left=1.5in, bottom=1in}                   
+%\geometry{landscape}                % Activate for for rotated page geometry
+\usepackage[parfill]{parskip}    % Activate to begin paragraphs with an empty line rather than an indent
+\usepackage{amssymb, amsmath}
+\usepackage{mathtools}
+	\everymath{\displaystyle}
+
+\usepackage{fontspec}
+\def\mainfont{Linux Libertine O}
+\setmainfont[Ligatures={TeX}, BoldFont={* Bold}, ItalicFont={* Italic}, BoldItalicFont={* BoldItalic}, Numbers={Proportional, OldStyle}]{\mainfont}
+\setsansfont[Scale=MatchLowercase,Ligatures=TeX, Numbers={Proportional,OldStyle}]{Linux Biolinum O}
+\setmonofont{Linux Libertine O}
+\newfontface{\lining}[Numbers=Lining]{\mainfont}
+\usepackage{microtype}
+
+\usepackage{unicode-math}
+\setmathfont[Scale=MatchLowercase]{Tex Gyre Pagella Math}
+
+% To define fonts for particular uses within a document. For example, 
+% This sets the Libertine font to use tabular number format for tables.
+ %\newfontfamily{\tablenumbers}[Numbers={Monospaced}]{Linux Libertine O}
+% \newfontfamily{\libertinedisplay}{Linux Libertine Display O}
+
+\usepackage{booktabs}
+\usepackage{multicol}
+
+\usepackage{caption}
+\captionsetup{font=small} 
+\captionsetup{singlelinecheck=false}
+\captionsetup[figure]{labelsep=period, format=plain}
+
+\usepackage{longtable}
+%\usepackage{siunitx}
+\usepackage{array}
+\newcolumntype{L}[1]{>{\raggedright\let\newline\\\arraybackslash\hspace{0pt}}p{#1}}
+\newcolumntype{C}[1]{>{\centering\let\newline\\\arraybackslash\hspace{0pt}}p{#1}}
+\newcolumntype{R}[1]{>{\raggedleft\let\newline\\\arraybackslash\hspace{0pt}}p{#1}}
+
+\usepackage{enumitem}
+\setlist{leftmargin=*}
+\setlist[1]{labelindent=\parindent}
+\setlist[enumerate]{label=\textsc{\alph*}.}
+\setlist[itemize]{label=\color{gray}\textbullet}
+
+\usepackage[hyphens]{url}
+%\usepackage{hyperref}
+%\usepackage{placeins} %PRovides \FloatBarrier to flush all floats before a certain point.
+\usepackage{hanging}
+
+\usepackage[sc]{titlesec}
+
+%% Commands for Exam class
+\renewcommand{\solutiontitle}{\noindent}
+\unframedsolutions
+\SolutionEmphasis{\bfseries}
+
+\renewcommand{\questionshook}{%
+	\setlength{\leftmargin}{-\leftskip}%
+}
+
+%Change \half command from 1/2 to .5
+\renewcommand*\half{.5}
+
+\pagestyle{headandfoot}
+\firstpageheader{\textsc{bi}\,063 Evolution and Ecology}{}{\textbf{Instructor Notes}}
+\runningheader{}{}{\footnotesize{pg. \thepage}}
+\footer{}{}{}
+\runningheadrule
+
+\newcommand*\AnswerBox[2]{%
+    \parbox[t][#1]{0.92\textwidth}{%
+    \begin{solution}#2\end{solution}}
+    \vspace*{\stretch{1}}
+}
+
+\newenvironment{AnswerPage}[1]
+    {\begin{minipage}[t][#1]{0.92\textwidth}%
+    \begin{solution}}
+    {\end{solution}\end{minipage}
+    \vspace*{\stretch{1}}}
+
+\newlength{\basespace}
+\setlength{\basespace}{5\baselineskip}
+
+\newcommand{\hidepoints}{%
+	\pointsinmargin\pointformat{}
+}
+
+\newcommand{\showpoints}{%
+	\nopointsinmargin\pointformat{(\thepoints)}
+}
+
+\newcommand\chisq{$\chi^2$}
+
+%
+%\makeatletter
+%\def\SetTotalwidth{\advance\linewidth by \@totalleftmargin
+%\@totalleftmargin=0pt}
+%\makeatother
+
+
+%\printanswers
+
+
+\begin{document}
+
+\hidepoints
+
+\subsection*{Changes in lake ice: ecosystem response to climate change}
+
+\begin{itemize}
+\item
+  Each group (2–3 students) will need a laptop.
+\item
+  Have students work through handout until Question~1. Discuss as a
+  group, guiding students to the consensus that ``Ice duration'' will give you the
+  most useful information, the clearest evidence of a trend. Instruct all
+  students to use ``Ice duration'' for their \textsc{y}-axis in this exercise.
+    
+\item
+  Assign students one of the \textasciitilde{}30 year time periods listed below. 
+  A few groups will have the same time period. That is
+  fine. Just make sure that they compare their data with a group with a
+  different time period. Assign different time periods to groups at the same table.
+
+  1855–1881 (27 years)
+  
+  1882–1908 (27 years)
+  
+  1909–1934 (26 years)
+  
+  1935–1961 (27 years)
+  
+  1962–1988 (27 years) 
+  
+  1989–2015 (27 years) 
+  
+\item
+  Have groups create their graphs and answer questions 2–8.
+  
+\item
+  For \#8, draw a table on the board as follows (if multiple
+  groups have the same years, the results only needs to be recorded on the board
+  once):
+  
+\end{itemize}
+
+\begin{longtable}[]{@{}lL{5cm}L{5cm}@{}}
+\toprule
+Time period & \# years with shorter than average ice duration & \# years with longer
+than average ice duration\tabularnewline
+\midrule
+\endhead
+1855–1881 & &\tabularnewline[1ex]
+1882–1908 & &\tabularnewline[1ex]
+1909–1934 & &\tabularnewline[1ex]
+1935–1961 & &\tabularnewline[1ex]
+1962–1988 & &\tabularnewline[1ex]
+1989–2015 & &\tabularnewline[1ex]
+\bottomrule
+\end{longtable}
+
+\begin{itemize}
+\item
+  Review the answer to \#8 as a class
+\item
+  Project the long-term data set (from PowerPoint) on the board and have
+  students complete questions 9–12.
+  
+\item
+  Have students turn in one packet per group, 12 pts.
+\end{itemize}
+
+\end{document}  
