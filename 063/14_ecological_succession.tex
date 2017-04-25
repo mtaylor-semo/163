@@ -1,0 +1,315 @@
+%!TEX TS-program = lualatex
+%!TEX encoding = UTF-8 Unicode
+
+\documentclass[12pt, hidelinks]{exam}
+
+%\printanswers
+
+\usepackage{graphicx}
+	\graphicspath{{/Users/goby/Pictures/teach/163/lab/}
+	{img/}} % set of paths to search for images
+
+\usepackage{geometry}
+\geometry{letterpaper, left=1.5in, bottom=1in}                   
+%\geometry{landscape}                % Activate for for rotated page geometry
+\usepackage[parfill]{parskip}    % Activate to begin paragraphs with an empty line rather than an indent
+\usepackage{amssymb, amsmath}
+\usepackage{mathtools}
+	\everymath{\displaystyle}
+
+\usepackage{fontspec}
+\setmainfont[Ligatures={TeX}, BoldFont={* Bold}, ItalicFont={* Italic}, BoldItalicFont={* BoldItalic}, Numbers={Proportional, OldStyle}]{Linux Libertine O}
+\setsansfont[Scale=MatchLowercase,Ligatures=TeX, Numbers={Proportional,OldStyle}]{Linux Biolinum O}
+\setmonofont[Scale=MatchLowercase]{Linux Libertine Mono O}
+\newfontfamily{\liningnum}[Numbers=Lining]{Linux Libertine O}
+\usepackage{microtype}
+
+\usepackage[table]{xcolor}
+
+\usepackage{unicode-math}
+\setmathfont[Scale=MatchLowercase]{Tex Gyre Pagella Math}
+
+
+% To define fonts for particular uses within a document. For example, 
+% This sets the Libertine font to use tabular number format for tables.
+ %\newfontfamily{\tablenumbers}[Numbers={Monospaced}]{Linux Libertine O}
+% \newfontfamily{\libertinedisplay}{Linux Libertine Display O}
+
+\usepackage{booktabs}
+\usepackage{multicol}
+
+\usepackage{caption}
+\captionsetup{format=plain, justification=raggedright, singlelinecheck=off,labelsep=period,skip=3pt} % Removes colon following figure / table number.
+
+%\usepackage{caption}
+%\captionsetup{font=small} 
+%\captionsetup{singlelinecheck=false}
+%\captionsetup[figure]{labelsep=period, format=plain}
+
+\usepackage{longtable}
+\usepackage{caption}
+\captionsetup{format=plain, justification=raggedright, singlelinecheck=off,labelsep=period,skip=3pt} 
+
+\usepackage{array}
+\newcolumntype{L}[1]{>{\raggedright\let\newline\\\arraybackslash\hspace{0pt}}p{#1}}
+\newcolumntype{C}[1]{>{\centering\let\newline\\\arraybackslash\hspace{0pt}}p{#1}}
+\newcolumntype{R}[1]{>{\raggedleft\let\newline\\\arraybackslash\hspace{0pt}}p{#1}}
+
+\usepackage{enumitem}
+\setlist{leftmargin=*}
+\setlist[1]{labelindent=\parindent}
+\setlist[enumerate]{label=\textsc{\alph*}.}
+\setlist[itemize]{label=\color{gray}\textbullet}
+
+\usepackage{hyperref}
+%\usepackage{placeins} %PRovides \FloatBarrier to flush all floats before a certain point.
+\usepackage{hanging}
+
+\usepackage[sc]{titlesec}
+
+%% Commands for Exam class
+\renewcommand{\solutiontitle}{\noindent}
+\unframedsolutions
+\SolutionEmphasis{\bfseries}
+
+\renewcommand{\questionshook}{%
+	\setlength{\leftmargin}{-\leftskip}%
+}
+
+%Change \half command from 1/2 to .5
+\renewcommand*\half{.5}
+
+\pagestyle{headandfoot}
+\firstpageheader{\textsc{bi}\,063 Evolution and Ecology}{}{\ifprintanswers\textbf{KEY}\else Name: \enspace \makebox[2.5in]{\hrulefill}\fi}
+\runningheader{}{}{\footnotesize{pg. \thepage}}
+\footer{}{}{}
+\runningheadrule
+
+\newcommand*\AnswerBox[2]{%
+    \parbox[t][#1]{0.92\textwidth}{%
+    \begin{solution}#2\end{solution}}
+    \vspace{\stretch{1}}
+}
+
+\newenvironment{AnswerPage}[1]
+    {\begin{minipage}[t][#1]{0.92\textwidth}%
+    \begin{solution}}
+    {\end{solution}\end{minipage}
+    \vspace{\stretch{1}}}
+
+\newlength{\basespace}
+\setlength{\basespace}{5\baselineskip}
+
+
+\newcommand\chisq{$\chi^2$}
+\newcommand*\meanY{\overline{Y}\kern0.67pt}
+
+\newcommand*\AnswerBlank[1]{%
+	\ifprintanswers%
+		\textbf{#1}
+	\else%
+		\rule{0.75in}{0.4pt}\kern0.67pt.\fi%
+	}
+
+%\newcommand*\AnswerBlank{\rule{0.75in}{0.4pt}\kern0.67pt.}
+\newcommand*\xcell[1]{cell~\liningnum{#1}}
+
+%
+%\makeatletter
+%\def\SetTotalwidth{\advance\linewidth by \@totalleftmargin
+%\@totalleftmargin=0pt}
+%\makeatother
+
+
+
+\begin{document}
+
+\subsection*{Floristic relay: a game of ecological succession\footnote{Based on Ortiz-Barney et al. 2005. Teaching Issues and Experiments in Ecology 3.}}
+
+Ecological succession is a response to disturbance of the environment in which an area is colonized by a variety of species that are gradually replaced by other species over time. A disturbance is an event such as a fire, storm, drought, or human activity that changes a community by removing organisms or altering resource availability. The types of disturbance, their frequencies, and their intensities determine the composition of a community.  Therefore, the species that form the community at any point in time coexist as they share similar abiotic and biotic requirements.  Early successional species, often referred to as pioneer species, thrive in disturbed areas, are fast growing, and typically prefer an open, sunny environment with bare soil for germination. Late successional communities are typically dominated by multi-aged and sized shrub and tree species.  These communities have a well-developed understory  dominated by shade-tolerant plants.  Late successional communities are often referred to as climax communities. In this activity, you will examine the response of early versus late successional species to various disturbance events over time.  Though many species can be considered mid-successional, we will only examine early and late successional species in this game.
+
+\subsubsection*{Early and late succession plants}
+
+The game at your table includes Event cards (fire, grazing, landslide, and no disturbance), Interaction cards (competition, facilitation, and tolerance), and Plant Species cards. Look at the species cards to see which plants are early successional and which plants are late successional. Look 
+at how each plant responds to disturbance events. A plant moves forward if it benefits from a disturbance and it moves backwards if it is not helped. Use this information to answer the following questions.
+
+\begin{questions}
+
+\question \label{ques:hypothesis}
+If few disturbances occur during succession then what type of plants (early or late successional) should dominate the final community?
+
+\AnswerBox{0.35\basespace}{Late successional.}
+
+\question
+Based on your answer, which three species should be most numerous in the final community? 
+
+\AnswerBox{0.35\basespace}{Borogrove Grass, Mimsy Bush, Truffula Tree.}
+
+
+\question
+Will the three species be equally numerous at the end of the game? Explain why you think so.
+ \textsc{Hint:} Compare the disturbance response of each species. 
+
+\AnswerBox{0.35\basespace}{Probably not. The types and frequency of disturbance might affect the
+	final abundance of each plant.}
+
+\question
+If fire is the most frequent disturbance event, which species would you predict to be most common at the end of the game? Why?
+
+\AnswerBox{0.35\basespace}{Momerath Herb responds best to fires.}
+
+\begin{samepage}
+	
+\question
+If grazing is the most frequent disturbance event, which species would you predict to be most common at the end of the game?  Why?
+
+\AnswerBox{0.35\basespace}{Grickle Grass responds best to grazing.}
+
+\subsubsection*{Instructions}
+
+Play the game with 5–6 students, preferably 6. The first player 
+to reach “Finish” is the winner. Big surprise there, hunh?
+
+\end{samepage}
+
+\begin{enumerate}
+	
+	\item Choose a dealer. 
+	
+	\item Each player, including the dealer, chooses a plant species and then
+	places the associated game piece in the “Start” square.
+	
+	\item Dealer shuffles the Event cards and places them face down in the 
+	Future Events spot on the playing board. Shuffle and place the 
+	Interaction cards face down in their spot.
+	
+	\item \label{q:event_card} The dealer draws the first Event Card and places it face 
+	up in the Current Event spot.
+	
+	\item Each player then plays according to the Event and Character 
+	Card directions, starting with the dealer and going clockwise.
+	
+	\item \label{q:interactions} After all players have their turn, check the board for 
+	players who landed on the same square. These players are interacting.
+	
+	\begin{enumerate}[label=(\alph*)]
+		\item Interactions are played in the same order as Events (clockwise starting at the dealer).
+
+		\item Two at a time, the interacting players draw one Interaction Card.
+		
+		\item Play according to the interaction card.
+	\end{enumerate}
+
+	\filbreak
+
+	\item Repeat Steps~\ref{q:event_card}–\ref{q:interactions} until a player wins. 
+	Record the number of each type of event that occurred during the game and the finishing order of the players in Table~\ref{tab:final_results} on page~\pageref{tab:final_results}.
+	
+	
+\end{enumerate}
+
+\subsubsection*{What does your community look like?}
+
+Follow these steps to make a diagram of the final community.
+
+\begin{enumerate}[resume]
+	\item Record the order of the players’ plants in the table.
+	
+	\item Next to the name of the plant is a number of plants. 
+	Draw this number of plants in the space below.
+	
+	\item Use the key for the appropriate symbol to represent each plant.
+	
+\end{enumerate}
+
+Use this example to guide you. This table shows the plant species
+listed in order of finishing and the number of individuals for each
+plant species to be drawn.
+
+{\centering
+	\includegraphics[width=0.58\textwidth]{14_example_table}\par
+}
+
+Here is the key showing how to draw each plant species. 
+
+{\centering
+	\includegraphics[width=0.58\textwidth]{14_key_to_plant_diagrams}\par
+}
+
+Here is the final diagram showing the proper number of each species
+from the table.
+
+{\centering
+	\includegraphics[width=0.58\textwidth]{14_example_final_diagram}\par
+}
+
+
+\question
+Fill in Table~\ref{tab:final_results} with the results of your game.
+
+{\setlength{\LTcapwidth}{5.8in}
+\begin{longtable}{@{}|L{1.2in}|L{0.6in}|L{0.6in}|L{2in}|L{0.6in}|@{}}
+\caption{Record the number of each type of event and the number of individuals for each plant species where indicated.}\label{tab:final_results}\tabularnewline
+	\hline
+	Event & Number of cards & Order of players	& Name of plant species	& Number of plants \tabularnewline
+	\hline
+	Fire & & 1st & & 6 plants \tabularnewline[0.25cm]
+	\hline
+	Grazing & & 2nd & & 5 plants \tabularnewline[0.25cm]
+	\hline
+	Landslide & & 3rd & & 4 plants\tabularnewline[0.25cm]
+	\hline
+	No Disturbance & & 4th & & 3 plants \tabularnewline[0.25cm]
+	\hline
+	& & 5th & & 2 plants \tabularnewline[0.25cm]
+	\hline
+	& & 6th & & 1 plant \tabularnewline[0.25cm]
+	\hline
+\end{longtable}}
+
+
+\question
+Draw your final community here.
+
+\vskip0pt plus 1fill
+
+Answer the questions on the next page.
+
+\newpage
+
+
+\question
+How would you describe the diagram produced, is it more like a forest, a grassland or a shrubland? Why?
+
+\AnswerBox{0.2\basespace}{Answer depends.}
+
+\question
+Will the winning plant always be the same? Why or why not?
+
+\AnswerBox{0.2\basespace}{Probably not. Which species wins is determined
+	by the frequency and types of disturbance, interactions with other species
+	present, and random events.}
+
+\question[Checkout]
+Describe how would you change the Events deck to ensure that your species wins?
+
+\AnswerBox{0.2\basespace}{Stack the deck with more event cards that
+	favor your species, e.g., more grazing or more no disturbance cards.
+	Minimize the number of disturbance cards that most sets back the species.}
+
+
+\question[Checkout]
+The Mooselet is an animal species that responds well to abundant grickle grass. You are a manager charged with increasing the population size of Mooselets. What management (disturbance) strategy would you use to increase the Mooselet population?
+
+\AnswerBox{0.5\basespace}{Grickle Grass responds favorably to grazing. Therefore, to increase
+	mooselets, your management strategy should increase the frequency of grazing. More grazing
+	should increase the abundance of grickle grass and therefore the abundance of mooselets.}
+
+
+\vspace{\stretch{1}}
+
+\end{questions}
+	
+
+
+\end{document}  
