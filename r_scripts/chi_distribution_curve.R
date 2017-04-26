@@ -8,9 +8,10 @@ x <- rchisq(100000,df)
 
 plot_x_upper_lim <- 12
 
+png(file='13_chi_distrib.png', bg="transparent", width=1000, height=607)
+
 op <- par(family='serif', mar=c(5,6,1,1))
 
-%png(file='13_chi_distrib.png', bg="transparent", width=1000, height=607)
 
 coord.x2 <- c(crit.chi, seq(crit.chi,plot_x_upper_lim,0.01), plot_x_upper_lim)
 coord.y2 <- c(0,dchisq(seq(crit.chi,plot_x_upper_lim,0.01),df),0)
@@ -28,8 +29,9 @@ text(9, 0.04, "Differs significantly \nfrom expected values.", pos=4, cex=1.2)
 mtext("Sample Probability", side=2, line=4, cex=1.3)
 arrows(8.6, 0.0075, 9,0.04, code=1, length=0.1)
 
+par(op)
+
 dev.off()
 
-par(op)
 
 
