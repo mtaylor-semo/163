@@ -1,14 +1,14 @@
 %!TEX TS-program = lualatex
 %!TEX encoding = UTF-8 Unicode
 
-\documentclass[t]{beamer}
+%\documentclass[t]{beamer}
 
 %%%% HANDOUTS For online Uncomment the following four lines for handout
-%\documentclass[t,handout]{beamer}  %Use this for handouts.
-%\usepackage{handoutWithNotes}
-%\pgfpagesuselayout{3 on 1 with notes}[letterpaper,border shrink=5mm]
+\documentclass[t,handout]{beamer}  %Use this for handouts.
+\usepackage{handoutWithNotes}
+\pgfpagesuselayout{3 on 1 with notes}[letterpaper,border shrink=5mm]
 
-%\includeonlylecture{student}
+\includeonlylecture{student}
 
 %%% Including only some slides for students.
 %%% Uncomment the following line. For the slides,
@@ -17,7 +17,7 @@
 %% For students, use \lecture{student}{student}
 %% For mine, use \lecture{instructor}{instructor}
 
-% FONTS
+% Fonts
 \usepackage{fontspec}
 \def\mainfont{Linux Biolinum O}
 \setmainfont[Ligatures={Common,TeX}, Contextuals={NoAlternate}, Numbers={Proportional, OldStyle}]{\mainfont}
@@ -78,13 +78,70 @@
 
 \lecture{student}{student}
 
-\begin{frame}{Our goals for this lecture are to}
+\begin{frame}{Our goals for this lecture are to learn}
 
-	\hangpara learn about the \highlight{greenhouse effect} and
+	\hangpara how climate determines the distribution of ecosystems,
+	
+	\hangpara about the \highlight{greenhouse effect} and
 	
 	\hangpara how it affects \highlight{climate change.} 
 	
 \end{frame}
+%
+{
+	\usebackgroundtemplate{\includegraphics[width=\paperwidth]{ecosystem_distribution} }
+	\begin{frame}[b]{The distribution of terrestrial ecosystems is determined by \highlight{climate}.}
+		
+	\end{frame}
+}
+%
+
+
+{
+	\usebackgroundtemplate{\includegraphics[width=\paperwidth]{climate_solar_input} }
+	\begin{frame}[b]{Climate is driven by variation of \highlight{solar radiation} from low to high latitudes.}
+		
+		\hfill \tiny Fig.~52.3\textsc{a} \copyright Pearson Education, Inc.
+	\end{frame}
+}
+%
+{
+	\begin{frame}[t]{Solar input creates wind and precipitation patterns.}
+		
+		\includegraphics[width=\textwidth]{climate_circulation_precipitation}
+		
+		\vfilll
+		
+		\hfill \tiny Fig.~52.3\textsc{b} \copyright Pearson Education, Inc.
+	\end{frame}
+}
+%
+
+
+{
+	\usebackgroundtemplate{\includegraphics[width=\paperwidth]{climograph} }
+	\begin{frame}[b]{Ecosystem distribution is determined by mean annual temperature and precipitation.}
+		
+	\end{frame}
+}
+%
+\begin{frame}[t]{Mountains create \highlight{rain shadows} that affect regional climate.}
+	
+	\bigskip
+	
+	\includegraphics[width=\textwidth]{rain_shadow}
+	
+	\vfilll
+	
+	\hfill \tiny Fig.~52.6 \copyright\,Pearson Education, Inc.
+\end{frame}
+%
+{
+	\usebackgroundtemplate{\includegraphics[width=\paperwidth]{precipitation_national} }
+	\begin{frame}[b]
+		
+	\end{frame}
+}
 %
 \begin{frame}[t]{Is global warming real? Do liars lie?}
 	\begin{center}
@@ -97,6 +154,8 @@
 	
 	\hfill \tiny \copyright~Marc Morano, Climate Depot
 \end{frame}
+
+%
 
 % May move elsewhere, such as population ecology, or convert to exercise. Did not
 % use in Spring 2017.
