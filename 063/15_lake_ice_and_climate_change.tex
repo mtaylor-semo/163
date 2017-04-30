@@ -1,7 +1,10 @@
 %!TEX TS-program = lualatex
 %!TEX encoding = UTF-8 Unicode
 
-\documentclass[12pt, hidelinks, addpoints]{exam}
+\documentclass[12pt, hidelinks]{exam}
+
+\printanswers
+
 \usepackage{graphicx}
 	\graphicspath{{/Users/goby/Pictures/teach/163/lab/}
 	{img/}} % set of paths to search for images
@@ -51,8 +54,8 @@
 \setlist[enumerate]{label=\textsc{\alph*}.}
 \setlist[itemize]{label=\color{gray}\textbullet}
 
-\usepackage[hyphens]{url}
-%\usepackage{hyperref}
+%\usepackage[hyphens]{url}
+\usepackage{hyperref}
 %\usepackage{placeins} %PRovides \FloatBarrier to flush all floats before a certain point.
 \usepackage{hanging}
 
@@ -76,10 +79,12 @@
 \footer{}{}{}
 \runningheadrule
 
+%\parbox[t][2\basespace][t]{0.92\textwidth}{\ifprintanswers{\bfseries The duration of ice cover should become smaller.}\fi}
+
 \newcommand*\AnswerBox[2]{%
-    \parbox[t][#1]{0.92\textwidth}{%
-    \begin{solution}#2\end{solution}}
-    \vspace*{\stretch{1}}
+	\parbox[t][#1][t]{0.92\textwidth}{%
+		\ifprintanswers{\bfseries #2}\fi}
+	\vspace*{\stretch{1}}\par
 }
 
 \newenvironment{AnswerPage}[1]
@@ -91,98 +96,85 @@
 \newlength{\basespace}
 \setlength{\basespace}{5\baselineskip}
 
-\newcommand{\hidepoints}{%
-	\pointsinmargin\pointformat{}
-}
+\newcommand*{\subsec}[1]{\medskip \bigskip {\scshape #1} \medskip}
 
-\newcommand{\showpoints}{%
-	\nopointsinmargin\pointformat{(\thepoints)}
-}
-
-\newcommand\chisq{$\chi^2$}
-
-%
-%\makeatletter
-%\def\SetTotalwidth{\advance\linewidth by \@totalleftmargin
-%\@totalleftmargin=0pt}
-%\makeatother
-
-
-%\printanswers
 
 
 \begin{document}
 
-\hidepoints
-
 \subsection*{Changes in lake ice: ecosystem response to climate
-change\footnote{\raggedright Data and modified lab instructions from: http://www.esa.org/tiee/vol/v3/issues/data\_sets/ lake\_ice/overview.html.} (\numpoints\ points)}
+change\footnote{\raggedright Data and modified lab instructions from Bohanan et al. 2005. Changes in lake ice: ecosystem Response to global change. Teaching Issues and Experiments in Ecology 3. \href{http://www.esa.org/tiee/vol/v3/issues/data_sets/lake_ice/abstract.html}{[online]}}}
 
 Climate observations have been recorded regularly around the world. Many of
-these records date several centuries. Recent
-publications have used data back to the mid 1800s from lakes and rivers in the northern
-hemisphere. The data used in this exercise
-are the dates of fall ``ice-on'' (the initial formation of ice cover),
-spring ``ice-off'' (the break-up of winter ice cover), and duration of ice
-cover on Wisconsin's lakes Mendota, Monona, and Wingra, which are part
-of the North Temperate Lakes Long-Term Ecological Research site (Assel
-and Robertson 1995).
-
-Magnuson et al.~(2000) looked at river ice cover data from 39 locations
-in the northern hemisphere including sites in Russia, Finland, Japan,
-and the United States. The authors concluded that average rate of change 
-in freeze dates over the 150-year period from 1846–1995 was 5.8 days per 100
-years later and that change in breakup averaged 6.5 days per 100 years
-earlier. These changes translate into increasing air temperature of
-about {\lining1.2}°C per 100 years.
-
-\subsubsection*{Long-Term Ecological Research}
-
-In the 1970s, ecologists realized that many ecological questions could
-not be answered by individual or small groups of scientists conducting
-short-term research. Therefore, in 1980 the National Science Foundation
-established the Long-Term Ecological Research (\textsc{lter}) network to support
-research on long-term ecological phenomena in the U.S. As of 2004, the
-\textsc{lter} Network includes 26 sites representing different biomes across the
-U.S. and Antarctica (\url{http://www.lternet.edu/}).
-
-The vision of the North Temperate Lakes \textsc{lter} is ``\dots to gain a
-predictive understanding of the ecology of lakes at longer and broader
-scales than has been traditional in limnology. Thus, we analyze and
-interpret data we collect over long periods on suites of lakes''
-(\url{http://lter.limnology.wisc.edu}).
-
-\subsubsection*{Introduction}
-
-Global warming is clearly taking place. Global temperatures
+these records date back several centuries. The results of these observations
+show that global temperatures
 have increased by about {\lining0.8}°C ({\lining1.5}°F) during the last century,
-most likely the result of ``greenhouse gases,'' such as carbon dioxide
+most likely the result of ``greenhouse gases,'' such as carbon dioxide,
 from burning of gasoline, oil, and coal. This may not seem like a
 much of a temperature change for 100 years but, in comparison, 
 the largest temperature changes recorded during the last 5 million years were 
-{\lining0.016–0.008}°C per 100 years. The current rate of temperature change is 
+{\lining0.008–0.016}°C per century. The current rate of temperature increase is 
 50–100$\times$ faster that any temperature change recorded in 5 million years.
 
-There are many environmental consequences of warmer temperatures, some
+Rapid warming has many environmental consequences of warmer temperatures, some
 unexpected. In Alaska, for instance, warmer weather allows the spruce
 bark beetle to complete its normally two-year life cycle in just one
 year; the result is millions of acres of spruce forest killed by the
 beetle. As another example, mosquitoes carrying diseases have spread to
 areas where they have never before been recorded.
 
-One challenge to our understanding of environmental effects due to
-global warming is lack of data collected over long periods of time. The
-data from lakes in Wisconsin that you will work with is very unusual
-because it spans \textasciitilde{}160 years.
 
-\subsubsection*{Lake ice records for Lake Mendota}
+Questions about the long-term effects of climate change are difficult
+to answer by individual or small groups of scientists conducting
+short-term research. Therefore, in 1980 the National Science Foundation
+established the Long-Term Ecological Research (\textsc{lter}) network to support
+research on long-term ecological phenomena in the U.S. 
+As of 2004, the network includes 26 sites representing different biomes across the
+U.S. and Antarctica (\url{http://www.lternet.edu/}).
 
-You will work with data that include 1) the duration of ice cover, 2) dates
-of spring ``ice-off'' (the break-up of winter ice cover) and 3) dates of
-``ice-on'' for Wisconsin's Lake Mendota, which is part of the North
-Temperate Lakes Long-Term Ecological Research site. Each of these
+One of the sites is the The North Temperate Lakes \textsc{lter},
+which monitors 11 temperate lakes across Wisconsin. Their goal  is “\dots to gain a
+predictive understanding of the ecology of lakes at longer and broader
+scales than has been traditional in studies of lakes. Thus, we analyze and
+interpret data we collect over long periods on suites of lakes”
+(\url{http://lter.limnology.wisc.edu}). The data collected
+from the Wisconsin lakes is very unusual
+because it spans about 160 years.
+
+%The data you will use in this exercise
+%are the dates of fall ``ice-on'' (the initial formation of ice cover),
+%spring ``ice-off'' (the break-up of winter ice cover), and duration of ice
+%cover on Wisconsin's lakes Mendota, Monona, and Wingra, which are part
+%of the North Temperate Lakes Long-Term Ecological Research site (Assel
+%and Robertson 1995).
+
+%\subsubsection*{Introduction}
+%
+%Magnuson et al.~(2000) looked at river ice cover data from 39 locations
+%in the northern hemisphere including sites in Russia, Finland, Japan,
+%and the United States. The authors concluded that average rate of change 
+%in freeze dates over the 150-year period from 1846–1995 was 5.8 days per 100
+%years later and that change in breakup averaged 6.5 days per 100 years
+%earlier. These changes translate into increasing air temperature of
+%about {\lining1.2}°C per 100 years.
+%
+
+%Recent publications have used data back to the mid 1800s from lakes and rivers in the northern
+%hemisphere. 
+
+
+\subsec{The data: ice records for Lake Mendota}
+
+You will work with data collected from Wisconsin's Lake Mendota, which is part of the North
+Temperate Lakes Long-Term Ecological Research site. The data
+ include the dates of spring “ice-on” (the initial formation of ice cover), the dates of
+“ice-off” (the break-up of winter ice cover), and the duration of ice cover (the number of days with ice cover on the lake). Each of these
 measures may provide different types of evidence related to global
-change.
+climate change.
+
+\newpage
+
+\subsec{Instructions}
 
 \begin{enumerate}
 
@@ -193,50 +185,53 @@ ice data collected at Lake Mendota over a 160-year period.
 understand each one.
 
 \item Take a look at the first row of data, for the winter of 1855–56. In
-this winter, the ice froze on December 18 and melted on April 14. So the
-"Ice Duration" was from Dec. 18 to April 14, a total of 118 days.
+this winter, the ice formed on December 18 and melted on April 14. So the
+"Ice Duration" was from December 18 to April 14, a total of 118 days.
 
 \item Notice that, in addition to being expressed as dates, ``Ice On'' and
 ``Ice Off'' are also expressed as numerals, the number of days since
-January 1. For example, look in the sixth column. The ``Ice Off (Day of
+January 1. For example, look in the fourth column. The ``Ice Off (Day of
 Year)'' for 1855 is 105 (January 1, 1856 to April 14, 1856). Finally,
 notice that the ``Ice On'' date for some years (e.g., 1931) is greater
 than 365. That's because the ice on the lake did not form until after
 the end of the year (e.g., January 31).
 \end{enumerate}
 
+\begin{questions}
+
+\question
 In your group, discuss the three measures from the data sets and explain
-what evidence related to global change each of these may provide. Briefly 
-summarize your discussion on the next page.  For
-example, ice-off data are especially useful for assessing long-term
+what evidence related to global change each of these may provide. 
+% Briefly summarize your discussion on the next page.  
+For example, ice-off data are especially useful for assessing long-term
 trends because they integrate air temperature over many days. Therefore,
 this single data point actually expresses the cumulative effects of
 local weather conditions over the winter season. 
 
-Ice on (day of the year):\vspace*{2\baselineskip}
+\bigskip
 
-Ice off (day of the year):\vspace*{2\baselineskip}
+Which one measurement (ice-on, ice-off,or  duration) does your group think may be best for detecting signs of climate change? Explain why.
 
-Ice duration (days):\vspace*{2\baselineskip}
+\AnswerBox{0.6\basespace}{Any answer acceptable.}
+
+\textbf{{\scshape Stop here.}} Wait for a class discussion and to be assigned your data to graph.
 
 
-\begin{questions}
+\question \label{ques:hypothesis}
+Write a hypothesis that states how the chosen measurement should change over time if mean global temperatures are increasing.
+	
+\AnswerBox{0.6\basespace}{Climate change/increasing temperatures will cause the duration of ice cover to decrease over time.}
+	
 
-\question[1]
-Which of the three types of data do you think will give you the most useful
-information or the clearest evidence of a trend? What is your hypothesis
-for this data set—what do you expect to find? Make a sketch of the
-pattern you predict to see.
+\question
+Sketch a graph of the pattern you predict to see for the chosen variable changing over time.
 
-\vspace*{14\baselineskip}
+\AnswerBox{3\basespace}{The  duration of ice cover should decrease over time. Their graph should have years/time on \textsc{x}-axis and duration of ice cover on the \textsc{y}-axis. Line should show a negative trend.}
 
-%\AnswerBox{0.1\baselineskip}{Draw a graph here.}
+\subsec{Create a line graph of your data}
 
-\textbf{Stop here.} Wait for a class discussion and to be assigned your data to graph.
-\subsubsection*{Create a line graph of your data}
-
-Each group will work with a short-term data set of \textasciitilde{}25–30
-years; your teacher will tell you which years your group will graph.
+Each group will work with a short-term data set of about 25–30
+years; your instructor will tell you which years your group will graph. 
 Graph your years of data.
 
 \begin{enumerate}
@@ -251,7 +246,7 @@ Legend series, select ``Add''.
 values''. Select/highlight the data for your \textsc{y}-axis: the years of Ice
 Duration for \emph{only} the time period you were given. Click ``OK''.
 
-\item Now select the data for your y-axis. In the box that says
+\item Select the data for your \textsc{x}-axis. In the box that says
 ``Horizontal (Category) Axis Labels'', click on Edit. Click on the blue
 box with the red arrow for ``Axis label range''. Select/highlight the
 Years you were given that match the \textsc{y}-axis data. Click ``OK''. Click
@@ -263,43 +258,43 @@ screen, click ``Axis titles'' and label your horizontal (\textsc{x}) and vertica
 
 \end{enumerate}
 
-\question[1]
+\question
 How many years did you look at in your data set? What is the
 \emph{average} ice duration in your data set? What is the shortest
 period of ice duration in your data set (minimum)? Longest (maximum)? In
 which year did each occur?
 
-\AnswerBox{3\baselineskip}{Answer Here}
+\AnswerBox{0.6\basespace}{Answer Here}
 
-\question[1]
+\question
 Is there much variability from year to year, or only a little?
 
-\AnswerBox{3\baselineskip}{Answer Here}
+\AnswerBox{0.6\basespace}{Answer Here}
 
-\question[1]
+\question
 What trend do you see? As time elapses, does the value tend to increase,
 decrease, fluctuate, or stay the same?
 
-\AnswerBox{3\baselineskip}{Answer Here}
+\AnswerBox{0.6\basespace}{Answer Here}
 
-\question[1]
+\question
 Pair up with one other group (preferably the group across the table)
 and compare your results. What was their time period? Compare your
 average, minimum, and maximum durations and record below. Did you reach
 the same or different conclusions based on your data set?
 
-\AnswerBox{3\baselineskip}{Answer Here}
+\AnswerBox{0.6\basespace}{Answer Here}
 
 
 \newpage
 
-\subsubsection*{Compare your graph to the long term data set (Questions \ref{q:compare_first_question}–\ref{q:compare_last_question})}
+\subsec{Compare your graph to the long term data set}
 
-\question[1]\label{q:compare_first_question}
+\question \label{q:compare_first_question}
 What is the average ice duration for the entire dataset? How does
-this compare to your average from your data set?
+this compare to the average from your data set?
 
-\AnswerBox{1\baselineskip}{Answer Here}
+\AnswerBox{0.6\basespace}{Mean ice duration is 103 days. Their comparison will vary. Earlier years will tend to have longer durations. Recent years will tend to have shorter durations.}
 
 Insert a line on your graph showing the average ice duration for the
 \emph{entire} data set. 
@@ -315,58 +310,62 @@ at the correct position on the \textsc{y}-axis (average ice duration for entire
 data set).
 \end{enumerate}
 
-\vspace*{\baselineskip}
+\bigskip
 
-\question[1]\label{q:compare_middle_question}
-How many years on your graph had shorter than average ice duration? \rule{1.5cm}{0.4pt} \\[1.5\baselineskip]
+\question \label{q:compare_middle_question}
+How many years on your graph had shorter than average ice duration? \rule{1.5cm}{0.4pt} \bigskip
+
 How many years on your graph had longer than average ice duration? \rule{1.5cm}{0.4pt}
-
-%\AnswerBox{3\baselineskip}{Answer Here}
 
 \emph{Record your values on the table drawn by your instructor on the
 board.}
 
-\question[1]\label{q:compare_last_question}
-Compare the values (from \#\ref{q:compare_middle_question}) among all of the groups. Do you see a
+\question \label{q:compare_last_question}
+Compare the values (from question~\ref{q:compare_middle_question}) among all of the groups. Do you see a
 trend in years with longer or shorter than average ice duration over
 time? If so, describe the trend that you see.
 
-\AnswerBox{1\baselineskip}{Answer Here}
+\AnswerBox{0.6\basespace}{Answer Here}
 
-\subsubsection*{Conclusions (Questions \ref{q:conclusions_first_question}–\ref{q:conclusions_last_question})}
+\subsec{Conclusions}
 
 Use your short-term data set and
-the complete \textasciitilde{}160 year data set compiled by your
-instructor to answer the following.
+the full 160-year data set to answer the following.
 
-\question[1]\label{q:conclusions_first_question}
+\question \label{q:conclusions_first_question}
 What overall trend in ice duration is shown by the long term data
 set?
 
-\AnswerBox{3\baselineskip}{The long-term data set shows a clear downward trend for ice duration. Ice remains on the lake for fewer days in recent years compared to farther back in time.}
+\AnswerBox{0.6\basespace}{The long-term data set shows a clear downward trend for ice duration. Ice remains on the lake for fewer days in recent years compared to farther back in time.}
 
-\question[1]
+\question
+Do your results combined with the class results support or falsify your hypothesis (question~\ref{ques:hypothesis}? Explain.
+
+\AnswerBox{\basespace}{Supports if student hypothesized shorter duration.}
+
+\question
 Based on what you have just done, explain why using a long term data
 set to discuss evidence of climate change is more useful than at a short
 term data set?
 
-\AnswerBox{3\baselineskip}{Answer Here}
+\AnswerBox{0.6\basespace}{Long term data sets provide a better representation of overall rate of change and trends, reducing effects of short-term variability. In essence, larger data set.}
 
-\question[1]
+\question
 What can short term data sets be used for with regard to
 understanding climate change?
 
-\AnswerBox{3\baselineskip}{Answer Here}
+\AnswerBox{0.6\basespace}{Seriously: What is the answer to this question?}
 
-\question[1]\label{q:conclusions_last_question}
+\question \label{q:conclusions_last_question}
 How does this data on ice cover provide evidence for global change?
 What other types of data might be useful in strengthening your argument?
 Be specific.
 
-\AnswerBox{3\baselineskip}{%
+\AnswerBox{0.6\basespace}{%
 Open-ended%
 }
 \end{questions}
 
+\vspace*{\stretch{3}}
 
 \end{document}  
