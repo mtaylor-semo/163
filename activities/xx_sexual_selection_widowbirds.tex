@@ -1,0 +1,331 @@
+%!TEX TS-program = lualatex
+%!TEX encoding = UTF-8 Unicode
+
+\documentclass[12pt, hidelinks]{exam}
+
+%\printanswers
+
+\usepackage{graphicx}
+	\graphicspath{{/Users/goby/Pictures/teach/163/activities/}
+	{img/}} % set of paths to search for images
+
+\usepackage{geometry}
+\geometry{letterpaper, left=1.5in, bottom=1in}                   
+%\geometry{landscape}                % Activate for for rotated page geometry
+\newlength{\indentlength}
+\setlength{\indentlength}{\parindent}
+\usepackage[parfill]{parskip}    % Activate to begin paragraphs with an empty line rather than an indent
+\usepackage{amssymb, amsmath}
+\usepackage{mathtools}
+	\everymath{\displaystyle}
+
+\usepackage{fontspec}
+\def\mainfont{Linux Libertine O}
+\setmainfont[Ligatures={TeX}, BoldFont={* Bold}, ItalicFont={* Italic}, BoldItalicFont={* BoldItalic}, Numbers={Proportional, OldStyle}]{\mainfont}
+\setsansfont[Scale=MatchLowercase,Ligatures=TeX, Numbers={Proportional,OldStyle}]{Linux Biolinum O}
+\setmonofont{Linux Libertine O}
+\newfontface{\lining}[Numbers=Lining]{\mainfont}
+\usepackage{microtype}
+
+\usepackage{unicode-math}
+\setmathfont[Scale=MatchLowercase]{Tex Gyre Pagella Math}
+
+% To define fonts for particular uses within a document. For example, 
+% This sets the Libertine font to use tabular number format for tables.
+ %\newfontfamily{\tablenumbers}[Numbers={Monospaced}]{Linux Libertine O}
+% \newfontfamily{\libertinedisplay}{Linux Libertine Display O}
+
+\usepackage{booktabs}
+\usepackage{multicol}
+
+\usepackage{caption}
+\captionsetup{format = plain, 
+	justification = raggedright, 
+	font = small, 
+	singlelinecheck = off,
+	labelsep = period, % Removes colon 
+	skip = 3pt} 
+
+
+\usepackage{longtable}
+%\usepackage{siunitx}
+\usepackage{array}
+\newcolumntype{L}[1]{>{\raggedright\let\newline\\\arraybackslash\hspace{0pt}}p{#1}}
+\newcolumntype{C}[1]{>{\centering\let\newline\\\arraybackslash\hspace{0pt}}p{#1}}
+\newcolumntype{R}[1]{>{\raggedleft\let\newline\\\arraybackslash\hspace{0pt}}p{#1}}
+
+\usepackage{enumitem}
+\setlist{leftmargin=*}
+\setlist[1]{labelindent=\parindent}
+\setlist[enumerate]{label=\textsc{\alph*}.}
+\setlist[itemize]{label=\color{gray}\textbullet}
+
+
+\usepackage{wrapfig}
+
+\usepackage{hyperref}
+
+\usepackage{hanging}
+
+\usepackage[sc]{titlesec}
+
+%% Commands for Exam class
+\renewcommand{\solutiontitle}{\noindent}
+\unframedsolutions
+\SolutionEmphasis{\bfseries}
+
+\renewcommand{\questionshook}{%
+	\setlength{\leftmargin}{-\leftskip}%
+}
+
+%Change \half command from 1/2 to .5
+\renewcommand*\half{.5}
+
+\pagestyle{headandfoot}
+\firstpageheader{\textsc{bi}\,163 Evolution and Ecology}{}{\ifprintanswers\textbf{KEY}\else Name: \enspace \makebox[2.5in]{\hrulefill}\fi}
+\runningheader{}{}{\footnotesize{pg. \thepage}}
+\footer{}{}{}
+\runningheadrule
+
+%\parbox[t][2\basespace][t]{0.92\textwidth}{\ifprintanswers{\bfseries The duration of ice cover should become smaller.}\fi}
+
+\newcommand*\AnswerBox[2]{%
+	\parbox[t][#1][t]{0.92\textwidth}{%
+		\ifprintanswers{\bfseries #2}\fi}
+	\vspace*{\stretch{1}}\par
+}
+
+\newenvironment{AnswerPage}[1]
+    {\begin{minipage}[t][#1]{0.92\textwidth}%
+    \begin{solution}}
+    {\end{solution}\end{minipage}
+    \vspace*{\stretch{1}}}
+
+\newlength{\basespace}
+\setlength{\basespace}{5\baselineskip}
+
+\newcommand*{\subsec}[1]{\medskip \bigskip {\scshape #1} \medskip}
+
+\newcommand*\AnswerBlank[1]{%
+	\ifprintanswers%
+		\textbf{#1}
+	\else%
+		\rule{0.75in}{0.4pt}\fi%
+}
+
+
+\begin{document}
+
+\subsection*{Sexual selection and tail length in widowbirds}
+
+For this activity, you will analyze data collected from studies of two species of widowbirds
+(genus \textit{Euplectes}) to learn how female preference can drive the evolution
+of a male trait. 
+
+Charles Darwin (1871) hypothesized that competition among males for territory or preference by females for particular male traits selects for evermore exaggerated \emph{secondary sexual traits}. Secondary sexual traits, like deer antlers and peacock tails, are traits that increases the chance for successful mating compared to males that are less well-endowed with the trait. At the time of Darwin's writing, scant evidence was available to test his predictions. 
+
+Darwin's predictions were tested by Andersson (1982), who studied Long-tailed Widowbirds that inhabit grasslands in central and south Africa (Fig.~\ref{fig:longtailed_widowbird}). The widowbirds are drab brown with relatively short tails during the non-breeding season, which provides camouflage in the grass. During the breeding season, however, males moult to become glossy black. They also grow tail feathers about 50 cm (20 in.) long, more than $4\times$ longer than the male's body (Andersson and Andersson 1994).
+
+
+\hfil\begin{minipage}{\textwidth}
+	\includegraphics[width=\columnwidth]{widowbird_drawing_range}
+	\captionof{figure}{Illustration of male and female widowbirds (left) and distribution in Africa (right).\label{fig:longtailed_widowbird}}
+\end{minipage}\hfill
+
+During breeding, males establish territories and build nest-like structures in their territories. Females enter male territories and complete the nests started by the males. Andersson hypothesized that females on average choose males with longer tails.
+
+\newpage
+
+\begin{questions}
+
+\question
+Is Andersson's hypothesis based on intrasexual or intersexual selection? Why?
+
+\AnswerBox{2\baselineskip}{Intersexual. Females are choosing males based on a trait.}
+
+Andersson randomly assigned 36 male birds to one of four groups: Shortened, Lengthened, Control 1, and Control 2. The treatments will be described later. 
+
+%\begin{enumerate}[label=\arabic*.]
+%	\item Treatment 1: tail feathers shorted by trimming.
+%	\item Treatment 2: tail feathers lengthened by gluing on additional feather.
+%	\item Control 1: tail feathers cut then reglued in place.
+%	\item Control 2: tail feathers never cut.
+%\end{enumerate}
+
+Before applying the treatments, Andersson counted the number of successful nests in each male's territory. His results are shown in the table below.
+
+\begin{longtable}{@{}rrrrr@{}}
+	\toprule
+	Bird	& Shortened	& Lengthened & Control 1 & Control 2\tabularnewline
+	\midrule
+	1 	& 3	&	3	&	3	& 6 \tabularnewline
+	2 	& 1	&	5	&	2	& 3 \tabularnewline
+	3 	& 1	&	1	&	1	& 0 \tabularnewline
+	4 	& 1	&	1	&	3	& 0 \tabularnewline
+	5 	& 0	&	0	&	2	& 2 \tabularnewline
+	6 	& 0	&	0	&	0	& 0 \tabularnewline
+	7 	& 1	&	1	&	2	& 0 \tabularnewline
+	8 	& 2 &	1	&	1	& 2 \tabularnewline
+	9 	& 3	&	1	&	2	& 0 \tabularnewline
+	\bottomrule
+\end{longtable}
+
+%\bigskip
+
+\question
+What is the mean number of successful nests per male for each pre-treatment group?
+
+\begin{parts} 
+	\bigskip
+	\begin{multicols}{2}
+
+	\part Shortened: \AnswerBlank{1.33}. \bigskip
+	
+	\part Lengthened: \AnswerBlank{1.67}. 
+	
+	\part Control 1: \AnswerBlank{1.56}. \bigskip
+	
+	\part Control 2	\AnswerBlank{1.44}.
+		
+	\end{multicols}
+\end{parts}
+
+\bigskip
+
+\question
+Draw a bar chart that shows the mean number of successful nests per group. Give each axis an appropriate label.
+
+\AnswerBox{1\basespace}{Graph here.}
+
+\newpage
+
+\question
+Based on visual inspection, do the four groups of males have about the same or very different mean number of nests per territory?
+
+\AnswerBox{2\baselineskip}{About the same.}
+
+Andersson's statistical comparison of the four pre-treatment groups showed no significant differences. All males had about the same number of nests in their territories.
+
+After gathering the initial data, Andersson manipulated the male tail lengths for the two treatment groups and one control group.
+
+\begin{enumerate}[label = \arabic*.]
+	
+	\item Shortened: Cut off the tail feathers to shorten tail length, A small amount of the original tail feathers were glued back on in case cutting and gluing affected female choice. The final tail length was about 14 cm.
+	
+	\item Lengthened: Glue the feathers from above to the males in this group to increase tail length to about 75 cm.
+	
+	\item Control 1: Cut the tail feathers and then immediately glue the feathers back to the same males, to test whether the cutting and gluing affected female choice.
+	
+	\item Control 2: Tails were left alone. They were not cut or glued in any way. 
+\end{enumerate}
+
+Some time after the tail lengths were adjusted, Andersson again counted the number of successful nests in each male's territory. His results are presented in the table below.
+
+\begin{longtable}{@{}rrrrr@{}}
+	\toprule
+	Bird	& Shortened	& Lengthened & Control 1 & Control 2\tabularnewline
+	\midrule
+	1 	& 0	&	2	&	0	& 3 \tabularnewline
+	2 	& 1	&	4	&	2	& 0 \tabularnewline
+	3 	& 0	&	0	&	1	& 0 \tabularnewline
+	4 	& 0	&	2	&	0	& 0 \tabularnewline
+	5 	& 0	&	2	&	1	& 1 \tabularnewline
+	6 	& 0	&	0	&	0	& 0 \tabularnewline
+	7 	& 2	&	5	&	3	& 0 \tabularnewline
+	8 	& 0 &	2	&	1	& 0 \tabularnewline
+	9 	& 1	&	0	&	0	& 0 \tabularnewline
+	\bottomrule
+\end{longtable}
+
+\bigskip
+
+\question
+What is the mean number of successful nests per male for each post-treatment group?
+
+\begin{parts} 
+	\bigskip
+	
+	\begin{multicols}{2}
+
+	\part Shortened: \AnswerBlank{0.44}. \bigskip
+	
+	\part Lengthened: \AnswerBlank{1.89}.
+	
+	\part Control 1: \AnswerBlank{0.88}. \bigskip
+	
+	\part Control 2	\AnswerBlank{0.44}.
+	\end{multicols}
+\end{parts}
+
+\bigskip
+
+\question
+Sketch a bar chart that shows the mean number of successful nests per group, after the tail lengths were adjusted. Give each axis an appropriate label.
+
+\AnswerBox{2\basespace}{Graph here.}
+
+
+
+\question
+What conclusions can you make from Andersson's results? Was his hypothesis supported? Explain.
+
+\AnswerBox{1\baselineskip}{The lengthened group had more than twice the number of nests compared to the other groups, or one extra nest per territory.}
+
+\end{questions}
+
+\subsec{Are female widowbirds biased towards long tails?}
+
+\begin{wrapfigure}[12]{r}{2.1in}
+	\vspace*{-\baselineskip}
+	\includegraphics[width=2.1in]{red_shouldered_widowbird}
+	\captionof{figure}{Male Red-shouldered Widowbird.\label{fig:red_shouldered_widowbird}}
+\end{wrapfigure}
+The Red-shouldered Widowbird has the shortest tail length of any widowbird species, averaging only 7~cm long (Fig.~\ref{fig:red_shouldered_widowbird}). Pryke and Andersson (2002) asked whether female Red-shouldered Widowbirds have a pre-existing bias towards males with longer tails. To test their hypothesis, they randomly assigned 92 birds to one of four groups.
+
+\begin{enumerate}[label=\arabic*.]
+	\item Short-tailed: 6 cm $(N=25)$.
+	\item Control: 7 cm $(N=23)$.
+	\item Long-tailed: 8 cm $(N=23)$.
+	\item Supernormal-tailed: 22 cm\\ $(N=21)$.
+\end{enumerate}
+
+As with the Long-tailed Widowbirds, Pryke and Andersson counted the number of successful nests for each males. Their results are presented below.
+
+\begin{questions}
+	
+\question
+This is a question.
+
+
+
+
+
+
+\end{questions}
+
+\subsec{Literature Cited}
+
+\begin{hangparas}{\indentlength}{1}
+	Andersson, M. 1982. Female choice selects for extreme tail length in a widowbird. Nature 299: 818–820.
+	
+	Andersson, S. and M.~Andersson. 1994. Tail ornamentation, size dimorphism and wing length in the genus \textit{Euplectes} (Ploceinae). The Auk 111: 80–86.
+	
+	Darwin, C. 1873. \emph{The Descent of Man, and Selection in Relationship to Sex.} D. Appleton and Sons, New York.
+	
+	Pryke, S.\ R. and S.~Andersson. 2002. A generalized female bias for long tails in a short-tailed widowbird. Proc. R. Soc. Lond. B 269: 2141–2146.
+	
+	
+\end{hangparas}
+
+\subsec{Credits}
+
+Figure 1, left panel: Frederick William Frohawk, published by A.G. Butler, 1889, \href{https://archive.org/details/foreignfinchesin00butlrich,}{\textit{Foreign finches in captivity}}. Wikimedia Commons, public domain.
+
+Figure 1, right panel: Danoue92, Wikimedia Commons, \textsc{cc-by-sa 3.0}
+
+Figure 2. Maans Booysen, Wikimedia Commons, \textsc{cc-by-sa 3.0}
+
+This activity was inspired in part by J. Phil Gibson, \textit{Exaggerated Traits and Breeding Success in Widowbirds: A Case of Sexual Selection and Evolution.}\\ \href{http://sciencecases.lib.buffalo.edu/cs/collection/detail.asp?case_id=237&id=237}{http://sciencecases.lib.buffalo.edu/cs/collection/detail.asp?case\_id=237\&id=237}
+
+
+\end{document}  
