@@ -41,7 +41,8 @@
 .DS_Store
 
 ## Folders
-exams/
+exams
+img
 _current_semester/
 past_semesters/
 case_studies/
