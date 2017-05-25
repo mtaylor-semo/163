@@ -26,9 +26,9 @@
 *.pptx
 *.xls
 *.xlsx
- *.jpg
- *.png
- *.psd
+*.jpg
+*.png
+*.psd
 *.ai
 *.dat
 *.pct
@@ -36,7 +36,7 @@
 *.pxm
 *.wmf
 *.zip
- *.txt
+*.txt
 *.Rhistory
 .DS_Store
 
