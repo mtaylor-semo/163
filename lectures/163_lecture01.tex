@@ -37,7 +37,8 @@
 %\usepackage{textcomp}
 
 \usepackage{tikz}
-%	\tikzstyle{every picture}+=[remember picture,overlay]
+	\tikzstyle{every picture}+=[remember picture,overlay]
+	\usetikzlibrary{arrows}
 
 \mode<presentation>
 {
@@ -49,279 +50,232 @@
 
 \begin{document}
 
-\lecture{instructor}{instructor}
-{
-\usebackgroundtemplate{\includegraphics[width=\paperwidth]{connect_the_dots_solved}}
-\begin{frame}[t,plain]
-\end{frame}
-}
-
-{
-\usebackgroundtemplate{\includegraphics[width=\paperwidth]{sunflowers}
-}
-\begin{frame}[b,plain]
-	\hfill \tiny \textcolor{white}{Trey Ratcliff, Flickr, \ccbyncsa{2}}
-\end{frame}
-}
-
-{
-\usebackgroundtemplate{\includegraphics[width=\paperwidth]{spider_bee}
-}
-\begin{frame}[b,plain]
-\tiny Alvesgaspar, Wikimedia, \ccbysa{4}
-\end{frame}
-}
-
-{
-\usebackgroundtemplate{\includegraphics[width=\paperwidth]{marine_iguana}}
-\begin{frame}[b,plain]
-	\textcolor{white}{\tiny Les Williams, Flickr, \ccbysa{2}}
-\end{frame}
-}
-
-{
-\usebackgroundtemplate{\includegraphics[width=\paperwidth]{bird_paradise.jpg}}
-\begin{frame}[b,plain]
-	\tiny\textcolor{white}{\href{http://www.youtube.com/watch?v=KIYkpwyKEhY}{Link to Video} \hfill \copyright\,Tim Laman, All Rights Reserved}
-\end{frame}
-}
+%\lecture{instructor}{instructor}
+%{
+%\usebackgroundtemplate{\includegraphics[width=\paperwidth]{connect_the_dots_solved}}
+%\begin{frame}[t,plain]
+%\end{frame}
+%}
+%
+%{
+%\usebackgroundtemplate{\includegraphics[width=\paperwidth]{sunflowers}
+%}
+%\begin{frame}[b,plain]
+%	\hfill \tiny \textcolor{white}{Trey Ratcliff, Flickr, \ccbyncsa{2}}
+%\end{frame}
+%}
+%
+%{
+%\usebackgroundtemplate{\includegraphics[width=\paperwidth]{spider_bee}
+%}
+%\begin{frame}[b,plain]
+%\tiny Alvesgaspar, Wikimedia, \ccbysa{4}
+%\end{frame}
+%}
+%
+%{
+%\usebackgroundtemplate{\includegraphics[width=\paperwidth]{marine_iguana}}
+%\begin{frame}[b,plain]
+%	\textcolor{white}{\tiny Les Williams, Flickr, \ccbysa{2}}
+%\end{frame}
+%}
+%
+%{
+%\usebackgroundtemplate{\includegraphics[width=\paperwidth]{bird_paradise.jpg}}
+%\begin{frame}[b,plain]
+%	\tiny\textcolor{white}{\href{http://www.youtube.com/watch?v=KIYkpwyKEhY}{Link to Video} \hfill \copyright\,Tim Laman, All Rights Reserved}
+%\end{frame}
+%}
 
 \lecture{student}{student}
 
-\begin{frame}{Our goals for this lecture are}
+\begin{frame}{Our goal for this lecture is to}
 	
-	\hangpara define evolution, 
+	\hangpara define evolution and
 	
-	\hangpara learn the historical context of evolutionary thought, and
-
-	\hangpara introduce Charles Darwin.
+	\hangpara explore the fundamental components of the evolutionary process.
 
 \end{frame}
 
 %
 
 %
-\begin{frame}[t,plain]{Work in pairs to answer the following questions.}
+\begin{frame}[t,plain]{Work in pairs to answer the following question.}
 	\vspace{2ex}
 	
-	\onslide<1->\hangpara What is \highlight{evolution?} \onslide<2->\alt<handout>{}{\\Evolution is the genetic change in a population over time.}\\[2\baselineskip]
+	\onslide<1->\hangpara What is \highlight{evolution?} \onslide<2->\alt<handout>{}{\\Evolution is genetic change in a population over time.}\\[2\baselineskip]
 	
-
-	\onslide<1->\hangpara Who was \highlight{Charles Darwin?}
-
 \end{frame}
 
 %
 {
-\usebackgroundtemplate{\includegraphics[width=\paperwidth]{evol_history_pre-darwin}}
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{population_bees}}
+\begin{frame}[b]{What is a \highlight{population?}}
+
+\hfill \tiny \textcolor{white}{PolyDot, Pixabay \cc0.}
+\end{frame}
+}
+%
+{
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{population_time}}
 \begin{frame}[b]
 
-\hfill\tiny\textcopyright Pearson Education, Inc.
+\hfill \tiny OpenClipArt-Vectors, Pixabay \cc0
+\end{frame}
+}
+%
+% Pronounced Pod Mer-KAR-oo and Pod Ko-PIS-tee.
+{
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{italian_wall_lizard}}
+\begin{frame}[b]{\strut Italian wall lizards were introduced to the island of Pod Mr\v{c}aru from Pod Kipi\v{s}te in 1971.}
+
+
+\hfill\tiny Alexandre Roux, Flickr, \ccbyncsa{2}
 \end{frame}
 }
 %
 {
-\usebackgroundtemplate{\includegraphics[width=\paperwidth]{evol_history_post-darwin}}
-\begin{frame}[b]
-
-\hfill\tiny\textcopyright Pearson Education, Inc.
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{lizards_Croatia_map}}
+\begin{frame}
 \end{frame}
 }
 %
 {
-\usebackgroundtemplate{\includegraphics[width=\paperwidth]{thomas_robert_malthus}}
-\begin{frame}[b]
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{lizards_head_size_bite_force}}
+\begin{frame}[b]{How did the island populations differ after 36 years?}
 
-\tiny\textcolor{white}{Wikimedia, public domain.}
+\hfill \tiny Herrel et al. 2008. \textsc{pnas} 105:4792.
 \end{frame}
 }
 %
 {
-\usebackgroundtemplate{\includegraphics[width=\paperwidth]{malthus_graph}}
-\begin{frame}[t]{Malthus's idea on human population growth and catastrophe.}
-
-\vskip0pt plus 1filll
-
-\hfill\tiny Kravietz, Wikimedia,\ccbysa{3}
-\end{frame}
-}
-%
-{
-\usebackgroundtemplate{\includegraphics[width=\paperwidth]{lamarck}}
-\begin{frame}[b]
-
-\tiny\textcolor{white}{Wikimedia, public domain.}\hspace*{50mm}Petr Kratochvil, public domain.
-\end{frame}
-}
-%
-{
-\usebackgroundtemplate{\includegraphics[width=\paperwidth]{georges_cuvier}}
-\begin{frame}[b]
-
-\tiny\textcolor{white}{Wikimedia, public domain.}
-\end{frame}
-}
-%
-{
-\usebackgroundtemplate{\includegraphics[width=\paperwidth]{charles_lyell}}
-\begin{frame}[b]
-
-\tiny\textcolor{white}{Wikimedia, public domain.}
-\end{frame}
-}
-%
-{
-\usebackgroundtemplate{\includegraphics[width=\paperwidth]{darwin_young}}
-\begin{frame}[b]
-
-\hfill\tiny\textcolor{white}{Wikimedia, public domain.}
-\end{frame}
-}
-%
-\begin{frame}[t]{Darwin's father objected to Charles going on the voyage.}
-
-	Such a voyage would reflect badly on his future prospects as a member of the clergy. \\[0.5\baselineskip]
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{lizards_diet}}
+\begin{frame}[b]{How did the diet change after 36 years?}
 	
-	The entire plan seemed adventurous and wild. \\[0.5\baselineskip]
-
-	Why was a naturalist still being considered so close to the start of the voyage? \\[0.5\baselineskip]
-	
-	Given the above, other people must have been considered. Why had they refused the offer? \\[0.5\baselineskip]
-	
-	Going on the voyage would prevent Charles from settling down to a real life. \\[0.5\baselineskip]
-	
-	The accommodations on the ship would be very poor. \\[0.5\baselineskip]
-	
-	The voyage would offer Charles another excuse to change his focus in life. \\[0.5\baselineskip]
-	
-	It would be a complete waste of his time.
-\end{frame}
-%
-{
-\usebackgroundtemplate{\includegraphics[width=\paperwidth]{hms_beagle}}
-\begin{frame}[b]
-
-\hfill\tiny\textcolor{white}{Wikimedia, public domain.}
+\hfill \tiny Herrel et al. 2008. \textsc{pnas} 105:4792.
 \end{frame}
 }
 %
 {
-\usebackgroundtemplate{\includegraphics[width=\paperwidth]{darwin_cabin}
-}
-\begin{frame}[plain]
-\end{frame}
-}
-%
-{
-\usebackgroundtemplate{\includegraphics[width=\paperwidth]{voyage_beagle}}
-\begin{frame}[t]{\textcolor{white}{The \textsc{h.m.s.} Beagle sailed around the world during 1831--1836.}}
-\end{frame}
-}
-%
-{
-\usebackgroundtemplate{\includegraphics[width=\paperwidth]{giant_sloth}}
-\begin{frame}[t]{In South America, Darwin witnessed\ldots}
-
-	\hangpara fossils of a giant sloth and other animals,
-
-	\hangpara marine shells on a mountain top, and
-
-	\hangpara a magnitude 8 earthquake,
-
-	\hangpara the Galapagos Islands.
-
-	\vskip0pt plus 1filll
-
-	\hfill\tiny ДиБгд, Wikimedia, public domain.
-\end{frame}
-}
-%
-{
-\usebackgroundtemplate{\includegraphics[width=\paperwidth]{darwins_finches}}
-\begin{frame}[b]
-
-	\hfill\tiny Wikimedia, public domain.
-\end{frame}
-}
-%
-{
-\usebackgroundtemplate{\includegraphics[width=\paperwidth]{darwin_descent_quote.jpg}}
-\begin{frame}[plain]
-\end{frame}
-}
-%
-{
-\usebackgroundtemplate{\includegraphics[width=\paperwidth]{darwin_phylogeny}}
-\begin{frame}[t]
-\end{frame}
-}
-%
-{
-\usebackgroundtemplate{\includegraphics[width=\paperwidth]{artificial_selection}}
-\begin{frame}[t]{}
-\end{frame}
-}
-%
-{
-\usebackgroundtemplate{\includegraphics[width=\paperwidth]{alfred_russel_wallace}}
-\begin{frame}[b]
-\hfill\tiny\textcolor{white}{Wikimedia, public domain.}
-\end{frame}
-}
-
-
-{
-\usebackgroundtemplate{\includegraphics[width=\paperwidth]{origin_of_species_cover}}
-\begin{frame}[t]
-
-	\vspace*{3\baselineskip}
-
-	\hangpara\parbox[t]{2.25in}{\raggedright %
-There is grandeur in this view of life, with its several powers, having been originally breathed into a few forms or into one; and that, whilst this planet has gone cycling on according to the fixed law of gravity, from so simple a beginning endless forms most beautiful and most wonderful have been, and are being, evolved.}
-
-	\vskip0pt plus 1filll
+	\usebackgroundtemplate{\includegraphics[width=\paperwidth]{lizards_cecal_valve}}
+	\begin{frame}[b]{A cecal value evolved in Mr\v{c}aru lizards that keeps plant matter in the gut for longer digestion.}
 	
-	\hfill\tiny Wikimedia, public domain.
+	\hfill \tiny Herrel et al. 2008. \textsc{pnas} 105:4792.
 \end{frame}
 }
 %
-{
-\usebackgroundtemplate{\includegraphics[width=\paperwidth]{origin_of_species_cover}}
-\begin{frame}[t]
-
-	\vspace*{3\baselineskip}
-	
-	\hangpara Darwin's book had two ideas:
-	
-	\hangpara\hspace*{1em}\highlight{descent with modification} 
-	
-	\hangpara\hspace*{1em}\highlight{natural selection.}
-
-	\vskip0pt plus 1filll
-	
-	\hfill\tiny Wikimedia, public domain.
-\end{frame}
-}
-
-
-
-
-
-
-%Quote from Origin of Species
-
+% From Martin and Palumbi. Cytochrome b mutation rate slows
+% with increasing body size. They hypothesize that generation
+% time and metabolic rate explain the pattern, at least in part.
 %{
-%\usebackgroundtemplate{\includegraphics[width=\paperwidth]{darwin_descent_quote}
-%}
-%\begin{frame}
+%\usebackgroundtemplate{\includegraphics[width=\paperwidth]{mutation_rate_body_size}}
+%\begin{frame}[b]{How fast can \highlight{genetic change} occur?}
+%	
+%\tiny Martin and Palumbi 1993. \textsc{pnas} 90:4087.
 %\end{frame}
 %}
-
-%{
-%\usebackgroundtemplate{\includegraphics[width=\paperwidth]{kitty_yawn.jpg}
-%}
-%\begin{frame}{\textcolor{white}{You \highlight{earn} your grades with}}
+%
+%\begin{frame}[b]{\highlight{Random mutations} create genetic variation in populations.}
+%
+%%\tiny\textcolor{white}{Wikimedia, public domain.}
 %\end{frame}
-%}
+%
+
+{
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{chromosome_numbers_hidden}}
+\begin{frame}[b]{Which species has the greatest number of chromosomes? The least?}
+
+%\tiny\textcolor{white}{Wikimedia, public domain.}
+\end{frame}
+}
+%
+\lecture{instructor}{instructor}
+%
+{
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{chromosome_numbers_visible}}
+\begin{frame}[b]{The number of chromosomes is not related to organismal complexity.}
+
+%\tiny\textcolor{white}{Wikimedia, public domain.}
+\end{frame}
+}
+%
+\lecture{student}{student}
+%
+{
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{chromosome_numbers_hidden}}
+\begin{frame}[b]{Which species has the greatest number of genes? The least?}
+
+%\tiny\textcolor{white}{Wikimedia, public domain.}
+\end{frame}
+}
+%
+\lecture{instructor}{instructor}
+%
+{
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{chromosome_numbers_genes}}
+\begin{frame}[b]{Organisms share many or most of the same genes.}
+
+%\tiny\textcolor{white}{Wikimedia, public domain.}
+\end{frame}
+}
+%
+\lecture{student}{student}
+%
+{
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{genes_characters}}
+\begin{frame}[b]
+
+\tiny Erikeltic, Wikimedia \ccbysa{3}
+\end{frame}
+}
+%
+{
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{alleles_traits}}
+\begin{frame}[b]
+	
+\tiny  dmealiffe, Flickr \ccbysa{2} (top)\\Herwig Kavallar, Wikimedia public domain (bottom)
+\end{frame}
+}
+%
+
+{
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{phenotype_genotype}}
+\begin{frame}[b]
+	
+\tiny  Pharaoh Hound, Flickr \ccbysa{2} (top)\\Home-Skilz, Wikimedia public domain (bottom)
+\end{frame}
+}
+
+
+
+\begin{frame}[t]{Evolution summary}
+
+	\hangpara \highlight{Population:} a group of individuals of the \emph{same species} together in the same area.
+	
+	\pause\hangpara \highlight{Time:} measurable differences can take dozens to hundreds or thousands of generations.
+	
+	\pause\hangpara \highlight{Genetic change:} allele frequencies change in the population over time.
+	
+	\pause\hangpara Evolution of the genotype causes evolution of the phenotype.
+
+\end{frame}
+%
+\begin{frame}[t]{What causes allele frequencies to change in a population?}
+
+	\hangpara \highlight{Mutation},
+	
+	\hangpara \highlight{migration},
+	
+	\hangpara \highlight{genetic drift},
+
+	\hangpara \highlight{non-random mating}, and
+	
+	\hangpara \highlight{natural selection}.
+
+	\hangpara If \emph{none} of these occur, then a population will not evolve. 
+	
+\end{frame}
+
+
 
 \end{document}
