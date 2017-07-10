@@ -48,7 +48,285 @@
 
 \begin{document}
 
+\begin{frame}{Our goals for this lecture are to learn}
+	
+	\hangpara what is \highlight{descent with modification,}
+
+	\hangpara	the process of \highlight{natural selection,} and
+
+	\hangpara what is meant by \highlight{relative fitness.}
+
+\end{frame}
+
+%
+
+%
+\begin{frame}{\highlight{Descent with modification} means that}
+\vspace{2ex}
+\hspace{1em}all organisms \highlight{descend} from a common ancestor, and
+\pause
+
+\vspace{1ex}
+\hspace{1em}the descendants are \highlight{modified} from the ancestral form.
+
+\vspace{1ex}
+\pause
+
+\centering
+\begin{tikzpicture}
+%	[every node/.style={orange6, rounded corners},
+	[every node/.append style={rounded corners}]
+	\node at (0,-3.5) [color=orange7] {ancestor}
+		[edge from parent fork up, grow=up,
+		edge from parent/.style={very thick, draw}]
+		child [sibling distance=8mm] {
+			child {node [color=green6] {C}}
+			child {node [color=blue7] {B}}
+		}
+		child {
+			child {node [color=orange5] {A}}
+			%child {node {D}}
+		};
+\end{tikzpicture}
+
+\end{frame}
+%
+\lecture{instructor}{instructor}
+{
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{descent_with_modification1}}
+\begin{frame}[b]
+
+\tiny\textcopyright Pearson Education, Inc.
+\end{frame}
+}
+%
 \lecture{student}{student}
+{
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{descent_with_modification2}}
+\begin{frame}[b]
+
+\tiny\textcopyright Pearson Education, Inc.
+\end{frame}
+}
+%
+%
+{
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{darwin_natural_selection_quote_new}}
+\begin{frame}
+\end{frame}
+}
+%
+\lecture{instructor}{instructor}
+{
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{darwin_natural_selection_quote_highlight}
+}
+\begin{frame}[plain]
+\end{frame}
+}
+
+\lecture{student}{student}
+{
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{individuals_vary}
+}
+\begin{frame}[b,plain]
+\hfill\textcolor{white}{\tiny \textcopyright Entomart, Wikimedia}
+\end{frame}
+}
+{
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{overproduce_offspring}}
+\begin{frame}[b]
+\tiny\textcolor{white}{Silke Baron, Wikimedia \ccby{2}}
+\end{frame}
+}
+%
+{
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{not_all_will_survive}}
+\begin{frame}[b]
+\hfill\textcolor{white}{\tiny Pierre Dalous, Wikimedia, \ccbysa{}}
+\end{frame}
+}
+%
+{
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{traits_determine_survival}}
+\begin{frame}[b]
+\hfill\textcolor{white}{\tiny \textcopyright Dustin Siegel, with permission.}
+\end{frame}
+}
+%
+{
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{more_offspring_baby_spiders}}
+\begin{frame}[b]
+\hfill\textcolor{white}{\tiny C. Frank Starmer, \href{http://frank.itlab.us}{frank.itlab.us},\ccbyncsa{}}
+\end{frame}
+}
+%
+{
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{better_traits_dandelion}}
+\begin{frame}[b]
+\hfill\textcolor{white}{\tiny David Carillet, \href{http://www.wildretina.com}{www.wildretina.com}, \ccbyncsa{3}}
+\end{frame}
+}
+
+
+% Cycle of Natural Selection
+\begin{frame}[c]
+	\begin{center}
+	
+	\vspace{1.5cm}
+	\begin{tikzpicture}
+			[scale=0.6, transform shape,
+			myNode/.style={circle, inner sep=2mm, minimum size=4cm, draw=black, fill=blue3},
+			myLine/.style={line width=2pt, draw=black!70!white, ->},
+			textNode/.style={text width=3.5cm, align=flush center, font=\Large}]
+		\node (adapt) at (0,0) {\textcolor{orange6}{\textbf{\Huge Adaptation}}};
+		\foreach \r in {60,120,...,360} {%
+			\begin{scope}[shift={(\r:6)}]
+				\node[myNode] (n\r) {};
+			\end{scope};
+		};
+		\draw [myLine] (n60) to (n360);
+		\draw [myLine] (n360) to (n300);
+		\draw [myLine] (n300) to (n240);
+		\draw [myLine] (n240) to (n180);
+		\draw [myLine] (n180) to (n120);
+		\draw [myLine] (n120) to (n60);
+	
+		\node [textNode] at (n60) {Individuals \highlight{vary} in populations};
+		\node [textNode] at (n360) {Populations \highlight{overproduce} offspring};
+		\node [textNode] at (n300) {Not all \highlight{survive}};
+		\node [textNode] at (n240) {\highlight{Traits} determine survival};
+		\node [textNode] at (n180) {More survival, \highlight{more offspring}};
+		\node [textNode] at (n120) {Better traits \highlight{spread} through population};
+	
+	\end{tikzpicture}
+	
+	\end{center}
+\end{frame}
+
+\setbeamercovered{invisible}
+\setbeamercovered{again covered={\opaqueness<1->{15}}}
+\begin{frame}[t]{Natural selection leads to descent with modification.}
+
+
+	\hangpara \textcolor<2-4>{gray}{Natural selection causes variation in \only<1,4>{\highlight}{reproductive success} among individuals that vary in  \only<1>{\highlight}{heritable traits.}}
+
+	\pause
+	
+	\hangpara	 \textcolor<3->{gray}{Traits that increase reproductive success are called  \only<2>{\highlight}{adaptations.}}
+	
+	\pause 
+	
+	\hangpara	 \textcolor<4->{gray}{Adaptations are traits that have been  \only<3>{\highlight}{modified} from the ancestral form.}
+
+	\pause 
+		
+	\vspace{3ex}
+
+	\hangpara Let us study variation in reproductive success more closely.
+
+
+\end{frame}
+
+\setbeamercovered{invisible}
+\begin{frame}[t]{True or false?}
+
+	\hangpara \textcolor<2->{gray}{Darwin coined the phrase “survival of the fittest.”}
+	
+	\pause
+	
+	\vspace*{2ex}
+	
+	\hangpara\alt<handout>{}{\highlight{False.} The phrase was coined by Herbert Spencer.}
+	
+	\hangpara\alt<handout>{}{Darwin did not use the phrase until the 5th edition of \textit{On the Origin of Species.}}
+
+\end{frame}
+
+\begin{frame}[t]{“Survival of the fittest” is a circular argument.}
+
+	\vspace*{2ex}
+	
+	\begin{center}
+	\begin{tikzpicture}
+		[textNode/.style={text width=2.75cm, align=flush center, font=\huge},
+		smallNode/.style={text width=2cm, font=\large},
+		->, ultra thick]
+	
+		\node [textNode] (survival) at (0,0) {Survival};
+
+		\node [textNode] at (0,-1.5) {\small\textcolor{gray!70!black}{of the}};
+
+		\node [textNode] (fittest) at (0,-3) {Fittest};
+		
+		\draw (survival.east) [bend left=60]  to (fittest.east);
+
+		\draw (fittest.west) [bend left=60]  to (survival.west);
+
+		\pause
+		
+		\node [smallNode, align=flush left] at (3.5,-1.5) {Which survive?};
+
+		\pause
+		
+		\node [smallNode, align=flush right] at (-3.5,-1.5) {Which are the fittest?};
+		
+		\pause
+		
+		\node [align=left] at (-1.5,-5) {Fitness must be measured independently of survival.};
+
+	\end{tikzpicture}
+	\end{center}
+	
+%	\pause
+%	
+%	\vspace*{20ex}
+%	
+%	\hangpara We need an independent way to measure fitness.
+	
+\end{frame}
+
+
+%% REPLACE THESE THREE WITH APPROPRIATE images
+{
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{fitness_offspring}}
+\begin{frame}[b]
+\hfill\textcolor{white}{\tiny Guido Bohne, Flickr \ccbysa{2}}
+\end{frame}
+}
+%
+{
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{fitness_is_relative}}
+\begin{frame}[b]
+\textcolor{white}{\tiny Michael S. Taylor, \ccbysa{4}}
+\end{frame}
+}
+%
+{
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{fitness_not_physical}}
+\begin{frame}[b]
+\hfill\textcolor{white}{\tiny Ian Carroll, Flickr, \ccby{2}}
+\end{frame}
+}
+%
+{
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{savings_account}}
+\begin{frame}[b]
+\hfill\tiny 401(k) 2012, Flickr, \ccbysa{2}
+\end{frame}
+}
+%
+{
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{financial_analogy}}
+\begin{frame}[b]
+%\hfill\textcolor{white}{\tiny Guido Bohne, \ccbysa{2}}
+\end{frame}
+}
+%
+
+%\includegraphics[page=\arabic{4},width=.95\textwidth]{a.pdf}
+
+\lecture{student}{student}
+%
 \begin{frame}[t]{Our goals for this lecture are to learn}
 
 	
@@ -59,121 +337,13 @@
 \end{frame}
 
 %
-{
-\usebackgroundtemplate{\includegraphics[width=\paperwidth]{individuals_vary}}
-\begin{frame}[b]
-\hfill\textcolor{white}{\tiny \copyright\, Entomart, Wikimedia}
-\end{frame}
-}
+%{
+%\usebackgroundtemplate{\includegraphics[width=\paperwidth]{individuals_vary}}
+%\begin{frame}[b]
+%\hfill\textcolor{white}{\tiny \copyright\, Entomart, Wikimedia}
+%\end{frame}
+%}
 % Why do populations vary?
-\begin{frame}[t]{The traits of an organism is called the \highlight{phenotype.}}
-	\centering
-	\includegraphics[width=0.8\textwidth]{individuals_vary_plain}\par
-	
-	\vfilll
-	
-	\hfill\tiny \copyright\, Entomart, Wikimedia
-
-\end{frame}
-%
-\begin{frame}[t]{What causes the \highlight{phenotype} to vary?}
-	\centering
-	\includegraphics[width=0.8\textwidth]{individuals_vary_plain}
-	
-		\vfilll
-	
-	\hfill\tiny \copyright\, Entomart, Wikimedia
-
-\end{frame}
-%
-\begin{frame}[t]{The phenotype is determined by the \highlight{genotype.}}
-
-	\begin{multicols}{2}
-	
-		\includegraphics[width=0.45\textwidth]{punnett_square_genotype_phenotype}
-	
-	\columnbreak
-
-	The genotype is the genetic makeup of the organism.\vspace*{2\baselineskip}
-	
-	The genotype is the combination of alleles for one or more gene.
-	
-	\end{multicols}
-	
-	\vfilll
-	
-	\tiny Madeleine Price Ball, Wikimedia, \textsc{cc0}
-
-\end{frame}
-
-% Genotype and phenotype
-%\lecture{instructor}{instructor}
-{
-\usebackgroundtemplate{\includegraphics[width=\paperwidth]{chromosomes}}
-\begin{frame}[c,plain]
-	\begin{tikzpicture}[remember picture, overlay]
-
-	\alt<handout>{}{\visible <1,6->{
-		\node at (0.45,2) [right] {The \highlight{genotype} is the genetic makeup of the organism.};}
-	
-	\visible <7>{
-		\node at (0.45,1.4)[right] {The \highlight{phenotype} is the physical expression of the genotype.};
-	}}
-		
-	
-	\alt<handout>{}{\visible <2>{
-		\draw (3,-2.5) -- (3,0.5) -- (3.9,0.5) -- (3.9,-2.5) -- cycle ;
-		\draw (6,-2.5) -- (6,0.5) -- (6.9,0.5) -- (6.9,-2.5) -- cycle ;
-		\draw (9,-2.5) -- (9,0.5) -- (9.9,0.5) -- (9.9,-2.5) -- cycle ;
-	
-		\node at (6.4, 2) (gene) {Gene or Locus};
-	
-		\draw (gene.south west) -- (3.9,0.5);
-		\draw (gene.south) -- (6.45,0.5);
-		\draw (gene.south east) -- (9,0.5);
-	}}
-	
-	\visible <3-4>{
-		\node at (3.45,0.25) (Callele) {$C$};
-		\node at (3.45,-2.25) {$C$};
-
-		\node at (6.45,0.25) (aallele) {$a$};
-		\node at (6.45,-2.25) {$a$};
-	}
-
-	\visible <3,5>{
-		\node at (9.45,0.25) (Tallele) {$T$};
-		\node at (9.45,-2.25) {$t$};
-	}
-	
-	\alt<handout>{}{\visible <3>{
-		\node at (6.4, 2) (allele) {Allele};
-		\draw (allele.south west) -- (Callele.north east);
-		\draw (allele.south) -- (aallele.north);
-		\draw (allele.south east) -- (Tallele.north west);
-	}}
-
-	\visible <4> {
-		\draw (3,-2.5) -- (3,0.5) -- (3.9,0.5) -- (3.9,-2.5) -- cycle ;
-		\draw (6,-2.5) -- (6,0.5) -- (6.9,0.5) -- (6.9,-2.5) -- cycle ;
-
-		\node at (3.45, 1.25) (hc) {\highlight{Homozygous,} $C$ allele};
-		\node at (6.45, -3.5) (ac) {Homozygous, $a$ allele};
-
-		\draw (hc.south) -- (3.45,0.5);
-		\draw (ac.north) -- (6.45,-2.5);
-	}
-	
-	\visible <5> {
-		\draw (9,-2.5) -- (9,0.5) -- (9.9,0.5) -- (9.9,-2.5) -- cycle ;
-
-		\node at (9.45, 1.25) (tc) {\highlight{Heterozygous,} $T$ allele};
-
-		\draw (tc.south) -- (9.45,0.5);
-	}
-	\end{tikzpicture}
-\end{frame}
-}
 %
 \lecture{student}{student}
 
