@@ -8,11 +8,11 @@
 %\usepackage{handoutWithNotes}
 %\pgfpagesuselayout{3 on 1 with notes}[letterpaper,border shrink=5mm]
 
+%\includeonlylecture{student}
 
 %%% Including only some slides for students.
 %%% Uncomment the following line. For the slides,
 %%% use the labels shown below the command.
-%\includeonlylecture{student}
 
 %% For students, use \lecture{student}{student}
 %% For mine, use \lecture{instructor}{instructor}
@@ -24,10 +24,9 @@
 % FONTS
 \usepackage{fontspec}
 \def\mainfont{Linux Biolinum O}
-\setmainfont[Ligatures={Common,TeX}, Contextuals={NoAlternate}, Numbers={Proportional, OldStyle}]{\mainfont}
-\setsansfont[Ligatures={Common,TeX}, Scale=MatchLowercase, Numbers={Proportional,OldStyle}, BoldFont={* Bold}, ItalicFont={* Italic},]\mainfont
-
-\newfontface\lining[Numbers={Lining}]\mainfont
+\setmainfont[Ligatures={Common,TeX}, Contextuals={NoAlternate}, BoldFont={* Bold}, ItalicFont={* Italic}, Numbers={OldStyle}]{\mainfont}
+\setsansfont[Ligatures={Common,TeX}, Scale=MatchLowercase, Numbers=OldStyle]{Linux Biolinum O} 
+\usepackage{microtype}
 
 \usepackage{graphicx}
 	\graphicspath{{/Users/goby/pictures/teach/163/lecture/}
@@ -38,7 +37,8 @@
 %\usepackage{textcomp}
 
 \usepackage{tikz}
-%	\tikzstyle{every picture}+=[remember picture,overlay]
+	\tikzstyle{every picture}+=[remember picture,overlay]
+	\usetikzlibrary{arrows}
 
 \mode<presentation>
 {
@@ -47,197 +47,21 @@
   \setbeamertemplate{items}[square]
 }
 
-%\usefonttheme[onlymath]{serif}
-%\usecolortheme[named=blue7]{structure}
-
-\newcommand{\btVFill}{\vskip0pt plus 1filll}
 
 \begin{document}
 
-{
-\usebackgroundtemplate{\includegraphics[width=\paperwidth]{hoverflies} }
-\begin{frame}[b,plain]{\textcolor{orange7}{\textsc{bi} 163-01: Evolution and Ecology}}
-
-%\begin{center}\LARGE\textcolor{white}{Sit towards front of the room.}\end{center}
-
-\hfill\textcolor{white}{\tiny Fir0002, Wikimedia \ccbync{3}}
-\end{frame}
-}
-
-{
-\usebackgroundtemplate{\includegraphics[width=\paperwidth]{mike_snake}
-}
-\begin{frame}[t,plain]
-	\large
-	\vspace{5ex}
-	\hangpara\hspace{17em} Mike Taylor
-
-	\hangpara\hspace{17em} \textsc{rh} 217
-
-	\hangpara\hspace{17em} \textsc{m}\,\textsc{t}\,\textsc{w} 11 am --12 noon.
-
-	\hangpara\hspace{17em} mtaylor@semo.edu
-
-\end{frame}
-}
-
-
-\begin{frame}[t]{I do not give grades. You \highlight{earn} them.}
-
-	\hangpara Four exams @ 60\%,
-
-	\hangpara Lab exercises @ 20\%, and
-
-	\hangpara Assignments @20\%.
-
-\end{frame}
-
-
-\begin{frame}[t]{\href{http://learning.semo.edu}{learning.semo.edu}}
-	\begin{center}
-		\includegraphics[width=\textwidth]{moodle_logo}
-		
-		\medskip
-		
-	\end{center}
-	
-\end{frame}
-
-
-
-{
-\usebackgroundtemplate{\includegraphics[width=\paperwidth]{kitty_yawn}
-}
-\begin{frame}{\textcolor{white}{You \highlight{earn} your grades with}}
-%\large
-\hangpara\textcolor{white}{\highlight{M}iscellaneous assignments,}
-\pause
-
-\hangpara\textcolor{white}{\highlight{E}xams,}
-\pause
-
-\hangpara\textcolor{white}{\highlight{O}nline homework, and}
-\pause
-
-\hangpara\textcolor{white}{\highlight{W}eekly lab assignments.}
-
-%\vspace{20ex}
-%\btVFill
-%\vskip0pt plus 1filll
-\vskip 0pt plus 1filll
-
-\textcolor{white}{\tiny Good Bokeh, Flickr, \ccby{2}}
-\end{frame}
-}
-
-
+%\lecture{instructor}{instructor}
 %{
-%\usebackgroundtemplate{\includegraphics[width=\paperwidth]{162_students} }
-%\begin{frame}[b,plain]
+%\usebackgroundtemplate{\includegraphics[width=\paperwidth]{connect_the_dots_solved}}
+%\begin{frame}[t,plain]
 %\end{frame}
 %}
-
-{
-\usebackgroundtemplate{\includegraphics[width=\paperwidth]{C_or_better} }
-\begin{frame}[b,plain]
-\end{frame}
-}
-
-
-\begin{frame}{\highlight{Rise} to the occasion.}
-
-\hangpara\begin{quote}The exams do not need to be so hard and tricky in order to measure how much we have learned. You can tell how much we have learned with an easier test.
-\end{quote}
-
-\hangpara\begin{quote}I really do enjoy your tests. It is not just definitions, you made us apply what we learn to difficult questions.
-\end{quote}
-
-%\hangpara You have to \highlight{rise to the occasion.} I will not bring the occasion down to you.
-
-\end{frame}
-
-{
-\usebackgroundtemplate{\includegraphics[width=\paperwidth]{hotrod}
-}
-
-\begin{frame}[t]{To be \highlight{successful}, you must}
-\vspace{1ex}
-\hspace{22em}\highlight{C}omplete,
-\pause
-
-\vspace{1ex}
-\hspace{22em}\highlight{A}ttend,
-\pause
-
-\vspace{1ex}
-\hspace{22em}\highlight{R}ead,
-\pause
-
-\vspace{1ex}
-\hspace{22em}\highlight{S}tudy.
-
-%\vspace{25ex}
-\vskip 0pt plus 1filll
-
-\tiny 1950 Mercury photo \copyright\,John O'Neill, All Rights Reserved.
-\end{frame}
-}
-
-{
-\usebackgroundtemplate{\includegraphics[width=\paperwidth]{take_good_notes}
-}
-\begin{frame}[b,plain]{To be successful, you must \highlight{take good notes.}}
-\textcolor{white}{\tiny Daniel Foster, Flickr, \ccby{2}}
-\end{frame}
-}
-
-
-\lecture{instructor}{instructor}
-
-{
-\usebackgroundtemplate{\includegraphics[width=\paperwidth]{me_and_berg}}
-\begin{frame}[b]{\textcolor{white}{We do stupid stuff in college because\dots}}
-\end{frame}
-}
-
-
-\lecture{student}{student}
-
-{
-\usebackgroundtemplate{\includegraphics[width=\paperwidth]{find_balance_stones}
-}
-\begin{frame}[b,plain]
-\hfill	\tiny bibigeek, Flickr, \ccby{2}
-\end{frame}
-}
-
-
-{
-\usebackgroundtemplate{\includegraphics[width=\paperwidth]{think_horizontally}
-}
-\begin{frame}[plain]
-\end{frame}
-}
-
-{
-\usebackgroundtemplate{\includegraphics[width=\paperwidth]{connect_the_dots}
-}
-\begin{frame}[t,plain]
-\end{frame}
-}
-
-\lecture{instructor}{instructor}
-{
-\usebackgroundtemplate{\includegraphics[width=\paperwidth]{connect_the_dots_solved}}
-\begin{frame}[t,plain]
-\end{frame}
-}
-
+%
 %{
 %\usebackgroundtemplate{\includegraphics[width=\paperwidth]{sunflowers}
 %}
 %\begin{frame}[b,plain]
-%	\textcolor{white}{\Tiny Sunflowers by Trey Ratcliff, Flickr, Creative Commons.}
+%	\hfill \tiny \textcolor{white}{Trey Ratcliff, Flickr, \ccbyncsa{2}}
 %\end{frame}
 %}
 %
@@ -245,40 +69,315 @@
 %\usebackgroundtemplate{\includegraphics[width=\paperwidth]{spider_bee}
 %}
 %\begin{frame}[b,plain]
-%\Tiny Goldenrod crab spider photo by Alvesgaspar, Wikimedia Commons.
+%\tiny Alvesgaspar, Wikimedia, \ccbysa{4}
 %\end{frame}
 %}
 %
 %{
 %\usebackgroundtemplate{\includegraphics[width=\paperwidth]{marine_iguana}}
 %\begin{frame}[b,plain]
-%	\textcolor{white}{\Tiny Marine iguana on San Crist\'{o}bal Island, Galapagos by Les Williams, Flickr, Creative Commons.}
+%	\textcolor{white}{\tiny Les Williams, Flickr, \ccbysa{2}}
 %\end{frame}
 %}
 %
 %{
 %\usebackgroundtemplate{\includegraphics[width=\paperwidth]{bird_paradise.jpg}}
 %\begin{frame}[b,plain]
-%	\Tiny\textcolor{white}{Greater Bird of Paradise \textcopyright Tim Laman, All Rights Reserved. \href{http://www.youtube.com/watch?v=KIYkpwyKEhY}{Link to Video} }
+%	\tiny\textcolor{white}{\href{http://www.youtube.com/watch?v=KIYkpwyKEhY}{Link to Video} \hfill \copyright\,Tim Laman, All Rights Reserved}
 %\end{frame}
 %}
+
+\lecture{student}{student}
+
+\begin{frame}{Our goals for this lecture are to}
+	
+	\hangpara define \highlight{evolution,}
+	
+	\hangpara learn the relationship between \highlight{characters} and \highlight{genes}, and between \highlight{traits} and \highlight{alleles}, and
+	
+	\hangpara learn the relationship between \highlight{genotype} and \highlight{phenotype.}
+
+\end{frame}
+
 %
-%\lecture{instructor}{instructor}
+
 %
+\begin{frame}[t,plain]{Work in pairs to answer the following question.}
+	\vspace{2ex}
+	
+	\onslide<1->\hangpara What is \highlight{evolution?} 
+
+	\onslide<2->\alt<handout>{}{%
+	\vspace{2\baselineskip}
+	Evolution is the genetic change in a population over time.}
+	
+%	\onslide<3->\alt<handout>{}{%
+%	\vspace{2\baselineskip}
+%	Let us break down this definition into its component parts.}
+\end{frame}
+
+%
+{
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{population_bees}}
+\begin{frame}[b]{What is a \highlight{population?}}
+
+\hfill \tiny \textcolor{white}{PolyDot, Pixabay \cc0.}
+\end{frame}
+}
+%
+{
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{population_time}}
+\begin{frame}[b]
+
+\hfill \tiny OpenClipArt-Vectors, Pixabay \cc0
+\end{frame}
+}
+%
+% Pronounced Pod Mer-KAR-oo and Pod Ko-PIS-tee.
+{
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{italian_wall_lizard}}
+\begin{frame}[b]{\strut Italian wall lizards were introduced to the island of Pod Mr\v{c}aru from Pod Kipi\v{s}te in 1971.}
+
+
+\hfill\tiny Alexandre Roux, Flickr, \ccbyncsa{2}
+\end{frame}
+}
+%
+{
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{lizards_Croatia_map}}
+\begin{frame}
+\end{frame}
+}
+%
+{
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{lizards_head_size_bite_force}}
+\begin{frame}[b]{How did the island populations differ after 36 years?}
+
+\hfill \tiny Herrel et al. 2008. \textsc{pnas} 105:4792.
+\end{frame}
+}
+%
+{
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{lizards_diet}}
+\begin{frame}[b]{How did the diet change after 36 years?}
+	
+\hfill \tiny Herrel et al. 2008. \textsc{pnas} 105:4792.
+\end{frame}
+}
+%
+{
+	\usebackgroundtemplate{\includegraphics[width=\paperwidth]{lizards_cecal_valve}}
+	\begin{frame}[b]{A cecal value evolved in Mr\v{c}aru lizards that keeps plant matter in the gut for longer digestion.}
+	
+	\hfill \tiny Herrel et al. 2008. \textsc{pnas} 105:4792.
+\end{frame}
+}
+%
+% From Martin and Palumbi. Cytochrome b mutation rate slows
+% with increasing body size. They hypothesize that generation
+% time and metabolic rate explain the pattern, at least in part.
 %{
-%\usebackgroundtemplate{\includegraphics[width=\paperwidth]{goliath_beetle}}
-%\begin{frame}[b,plain]
-%%	\hfill\Tiny \textit{Eupatorus gracilicornis}, Didier Descouens, Wikimedia Commons.
+%\usebackgroundtemplate{\includegraphics[width=\paperwidth]{mutation_rate_body_size}}
+%\begin{frame}[b]{How fast can \highlight{genetic change} occur?}
+%	
+%\tiny Martin and Palumbi 1993. \textsc{pnas} 90:4087.
 %\end{frame}
 %}
 %
+%\begin{frame}[b]{\highlight{Random mutations} create genetic variation in populations.}
 %
+%%\tiny\textcolor{white}{Wikimedia, public domain.}
+%\end{frame}
+%
+
+{
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{chromosome_numbers_hidden}}
+\begin{frame}[b]{Which species has the greatest number of chromosomes? The least?}
+
+%\tiny\textcolor{white}{Wikimedia, public domain.}
+\end{frame}
+}
+%
+\lecture{instructor}{instructor}
+%
+{
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{chromosome_numbers_visible}}
+\begin{frame}[b]{The number of chromosomes is not related to organismal complexity.}
+
+%\tiny\textcolor{white}{Wikimedia, public domain.}
+\end{frame}
+}
+%
+\lecture{student}{student}
+%
+{
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{chromosome_numbers_hidden}}
+\begin{frame}[b]{Which species has the greatest number of genes? The least?}
+
+%\tiny\textcolor{white}{Wikimedia, public domain.}
+\end{frame}
+}
+%
+\lecture{instructor}{instructor}
+%
+{
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{chromosome_numbers_genes}}
+\begin{frame}[b]{Organisms share many or most of the same genes.}
+
+%\tiny\textcolor{white}{Wikimedia, public domain.}
+\end{frame}
+}
+%
+\lecture{student}{student}
+%
+{
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{genes_characters}}
+\begin{frame}[b]
+
+\tiny Erikeltic, Wikimedia \ccbysa{3}
+\end{frame}
+}
+%
+{
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{alleles_traits}}
+\begin{frame}[b]
+	
+\tiny  dmealiffe, Flickr \ccbysa{2} (top)\\Herwig Kavallar, Wikimedia public domain (bottom)
+\end{frame}
+}
+%
+
+{
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{phenotype_genotype}}
+\begin{frame}[b]
+	
+\tiny  Pharaoh Hound, Flickr \ccbysa{2} (top)\\Home-Skilz, Wikimedia public domain (bottom)
+\end{frame}
+}
+%%
+%% Old slides for phenotype and genotype. Stored here in case.
+%%
+%\begin{frame}[t]{The traits of an organism is called the \highlight{phenotype.}}
+%	\centering
+%	\includegraphics[width=0.8\textwidth]{individuals_vary_plain}\par
+%	
+%	\vfilll
+%	
+%	\hfill\tiny \copyright\, Entomart, Wikimedia
+%
+%\end{frame}
+%%
+%\begin{frame}[t]{What causes the \highlight{phenotype} to vary?}
+%	\centering
+%	\includegraphics[width=0.8\textwidth]{individuals_vary_plain}
+%	
+%		\vfilll
+%	
+%	\hfill\tiny \copyright\, Entomart, Wikimedia
+%
+%\end{frame}
+%%
+%\begin{frame}[t]{The phenotype is determined by the \highlight{genotype.}}
+%
+%	\begin{multicols}{2}
+%	
+%		\includegraphics[width=0.45\textwidth]{punnett_square_genotype_phenotype}
+%	
+%	\columnbreak
+%
+%	The genotype is the genetic makeup of the organism.\vspace*{2\baselineskip}
+%	
+%	The genotype is the combination of alleles for one or more gene.
+%	
+%	\end{multicols}
+%	
+%	\vfilll
+%	
+%	\tiny Madeleine Price Ball, Wikimedia, \textsc{cc0}
+%
+%\end{frame}
+%
+%% Genotype and phenotype
+%%\lecture{instructor}{instructor}
 %{
-%\usebackgroundtemplate{\includegraphics[width=\paperwidth]{beetle_fondness}}
-%\begin{frame}[b,plain]
-%	\hfill\Tiny \textit{Eupatorus gracilicornis}, Didier Descouens, Wikimedia Commons.
+%\usebackgroundtemplate{\includegraphics[width=\paperwidth]{chromosomes}}
+%\begin{frame}[c,plain]
+%	\begin{tikzpicture}[remember picture, overlay]
+%
+%	\alt<handout>{}{\visible <1,6->{
+%		\node at (0.45,2) [right] {The \highlight{genotype} is the genetic makeup of the organism.};}
+%	
+%	\visible <7>{
+%		\node at (0.45,1.4)[right] {The \highlight{phenotype} is the physical expression of the genotype.};
+%	}}
+%		
+%	
+%	\alt<handout>{}{\visible <2>{
+%		\draw (3,-2.5) -- (3,0.5) -- (3.9,0.5) -- (3.9,-2.5) -- cycle ;
+%		\draw (6,-2.5) -- (6,0.5) -- (6.9,0.5) -- (6.9,-2.5) -- cycle ;
+%		\draw (9,-2.5) -- (9,0.5) -- (9.9,0.5) -- (9.9,-2.5) -- cycle ;
+%	
+%		\node at (6.4, 2) (gene) {Gene or Locus};
+%	
+%		\draw (gene.south west) -- (3.9,0.5);
+%		\draw (gene.south) -- (6.45,0.5);
+%		\draw (gene.south east) -- (9,0.5);
+%	}}
+%	
+%	\visible <3-4>{
+%		\node at (3.45,0.25) (Callele) {$C$};
+%		\node at (3.45,-2.25) {$C$};
+%
+%		\node at (6.45,0.25) (aallele) {$a$};
+%		\node at (6.45,-2.25) {$a$};
+%	}
+%
+%	\visible <3,5>{
+%		\node at (9.45,0.25) (Tallele) {$T$};
+%		\node at (9.45,-2.25) {$t$};
+%	}
+%	
+%	\alt<handout>{}{\visible <3>{
+%		\node at (6.4, 2) (allele) {Allele};
+%		\draw (allele.south west) -- (Callele.north east);
+%		\draw (allele.south) -- (aallele.north);
+%		\draw (allele.south east) -- (Tallele.north west);
+%	}}
+%
+%	\visible <4> {
+%		\draw (3,-2.5) -- (3,0.5) -- (3.9,0.5) -- (3.9,-2.5) -- cycle ;
+%		\draw (6,-2.5) -- (6,0.5) -- (6.9,0.5) -- (6.9,-2.5) -- cycle ;
+%
+%		\node at (3.45, 1.25) (hc) {\highlight{Homozygous,} $C$ allele};
+%		\node at (6.45, -3.5) (ac) {Homozygous, $a$ allele};
+%
+%		\draw (hc.south) -- (3.45,0.5);
+%		\draw (ac.north) -- (6.45,-2.5);
+%	}
+%	
+%	\visible <5> {
+%		\draw (9,-2.5) -- (9,0.5) -- (9.9,0.5) -- (9.9,-2.5) -- cycle ;
+%
+%		\node at (9.45, 1.25) (tc) {\highlight{Heterozygous,} $T$ allele};
+%
+%		\draw (tc.south) -- (9.45,0.5);
+%	}
+%	\end{tikzpicture}
 %\end{frame}
 %}
-%
+
+
+\begin{frame}[t]{Evolution summary}
+
+	\hangpara \highlight{Population:} a group of individuals of the \emph{same species} together in the same area, and \emph{potentially} interacting with each other.
+	
+	\pause\hangpara \highlight{Time:} measurable differences can take dozens to hundreds or thousands of generations.
+	
+	\pause\hangpara \highlight{Genetic change:} allele frequencies change in the population over time.
+	
+	\pause\hangpara Evolution of the genotype causes evolution of the phenotype.
+
+\end{frame}
+
 
 \end{document}

@@ -18,6 +18,9 @@
 %% For mine, use \lecture{instructor}{instructor}
 
 
+%\usepackage{pgf,pgfpages}
+%\pgfpagesuselayout{4 on 1}[letterpaper,border shrink=5mm]
+
 % FONTS
 \usepackage{fontspec}
 \def\mainfont{Linux Biolinum O}
@@ -29,21 +32,20 @@
 	\graphicspath{{/Users/goby/pictures/teach/163/lecture/}
 	{/Users/goby/pictures/teach/common/}} % set of paths to search for images
 
-\usepackage{multicol}
+%\usepackage{units}
 \usepackage{booktabs}
 %\usepackage{textcomp}
 
 \usepackage{tikz}
 	\tikzstyle{every picture}+=[remember picture,overlay]
-	\usetikzlibrary{arrows}
+	\usetikzlibrary{trees}
 
 \mode<presentation>
 {
   \usetheme{Lecture}
   \setbeamercovered{invisible}
-%  \setbeamertemplate{items}[square]
+%  \setbeamertemplate{items}[default]
 }
-
 
 
 \begin{document}
@@ -324,100 +326,6 @@
 %
 
 %\includegraphics[page=\arabic{4},width=.95\textwidth]{a.pdf}
-
-\lecture{student}{student}
-%
-\begin{frame}[t]{Our goals for this lecture are to learn}
-
-	
-	\hangpara	the difference between \highlight{phenotype} and \highlight{genotype,} and
-
-	\hangpara how phenotype changes in response to different \highlight{modes of selection.}
-	
-\end{frame}
-
-%
-%{
-%\usebackgroundtemplate{\includegraphics[width=\paperwidth]{individuals_vary}}
-%\begin{frame}[b]
-%\hfill\textcolor{white}{\tiny \copyright\, Entomart, Wikimedia}
-%\end{frame}
-%}
-% Why do populations vary?
-%
-\lecture{student}{student}
-
-\begin{frame}[t]{If natural selection changes the phenotype, what also had to change?}
-
-\hangpara Three \highlight{modes of selection} describe \emph{how} the phenotype changes in a population.
-
-\hangpara The modes do not say \emph{why} the phenotype changes.
-
-\end{frame}
-%
-\begin{frame}{\highlight{Directional} selection shifts the population toward \emph{one} extreme phenotype.}
-	\centering
-	\begin{columns}[T]
-		\begin{column}{0.5\textwidth}
-			\centering
-			\includegraphics[width=0.9\textwidth]{mode_original}
-		\end{column}
-		\begin{column}{0.5\textwidth}
-			\pause\includegraphics[width=0.9\textwidth]{mode_directional}
-		\end{column}
-	\end{columns}
-\end{frame}
-%
-{
-\usebackgroundtemplate{\includegraphics[width=\paperwidth]{scissortail_flycatcher} }
-\begin{frame}[b]{Females prefer longer tails in male scissortail flycatchers.}
-
-	\hfill \tiny TexasEagle, Flickr, \ccbync{2}
-
-\end{frame}
-}
-%
-\begin{frame}{\highlight{Disruptive} selection shifts the population toward \emph{both} extreme phenotypes.}
-	\centering
-	\begin{columns}[T]
-		\begin{column}{0.5\textwidth}
-			\centering
-			\includegraphics[width=0.9\textwidth]{mode_original}
-		\end{column}
-		\begin{column}{0.5\textwidth}
-			\includegraphics[width=0.9\textwidth]{mode_disruptive}
-		\end{column}
-	\end{columns}
-\end{frame}
-%
-{
-\usebackgroundtemplate{\includegraphics[width=\paperwidth]{geospiza_fortis} }
-\begin{frame}[b]{Beak size is diverging in \textit{Geospiza fortis.}}
-
-	\tiny\textcolor{white}{Mark Putney, Flickr, \ccbysa{2}} \pause\hfill\includegraphics[width=0.45\textwidth]{geospiza_fortis_disruptive}
-
-\end{frame}
-}
-%
-\begin{frame}{\highlight{Stabilizing} selection shifts the population toward the intermediate phenotype.}
-	\centering
-	\begin{columns}[T]
-		\begin{column}{0.5\textwidth}
-			\centering
-			\includegraphics[width=0.9\textwidth]{mode_original}
-		\end{column}
-		\begin{column}{0.5\textwidth}
-			\includegraphics[width=0.9\textwidth]{mode_stabilizing}
-		\end{column}
-	\end{columns}
-\end{frame}
-%
-{
-\usebackgroundtemplate{\includegraphics[width=\paperwidth]{balancing_selection} }
-\begin{frame}[b]{}
-
-\tiny \copyright\,Pearson Education, Inc.
-\end{frame}
-}
+\end{document}
 
 \end{document}

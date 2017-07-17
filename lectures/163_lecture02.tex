@@ -25,7 +25,7 @@
 \usepackage{fontspec}
 \def\mainfont{Linux Biolinum O}
 \setmainfont[Ligatures={Common,TeX}, Contextuals={NoAlternate}, BoldFont={* Bold}, ItalicFont={* Italic}, Numbers={OldStyle}]{\mainfont}
-\setsansfont[Ligatures={Common,TeX}, Scale=MatchLowercase, Numbers=OldStyle]{Linux Biolinum O} 
+\setsansfont[Ligatures={Common,TeX}, Scale=MatchLowercase, Numbers=Proportional]{Linux Biolinum O} 
 \usepackage{microtype}
 
 \usepackage{graphicx}
@@ -35,293 +35,264 @@
 %\usepackage{units}
 \usepackage{booktabs}
 %\usepackage{textcomp}
+\usepackage{multicol}
+\usepackage{amsmath}
 
 \usepackage{tikz}
-%	\tikzstyle{every picture}+=[remember picture,overlay]
-
+	\tikzstyle{every picture}+=[remember picture,overlay]
+	\usetikzlibrary{arrows}
+	\usetikzlibrary{positioning}
+	
 \mode<presentation>
 {
   \usetheme{Lecture}
   \setbeamercovered{invisible}
-  \setbeamertemplate{items}[square]
+  \setbeamertemplate{items}[default]
+  \setbeamercolor{alerted text}{fg=orange6}
 }
 
 
 \begin{document}
 
-\lecture{instructor}{instructor}
-{
-\usebackgroundtemplate{\includegraphics[width=\paperwidth]{connect_the_dots_solved}}
-\begin{frame}[t,plain]
-\end{frame}
-}
-
-{
-\usebackgroundtemplate{\includegraphics[width=\paperwidth]{sunflowers}
-}
-\begin{frame}[b,plain]
-	\hfill \tiny \textcolor{white}{Trey Ratcliff, Flickr, \ccbyncsa{2}}
-\end{frame}
-}
-
-{
-\usebackgroundtemplate{\includegraphics[width=\paperwidth]{spider_bee}
-}
-\begin{frame}[b,plain]
-\tiny Alvesgaspar, Wikimedia, \ccbysa{4}
-\end{frame}
-}
-
-{
-\usebackgroundtemplate{\includegraphics[width=\paperwidth]{marine_iguana}}
-\begin{frame}[b,plain]
-	\textcolor{white}{\tiny Les Williams, Flickr, \ccbysa{2}}
-\end{frame}
-}
-
-{
-\usebackgroundtemplate{\includegraphics[width=\paperwidth]{bird_paradise.jpg}}
-\begin{frame}[b,plain]
-	\tiny\textcolor{white}{\href{http://www.youtube.com/watch?v=KIYkpwyKEhY}{Link to Video} \hfill \copyright\,Tim Laman, All Rights Reserved}
-\end{frame}
-}
-
 \lecture{student}{student}
 
-\begin{frame}{Our goals for this lecture are}
+\begin{frame}{Our goals for this lecture are to}
 	
-	\hangpara define evolution, 
+	\hangpara learn how to calculate \highlight{allele frequencies} and \highlight{genotype frequencies,}
 	
-	\hangpara learn the historical context of evolutionary thought, and
-
-	\hangpara introduce Charles Darwin.
-
-\end{frame}
-
-%
-
-%
-\begin{frame}[t,plain]{Work in pairs to answer the following questions.}
-	\vspace{2ex}
+	\hangpara learn the mathematical relationship between allele and genotype frequencies, and
 	
-	\onslide<1->\hangpara What is \highlight{evolution?} \onslide<2->\alt<handout>{}{\\Evolution is the genetic change in a population over time.}\\[2\baselineskip]
+	\hangpara learn about \highlight{Hardy-Weinberg equilibrium.}
 	
-
-	\onslide<1->\hangpara Who was \highlight{Charles Darwin?}
-
 \end{frame}
-
 %
-{
-\usebackgroundtemplate{\includegraphics[width=\paperwidth]{evol_history_pre-darwin}}
-\begin{frame}[b]
+\begin{frame}[t]{Evolution summary}
 
-\hfill\tiny\textcopyright Pearson Education, Inc.
-\end{frame}
-}
-%
-{
-\usebackgroundtemplate{\includegraphics[width=\paperwidth]{evol_history_post-darwin}}
-\begin{frame}[b]
-
-\hfill\tiny\textcopyright Pearson Education, Inc.
-\end{frame}
-}
-%
-{
-\usebackgroundtemplate{\includegraphics[width=\paperwidth]{thomas_robert_malthus}}
-\begin{frame}[b]
-
-\tiny\textcolor{white}{Wikimedia, public domain.}
-\end{frame}
-}
-%
-{
-\usebackgroundtemplate{\includegraphics[width=\paperwidth]{malthus_graph}}
-\begin{frame}[t]{Malthus's idea on human population growth and catastrophe.}
-
-\vskip0pt plus 1filll
-
-\hfill\tiny Kravietz, Wikimedia,\ccbysa{3}
-\end{frame}
-}
-%
-{
-\usebackgroundtemplate{\includegraphics[width=\paperwidth]{lamarck}}
-\begin{frame}[b]
-
-\tiny\textcolor{white}{Wikimedia, public domain.}\hspace*{50mm}Petr Kratochvil, public domain.
-\end{frame}
-}
-%
-{
-\usebackgroundtemplate{\includegraphics[width=\paperwidth]{georges_cuvier}}
-\begin{frame}[b]
-
-\tiny\textcolor{white}{Wikimedia, public domain.}
-\end{frame}
-}
-%
-{
-\usebackgroundtemplate{\includegraphics[width=\paperwidth]{charles_lyell}}
-\begin{frame}[b]
-
-\tiny\textcolor{white}{Wikimedia, public domain.}
-\end{frame}
-}
-%
-{
-\usebackgroundtemplate{\includegraphics[width=\paperwidth]{darwin_young}}
-\begin{frame}[b]
-
-\hfill\tiny\textcolor{white}{Wikimedia, public domain.}
-\end{frame}
-}
-%
-\begin{frame}[t]{Darwin's father objected to Charles going on the voyage.}
-
-	Such a voyage would reflect badly on his future prospects as a member of the clergy. \\[0.5\baselineskip]
+	\hangpara \highlight{Population:} a group of individuals of the \emph{same species} together in the same area, and \emph{potentially} interacting with each other.
 	
-	The entire plan seemed adventurous and wild. \\[0.5\baselineskip]
+	\hangpara \highlight{Time:} measurable differences can take dozens to hundreds or thousands of generations.
+	
+	\hangpara \highlight{Genetic change:} allele frequencies change in the population over time.
+	
+	\pause \hangpara How do we calculate allele frequencies?
 
-	Why was a naturalist still being considered so close to the start of the voyage? \\[0.5\baselineskip]
+\end{frame}
+
+%
+\begin{frame}[t,plain]{\highlight{Allele frequency} is a measure of how common an allele is in a population.}
+
+%	\vspace{\baselineskip}
 	
-	Given the above, other people must have been considered. Why had they refused the offer? \\[0.5\baselineskip]
+	\hangpara Allele frequency (proportion) is calculated as the count of one allele divided by the total count for all alleles in a population.
 	
-	Going on the voyage would prevent Charles from settling down to a real life. \\[0.5\baselineskip]
+	\[ p_i = \dfrac{X_i}{\sum\limits_{i}^{n} X_i}\]
+
+	\hangpara where $i$ is one allele, $X_i$ is the count for the $i$th allele, and $n$ is the total number of alleles.
 	
-	The accommodations on the ship would be very poor. \\[0.5\baselineskip]
+	\hangpara $\sum\limits_{i}^{n}$ tells you to sum together $X_i$ for all $n$ alleles.
 	
-	The voyage would offer Charles another excuse to change his focus in life. \\[0.5\baselineskip]
+\end{frame}
+%
+\begin{frame}[t]{Example: 10 alleles were sampled from a  population with two unique alleles.}
+
+	\hfil $p_i = \dfrac{X_i}{\sum\limits_{i}^{n} X_i}$ 
+	\pause \hfil \emph{b b B b B B b b b B}
+	\pause \hfil $n = 2$ \hfil
+
+	\pause \hangpara \emph{b} is allele 1 so $X_1 = 6$. 
+	\pause \qquad \emph{B} is allele 2 so $X_2 = 4$. 
 	
-	It would be a complete waste of his time.
+	\pause \hangpara $\sum\limits_{i}^{n} = X_1 + X_2 = 6 + 4 = 10.$
+	
+	\pause \hangpara The frequency of \emph{b} is $p_1 = \dfrac{6}{10} = 0.6.$
+
+	\hangpara The frequency of \emph{B} is $p_2 = \dfrac{4}{10} = 0.4.$
+\end{frame}
+%
+\lecture{instructor}{instructor}
+%
+\begin{frame}[t]{Your turn: calculate the frequency of these five alleles.}
+
+	\hangpara $Z_1$ allele: 6 alleles were sampled.
+
+	\hangpara $Z_2$ allele: 12 alleles were sampled.
+	
+	\hangpara $Z_3$ allele: 18 alleles were sampled.
+	
+	\hangpara $Z_4$ allele: 1 alleles were sampled.
+
+	\hangpara $Z_5$ allele: 3 alleles were sampled.
+\end{frame}
+%
+\begin{frame}{How did you do?}
+	\hangpara $Z_1$ allele: \only<2>{$p_1 = 0.15$}
+
+	\hangpara $Z_2$ allele: \only<2>{$p_2 = 0.30$}
+	
+	\hangpara $Z_3$ allele: \only<2>{$p_3 = 0.45$}
+	
+	\hangpara $Z_4$ allele: \only<2>{$p_4 = 0.025$}
+
+	\hangpara $Z_5$ allele: \only<2>{$p_5 = 0.075$}
+\end{frame}
+%
+\lecture{student}{student}
+%
+\begin{frame}[t]{Learn these rules about allele frequencies:}
+
+	\hangpara Frequencies are expressed as decimal fractions between 0 and 1.
+	
+	\hangpara The frequencies of all alleles in a population \emph{must} sum to 1.
+	
+	\hangpara Frequencies can be converted to percentages. A frequency of 0.30 = 30\% of the total alleles.
+	
+	\hangpara Allele frequencies represent the probability of drawing any one allele at random from the population. An allele with a frequency of 0.05 has a 5\% chance of being sampled at random from the population.
+
+\end{frame}
+%
+\begin{frame}[t]{We will assume the following:}
+
+	\hangpara The population has \emph{only} two unique alleles for a gene.\\ \quad \textcolor{gray}{Real populations usually have many unique alleles for a gene.}
+	 
+
+	\hangpara Individuals in the population are diploid; that is, each individual has two alleles for a gene.
+	
+\end{frame}
+%
+\begin{frame}[t]{With only two alleles in a diploid population, then only three \highlight{genotypes} are possible.}
+
+\Large
+\hfil \alert<2>{\emph{YY}} \hfil \alert<3>{\emph{Yy}} \hfil \alert<2>{\emph{yy}} \hfill
+
+\normalsize
+	\hangpara \onslide<2->An individual with two copies of the same allele has a \alert<2>{homozygous} genotype.
+	
+	\hangpara \onslide<3->An individual with one copy each of different alleles has a \alert<3>{heterozygous} genotype.
+	
+	\hangpara \onslide<4->\textsc{\highlight{Important:}} Genotype refers to the combination of alleles for \emph{one or more} genes. We will use homozygote and heterozygote to refer to the genotype of just one gene.
+
+\end{frame}
+%
+\begin{frame}[t]{\highlight{Genotype frequency} is a measure of how common a genotype is in a population.}
+
+	\hangpara Calculate genotype frequencies for these three genotypes, just as you did for allele frequencies.
+	
+	\hangpara \quad \emph{HH:} 27 individuals. \onslide<2>{0.15}
+	
+	\hangpara \quad	\emph{Hh:} 81 individuals. \onslide<2>{0.45}
+	
+	\hangpara \quad \emph{hh:} 72 individuals. \onslide<2>{0.40}
+
+\end{frame}
+%
+\begin{frame}[t]{Learn these rules about genotype frequencies:}
+
+	\hangpara Frequencies are expressed as decimal fractions between 0 and 1.
+	
+	\hangpara The frequencies of all genotypes in a population \emph{must} sum to 1.
+	
+	\hangpara Frequencies can be converted to percentages. A frequency of 0.39 = 39\% of the total alleles.
+	
+	\hangpara Genotype frequencies represent the probability of drawing any one genotype at random from the population. A genotype with a frequency of 0.77 has a 77\% chance of being sampled at random from the population.
+
+\end{frame}
+%
+\begin{frame}[t]{Allele and genotype frequencies have a mathematical relationship.}
+	
+	\hangpara Let $p$ be the frequency of one allele.
+	
+	\hangpara Let $q$ be the frequency of the other allele.
+	
+	\hangpara Allele frequencies must sum to 1. Therefore,
+	
+	\highlight{\[ p + q = 1.\]}
+	
+	\pause
+	
+	\vspace{\baselineskip}
+	
+	\hangpara \highlight{Trivia:} Why use $p$ and $q$ instead of gene names?  Because real genes have names like \emph{tinman,} \emph{sonic hedgehog,} and \emph{ms(3)k81}.
+\end{frame}
+%
+\begin{frame}[t]{Assume a very large population of randomly mating males and females.}
+
+	\hangpara Eggs will contain each allele in proportion to the allele frequencies. If $p = 0.6$ and $q = 0.4$, then 60\% of the eggs in the population will contain the $p$ allele and 40\% will contain the $q$ allele.
+	
+	\hangpara Sperm will also contain each allele in proportion to the allele frequencies. 
+	
+	\hangpara Therefore, in a large randomly mating population, 
+	
+	\[ \stackrel{\text{eggs}}{(p + q)}
+	\stackrel{\text{sperm}}{(p + q)}\, 
+	= \highlight{p^2 + 2pq + q^2 = 1} \]
+	
+	\hangpara where $p^2$ and $q^2$ represent the frequencies of the two homozygous genotypes and $2pq$ represents the frequency of the heterozygous genotype in the population.
 \end{frame}
 %
 {
-\usebackgroundtemplate{\includegraphics[width=\paperwidth]{hms_beagle}}
-\begin{frame}[b]
+\setbeamertemplate{element name}{arguments}
+\begin{frame}[c]%[t]{The mathematical relationship can be represented graphically with a Punnett square.}
 
-\hfill\tiny\textcolor{white}{Wikimedia, public domain.}
+\centering
+\begin{tikzpicture}[scale=0.55]
+\draw[thick] (-5,4) rectangle (5,-6) node (square){};
+%    \foreach \row in {0,1, ..., 9} {
+%        \foreach \column in {0, ..., 3} {
+%    \fill ({2*\column + mod(\row,2)}, -\row) rectangle +(1,-1);
+%        }
+%    }
+\node [above] at (0,5){Eggs};
+\node [above] at (-2,4){$p = 0.6$};
+\node [above] at (3,4){$q = 0.4$};
+\draw [gray] (1,4) -- (1,-6);
+\draw [gray] (-5,-2) -- (5,-2); 
+\node [left] at (-5,1){$p=0.6$};
+\node [left] at (-5,-4){$q=0.4$};
+\node [left] at (-7,-1) {Sperm};
+
+\pause
+\node at (-2,1){$p^2 = 0.36$};
+\node at (3,1){$pq = 0.24$};
+\node at (-2,-4){$pq = 0.24$};
+\node at (3,-4){$q^2 = 0.16$};
+
+\pause
+\node at (0,-7){$p^2 + pq + pq + q^2 = \highlight{p^2 + 2pq + q^2 = 1}$};
+\end{tikzpicture}
 \end{frame}
 }
-%
-{
-\usebackgroundtemplate{\includegraphics[width=\paperwidth]{darwin_cabin}
-}
-\begin{frame}[plain]
-\end{frame}
-}
-%
-{
-\usebackgroundtemplate{\includegraphics[width=\paperwidth]{voyage_beagle}}
-\begin{frame}[t]{\textcolor{white}{The \textsc{h.m.s.} Beagle sailed around the world during 1831--1836.}}
-\end{frame}
-}
-%
-{
-\usebackgroundtemplate{\includegraphics[width=\paperwidth]{giant_sloth}}
-\begin{frame}[t]{In South America, Darwin witnessed\ldots}
+% 
+\begin{frame}[t]{The \highlight{Hardy-Weinberg} equations test for equilibrium of allele and genotype frequencies in a population.}
 
-	\hangpara fossils of a giant sloth and other animals,
-
-	\hangpara marine shells on a mountain top, and
-
-	\hangpara a magnitude 8 earthquake,
-
-	\hangpara the Galapagos Islands.
-
-	\vskip0pt plus 1filll
-
-	\hfill\tiny ДиБгд, Wikimedia, public domain.
-\end{frame}
-}
-%
-{
-\usebackgroundtemplate{\includegraphics[width=\paperwidth]{darwins_finches}}
-\begin{frame}[b]
-
-	\hfill\tiny Wikimedia, public domain.
-\end{frame}
-}
-%
-{
-\usebackgroundtemplate{\includegraphics[width=\paperwidth]{darwin_descent_quote.jpg}}
-\begin{frame}[plain]
-\end{frame}
-}
-%
-{
-\usebackgroundtemplate{\includegraphics[width=\paperwidth]{darwin_phylogeny}}
-\begin{frame}[t]
-\end{frame}
-}
-%
-{
-\usebackgroundtemplate{\includegraphics[width=\paperwidth]{artificial_selection}}
-\begin{frame}[t]{}
-\end{frame}
-}
-%
-{
-\usebackgroundtemplate{\includegraphics[width=\paperwidth]{alfred_russel_wallace}}
-\begin{frame}[b]
-\hfill\tiny\textcolor{white}{Wikimedia, public domain.}
-\end{frame}
-}
-
-
-{
-\usebackgroundtemplate{\includegraphics[width=\paperwidth]{origin_of_species_cover}}
-\begin{frame}[t]
-
-	\vspace*{3\baselineskip}
-
-	\hangpara\parbox[t]{2.25in}{\raggedright %
-There is grandeur in this view of life, with its several powers, having been originally breathed into a few forms or into one; and that, whilst this planet has gone cycling on according to the fixed law of gravity, from so simple a beginning endless forms most beautiful and most wonderful have been, and are being, evolved.}
-
-	\vskip0pt plus 1filll
+	\vspace*{-\baselineskip}
 	
-	\hfill\tiny Wikimedia, public domain.
+	\begin{multicols}{2}
+	
+	\vspace*{0\baselineskip}
+	
+	\hangpara $p + q = 1$
+	
+	\hangpara $p^2 + 2pq + q^2 = 1$
+	
+	\vspace{\baselineskip}
+	
+	\hangpara If allele frequencies do not change, then genotype frequencies will not change.
+	
+	\vspace{\baselineskip}
+	
+	\hangpara \highlight{If allele frequencies do not change, then a population cannot evolve.}
+	
+	\columnbreak
+	
+		{\centering \includegraphics[height=0.34\textheight]{hardy}\\[-1ex]
+		{\small G.\,H.\,Hardy}\\[1ex]
+
+		\includegraphics[height=0.34\textheight]{weinberg}\\[-1ex]
+		{\small Wilhelm Weinberg}\par
+		}
+		
+	\end{multicols}
+	
 \end{frame}
-}
-%
-{
-\usebackgroundtemplate{\includegraphics[width=\paperwidth]{origin_of_species_cover}}
-\begin{frame}[t]
-
-	\vspace*{3\baselineskip}
-	
-	\hangpara Darwin's book had two ideas:
-	
-	\hangpara\hspace*{1em}\highlight{descent with modification} 
-	
-	\hangpara\hspace*{1em}\highlight{natural selection.}
-
-	\vskip0pt plus 1filll
-	
-	\hfill\tiny Wikimedia, public domain.
-\end{frame}
-}
-
-
-
-
-
-
-%Quote from Origin of Species
-
-%{
-%\usebackgroundtemplate{\includegraphics[width=\paperwidth]{darwin_descent_quote}
-%}
-%\begin{frame}
-%\end{frame}
-%}
-
-%{
-%\usebackgroundtemplate{\includegraphics[width=\paperwidth]{kitty_yawn.jpg}
-%}
-%\begin{frame}{\textcolor{white}{You \highlight{earn} your grades with}}
-%\end{frame}
-%}
 
 \end{document}
