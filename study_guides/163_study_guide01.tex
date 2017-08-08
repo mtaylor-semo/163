@@ -7,15 +7,13 @@
 
 \usepackage{fontspec}
 \def\mainfont{Linux Libertine O}
-\setmainfont[Ligatures={Common,TeX}, Contextuals={NoAlternate}, BoldFont={* Bold}, ItalicFont={* Italic}, Numbers={OldStyle}]{\mainfont}
+\setmainfont[Ligatures={Common,TeX}, Contextuals={NoAlternate}, BoldFont={* Bold}, ItalicFont={* Italic}, Numbers={OldStyle,Proportional}]{\mainfont}
 \setsansfont[Scale=MatchLowercase]{Linux Biolinum O} 
 \usepackage{microtype}
 
 \usepackage{graphicx} % allow embedded images
-  \setkeys{Gin}{width=\linewidth}
-  \graphicspath{	{/Users/goby/teach/163/lectures/}}%}%
-%	{~/Pictures/teach/163/lecture/}%
-%	{} % set of paths to search for images
+  \setkeys{Gin}{width=\linewidth,totalheight=\textheight,keepaspectratio}
+  \graphicspath{	{/Users/goby/teach/163/lectures/}} % set of paths to search for images
 \usepackage{amsmath}  % extended mathematics
 \usepackage{booktabs} % book-quality tables
 \usepackage{units}    % non-stacked fractions and better unit spacing
@@ -23,44 +21,34 @@
 %\usepackage{fancyvrb} % extended verbatim environments
 %  \fvset{fontsize=\normalsize}% default font size for fancy-verbatim environments
 
-%\makeatletter
-%% Paragraph indentation and separation for normal text
-%\renewcommand{\@tufte@reset@par}{%
-%  \setlength{\RaggedRightParindent}{1.0pc}%
-%  \setlength{\JustifyingParindent}{1.0pc}%
-%  \setlength{\parindent}{1pc}%
-%  \setlength{\parskip}{0pt}%
-%}
-%\@tufte@reset@par
+\usepackage{enumitem}
+
+\makeatletter
+% Paragraph indentation and separation for normal text
+\renewcommand{\@tufte@reset@par}{%
+  \setlength{\RaggedRightParindent}{1.0pc}%
+  \setlength{\JustifyingParindent}{1.0pc}%
+  \setlength{\parindent}{1pc}%
+  \setlength{\parskip}{0pt}%
+}
+\@tufte@reset@par
 
 % Paragraph indentation and separation for marginal text
-%\renewcommand{\@tufte@margin@par}{%
-%  \setlength{\RaggedRightParindent}{0pt}%
-%  \setlength{\JustifyingParindent}{0.5pc}%
-%  \setlength{\parindent}{0.5pc}%
-%  \setlength{\parskip}{0pt}%
-%}
-%\makeatother
+\renewcommand{\@tufte@margin@par}{%
+  \setlength{\RaggedRightParindent}{0pt}%
+  \setlength{\JustifyingParindent}{0.5pc}%
+  \setlength{\parindent}{0.5pc}%
+  \setlength{\parskip}{0pt}%
+}
+\makeatother
 
 % Set up the spacing using fontspec features
    \renewcommand\allcapsspacing[1]{{\addfontfeatures{LetterSpace=15}#1}}
    \renewcommand\smallcapsspacing[1]{{\addfontfeatures{LetterSpace=10}#1}}
-   
-%\ifluatex
-%  \newcommand{\textls}[2][5]{%
-%    \begingroup\addfontfeatures{LetterSpace=#1}#2\endgroup
-%  }
-%  \renewcommand{\allcapsspacing}[1]{\textls[15]{#1}}
-%  \renewcommand{\smallcapsspacing}[1]{\textls[10]{#1}}
-%  \renewcommand{\allcaps}[1]{\textls[15]{\MakeTextUppercase{#1}}}
-%  \renewcommand{\smallcaps}[1]{\smallcapsspacing{\scshape\MakeTextLowercase{#1}}}
-%  \renewcommand{\textsc}[1]{\smallcapsspacing{\textsmallcaps{#1}}}
-%\fi
-  
-  
+
 \newcommand\lecturefile{163_lecture01_fullsize}
   
-\title{{\scshape bi} 163 Study Guide 01\hfill}
+\title{\scshape{bi} 163 Study Guide 01}
 
 \date{} % without \date command, current date is supplied
 
@@ -69,87 +57,104 @@
 \maketitle	% this prints the handout title, author, and date
 
 %\printclassoptions
+\section*{Evolution, genotypes, and phenotypes.}
 
-%\section{Introduction}
+We\marginnote{\textbf{Read:} pgs. 21, 462--470.} defined and explained evolution, and explained the relationships between genes and characters, alleles and traits, and genotypes and phenotypes. You will learn more about genes and alleles in~{\scshape bi} 173. For this course, you need to understand them only in the context of evolution.
 
-The\marginnote{\textbf{Read:} Assigned reading from the textbook will be here.\\ \vspace*{10\baselineskip}} study guides will help you learn the material. The guides may also contain more information to supplement the lecture. Study guides \emph{may} also contain example test questions (but no promises).  Read the study guides in advance of lecture to get familiar with the day's topic. Bring the study guide to class to see the vocabulary and questions in context of the lecture discussion. This will help you recall the information during your daily (or every other day) study.
-
-\section{Vocabulary}\marginnote{The terms listed here and the concept questions below are examples for this study guide. They they will be covered in lab later so you will be required to learn them soon.} 
+\section*{Vocabulary}
 
 \vspace{-1\baselineskip}
 \begin{multicols}{2}
-Carolus Linnaeus\\
-\textit{Systema Natur\ae}\\
-Binomial nomenclature\\
-Taxonomic classification
+evolution\\
+population \\
+gene \\
+allele \\
+character \\
+trait \\
+genotype \\
+phenotype \\
+genome
 \end{multicols}
 
-The vocabulary lists the terms from each lecture that you should know.You should be able to define these terms and recognize definitions of these terms. Definitions, however, are not enough. You must be able to recognize and apply these terms in a broader context.  I will use the terms in lecture and on exams. If you do not know the terms, you may not fully understand the lecture or be able to answer a question on the exam. I expect you to use the proper vocabulary in your answers to questions on exams and assignments.  Get in the habitat of using terms as you learn the material.  I may not cover all terms in class or do so only in passing.  I expect that you will learn them by reading your textbook and using the glossary in your textbook, to put them into the context of evolution and ecology.
+\section*{Concepts}
 
-\section{Concepts}
-
-The concepts section includes several short-answer questions to help think about the material we covered in lecture. You should \emph{write}\marginnote{Write the answers. Just thinking about an answer is not a good study habit. Our brains tend to skim across the answers without forming a deep understanding. Writing your answers on paper (or typing them on a computer) will help you clarify your thoughts, identify gaps in your understanding, and commit your knowledge to long-term memory.} clear and concise answers to each question in the Concepts section.  The questions are not necessarily independent.  
-\begin{marginfigure}
-	\includegraphics[page=11]{\lecturefile}
-\end{marginfigure}
-
-
-Remember to “think horizontally” and to “connect the dots.”  Study guide questions may be used as a basis for multiple choice, matching or true/false questions, or for short answer questions, but I may also create exam and assignment questions that do not appear on the study guides.  These are guides, not exhaustive test banks.
-
-
-\begin{enumerate}
-	\item Who was Carolus Linnaeus? What was his contribution to the sciences of taxonomy and classification?
-
-	\item Approximately how many species have been cataloged (described)? About how many species today might exist on Earth?
-	
-	\item Many more questions will usually be listed.
-	
-\end{enumerate}
-
-\section{How to study}
-
-The university expects that you spend two hours studying for each hour you spend in lecture. Think about this for a moment. If your schedule is 15 credit hours, that is about 30 additional hours of study outside of the classroom. Together, in-class time and outside study time is about 45 hours a week. In other words, your education is a full-time job.  You should treat it as such.
-
-Each person learns differently but, for every student, learning begins \emph{before} lecture.  I recommend the following steps to increase your chance of success for this course. 
-
-
+You should \emph{write} clear and concise answers to each question in the Concepts section.  Remember to ``think horizontally'' and to ``connect the dots.'' 
 
 \begin{enumerate}
 
-	\item Print off and review the study guides before lecture. Bring the study guide with you to lecture.
+	\item Define evolution. 
 	
-	\item Read or at least skim the assigned reading from the textbook before lecture. Study the figures in the assigned reading because I will use many of this figures in lecture.
+	\item Explain evolution.\marginnote{In other words, knowing a simple definition is not usually sufficient. You must be able to explain concepts.} That is, explain evolution by explaining what is mean by populations, time, and genetic change. 
 	
-	\item Take good notes.\begin{marginfigure}\includegraphics[page=9]{\lecturefile}\end{marginfigure} Most slides contain a single sentence that is the main point to get from that slide. But, I will go into more depth. You must learn to listen carefully to what I say and write down the information you think is important. I tend to stress and repeat the most important concepts. 
+	\item Explain the difference between the following pairs of terms.
 	
-	\item If you reviewed the study guide in advance, you will recognize some of the concept questions when I talk about those concepts in lecture. Write a cross reference in your notes, like “See study guide question \#2” so that you link your notes to the study guide questions.
+	\begin{enumerate}
+		\item characters and traits.
+		
+		\item genes and alleles.
+		
+		\item characters and genes.
+		
+		\item traits and alleles.
+		
+	\begin{marginfigure}
+		\includegraphics[page=14]{\lecturefile}
+	\end{marginfigure}
 	
-	\item Within 24–48 hours after lecture, study your notes.\marginnote{Put away your smart phone so that you are not distracted. You may think you can multitask but multiple scientific studies show that is not the case. Your capacity to learn is greatly diminished when distracted. Your friends are not going anywhere.}  Sooner is better than later because the material will still be fresh in your mind. It will be easier for you to recall things I said in lecture.
+		\item genotype and phenotype.
+		
+		\item alleles and phenotype.
+		
+		\item genes and genotype.
+		
+	\end{enumerate}
+
+	\item Why is evolution in a population usually measured in terms of generation time instead of years?
+
+	\item Describe how the phenotype changed for Italian wall lizards that were introduced to Pod Mr\v{c}aru\marginnote{Pronounced Mer-KAR-oo.} in 1971. About how long did it take for the phenotypic differences to evolve? 
 	
-	\item Study the assigned reading in the textbook. Take notes from your reading of the textbook.
+	\item What was different about Pod Mr\v{c}aru compared to their original island (Pod Kipi\v{s}te.)\marginnote{Pronounced Ko-PIS-tee} that caused the phenotype to change? Was it a different type of habitat? Interactions with different types of species? Differences in diet? Differences in climate? Something else? Explain.
 	
-	\item Write one more set of notes that merges together your notes from class and your notes from the textbook.  
-	
-	Your first set of notes are based on things that I say in lecture. Your notes are based on my “voice.” The notes you take from the textbook are based on the “voice” of the text. By merging them together, you begin to think about the material in your own “voice.” That is when you begin to \emph{own} the information.
-	
-	\item Answer the questions on the study guide. This will help you to identify areas where your knowledge is strong and areas where your knowledge is weak. You can then focus on your weaknesses to strengthen them.
-	
-	\item Write questions about concepts that you still do not understand. Visit with me regularly. I will help you to answer those questions. My door is open to you. Take advantage of my knowledge as a resource to improve your understanding. I am \emph{always} happy to meet with you. I promise that I will not think you are dumb for not knowing something. Instead, I will be pleased that you are committed to learning something you do not yet understand. 
-	
-	\item Repeat this for each lecture, with one addition. Review your final set of notes and the study guide from the previous lecture before studying the new lecture. That will help you to “connect the dots,” to see how the concepts of each lecture fit together in the big picture. 
+
+	\item Is it safe to say that \emph{only} the phenotype evolved for the Italian Wall Lizards?  Explain why or why not. If not, explain what else must have evolved in the lizards. That is, what determines the phenotype? 
 	
 \end{enumerate}
 
-This sounds like a lot but it really is not.  Most readings are just a few pages for each lecture. With practice, you'll find that you can do this in 1–2 hours.  If you do this for each lecture, you learn the material more quickly, more thoroughly, and retain it better. You will learn it much better that you would if you tried to cram in all of the material during an all-night study session right before an exam.  My tests are designed to test your ability to apply information and to see the relationships among concepts. Cramming will not give your brain the time necessary to make the connections. Regular study will greatly increase your ability to see the connections. 
+\section*{Example exam questions}
 
-\begin{marginfigure}[1in]
-	\includegraphics[page=6]{\lecturefile}
-\end{marginfigure}
+These are examples only and not exhaustive. One or more of these questions may or may not appear on the exam. Do not forget that the study guide questions above, or variations of the questions, might be used as short answer questions on the exam. 
 
-Your success is my number one goal for this course but I can only do so much. Most of the heavy lifting will fall on you. Remember that you must have a grade of C or better to move on to the next biology course. Set a personal goal to perform your best in this course and always remember that goal. You can do it but you \emph{must} put forth the effort.
+\begin{fullwidth}
 
-\subsection{Good luck!}
+\bigskip
 
+\noindent \rule{1in}{0.4pt} The combination of alleles in an organism for one or more genes.
+
+\bigskip
+
+\noindent \rule{1in}{0.4pt} All of the genes in an organism.
+
+\bigskip
+
+\noindent True\hspace{1em}False\hspace{1em} Complex organisms always have more chromosomes than simple organisms. 
+
+\bigskip
+
+\noindent True\hspace{1em}False\hspace{1em} Evolution always takes at least tens of thousands of years.
+
+\bigskip
+
+\noindent The combination of \rule{1in}{0.4pt} in the genome determine the phenotype of an organism.
+
+\smallskip
+
+\noindent \textsc{a}. genes\\
+\noindent \textsc{b}. alleles\\
+\noindent \textsc{c}. characters\\
+\noindent \textsc{d}. traits\\
+\noindent \textsc{e}. genotypes\\
+
+\end{fullwidth}
 
 
 \end{document}
