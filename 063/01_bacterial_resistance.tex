@@ -117,7 +117,7 @@
 
 \begin{document}
 
-\subsection*{Natural selection in bacteria}
+\subsection*{Bacterial resistance}
 
 All species can evolve through the process of natural selection, including bacteria. Modern bacteria are frequently exposed to chemical agents, such as antibiotic drugs and antimicrobial soaps, as humans attempt to control bacterial disease and contamination. Many bacteria have evolved resistance to common agents intended to control bacteria. For example, about 94\% of the different strains of \textit{Staphylococcus aureus}, a common source of staph infections, were killed by penicillin when the drug was introduced in the early 1940s. In less than a decade, only 50\% of strains were susceptible. Within another decade, severe outbreaks of \textit{S. aureus} in hospitals were common (Livermore 2000). \textit{Staphylococcus aureus} and other bacteria evolved resistance to penicillin through natural selection. As bacteria were exposed to penicillin, many individuals were killed but not all. Surviving individuals were still able to reproduce so they had higher relative fitness. As the survivors reproduced, their offspring inherited resistance to penicillin. 
 
@@ -148,7 +148,7 @@ Everyone at your table will work as one group. Each table has the following item
 	
 	\item One test tube culture of \textit{Bacillus cereus.}
 	
-	\item Four small jars of Triclosan at concentrations of 0.1\%, 0.3\%, 0.5\% and 0.7\%, dissolved in 50\% ethanol.
+	\item Four small jars of Triclosan at concentrations of 0.1\%, 0.3\%, 0.5\% and 0.7\%, dissolved in 50\% ethanol.%, and one small jar with 50\% ethanol for the control.
 	
 	\item One small jar with 50\% ethanol. This is a control.
 
@@ -241,7 +241,7 @@ The bacteria will be allowed to grow at room temperature for 24–48 hours. Your
 	\bottomrule
 \end{longtable}
 
-\question
+\question \label{ques:zoi}
 Based on the data from your entire lab section, what is the average diameter for the zone of inhibition for each concentration?
 
 \vspace*{0.5\baselineskip}
@@ -250,7 +250,7 @@ Based on the data from your entire lab section, what is the average diameter for
 
 \vspace{0.5\baselineskip}
 
-\question
+\question \label{ques:halo}
 Based on the data from your entire lab section, what is the average diameter for the halo zone for each concentration?
 
 \vspace*{0.5\baselineskip}
@@ -260,28 +260,28 @@ Based on the data from your entire lab section, what is the average diameter for
 \vspace{0.5\baselineskip}
 
 
-\subsubsection*{Graph your results}
-
-Sketch a line graph of the averages on the grid below to illustrate your results. Use a solid line to show the trend for the diameter of the zone of inhibition. Use a dashed line to show the diameter of the halo. You will determine the scale to use for the diameter and label the \textsc{y}-axis accordingly.
-
-\begin{center}
-
-	\begin{tikzpicture}
-	
-		\newcommand*{\xMin}{0}%
-		\newcommand*{\xMax}{10}%
-		
-		\draw (0,0) grid (10,10);
-		\draw node [below] at (5,-0.5) {Concentration (\%)};
-		\draw node [left] at (-1,5) {Diameter (cm)};
-		\foreach \i in {\xMin,...,\xMax}{
-			\draw node [below] at (\i,0) {$\i$};
-		}
-
-	\end{tikzpicture}
-
-\end{center}
-
+%\subsubsection*{Graph your results}
+%
+%Sketch a line graph of the averages on the grid below to illustrate your results. Use a solid line to show the trend for the diameter of the zone of inhibition. Use a dashed line to show the diameter of the halo. You will determine the scale to use for the diameter and label the \textsc{y}-axis accordingly. You will make a better version of this graph in Microsoft Excel or other suitable software.
+%
+%\begin{center}
+%
+%	\begin{tikzpicture}
+%	
+%		\newcommand*{\xMin}{0}%
+%		\newcommand*{\xMax}{10}%
+%		
+%		\draw (0,0) grid (10,10);
+%		\draw node [below] at (5,-0.5) {Concentration (\%)};
+%		\draw node [left] at (-1,5) {Diameter (cm)};
+%		\foreach \i in {\xMin,...,\xMax}{
+%			\draw node [below] at (\i,0) {$\i$};
+%		}
+%
+%	\end{tikzpicture}
+%
+%\end{center}
+%
 \end{questions}
 
 \subsubsection*{Literature Cited}
@@ -292,14 +292,13 @@ Livermore, D.\,M. 2000. Antibiotic resistance to staphylococci. International Jo
 \hangpara{\litindent}{1}
 Serafini, A. and D.\,M.\,Matthews. 2009. Microbial resistance to Triclosan: a case study in natural selection. American Biology Teacher 71: 536–540.\footnote{This exercise is based on Serafini and Matthews 2009.}
 
-\newpage
+%\newpage
 
 \subsection*{Formal lab report: natural selection in bacteria (30 points)}
 
-Each student is responsible for writing their own lab report based on
+You must write an independent lab report based on
 the experiment you ran in your group, and on the data collected as a
-class. Your report \emph{must be typed (double-spaced) and printed} to
-turn in \emph{at the beginning of lab} on the day assigned by your instructor.  
+class. Your lab instructor will tell you whether to turn in your report online or in lab, and when your report is due. All reports must be turned in by the start of lab on the assigned due date. If you turn in your report in lab, then it must be typed (double-spaced).  
 
 A lab report is written in narrative form and in past tense—you are
 explaining to the reader your hypothesis, how you tested it, and the
@@ -329,7 +328,7 @@ the first week on the scientific method.
 This section should be written in narrative form and in past tense. Do
 not make a list of materials. You will mention the materials you used
 throughout this section as relevant. \emph{This is not like writing a
-recipe, you are not providing instructions for your reader}. Rather, you
+recipe; you are not providing instructions for your reader}. Rather, you
 are explaining to the reader how you set up the experiment and collected
 your data.
 
@@ -349,27 +348,32 @@ collected your data. This section must be written in \emph{past tense} because y
 already completed the experiment and data collection. No credit will be
 awarded for methods sections written in list or bullet form.
 
-\subsubsection*{Results (1 paragraph, 10 points)}
+\subsubsection*{Results (1 paragraph, 1 figure, 10 points)}
 
-The results section will have \emph{two parts}. First, you will complete
-Table~1 and Figure~1 from this handout \emph{using class data.} You must
-write a suitable legend (caption) for the table \emph{and} the figure on
-that sheet and staple it to your lab report. Table and figure legends
-should provide all the necessary information for a reader to understand
-the data without searching through the rest of your lab report.
+%The results section will have \emph{two parts}. First, you will complete
+%Table~1 and Figure~1 from this handout \emph{using class data.} You must
+%write a suitable legend (caption) for the table \emph{and} the figure on
+%that sheet and staple it to your lab report. Table and figure legends
+%should provide all the necessary information for a reader to understand
+%the data without searching through the rest of your lab report.
 
-The second part of this section is describing your results in narrative
+The results section describes your results in narrative
 form. Describe the overall trend in the class data for the size of the zone of inhibition and halo 
-relative to the different treatment groups. \emph{Use metric
-units to report your results.} \emph{Do not} list mean values in this section; rather, refer to
-Table~1 and Figure~1 in the text when you are describing mean values or
+relative to the different treatment groups that you recorded above for questions~\ref{ques:zoi} and~\ref{ques:halo}. \emph{Use metric
+units to report your results.} Refer to Figure~1 (see below) in the text when you are describing 
 the overall trend. For example, ``The zone of inhibition decreased in
 size between 0.1\% and 0.5\% Triclosan (Figure 1).'' \emph{Avoid
 providing any explanation or interpretation} of your results; this
 section is only used to present the data collected in a brief and
-descriptive format. You explain and interpret your results in the discussion section.
+descriptive format. You explain and interpret your results in the discussion section. 
 
-\emph{Remove the completed final page from this handout and attach it to your lab report.}
+%\emph{Do not} list mean values in this section; rather, 
+
+Figure~1 should be a line graph you make in Microsoft Excel or other suitable software, based on the results for your lab section (questions~\ref{ques:zoi} and~\ref{ques:halo} above). Include your figure with a proper legend (caption) in the results section. Figure legends
+must provide all the information necessary for a reader to understand
+the data without searching through the rest of your lab report. Lab~2 will teach you how to make proper scientific figures in Excel.
+
+%\emph{Remove the completed final page from this handout and attach it to your lab report.}
 
 \subsubsection*{Discussion (2 paragraphs, 10 points)} 
 
@@ -396,65 +400,65 @@ selection as related to antimicrobial resistance in one or two
 sentences. In other words, why might your results be important to the
 scientific community?
 
-\newpage
+%\newpage
 
-\thispagestyle{empty}
+%\thispagestyle{empty}
 
-\vfill
+%\vfill
 
-	\hfil This page wastefully left blank. Hug a tree today!\hfill
+%	\hfil This page wastefully left blank. Hug a tree today!\hfill
 	
-\vfill
+%\vfill
 
 
-\newpage
-\thispagestyle{empty}
-
-Table 1.
-
-\vspace{5\baselineskip}
-
-\begin{longtable}[c]{lcc}
-	\toprule
-		Concentation	&	Inhibition Diameter	&	Halo Diameter \tabularnewline
-	\midrule
-		& & \tabularnewline[0.75em]
-		0.0\% (Control)	& \rule{0.75in}{0.4pt} & \rule{0.75in}{0.4pt} \tabularnewline[2em]
-		0.1\%	& \rule{0.75in}{0.4pt} & \rule{0.75in}{0.4pt} \tabularnewline[2em]
-		0.3\%	& \rule{0.75in}{0.4pt} & \rule{0.75in}{0.4pt} \tabularnewline[2em]
-		0.5\%	& \rule{0.75in}{0.4pt} & \rule{0.75in}{0.4pt} \tabularnewline[2em]
-		0.7\%	& \rule{0.75in}{0.4pt} & \rule{0.75in}{0.4pt} \tabularnewline
-	\bottomrule
-\end{longtable}
-
+%\newpage
+%\thispagestyle{empty}
+%
+%Table 1. Use this table to record your data. Use these data to make your line graph in Excel.
+%
+%\vspace{5\baselineskip}
+%
+%\begin{longtable}[c]{lcc}
+%	\toprule
+%		Concentation	&	Inhibition Diameter	&	Halo Diameter \tabularnewline
+%	\midrule
+%		& & \tabularnewline[0.75em]
+%		0.0\% (Control)	& \rule{0.75in}{0.4pt} & \rule{0.75in}{0.4pt} \tabularnewline[2em]
+%		0.1\%	& \rule{0.75in}{0.4pt} & \rule{0.75in}{0.4pt} \tabularnewline[2em]
+%		0.3\%	& \rule{0.75in}{0.4pt} & \rule{0.75in}{0.4pt} \tabularnewline[2em]
+%		0.5\%	& \rule{0.75in}{0.4pt} & \rule{0.75in}{0.4pt} \tabularnewline[2em]
+%		0.7\%	& \rule{0.75in}{0.4pt} & \rule{0.75in}{0.4pt} \tabularnewline
+%	\bottomrule
+%\end{longtable}
+%
 %\vspace{\stretch{1}}
 
-\vskip0pt plus 1filll
+%\vskip0pt plus 1filll
 
-\emph{Remove this page and attach it to your lab report.  Complete both sides.}
+%\emph{Remove this page and attach it to your lab report.  Complete both sides.}
 
-\newpage
-\thispagestyle{empty}
-
-Figure 1.\vspace{5\baselineskip}
-
-\begin{center}
-
-	\begin{tikzpicture}
-	
-		\newcommand*{\xMin}{0}%
-		\newcommand*{\xMax}{10}%
-		
-		\draw (0,0) grid (10,10);
-		\draw node [below] at (5,-0.5) {Concentration (\%)};
-		\draw node [left] at (-1,5) {Diameter (cm)};
-		\foreach \i in {\xMin,...,\xMax}{
-			\draw node [below] at (\i,0) {$\i$};
-		}
-
-	\end{tikzpicture}
-
-\end{center}
+%\newpage
+%\thispagestyle{empty}
+%
+%Figure 1.\vspace{5\baselineskip}
+%
+%\begin{center}
+%
+%	\begin{tikzpicture}
+%	
+%		\newcommand*{\xMin}{0}%
+%		\newcommand*{\xMax}{10}%
+%		
+%		\draw (0,0) grid (10,10);
+%		\draw node [below] at (5,-0.5) {Concentration (\%)};
+%		\draw node [left] at (-1,5) {Diameter (cm)};
+%		\foreach \i in {\xMin,...,\xMax}{
+%			\draw node [below] at (\i,0) {$\i$};
+%		}
+%
+%	\end{tikzpicture}
+%
+%\end{center}
 
 
 \end{document}  
