@@ -43,6 +43,10 @@
 	\usetikzlibrary{arrows}
 	\usetikzlibrary{positioning}
 	
+	
+\usepackage{pgf-pie}
+
+	
 \mode<presentation>
 {
   \usetheme{Lecture}
@@ -53,6 +57,19 @@
 
 
 \begin{document}
+
+\begin{frame}
+	\begin{tikzpicture}
+		\pie[radius=2.5, sum=auto, pos={3.2,-4}, text=inside, color={black!20, white}]{0.6/\textit{a} allele, 0.40/\textit{A} allele}
+		\pie[radius=2.5, pos={9.6,-4}, text=inside, color={black!20, black!50, white}]{36/\textit{aa}, 48/\textit{Aa}, 16/\textit{AA}}
+	\end{tikzpicture}
+	
+	\begin{tikzpicture}
+		\node at (3.2,-6.5) (allelefreq){Allele Frequency};
+		\node at (9.6,-6.5) (genofreq){Genotype Frequency};
+	\end{tikzpicture}
+	
+\end{frame}
 
 \lecture{student}{student}
 
