@@ -7,17 +7,18 @@
 
 \usepackage{fontspec}
 \def\mainfont{Linux Libertine O}
-\setmainfont[Ligatures={Common,TeX}, Contextuals={NoAlternate}, BoldFont={* Bold}, ItalicFont={* Italic}, Numbers={OldStyle,Lining}]{\mainfont}
-\setsansfont[Scale=MatchLowercase]{Linux Biolinum O} 
+\setmainfont[Ligatures={Common,TeX}, Contextuals={NoAlternate}, BoldFont={* Bold}, ItalicFont={* Italic}, Numbers={OldStyle}]{\mainfont}
+\setsansfont[Scale=MatchLowercase, Numbers={OldStyle}]{Linux Biolinum O} 
 \usepackage{microtype}
 
 \usepackage{graphicx} % allow embedded images
-  \setkeys{Gin}{width=\linewidth,totalheight=\textheight,keepaspectratio}
-  \graphicspath{{img/}} % set of paths to search for images
-\usepackage{amsmath}  % extended mathematics
-\usepackage{booktabs} % book-quality tables
-\usepackage{units}    % non-stacked fractions and better unit spacing
-\usepackage{multicol} % multiple column layout facilities
+  \setkeys{Gin}{width=\linewidth}
+  \graphicspath{	{/Users/goby/teach/163/lectures/}}%}%
+
+%\usepackage{amsmath}  % extended mathematics
+%\usepackage{booktabs} % book-quality tables
+%\usepackage{units}    % non-stacked fractions and better unit spacing
+%\usepackage{multicol} % multiple column layout facilities
 %\usepackage{fancyvrb} % extended verbatim environments
 %  \fvset{fontsize=\normalsize}% default font size for fancy-verbatim environments
 
@@ -46,7 +47,9 @@
    \renewcommand\allcapsspacing[1]{{\addfontfeatures{LetterSpace=15}#1}}
    \renewcommand\smallcapsspacing[1]{{\addfontfeatures{LetterSpace=10}#1}}
 
-\title{\scshape{bi} 163 Study Guide 02}
+\newcommand\lecturefile{163_lecture02_fullsize}
+
+\title{{\scshape bi} 163 Study Guide 02}
 
 \date{} % without \date command, current date is supplied
 
@@ -55,22 +58,22 @@
 \maketitle	% this prints the handout title, author, and date
 
 %\printclassoptions
-\section*{The History of Evolutionary Thought}
+\section*{Descent with modification, natural selection, and relative fitness}
 
-We\marginnote{\textbf{Read:} pgs. 21, 462--470.} discussed types of ideas, defined evolution, and provided historical context for evolutionary thought that led to the publication of \textit{On the Origin of Species} by Charles Darwin.
+We\marginnote{\textbf{Read:} pgs. 12--15, 467--470, 491--492.} discussed Darwin's concepts of descent with modification and natural selection. We also discussed how differences in the relative fitness among individuals in a population contributes to the process of natural selection.
 
 \section*{Vocabulary}
 
 \vspace{-1\baselineskip}
 \begin{multicols}{2}
-Thomas Robert Malthus\\
-Jean Baptiste de Lamarck \\
-Georges Cuvier \\
-Charles Lyell \\
-Charles Darwin \\
-\textsc{h.m.s.} Beagle \\
-Alfred Russel Wallace \\
-artificial selection 
+descent with modification\\
+common (shared) ancestor \\
+descendants \\
+natural selection \\
+population \\
+adaptation \\
+reproductive output \\
+relative fitness
 \end{multicols}
 
 \section*{Concepts}
@@ -79,25 +82,44 @@ You should \emph{write} clear and concise answers to each question in the Concep
 
 \begin{enumerate}
 
-	\item You do not need to know most of the background that I presented for Charles Darwin (e.g., his childhood, \&c.). We will cover the two ideas from his book in subsequent lectures.
+	\item Explain descent with modification as developed by Darwin. 
+	\begin{marginfigure}
+		\includegraphics[page=2]{\lecturefile}
+	\end{marginfigure}
+
+	\item Identify common ancestors and descendants on a phylogenetic tree.
+
+	\item Why can descent with modification\marginnote{We will spend more time with phylogenetic trees in a couple of weeks.} be represented with phylogenetic trees? 
+
+	\item Describe how natural selection works in a population. Explain each the key points that we covered in lecture (given in the text as two observations and two inferences) that explain how natural selection works.
+
+	\item\label{nsOne} Explain what is meant by ``individuals in a population vary.''
+
+	\item Explain what is meant by ``populations overproduce offspring.'' Does that mean every individual in a population overproduces offspring? Why or why not?
+
+	\item Explain what is meant by ``not all individuals in a population will survive.'' Does this mean that only individuals that live a full, natural life will reproduce? Does it mean that individuals either die or survive?
+
+	\item Explain what is meant by ``traits determine survival.'' Does it mean that only the strongest or fastest individuals survive? Does it mean that only the strongest or fastest individuals reproduce? Why or why not?
+
+	\item\label{nsFour} Explain what is meant by ``more survival, more offspring.'' Does living a long life mean that individual is guaranteed to produce more offspring compared to an individual that lives a shorter time? Why or why not? 
+
+	\item Explain what is meant by heritable traits.\marginnote{A trait is not heritable if it is not determined by genetics.}
+
+	\item Explain how the statements in items \ref{nsOne}--\ref{nsFour} lead to traits spreading through a population. Does “spreading of traits” refer to the ability of individuals to move to one area or another?\marginnote{Remember what is a population.} Why or why not?
+
+	\item Explain what are adaptations. Relate the evolution of adaptations to the process of natural selection.
+	\begin{marginfigure}
+		\includegraphics[page=11]{\lecturefile}
+	\end{marginfigure}
 	
-	\item You should know these few facts about these scientists for their historical context:
+	\item Explain how the \emph{process} of natural selection cause the \emph{pattern} of descent with modification.
 
-	\begin{enumerate}[label=\alph*.]
-
-	\item Thomas Robert Malthus wrote the \textit{Principle of Populations} that described how the human population would suffer if the rate of population growth exceeded the rate of food production. Darwin incorporated this idea into natural selection, where organisms would “struggle” for limited resources. 
+	\item Explain relative fitness. Why is fitness relative? Explain how relative fitness influences the process of natural selection and the evolution of adaptations.  
 	
-	\item Jean Baptiste de Lamarck was one of the first scientists to propose that organisms change over time. He proposed that the mechanism of change was “inheritance of acquired characteristics,” which stated that if a structure (like a giraffe's neck) or physiology of an individual changed through use, then the change would be inherited by that individual's offspring. That hypothesis turned out to be incorrect.
+	You must remember that fitness does not refer to physical fitness as associated with exercise. It refers instead to the number of offspring produced by an individual over its life time. Remember too that fitness is comparative. That is, fitness is compared among individuals in a population. Some individuals have relatively greater fitness than other individuals. An individual that reproduces once and has 20 offspring has lower relative fitness than an individual that reproduces twice and has 11 offspring each time (22 offspring total).
 
-	\item Georges Cuvier is sometimes called the “father of paleontology.” Paleontology is the study of fossils and the fossil record. Cuvier was the first to propose that many species that lived in the past went extinct. Cuvier also popularized the idea that the Earth underwent great catastrophes that caused rapid change to the environment and caused the extinctions.
+	\item Why is ``survival of the fittest'' not a good\marginnote{The phrase was coined by Herbert Spencer, not Darwin. Darwin did not include the phrase until the 5th edition of \textit{On the Origin of Species.}} explanation for how natural selection works?
 
-	\item Charles Lyell was a geologist. He supported ``uniformitarianism,'' the idea that the Earth changed very slowly over long periods of time. This is the opposite of Cuvier's catastrophism. Most importantly, Lyell was the first to argue that the Earth was much older than 6000 years old, as was widely believed at the time.
-
-	\item Alfred Russel Wallace was a naturalist that spent lots of time around Australia and the Malay Peninsula (southeast Asia). While working around the Malaysian Peninsula, Wallace developed his own idea of natural selection, independent of Charles Darwin.  Darwin and Wallace published a paper outlining the process of natural selection. Darwin then went on to publish \textit{On the Origin of Species.}
-
-	\end{enumerate}
-	
-	\item It is always good to know the foundational history of scientific thought. Embrace it!
 
 \end{enumerate}
 
@@ -105,39 +127,31 @@ You should \emph{write} clear and concise answers to each question in the Concep
 
 These are examples only and not exhaustive. One or more of these questions may or may not appear on the exam.
 
-\begin{fullwidth}
+\bigskip
+
+\noindent \rule{1in}{0.4pt} Trait that increases fitness in the current environment.
 
 \bigskip
 
-\noindent \rule{1in}{0.4pt} Argued that Earth changed uniformly for much more than 6000 years.
+\noindent True\hspace{1em}False\hspace{1em} Adaptations are the result of descent with modification.\marginnote{Think carefully about the relationship between descent with modification and natural selection. One is a pattern and one is a process. Processes cause patterns.} 
 
 \bigskip
 
-\noindent \rule{1in}{0.4pt} Title of the book that influenced Darwin's thinking about organisms competing for\\
-\noindent\hspace*{1in} limited resources.
-
-\bigskip
-
-\noindent True\hspace{1em}False\hspace{1em} Alfred Russel Wallace also developed a concept of natural selection. 
-
-\bigskip
-
-\noindent True\hspace{1em}False\hspace{1em} Darwin used his principles of natural selection to explain how artificial selection works \\
-\noindent \phantom{True\hspace{1em}False\hspace{1em}} in show animals, farm animals, and crops.
-
-\bigskip
-
-\noindent His independent development of the process of natural selection caused Darwin to publish \textit{On the Origin of Species.}
+\noindent Given a population that contains genetic variation, what is the correct sequence of the following events, under the influence of natural selection?
 
 \smallskip
 
-\noindent \textsc{a}. Charles Lyell\\
-\noindent \textsc{b}. Alfred Russel Wallace\\
-\noindent \textsc{c}. Georges Cuvier\\
-\noindent \textsc{d}. Robert Thomas Malthus\\
-\noindent \textsc{e}. Jean Baptiste de Lamarck\\
+\noindent \textsc{a}. Well-adapted individuals leave more offspring than do poorly adapted individuals.\\\marginnote{Most multiple choice questions will have \emph{at least} five choices to reduce your chances of getting correct answers by guessing. Regular study reduces the need for guessing. Still, if you don't know, then guess!}
+\noindent \textsc{b}. A change occurs in the environment.\\
+\noindent \textsc{c}. Genetic frequencies within the population change.\\
+\noindent \textsc{d}. Poorly adapted individuals have decreased survivorship.\\
 
-\end{fullwidth}
+\bigskip
 
+\noindent (5 points) What concept published by Robert Thomas Malthus did Darwin use to develop the concept of natural selection? Explain how Malthus‘s idea helps to explain how natural selection works.
+
+\smallskip
+
+Notice how this question connects lecture 02 to this lecture.
 
 \end{document}
