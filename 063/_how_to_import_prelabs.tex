@@ -1,0 +1,158 @@
+%!TEX TS-program = lualatex
+%!TEX encoding = UTF-8 Unicode
+
+\documentclass[12pt]{article}
+
+
+%\printanswers
+
+
+\usepackage{graphicx}
+	\graphicspath{{/Users/goby/Pictures/teach/163/ta_how_to/}
+	{img/}} % set of paths to search for images
+
+\usepackage{geometry}
+\geometry{letterpaper, left=1.5in, bottom=1in}                   
+%\geometry{landscape}                % Activate for for rotated page geometry
+\usepackage[parfill]{parskip}    % Activate to begin paragraphs with an empty line rather than an indent
+\usepackage{amssymb, amsmath}
+\usepackage{mathtools}
+	\everymath{\displaystyle}
+
+\usepackage[table]{xcolor}
+
+\usepackage{fontspec}
+\setmainfont[Ligatures={TeX}, BoldFont={* Bold}, ItalicFont={* Italic}, BoldItalicFont={* BoldItalic}, Numbers={OldStyle}]{Linux Libertine O}
+\setsansfont[Scale=MatchLowercase,Ligatures=TeX]{Linux Biolinum O}
+\setmonofont[Scale=MatchLowercase]{Inconsolatazi4}
+\newfontfamily{\tablenumbers}[Numbers={Monospaced,Lining}]{Linux Libertine O}
+\usepackage{microtype}
+
+%\usepackage{bm}
+
+% To define fonts for particular uses within a document. For example, 
+% This sets the Libertine font to use tabular number format for tables.
+ %\newfontfamily{\tablenumbers}[Numbers={Monospaced}]{Linux Libertine O}
+% \newfontfamily{\libertinedisplay}{Linux Libertine Display O}
+
+\usepackage{multicol}
+%\usepackage[normalem]{ulem}
+
+\usepackage{longtable}
+\usepackage{caption}
+	\captionsetup{format=plain, justification=raggedright, singlelinecheck=off,labelsep=period,skip=3pt} % Removes colon following figure / table number.
+%\usepackage{siunitx}
+\usepackage{booktabs}
+\usepackage{array}
+\newcolumntype{L}[1]{>{\raggedright\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+\newcolumntype{C}[1]{>{\centering\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+\newcolumntype{R}[1]{>{\raggedleft\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+
+\usepackage{enumitem}
+\setlist{leftmargin=*}
+\setlist[1]{labelindent=\parindent}
+\setlist[enumerate]{label=\textsc{\alph*}.}
+\setlist[itemize]{label=\color{gray}\textbullet}
+%\usepackage{hyperref}
+%\usepackage{placeins} %PRovides \FloatBarrier to flush all floats before a certain point.
+%\usepackage{hanging}
+
+\usepackage[sc]{titlesec}
+
+%% Commands for Exam class
+
+%\pagestyle{headandfoot}
+%\firstpageheader{\textsc{bi}\,063 Evolution and Ecology}{}{\ifprintanswers\textbf{KEY}\else Name: \enspace \makebox[2.5in]{\hrulefill}\fi}
+%\runningheader{}{}{\footnotesize{pg. \thepage}}
+%\footer{}{}{}
+%\runningheadrule
+
+
+
+
+\begin{document}
+
+\subsection*{How to import pre-labs for {\scshape bi} 063}
+
+\begin{enumerate}
+	\item Login to Moodle page and choose one of your lab sections. You will need to repeat this process for each of your lab sections.
+	
+	\item Click the ``Turn editing on'' button to turn on editing. It is located near the upper right of the browser window.
+	
+	\item Select ``Import'' from the Administration menu. The Administration menu is probably on the left side of your browser window.
+	
+	{\centering
+		\includegraphics[width=1.75in]{import_menu}\par
+	}
+	
+	\item Choose the \textsc{bi}063 section that contains the pre-lab. \emph{The faculty instructors will tell you which section to import from.} In the image below, \textsc{bi}063-02 has been chosen. Click the ``Continue'' button below the list of courses.
+	
+	
+	
+	{\centering
+		\includegraphics[width=1.75in]{choose_section}\par
+	}
+	
+	\item Uncheck all of the items except for ``Include activities and resources.'' Click the blue ``Next'' button.
+	
+	{\centering
+		\includegraphics[width=1.75in]{activities_and_resources}\par
+	}
+	
+	\item Click ``None'' near the top. This will remove the check marks from the entire list.
+	
+	\item Check the topic or week and then check the lesson to import. In the example below, ``Topic 1'' was checked, and then ``Lesson to Import`` was checked. Notice the other pre-lab was not checked. It will not be imported. Click the blue ``Next'' button at the bottom of the page.
+	
+	\emph{The faculty instructor will tell you the name of the pre-lab to import. You must check the topic or week that contains that pre-lab.} If you do not choose the topic or week, you will not be able to choose the pre-lab.
+	
+	{\centering
+	\includegraphics[width=1.75in]{pre-lab_choice}\par
+	}
+	
+	\item Review your choices. The lesson should have a green check mark, as will the topic or week and the ``Include activities and resources'' item at the top of the list. Everything else should have a red X mark.
+	
+	{\centering
+		\includegraphics[width=1.75in]{import_review}\par
+	}
+
+	\item Click the blue ``Perform import'' button to complete the import. You will see a progress bar, and then notification that the import is complete. Click the ``Continue'' button.
+	
+	\item The imported pre-lab should appear on your lab section Moodle page in the same week or topic that it was imported from.
+	
+	{\centering
+		\includegraphics[width=3in]{finished_import}\par
+	}
+
+	When finished, the pre-lab should be placed in the week \emph{before} the actual lab. If the pre-lab imported to a different week, you can move it to the proper location.
+
+	
+\end{enumerate}
+
+\subsubsection*{Edit the Availability dates}
+
+The pre-labs must be completed by your students before the start of their lab sections. Each section will have a different due date and time so you must edit \emph{each one} accordingly.
+
+\begin{enumerate}
+	\item Choose ``Edit settings'' from the ``Edit'' menu next to the pre-lab name.
+	
+	{\centering
+		\includegraphics[width=1.75in]{edit_settings}\par
+	}
+
+	\item Expand ``Availability'', check the two Enable boxes for ``Available from'' and ``Deadline.'' Set the dates and times accordingly. A good idea is to set the deadline to 15 minutes before the start of lab. That should prevent students being late to lab because they were trying to complete the pre-lab.
+	
+	In this example, the pre-lab is available from 1:00~\textsc{pm} (13:00) on 16~August to 07:45~\textsc{am} on 22~August. 
+	
+	{\centering
+		\includegraphics[width=3in]{availability}\par
+	}
+
+	In general, we want our lab students to have from the end of one lab to the start of the next lab to complete the pre-lab online. \emph{You have the responsibility of importing and making available the pre-labs in a timely fashion.}
+	
+	\item If you have enabled ``Completion tracking,'' then make changes as necessary. If not, you can skip this step. 
+	
+	\item Click the blue ``Save and return to course'' button.
+	
+\end{enumerate}
+
+\end{document}  
