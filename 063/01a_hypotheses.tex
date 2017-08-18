@@ -1,0 +1,304 @@
+%!TEX TS-program = lualatex
+%!TEX encoding = UTF-8 Unicode
+
+\documentclass[12pt]{exam}
+
+
+%\printanswers
+
+
+\usepackage{graphicx}
+	\graphicspath{{/Users/goby/Pictures/teach/163/lab/}
+	{img/}} % set of paths to search for images
+
+\usepackage{geometry}
+\geometry{letterpaper, left=1.5in, bottom=1in}                   
+%\geometry{landscape}                % Activate for for rotated page geometry
+\usepackage[parfill]{parskip}    % Activate to begin paragraphs with an empty line rather than an indent
+\usepackage{amssymb, amsmath}
+\usepackage{mathtools}
+	\everymath{\displaystyle}
+
+\usepackage[table]{xcolor}
+
+\usepackage{fontspec}
+\setmainfont[Ligatures={TeX}, BoldFont={* Bold}, ItalicFont={* Italic}, BoldItalicFont={* BoldItalic}, Numbers={OldStyle}]{Linux Libertine O}
+\setsansfont[Scale=MatchLowercase,Ligatures=TeX]{Linux Biolinum O}
+\setmonofont[Scale=MatchLowercase]{Inconsolatazi4}
+\newfontfamily{\tablenumbers}[Numbers={Monospaced,Lining}]{Linux Libertine O}
+\usepackage{microtype}
+
+\usepackage{unicode-math}
+\setmathfont[Scale=MatchLowercase]{TeX Gyre Termes Math}
+
+\usepackage{amsbsy}
+%\usepackage{bm}
+
+% To define fonts for particular uses within a document. For example, 
+% This sets the Libertine font to use tabular number format for tables.
+ %\newfontfamily{\tablenumbers}[Numbers={Monospaced}]{Linux Libertine O}
+% \newfontfamily{\libertinedisplay}{Linux Libertine Display O}
+
+\usepackage{multicol}
+%\usepackage[normalem]{ulem}
+
+\usepackage{longtable}
+\usepackage{caption}
+	\captionsetup{format=plain, justification=raggedright, singlelinecheck=off,labelsep=period,skip=3pt} % Removes colon following figure / table number.
+%\usepackage{siunitx}
+\usepackage{booktabs}
+\usepackage{array}
+\newcolumntype{L}[1]{>{\raggedright\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+\newcolumntype{C}[1]{>{\centering\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+\newcolumntype{R}[1]{>{\raggedleft\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+
+\usepackage{enumitem}
+\setlist{leftmargin=*}
+\setlist[1]{labelindent=\parindent}
+\setlist[enumerate]{label=\textsc{\alph*}.}
+\setlist[itemize]{label=\color{gray}\textbullet}
+%\usepackage{hyperref}
+%\usepackage{placeins} %PRovides \FloatBarrier to flush all floats before a certain point.
+%\usepackage{hanging}
+
+\usepackage[sc]{titlesec}
+
+%% Commands for Exam class
+\renewcommand{\solutiontitle}{\noindent}
+\unframedsolutions
+\SolutionEmphasis{\bfseries}
+
+\renewcommand{\questionshook}{%
+	\setlength{\leftmargin}{-\leftskip}%
+}
+
+%Change \half command from 1/2 to .5
+\renewcommand*\half{.5}
+
+\pagestyle{headandfoot}
+\firstpageheader{\textsc{bi}\,063 Evolution and Ecology}{}{\ifprintanswers\textbf{KEY}\else Name: \enspace \makebox[2.5in]{\hrulefill}\fi}
+\runningheader{}{}{\footnotesize{pg. \thepage}}
+\footer{}{}{}
+\runningheadrule
+
+\newcommand*\AnswerBox[2]{%
+    \parbox[t][#1]{0.92\textwidth}{%
+    \begin{solution}#2\end{solution}}
+%    \vspace*{\stretch{1}}
+}
+
+\newenvironment{AnswerPage}[1]
+    {\begin{minipage}[t][#1]{0.92\textwidth}%
+    \begin{solution}}
+    {\end{solution}\end{minipage}
+    \vspace*{\stretch{1}}}
+
+\newlength{\basespace}
+\setlength{\basespace}{5\baselineskip}
+
+%% To hide and show points
+\newcommand{\hidepoints}{%
+	\pointsinmargin\pointformat{}
+}
+
+\newcommand{\showpoints}{%
+	\nopointsinmargin\pointformat{(\thepoints)}
+}
+
+\newcommand{\bumppoints}[1]{%
+	\addtocounter{numpoints}{#1}
+}
+
+\newcommand*\meanY{\overline{Y\kern1.67pt}\kern-1.67pt}
+\newcommand*\meansubY{\overline{Y}}
+%\newcommand*\meanY{\overline{Y}}
+\newcommand*\ttest{\emph{t}-test}
+\newcommand*\Popa{Population~\textsc{a}}
+\newcommand*\Popb{Population~\textsc{b}}
+\newcommand*\popa{population~\textsc{a}} %lower case
+\newcommand*\popb{population~\textsc{b}} %lower case
+\newcommand*\Corbicula{\textit{Corbicula}}
+\newcommand*\AnswerBlank{\rule{0.75in}{0.4pt}\kern0.67pt.}
+%
+%\makeatletter
+%\def\SetTotalwidth{\advance\linewidth by \@totalleftmargin
+%\@totalleftmargin=0pt}
+%\makeatother
+
+
+\begin{document}
+
+\subsection*{The Scientific Method and Hypothesis Testing}
+
+\textbf{Important:} You must study this handout in detail on your own. You must know the meanings of all terms in bold. Material in this and all future lab handouts \emph{will} be included on exams.
+
+\subsubsection*{Scientific Method}
+
+Scientists seek to understand how the natural world works. They gain understanding by using the \textbf{scientific method,} a process that, when used properly, helps achieve objective results about the natural world. The scientific method can modeled as a series of steps, described below.
+
+
+\begin{enumerate}
+	\item \textbf{Observation:} Observe some specific aspect of the real physical world that is the subject of your interest.
+
+	\item \textbf{Hypothesis:} Come up with a hypothesis (a theoretical model used to represent the real world). State the hypothesis. A diagram may be helpful in presenting a hypothesis. Indeed, a diagram may be a version of a hypothesis.  A hypothesis is a statement about the world; it takes a position.  It is not a question, “Does it work this way or that way?” Rather, it is a possible answer, “It works this way.” You do not have to be deeply convinced it is true; you just have to think it is a reasonable position to take—you are going to test it. You will learn more about hypotheses below.
+
+	\item \textbf{Prediction:} Identify a prediction, based on the hypothesis, that says what data should be obtained if the hypothesis actually provides a good fit to the real world.  Doing this requires deductive reasoning, from the general (the statement in your hypothesis) to the specific prediction.  The prediction is a very specific statement about what should happen under a particular set of circumstances if the hypothesis is right.  Often when you read a statement of a prediction it says something like "If I do so and so, then such and such should happen (if the hypothesis is correct)."  The “\textsc{if}\dots \textsc{then}” construction is typical of a prediction. 
+
+	\item \textbf{Experiment and Results:} Set up the conditions in the prediction (the part that says "If I do so and so"), and collect data---this may involve doing a controlled experiment, or may just be going out and making observations that you hadn't made before.  We often refer to these new data as the “result” of an experiment or observation.
+
+	\item \textbf{Conclusion:} Do the data (results) agree with the prediction? If so, conclude that the hypothesis is supported. That is, the data provide good evidence that the hypothesis, in its present form, could explain the original observation.  If not, conclude that the hypothesis is falsified. That is, the data provide good evidence that the hypothesis, in its present form, does not fit the real world (or perhaps merely weakened, if there is some doubt about the data).  
+	
+	You must always remember that results that agree with the prediction support the hypothesis but \emph{do not prove} the hypothesis is true. The data may be consistent with many other hypothesis. 
+
+\end{enumerate}
+
+The scientific method works because you make predict the results of your experiment \emph{before} doing the experiments and gathering the data. You therefore know the type of results you expect to get from your experiment. If the results agree with your prediction, then your hypothesis is supported. If the results disagree with your prediction, then your hypothesis is falsified.
+
+\subsubsection*{Hypothesis Testing}
+
+\textbf{Hypothesis testing} is the foundation of most biological research. Hypothesis
+testing uses data sampled from one or more populations (a study group of interest, not an evolutionary population) to make
+inferences about those populations. For example, a scientist
+might test the hypothesis that a population of a flowering plant that lives high on 
+a mountain side will bloom later than a population of the same plant that
+lives near the base of the mountain. Another scientist might test the hypothesis
+that warming global temperatures will cause both populations of the flowering plant to 
+bloom earlier.  In the first case, the scientist is directly comparing a biological
+trait of two populations. In the second case, the scientist is testing how
+the biological trait in both populations responds to a change in their environment.
+
+Every hypothesis is actually two related hypotheses, the null hypothesis 
+and the research hypothesis, also known as the alternative hypothesis.
+
+\begin{enumerate}
+	\item \textbf{Null hypothesis:} There is \emph{no} difference between between populations or samples.
+	Any differences are probably due to natural variation and other random effects. Null in effect means, no difference. The null hypothesis can be represented by $\left(H_0\right)$.
+	
+	In the first case of flowering plants above, the null hypothesis would be that the 
+	time of blooming is \emph{not} different between the population high on the mountain 
+	and the one at the base of the mountain. In the second case, the null
+	hypothesis would be that warming global temperatures does \emph{not} change the time
+	of blooming.
+	
+	\item \textbf{Research hypothesis:} There \emph{is} a significant difference between populations or samples. Or,  that changing a variable will affect the population(s). Any differences are probably not random
+	and have a biological explanation. The research hypothesis can be represented by $\left(H_1\right)$ and is also known as the \textbf{alternative
+	hypothesis.}
+	
+	In the first case of flowering plants above, the research hypothesis would be that the 
+	time of blooming \emph{is} different between the population high on the mountain 
+	and the one at the base of the mountain. In the second case, the research
+	hypothesis would be that warming global temperatures \emph{does} change the time
+	of blooming.
+
+\end{enumerate}
+
+Scientists are often interested in how a difference in one variable might 
+affect a second variable, which might be tested in an experiment. Complex 
+experiments often have many variables. No matter how many variables
+are included in an experiment, they are usually one of two types.
+
+\begin{enumerate}
+\item
+  \textbf{Explanatory variable:} a manipulated or controlled variable in an experiment
+  or study whose presence or degree determines a change in the response
+  variable. The explanatory variable is also known as the \textbf{independent
+  variable.}
+  
+  In the flowering plant case above, the explanatory variables would be
+  either the altitude on the mountain (high or low) or the warming global 
+  temperature.
+   
+\item
+  \textbf{Response variable:} an observed variable in an experiment or
+  study that changes in response to the presence or degree of one
+  or more explanatory variables. The response variable is also known as the
+  \textbf{dependent variable.} 
+  
+  In the flowering plant example above, the response variable for both
+  hypotheses would be the time of blooming.
+  
+\end{enumerate}
+
+To gauge your understanding so far, read the following passage and then
+answer the questions that follow.
+
+Dr. Noymer was interested in the effect on populations of the global flu
+epidemic that happened in 1918. He hypothesized that babies less than
+one year old, with their
+weak immune systems, would die in a higher percentage than adults aged
+25–34 when the year with the epidemic (1918) was compared to to the year
+before (1917).
+
+
+\begin{questions}
+
+\question
+What is the explanatory variable? 
+
+\AnswerBox{2\baselineskip}{Age.}
+
+
+\question
+What is the response variable?
+
+\AnswerBox{2\baselineskip}{% 
+Whether the babies/adults got sick or not.
+}
+
+\question
+Write a null hypothesis based on Noymer's conjecture.
+
+\AnswerBox{2\baselineskip}{%
+The increased percentage of babies and adults getting sick will not be different between 1917 and 1918.
+}
+
+\question
+Write a research hypothesis based on Noymer's conjecture.
+
+\AnswerBox{1\baselineskip}{%
+That babies will show a greater increase in sickness than adults from 1917 to 1918.
+}
+
+\newpage
+
+Noymer's results, adapted from \emph{Age-specific death rates (per
+100,000), Influenza \& Pneumonia, USA} (Noymer, 2007), are given in Table~\ref{us_deaths}. 
+They could not tell flu and pneumonia apart, so they were both counted together.
+
+{\setlength{\LTcapwidth}{3in}\tablenumbers
+\begin{longtable}{@{}R{0.5in}R{0.5in}R{0.5in}R{1in}@{}}
+\caption{U.S. deaths per 100,000 attributed to influenza and
+pneumonia during 1917–1918.}\label{us_deaths}\tabularnewline
+\toprule
+Age & 1917 & 1918 & Increase in deaths\tabularnewline
+\midrule
+\textless{}1 & 2944.5 & 4540.9 & 152\%\tabularnewline
+1–4 & 422.7 & 1436.2 &\tabularnewline
+5–14 & 47.9 & 352.7 &\tabularnewline
+15–24 & 78 & 1175.7 &\tabularnewline
+25–34 & 117.7 & 1998 & 1707\%\tabularnewline
+35–44 & 193.2 & 1097.6 &\tabularnewline
+45–54 & 292.3 & 686.8 &\tabularnewline
+\bottomrule
+\end{longtable}}
+
+\question
+What do these data say about the null hypothesis?
+
+\AnswerBox{2\baselineskip}{%
+They appear to falsify it. The percent increase was much larger for adults than babies.
+}
+
+\question
+Was Noymer's research hypothesis proven true? Supported? Supported
+weakly? Falsified? Explain.
+
+\AnswerBox{2\baselineskip}{%
+Falsified. He predicted that more babies would get sick. Instead, more adults got sick.
+}
+
+Later this semester, you will learn how to use simple statistics to test whether a hypothesis is supported or falsified.
+
+\end{questions}
+
+\end{document}  
