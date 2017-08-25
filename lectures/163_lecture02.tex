@@ -34,6 +34,7 @@
 
 %\usepackage{units}
 \usepackage{booktabs}
+\usepackage{longtable}
 %\usepackage{textcomp}
 \usepackage{multicol}
 \usepackage{amsmath}
@@ -57,20 +58,20 @@
 
 
 \begin{document}
-
-\begin{frame}
-	\begin{tikzpicture}
-		\pie[radius=2.5, sum=auto, pos={3.2,-4}, text=inside, color={black!20, white}]{0.6/\textit{a} allele, 0.40/\textit{A} allele}
-		\pie[radius=2.5, pos={9.6,-4}, text=inside, color={black!20, black!50, white}]{36/\textit{aa}, 48/\textit{Aa}, 16/\textit{AA}}
-	\end{tikzpicture}
-	
-	\begin{tikzpicture}
-		\node at (3.2,-6.5) (allelefreq){Allele Frequency};
-		\node at (9.6,-6.5) (genofreq){Genotype Frequency};
-	\end{tikzpicture}
-	
-\end{frame}
-
+%
+%\begin{frame}
+%	\begin{tikzpicture}
+%		\pie[radius=2.5, sum=auto, pos={3.2,-4}, text=inside, color={black!20, white}]{0.6/\textit{a} allele, 0.40/\textit{A} allele}
+%		\pie[radius=2.5, pos={9.6,-4}, text=inside, color={black!20, black!50, white}]{36/\textit{aa}, 48/\textit{Aa}, 16/\textit{AA}}
+%	\end{tikzpicture}
+%	
+%	\begin{tikzpicture}
+%		\node at (3.2,-6.5) (allelefreq){Allele Frequency};
+%		\node at (9.6,-6.5) (genofreq){Genotype Frequency};
+%	\end{tikzpicture}
+%	
+%\end{frame}
+%
 \lecture{student}{student}
 
 \begin{frame}{Our goals for this lecture are to}
@@ -91,69 +92,175 @@
 	
 	\hangpara \highlight{Genetic change:} allele frequencies change in the population over time.
 	
-	\pause \hangpara How do we calculate allele frequencies?
+	\hangpara \highlight{How do we calculate allele frequencies?}
 
 \end{frame}
-
 %
-\begin{frame}[t,plain]{\highlight{Allele frequency} is a measure of how common an allele is in a population.}
-
-%	\vspace{\baselineskip}
+%\begin{frame}[t]{We will assume the following:}
+%	
+%%	\hangpara The population has \emph{only} two unique alleles for each gene.\\ \quad \textcolor{gray}{Real populations often have many unique alleles for each gene.}
+%	
+%	\hangpara Individuals in the population are diploid; that is, each individual has two alleles for each gene.
+%	
+%	\hangpara For now, ignore dominant and recessive alleles. I will use upper case letters to represent genes. I will use superscripts to indicate different alleles for that gene. 
+%	
+%	\hangpara $A_1$ and $A_2$, $C_1$ and $C_2$, etc.
+%	
+%\end{frame}
+%
+\begin{frame}{Here are some alleles. Answer the following questions.}
+	\hfil $A_2$ \quad $A_2$ \quad $A_1$ \quad $A_2$ \quad $A_1$ \quad $A_1$ \quad $A_2$ \quad $A_2$ \quad $A_2$ \quad $A_1$ \hfil
+	
+	\vspace*{2\baselineskip}
+		
+	\hangpara How many total alleles are shown? \rule{0.5in}{0.4pt}
+	
+	\hangpara How many $A_1$ alleles? \rule{0.5in}{0.4pt}
+	
+	\hangpara How many $A_2$ alleles? \rule{0.5in}{0.4pt}
+	
+\end{frame}
+%
+\begin{frame}[t]{\highlight{Allele frequency} is a measure of how common an allele is in a population.}
+	
+	%	\vspace{\baselineskip}
 	
 	\hangpara Allele frequency (proportion) is calculated as the count of one allele divided by the total count for all alleles in a population.
 	
-	\[ p_i = \dfrac{X_i}{\sum\limits_{i}^{n} X_i}\]
-
-	\hangpara where $i$ is one allele, $X_i$ is the count for the $i$th allele, and $n$ is the total number of alleles.
+	\hangpara Divide the number of $A_1$ alleles by the total number of alleles. \rule{0.5in}{0.4pt}
 	
-	\hangpara $\sum\limits_{i}^{n}$ tells you to sum together $X_i$ for all $n$ alleles.
+	\hangpara Divide the number of $A_2$ alleles by the total number of alleles. \rule{0.5in}{0.4pt}
+	
+	\hangpara This is the frequency of each allele in this population. Frequency is \emph{always} expressed as a decimal fraction.
+	 
+\end{frame}
+%
+\begin{frame}{The frequencies should always add up to 1.}
+	\begin{tikzpicture}
+	
+	\pie[radius=2.5, sum=auto, pos={6,-3}, text=inside, color={black!20, white}]{0.6/\textit{$A_2$} allele, 0.40/\textit{$A_1$} allele}
+%	\pie[radius=2.5, pos={9.6,-4}, text=inside, color={black!20, black!50, white}]{36/\textit{aa}, 48/\textit{Aa}, 16/\textit{AA}}
+	\end{tikzpicture}
+	
+	\begin{tikzpicture}
+	\node at (6,-5.5) (allelefreq){Allele Frequency};
+%	\node at (9.6,-6.5) (genofreq){Genotype Frequency};
+	\end{tikzpicture}
 	
 \end{frame}
 %
-\begin{frame}[t]{Example: 10 alleles were sampled from a  population with two unique alleles.}
-
-	\hfil $p_i = \dfrac{X_i}{\sum\limits_{i}^{n} X_i}$ 
-	\pause \hfil \emph{b b B b B B b b b B}
-	\pause \hfil $n = 2$ \hfil
-
-	\pause \hangpara \emph{b} is allele 1 so $X_1 = 6$. 
-	\pause \qquad \emph{B} is allele 2 so $X_2 = 4$. 
-	
-	\pause \hangpara $\sum\limits_{i}^{n} = X_1 + X_2 = 6 + 4 = 10.$
-	
-	\pause \hangpara The frequency of \emph{b} is $p_1 = \dfrac{6}{10} = 0.6.$
-
-	\hangpara The frequency of \emph{B} is $p_2 = \dfrac{4}{10} = 0.4.$
-\end{frame}
+%\lecture{instructor}{instructor}
+%
+%\begin{frame}[t]{Calculate the frequency of these five alleles.}
+%	
+%	\hangpara $Z_1$ allele: 6 alleles were sampled.  \rule{0.5in}{0.4pt}
+%	
+%	\hangpara $Z_2$ allele: 12 alleles were sampled. \rule{0.5in}{0.4pt}
+%	
+%	\hangpara $Z_3$ allele: 18 alleles were sampled. \rule{0.5in}{0.4pt}
+%	
+%	\hangpara $Z_4$ allele: 1 alleles were sampled. \rule{0.5in}{0.4pt}
+%	
+%	\hangpara $Z_5$ allele: 3 alleles were sampled. \rule{0.5in}{0.4pt}
+%	
+%	\hangpara Total alleles: \rule{0.5in}{0.4pt}
+%\end{frame}
 %
 \lecture{instructor}{instructor}
-%
-\begin{frame}[t]{Your turn: calculate the frequency of these five alleles.}
 
-	\hangpara $Z_1$ allele: 6 alleles were sampled.
-
-	\hangpara $Z_2$ allele: 12 alleles were sampled.
+\begin{frame}[t]{Calculate the frequency of these five alleles.}
 	
-	\hangpara $Z_3$ allele: 18 alleles were sampled.
-	
-	\hangpara $Z_4$ allele: 1 alleles were sampled.
-
-	\hangpara $Z_5$ allele: 3 alleles were sampled.
+	\begin{longtable}[c]{@{}crc@{}}
+		\toprule
+		Allele	& Num.  & Frequency \tabularnewline
+		\midrule
+		& & \tabularnewline[-1ex]
+		$Z_1$ & 6 & \rule{0.5in}{0.4pt} \tabularnewline[1.5ex]
+		$Z_2$ & 12 & \rule{0.5in}{0.4pt} \tabularnewline[1.5ex]
+		$Z_3$ & 18 & \rule{0.5in}{0.4pt} \tabularnewline[1.5ex]
+		$Z_4$ & 1 & \rule{0.5in}{0.4pt} \tabularnewline[1.5ex]
+		$Z_5$ & 3 & \rule{0.5in}{0.4pt} \tabularnewline[1.5ex]
+		\bottomrule
+	\end{longtable}
 \end{frame}
 %
-\begin{frame}{How did you do?}
-	\hangpara $Z_1$ allele: \only<2>{$p_1 = 0.15$}
 
-	\hangpara $Z_2$ allele: \only<2>{$p_2 = 0.30$}
+\begin{frame}[t]{How did you do?}
 	
-	\hangpara $Z_3$ allele: \only<2>{$p_3 = 0.45$}
-	
-	\hangpara $Z_4$ allele: \only<2>{$p_4 = 0.025$}
-
-	\hangpara $Z_5$ allele: \only<2>{$p_5 = 0.075$}
+	\begin{longtable}[c]{@{}crc@{}}
+		\toprule
+		Allele	& Num.  & Frequency \tabularnewline
+		\midrule
+		& & \tabularnewline[-1ex]
+		$Z_1$ & 6 & {0.15} \tabularnewline[1.5ex]
+		$Z_2$ & 12 & {0.30} \tabularnewline[1.5ex]
+		$Z_3$ & 18 & {0.45} \tabularnewline[1.5ex]
+		$Z_4$ & 1 & {0.025} \tabularnewline[1.5ex]
+		$Z_5$ & 3 & {0.075} \tabularnewline[1.5ex]
+		\bottomrule
+	\end{longtable}
 \end{frame}
 %
+%\begin{frame}{How did you do?}
+%	\hangpara $Z_1$ allele: \only<2>{$p_1 = 0.15$}
+%	
+%	\hangpara $Z_2$ allele: \only<2>{$p_2 = 0.30$}
+%	
+%	\hangpara $Z_3$ allele: \only<2>{$p_3 = 0.45$}
+%	
+%	\hangpara $Z_4$ allele: \only<2>{$p_4 = 0.025$}
+%	
+%	\hangpara $Z_5$ allele: \only<2>{$p_5 = 0.075$}
+%\end{frame}
+%
+
+\begin{frame}{The frequencies add up to 1.}
+	\begin{tikzpicture}
+	
+	\pie[rotate=36, radius=2.5, sum=auto, pos={6,-3}, color={white}]{0.15/\textit{$Z_1$}, 0.30/\textit{$Z_2$}, 0.45/\textit{$Z_3$}, 0.025/\textit{$Z_4$}, 0.075/\textit{$Z_5$}}
+	%	\pie[radius=2.5, pos={9.6,-4}, text=inside, color={black!20, black!50, white}]{36/\textit{aa}, 48/\textit{Aa}, 16/\textit{AA}}
+	\end{tikzpicture}
+	
+%	\begin{tikzpicture}
+%	\node at (6,-5.5) (allelefreq){Allele Frequency};
+	%	\node at (9.6,-6.5) (genofreq){Genotype Frequency};
+%	\end{tikzpicture}
+	
+\end{frame}
+
 \lecture{student}{student}
+%
+
+%%%%%%%%
+%\begin{frame}[t]{\highlight{Allele frequency} is a measure of how common an allele is in a population.}
+%
+%%	\vspace{\baselineskip}
+%	
+%	\hangpara Allele frequency (proportion) is calculated as the count of one allele divided by the total count for all alleles in a population.
+%	
+%	\[ p_i = \dfrac{x_i}{n}\]
+%
+%	\hangpara where $i$ is one allele, $x_i$ is the number of copies of the $i$th allele, and $n$ is the total number of alleles.
+%	
+%%	\hangpara $\sum\limits_{i}^{n}$ tells you to sum together $x_i$ for all $n$ alleles.
+%	
+%\end{frame}
+%%
+%\begin{frame}[t]{Review: 10 alleles were sampled from a population with two unique alleles.}
+%
+%	\hfil $p_i = \dfrac{x_i}{n}$
+%	\hfil \emph{$A_2$ $A_2$ $A_1$ $A_2$ $A_1$ $A_1$ $A_2$ $A_2$ $A_2$ $A_1$}
+%	\pause \hfil $n = 10$ \hfil
+%
+%	\pause \hangpara \emph{$A_1$} is allele 1 so $x_1 = 4$. 
+%	\pause \qquad \emph{$A_2$} is allele 2 so $x_2 = 6$. 
+%	
+%	\pause \hangpara $\sum\limits_{i}^{n} = x_1 + x_2 = 4 + 6 = 10.$
+%	
+%	\pause \hangpara The frequency of \emph{$A_1$} is $p_1 = \dfrac{4}{10} = 0.4.$
+%
+%	\hangpara The frequency of \emph{$A_2$} is $p_2 = \dfrac{6}{10} = 0.6.$
+%\end{frame}
 %
 \begin{frame}[t]{Learn these rules about allele frequencies:}
 
