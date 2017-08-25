@@ -15,8 +15,8 @@
   \setkeys{Gin}{width=\linewidth}
   \graphicspath{	{/Users/goby/teach/163/lectures/}}%}%
 
-%\usepackage{amsmath}  % extended mathematics
-%\usepackage{booktabs} % book-quality tables
+\usepackage{amsmath}  % extended mathematics
+\usepackage{booktabs} % book-quality tables
 %\usepackage{units}    % non-stacked fractions and better unit spacing
 %\usepackage{multicol} % multiple column layout facilities
 %\usepackage{fancyvrb} % extended verbatim environments
@@ -58,22 +58,67 @@
 \maketitle	% this prints the handout title, author, and date
 
 %\printclassoptions
-\section*{Descent with modification, natural selection, and relative fitness}
+\section*{Allele and genotype frequencies; Hardy-Weinberg equilibrium}
 
-We\marginnote{\textbf{Read:} pgs. 12--15, 467--470, 491--492.} discussed Darwin's concepts of descent with modification and natural selection. We also discussed how differences in the relative fitness among individuals in a population contributes to the process of natural selection.
+We\marginnote{\textbf{Read:} pgs. 255 (diploid and haploid), 272~(useful 
+genetic vocabulary), 484--487 (gene pools through Hardy-Weinberg).} 
+discussed the calculation of allele and genotype frequencies, and
+introduced the two Hardy-Weinberg equations that model the evolutionary
+change of allele and genotype frequencies. One equation is used to 
+calculate allele frequencies. The other equation is used to calculate 
+genotype frequencies. You must remember which equation is used to 
+calculate allele frequencies and which is used to calculate genotype 
+frequencies. This is the most common mistake made when students 
+attempt to solve Hardy-Weinberg problems so work hard at learning
+and applying these two equations.
+
+\section{Allele Frequency}
+
+The equation for calculating \emph{allele frequencies} is 
+\begin{equation*}
+p+q = 1,
+\end{equation*}
+
+where $p$ is the frequency of allele 1, and $q$ is the frequency of allele 2. In class, we will use only two alleles for a single locus\marginnote{In reality, most genes have many more than two alleles. The calculation of allele frequencies is the same, but with a variable added for each allele. If a gene has three alleles, for example, the equation would be expanded to $p+q+r=1$}, such as $T$ and $t$.  Two variables ($p$ and $q$) are needed to represent two alleles.  Why not use $A$ and $a$ instead of $p$ and $q$?  The vast majority of genes have names longer than a single letter, such as \emph{sonic hedgehog} (\emph{shh}) or \emph{bone morphogenetic protein 4} (\emph{bmp4}). Writing equations with long gene names would get confusing. Variable names like $p$ and $q$ are easier to understand.  In addition, we do not have to concern ourselves with dominant, recessive, or codominant alleles, or other types of gene expression. 
+
+\begin{marginfigure}[0.5in]
+	\includegraphics[page=4]{\lecturefile}
+\end{marginfigure}
+
+I use frequency and proportion interchangeably. They mean the same thing.  Given all alleles in a population, the proportion that is \emph{one particular allele} is the frequency of that allele.  The frequency of an allele represents how common the allele is in the population, expressed as a decimal fraction. For example, if a population has 124 total alleles and 31 of them are the $p$ allele, then $p= 34/124 = 0.25$.  This means that 25\% of the alleles in the population are the $p$ allele.  The remaining proportion (75\%) are the $q$ allele.
+
+\section{Genotype Frequency}
+
+\begin{marginfigure}[0.35in]
+	\includegraphics[page=9]{\lecturefile}
+\end{marginfigure}
+
+Diploid organisms have two alleles for each gene locus. The combination of alleles is the genotype for the gene locus. The genotype might be homozygous (two copies of the same allele) or heterozygous (two different alleles).  Given two alleles, there are three possible genotypes. Set aside $p$ and $q$ for the moment but consider two alleles, $T$ and $t$. The three possible genotypes are $TT$, $tt$, and $Tt$.  The \emph{genotype frequencies} in a population is calculated by
+
+\begin{equation*}
+p^2 + 2pq+q^2=1,
+\end{equation*}
+where $p^2$ is the frequency of one homozygous genotype (e.g., $TT$), $q^2$ is the frequency of the other homozygous genotype ($aa$), and $2pq$ is the frequency of the heterozygous genotype ($Tt$).  Three terms are needed to represent the three possible genotypes. 
+
+How are the two Hardy-Weinberg equations related?  Consider a large, randomly mating population with two alleles.  The alleles are present at frequencies $p$ and $q$.  The proportion of each genotype produced in the next generation is calculated by multiplying $p+q$ times itself\marginnote{Think of individuals \emph{multiplying} (mating) in a population.},
+\begin{equation*}
+(p+q)^2=
+(p+q)(p+q) =
+p^2 + pq + qp + q^2 =
+p^2 + 2pq + q^2.
+\end{equation*}
 
 \section*{Vocabulary}
 
 \vspace{-1\baselineskip}
 \begin{multicols}{2}
-descent with modification\\
-common (shared) ancestor \\
-descendants \\
-natural selection \\
-population \\
-adaptation \\
-reproductive output \\
-relative fitness
+allele frequency \\
+diploid\\
+genotype frequency \\
+homozygous (homozygote) \\
+heterozygous (heterzygote) \\
+Hardy-Weinberg equations \\
+Hardy-Weinberg equilibrium
 \end{multicols}
 
 \section*{Concepts}
@@ -82,44 +127,19 @@ You should \emph{write} clear and concise answers to each question in the Concep
 
 \begin{enumerate}
 
-	\item Explain descent with modification as developed by Darwin. 
-	\begin{marginfigure}
-		\includegraphics[page=2]{\lecturefile}
-	\end{marginfigure}
+	\item Know the two formulas that, together, are the Hardy-Weinberg Equations.
 
-	\item Identify common ancestors and descendants on a phylogenetic tree.
+	\item What do the Hardy-Weinberg equations demonstrate about allele frequencies in a population?
 
-	\item Why can descent with modification\marginnote{We will spend more time with phylogenetic trees in a couple of weeks.} be represented with phylogenetic trees? 
+	\item What is the difference between a heterozygote and a homozygote?
 
-	\item Describe how natural selection works in a population. Explain each the key points that we covered in lecture (given in the text as two observations and two inferences) that explain how natural selection works.
+	\item What is the difference between alleles and genotypes?  What is the difference between allele frequencies and genotype frequencies?
 
-	\item\label{nsOne} Explain what is meant by ``individuals in a population vary.''
+	\item Which of the two Hardy-Weinberg formulas represent the frequencies of two alleles (at one gene locus) in a population?  Which of the two Hardy-Weinberg formulas represent the frequencies of the three possible genotypes (at one gene locus) in a population?
 
-	\item Explain what is meant by ``populations overproduce offspring.'' Does that mean every individual in a population overproduces offspring? Why or why not?
+	\item Be able to use the Hardy-Weinberg equations to derive allele frequencies and genotype frequencies in a population.  Be able to derive allele frequencies based on numbers on different phenotypes and genotypes in a population (like the flower example we worked in class). 
 
-	\item Explain what is meant by ``not all individuals in a population will survive.'' Does this mean that only individuals that live a full, natural life will reproduce? Does it mean that individuals either die or survive?
-
-	\item Explain what is meant by ``traits determine survival.'' Does it mean that only the strongest or fastest individuals survive? Does it mean that only the strongest or fastest individuals reproduce? Why or why not?
-
-	\item\label{nsFour} Explain what is meant by ``more survival, more offspring.'' Does living a long life mean that individual is guaranteed to produce more offspring compared to an individual that lives a shorter time? Why or why not? 
-
-	\item Explain what is meant by heritable traits.\marginnote{A trait is not heritable if it is not determined by genetics.}
-
-	\item Explain how the statements in items \ref{nsOne}--\ref{nsFour} lead to traits spreading through a population. Does “spreading of traits” refer to the ability of individuals to move to one area or another?\marginnote{Remember what is a population.} Why or why not?
-
-	\item Explain what are adaptations. Relate the evolution of adaptations to the process of natural selection.
-	\begin{marginfigure}
-		\includegraphics[page=11]{\lecturefile}
-	\end{marginfigure}
-	
-	\item Explain how the \emph{process} of natural selection cause the \emph{pattern} of descent with modification.
-
-	\item Explain relative fitness. Why is fitness relative? Explain how relative fitness influences the process of natural selection and the evolution of adaptations.  
-	
-	You must remember that fitness does not refer to physical fitness as associated with exercise. It refers instead to the number of offspring produced by an individual over its life time. Remember too that fitness is comparative. That is, fitness is compared among individuals in a population. Some individuals have relatively greater fitness than other individuals. An individual that reproduces once and has 20 offspring has lower relative fitness than an individual that reproduces twice and has 11 offspring each time (22 offspring total).
-
-	\item Why is ``survival of the fittest'' not a good\marginnote{The phrase was coined by Herbert Spencer, not Darwin. Darwin did not include the phrase until the 5th edition of \textit{On the Origin of Species.}} explanation for how natural selection works?
-
+	\item What does it mean\marginnote{Later, you will learn the evolutionary processes that cause populations to deviate from Hardy-Weinberg equilibrium.} to say that a population is in Hardy-Weinberg equilibrium?
 
 \end{enumerate}
 
@@ -129,29 +149,29 @@ These are examples only and not exhaustive. One or more of these questions may o
 
 \bigskip
 
-\noindent \rule{1in}{0.4pt} Trait that increases fitness in the current environment.
+\noindent True\hspace{1em}False\hspace{1em} If $p$ = 0.3, then $q^2$ = 0.09.
+
+\bigskip \bigskip
+
+\noindent A population of 100 individuals in Hardy-Weinberg equilibrium
+has 25 individuals that are $A_1A1$, 50 that are $A_1A_2$, and 25 
+that are $A_2A_2$. Calculate the allele and genotype frequencies 
+for this population.
 
 \bigskip
 
-\noindent True\hspace{1em}False\hspace{1em} Adaptations are the result of descent with modification.\marginnote{Think carefully about the relationship between descent with modification and natural selection. One is a pattern and one is a process. Processes cause patterns.} 
+\begin{tabular}{@{}ll@{}}
+	\toprule
+	& Frequency\tabularnewline
+	\midrule
+	& \tabularnewline
+	$A_1$		&	\rule{0.6in}{0.4pt}\tabularnewline[2em]
+	$A_2$		&	\rule{0.6in}{0.4pt}\tabularnewline[2em]
+	$A_1A_1$	&	\rule{0.6in}{0.4pt}\tabularnewline[2em]
+	$A_1A_2$	&	\rule{0.6in}{0.4pt}\tabularnewline[2em]
+	$A_2A_2$	&	\rule{0.6in}{0.4pt}\tabularnewline
+	\bottomrule
+\end{tabular}
 
-\bigskip
-
-\noindent Given a population that contains genetic variation, what is the correct sequence of the following events, under the influence of natural selection?
-
-\smallskip
-
-\noindent \textsc{a}. Well-adapted individuals leave more offspring than do poorly adapted individuals.\\\marginnote{Most multiple choice questions will have \emph{at least} five choices to reduce your chances of getting correct answers by guessing. Regular study reduces the need for guessing. Still, if you don't know, then guess!}
-\noindent \textsc{b}. A change occurs in the environment.\\
-\noindent \textsc{c}. Genetic frequencies within the population change.\\
-\noindent \textsc{d}. Poorly adapted individuals have decreased survivorship.\\
-
-\bigskip
-
-\noindent (5 points) What concept published by Robert Thomas Malthus did Darwin use to develop the concept of natural selection? Explain how Malthus‘s idea helps to explain how natural selection works.
-
-\smallskip
-
-Notice how this question connects lecture 02 to this lecture.
 
 \end{document}
