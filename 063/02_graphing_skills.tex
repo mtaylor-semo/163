@@ -98,7 +98,7 @@
 \begin{document}
 
 %% 2010 Version
-\subsection*{Creating figures with Microsoft Excel 2013\texttrademark}
+\subsection*{Creating figures with Microsoft Excel\texttrademark}
 
 Graphical representations of your data in scientific publications are called figures. For this exercise, you will learn to create scientific figures using Microsoft Excel. Excel has many options for making quality figures. Excel also has options that you should never use in scientific figures, most of which, unfortunately, are the default settings.  
 
@@ -114,15 +114,18 @@ First, you will create a column chart to show the number of earthquakes of magni
 \begin{questions}
 	
 	\question
-	Which variable is the explanatory variable? 
+	Which variable is the explanatory variable? \ifprintanswers \textbf{Year} \else \rule{1.5in}{0.4pt} \fi
 	
-	\AnswerBox{2\baselineskip}{Year}
+	%\AnswerBox{1\baselineskip}{Year}
+	
+	\medskip
 	
 	\question
-	Which variable is the response variable?
+	Which variable is the response variable? \ifprintanswers \textbf{Number of earthquakes} \else \rule{1.5in}{0.4pt} \fi
 	
-	\AnswerBox{2\baselineskip}{Number of earthquakes}
-	
+%	\AnswerBox{1\baselineskip}{Number of earthquakes}
+
+	\bigskip	
 	
 	Download the file called “oklahoma\_earthquakes.xlsx” from the course data website:\\ \url{http://mtaylor4.semo.edu/~goby/bi163/}.\bigskip
 	
@@ -146,19 +149,27 @@ First, you will create a column chart to show the number of earthquakes of magni
 The graph is adequate but it can be improved with a few simple changes. First, change and enlarge the font. The font in your graphs should be the same font you use in the body of your report. For example, if you are using Times New Roman in your Word document, you should use Times New Roman in your graph. The font size should be at least the same as you use in your report but is often a little larger. For this exercise, use 12 point font, regular style (not bold).
 
 \begin{enumerate}[resume]
-	\item Place your cursor over one of the years on the \axis{x}, then right-click. Select “Font\dots”.
+	\item Go to the home ribbon. Select “Times New Roman” and 12 for the font size.
 	
-	\item In the “Latin text font:” area, you can either delete the current font and type “Times New Roman” (exactly) or click on the small button to the right of the “Font:” area and scroll down to select it from the menu. 
+	\emph{If that does not work} then do these steps:
 	
-	\item Tab over to or click in the “Size:” area and change the value to 12. Press the Enter key or click the “OK” button.
+	\begin{itemize}
+		\item Place your cursor over one of the years on the \axis{x}, then right-click. Select “Font\dots”.
+
+		\item In the “Latin text font:” area, you can either delete the current font and type “Times New Roman” (exactly) or click on the small button to the right of the “Font:” area and scroll down to select it from the menu. 
+
+		\item Tab over to or click in the “Size:” area and change the value to 12. Press the Enter key or click the “OK” button.
+
+	\end{itemize}
 	
 	\item Repeat the last step for the \axis{y}.
+	
 \end{enumerate}
 
 Scientific figures usually do not have a symbol legend in the figure because the symbols are explained in the figure caption. So, delete the symbol legend.  
 
 \begin{enumerate}[resume]
-	\item Choose the “Design” tab “Chart Tools” ribbon. Click on “Add Chart Element” on the very left side of the ribbon.  
+	\item Choose the “Chart Design” ribbon. Click on “Add Chart Element” on the very left side of the ribbon.  
 
 	\item Scroll down to “Legend” and select “None” from the pop-up to remove the legend.
 
@@ -167,12 +178,12 @@ Scientific figures usually do not have a symbol legend in the figure because the
 	\item Or, click on the symbol legend and press the delete key. 
 \end{enumerate}
 
-Add a labels to the \axis{x} and \axis{y}, starting with the \axis{x}.
+Add labels to the \axis{x} and \axis{y}, starting with the \axis{x}.
 
 \begin{enumerate}[resume]
-	\item Click once anywhere in the chart. Click “Layout” from the “Chart Tools” section of the ribbon menu. 
+	\item Choose the “Chart Design” ribbon. Click on “Add Chart Element” on the very left side of the ribbon.
 	
-	\item Click on “Add Chart Element” on the very left side of the ribbon.  Select “Axis Titles,” then choose “Primary Horizontal.”
+	\item Select “Axis Titles,” then choose “Primary Horizontal.”
 
 	\item Right-click on the axis label that appears to the left side of the \axis{y}. Set the font to Times New Roman and the font size to 12 points. If necessary, click on the “Font style:” menu and select “Regular” to remove the bold face.
 
@@ -183,12 +194,7 @@ Add a labels to the \axis{x} and \axis{y}, starting with the \axis{x}.
 	
 \end{enumerate}
 
-
-The columns of the chart have a default color. Color can be helpful but you must consider color carefully. First, publishing color figures is very expensive (often more than \$600 \emph{per} figure) so black, white, and shades of gray are used unless color is absolutely necessary. Second, you must consider colorblindness. Colorblind readers cannot distinguish some colors. For example, the inability to distinguish between red and green is a form of colorblindness present in about 8\% of males (but rare in females). Finally, most readers
-of your publications will read them as photocopies or printed from
-a black and white printer, which loses the color information
-
-For this figure, use black columns.
+Change the color of the columns to black. Color figures should be avoided until you know what you are doing. Not all people can perceive the same colors equally, which can cause problems interpreting the figures. Plus, publishing color figures is very expensive (often more than \$600 \emph{per} figure) so black, white, and shades of gray are used unless color is absolutely necessary. 
 
 \begin{enumerate}[resume]
 	\item Right-click on any one of columns. Choose “Format Data Series\dots” from the menu.
@@ -201,17 +207,22 @@ For this figure, use black columns.
 	
 \end{enumerate}
 
-If your figure contains grid lines, they must be removed.
+If your figure contains grid lines and a title, they must be removed.
 
 
 \begin{enumerate}[resume]
-	\item Right-click on one of the grid lines. 
-	
-	\item Select “Format Gridlines\dots” from the popup menu. 
-	
-	\item Select the “No line” radio button and close the pane.
+	\item Click on the “Earthquakes” title at the top of the graph. Press the delete key.
+
+	\item Right-click on one of the grid lines. Select “Format Gridlines\dots” from the popup menu. Select the “No line” radio button and close the pane.
 
 	\item Or, click on one of the grid lines and press the delete key.
+	
+	The \axis{y} is missing a vertical axis line so you must add one with tick marks.
+	
+	\item Right-click on the \axis{y}. Choose “Format axis\dots. Click the paint can icon. Under the “Line” options, click “Solid Line.” 
+	
+	\item Click on the chart icon. Under the “Tick Mark” options, choose “Outside” for the Major type.
+	
 \end{enumerate}
 
 You now have scientific-quality figure that would be suitable for publication.
@@ -221,9 +232,9 @@ Fracking has become more common in Oklahoma. Fracking produces waste water that 
 
 \AnswerBox{1\baselineskip}{The number of earthquakes since 2010 is far, far greater than the 30 years before hand.}
 
-\newpage
+%\newpage
 
-\question
+\question \label{ques:most_quakes}
 Which three years have the greatest number of earthquakes? How many earthquakes occurred in each of these years?
 
 \AnswerBox{3\baselineskip}{See if they think to look up the numbers in the Excel sheet.}
@@ -235,7 +246,7 @@ Use your web browser to visit this official website published by the Office Of T
 \url{http://earthquakes.ok.gov/what-we-know/earthquake-map/}
 
 \begin{enumerate}
-	\item Click the “Earthquakes - Past 7 days” to hide recent earthquakes.
+	\item Uncheck the “Earthquakes - Past 7 days” to hide recent earthquakes.
 	
 	\item Click the “Arbuckle Waste Water Disposal Wells” check box. The blue circles show the locations of all active waste water disposal wells in Oklahoma.
 	
@@ -250,10 +261,12 @@ Does there appear to be an association between the earthquakes and the disposal 
 
 \AnswerBox{3\baselineskip}{random pattern or weak association.}
 
+%\newpage
+
 \begin{enumerate}
 	\item Uncheck the three boxes for 1980–2009. Leave the disposal wells box checked.
 	
-	\item Click the checkboxes for the three years with the greatest number of earthquakes, as shown in your Excel figure.
+	\item Check the boxes for the three years with the greatest number of earthquakes. Refer back to question~\ref{ques:most_quakes} or your Excel figure.
 	
 \end{enumerate}
 
@@ -262,7 +275,7 @@ Does there appear to be an association between the earthquakes and the disposal 
 
 \AnswerBox{2\baselineskip}{Definite association between quakes and wells.}
 
-\newpage
+%\newpage
 
 Not all disposal wells cause earthquakes but these data show a clear association between the location of earthquakes and the waste water disposal wells. Other studies using more detailed data strongly support the hypothesis that deep, rapid injection of waste water is the cause of the sudden increase in Oklahoma earthquakes.
 
@@ -364,18 +377,24 @@ Not all disposal wells cause earthquakes but these data show a clear association
 As you will learn later this semester, the distribution of ecosystems and their associated dominant plant groups, are determined primarily by mean annual temperature (\textsc{mat}) and mean annual precipitation (rain and snow; \textsc{map}).
 
 \question
-Which two variables are the explanatory variable? 
+Identify the \emph{two} explanatory variables.\smallskip 
 
-\AnswerBox{2\baselineskip}{Mean annual temperature and mean annual precipitation.}
+	\quad \ifprintanswers \textbf{Mean annual temperature} \else \rule{1.5in}{0.4pt} \fi
+	\qquad \ifprintanswers \textbf{Mean annual precipitation} \else \rule{1.5in}{0.4pt} \fi
 
+%\AnswerBox{2\baselineskip}{Mean annual temperature and mean annual precipitation.}
+
+	\medskip
+	
 \question
-Which variable is the response variable?
+Identify the response variable. \ifprintanswers \textbf{The ecosystems/dominant plant groups} \else \rule{1.5in}{0.4pt} \fi
 
-\AnswerBox{2\baselineskip}{The ecosystems/dominant plant groups.}
+%\AnswerBox{2\baselineskip}{The ecosystems/dominant plant groups.}
 
 Download the file called “ecosystems.xlsx” from the course data website:\\ \url{http://mtaylor4.semo.edu/~goby/bi163/}.\bigskip
 
-You will make a scatterplot to see the distribution of three plant groups based on \textsc{mat} and \textsc{map}. You will plot temperature on the \axis{x} and precipitation on the \axis{y}. The plant groups are Western Redcedar (Cw), Mixed Grassland (Gr) and Subalpine Larch (La). 
+You will see the distribution of three plant groups by making a scatterplot of \textsc{mat} on the \axis{x} and \textsc{map} on the \axis{y}. %You will plot temperature on the \axis{x} and precipitation on the \axis{y}. 
+The plant groups are Western Redcedar (Cw), Mixed Grassland (Gr) and Subalpine Larch (La). 
 
 \begin{enumerate}
 	\item Use your cursor to select cells {\liningnum C2:D21}, which selects \textsc{mat} and \textsc{map} for Western Redcedar.
@@ -423,7 +442,7 @@ At this point, you have an adequate graph but you can improve it. Notice The \ax
 	\item You can improve the label “(degrees C)” by using the degree symbol (°). Right-click on the label and select “Edit Text.” Double click on “degrees” to select it.
 
 \begin{center}
-	\includegraphics[width=0.5\textwidth]{02_insert_symbol}
+	\includegraphics[width=0.4\textwidth]{02_insert_symbol}
 \end{center}
 
 	\item Click on “Insert” on the ribbon menu and then click on “Symbol” on the right side of the ribbon. Click the degree symbol near the bottom center of the various symbols. Click in the “Insert” button and then the “Close” button. 
@@ -434,7 +453,7 @@ At this point, you have an adequate graph but you can improve it. Notice The \ax
 You now have an excellent scatterplot but you can improve it by enlarging the symbols and removing the color, remembering that color is costly and is useless in photocopies.
 
 \begin{enumerate}[resume]
-	\item Place your cursor over one of the blue circles (Western Redcedar) and right-click. Select “Format Data Series\dots.” 
+	\item Place your cursor over one of the blue circles (Western Redcedar) and right-click \emph{once}. Select “Format Data Series\dots.” When you do this step, be sure all (or most) of the blue circles are selected. If only one blue circle is selected, click somewhere in the white area of the graph, then try again.  
 
 	\item Click on the “Paint Can” icon. Select the “Marker” tab. Click on “Marker Options.” Click the “Built-in” radio button.  Increase the size to 10.
 	
@@ -448,37 +467,44 @@ You now have an excellent scatterplot but you can improve it by enlarging the sy
 \question
 Which ecosystem shows the \emph{greatest} variability for mean annual temperature?
 
-\AnswerBox{3\baselineskip}{Mixed Grasslands (squares).}
+\AnswerBox{2\baselineskip}{Mixed Grasslands (squares).}
+
+%\newpage
 
 \question
 Which ecosystem shows the \emph{least} variability for mean annual precipitation?
 
-\AnswerBox{3\baselineskip}{Mixed Grasslands (squares).}
+\AnswerBox{2\baselineskip}{Mixed Grasslands (squares).}
 
 \question
 Which ecosystem, on average, needs the lowest annual temperatures to be present. What do you estimate is about the average amount of annual precipitation needed by this ecosystem to be present? 
 
-\AnswerBox{3\baselineskip}{Subalpine larch (triangles). About 1100 mm precipitation.}
+\AnswerBox{2\baselineskip}{Subalpine larch (triangles). About 1100 mm precipitation.}
 
 \question
 Which ecosystem, on average, needs the highest annual precipitation to be present. What do you estimate is about the average annual temperature needed by this ecosystem to be present? 
 
-\AnswerBox{3\baselineskip}{Western Redcedar (diamonds). About 8–9°C temperature.}
-
+%\AnswerBox{2\baselineskip}{Western Redcedar (diamonds). About 8–9°C temperature.}
+\ifprintanswers \textbf{Western Redcedar (diamonds). About 8–9°C temperature.} \fi
 
 \subsection*{Line Graph}
 
-Line graphs are useful for showing trends in data over time or categories, such as increasing tree diameter with age of the tree, or the accumulation of species sampled over time. Here you will plot the mean monthly river stage (a measure of water depth) from the Mississippi River measured at the U.S. Geological Survey gauge near Thebes, IL to see how river depth changes throughout the year. The gauge records the river stage every hour of every day. The data have been reduced to mean monthly discharge.
+Line graphs are useful for showing trends in data over time or categories, such as increasing tree diameter with age of the tree, or the accumulation of species sampled over time. Here you will plot the mean monthly river stage (a measure of water depth) from the Mississippi River measured at the U.S. Geological Survey gauge near Thebes, IL to see how river depth changes throughout the year. The gauge records the river stage every hour of every day. The data have been reduced to mean monthly discharge. %\bigskip
+
+\smallskip
 
 \question
-Which variable is the explanatory variable? 
+Identify the explanatory variable. \ifprintanswers \textbf{Year} \else \rule{1.5in}{0.4pt} \fi
 
-\AnswerBox{2\baselineskip}{Year}
+%\AnswerBox{2\baselineskip}{Year}
+
+\medskip
 
 \question
-Which variable is the response variable?
+Which variable is the response variable? \ifprintanswers \textbf{Mean monthly river stage} \else \rule{1.5in}{0.4pt} \fi
 
-\AnswerBox{2\baselineskip}{Mean monthly river stage}
+%\AnswerBox{2\baselineskip}{Mean monthly river stage}
+\bigskip
 
 Download the file called “mississippi\_river\_stages.xlsx” from the course data website:\\ \url{http://mtaylor4.semo.edu/~goby/bi163/}
 
@@ -505,9 +531,9 @@ By now, you should be good at graphing in Excel so the final graph should be qui
 \question
 One of the years you plotted was a drought year across the U.S., including southeast Missouri. The other year was a flood year, where the flooding was so bad in southeast Missouri that they had to blow up a levee at Bird's Point to release some of the water from the river. Based on your graph, which line represents the drought year and which year represents the flood year. Explain how you decided.
 
-\AnswerBox{2\baselineskip}{The flood year has a much higher river stage in the spring. The drought year has a much lower river stage overall.}
+\AnswerBox{3\baselineskip}{The flood year has a much higher river stage in the spring. The drought year has a much lower river stage overall.}
 
-\newpage
+%\newpage
 
 \question
 In both years, the river stage is higher in April and May and lower in September and October. Explain why.
@@ -540,14 +566,10 @@ Figure~1.
 
 The figure caption, also called a figure legend, must describe 
 briefly what the figure is about, and tell what any symbols, 
-colors, or lines represent. If appropriate, the caption might 
+colors, or lines represent. The caption might also 
 provide sample sizes, tell what any error bars represent, or 
-whether differences were statistically significant. Thus, the 
-figure itself determines what should be in the caption.
-
-A rule of thumb is that \emph{figures stand alone,} which means 
-the caption must provide enough information so that a person who 
-has the figure and caption only can still interpret the figure. 
+if differences were statistically significant. Thus, the 
+figure itself determines what should be in the caption. 
 Here is an example of the Mississippi River gauge height graph you 
 made earlier.
 
@@ -567,10 +589,14 @@ The caption tells that the data are the mean (average) gauge heights for
 each month, which river the data are from, the location of the
 gauge, which years that data are from, and which line represents each 
 year. The reader can look at only that figure and caption and know what
-the figure is about.
+the figure is about. A rule of thumb is that \emph{figures stand alone,} which means 
+the caption must provide enough information so that a person who 
+has the figure and caption only can still interpret the figure. 
 
 
-\newpage
+%On the next page, you will write captions for the other two figures you made today.
+
+%\newpage
 
 \question
 Write a caption for the Oklahoma earthquake figure. This will be 
@@ -578,13 +604,17 @@ a relatively simple caption. Be sure to include the correct figure
 number. Hint: What is the figure number for the above figure?
 
 \hfil%
-\begin{minipage}{0.75\textwidth}
+\begin{minipage}{0.7\textwidth}
 	\includegraphics[width=\textwidth]{02_ok_earthquakes}\\
 	
 	\vspace{0.15\textheight}
+
+%\newpage
 	
 \end{minipage}%
 \hfil
+
+%\newpage
 
 \question
 Write a caption for the ecosystem distribution figure. This
@@ -592,34 +622,38 @@ caption will be a bit more complex than the last one your wrote.
 Be sure to include  the correct figure number.
 
 \hfil%
-\begin{minipage}{0.75\textwidth}
+\begin{minipage}{0.7\textwidth}
 	\includegraphics[width=\textwidth]{02_ecosystem_distribution}\\
 	
-	\vspace{6\baselineskip}
-%	\vspace{0.2\textheight}
+%	\vspace{3\baselineskip}
+%	\vspace{0.15\textheight}
 	
 \end{minipage}%
 \hfil
 
 
 
-\subsection*{Graph the results of your bacterial resistance data}
+\subsubsection*{Graph the results of your bacterial resistance data}
 
-Your final task is to make a graph of the bacterial resistance data. 
+Your final task is to make a graph of the bacterial resistance data and
+write a caption for it. 
 You will graph the mean values of the diameters of the zone of inhibition 
 and the halo for your entire lab section. \emph{Graph the mean values for 
 the entire lab section, not the values obtained by your group.} 
 
 Your instructor will collect the data from each group. Calculate the mean 
 values for each treatment (control and the different concentrations of 
-triclosan), and then fill in this table with the mean values:
+triclosan), and then fill in the table on the next page with the results. 
+The control is 0.0\% concentration.
 
-\begin{longtable}[c]{lcc}
+%\newpage
+
+\begin{longtable}[l]{lcc}
 	\toprule
-	Concentation	&	Inhibition Diameter	&	Halo Diameter \tabularnewline
+	Concentration	&	Inhibition Diameter	&	Halo Diameter \tabularnewline
 	\midrule
 	& & \tabularnewline[0.5em]
-	0.0\% (Control)	& \rule{0.75in}{0.4pt} & \rule{0.75in}{0.4pt} \tabularnewline[1.5em]
+	0.0\%	& \rule{0.75in}{0.4pt} & \rule{0.75in}{0.4pt} \tabularnewline[1.5em]
 	0.1\%	& \rule{0.75in}{0.4pt} & \rule{0.75in}{0.4pt} \tabularnewline[1.5em]
 	0.3\%	& \rule{0.75in}{0.4pt} & \rule{0.75in}{0.4pt} \tabularnewline[1.5em]
 	0.5\%	& \rule{0.75in}{0.4pt} & \rule{0.75in}{0.4pt} \tabularnewline[1.5em]
@@ -627,21 +661,21 @@ triclosan), and then fill in this table with the mean values:
 	\bottomrule
 \end{longtable}
 
-\question
-What type of graph is most appropriate for these data? Why?
+\question \label{ques:graph_type}
+Which type of graph is most appropriate for these data? Why?
 
-\AnswerBox{3\baselineskip}{Bar/Column chart}
+\AnswerBox{2\baselineskip}{Bar/Column chart}
 
-Be sure your graph meets the following requirements:
+Enter the above data into Excel. Use the row and column headings shown in the table above. Then make the type of graph you identified for question~\ref{ques:graph_type}. Be sure your graph meets the following requirements:
 
 \begin{enumerate}
-	\item Remove horizontal and vertical grid lines,
+	\item Remove all grid lines,
 	
 	\item properly label the \textsc{x}- and \textsc{y}-axes, including units of measurement and concentration,
 	
-	\item use 0.0 for the control.
+	\item use 0.0 for the control
 	
-	\item use black, white, or shades of gray for colors.
+	\item use black, white, or shades of gray instead of color,
 	
 	\item use the proper font and font size, and
 	
@@ -649,7 +683,9 @@ Be sure your graph meets the following requirements:
 	
 \end{enumerate}
 
-\newpage
+On the next page, write a caption for your figure.
+
+%\newpage
 
 \question
 Write the caption for your figure. When finished, show the 
