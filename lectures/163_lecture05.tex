@@ -166,15 +166,15 @@ There is grandeur in this view of life, with its several powers, having been ori
 \begin{tikzpicture}
 %	[every node/.style={orange6, rounded corners},
 	[every node/.append style={rounded corners}]
-	\node at (0,-3.5) [color=orange7] {ancestor}
+	\node at (0,-3.5) [color=orange7] {\textbf{ancestor}}
 		[edge from parent fork up, grow=up,
 		edge from parent/.style={very thick, draw}]
 		child [sibling distance=20mm] {
-			child {node [color=green6] {\textbf{Desc. C}}}
-			child {node [color=blue7] {\textbf{Desc. B}}}
+			child {node [color=green6] {\textbf{desc. \textsc{c}}}}
+			child {node [color=blue7] {\textbf{desc. \textsc{b}}}}
 		}
 		child [sibling distance=40mm] {
-			child {node [color=orange6] {\textbf{Desc. A}}}
+			child {node [color=orange6] {\textbf{desc. \textsc{a} }}}
 			%child {node {D}}
 		};
 \end{tikzpicture}
