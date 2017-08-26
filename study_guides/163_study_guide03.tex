@@ -15,7 +15,7 @@
   \setkeys{Gin}{width=\linewidth}
   \graphicspath{	{/Users/goby/teach/163/lectures/}}%}%
 
-%\usepackage{amsmath}  % extended mathematics
+\usepackage{amsmath}  % extended mathematics
 %\usepackage{booktabs} % book-quality tables
 %\usepackage{units}    % non-stacked fractions and better unit spacing
 %\usepackage{multicol} % multiple column layout facilities
@@ -47,8 +47,6 @@
    \renewcommand\allcapsspacing[1]{{\addfontfeatures{LetterSpace=15}#1}}
    \renewcommand\smallcapsspacing[1]{{\addfontfeatures{LetterSpace=10}#1}}
 
-\newcommand\lecturefile{163_lecture03_fullsize}
-
 \title{{\scshape bi} 163 Study Guide 03}
 
 \date{} % without \date command, current date is supplied
@@ -58,9 +56,137 @@
 \maketitle	% this prints the handout title, author, and date
 
 %\printclassoptions
-\section*{No study guide for this lecture.}
+\section*{Counting alleles in a population}
 
-This lecture is HWE practice. It does not include
-a study guide.
+This study guide%
+\marginnote{A good way to practice this is to 
+work with a friend. You make up three numbers for each of the
+three possible genotypes, and then solve for the allele
+frequencies. Your study buddy does the same thing. Then, exchange
+problems. You solve your fiend's problem and your friend solves
+your problem. Compare answers to be sure you get the same results.} 
+%
+will show you how to calculate allele frequencies 
+based on the number of diploid individuals of each genotype. 
+Assume you have 100 individuals in a population, divided among 
+three genotypes: \vspace{\baselineskip}
+
+25 $A_1A_1$, \\
+50 $A_1A_2$, and \\
+25 $A_2A_2$.
+
+\vspace{\baselineskip}
+
+First, count the total number of alleles. The population size
+is 100 and each diploid individual has two alleles. Therefore,
+\vspace{\baselineskip}
+
+$100 \times 2 = 200$ total alleles.
+\vspace{\baselineskip}
+
+\noindent Next, count $A_1$ alleles. Individuals that are homozygous 
+$A_1A_1$ each contribute two $A_1$ alleles. Therefore, 
+\vspace{\baselineskip}
+
+$25 \times 2 = 50\ A_1$ alleles. 
+\vspace{\baselineskip}
+
+\noindent Heterozygous individuals each have one $A_1$ allele, so
+\vspace{\baselineskip}
+
+$50 \times 1 = 50\ A_1$ alleles.
+\vspace{\baselineskip}
+
+\noindent Add together the number of $A_1$ alleles from the
+homozygotes and heterozygotes,
+\vspace{\baselineskip}
+
+$50 + 50 = 100$ total $A_1$ alleles.
+\vspace{\baselineskip}
+
+Repeat this process for the $A_2$ allele, beginning with 
+$A_2A_2$ homozygotes, then heterozygotes.
+\vspace{\baselineskip}
+
+$25 \times 2 = 50$,\\
+$50 \times 1 = 50$,\\
+$50 + 50 = 100$ total $A_2$ alleles.
+\vspace{\baselineskip}
+
+Finally, calculate the two allele frequencies. Divide the number of each allele by the total number of alleles. \vspace{\baselineskip}
+
+$A_1$ frequency: $\dfrac{100}{200} = 0.5.$\\[1.5ex]
+$A_2$ frequency: $\dfrac{100}{200} = 0.5.$
+
+\subsection{Practice problems}
+
+Calculate allele frequencies. 
+Correct answers are included in the right margin
+to check your work. If you have problems, see your instructor. \vspace{\baselineskip}
+
+\noindent Problem 1.\vspace{\baselineskip}
+
+16 $T_1T_1$, \\
+48 $T_1T_2$, and \\
+36 $T_2T_2$.
+
+\vspace{\baselineskip}
+
+Frequency of $T_1$ allele: \rule{1in}{0.4pt} \marginnote{\hfill $T_1$: 0.4}
+
+\vspace{\baselineskip}
+
+Frequency of $T_2$ allele: \rule{1in}{0.4pt} \marginnote{\hfill $T_2$: 0.6}
+
+\vspace{\baselineskip}
+
+%%
+
+\noindent Problem 2.\vspace{\baselineskip}
+
+243 $K_1K_1$, \\
+54 $K_1K_2$, and \\
+3 $K_2K_2$.
+
+\vspace{\baselineskip}
+
+Frequency of $K_1$ allele: \rule{1in}{0.4pt} \marginnote{\hfill $K_1$: 0.9}
+
+\vspace{\baselineskip}
+
+Frequency of $K_2$ allele: \rule{1in}{0.4pt} \marginnote{\hfill $K_2$: 0.1}
+
+\vspace{\baselineskip}
+
+\noindent Problem 3. Some alleles are rare.\vspace{\baselineskip}
+
+1 $R_1R_1$, \\
+1998 $R_1R_2$, and \\
+998001 $R_2R_2$.
+
+\vspace{\baselineskip}
+
+Frequency of $R_1$ allele: \rule{1in}{0.4pt} \marginnote{\hfill $R_1$: 0.001}
+
+\vspace{\baselineskip}
+
+Frequency of $R_2$ allele: \rule{1in}{0.4pt} \marginnote{\hfill $R_2$: 0.999}
+
+\vspace{\baselineskip}
+
+\noindent Problem 3. Some populations have very rare alleles.\vspace{\baselineskip}
+
+294 $D_1D_1$, \\
+252 $D_1D_2$, and \\
+54 $D_2D_2$.
+
+\vspace{\baselineskip}
+
+Frequency of $D_1$ allele: \rule{1in}{0.4pt} \marginnote{\hfill $D_1$: 0.7}
+
+\vspace{\baselineskip}
+
+Frequency of $D_2$ allele: \rule{1in}{0.4pt} \marginnote{\hfill $D_2$: 0.3}
+
 
 \end{document}
