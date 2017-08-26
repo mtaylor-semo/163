@@ -95,8 +95,14 @@
 	\hangpara \highlight{How do we calculate allele frequencies?}
 
 \end{frame}
-%
-%\begin{frame}[t]{We will assume the following:}
+
+\begin{frame}[t]{Here is how I will represent alleles.}
+
+	\hangpara  I will use upper case letters to represent genes. I will use superscripts to indicate different alleles for that gene. 
+		
+	\hangpara $A_1$ and $A_2$, $C_1$ and $C_2$, etc.
+	
+	\hangpara For now, ignore dominant and recessive alleles. They do not matter for calculating allele frequencies.
 %	
 %%	\hangpara The population has \emph{only} two unique alleles for each gene.\\ \quad \textcolor{gray}{Real populations often have many unique alleles for each gene.}
 %	
@@ -106,7 +112,7 @@
 %	
 %	\hangpara $A_1$ and $A_2$, $C_1$ and $C_2$, etc.
 %	
-%\end{frame}
+\end{frame}
 %
 \begin{frame}{Here are some alleles. Answer the following questions.}
 	\hfil $A_2$ \quad $A_2$ \quad $A_1$ \quad $A_2$ \quad $A_1$ \quad $A_1$ \quad $A_2$ \quad $A_2$ \quad $A_2$ \quad $A_1$ \hfil
@@ -149,23 +155,6 @@
 	
 \end{frame}
 %
-%\lecture{instructor}{instructor}
-%
-%\begin{frame}[t]{Calculate the frequency of these five alleles.}
-%	
-%	\hangpara $Z_1$ allele: 6 alleles were sampled.  \rule{0.5in}{0.4pt}
-%	
-%	\hangpara $Z_2$ allele: 12 alleles were sampled. \rule{0.5in}{0.4pt}
-%	
-%	\hangpara $Z_3$ allele: 18 alleles were sampled. \rule{0.5in}{0.4pt}
-%	
-%	\hangpara $Z_4$ allele: 1 alleles were sampled. \rule{0.5in}{0.4pt}
-%	
-%	\hangpara $Z_5$ allele: 3 alleles were sampled. \rule{0.5in}{0.4pt}
-%	
-%	\hangpara Total alleles: \rule{0.5in}{0.4pt}
-%\end{frame}
-%
 \lecture{instructor}{instructor}
 
 \begin{frame}[t]{Calculate the frequency of these five alleles.}
@@ -201,19 +190,6 @@
 	\end{longtable}
 \end{frame}
 %
-%\begin{frame}{How did you do?}
-%	\hangpara $Z_1$ allele: \only<2>{$p_1 = 0.15$}
-%	
-%	\hangpara $Z_2$ allele: \only<2>{$p_2 = 0.30$}
-%	
-%	\hangpara $Z_3$ allele: \only<2>{$p_3 = 0.45$}
-%	
-%	\hangpara $Z_4$ allele: \only<2>{$p_4 = 0.025$}
-%	
-%	\hangpara $Z_5$ allele: \only<2>{$p_5 = 0.075$}
-%\end{frame}
-%
-
 \begin{frame}{The frequencies add up to 1.}
 	\begin{tikzpicture}
 	
@@ -286,7 +262,7 @@
 \begin{frame}[t]{With only two alleles in a diploid population, then only three \highlight{genotypes} are possible.}
 
 \Large
-\hfil \alert<2>{\emph{YY}} \hfil \alert<3>{\emph{Yy}} \hfil \alert<2>{\emph{yy}} \hfill
+\hfil \alert<2>{$Y_1Y_1$} \hfil \alert<3>{$Y_1Y_2$} \hfil \alert<2>{$Y_2Y_2$} \hfill
 
 \normalsize
 	\hangpara \onslide<2->An individual with two copies of the same allele has a \alert<2>{homozygous} genotype.
@@ -301,11 +277,11 @@
 
 	\hangpara Calculate genotype frequencies for these three genotypes, just as you did for allele frequencies.
 	
-	\hangpara \quad \emph{HH:} 27 individuals. \onslide<2>{0.15}
+	\hangpara \quad $H_1H_1$: 27 individuals. \onslide<2>{0.15}
 	
-	\hangpara \quad	\emph{Hh:} 81 individuals. \onslide<2>{0.45}
+	\hangpara \quad	$H_1H_2$: 81 individuals. \onslide<2>{0.45}
 	
-	\hangpara \quad \emph{hh:} 72 individuals. \onslide<2>{0.40}
+	\hangpara \quad $H_2H_2$: 72 individuals. \onslide<2>{0.40}
 
 \end{frame}
 %
