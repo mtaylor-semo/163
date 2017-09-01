@@ -22,56 +22,23 @@
 \def\mainfont{Linux Biolinum O}
 \setmainfont[Ligatures={Common,TeX}, Contextuals={NoAlternate}, BoldFont={* Bold}, ItalicFont={* Italic}, Numbers={OldStyle}]{\mainfont}
 \setsansfont[Ligatures={Common,TeX}, Scale=MatchLowercase, Numbers=OldStyle, BoldFont={* Bold}, ItalicFont={* Italic},]{Linux Biolinum O} 
-\newfontfamily{\liningtab}[Numbers=Lining]{Linux Biolinum O}
 \usepackage{microtype}
 
 \usepackage{graphicx}
 	\graphicspath{{/Users/goby/pictures/teach/163/lecture/}
 	{/Users/goby/pictures/teach/common/}} % set of paths to search for images
 
-\usepackage[pgf]{adjustbox}
-
 \usepackage{multicol}
-\usepackage{longtable}
 \usepackage{booktabs}
 %\usepackage{textcomp}
-\usepackage{mhchem}
+%\usepackage{mhchem}
+\usepackage{enumitem}
+\usepackage[export]{adjustbox}
 
-\usepackage[justification=raggedright, labelsep=period]{caption}
-\captionsetup{singlelinecheck=off}
-\captionsetup{skip=0.2em}
 
 \usepackage{tikz}
 	\tikzstyle{every picture}+=[remember picture,overlay]
-	\usetikzlibrary{arrows, arrows.meta}
-	\usetikzlibrary{positioning, backgrounds}
-
-\usepackage{forest}
-\forestset{
-    every leaf node/.style={
-        if n children=0{#1}{}
-    },
-    every tree node/.style={
-        if n children=0{}{#1}
-    },
-    mytree/.style={
-        for tree={
-            edge path={
-            \noexpand\path [draw, very thick, \forestoption{edge}] (!u.parent anchor) |- (.child anchor)\forestoption{edge label};
-            },
-            every tree node={draw=none,inner sep=0, outer sep=0, minimum size=0},
-            every leaf node/.style={align=left},
-            grow=east,
-            parent anchor=east, 
-            child anchor=west,
-            anchor=west,
-            l sep=5mm,
-            s sep=3mm,
-            draw=none,
-    			if n children=0{tier=word}{}
-        }
-    }
-}
+%	\usetikzlibrary{arrows}
 
 \mode<presentation>
 {
@@ -79,262 +46,237 @@
   \setbeamercovered{invisible}
 }
 
+
 \begin{document}
 
 \lecture{student}{student}
-\begin{frame}{Our goal for this lecture is to}
-	
-	\hangpara learn about fossils and the \highlight{fossil record},
-	
-	\hangpara get a sense of the scale of geological and evolutionary time, 
-	
-	\hangpara learn how eukaryotic cells evolved through \highlight{endosymbiosis,} and
 
-	\hangpara explore the history of life on Earth.
+\begin{frame}{Our goal for this lecture is to continue}
 	
+	\hangpara learning some important macroevolutionary changes, and
+	
+	\hangpara learning the \highlight{transitional forms} that show the changes, and
+	
+	\hangpara to briefly discuss \highlight{mass extinctions.}
 
 \end{frame}
 %
-
-
-\begin{frame}{What is a \highlight{fossil?} }
-
-
-	\alt<handout>{}{\onslide<2->{%
-	
-	\hangpara{\itshape “A preserved remnant or impression of an organism that lived in the past.” } \hfill— Campbell Biology, 10th ed.
-	
-	
-	\hangpara{\itshape “Any remains, impression, or trace of a living thing of a former geologic age, as a skeleton, footprint, etc.”}\hfill — dictionary.com}
-	
-	}
-
-\end{frame}
-%
-\begin{frame}[t]{Many types of fossils are known, including}
-
-	\vspace*{-\baselineskip}
-
-	\begin{multicols}{2}
-
-		\includegraphics[width=0.48\textwidth]{fossil_permineralized}\vspace*{\baselineskip}
-
-		\includegraphics[width=0.48\textwidth]{fossil_tissue}
-
-	\columnbreak
-
-		\includegraphics[width=0.48\textwidth]{fossil_trace}\vspace*{\baselineskip}
-
-		Permineralized fossils (upper left)\\
-		Trace fossils (upper right)\\
-		Soft tissues (lower left)\\
-		Chemical fossils (not shown)
-
-	\end{multicols}
-
-	\vfilll
-
-	\tiny top row: Mark Wilson, Wikimedia public domain (top row). Lower left: \textcopyright Mary Schweitzer, North Carolina State University.
-
-\end{frame}
-%
+\lecture{instructor}{instructor}
 {
-\usebackgroundtemplate{\includegraphics[width=\paperwidth]{fossil_formation} }
-\begin{frame}[b]{Fossils form under specific conditions.}
-\hfill \tiny \textcopyright Roberts \& Company
-\end{frame}
-}
-%
-{
-\usebackgroundtemplate{\includegraphics[width=\paperwidth]{fossil_radiometric_dating} }
-\begin{frame}[b]{\highlight{Radiometric dating} is used to help age fossils.}
-\hfill \tiny \textcopyright Roberts \& Company
-\end{frame}
-}
-%
-\begin{frame}[t]{Combinations of isotopes provide cross check of age.}
-
-	\includegraphics[width=\textwidth]{radiometric_elements}
-
+\setbeamercolor{background canvas}{bg=black}
+\begin{frame}[t]
+	\includegraphics[width=\textwidth]{continents_miocene}
+	
 	\vfilll
 	
-	\hfill \tiny mitopencourseware, Flickr, \ccbyncsa{2}.
-
-\end{frame}
-%
-\begin{frame}[t]{The parent element decreases by half for each half-life period. The daughter element increases in proportion.}
-
-    {\liningtab
-    \begin{longtable}[c]{@{}lccccccc@{}}
-    \multicolumn{8}{l}{Percent remaining after each half-life.}\tabularnewline
-    \toprule
-    	& \multicolumn{7}{c}{Half-life Number}\tabularnewline
-    	\cmidrule{2-8}
-    Isotope	& 0 & 1 & 2 & 3 & 4 & 5 & 6 \tabularnewline
-    \midrule
-    Parent element 	& 100 & 50 & 25 & 12.5 & 6.25   & 3.125 & 1.5625 \tabularnewline
-    Daugher element & 0     & 50 & 75 & 87.5 & 93.75 & 96.875 & 98.4375 \tabularnewline 
-    \bottomrule
-    \end{longtable}
-    
-    \pause
-    
-    \begin{longtable}{@{}lccccccc@{}}
-    \multicolumn{8}{l}{Number of atoms remaining after each half-life.}\tabularnewline
-    \toprule
-    	& \multicolumn{7}{c}{Half-life Number}\tabularnewline
-    	\cmidrule{2-8}
-    Isotope	& 0 & 1 & 2 & 3 & 4 & 5 & 6 \tabularnewline
-    \midrule
-    Parent Element 	& 256 & 128 & 64 & 32 & 16   & 8 & 4 \tabularnewline
-    Daugher element & 0   & 128 & 192 & 224 & 240 & 248 & 252 \tabularnewline 
-    \bottomrule
-    \end{longtable}
-    }%liningtab
-    
-\end{frame}
-%
-\begin{frame}{Simple example: What is the age of a sample if\dots}
-
-	\vspace{-\baselineskip}
-
-	\onslide<1->{
-		\hangpara Isotope A has a half-life of 50 million years, and the sample contains \\
-		25\% of the parent element and 75\% of the daughter element?
-
-	\hangpara A: Age $=$ 2 half lives $\times$ 50 \textsc{my}/half life $=$ \highlight{100 million years old.}
-	}%onslide1
-
-	\onslide<2->{
-		\hangpara Isotope B has a half-life of 20 million years, and the sample contains \\
-		3.125\% of the parent element and 96.875\% of the daughter element?
-
-		\hangpara B: Age $=$ 5 half lives $\times$ 20 \textsc{my}/half life $=$ \highlight{100 million years old.}
-	}%onslide2
-	
-	
-	\onslide<1->{
-	    {\liningtab
-    		\begin{longtable}[c]{@{}lccccccc@{}}
-	    \toprule
-    		& \multicolumn{7}{c}{Half-life Number}\tabularnewline
-    		\cmidrule{2-8}
-	    Isotope	& 0 & 1 & 2 & 3 & 4 & 5 & 6 \tabularnewline
-    		\midrule
-	    Parent element 	& 100 & 50 & 25 & 12.5 & 6.25   & 3.125 & 1.5625 \tabularnewline
-    		Daugher element & 0     & 50 & 75 & 87.5 & 93.75 & 96.875 & 98.4375 \tabularnewline 
-	    \bottomrule
-    		\end{longtable}
-    		}%liningtab
-	}%onslide1
-
-\end{frame}
-%
-{
-\usebackgroundtemplate{\includegraphics[width=\paperwidth]{fossil_relative_dating} }
-\begin{frame}[b]
-\tiny \textcopyright Roberts \& Company \hfill Jill Curie, Wikimedia, \ccbysa{3} 
+	\hfill \tiny \textcolor{white}{\href{http://scotese.com}{scotese.com}}
 \end{frame}
 }
 %
-\begin{frame}[t]{Organisms leave distinct chemical signatures.}
+\lecture{student}{student}
 
-	\includegraphics[width=\textwidth]{fossil_chemicals}
 
+{
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{artiodactyla_phylogeny1} }
+\begin{frame}[b]
+
+\tiny Spaulding et al. 2009. PLoS \textsc{one} 4(9): e7962.
+\end{frame}
+}
+
+{
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{artiodactyla_phylogeny2} }
+\begin{frame}[b]
+
+\tiny Spaulding et al. 2009. PLoS \textsc{one} 4(9): e7962.
+\end{frame}
+}
+
+{
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{cetacean_transition} }
+\begin{frame}[b]
+
+\end{frame}
+}
+%
+{
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{auditory_bulla} }
+\begin{frame}[b]{Whales and even-toed mammals have different types of a bony ear structure.}
+
+\end{frame}
+}
+%
+\begin{frame}[t]{But, whales and terrestrial cetaceans have the same type of bony ear structure.}
+	\includegraphics[width=\textwidth]{auditory_bulla_indohyus}
+\end{frame}
+%
+\begin{frame}[t]{Terrestrial cetaceans and artiodactyls have a double-pulley ankle joint.}
+	\includegraphics[width=\textwidth]{double_pulley_ankle}
+	
 	\vfilll
 	
-	\hfill \tiny Schubotz 2009. Ph.D. Disseration, Üniversität Bremen.
-
+	\hfill \tiny \textcopyright Pearson Education, Inc.
 \end{frame}
 %
 {
-\usebackgroundtemplate{\includegraphics[width=\paperwidth]{geological_record_lower} }
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{cetacean_appendages} }
 \begin{frame}[b]
-\hfill \tiny \textcopyright Pearson Education, Inc.
+
 \end{frame}
 }
 %
 {
-\usebackgroundtemplate{\includegraphics[width=\paperwidth]{geological_record_upper} }
-\begin{frame}[b]
-\hfill \tiny \textcopyright Pearson Education, Inc.
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{cetacean_nostrils} }
+\begin{frame}[b]{Nostril position shifted with adaption to aquatic habitat.}
+
+\tiny \textcopyright Roberts \& Company
+\end{frame}
+}
+%
+{
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{cetacean_habitat} }
+\begin{frame}[b]{Their habitat shifted from fresh to salt water.}
+
+\tiny \textcopyright Roberts \& Company
 \end{frame}
 }
 %
 \lecture{instructor}{instructor}
 {
-\usebackgroundtemplate{\includegraphics[width=\paperwidth]{fossil_clock1} }
-\begin{frame}[b]
-\hfill \tiny \textcopyright Pearson Education, Inc.
-\end{frame}
-}
-%
-{
-\usebackgroundtemplate{\includegraphics[width=\paperwidth]{fossil_clock2} }
-\begin{frame}[b]
-\hfill \tiny \textcopyright Pearson Education, Inc.
+\setbeamercolor{background canvas}{bg=black}
+\begin{frame}[t]
+	\includegraphics[width=\textwidth]{continents_pleistocene}
+	
+	\vfilll
+	
+	\hfill \tiny \textcolor{white}{\href{http://scotese.com}{scotese.com}}
 \end{frame}
 }
 %
 \lecture{student}{student}
+
+\begin{frame}[t]{How many species do you see?}
+	\includegraphics[width=\textwidth]{hominid_skulls}
+	
+	\vspace*{-\baselineskip}
+	\pause
+	\alt<handout>{}{%
+	\begin{multicols}{3}
+	\begin{enumerate}[leftmargin=*,label=\textsc{\Alph*}.]
+	{\tiny
+	\item Chimpanzee, modern\\
+	\item \textit{Australopithecus africanus}, 2.6 \textsc{mya}\\
+	\item \textit{A. africanus}, 2.5 \textsc{mya}\\
+	\item \textit{Homo habilis}, 1.9 \textsc{mya}\\
+	\item \textit{H. habilis}, 1.8 \textsc{mya}\\
+	\item \textit{H. rudolfensis}, 1.8 \textsc{mya}\\
+	\item \textit{H. erectus}, 1.75 \textsc{mya}\\
+	\item \textit{H. ergaster}, 1.75 \textsc{mya}\\
+	\item \textit{H. heidelbergensis}, 300–125 \textsc{kya}\\
+	\item \textit{H. neanderthalensis}, 70 \textsc{kya}\\
+	\item \textit{H. neanderthalensis}, 60 \textsc{kya}\\
+	\item \textit{H. neanderthalensis}, 45 \textsc{kya}\\
+	\item \textit{H. sapiens}, Cro-Magnon, 30 \textsc{kya}\\
+	\item \textit{H. sapiens}, modern}\\
+	\end{enumerate}
+	\end{multicols}
+	}
+	
+\end{frame}
+%
 {
-\usebackgroundtemplate{\includegraphics[width=\paperwidth]{fossil_clock3} }
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{human_transition} }
 \begin{frame}[b]
+\hfill \tiny \textcopyright Roberts \& Company
+\end{frame}
+}
+%
+\begin{frame}[t]{Hominins evolved in east central Africa nearly 4 \textsc{mya}.}
+	\includegraphics[width=\textwidth]{hominid_origins}
+\end{frame}
+%
+{
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{hominid_timeline} }
+\begin{frame}[b]{Four major groups of hominins show adaptive shifts.}
+\hfill \tiny \textcopyright Foley and Gamble 2009. Phil. Trans. R. Soc. B 364:  3267.
+\end{frame}
+}
+%
+\begin{frame}[t]{Bipedalism evolved before large brain size}
+	\includegraphics[width=\textwidth]{hominin_brain_size}
+
+\end{frame}
+%
+{
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{bipedalism} }
+\begin{frame}[b]{What is the advantage of \highlight{bipedalism?}}
+\hfill \tiny \textcopyright McGraw-Hill
+\end{frame}
+}
+%
+{
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{hominid_advances} }
+\begin{frame}[b]{Adaptations associated wth bipedalism and brain size increase.}
+\hfill \tiny \textcopyright Foley and Gamble 2009. Phil. Trans. R. Soc. B 364:  3267.
+\end{frame}
+}
+%
+{
+\begin{frame}[b]{\textit{Homo} left Africa in waves.}
+	\centering
+	\includegraphics[width=\textwidth]{human_dispersal}
+
+	\vfilll
+
+	\tiny\hfill \textcopyright McGraw-Hill.
+\end{frame}
+}
+%
+{
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{mass_extinctions} }
+\begin{frame}[b]{Five \highlight{mass extinctions} have occurred since the Cambrian.}
 \hfill \tiny \textcopyright Pearson Education, Inc.
 \end{frame}
 }
 %
-\begin{frame}[t]{Life on Earth appeared at least 3.8 billion years ago.}
+\begin{frame}[t]{A mass extinction occurs when at least 75\% of species go extinct.}
+\centering
+\begin{tabular}{@{}lrr@{}}
+	\toprule
+	Event & Genera & Species \\
+	\midrule
+	End Ordovician	&	57\% & 86\% \\
+	Late Devonian & 35\% & 75\% \\
+	End Permian	& 59\% & 96\% \\
+	End Triassic	& 47\% & 80\% \\
+	End Cretaceous (\textsc{k/t}) & 40\% & 76\% \\
+	\bottomrule
+\end{tabular}
 
-	\includegraphics[width=\textwidth]{fossil_stromatolite}
-	
-	\vfilll
-	
-	\hfill \tiny \textcopyright Pearson Education, Inc.
-\end{frame}
-
-{
-\usebackgroundtemplate{\includegraphics[width=\paperwidth]{fossil_oxygen_increase} }
-\begin{frame}[b]{Cyanobacteria caused atmospheric \ce{O2} to increase about 2.4 billion years ago.}
-\tiny \textcopyright Pearson Education, Inc.
-\end{frame}
-}
-%
-{
-\usebackgroundtemplate{\includegraphics[width=\paperwidth]{fossil_eukaryote} }
-\begin{frame}[b]{Eukaryotes appeared \emph{at least} 2.1 billion years ago.}
-\tiny \textcolor{white}{Xvazquez, Wikimedia, \ccbysa{2}}
-\end{frame}
-}
-%
-\begin{frame}[t]{Eukaryotic cells evolved through \highlight{endosymbiosis.}}
-	\includegraphics[width=\textwidth]{fossil_endosymbiosis}
-	
-	\vfilll
-	
-	\hfill \tiny \textcopyright Pearson Education, Inc.
 \end{frame}
 %
-{
-\usebackgroundtemplate{\includegraphics[width=\paperwidth]{endosymbiosis_appearance} }
-\begin{frame}
+\begin{frame}[t]{The causes of mass extinction all cause \highlight{rapid climate change.}}
 
+	\begin{multicols}{2}
+	\hangpara Asteroid impact
+	
+	\hangpara Volcanism
+	
+	\hangpara Glaciation
+	
+	\hangpara Methane gas
+	
+	\hangpara Changing ocean currents
+	
+	\hangpara Not all of these apply to every mass extinction.
+	
+	\columnbreak
+	
+	\includegraphics[width=0.4\textwidth, frame]{kt_asteroid_impact_site}\\
+	{\footnotesize 180 km (112 mi) crater created by\\10 km asteroid impact.}
+
+	\end{multicols}
+	
 \end{frame}
-}
 %
-\begin{frame}[t]{Evidence for \highlight{endosymbiosis.} }
-
-	\hangpara Mitochondria and chloroplasts
-	
-	\hangpara \hspace*{1em} have circular \textsc{dna} like bacteria,
-	
-	\hangpara \hspace*{1em} divide like bacteria,
-	
-	\hangpara \hspace*{1em} have plasma membranes like bacteria, and
-	
-	\hangpara \hspace*{1em} are most closely related to bacteria.
-	
-\end{frame}
-
-
 \end{document}
