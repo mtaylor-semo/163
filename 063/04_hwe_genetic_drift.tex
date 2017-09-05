@@ -1,0 +1,345 @@
+%!TEX TS-program = lualatex
+%!TEX encoding = UTF-8 Unicode
+
+\documentclass[12pt]{exam}
+\usepackage{graphicx}
+	\graphicspath{{/Users/goby/Pictures/teach/163/lab/}} % set of paths to search for images
+
+\usepackage{geometry}
+\geometry{letterpaper, bottom=1in}                   
+
+\usepackage{afterpage}
+\usepackage{pdflscape}
+
+\newlength{\myindent}
+\setlength{\myindent}{\parindent}
+\newcommand{\ind}{\hspace*{\myindent}}
+
+
+%\geometry{landscape}                % Activate for for rotated page geometry
+\usepackage[parfill]{parskip}    % Activate to begin paragraphs with an empty line rather than an indent
+%\usepackage{amssymb, amsmath}
+%\usepackage{mathtools}
+%	\everymath{\displaystyle}
+
+\usepackage{fontspec}
+\setmainfont[Ligatures={TeX}, BoldFont={* Bold}, ItalicFont={* Italic}, BoldItalicFont={* BoldItalic}, Numbers={OldStyle,Proportional}]{Linux Libertine O}
+\setsansfont[Scale=MatchLowercase,Ligatures=TeX, Numbers=OldStyle]{Linux Biolinum O}
+\setmonofont[Scale=MatchLowercase]{Inconsolatazi4}
+\usepackage{microtype}
+
+\usepackage{unicode-math}
+\setmathfont[Scale=MatchLowercase]{Asana Math}
+%\setmathfont[Scale=MatchLowercase]{XITS Math}
+
+% To define fonts for particular uses within a document. For example, 
+% This sets the Libertine font to use tabular number format for tables.
+\newfontfamily{\tablenumbers}[Numbers={Monospaced}]{Linux Libertine O}
+\newfontfamily{\libertinedisplay}{Linux Libertine Display O}
+
+\usepackage{longtable}
+
+\usepackage{booktabs}
+\usepackage{multirow}
+\usepackage{multicol}
+
+\usepackage[justification=raggedright, labelsep=period]{caption}
+\captionsetup{singlelinecheck=off}
+\captionsetup{skip=0.2em}
+
+%\usepackage{tabularx}
+%\usepackage{siunitx}
+\usepackage{array}
+\newcolumntype{L}[1]{>{\raggedright\let\newline\\\arraybackslash\hspace{0pt}}p{#1}}
+\newcolumntype{C}[1]{>{\centering\let\newline\\\arraybackslash\hspace{0pt}}p{#1}}
+\newcolumntype{R}[1]{>{\raggedleft\let\newline\\\arraybackslash\hspace{0pt}}p{#1}}
+
+\newcolumntype{M}[1]{>{\centering\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+
+
+\usepackage{enumitem}
+\setlist{leftmargin=*}
+\setlist[1]{labelindent=\parindent}
+\setlist[enumerate]{label=\textsc{\alph*}., ref=\textsc{\alph*}}
+
+\usepackage{hyperref}
+%\usepackage{hanging}
+
+\usepackage[sc]{titlesec}
+
+
+\renewcommand{\solutiontitle}{\noindent}
+\unframedsolutions
+\SolutionEmphasis{\bfseries}
+
+\renewcommand{\questionshook}{%
+	\setlength{\leftmargin}{-\leftskip}%
+}
+%Change \half command from 1/2 to .5
+%\renewcommand*\half{.5}
+
+
+\makeatletter
+\def\SetTotalwidth{\advance\linewidth by \@totalleftmargin
+\@totalleftmargin=0pt}
+\makeatother
+
+
+
+\pagestyle{headandfoot}
+\firstpageheader{BI 063: Evolution and Ecology}{}{\ifprintanswers\textbf{KEY}\else Name: \enspace \makebox[2.5in]{\hrulefill}\fi}
+\runningheader{}{}{\footnotesize{pg. \thepage}}
+\footer{}{}{}
+\runningheadrule
+
+\newcommand*\AnswerBox[2]{%
+    \parbox[t][#1]{0.92\textwidth}{%
+    \begin{solution}#2\end{solution}}
+    \vspace{\stretch{1}}
+}
+
+\newenvironment{AnswerPage}[1]
+    {\begin{minipage}[t][#1]{0.92\textwidth}%
+    \begin{solution}}
+    {\end{solution}\end{minipage}
+    \vspace{\stretch{1}}}
+
+\newlength{\basespace}
+\setlength{\basespace}{5\baselineskip}
+
+\newcommand{\allele}[1]{$#1$}
+
+%\printanswers
+
+\begin{document}
+
+\subsection*{Evolution by genetic drift}
+
+Evolution is be defined as genetic change in a population over time. 
+The genetic change that happens in a population over time is the change 
+in allele frequencies. Alleles are versions of genes that determine the 
+traits of individuals, such as eye color and hair color. Frequency tells 
+how common or uncommon different alleles are in a population. Common 
+alleles have a high frequency while uncommon alleles have a low frequency.  
+
+Biologists have identified five evolutionary processes that cause 
+populations to evolve: genetic drift, natural selection, gene flow, 
+mutation, and non-random mating. You will work in pairs to learn how 
+genetic drift changes allele frequencies in populations of monstrous snarks
+(\textit{Grumkin martini}). 
+
+\bigskip
+
+\textsc{Procedure}
+
+\medskip
+
+\begin{enumerate}
+	\item One pair of students at your table will use a population size of 
+	50 diploid individuals. The other pair will use a population size of 20
+	diploid individuals. 
+	
+	\item Within each pair, one student will draw beans from a bag. The other
+	student will record the results. You can switch tasks after every 
+	generation or two, just for variety.
+	
+\end{enumerate}
+
+On your table, each pair of students has two containers with light and dark beads and some 
+paper sacks. The light and dark beads represent different alleles. For this 
+simulation, you will use a starting frequency of 0.5 dark alleles ($D_1$, the dark 
+bead) and 0.5 light alleles ($D_2$, the light bead). You will need enough beads 
+to represent a population size of 20 or 50 individuals.
+
+\begin{enumerate}[resume]
+	
+	\item Calculate the total number of alleles for your population.\\
+	Write that number in the blank on the right side of the page. 
+	\hfill \rule{0.5in}{0.4pt}\\ \emph{Remember that your
+		organisms are diploid.} 
+	
+	\item Calculate the number of dark alleles you need for a frequency of 0.5. 
+	\hfill \rule{0.5in}{0.4pt} \\ Count that number of dark beads and place 
+	them in a paper sack. 
+	
+	\item Calculate the number of light alleles you need for a frequency of 0.5.
+	\hfill \rule{0.5in}{0.4pt} \\ Count that number of light beads and add 
+	them to the sack with the dark beads. Shake the sack well to mix the alleles.
+	
+	\item Be sure that the number of dark and light alleles adds up to the 
+	total number of alleles.
+	
+	\item This is Generation 0. Using 0.5 each starting allele frequency, 
+	calculate the genotype frequencies for Generation 0 and record them in 
+	Table~\ref{tab:selection_results} on page~\pageref{tab:selection_results}. 
+	\emph{Ask your instructor to check your calculations so that you start with 
+		the correct number of alleles.}
+	
+	\item \label{selection_sample_start} Reach into the bag and draw two alleles 
+	at random. Record the genotype (\allele{DD,} \allele{Dd,} or \allele{dd}) on 
+	a separate sheet of paper. Return the two alleles back to the population. 
+	(Put them back in the bag with the other beads). Shake the bag well.
+	
+	\textsc{Note:} Returning the beads to the bag is called \textbf{sampling with replacement.} 
+	Returning the alleles to the population simulates a larger population. Drawing 
+	the alleles at random simulates random mating.
+	
+	\item Repeat Step~\ref{selection_sample_start} until you have sampled the genotypes 
+	for either 20 or 50 individuals. Record the genotype for each individual you sample. 
+	Remember to return the alleles to the population after each sample. 
+	
+	\item Calculate the new allele and genotype frequencies and record them in 
+	Table~\ref{tab:selection_results} for Generation 1. 
+	
+\end{enumerate}
+
+\subsubsection*{Reset the population to the new allele frequencies}
+
+
+
+
+
+\begin{questions}
+	
+	\question
+	Did you get exactly the same genotype frequencies for Generation 1 
+	that you started with for Generation 0? If not, tell how the genotype
+	frequencies changed. 
+	
+	\vspace*{5\baselineskip}
+	
+
+
+	\textsc{Example:} Assume that after predation, you have the following number of survivors:
+	
+	Number of individuals: 14 \allele{dd}, 21 \allele{Dd}, and 3 \allele{DD}.\\
+	Number of alleles: $49$ \allele{d} and $27$ \allele{D}.\\
+	Total number of alleles: $76$
+
+	Frequency of \allele{d:} $49/76 = 0.64$\\
+	Frequency of \allele{D:} $24/76 = 0.36$ (Round to two digits after the decimal.)
+
+	Adjust the number of beads in your population so that you have 64 beads that represent the \allele{d} allele and 36 beads that represent the \allele{D} allele.  
+	
+	\item Repeat Steps~\ref{selection_sample_start}–\ref{selection_sample_stop} for five more generations (a total of six generations). Record the allele frequencies for each generation in Table~\ref{tab:selection_results}. Calculate the genotype frequencies for the final generation. 
+	
+
+
+\newpage
+
+
+%\begin{table}[t!]
+\begin{longtable}[l]{@{}C{0.75in}C{0.75in}C{0.75in}C{0.75in}C{0.75in}C{0.75in}@{}}
+  \caption{Allele and genotype frequencies for snarks after 5 generations of drift.}
+  \label{tab:selection_results}\tabularnewline
+  \toprule
+  &
+  \multicolumn{2}{c}{Allele Frequency}	&
+  \multicolumn{3}{c}{Genotype Frequency}\tabularnewline
+%
+  \cmidrule(lr){2-3} 
+  \cmidrule(l){4-6}
+%
+  Generation	&
+  \allele{D_1}		&
+  \allele {D_2} 	&
+  \allele{D_1D_1} 	&
+  \allele {D_1D_2} 	&
+  \allele {D_2D_2}	\tabularnewline
+%
+  \midrule
+  & & & & & \tabularnewline
+%
+0		&
+0.5	&
+0.5	&
+\rule{0.5in}{0.4pt}	&
+\rule{0.5in}{0.4pt}	&
+\rule{0.5in}{0.4pt}	\tabularnewline[2em]
+%
+1	&
+\rule{0.5in}{0.4pt} &
+\rule{0.5in}{0.4pt}	&
+\rule{0.5in}{0.4pt}	&
+\rule{0.5in}{0.4pt}	&
+\rule{0.5in}{0.4pt} \tabularnewline[2em]
+%
+2	&
+\rule{0.5in}{0.4pt} &
+\rule{0.5in}{0.4pt}	&
+\rule{0.5in}{0.4pt}	&
+\rule{0.5in}{0.4pt}	&
+\rule{0.5in}{0.4pt} \tabularnewline[2em]
+%
+	3	&
+\rule{0.5in}{0.4pt} &
+\rule{0.5in}{0.4pt}	&
+\rule{0.5in}{0.4pt}	&
+\rule{0.5in}{0.4pt}	&
+\rule{0.5in}{0.4pt} \tabularnewline[2em]
+%
+	4	&
+\rule{0.5in}{0.4pt} &
+\rule{0.5in}{0.4pt}	&
+\rule{0.5in}{0.4pt}	&
+\rule{0.5in}{0.4pt}	&
+\rule{0.5in}{0.4pt} \tabularnewline[2em]
+%
+	5	&
+\rule{0.5in}{0.4pt} &
+\rule{0.5in}{0.4pt}	&
+\rule{0.5in}{0.4pt}	&
+\rule{0.5in}{0.4pt}	&
+\rule{0.5in}{0.4pt} \tabularnewline
+%
+%6	&
+%\rule{0.5in}{0.4pt}	&
+%\rule{0.5in}{0.4pt}	&
+%\rule{0.5in}{0.4pt}	&
+%\rule{0.5in}{0.4pt}	&
+%\rule{0.5in}{0.4pt}	\tabularnewline
+%7	&
+%\rule{0.5in}{0.4pt}	&
+%\rule{0.5in}{0.4pt}	&
+%\rule{0.5in}{0.4pt}	&
+%\rule{0.5in}{0.4pt}	&
+%\rule{0.5in}{0.4pt}	\tabularnewline[2em]
+%8	&
+%\rule{0.5in}{0.4pt}	&
+%\rule{0.5in}{0.4pt}	&
+%\rule{0.5in}{0.4pt}	&
+%\rule{0.5in}{0.4pt}	&
+%\rule{0.5in}{0.4pt}	\tabularnewline[2em]
+\bottomrule 
+\end{longtable}
+%\end{table}
+
+\question
+Sketch a graph of the frequencies of \allele{D} and \allele{d} changed over time.
+
+\AnswerBox{1\basespace}{%
+}
+
+\question
+Did the results agree with the prediction you made in question~\ref{ques:selection_prediction}? Explain.
+
+\AnswerBox{1\baselineskip}{%
+}
+
+\question
+What mode of selection best matches your results? Explain.
+
+\AnswerBox{0\baselineskip}{Directional selection. The population phenotype is changing in one direction, from light phenotype to dark phenotype.}
+
+
+\end{questions}
+%
+%\subsubsection*{Reestablishing a population with new allele frequencies}
+%
+%During the natural selection simulation, the number of individuals remaining after you account for predation will be lower than the starting number of 50 individuals. You will need to adjust the number of beads in your population to bring the total population size back to 50 individuals (100 alleles). For example, after one sample and predation, your results may be:
+%
+
+
+
+
+\end{document}  
