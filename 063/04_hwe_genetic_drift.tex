@@ -175,7 +175,7 @@ to represent a population size of 20 or 50 individuals.
 	\emph{Ask your instructor to check your calculations so that you start with 
 		the correct number of alleles.}
 	
-	\item \label{selection_sample_start} Reach into the bag and draw two alleles 
+	\item \label{sample_start} Reach into the bag and draw two alleles 
 	at random. Record the genotype (\allele{DD,} \allele{Dd,} or \allele{dd}) on 
 	a separate sheet of paper. Return the two alleles back to the population. 
 	(Put them back in the bag with the other beads). Shake the bag well.
@@ -184,7 +184,7 @@ to represent a population size of 20 or 50 individuals.
 	Returning the alleles to the population simulates a larger population. Drawing 
 	the alleles at random simulates random mating.
 	
-	\item Repeat Step~\ref{selection_sample_start} until you have sampled the genotypes 
+	\item Repeat Step~\ref{sample_start} until you have sampled the genotypes 
 	for either 20 or 50 individuals. Record the genotype for each individual you sample. 
 	Remember to return the alleles to the population after each sample. 
 	
@@ -193,36 +193,46 @@ to represent a population size of 20 or 50 individuals.
 	
 \end{enumerate}
 
-\subsubsection*{Reset the population to the new allele frequencies}
-
-
-
-
-
 \begin{questions}
 	
 	\question
-	Did you get exactly the same genotype frequencies for Generation 1 
-	that you started with for Generation 0? If not, tell how the genotype
-	frequencies changed. 
+	Did you get \emph{exactly} the same genotype frequencies for
+	Generation 1 that you started with for Generation 0? If not,
+	tell how the genotype frequencies changed. 
 	
 	\vspace*{5\baselineskip}
 	
+\subsubsection*{Reset the population to the new allele frequencies}
 
+Because you used sampling with replacement, your pool of alleles that you sampled from still has a frequency of 0.5 for each 
+allele. Yet, your Generation 1 population almost certainly has 
+different allele frequencies.  You must therefore adjust the
+allele frequencies in your paper bags to reflect the new allele 
+frequencies before sampling for the next generation.
 
-	\textsc{Example:} Assume that after predation, you have the following number of survivors:
+\begin{enumerate} [resume]
+
+	\item Multiply the total number of alleles in your population by the frequency of each allele. Round to the nearest whole number. See the example below.
 	
-	Number of individuals: 14 \allele{dd}, 21 \allele{Dd}, and 3 \allele{DD}.\\
-	Number of alleles: $49$ \allele{d} and $27$ \allele{D}.\\
-	Total number of alleles: $76$
-
-	Frequency of \allele{d:} $49/76 = 0.64$\\
-	Frequency of \allele{D:} $24/76 = 0.36$ (Round to two digits after the decimal.)
-
-	Adjust the number of beads in your population so that you have 64 beads that represent the \allele{d} allele and 36 beads that represent the \allele{D} allele.  
+	\item Remove the existing alleles from your paper bag.
 	
-	\item Repeat Steps~\ref{selection_sample_start}–\ref{selection_sample_stop} for five more generations (a total of six generations). Record the allele frequencies for each generation in Table~\ref{tab:selection_results}. Calculate the genotype frequencies for the final generation. 
+	\item \label{sample_stop} Add the proper number of each allele from the bag.
 	
+	\item Repeat steps~\ref{sample_start}–\ref{sample_stop} for four more generations (a total of five generations). Record the allele and genotype frequencies for each generation in Table~\ref{tab:selection_results}. %Calculate the genotype frequencies for the final generation. 
+	
+\end{enumerate} 
+
+	\medskip
+	
+	\textsc{Example} 
+	
+	Assume that after sampling for Generation 1 that the frequencies of \allele{D_1} was 0.48 and \allele{D_2} was 0.52, and that your population size was 20 individuals.
+	
+	Number of \allele{D_1}: $0.48 \times 40 = 19.2.$ Round down to 19 alleles.
+	
+	Number of \allele{D_2}: $0.52 \times 40 = 20.8.$ Round up to 21 alleles.
+	
+	Put 19 dark alleles and 21 light alleles in the paper bag.
 
 
 \newpage
@@ -315,31 +325,17 @@ to represent a population size of 20 or 50 individuals.
 %\end{table}
 
 \question
-Sketch a graph of the frequencies of \allele{D} and \allele{d} changed over time.
+Sketch a graph of the frequencies of \allele{D_1} and \allele{D_2} changed over time.
 
 \AnswerBox{1\basespace}{%
 }
 
-\question
-Did the results agree with the prediction you made in question~\ref{ques:selection_prediction}? Explain.
+Enter the frequencies for \emph{just} \allele{D_1} into a spreadsheet for all six generations from Table~\ref{tab:selection_results}. Enter the numbers all in one row. Upload the spreadsheet to the Moodle drop box as indicated by your instructor. Your instructor will graph the allele~\allele{D_1} frequency for all groups.
 
-\AnswerBox{1\baselineskip}{%
-}
-
-\question
-What mode of selection best matches your results? Explain.
-
-\AnswerBox{0\baselineskip}{Directional selection. The population phenotype is changing in one direction, from light phenotype to dark phenotype.}
+\subsubsection*{Deviation from equilibrium: the $\chi^2$ test}
 
 
 \end{questions}
-%
-%\subsubsection*{Reestablishing a population with new allele frequencies}
-%
-%During the natural selection simulation, the number of individuals remaining after you account for predation will be lower than the starting number of 50 individuals. You will need to adjust the number of beads in your population to bring the total population size back to 50 individuals (100 alleles). For example, after one sample and predation, your results may be:
-%
-
-
 
 
 \end{document}  
