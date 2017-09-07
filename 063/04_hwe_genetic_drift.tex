@@ -332,8 +332,192 @@ Sketch a graph of the frequencies of \allele{D_1} and \allele{D_2} changed over 
 
 Enter the frequencies for \emph{just} \allele{D_1} into a spreadsheet for all six generations from Table~\ref{tab:selection_results}. Enter the numbers all in one row. Upload the spreadsheet to the Moodle drop box as indicated by your instructor. Your instructor will graph the allele~\allele{D_1} frequency for all groups.
 
-\subsubsection*{Deviation from equilibrium: the $\chi^2$ test}
+\subsubsection*{Deviation from equilibrium}
 
+\emph{Below, you will learn how to perform a $\chi^2$ test You may have to complete a $\chi^2$ test on an exam so study this handout carefully.}
+
+As you saw above, allele frequencies appeared to change over time due to your random sampling from the population. Random sampling of a small number of individuals from a large population introduces \emph{sampling error.} Sampling error does not mean that you made a mistake; instead, sampling error refers to the difference between the true value of a population (e.g., the true allele frequencies) and the value estimated from your random sample (the estimated allele frequencies). 
+
+For example, assume that a species of plant produces flowers with three different pistil lengths (the pistil is the female reproductive structure in flowers). You sample 500 individuals from a very large population (say, 100,000 individuals). You \emph{observe} in your sample 320 individuals with short pistils ($P_1P_1$), 175 with medium pistils ($P_1P_2$), and 5 with long pistils ($P_2P_2$).
+
+You first calculate the three genotype frequencies.
+
+$P_1P_1$: $320/500 = 0.64$ (short-pistil),\\ 
+$P_1P_2$: $175/500 = 0.35$ (medium pistils), and \\
+$P_2P_2$: $5/500 = 0.01$ (long pistils).
+
+You let $p^2 = 0.64$ for the frequency of the short-pistil genotype, so
+
+$p = \sqrt{p^2} = \sqrt{0.64} = 0.8.$
+
+Therefore, $q$ should equal $1 - 0.8 = 0.2$. You check this by letting $q^2 = 0.01$ for the frequency of the long-pistil genotype
+
+$q = \sqrt{q^2} = \sqrt{0.01} = 0.1.$
+
+Because $0.1 \neq 0.2$, and because $0.8 + 0.1 \neq 1$, the population seems not to be in Hardy-Weinberg equilibrium. That means that $p$ and $q$ are not accurate estimates of allele frequencies. So, you calculate the \emph{actual} allele frequencies from your sample.
+
+Total alleles: $500 \times 2 = 1000,$ \\
+$P_1$ alleles: $(320 \times 2) + 175 = 815$, and \\
+$P_2$ alleles: $(5 \times 2) + 175 = 185$.
+
+Convert the number of alleles to frequencies.
+
+$p = 815/1000 = 0.815$, and\\
+$q = 185/1000 = 0.185$.
+
+Because these are the \emph{actual} allele frequencies in your sample, you use these values to predict the \emph{expected} number of individuals for each genotype that should be in your sample, if the population is in Hardy-Weinberg equilibrium.
+
+
+$p^2 = (0.815)^2 = 0.664$,\\
+$2pq = 2(0.815)(0.185) = 0.302$, and
+$q^2 = (0.185)^2 = 0.034$.
+
+Calculate the \emph{expected} number of individuals by multiplying each frequency by your sample size.
+
+$0.664 \times 500 = 332$ short pistils\\
+$0.302 \times 500 = 151$ medium pistils, and\\
+$0.034 \times 500 = 17$ long pistils.
+
+Table~\ref{tab:obs_exp} summarizes your observed and expected results.
+
+%\begin{table}[h!]
+%\begin{center}
+{\setlength{\LTcapwidth}{2.2in}
+\begin{longtable}[c]{lrr}
+\caption{Observed and expected values for three pistil genotypes.\label{tab:obs_exp}} \tabularnewline
+%\begin{tabular}{lrr}
+\toprule
+Pistil	&	Observed	&	Expected \tabularnewline
+\midrule
+Short	&	320	&	332	\tabularnewline
+Medium	&	175	&	151	\tabularnewline
+Long	&	5	&	17  \tabularnewline
+\bottomrule
+\end{longtable}}
+%\end{tabular}
+%\end{center}
+%\end{table}
+
+
+You observed 320 individuals with short pistils but, if the population was in Hardy-Weinberg equilibrium, then you would expect to get 332 with short pistils. 
+
+\subsubsection*{The $\chi^2$ test}
+
+Could the difference be due to sampling error or could it be due to a real evolutionary process, such as genetic drift or natural selection? You can answer these questions with a statistical test called the χ$^2$ test (chi-square; chi sounds like kye). The χ$^2$ test compares observed values (your sample) against expected values to determine whether the differences are more likely due to random sampling error or to non-random factors, such a violation of one or more assumptions of the Hardy-Weinberg equations.
+
+The equation to calculate χ$^2$ is 
+
+ \[\chi^2 = \sum_{i=1}^{i=j}\frac{(O_i - E_i)^2}{E_i} \]
+
+where 
+
+$O$ is the observed value,
+ 
+$E$ is the expected value,
+ 
+$i$ is the current category (i.e., $A_1A_1$,$ A_1A_2$, or $A_2A_2$), and
+ 
+$j$ is the total number of categories (i.e., all three).\vspace{\baselineskip}
+
+This equation is easy to solve with a calculator. You calculate $\frac{(O_i - E_i)^2}{E_i}$ for each category ($A_1A_1$,$ A_1A_2$, or $A_2A_2$) and then sum together $(\sum)$ all of the values to obtain the χ$^2$ value. 
+
+
+
+These represent the three values of $O_i$ in the χ$^2$ equation above. \vspace{\baselineskip}
+
+
+If you let $p^2$ = 0.64 for the frequency of the short-pistil genotype, then
+
+\[p=\sqrt{0.64}=0.8,\]
+
+\[q=1-0.8=0.2,\]
+
+and
+
+\[q^2=(0.2)^2=0.04,\]
+
+\noindent so 4\% of the population should be homozygous for long pistils. However, only 1\% of our sample actually had long pistils, a difference of 3\%. We concluded in class that this population was not in Hardy-Weinberg equilibrium. But, is this true or is this an artifact of random sampling?
+
+Your sample size was 500 individuals. You already know the observed values of each genotype,\vspace{\baselineskip}
+
+320 $P_1P_1$ (short pistils),
+
+175 $P_1P_2$ (medium pistils), and
+
+5 $P_2P_2$ (long pistils). These represent the three values of $O_i$ in the χ$^2$ equation above. \vspace{\baselineskip}
+
+Next, calculate the frequency of each allele. You calculate allele frequencies from the number of allele copies contributed by each individual of each genotype, as we did in class. Our sample size is 500 individuals, so the total number of alleles in the population is 1000. You know that each short-pistil individual contributes 2 $p$ alleles, so the 320 individuals contribute 320 $\times$ 2 = 640 $p$ alleles. Each heterozygous individual contributes 1 $p$ allele so 175 $\times$ 1 = 175 $p$ alleles. Thus, you sampled a total of 640 $+$ 175 = 815 $p$ alleles. Subtracting 815 $p$ alleles from 1000 total alleles leaves you with 185 $q$ alleles in your sample, but you should double check to be certain your math is correct.
+
+The 5 long-pistil individuals each contribute 2 $q$ alleles, so 5 $\times$ 2 = 10 $q$ alleles. The heterozygous individuals each contribute 1 $q$ allele, so 175 $\times$ 1 = 175 $q$ alleles. Therefore, 175 $+$ 10 = 185 $q$ alleles in your sample. Both numbers match so your math is correct. (Whew!) Next, convert the actual number of alleles to frequencies. For the $p$ allele, the frequency is 
+
+ \[p = \frac{815}{1000} = 0.815,\]
+
+\noindent and the frequency of the $q$ allele is
+
+ \[q = \frac{185}{1000} = 0.185.\]
+
+You now use $p$ and $q$ to estimate the expected genotype frequencies for your sample, assuming that your sample fairly represents the entire population. You’re in familiar territory now.
+
+\[p^2 = (0.815)^2 = 0.664,\]
+
+\[2pq = 2(0.815)(0.185) = 0.302,\]
+
+and
+
+\[q^2 = (0.185)^2 = 0.034.\]
+
+The three genotype frequencies sum to 1. Next, estimate the expected number of individuals of each genotype in your sample, which are the values of $E_i$ in the χ$^2$ equation above. Your sample size is 500, so you multiple 500 by each genotype frequency to get the expected number of individuals for your sample:\vspace{\baselineskip}
+
+$500 \times 0.664 = 332$ short pistils,
+
+$500 \times 0.302 = 151$ medium pistils, and
+
+$500 \times 0.034 = 17$ long pistils.\vspace{\baselineskip}
+
+Follow the steps shown in Table 1 to calculate χ$^2$. The result is 12.72. How do you interpret this value? You compare the calculated value to the statistical values in a χ$^2$ table. A χ$^2$ table is available in most statistics books, online, and a small version is included in Table 2.
+
+\begin{table}[h!]
+\begin{center}
+\caption{Steps to calculate χ$^2$ from 500 individuals sampled from a hypothetical species of flowering plant. Only three genotypes were sampled.}
+\begin{tabular}{lrrrcr}
+\toprule
+Pistil	&	Observed	&	Expected	&	$O-E	$	&	$(O-E)^2$	&	$\frac{(O-E)^2}{E}$ \\
+\midrule
+Short	&	320	&	332	&	$-$12	&	144	&	0.434 \\
+Medium	&	175	&	151	&	24	&	576	&	3.815 \\
+Long		&	5	&	17	&	$-$12	&	144	&	8.471 \\
+ 		&		&		&			&		&	χ$^2$ = 12.72\\
+\bottomrule
+\end{tabular}
+\end{center}
+\end{table}
+
+\begin{table}[h!]
+	\begin{center}
+	\caption{Critical values of the χ$^2$ distribution.}
+	\begin{tabular}{rrrrrr}
+	\toprule
+		&	\multicolumn{5}{c}{Degrees of Freedom (\textit{df})} \\ \cmidrule{2-6}
+	Significance (α)	&	1	&	2	&	3	&	4	&	5 \\
+	\midrule
+	0.05	&	3.84	&	5.99	&	7.82	&	9.49	&	11.10 \\
+	0.01	&	6.64	&	9.21	&	11.30 &	13.20 &	15.10 \\
+	0.001 &	10.80 &	13.80 &	16.30 &	18.50 &	20.50 \\
+	\bottomrule
+	\end{tabular}
+	\end{center}
+\end{table}
+
+Scientists typically use a significance level (α) of 0.05 or lower to decide if the obtained results are significantly different from random. The significance level or alpha (α) is the cut-off probability needed to reject the \textbf{null hypothesis}. Your null hypothesis in this example is that the observed genotype frequencies are due to chance, not to evolutionary processes. You use this cut off to determine the probability that your sampled data are due to chance instead of biological processes. 
+
+The last number you need to consider is called the degrees of freedom (\textit{df}; the Mean, Variance and Standard Deviation lab explains degrees of freedom). In many χ$^2$ tests, you subtract 1 from the number of categories (here, 3 possible genotypes) but you must subtract 2 for Hardy-Weinberg problems. For Hardy-Weinberg problems with three possible genotypes, \textit{df} is always equal to 1.\footnote{The reasons for 1 \textit{df} for three categories are beyond the scope of this exercise but ask if you are curious.}
+
+Look at the χ$^2$ values in Table 2 to determine if your calculated value is significant. You simply look across the table until our \textit{df} and α values intersect. If the calculated χ$^2$ value is smaller than the corresponding value in the table, your results are probably due to random sampling because your result is not significant. If your calculated χ$^2$ value is greater than the number given in the table, your results are probably biologically significant and not due to chance. 
+
+For α = 0.05 and \textit{df} = 1, the tabled χ$^2$ value is 3.84 (Table 2). Your calculated χ$^2$ value of 12.72 is much greater, so it is statistically significant. In fact, your calculated χ$^2$ value is greater than any of the values in the \textit{df} = 1 column, so there is less than a 99.99\% probability that your null hypothesis is true ($p <$ 0.001). 
+
+Based on this analysis, the population of plants, represented by your 500 sampled individuals, is significantly different from Hardy-Weinberg equilibrium. When a population is not in Hardy-Weinberg equilibrium, you should wonder which assumption(s) of Hardy-Weinberg equilibrium were violated. This simple analysis is the basis of many evolutionary studies. You’ll use data from some of those studies to determine whether the populations sampled were in Hardy-Weinberg equilibrium.
+\vspace{\baselineskip}
 
 \end{questions}
 
