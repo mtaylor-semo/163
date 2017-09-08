@@ -5,6 +5,8 @@
 \usepackage{graphicx}
 	\graphicspath{{/Users/goby/Pictures/teach/163/lab/}} % set of paths to search for images
 
+%\printanswers
+
 \usepackage{geometry}
 \geometry{letterpaper, bottom=1in}                   
 
@@ -108,8 +110,6 @@
 \setlength{\basespace}{5\baselineskip}
 
 \newcommand{\allele}[1]{\textit{#1}}
-
-%\printanswers
 
 \begin{document}
 
@@ -334,17 +334,17 @@ Predict how the frequency of each allele should change in the peppered moth popu
 
 \medskip
 
-Work as a pair. One of you will sample alleles from the population while the other will record the results. You should take turns doing these tasks.  On your table, you have two containers with light and dark beads and some paper sacks. The light and dark beads represent different alleles. For this simulation, you will use a starting frequency of 0.9 light alleles (the light bead) and 0.1 dark alleles (the dark bead). You will need enough beads to represent a population size of 50 individuals.
+Work as a pair. One of you will sample alleles from the population while the other will record the results. You should take turns doing these tasks.  On your table, you have two containers with light and dark beads and some paper sacks. The light and dark beads represent different alleles. For this simulation, you will use a starting frequency of 0.90 light alleles (the light bead) and 0.10 dark alleles (the dark bead). You will need enough beads to represent a population size of 50 individuals.
 
 \begin{enumerate}
 
 	\item Calculate the total number of alleles and write it in the blank. \hfill \rule{0.5in}{0.4pt}\\ \emph{Remember that peppered moths are diploid.} 
 	
-	\item Calculate the number of light alleles you need for a frequency of 0.9. \hfill \rule{0.5in}{0.4pt} \\ Count out that number of light beads and place them in a paper sack. 
+	\item Calculate the number of light alleles you need for a frequency of 0.90. \hfill \rule{0.5in}{0.4pt} \\ Count out that number of light beads and place them in a paper sack. 
 	
-	\item Calculate the number of dark alleles you need for a frequency of 0.1. \hfill \rule{0.5in}{0.4pt} \\ Count out that number of dark beads and add them to the sack with the light beads. Shake the sack to mix the alleles.
+	\item Calculate the number of dark alleles you need for a frequency of 0.10. \hfill \rule{0.5in}{0.4pt} \\ Count out that number of dark beads and add them to the sack with the light beads. Shake the sack to mix the alleles.
 	
-	\item This is Generation 0. Using 0.9 and 0.1 for the starting allele frequencies, calculate the genotype frequencies for Generation 0 and record them in Table~\ref{tab:selection_results} on page~\pageref{tab:selection_results}. \emph{Ask your instructor to check your calculations so that you start with the correct number of alleles.}
+	\item This is Generation 0. Using 0.90 and 0.10 for the starting allele frequencies, calculate the genotype frequencies for Generation 0 and record them in Table~\ref{tab:selection_results} on page~\pageref{tab:selection_results}. \emph{Ask your instructor to check your calculations so that you start with the correct number of alleles.}
 	
 	\item \label{selection_sample_start} Reach into the bag and draw two alleles at random. Record the genotype (\allele{DD,} \allele{Dd,} or \allele{dd}) on a separate sheet of paper. Return the two alleles back to the population. (Put them back in the bag with the other beads).
 	
@@ -500,7 +500,9 @@ What mode of selection best matches your results? Explain.
 
 Gene flow is defined as the movement of individuals among populations.  If an individual moves to a different population and reproduces, then its alleles are introduced into the new population.  This can alter allele frequencies of both populations. You will simulate gene flow using two populations with different allele frequencies.
 
-For this exercise, you will simulate the movement of individuals between two populations. Each population will have 50 individuals each. Population 1 will have starting allele frequencies of 0.9 (\allele{d} allele) and 0.1 (\allele{D} allele). Population 2 will have a starting allele frequency of 0.5 for both alleles. Every generation, 10 individuals will move from Population 1 to Population 2, while 10 individuals move from Population 2 to Population 1.
+For this exercise, you will simulate how allele frequencies change due to gene flow, by moving individuals between two populations. 
+
+
 
 \question\label{ques:migration_prediction}
 Predict how the frequency of each allele will change for \emph{each} of the two populations due to gene flow. 
@@ -510,6 +512,11 @@ Predict how the frequency of each allele will change for \emph{each} of the two 
 \textsc{Procedure}
 
 \medskip
+
+Work as a pair. One of you will sample alleles from the population while the other will record the results. You should take turns doing these tasks.  On your table, you have two containers with light and dark beads and some paper sacks. The light and dark beads represent different alleles.
+
+Each population will always have 50 individuals each. Population 1 will have starting allele frequencies of 0.90 for allele \allele{d} (the light allele) and 0.10 fir allele \allele{D} (the dark allele). Population 2 will have a starting allele frequency of 0.50 for both alleles. Every generation, 10 individuals will move from Population 1 to Population 2, while 10 individuals move from Population 2 to Population 1.
+
 
 \begin{enumerate}
 
