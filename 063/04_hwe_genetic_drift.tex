@@ -5,6 +5,8 @@
 \usepackage{graphicx}
 	\graphicspath{{/Users/goby/Pictures/teach/163/lab/}} % set of paths to search for images
 
+%\printanswers
+
 \usepackage{geometry}
 \geometry{letterpaper, bottom=1in}                   
 
@@ -107,8 +109,6 @@
 
 \newcommand{\allele}[1]{$#1$}
 
-%\printanswers
-
 \begin{document}
 
 \subsection*{Evolution by genetic drift}
@@ -137,7 +137,7 @@ genetic drift changes allele frequencies in populations of monstrous snarks
 	50 diploid individuals. The other pair will use a population size of 20
 	diploid individuals. 
 	
-	\item Within each pair, one student will draw beans from a bag. The other
+	\item Within each pair, one student will draw beads from a bag. The other
 	student will record the results. You can switch tasks after every 
 	generation or two, just for variety.
 	
@@ -145,36 +145,36 @@ genetic drift changes allele frequencies in populations of monstrous snarks
 
 On your table, each pair of students has two containers with light and dark beads and some 
 paper sacks. The light and dark beads represent different alleles. For this 
-simulation, you will use a starting frequency of 0.5 dark alleles ($D_1$, the dark 
-bead) and 0.5 light alleles ($D_2$, the light bead). You will need enough beads 
-to represent a population size of 20 or 50 individuals.
+simulation, you will use a starting frequency of 0.50 dark alleles ($D_1$, the dark 
+bead) and 0.50 light alleles ($D_2$, the light bead). You will need enough beads 
+to represent a diploid population size of 20 or 50 individuals.
 
 \begin{enumerate}[resume]
 	
-	\item Calculate the total number of alleles for your population.\\
+	\item \label{total_alleles} Calculate the total number of alleles for your population.\\
 	Write that number in the blank on the right side of the page. 
 	\hfill \rule{0.5in}{0.4pt}\\ \emph{Remember that your
 		organisms are diploid.} 
 	
-	\item Calculate the number of dark alleles you need for a frequency of 0.5. 
+	\item Calculate the number of dark alleles you need for a frequency of 0.50. 
 	\hfill \rule{0.5in}{0.4pt} \\ Count that number of dark beads and place 
 	them in a paper sack. 
 	
-	\item Calculate the number of light alleles you need for a frequency of 0.5.
+	\item Calculate the number of light alleles you need for a frequency of 0.50.
 	\hfill \rule{0.5in}{0.4pt} \\ Count that number of light beads and add 
 	them to the sack with the dark beads. Shake the sack well to mix the alleles.
 	
 	\item Be sure that the number of dark and light alleles adds up to the 
 	total number of alleles.
 	
-	\item This is Generation 0. Using 0.5 each starting allele frequency, 
-	calculate the genotype frequencies for Generation 0 and record them in 
-	Table~\ref{tab:selection_results} on page~\pageref{tab:selection_results}. 
-	\emph{Ask your instructor to check your calculations so that you start with 
-		the correct number of alleles.}
+%	\item This is Generation 0. Using 0.50 each starting allele frequency, 
+%	calculate the genotype frequencies for Generation 0 and record them in 
+%	Table~\ref{tab:selection_results} on page~\pageref{tab:selection_results}. 
+%	\emph{Ask your instructor to check your calculations so that you start with 
+%		the correct number of alleles.}
 	
 	\item \label{sample_start} Reach into the bag and draw two alleles 
-	at random. Record the genotype (\allele{DD,} \allele{Dd,} or \allele{dd}) on 
+	at random. Record the genotype (\allele{D_1D_1,} \allele{D_1D_2,} or \allele{D_2D_2}) on 
 	a separate sheet of paper. Return the two alleles back to the population. 
 	(Put them back in the bag with the other beads). Shake the bag well.
 	
@@ -183,7 +183,7 @@ to represent a population size of 20 or 50 individuals.
 	the alleles at random simulates random mating.
 	
 	\item Repeat Step~\ref{sample_start} until you have sampled the genotypes 
-	for either 20 or 60 individuals. Record the genotype for each individual you sample. 
+	for either 20 or 50 individuals. Record the genotype for each individual you sample. 
 	Remember to return the alleles to the population after each sample. 
 	
 	\item Calculate the new allele and genotype frequencies, and count the number
@@ -196,13 +196,15 @@ to represent a population size of 20 or 50 individuals.
 	
 	\question
 	Did you get \emph{exactly} the same allele frequencies for
-	Generation 1 that you started with for Generation~0? What about for Generation~5? Tell how the allele frequencies changed. 
+	Generation 1 that you started with for Generation~0? What about for 
+	Generation~5 compared to Generation~0? Tell how the allele frequencies changed. 
 	
 	\vspace*{6\baselineskip}
 	
 \subsubsection*{Reset the population to the new allele frequencies}
 
-Because you used sampling with replacement, your pool of alleles that you sampled from still has a frequency of 0.5 for each 
+Because you used sampling with replacement, your pool of alleles that 
+you sampled from still has a frequency of 0.50 for each 
 allele. Yet, your Generation 1 population almost certainly has 
 different allele frequencies.  You must therefore adjust the
 allele frequencies in your paper bags to reflect the new allele 
@@ -230,7 +232,9 @@ frequencies before sampling for the next generation.
 	
 	Number of \allele{D_2}: $0.52 \times 40 = 20.8.$ Round up to 21 alleles.
 	
-	Put 19 dark alleles and 21 light alleles in the paper bag.
+	Put 19 dark alleles and 21 light alleles in the paper bag. \emph{Be sure the total
+		number of alleles you return to the paper bag matches the total number 
+		of alleles you identified for your population (see item~\ref{total_alleles})}.
 
 
 \question
@@ -239,13 +243,23 @@ Sketch a graph to show how the frequencies of \allele{D_1} and \allele{D_2} chan
 \vspace*{18\baselineskip}
 
 
-Enter the frequencies for \emph{just} \allele{D_1} into a spreadsheet for all six generations from Table~\ref{tab:selection_results}. Enter the numbers all in one row. Upload the spreadsheet to the Moodle drop box indicated by your instructor. Your instructor will graph the \allele{D_1} allele frequency for all groups.
+\textbf{Enter \emph{just} the \allele{D_1} allele frequencies into a spreadsheet on the instructor's
+computer at the front of the room.}  Enter the numbers all 
+in one row. Your instructor will graph the \allele{D_1} allele frequency for 
+all groups.
 
 \subsubsection*{Deviation from equilibrium}
 
-Chances are that the allele and genotype frequencies changed from generation to generation. The change might be large or small but genetic drift causes allele and genotype frequencies to change to some extent almost every generation.
+Chances are that the allele and genotype frequencies changed from generation to 
+generation. The change might be large or small but genetic drift causes allele 
+and genotype frequencies to change to some extent almost every generation.
 
-The next step is to test whether Generation~5 is in Hardy-Weinberg equilibrium. You calculated the observed allele and genotype frequencies, and you counted the number of individuals of each genotype. These are \emph{observed} values because you counted them directly from your sampled data.  If Generation~5 is in Hardy-Weinberg equilibrium, then you can use your allele frequencies to predict the number of individuals of each genotype you would expect to sample. \bigskip
+The next step is to test whether Generation~5 is in Hardy-Weinberg equilibrium. 
+You calculated the observed allele and genotype frequencies, and you counted the 
+number of individuals of each genotype. These are \emph{observed} values because 
+you counted them directly from your sampled data.  If Generation~5 is in 
+Hardy-Weinberg equilibrium, then you can use your allele frequencies to predict 
+the number of individuals of each genotype you would expect to sample. \bigskip
 
 \textsc{Example}
 
@@ -257,15 +271,20 @@ $D_1D_1$: 7 individuals  \\
 $D_1D_2$: 10 individuals, and\\
 $D_2D_2$: 3 individuals.
 
-The allele frequencies are $D_1 = 0.6$ and $D_2 = 0.4$. (By now, you should know how to calculate these values on your own.) If you let $p$ equal the $D_1$ frequency, then $p^2 = 0.36$, $q^2 = 0.16$, and $2pq = 0.48$.
+The allele frequencies are $D_1 = 0.6$ and $D_2 = 0.4$. (By now, you should 
+know how to calculate these values on your own.) If you let $p$ equal the $D_1$ 
+frequency, then $p^2 = 0.36$, $q^2 = 0.16$, and $2pq = 0.48$.
 
-Next, calculate the number of \emph{expected} number of individuals of each genotype by multiplying your sample size by each genotype frequency.
+Next, calculate the number of \emph{expected} number of individuals of each 
+genotype by multiplying your sample size by each genotype frequency.
 
 $D_1D_1$: $20 \times 0.36 = 7.2$ individuals,\\
 $D_1D_2$: $20 \times 0.48 = 9.6$ individuals, and\\
 $D_2D_2$: $20 \times 0.16 = 3.2$ individuals.
 
-It is \textsc{ok} to have fractions of individuals for expected numbers! \emph{Do not round the predicted numbers.} The small table below shows the comparison between your observed and predicted number of individuals.
+\textbf{Do not round the expected numbers.} It is \textsc{ok} to have 
+fractions of individuals for expected numbers. The small table below 
+shows the comparison between your observed and expected number of individuals.
 
 \begin{longtable}{lrr}
 	\toprule
@@ -277,19 +296,38 @@ It is \textsc{ok} to have fractions of individuals for expected numbers! \emph{D
 	\bottomrule
 \end{longtable}	
 
-The observed and expected numbers are not equal, so the population appears not to be in Hardy-Weinberg equilibrium. However, Random sampling of a small number of individuals from a large population introduces \emph{sampling error.} Sampling error does not mean that you made a mistake; instead, sampling error refers to the difference between the true value of a population (e.g., the true number of each genotype) and the value estimated from your random sample (the estimated number of each genotype). 
+The observed and expected numbers are not equal, so the population appears not 
+to be in Hardy-Weinberg equilibrium. However, random sampling of a small number 
+of individuals from a large population introduces \emph{sampling error.} Sampling 
+error does not mean that you made a mistake; instead, sampling error refers to 
+the difference between the true value of a population (e.g., the true number of 
+each genotype) and the value estimated from your random sample (the estimated 
+number of each genotype). \emph{Genetic drift is a type of sampling error.}
 
 \subsubsection*{The $\chi^2$ test}
 
-Could the difference between oberved and expected values be due to sampling error or could it be due to a real evolutionary process, such as genetic drift or natural selection? You can answer these questions with a statistical test called the $\chi^2$ test (chi-square; chi sounds like kye). The $\chi^2$ test compares observed values (your sample) against expected values to determine whether the differences are more likely due to random sampling error or to non-random factors, such as a violation of at least one assumption of the Hardy-Weinberg equations.
+Could the difference between oberved and expected values be due to sampling 
+error or could it be due to a real evolutionary process, such as genetic drift 
+or natural selection? You can answer these questions with a statistical test 
+called the $\chi^2$ test (chi-square; chi sounds like kye). The $\chi^2$ test 
+compares observed values (your sample) against expected values to determine 
+whether the differences are more likely due to random sampling error or to 
+non-random factors, such as a violation of at least one assumption of the 
+Hardy-Weinberg equations.
  
 The equation to calculate $\chi^2$ is 
 
 \[\chi^2 = \sum_{i=1}^{i=j}\frac{(O_i - E_i)^2}{E_i}, \]
 
-where $O$ is the observed value, $E$ is the expected value, $i$ is the current genotype (i.e., $D_1D_1$, $ D_1D_2$, or $D_2D_2$), and $j$ is the total number of genotypes. 
+where $O$ is the observed value, $E$ is the expected value, $i$ is the current 
+genotype (i.e., $D_1D_1$, $ D_1D_2$, or $D_2D_2$), and $j$ is the total number 
+of genotypes. 
 
-The calculation is easier than it looks! For each genotype, subtract the expected value from the observe value, square that value, then divide it by the expected value. Once you have the final value for each of the three genotypes, add them together to obtain $\chi^2$. The steps are laid out in the table below. 
+The calculation is easier than it looks! For each genotype, subtract the 
+expected value from the observe value, square that value, then divide it 
+by the expected value. Once you have the final value for each of the three 
+genotypes, add them together to obtain $\chi^2$. The steps are laid out 
+in the table below. 
 
 \question[Checkout]
 Fill in each blank to calculate $\chi^2$ for Generation~5.
@@ -322,17 +360,17 @@ Tell whether your results show a significant deviation from Hardy-Weinberg equil
 \begin{landscape}
 %\begin{table}[t!]
 \begin{longtable}[l]{C{0.75in}C{0.75in}C{0.75in}C{0.75in}C{0.75in}C{0.75in}C{0.75in}C{0.75in}C{0.75in}}
-	\caption{Allele and genotype frequencies after five generations of sampling.}
+	\caption{Genotype and allele frequencies after five generations of sampling.}
 	\label{tab:selection_results}\tabularnewline
 	\toprule
 	&
-	\multicolumn{2}{c}{Allele Frequencies}	&
+	\multicolumn{3}{c}{Number of Individuals}	&
 	\multicolumn{3}{c}{Genotype Frequencies}  &
-	\multicolumn{3}{c}{Number of Individuals}\tabularnewline
+	\multicolumn{2}{c}{Allele Frequencies}\tabularnewline
 	%
-	\cmidrule(lr){2-3} 
-	\cmidrule(l){4-6}
-	\cmidrule(l){7-9}	
+	\cmidrule(lr){2-4} 
+	\cmidrule(l){5-7}
+	\cmidrule(l){8-9}	
 	%
 	Generation			&
 	\allele{D_1}		&
@@ -348,13 +386,14 @@ Tell whether your results show a significant deviation from Hardy-Weinberg equil
 	& & & & & & & &\tabularnewline
 	%
 	0		&
-	0.5	&
-	0.5	&
 	& %\rule{0.5in}{0.4pt}	&
 	& %\rule{0.5in}{0.4pt}	&
 	& %\rule{0.5in}{0.4pt}	&
 	& %\rule{0.5in}{0.4pt}	&
-	&  \tabularnewline[2em]%\rule{0.5in}{0.4pt}	&
+	&
+	&
+	0.50	&
+	0.50 	\tabularnewline[2em]%\rule{0.5in}{0.4pt}	&
 	%\rule{0.5in}{0.4pt}	\tabularnewline[2em]
 	%
 	1	&
