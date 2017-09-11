@@ -1,0 +1,207 @@
+%!TEX TS-program = lualatex
+%!TEX encoding = UTF-8 Unicode
+
+\documentclass[12pt]{exam}
+
+
+%\printanswers
+
+\usepackage{graphicx}
+	\graphicspath{{/Users/goby/Pictures/teach/163/lab/}
+	{img/}} % set of paths to search for images
+
+\usepackage{geometry}
+\geometry{letterpaper, left=1.5in, bottom=1in}                   
+%\geometry{landscape}                % Activate for for rotated page geometry
+\usepackage[parfill]{parskip}    % Activate to begin paragraphs with an empty line rather than an indent
+\usepackage{amssymb, amsmath}
+\usepackage{mathtools}
+	\everymath{\displaystyle}
+
+\usepackage[table]{xcolor}
+
+\usepackage{fontspec}
+\setmainfont[Ligatures={TeX}, BoldFont={* Bold}, ItalicFont={* Italic}, BoldItalicFont={* BoldItalic}, Numbers={OldStyle}]{Linux Libertine O}
+\setsansfont[Scale=MatchLowercase,Ligatures=TeX]{Linux Biolinum O}
+\setmonofont[Scale=MatchLowercase]{Inconsolatazi4}
+\newfontfamily{\tablenumbers}[Numbers={Monospaced,Lining}]{Linux Libertine O}
+\usepackage{microtype}
+
+\usepackage{unicode-math}
+\setmathfont[Scale=MatchLowercase]{TeX Gyre Termes Math}
+
+\usepackage{amsbsy}
+%\usepackage{bm}
+
+% To define fonts for particular uses within a document. For example, 
+% This sets the Libertine font to use tabular number format for tables.
+ %\newfontfamily{\tablenumbers}[Numbers={Monospaced}]{Linux Libertine O}
+% \newfontfamily{\libertinedisplay}{Linux Libertine Display O}
+
+\usepackage{multicol}
+%\usepackage[normalem]{ulem}
+
+\usepackage{longtable}
+\usepackage{caption}
+	\captionsetup{format=plain, justification=raggedright, singlelinecheck=off,labelsep=period,skip=3pt} % Removes colon following figure / table number.
+%\usepackage{siunitx}
+\usepackage{booktabs}
+\usepackage{array}
+\newcolumntype{L}[1]{>{\raggedright\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+\newcolumntype{C}[1]{>{\centering\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+\newcolumntype{R}[1]{>{\raggedleft\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+
+\usepackage{enumitem}
+\setlist{leftmargin=*}
+\setlist[1]{labelindent=\parindent}
+\setlist[enumerate]{label=\textsc{\alph*}.}
+\setlist[itemize]{label=\color{gray}\textbullet}
+%\usepackage{hyperref}
+%\usepackage{placeins} %PRovides \FloatBarrier to flush all floats before a certain point.
+%\usepackage{hanging}
+
+\usepackage[sc]{titlesec}
+
+%% Commands for Exam class
+\renewcommand{\solutiontitle}{\noindent}
+\unframedsolutions
+\SolutionEmphasis{\bfseries}
+
+\renewcommand{\questionshook}{%
+	\setlength{\leftmargin}{-\leftskip}%
+}
+
+%Change \half command from 1/2 to .5
+\renewcommand*\half{.5}
+
+\pagestyle{headandfoot}
+\firstpageheader{\textsc{bi}\,163 Evolution and Ecology}{}{\ifprintanswers\textbf{KEY}\else Name: \enspace \makebox[2.5in]{\hrulefill}\fi}
+\runningheader{}{}{\footnotesize{pg. \thepage}}
+\footer{}{}{}
+\runningheadrule
+
+\newcommand*\AnswerBox[2]{%
+    \parbox[t][#1]{0.92\textwidth}{%
+    \begin{solution}#2\end{solution}}
+%    \vspace*{\stretch{1}}
+}
+
+\newenvironment{AnswerPage}[1]
+    {\begin{minipage}[t][#1]{0.92\textwidth}%
+    \begin{solution}}
+    {\end{solution}\end{minipage}
+    \vspace*{\stretch{1}}}
+
+\newlength{\basespace}
+\setlength{\basespace}{5\baselineskip}
+
+%% To hide and show points
+\newcommand{\hidepoints}{%
+	\pointsinmargin\pointformat{}
+}
+
+\newcommand{\showpoints}{%
+	\nopointsinmargin\pointformat{(\thepoints)}
+}
+
+\newcommand{\bumppoints}[1]{%
+	\addtocounter{numpoints}{#1}
+}
+
+\newcommand*\meanY{\overline{Y\kern1.67pt}\kern-1.67pt}
+\newcommand*\meansubY{\overline{Y}}
+%\newcommand*\meanY{\overline{Y}}
+\newcommand*\ttest{\emph{t}-test}
+\newcommand*\Popa{Population~\textsc{a}}
+\newcommand*\Popb{Population~\textsc{b}}
+\newcommand*\popa{population~\textsc{a}} %lower case
+\newcommand*\popb{population~\textsc{b}} %lower case
+\newcommand*\Corbicula{\textit{Corbicula}}
+\newcommand*\AnswerBlank{\rule{0.75in}{0.4pt}\kern0.67pt.}
+%
+%\makeatletter
+%\def\SetTotalwidth{\advance\linewidth by \@totalleftmargin
+%\@totalleftmargin=0pt}
+%\makeatother
+
+
+\begin{document}
+
+\subsection*{Hardy-Weinberg Practice Problems}
+
+Problems 1, 2, and 7 adapted from Hartl and Clark, \textit{Principles of Population Genetics}, Third Edition. Other word problems by Dr. Jennifer Weber.
+
+
+\subsubsection*{Review}
+
+Remember that HW frequencies refer to a population level trait.
+
+$p$ = the frequency of one allele (i.e., frequency of \emph{all} “A” alleles in a population), \\
+$q$ = the frequency of another allele (i.e., frequency of \emph{all} “a” alleles in a population),\\
+When there are only two alleles for a genotype, $p + q = 1$ (i.e., all of the alleles: $A + a = 1$).
+
+$p^2 =$ the frequency of the homozygous individuals of one allele (i.e., $AA$), \\
+$2pq =$ the frequency of the heterozygotes individuals (i.e., $Aa$), \\
+$q^2 =$ the frequency of the homozygous individuals of another allele (i.e., $aa$).
+
+With only two alleles for a genotype $p^2 +2pq + q^2 = 1$ (i.e., $AA + Aa + aa = 1$).
+
+Individuals that are heterozygous are said to be “carriers” of a recessive trait, because they can pass it on without expressing that allele (because the dominant allele of the heterozygote is expressed instead).
+
+\textsc{Hint:} Notice if you are given $p$ or $q$ versus when you are given $p^2$ or $q^2$!
+
+\subsubsection*{Practice Problems}
+
+\begin{questions}
+
+\question
+The allele frequencies in a population were estimated as $p = 0.87$ and $q = 0.13$, 
+for the wild type ($+$) and $Δ32$ allele, respectively. What will be the genotype 
+frequencies in the next generation for $+$/$+$, $+/Δ32$, and $Δ32/Δ32$? 
+($+$ is just an allele, like any other allele. You can use $A$ and $a$, if you want.)
+
+\AnswerBox{2\baselineskip}{$+/+ = 0.757,$ \quad $+/Δ32 = 0.226,$ \quad $Δ32/Δ32 = 0.17.$}
+
+
+\question
+The $BanI$ site can either be present or absent in a chromosome of \textit{Drosophila melanogaster}.
+Let $B$ represent the presence of $BanI$ with a frequency of $p = 0.48$ and let $b$ 
+represent the absence of $BanI.$ Assuming Hardy-Weinberg, calculate the expected frequencies of the genotypes $BB,$ $Bb,$ and $bb$ in the next generation.
+
+\AnswerBox{2\baselineskip}{$BB = 0.230,$ \quad $Bb = 0.500,$ \quad $bb = 0.270.$}
+
+\question
+In the $Ss$ blood group, three phenotypes corresponding to the genotypes $SS$, $Ss$
+and $ss$ can be identified. Among 1000 British people the observed number of each 
+genotype for the $Ss$ blood groups were 99 $SS$, 418 $Ss$ and 483 $ss$.  Estimate 
+the allele frequencies of $S$ and $s$.  Do these deviate from Hardy-Weinberg equilibrium?
+
+\AnswerBox{2\baselineskip}{$S = 0.308$ \quad $s = 0.692$; The population is not in equilibrium.}
+
+\question
+A deleterious, recessive allele is present in a population at a frequency of 0.06. 
+Assuming \textsc{hwe}, estimate the percentage of heterozygote “carriers” of the allele 
+in the population. 
+
+\AnswerBox{2\baselineskip}{Carriers: $2pq = 0.113$ or 11.3\% of the population.}
+
+\question
+In frogs, a recessive allele $g$ causes a debilitating disease that can decrease muscle strength.  Since the allele is recessive, it is only expressed when homozygous.  In a population of frogs, 5\% of the individuals in the population suffer from the disease.  Estimate the percentage of heterozygote “carriers” of the allele in the population.
+
+
+\AnswerBox{2\baselineskip}{Carriers: $Gg = 0.347.$}
+
+\question
+In unicorns, geneticists have found that horn coloration is controlled by a gene with two alleles ($U$ and $u$). $UU$ individuals have purple horns; $Uu$ individuals have white horns and $uu$ individuals have rainbow colored horns.  If 70\% of unicorns have purple horns and 10\% of rainbow horns, what is the frequency of $U$ allele? (Pretend that unicorns are real. Pretend that geneticists that study unicorns are also real.)
+
+\AnswerBox{4\baselineskip}{$U = 0.8.$; This population is not in equilibrium so you cannot take the square root of $0.70.$ To convince yourself, add together the square roots of 0.70 (\textit{UU}) and 0.10 (\textit{uu}).}
+
+
+\question
+ In one study of a heavily polluted area near Birmingham, England, Kettlewell (1956) observed a frequency of 87\% melanic \textit{Biston beularia}. Estimate the frequency of the dominant allele (the dark allele) leading to melanism in the population and the \emph{frequency of melanics} that are heterozygous.\textsc{Hint: dark moths can be $DD$ or $Dd$.}
+
+\AnswerBox{2\baselineskip}{$D = 0.639$ \quad $Dd = 0.461$. Therefore, of the 87\% that are melanic, $0.461/0.87 = 0.53$ or 53\% are heterozygous.}
+
+\end{questions}
+
+\end{document}  
