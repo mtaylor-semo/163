@@ -1,7 +1,7 @@
 %!TEX TS-program = lualatex
 %!TEX encoding = UTF-8 Unicode
 
-\documentclass[12pt]{exam}
+\documentclass[12pt, hidelinks]{exam}
 \usepackage{graphicx}
 	\graphicspath{{/Users/goby/Pictures/teach/163/lab/}} % set of paths to search for images
 
@@ -119,7 +119,7 @@
 
 These exercises are based on the peppered moth (\textit{Bison betularia}) that lives in Great Britain. The peppered moth has two phenotypes, a light-colored form with dark speckles (hence, the common name) and a dark form that is nearly black. The color of the peppered moth is determined by one gene with two alleles. The \allele{D} allele causes dark pigment production but the \allele{d} allele does not. If at least one dark allele is present then pigment will be produced, so moths that are homozygous \allele{DD} or heterozygous \allele{Dd} genotypes are dark. Only moths that are homozygous \allele{dd} are light. 
 
-You will work in pairs for this exercise. One pair at your table will complete the Natural Selection section, starting on page~\pageref{sec:natural_selection}. The other pair will complete the Gene Flow section, starting on page~\pageref{sec:gene_flow}. Both pairs must complete the $\chi^2$ section that starts on page~\pageref{sec:chi_square}
+You will work in pairs for this exercise. One pair at your table will complete the Natural Selection section, starting on page~\pageref{sec:natural_selection}. The other pair will complete the Gene Flow section, starting on page~\pageref{sec:gene_flow}. \textbf{Both pairs must complete the $\chi^2$ section that starts on page~\pageref{sec:chi_square}.}
 
 %Evolution is be defined as genetic change in a population over time. The genetic change that happens in a population over time is the change in allele frequencies. Alleles are versions of genes that determine the traits of individuals, such as eye color and hair color. Frequency tells how common or uncommon different alleles are in a population. Common alleles have a high frequency while uncommon alleles have a low frequency.  
 %
@@ -351,7 +351,7 @@ One of you will sample alleles from the population while the other will record t
 	
 	\textsc{Note:} Returning the beads to the bag is called \textbf{sampling with replacement.} Returning the alleles to the population simulates a very large population. Drawing the alleles at random simulates random mating.
 	
-	\item Repeat Step~\ref{selection_sample_start} until you have sampled the genotypes for 50 individuals. Record the genotype for each individual you sample. Remember to return the alleles to the population after each sample. 
+	\item Repeat Step~\ref{selection_sample_start} until you have sampled the genotypes for 50 individuals. Record the genotype for \textbf{each} individual you sample. Remember to return the alleles to the population after each sample. 
 	
 	\item Add up the number of individuals for each genotype. These individuals are the offspring from Generation 0. Some of these individuals will not survive, thanks to the darker trees caused by the Industrial Revolution. Dark moths are less visible to predators so only 10\% are eaten by predators. In contrast, 50\% of the light moths are eaten. 
 	
@@ -372,7 +372,7 @@ One of you will sample alleles from the population while the other will record t
 
 	Adjust the number of beads in your population so that you have 64 beads that represent the \allele{d} allele and 36 beads that represent the \allele{D} allele.  
 	
-	\item Repeat Steps~\ref{selection_sample_start}–\ref{selection_sample_stop} for six more generations (a total of seven generations). Record the allele frequencies for each generation in Table~\ref{tab:selection_results}. Calculate the genotype frequencies for the final generation. 
+	\item Repeat Steps~\ref{selection_sample_start}–\ref{selection_sample_stop} for four more generations (a total of five generations). Record the allele frequencies for each generation in Table~\ref{tab:selection_results}. Calculate the genotype frequencies for the final generation. 
 	
 \end{enumerate}
 
@@ -474,7 +474,7 @@ One of you will sample alleles from the population while the other will record t
 %\newpage
 
 \question
-\textbf{Enter \emph{just} the \allele{D_2} allele frequency into the spreadsheet on the instructor's
+\textbf{Enter \emph{just} the \allele{d} allele frequency into the spreadsheet on the instructor's
 computer at the front of the room.}  Enter the numbers all 
 in one row. Your instructor will graph the allele frequency change for all groups.
 
@@ -540,30 +540,30 @@ Decide which of you will sample from Population~1 and Population~2. On your tabl
 %	\item Count 50 dark and 50 light beads and place them together in another bag. Label the bag Population 2.  Record the starting allele frequencies in the Generation 0 row in Table~\ref{tab:migration_results} on page~\pageref{tab:migration_results}.
 %	
 
-	\item Draw 10 individuals at random (how many alleles?) from the Population~1 sack and set them aside. Draw 10 individuals at random from the Population~2 sack and set them aside. You do not have to count their genotypes. \emph{Remove the individuals from each population before you add them to the other ppopulation.}
+	\item \label{gene_flow_sample_start}Draw 10 individuals at random (how many alleles?) from the Population~1 sack and set them aside. Draw 10 individuals at random from the Population~2 sack and set them aside. You do not have to count their genotypes. \emph{Remove the individuals from each population before you add them to the other ppopulation.}
 	
 	\item Add the 10 individuals from Population~1 to Population~2. Add the 10 individuals from Population~2 to Population~1. 
 	
-	\item \label{gene_flow_sample_start} Reach into the Population~1 bag and draw two alleles at random. Record the genotype (\allele{DD,} \allele{Dd,} or \allele{dd}) on a separate sheet of paper. Return the two alleles back to the population. (Put them back in the bag with the other beads).
+	\item \label{gene_flow_allele_sample} Reach into the Population~1 bag and draw two alleles at random. Record the genotype (\allele{DD,} \allele{Dd,} or \allele{dd}) on a separate sheet of paper. Return the two alleles back to the population. (Put them back in the bag with the other beads).
 	
 	\textsc{Note:} Returning the beads to the bag is called \textbf{sampling with replacement.} Returning the alleles to the population simulates a very large population. Drawing the alleles at random simulates random mating.
 	
-	\item Repeat Step~\ref{gene_flow_sample_start} until you have sampled the genotypes for 50 individuals from each population. Record the genotype for each individual you sample. Remember to return the alleles to the population after each sample. 
+	\item Repeat Step~\ref{gene_flow_allele_sample} until you have sampled the genotypes for 50 individuals from each population. Record the genotype for \textbf{each} individual you sample. Remember to return the alleles to the population after each sample. 
 
  	\emph{Do not mix the individuals from each population.}
 	
-	\item Calculate the new allele and genotype frequencies for each population following migration. Record your results in the Generation~1 row in Table~\ref{tab:migration_results}. The population size of each population should still be 50 individuals.
+	\item \label{gene_flow_sample_stop} Calculate the new allele and genotype frequencies for each population following migration. Record your results in the Generation~1 row in Table~\ref{tab:migration_results}. The population size of each population should still be 50 individuals.
 	
-	\item Repeat this procedure for 4 more generations (5 total).% Calculate the genotype frequencies of each population for the final generation.
+	\item Repeat steps~\ref{gene_flow_sample_start}–\ref{gene_flow_sample_stop} for 4 more generations (5 total).% Calculate the genotype frequencies of each population for the final generation.
 	
 	\item Count the number of individuals of each genotype for Generation~5 for each population. Enter them below Table~\ref{tab:migration_results} on page~\pageref{tab:migration_results}. 
 
 \end{enumerate}
 
 \question
-\textbf{Enter \emph{just} the \allele{D_2} allele frequency for each population into the spreadsheet on the instructor's
+\textbf{Enter \emph{just} the \allele{d} allele frequency for each population into the spreadsheet on the instructor's
 computer at the front of the room.}  Enter the numbers all 
-in one row. Your instructor will graph the \allele{D_2} allele frequency for 
+in one row. Your instructor will graph the \allele{d} allele frequency for 
 all groups.
 
 %\AnswerBox{1.2\basespace}{%
@@ -592,11 +592,11 @@ Based on the results of your migration simulation, explain why gene flow between
 \subsubsection*{Do your populations deviate from equilibrium? Calculate $\chi^2$}\label{sec:chi_square}
 
 \question[Checkout] \label{ques:chi-square}
-Calculate $\chi^2$ for your final generation. As a reminder, here is the equation to calculate the statistic.
+Calculate $\chi^2$ for the final generation of your population. Use \emph{only} Population~1 if you did the gene flow section. As a reminder, here is the equation to calculate the statistic.
 
 \[\chi^2 = \sum_{i=1}^{i=j}\frac{(O_i - E_i)^2}{E_i}, \]
 
-In the space below, make a table that shows all steps of your calculation. If necessary, refer to the \textsc{Evolution by genetic drift} exercise from the previous lab.
+In the space below, make a table that shows all steps of your calculation. If necessary, refer to the \textsc{Evolution by genetic drift} exercise from the previous lab. \textbf{Is your final generation is in Hardy-Weinberg equilibrium? Tell how you know.}
 
 \AnswerBox{4\basespace}{%
 }
@@ -627,14 +627,14 @@ In the space below, make a table that shows all steps of your calculation. If ne
 	\cmidrule(l){8-9}	
 	%
 	Generation			&
-	\allele{D_1D_1}		&
-	\allele{D_1D_2} 		&
-	\allele{D_2D_2} 	&
-	\allele{D_1D_1} 	&
-	\allele{D_1D_2}	&
-	\allele{D_2D_2} 	&
-	\allele{D_1} 	&
-	\allele{D_2}	\tabularnewline
+	\allele{DD}		&
+	\allele{Dd} 		&
+	\allele{dd} 	&
+	\allele{DD} 	&
+	\allele{Dd}	&
+	\allele{dd} 	&
+	\allele{D} 	&
+	\allele{d}	\tabularnewline
 	%
 	\midrule
 	& & & & & & & &\tabularnewline
@@ -700,15 +700,15 @@ In the space below, make a table that shows all steps of your calculation. If ne
 	\rule{0.5in}{0.4pt}	&
 	\rule{0.5in}{0.4pt} \tabularnewline[2em]
 	%
-	6	&
-	\rule{0.5in}{0.4pt} &
-	\rule{0.5in}{0.4pt}	&
-	\rule{0.5in}{0.4pt}	&
-	\rule{0.5in}{0.4pt}	&
-	\rule{0.5in}{0.4pt}	&
-	\rule{0.5in}{0.4pt}	&
-	\rule{0.5in}{0.4pt}	&
-	\rule{0.5in}{0.4pt} \tabularnewline
+%	6	&
+%	\rule{0.5in}{0.4pt} &
+%	\rule{0.5in}{0.4pt}	&
+%	\rule{0.5in}{0.4pt}	&
+%	\rule{0.5in}{0.4pt}	&
+%	\rule{0.5in}{0.4pt}	&
+%	\rule{0.5in}{0.4pt}	&
+%	\rule{0.5in}{0.4pt}	&
+%	\rule{0.5in}{0.4pt} \tabularnewline
 	%
 	%7	&
 	%\rule{0.5in}{0.4pt}	&
