@@ -23,6 +23,11 @@
 
 \usepackage{pdflscape}
 
+\usepackage{tikz}
+\usetikzlibrary{trees}
+
+\usepackage{forest}
+
 % To define fonts for particular uses within a document. For example, 
 % This sets the Libertine font to use tabular number format for tables.
  %\newfontfamily{\tablenumbers}[Numbers={Monospaced}]{Linux Libertine O}
@@ -36,11 +41,71 @@
 	\captionsetup{singlelinecheck=off}
 	\captionsetup[table]{skip=0pt}
 
-\usepackage{tikz}
+%\usepackage{tikz}
 \tikzstyle{block} = [rectangle, draw, fill=white, rounded corners,
                  minimum size=2em]
 \tikzstyle{branch} = [thick, draw]
 
+\usetikzlibrary{positioning, backgrounds}
+
+\tikzset{
+	timeline/.style={text centered, text width=2cm},
+	no edge from this parent/.style={
+		every child/.append style={
+			edge from parent/.style={draw=none}}},
+}
+
+\forestset{
+	every leaf node/.style={
+		if n children=0{#1}{}
+	},
+	every tree node/.style={
+		if n children=0{}{#1}
+	},
+	mytree/.style={
+		for tree={
+			edge path={
+				\noexpand\path [draw, thick, \forestoption{edge}] (!u.parent anchor) |- (.child anchor)\forestoption{edge label};
+			},
+			every tree node={draw=none,inner sep=0, outer sep=0, minimum size=0},
+			every leaf node/.style={align=left},
+			grow'=0,
+			parent anchor=east, 
+			child anchor=west,
+			anchor=west,
+			l sep=0.5cm,
+			s sep=3mm,
+			draw=none,
+			if n children=0{tier=word}{}
+		}
+	}
+}
+
+\forestset{
+	every leaf node/.style={
+		if n children=0{#1}{}
+	},
+	every tree node/.style={
+		if n children=0{}{#1}
+	},
+	Vtree/.style={
+		for tree={
+			edge path={
+				\noexpand\path [draw, thick, \forestoption{edge}] (!u.parent anchor) -< (.child anchor)\forestoption{edge label};
+			},
+			every tree node={draw=none,inner sep=0, outer sep=0, minimum size=0},
+			every leaf node/.style={align=left},
+			grow'=0,
+			parent anchor=east, 
+			child anchor=west,
+			anchor=west,
+			l sep=0.5cm,
+			s sep=3mm,
+			draw=none,
+			if n children=0{tier=word}{}
+		}
+	}
+}
 
 \usepackage{longtable}
 %\usepackage{siunitx}
@@ -498,11 +563,11 @@ R	&
 
 \thispagestyle{empty}
 
+\begin{questions}
+	
 \begin{landscape}
 
 Now, make phylogenetic trees from the following presence/absence data sets. Use a separate sheet of paper to draw your trees. Ask your instructor to check your trees to be sure each is correct. %your phylogenetic trees on.
-
-\begin{questions}
 
 \liningnum
 
@@ -641,10 +706,217 @@ Tiger &
 %\bottomrule
 %\end{longtable}
 %
+\end{landscape}
+
+\ifprintanswers
+
+\newgeometry{top=0.5in, bottom=0.5in}
+
+\thispagestyle{plain}
+
+
+\textsc{Tree 1}
+
+\qquad\begin{forest} mytree
+	[[,name=base
+	[A]
+	[,name=split1
+	[B]
+	[,name=split2
+	[C]
+	[,name=split3
+	[D]
+	[,name=split4
+	[E]
+	[,name=split5
+	[F]
+	[G]
+	]
+	]
+	]
+	]
+	]
+	]]
+	\filldraw (base) circle [radius=3pt, fill=black, xshift=-5mm] node [below, xshift=-5mm, yshift=-2pt] {C1};
+	\filldraw (split1) circle [radius=3pt, fill=black, xshift=-5mm] node [below, xshift=-5mm, yshift=-2pt] {C2};
+	\filldraw (split2) circle [radius=3pt, fill=black, xshift=-5mm] node [below, xshift=-5mm, yshift=-2pt] {C3};
+	\filldraw (split3) circle [radius=3pt, fill=black, xshift=-5mm] node [below, xshift=-5mm, yshift=-2pt] {C4};
+	\filldraw (split4) circle [radius=3pt, fill=black, xshift=-5mm] node [below, xshift=-5mm, yshift=-2pt] {C5};
+	\filldraw (split5) circle [radius=3pt, fill=black, xshift=-5mm] node [below, xshift=-5mm, yshift=-2pt] {C6};
+\end{forest}
+
+\vspace*{\stretch{1}}
+
+\textsc{Tree 2}
+
+\qquad\begin{forest} mytree
+	[[,name=base
+	[,name=ABE
+	[,name=AB
+	[A]
+	[B]
+	]
+	[E]
+	]
+	[,name=FCD
+	[F]
+	[,name=CD
+	[C]
+	[D]
+	]
+	]
+	]]
+	\filldraw (base) circle [radius=3pt, fill=black, xshift=-5mm] node [below, xshift=-5mm, yshift=-2pt] {C3};
+	\filldraw (ABE) circle [radius=3pt, fill=black, xshift=-5mm] node [above, xshift=-5mm, yshift=2pt] {C1};
+	\filldraw (AB) circle [radius=3pt, fill=black, xshift=-5mm] node [above, xshift=-5mm, yshift=2pt] {C2};
+	\filldraw (FCD) circle [radius=3pt, fill=black, xshift=-5mm] node [below, xshift=-5mm, yshift=-2pt] {C5};
+	\filldraw (CD) circle [radius=3pt, fill=black, xshift=-5mm] node [below, xshift=-5mm, yshift=-2pt] {C4};
+\end{forest}
+
+\vspace*{\stretch{1}}
+
+\textsc{Tree 3}
+
+\qquad\begin{forest} mytree
+	[
+	[,name=base
+	[,name=protostome
+	[Clam]
+	[Earthworm
+	]
+	]
+	[,name=deuterostome
+	[Sea Urchin]
+	[,name=vertebrates
+	[Goldfish]
+	[,name=tetrapods
+	[Salamander]
+	[,name=amniotes
+	[Tiger]
+	[,name=fenestrae
+	[Crocodile]
+	[Ostrich]
+	]
+	]
+	]
+	]
+	]
+	]]
+	\filldraw (base) circle [radius=3pt, fill=black, xshift=-5mm] node [above left, xshift=-4mm, yshift=2pt] {bilat symm.};
+	\filldraw (protostome) circle [radius=3pt, fill=black, xshift=-5mm] node [above left, xshift=-4mm, yshift=2pt] {troch larv};
+	\filldraw (deuterostome) circle [radius=3pt, fill=black, xshift=-5mm] node [below left, xshift=-4mm, yshift=-2pt] {blasto = anus};
+	\filldraw (vertebrates) circle [radius=3pt, fill=black, xshift=-5mm] node [below left, xshift=-4mm, yshift=-2pt] {vertebrae};
+	\filldraw (tetrapods) circle [radius=3pt, fill=black, xshift=-5mm] node [below left, xshift=-4mm, yshift=-2pt] {four limbs};
+	\filldraw (amniotes) circle [radius=3pt, fill=black, xshift=-5mm] node [below left, xshift=-4mm, yshift=-2pt] {amniotic egg};
+	\filldraw (fenestrae) circle [radius=3pt, fill=black, xshift=-5mm] node [below left, xshift=-4mm, yshift=-2pt] {post-orb fenest};
+\end{forest}
+
+\newpage
+
+Here are the trees in V-form, for the goal-post challenged.
+
+\thispagestyle{plain}
+
+
+\textsc{Tree 1}
+
+\qquad\begin{forest} Vtree
+	[[,name=base
+	[A]
+	[,name=split1
+	[B]
+	[,name=split2
+	[C]
+	[,name=split3
+	[D]
+	[,name=split4
+	[E]
+	[,name=split5
+	[F]
+	[G]
+	]
+	]
+	]
+	]
+	]
+	]]
+	\filldraw (base) circle [radius=3pt, fill=black, xshift=-5mm] node [below, xshift=-5mm, yshift=-2pt] {C1};
+	\filldraw (split1) circle [radius=3pt, fill=black, xshift=-5mm, yshift=3.4mm] node [xshift=-5mm, yshift=-2pt] {C2};
+	\filldraw (split2) circle [radius=3pt, fill=black, xshift=-5mm, yshift=3.4mm] node [xshift=-5mm, yshift=-2pt] {C3};
+	\filldraw (split3) circle [radius=3pt, fill=black, xshift=-5mm, yshift=3.4mm] node [xshift=-5mm, yshift=-2pt] {C4};
+	\filldraw (split4) circle [radius=3pt, fill=black, xshift=-5mm, yshift=3.3mm] node [xshift=-5mm, yshift=-2pt] {C5};
+	\filldraw (split5) circle [radius=3pt, fill=black, xshift=-5mm, yshift=3mm] node [xshift=-5mm, yshift=-2pt] {C6};
+\end{forest}
+
+\vspace*{\stretch{1}}
+
+\textsc{Tree 2}
+
+\qquad\begin{forest} Vtree
+	[[,name=base
+	[,name=ABE
+	[,name=AB
+	[A]
+	[B]
+	]
+	[E]
+	]
+	[,name=FCD
+	[F]
+	[,name=CD
+	[C]
+	[D]
+	]
+	]
+	]]
+	\filldraw (base) circle [radius=3pt, fill=black, xshift=-5mm] node [below, xshift=-5mm, yshift=-2pt] {C3};
+	\filldraw (ABE) circle [radius=3pt, fill=black, xshift=-5mm, yshift=-4.6mm] node [left, xshift=-5mm, yshift=-2mm] {C1};
+	\filldraw (AB) circle [radius=3pt, fill=black, xshift=-5mm, yshift=-2.7mm] node [left, xshift=-5mm] {C2};
+	\filldraw (FCD) circle [radius=3pt, fill=black, xshift=-5mm, yshift=4.6mm] node [xshift=-5mm, yshift=-2pt] {C5};
+	\filldraw (CD) circle [radius=3pt, fill=black, xshift=-5mm, yshift=2.7mm] node [xshift=-5mm, yshift=-4pt] {C4};
+\end{forest}
+
+\vspace*{\stretch{1}}
+
+\textsc{Tree 3}
+
+\qquad\begin{forest} Vtree
+	[
+	[,name=base
+	[,name=protostome
+	[Clam]
+	[Earthworm
+	]
+	]
+	[,name=deuterostome
+	[Sea Urchin]
+	[,name=vertebrates
+	[Goldfish]
+	[,name=tetrapods
+	[Salamander]
+	[,name=amniotes
+	[Tiger]
+	[,name=fenestrae
+	[Crocodile]
+	[Ostrich]
+	]
+	]
+	]
+	]
+	]
+	]]
+	\filldraw (base) circle [radius=3pt, fill=black, xshift=-5mm] node [above left, xshift=-4mm, yshift=2pt] {bilat symm.};
+	\filldraw (protostome) circle [radius=3pt, fill=black, xshift=-5mm, yshift=-4.6mm] node [left, xshift=-4mm] {troch larv};
+	\filldraw (deuterostome) circle [radius=3pt, fill=black, xshift=-5mm, yshift=4.6mm] node [left, xshift=-4mm] {blasto = anus};
+	\filldraw (vertebrates) circle [radius=3pt, fill=black, xshift=-5mm, yshift=3.5mm] node [left, xshift=-4mm] {vertebrae};
+	\filldraw (tetrapods) circle [radius=3pt, fill=black, xshift=-5mm, yshift=3.4mm] node [left, xshift=-4mm] {four limbs};
+	\filldraw (amniotes) circle [radius=3pt, fill=black, xshift=-5mm, yshift=3.4mm] node [left, xshift=-4mm] {amniotic egg};
+	\filldraw (fenestrae) circle [radius=3pt, fill=black, xshift=-5mm, yshift=3mm] node [left, xshift=-5mm] {post-orb fenest};
+\end{forest}
+
+\fi
 \end{questions}
 %
 %As you can imagine, drawing phylogenetic trees by hand with lots of species and characters would quickly grow difficult. Fortunately, computer programs can do this easily. You'll get a chance to use a computer 
-
-\end{landscape}
 
 \end{document}  
