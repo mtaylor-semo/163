@@ -353,13 +353,14 @@ One of you will sample alleles from the population while the other will record t
 	
 	\item Repeat Step~\ref{selection_sample_start} until you have sampled the genotypes for 50 individuals. Record the genotype for \textbf{each} individual you sample. Remember to return the alleles to the population after each sample. 
 	
-	\item Add up the number of individuals for each genotype. These individuals are the offspring from Generation 0. Some of these individuals will not survive, thanks to the darker trees caused by the Industrial Revolution. Dark moths are less visible to predators so only 10\% are eaten by predators. In contrast, 50\% of the light moths are eaten. 
+	\item Add up the number of individuals for each genotype \textbf{ but do not record them in Table~\ref{tab:selection_results}.} These are \emph{initial} the Generation~1 individuals.% are the offspring from Generation~0.
+	 Some of these individuals will not survive, thanks to the darker trees caused by the Industrial Revolution. Dark moths are less visible to predators so only 10\% are eaten by predators. In contrast, 50\% of the light moths are eaten. 
 	
-	\textsc{Important note:} How many light moths must you remove from the offspring to reflect the change in survivorship? How many dark moths? Can natural selection distinguish between dark moths with \allele{DD} and \allele{Dd} genotypes? Fr
+	\textsc{Important note:} How many light moths must you remove from the offspring to reflect the change in survivorship? How many dark moths? Can natural selection distinguish between dark moths with \allele{DD} and \allele{Dd} genotypes? 
 	
 	\textbf{If you have to remove an even number of dark individuals, take equal numbers of homozyotes and heterozygote. If you have to remove an odd number of dark individuals, take one more heterozygote than homozygote.}
 	
-	\item \label{selection_sample_stop} The surviving offspring are now Generation~1. Calculate new allele frequencies and gentoype frequencies for this generation. Reestablish the population with these new allele frequencies for the 100 alleles (see example below). Record the new allele frequencies in Table~\ref{tab:selection_results}.
+	\item \label{selection_sample_stop} These are the surviving offspring for Generation~1 so record the number of individuals of each genotype in the Generation~1 row of Table~\ref{tab:selection_results}. Calculate new allele frequencies and genotoype frequencies for this generation. Reestablish the population with these new allele frequencies for the 100 alleles (see example below). Record the new allele frequencies in Table~\ref{tab:selection_results}.
 	
 	\textit{Ask your instructor to check your calculation to be sure you start Generation 1 with the correct allele frequencies.}
 	
@@ -544,19 +545,18 @@ Decide which of you will sample from Population~1 and Population~2. On your tabl
 
 	\item \label{gene_flow_sample_start}Draw 10 individuals at random (how many alleles?) from the Population~1 sack and set them aside. Draw 10 individuals at random from the Population~2 sack and set them aside. You do not have to count their genotypes. \emph{Remove the individuals from each population before you add them to the other population.}
 	
-	\item Add the 10 individuals from Population~1 to Population~2. Add the 10 individuals from Population~2 to Population~1. 
+	\item Add the 10 individuals from Population~1 to Population~2. Add the 10 individuals from Population~2 to Population~1. Shake each bag thoroughly.
 	
-	\item \label{gene_flow_allele_sample} Reach into the Population~1 bag and draw two alleles at random. Record the genotype (\allele{DD,} \allele{Dd,} or \allele{dd}) on a separate sheet of paper. Return the two alleles back to the population. (Put them back in the bag with the other beads.)
+	\item \label{gene_flow_allele_sample} Reach into the Population~1 bag and draw two alleles at random. Record the genotype (\allele{DD,} \allele{Dd,} or \allele{dd}) of this individual on a separate sheet of paper. Return the two alleles back to the population. (Put them back in the bag with the other beads.)
 	
+	\item Repeat Step~\ref{gene_flow_allele_sample} until you have sampled the genotypes for \textbf{50 individuals} from each population. Record the genotype for \textbf{each} individual you sample. Return the alleles to the population after each sample and mix the population well. 
+
 	\item Do this also for Population~2.
+	\emph{Do not mix the individuals from each population.}
 	
 	\textsc{Note:} Returning the beads to the bag is called \textbf{sampling with replacement.} Returning the alleles to the population simulates a very large population. Drawing the alleles at random simulates random mating.
 	
-	\item Repeat Step~\ref{gene_flow_allele_sample} until you have sampled the genotypes for 50 individuals from each population. Record the genotype for \textbf{each} individual you sample. Remember to return the alleles to the population after each sample. 
-
- 	\emph{Do not mix the individuals from each population.}
-	
-	\item \label{gene_flow_sample_stop} Calculate the new allele and genotype frequencies for each population following migration. Record your results in the Generation~1 row in Table~\ref{tab:migration_results}. The population size of each population should still be 50 individuals.
+	\item \label{gene_flow_sample_stop} Calculate the new allele and genotype frequencies for each population following migration. Record your results in the Generation~1 row of Table~\ref{tab:migration_results}. The population size of each population should still be 50 individuals.
 	
 	\item Repeat steps~\ref{gene_flow_sample_start}–\ref{gene_flow_sample_stop} for 4 more generations (5 total).% Calculate the genotype frequencies of each population for the final generation.
 	
@@ -768,13 +768,13 @@ In the space below, make a table that shows all steps of your calculation. If ne
   \cmidrule(lr){9-11}
 %
   Generation	&
-  \allele{D}		&
-  \allele{d}		&
+  \allele{D}	&
+  \allele{d}	&
   \allele{DD}	&
   \allele{Dd}	&
   \allele{dd}	&
-  \allele{D}		&
-  \allele{d}		&
+  \allele{D}	&
+  \allele{d}	&
   \allele{DD}	&
   \allele{Dd}	&
   \allele{dd}	\tabularnewline
@@ -785,14 +785,14 @@ In the space below, make a table that shows all steps of your calculation. If ne
 0		& 
 0.1 	& 
 0.9	& 
-\rule{0.45in}{0.4pt}	& 
-\rule{0.45in}{0.4pt}	& 
-\rule{0.45in}{0.4pt}	& 
+& %\rule{0.45in}{0.4pt}	& 
+& %\rule{0.45in}{0.4pt}	& 
+& %\rule{0.45in}{0.4pt}	& 
 0.5 	&
 0.5	&
-\rule{0.45in}{0.4pt}	&
-\rule{0.45in}{0.4pt}	&
-\rule{0.45in}{0.4pt}	\tabularnewline[2em]
+& %\rule{0.45in}{0.4pt}	&
+& %\rule{0.45in}{0.4pt}	&
+\tabularnewline[2em] %\rule{0.45in}{0.4pt}	\tabularnewline[2em]
 %Row 2: Generation 1
 1		&
 \rule{0.45in}{0.4pt}	&
