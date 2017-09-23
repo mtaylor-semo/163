@@ -10,10 +10,6 @@
 
 %\includeonlylecture{student}
 
-%%% Including only some slides for students.
-%%% Uncomment the following line. For the slides,
-%%% use the labels shown below the command.
-
 %% For students, use \lecture{student}{student}
 %% For mine, use \lecture{instructor}{instructor}
 
@@ -83,22 +79,72 @@
 
 \lecture{student}{student}
 \begin{frame}{Our goal for this lecture is to}
-	
-	\hangpara learn about fossils and the \highlight{fossil record},
-	
-	\hangpara get a sense of the scale of geological and evolutionary time, 
-	
-	\hangpara learn how eukaryotic cells evolved through \highlight{endosymbiosis,} and
 
-	\hangpara explore the history of life on Earth.
+	\hangpara introduce the conception of \highlight{macroevolution,}
+	
+	\hangpara learn about fossils and the \highlight{fossil record,}
+	
+	\hangpara get a sense of the scale of geological and evolutionary time, and
+	
+	\hangpara learn how eukaryotic cells evolved through \highlight{endosymbiosis.}
 	
 
 \end{frame}
 %
 
+{
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{macroevolution_dinosaurs} }
+\begin{frame}{\highlight{Macroevolution} is broad evolutionary changes over time between different lineages.}
+\end{frame}
+}
 
-\begin{frame}{What is a \highlight{fossil?} }
+\begin{frame}{\highlight{Macroevolution} happens because of microevolution.}
 
+	\centering
+	\begin{tikzpicture}
+		[remember picture, overlay,
+		myLine/.style={color=black,very thick},
+		myArrow/.style={color=orange6, thick, ->}]
+
+			\draw [myLine] (-3,-2) -- (0,-2);
+			\draw [myLine] (0,-2) -- (0,-0.7); % vertical lines
+			\draw [myLine] (0,-2) -- (0,-3.3);
+			\draw [myLine] (0,-0.7) -- (3,-0.7); % descendants
+			\draw [myLine] (0,-3.3) -- (3,-3.3); 
+
+		% Draw the tree:
+		
+			\draw [myLine] (-3,-2) -- (0,-2); % ancestor
+
+			\draw [myLine] (0,-2) -- (0,-0.7); % vertical lines
+			\draw [myLine] (0,-2) -- (0,-3.3);
+		
+			\draw [myLine] (0,-0.7) -- (3,-0.7); % descendants
+			\draw [myLine] (0,-3.3) -- (3,-3.3); 
+
+		% Ancestor microevolution
+			\node [color=blue6] at (-1.5,-1.8) {Microevolution}; % ancestor
+	
+		% Speciation
+		%	\node [color=orange6] (speciation) at (-1.5,-3.1) {Speciation};
+		%	\node [circle, draw=orange6, thick, minimum size=3mm] (speccirc) at (0,-2) {};
+		%	\draw [color=orange6, thick] (speciation) edge (speccirc);
+		
+		
+		% Descendant microevolution
+			\node [color=blue6] at (1.5,-0.5) {Microevolution}; % descendants
+			\node [color=blue6] at (1.5,-3.5) {Microevolution};
+
+		% Macroevolution
+			\node [color=orange6] (macro) at (1.7,-2) {Macroevolution};
+			\draw [myArrow] (macro.north) to (1.7,-0.8);
+			\draw [myArrow] (macro.south) to (1.7,-3.2);
+
+	\end{tikzpicture}
+
+\end{frame}
+%
+\begin{frame}{The results of macroevolution are visible in the fossil record. What is a \highlight{fossil?} }
 
 	\alt<handout>{}{\onslide<2->{%
 	
@@ -284,7 +330,7 @@
 \end{frame}
 }
 %
-\begin{frame}[t]{Life on Earth appeared at least 3.8 billion years ago.}
+\begin{frame}[t]{Life on Earth evolved at least 3.8 billion years ago.}
 
 	\includegraphics[width=\textwidth]{fossil_stromatolite}
 	
@@ -302,7 +348,7 @@
 %
 {
 \usebackgroundtemplate{\includegraphics[width=\paperwidth]{fossil_eukaryote} }
-\begin{frame}[b]{Eukaryotes appeared \emph{at least} 2.1 billion years ago.}
+\begin{frame}[b]{Eukaryotes evolved \emph{at least} 2.1 billion years ago.}
 \tiny \textcolor{white}{Xvazquez, Wikimedia, \ccbysa{2}}
 \end{frame}
 }
