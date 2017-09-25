@@ -29,11 +29,19 @@
 \usepackage{microtype}
 
 \usepackage{graphicx}
-	\graphicspath{{/Users/goby/pictures/teach/163/case_studies/}}
+%	\graphicspath{{/Users/goby/pictures/teach/163/case_studies/}}
 
 %\usepackage{units}
 \usepackage{booktabs}
-%\usepackage{textcomp}
+\usepackage{enumitem}
+	\setlist[enumerate]{label = \textsc{\alph*.}}
+
+\usepackage{array}
+\newcolumntype{L}[1]{>{\raggedright\let\newline\\\arraybackslash\hspace{0pt}}p{#1}}
+\newcolumntype{C}[1]{>{\centering\let\newline\\\arraybackslash\hspace{0pt}}p{#1}}
+\newcolumntype{R}[1]{>{\raggedleft\let\newline\\\arraybackslash\hspace{0pt}}p{#1}}
+
+\newcommand{\ques}[1]{\highlight{\textsc{q#1:}}}
 
 \usepackage{tikz}
 	\tikzstyle{every picture}+=[remember picture,overlay]
@@ -43,14 +51,14 @@
 {
   \usetheme{Lecture}
   \setbeamercovered{invisible}
-  \setbeamertemplate{items}[square]
+  \setbeamertemplate{items}[default]
 }
 
 
 \begin{document}
 
 {
-\usebackgroundtemplate{\includegraphics[width=\paperwidth]{columbine_intro}}
+%\usebackgroundtemplate{\includegraphics[width=\paperwidth]{columbine_intro}}
 \begin{frame}[t]{\textcolor{white}{Reproductive isolation in columbines.\newline{\small Written by J. Phil Gibson, University of Oklahoma. Modified by Michael S. Taylor.}}}
 
 \vfilll
@@ -60,37 +68,479 @@
 }
 %
 %{
-%\usebackgroundtemplate{\includegraphics[width=\paperwidth]{sunflowers}
-%}
-%\begin{frame}[b,plain]
+%\usebackgroundtemplate{\includegraphics[width=\paperwidth]{sunflowers}}
+\begin{frame}[t]{What will this case study address?}
+
+	\hangpara How can a phylogenetic perspective provide insights on evolution and ecology of plant reproduction?
+	
+	\hangpara How can we identify and test for reproductive isolation in plant species?
+
+	\hangpara How do flowers, pollinators, and pollination systems work?
+
+	 
 %	\hfill \tiny \textcolor{white}{Trey Ratcliff, Flickr, \ccbyncsa{2}}
-%\end{frame}
+\end{frame}
 %}
 %
 %{
 %\usebackgroundtemplate{\includegraphics[width=\paperwidth]{spider_bee}
 %}
-%\begin{frame}[b,plain]
-%\tiny Alvesgaspar, Wikimedia, \ccbysa{4}
-%\end{frame}
-%}
-%
-%{
-%\usebackgroundtemplate{\includegraphics[width=\paperwidth]{marine_iguana}}
-%\begin{frame}[b,plain]
-%	\textcolor{white}{\tiny Les Williams, Flickr, \ccbysa{2}}
-%\end{frame}
-%}
-%
-%{
-%\usebackgroundtemplate{\includegraphics[width=\paperwidth]{bird_paradise.jpg}}
-%\begin{frame}[b,plain]
-%	\tiny\textcolor{white}{\href{http://www.youtube.com/watch?v=KIYkpwyKEhY}{Link to Video} \hfill \copyright\,Tim Laman, All Rights Reserved}
-%\end{frame}
-%}
+\begin{frame}[t]{\ques1 The diagram below is a phylogeny for 5 species in the same genus. This phylogeny shows\dots}
+		
+	\begin{enumerate}[label=\textsc{\alph*.}] %% Put choices in minipage on left with figure on right.
+		\item the degree to which organisms look like one another.
+		
+		\item a hypothesis of how different organisms are related through common ancestors.   
 
-%% Genotype and phenotype
-%%\lecture{instructor}{instructor}
+		\item a hypothesized sequence in which species evolved from left to right.
+
+		\item the amount of change each species has experienced.
+
+		\item which species are most closely related to the species at point M. 
+
+	\end{enumerate}
+
+%\tiny Alvesgaspar, Wikimedia, \ccbysa{4}
+\end{frame}
+%}
+%
+{
+%\usebackgroundtemplate{\includegraphics[width=\paperwidth]{marine_iguana}}
+\begin{frame}[t]{\ques2 What do the lines in this phylogeny represent?}
+
+	\begin{enumerate}
+		\item The history of mating between individuals.
+
+		\item Lineages of organisms.
+
+		\item Each line represents a single individual.
+
+		\item Which species evolved first, second, third, etc.
+
+		\item All of the above. 
+
+	\end{enumerate}
+
+%	\textcolor{white}{\tiny Les Williams, Flickr, \ccbysa{2}}
+\end{frame}
+}
+%
+{
+%\usebackgroundtemplate{\includegraphics[width=\paperwidth]{bird_paradise.jpg}}
+\begin{frame}[t]{\ques3 What do the nodes (indicated by G, P, R, and M) represent in the phylogeny?}
+
+
+	\begin{enumerate}
+		\item Where two species hybridized.
+		
+		\item Lineages of organisms.
+		
+		\item Common ancestors of different species.
+		
+		\item The sequence in which species 1-5 evolved.
+		
+		\item None of the above.
+
+	\end{enumerate}
+
+%	\tiny\textcolor{white}{\href{http://www.youtube.com/watch?v=KIYkpwyKEhY}{Link to Video} \hfill \copyright\,Tim Laman, All Rights Reserved}
+\end{frame}
+}
+%
+{
+\begin{frame}[t]{\ques4  What does the point labeled R indicate?}
+	
+	\begin{enumerate}
+		\item Species 5 in the past.
+		
+		\item Species 2 in the past.
+
+		\item Where species 2 and species 5 hybridized.
+
+		\item The common ancestor of species 2, 3, 4, \& 5.
+
+		\item Where species 5 became species 2.
+
+	\end{enumerate}
+\end{frame}
+}
+%
+\begin{frame}[t]{\ques5 Which statement(s) below accurately describe what is happening at the nodes indicated by MRPG?}
+
+	\begin{enumerate}
+		\item Speciation is occurring.
+		
+		\item Mutation and natural selection are making the best new species.  
+		
+		\item One species is turning into another species.
+		
+		\item Two species are coming together to make a new species.
+	\end{enumerate}
+\end{frame}
+%
+\begin{frame}[t]{Phylogenies are \emph{hypotheses} about relationships among taxa.}
+	
+	\begin{columns}[t]
+		\begin{column}{0.6\textwidth}
+			\hangpara Branches represent different lineages.  
+
+			\hangpara Nodes, where clades diverge indicate common ancestors and points of lineage separation (speciation).
+
+			\hangpara A clade is a group of lineages that all share a common ancestor. All descendants of the ancestor are included in the clade.
+			
+			\hangpara Different clades may share features due to common ancestry (ancestral traits), but members of a clade share unique features (derived traits) not present in other clades.
+		\end{column}
+		\begin{column}{0.35\textwidth}
+			The tree goes here.
+		\end{column}
+	\end{columns}
+\end{frame}
+%
+\begin{frame}[t]{Flowering plants form a clade that share a unique feature, flowers.}
+	
+	\hangpara Flower image. Use tikz to add arrows to point to features. Maybe find a better flower image.
+	
+\end{frame}
+%
+\begin{frame}[t]{What do pollinators do?}
+	\hangpara Pollination is the transfer of pollen from an anther to a receptive stigma. Biotic pollination is often a mutualistic relationship between a plant and animal attracted to its flowers to pick up pollen and then carry it to another flower for sexual reproduction. 
+
+	\hangpara FOrmat slide better.
+	
+\end{frame}
+%
+\begin{frame}[t]{\ques6 What do you think is the most important feature of a flower for attracting pollinators?}
+	
+	\begin{enumerate}
+		\item Flower color.
+		
+		\item Flower shape.
+		
+		\item Flower orientation.
+		
+		\item A reward, such as nectar.
+		
+		\item A reward, such as pollen.
+
+	\end{enumerate}
+\end{frame}
+%
+\begin{frame}[t]{Flowers have \highlight{attractants} to attract pollinators.}
+	\hangpara \highlight{Primary attractants}
+	\begin{itemize}
+		\item Food (nectar, pollen)
+		\item Shelter (heat in solar tracking flowers)
+		\item Other needed materials (e.g,. waxes, pheromones, repellants)
+	\end{itemize}
+
+	\hangpara \highlight{Secondary Attractants}
+	\begin{itemize}
+		\item Odor (scents and fragrances)
+		\item Visual cues (color, shape, nectar guides)
+	\end{itemize}
+\end{frame}
+%
+\begin{frame}[t]{Biotic pollination syndromes}
+	\hangpara \highlight{Flies:} no characteristic preferences for particular color, scent, or structural features of flowers, generalists (myophily).
+	
+	\hangpara \highlight{Carrion and dung flies:} purple-brown flowers with scent of decaying protein, flowers have deep traps in petals to temporarily capture pollinators (sapromyophily).
+
+\end{frame}
+%
+\begin{frame}[t]{Biotic pollination syndromes}
+	\hangpara \highlight{Hawkmoths:} white or pale green color, strong sweet scent, deep narrow tubes contain nectar they access with unrolled proboscis (sphignopily).
+	
+	\hangpara \highlight{Butterflies:} preferences for red, yellow, and blue flowers with moderately strong sweet scent, deep narrow tubes contain nectar they access with unrolled proboscis (psychopily).
+	
+\end{frame}
+%
+\begin{frame}[t]{Biotic pollination syndromes}
+	\hangpara \highlight{Bees:} wide color preference but lower preference for pure red flowers, sweet scented flowers with open or tubular petals, often with prominent anthers (melittophily).
+	
+	\hangpara \highlight{Birds:} preference for bright colored flowers particularly red, no scent, wide deep tubes with nectar (ornithophily).
+	
+\end{frame}
+%
+\begin{frame}[t]{Biotic pollination syndromes}
+	\hangpara \highlight{Bats:} large white flowers\dots.
+	
+	\hangpara \highlight{Lizards:} photos.
+	
+\end{frame}
+%
+\begin{frame}[t]{Flowers and pollinators reflect a structural-functional-behavioral interaction; \textbf{WORDING?}}
+	
+	\hangpara Floral structure can promote reproductive isolation and speciation by affecting either pollinator behavior (behavioral isolation) or pollen transfer (mechanical isolation). This may be particularly important in columbines which have a number of unique floral features.  
+	
+	Frame title could be \textbf{“Floral structure can promote reproductive isolation.”}
+
+\end{frame}
+%
+\begin{frame}[t]{Columbines (\textit{Aquilegia} spp.) are represented by about 70 species.}
+	
+	\hangpara All columbine flowers have spurs and other structural similarities.
+	
+	\hangpara The spurs contain nectar, a sugar-rich reward for pollinators who visit flowers.  
+
+	\hangpara \textbf{Look for better photo of flower parts.}
+\end{frame}
+%
+\begin{frame}[t]{\ques7 In columbines, color is example of a \rule{0.5in}{0.4pt} attractant and nectar is an example of a \rule{0.5in}{0.4pt} attractant.}
+	\begin{enumerate}
+		\item primary/secondary
+		\item floral/pollinator
+		\item secondary/primary
+		\item bird/insect
+		\item reward/visual
+	\end{enumerate}
+\end{frame}
+%
+\begin{frame}[t]
+	
+	\hangpara Nectar spurs are considered innovations that have promoted speciation and reproductive isolation in columbines. Changes in spur length may result in pollinator shifts.
+
+	\hangpara How could this work? 
+
+	\hangpara How might hummingbirds, bees, and moths differ in why \& how they visit flowers? 
+
+\end{frame}
+%
+\begin{frame}[t]{Title?}
+	
+	\hangpara \textit{Aquilegia fomosa} and \textit{A. pubescens} are species that evolved from a recent common ancestor based on a genetic phylogeny. 
+	
+	\hangpara What differences between \textit{A. formosa} and \textit{A. pubescens} flowers may be important for interacting with pollinators?
+	
+	\hangpara Why might their sharing a recent common ancestor be important?
+
+\end{frame}
+%
+\begin{frame}[t]{\ques8 Because they share a common ancestor\dots}
+	
+	\begin{enumerate}
+		\item both species are completely different from one another and share no traits. 
+		
+		\item both columbine species share some traits, but also have other unique features that differentiate them.
+		
+		\item both columbine species will attract the same pollinators and grow in the same places.
+		
+		\item both columbine species are reproductively isolated from one another.
+	\end{enumerate}
+\end{frame}
+%
+\begin{frame}[t]{Write a hypothesis.}
+	
+	\hangpara Given the proposed importance of nectar spurs and other floral features, how would you test their influence on columbine speciation?
+
+	\hangpara Develop an hypothesis and design an experiment to  to explore potential causes and function of behavioral isolation and mechanical isolation between A. pubescens and A. formosa flowers.
+
+\end{frame}
+%
+\begin{frame}[t]{The experimental design}
+	\hangpara In an initial study, researchers presented both columbine species in a hexagonal array with nine flowering individuals of each spp. Arrays were placed near A. pubescens and A. formosa populations and pollinator visits recorded.
+	
+	\hangpara Why did they use this design?
+\end{frame}
+%
+\begin{frame}[t]{What do you predict?}
+	\hangpara Draw a bar graph to shwo your predicted mean visits per flower per hour by different pollinators to \textit{A. formosa} and \textit{A. pubescens}.
+	
+	\hangpara Blank graph
+\end{frame}
+%
+\begin{frame}[t]{Experimental results}
+	Graph here.
+\end{frame}
+%
+\begin{frame}[t]{The results identified the pollinators of each species.}
+	Figure here.
+\end{frame}
+%
+\begin{frame}[t]{title}
+	content...
+\end{frame}
+%
+\begin{frame}[t]{Pollinators showed significant preferences for a specific species}
+		
+	\begin{center}
+	\begin{tabular}{lrrr}
+	\toprule
+		 	& Hummingbirds & Hawkmoths & Bees \tabularnewline
+	\midrule
+	\textit{A. formosa}		&	81	&	0	&	85 \tabularnewline
+	\textit{A. pubescens}	&	9	&	115	&	19 \tabularnewline
+	$\chi^2$				&	57.6	&	115	&	41.8 \tabularnewline
+	$p$						&  \textless0.0001 & \textless0.0001 & \textless0.0001 \tabularnewline
+	\bottomrule
+	\end{tabular}
+	\end{center}
+
+	\hangpara What can the researchers conclude so far?
+\end{frame}
+%
+\begin{frame}[t]{What next? \textbf{Better title needed}}
+	
+	\hangpara The researchers focused on \textit{A. pubescens} for further study. They planted two arrays of modified and control (unmodified) flowers.
+
+	\hangpara \highlight{Array 1:} pedicels for ½ of the \textit{A. pubescens} flowers staked to make flowers pendent (point downwards)
+	
+	\hangpara \highlight{Array 2:} spurs for ½ of the \textit{A. pubescens} flowers shortened (squeezed nectar from bottom of spurs, tied \& clipped spur)
+	
+	\textbf{Merge the above two array descriptions with the image from the next slide?}
+
+\end{frame}
+%
+\begin{frame}[t]{After manipulations\dots}
+	
+	
+\end{frame}
+%
+\begin{frame}[t]{\ques9 Which of these predictions are the researchers potentially testing?}
+	If floral orientation in A. pubescens is important for reproductive isolation, then we should expect
+	
+	\begin{enumerate}
+		\item the floral modifications will have no effect on pollinator visitation and pollen removal.
+		\item hawkmoths will be better able to remove pollen from pendent flowers.
+		\item hummingbirds will be attracted to the pendent flowers less than unmodified flowers.
+		\item the unmodified flowers will have higher visitation by hawkmoths than pendent flowers.
+	\end{enumerate}
+\end{frame}
+%
+\begin{frame}[t]{\ques{10} In the spur shortening experiment, you should expect }
+	\begin{enumerate}
+		\item unmanipulated flowers will have more pollen removed by hawkmoths than the shortened spur flowers.
+		\item unmanipulated  flowers will have less pollen removed by hawkmoths than the shortened spur flowers.
+		\item hawkmoths will visit shortened spur flowers more than the unmanipulated flowers.
+		\item hawkmoths will remove more pollen from shortened spur flowers than the unmanipulated flowers.
+		\item None of these are expected outcomes for this experiment.
+	\end{enumerate}
+
+	\hangpara May have to reword one or two regarding flower length, as multiple predictions could apply. Think about this.
+\end{frame}
+%
+\begin{frame}[t]{\ques{11} Are these results consistent with the researchers’ prediction about flower orientation and visitation?}
+	
+	\begin{columns}[t]
+		\begin{column}{0.28\textwidth}
+			\begin{enumerate}
+				\item No
+				\item Yes
+			\end{enumerate}
+		\end{column}
+		\begin{column}{0.5\textwidth}
+	Visits by \textit{Hyles lineata} to \textit{A.~pubescens} with differing floral orientation.
+	
+	\begin{tabular}{L{0.6in}R{1in}}
+		\toprule
+		& Number of Observed Visits \tabularnewline
+		\midrule
+		Upright		&	51	 \tabularnewline
+		Pendent		&	5	 \tabularnewline
+		$\chi^2$	&	45.5 \tabularnewline
+		$p$			&  \textless0.0001 \tabularnewline
+		\bottomrule
+	\end{tabular}
+\end{column}
+	\end{columns}
+\end{frame}
+%
+\begin{frame}[t]{\ques{12} Are these results are consistent with the researchers’ prediction about spur length and visitation? \textbf{?? No specific predictions?}}
+	
+	\begin{columns}[t]
+		\begin{column}{0.28\textwidth}
+			\begin{enumerate}
+				\item No
+				\item Yes
+			\end{enumerate}
+		\end{column}
+		\begin{column}{0.5\textwidth}
+			Visits by \textit{Hyles lineata} to \textit{A.~pubescens} with long or short nectar spurs.
+			
+			\begin{tabular}{L{0.6in}R{1in}}
+				\toprule
+				& Number of Observed Visits \tabularnewline
+				\midrule
+				Long spurs		&	17	 \tabularnewline
+				Short spurs		&	19	 \tabularnewline
+				$\chi^2$		&	0.11 \tabularnewline
+				$p$				&  \textgreater0.05 \tabularnewline
+				\bottomrule
+			\end{tabular}
+		\end{column}
+	\end{columns}
+\end{frame}
+%
+\begin{frame}[t]{\ques{13} Are these results consistent with the researcher's prediction?}
+		\begin{columns}[t]
+		\begin{column}{0.28\textwidth}
+			\begin{enumerate}
+				\item No
+				\item Yes
+			\end{enumerate}
+		\end{column}
+		\begin{column}{0.5\textwidth}
+			%\includegraphics[width=0.4\textwidth]{graph}
+			graph goes here			
+		\end{column}
+	\end{columns}
+	
+\end{frame}
+%
+\begin{frame}[t]{\ques{14} From these studies we can conclude that}
+	
+	\begin{enumerate}
+		\item orientation promotes mechanical isolation and spur length promotes behavioral isolation.
+		\item the species have few floral features that would promote reproductive isolation.
+		\item spur length is a primary attractant and color is a secondary attractant.
+		\item orientation promotes behavioral isolation and spur length promotes mechanical isolation.
+		\item floral structure causes reproductive isolation after pollination occurs.
+	\end{enumerate}
+\end{frame}
+%
+\begin{frame}[t]{Based upon the data in the floral manipulation studies, spurs act to maintain separate \textit{Aquilegia} species by}
+	
+	\begin{enumerate}
+		\item causing flowers to grow in different habitats.
+		\item offering different rewards to different pollinators.
+		\item influencing pollen removal from and depositing on flowers. 
+		\item attracting different pollinators.
+	\end{enumerate}
+\end{frame}
+%
+\begin{frame}[t]{Hybrids and habitats}
+	
+	\hangpara In addition to differences in pollinators, A. pubescens typically grows at higher elevations and in drier habitats than A. formosa which tends to grow in more moist habitats at lower elevations.
+
+	\hangpara Although they have these differences, hybrid populations of viable, reproductively functioning plants with floral traits and molecular markers characteristic of both species have been identified at intermediate elevations and habitats!
+
+	\hangpara How could this happen? 
+
+\end{frame}
+%
+\begin{frame}[t]{\ques{16} The occurrence of hybrids indicates}
+	
+	\begin{enumerate}
+		\item that A. formosa and A. pubescens are really just one species.
+		\item reproductive isolation does not matter for plant species.
+		\item pollinator behavior is not important for maintaining species.
+		\item reproductive isolating barriers are not always absolute between species.
+		\item that habitat is not important for maintaining species.
+	\end{enumerate}
+\end{frame}
+%
+\begin{frame}[t]{Summary}
+	
+	\hangpara Floral structural differences can influence pollinator behavior, pollinator effectiveness, and, consequently, reproductive isolation between species. 
+
+	\hangpara Although floral features can promote reproductive isolation between species for some pollinators, generalist pollinators may visit both species, resulting in hybrids that can survive in intermediate habitats. 
+\end{frame}
+%
+
+%
+\begin{frame}[t]{title}
+	content...
+\end{frame}
+%
 %{
 %\usebackgroundtemplate{\includegraphics[width=\paperwidth]{chromosomes}}
 %\begin{frame}[c,plain]
