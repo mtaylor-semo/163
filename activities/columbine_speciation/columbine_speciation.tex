@@ -1,0 +1,162 @@
+%!TEX TS-program = lualatex
+%!TEX encoding = UTF-8 Unicode
+
+\documentclass[t]{beamer}
+
+%%%% HANDOUTS For online Uncomment the following four lines for handout
+%\documentclass[t,handout]{beamer}  %Use this for handouts.
+%\usepackage{handoutWithNotes}
+%\pgfpagesuselayout{3 on 1 with notes}[letterpaper,border shrink=5mm]
+
+%\includeonlylecture{student}
+
+%%% Including only some slides for students.
+%%% Uncomment the following line. For the slides,
+%%% use the labels shown below the command.
+
+%% For students, use \lecture{student}{student}
+%% For mine, use \lecture{instructor}{instructor}
+
+
+%\usepackage{pgf,pgfpages}
+%\pgfpagesuselayout{4 on 1}[letterpaper,border shrink=5mm]
+
+% FONTS
+\usepackage{fontspec}
+\def\mainfont{Linux Biolinum O}
+\setmainfont[Ligatures={Common,TeX}, Contextuals={NoAlternate}, BoldFont={* Bold}, ItalicFont={* Italic}, Numbers={OldStyle}]{\mainfont}
+\setsansfont[Ligatures={Common,TeX}, Scale=MatchLowercase, Numbers=OldStyle]{Linux Biolinum O} 
+\usepackage{microtype}
+
+\usepackage{graphicx}
+	\graphicspath{{/Users/goby/pictures/teach/163/case_studies/}}
+
+%\usepackage{units}
+\usepackage{booktabs}
+%\usepackage{textcomp}
+
+\usepackage{tikz}
+	\tikzstyle{every picture}+=[remember picture,overlay]
+	\usetikzlibrary{arrows}
+
+\mode<presentation>
+{
+  \usetheme{Lecture}
+  \setbeamercovered{invisible}
+  \setbeamertemplate{items}[square]
+}
+
+
+\begin{document}
+
+{
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{columbine_intro}}
+\begin{frame}[t]{\textcolor{white}{Reproductive isolation in columbines.\newline{\small Written by J. Phil Gibson, University of Oklahoma. Modified by Michael S. Taylor.}}}
+
+\vfilll
+
+\tiny \textcolor{white}{KimonBerlin, Wikimedia \ccbysa{2}}
+\end{frame}
+}
+%
+%{
+%\usebackgroundtemplate{\includegraphics[width=\paperwidth]{sunflowers}
+%}
+%\begin{frame}[b,plain]
+%	\hfill \tiny \textcolor{white}{Trey Ratcliff, Flickr, \ccbyncsa{2}}
+%\end{frame}
+%}
+%
+%{
+%\usebackgroundtemplate{\includegraphics[width=\paperwidth]{spider_bee}
+%}
+%\begin{frame}[b,plain]
+%\tiny Alvesgaspar, Wikimedia, \ccbysa{4}
+%\end{frame}
+%}
+%
+%{
+%\usebackgroundtemplate{\includegraphics[width=\paperwidth]{marine_iguana}}
+%\begin{frame}[b,plain]
+%	\textcolor{white}{\tiny Les Williams, Flickr, \ccbysa{2}}
+%\end{frame}
+%}
+%
+%{
+%\usebackgroundtemplate{\includegraphics[width=\paperwidth]{bird_paradise.jpg}}
+%\begin{frame}[b,plain]
+%	\tiny\textcolor{white}{\href{http://www.youtube.com/watch?v=KIYkpwyKEhY}{Link to Video} \hfill \copyright\,Tim Laman, All Rights Reserved}
+%\end{frame}
+%}
+
+%% Genotype and phenotype
+%%\lecture{instructor}{instructor}
+%{
+%\usebackgroundtemplate{\includegraphics[width=\paperwidth]{chromosomes}}
+%\begin{frame}[c,plain]
+%	\begin{tikzpicture}[remember picture, overlay]
+%
+%	\alt<handout>{}{\visible <1,6->{
+%		\node at (0.45,2) [right] {The \highlight{genotype} is the genetic makeup of the organism.};}
+%	
+%	\visible <7>{
+%		\node at (0.45,1.4)[right] {The \highlight{phenotype} is the physical expression of the genotype.};
+%	}}
+%		
+%	
+%	\alt<handout>{}{\visible <2>{
+%		\draw (3,-2.5) -- (3,0.5) -- (3.9,0.5) -- (3.9,-2.5) -- cycle ;
+%		\draw (6,-2.5) -- (6,0.5) -- (6.9,0.5) -- (6.9,-2.5) -- cycle ;
+%		\draw (9,-2.5) -- (9,0.5) -- (9.9,0.5) -- (9.9,-2.5) -- cycle ;
+%	
+%		\node at (6.4, 2) (gene) {Gene or Locus};
+%	
+%		\draw (gene.south west) -- (3.9,0.5);
+%		\draw (gene.south) -- (6.45,0.5);
+%		\draw (gene.south east) -- (9,0.5);
+%	}}
+%	
+%	\visible <3-4>{
+%		\node at (3.45,0.25) (Callele) {$C$};
+%		\node at (3.45,-2.25) {$C$};
+%
+%		\node at (6.45,0.25) (aallele) {$a$};
+%		\node at (6.45,-2.25) {$a$};
+%	}
+%
+%	\visible <3,5>{
+%		\node at (9.45,0.25) (Tallele) {$T$};
+%		\node at (9.45,-2.25) {$t$};
+%	}
+%	
+%	\alt<handout>{}{\visible <3>{
+%		\node at (6.4, 2) (allele) {Allele};
+%		\draw (allele.south west) -- (Callele.north east);
+%		\draw (allele.south) -- (aallele.north);
+%		\draw (allele.south east) -- (Tallele.north west);
+%	}}
+%
+%	\visible <4> {
+%		\draw (3,-2.5) -- (3,0.5) -- (3.9,0.5) -- (3.9,-2.5) -- cycle ;
+%		\draw (6,-2.5) -- (6,0.5) -- (6.9,0.5) -- (6.9,-2.5) -- cycle ;
+%
+%		\node at (3.45, 1.25) (hc) {\highlight{Homozygous,} $C$ allele};
+%		\node at (6.45, -3.5) (ac) {Homozygous, $a$ allele};
+%
+%		\draw (hc.south) -- (3.45,0.5);
+%		\draw (ac.north) -- (6.45,-2.5);
+%	}
+%	
+%	\visible <5> {
+%		\draw (9,-2.5) -- (9,0.5) -- (9.9,0.5) -- (9.9,-2.5) -- cycle ;
+%
+%		\node at (9.45, 1.25) (tc) {\highlight{Heterozygous,} $T$ allele};
+%
+%		\draw (tc.south) -- (9.45,0.5);
+%	}
+%	\end{tikzpicture}
+%\end{frame}
+%}
+
+
+\end{document}
