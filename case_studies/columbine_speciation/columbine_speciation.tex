@@ -1,7 +1,7 @@
 %!TEX TS-program = lualatex
 %!TEX encoding = UTF-8 Unicode
 
-\documentclass[t]{beamer}
+\documentclass[t,hidelinks]{beamer}
 
 %%%% HANDOUTS For online Uncomment the following four lines for handout
 %\documentclass[t,handout]{beamer}  %Use this for handouts.
@@ -29,12 +29,13 @@
 \usepackage{microtype}
 
 \usepackage{graphicx}
-%	\graphicspath{{/Users/goby/pictures/teach/163/case_studies/}}
+	\graphicspath{{/Users/goby/pictures/teach/163/case_studies/}}
 
 %\usepackage{units}
 \usepackage{booktabs}
 \usepackage{enumitem}
 	\setlist[enumerate]{label = \textsc{\alph*.}}
+\usepackage{multicol}
 
 \usepackage{array}
 \newcolumntype{L}[1]{>{\raggedright\let\newline\\\arraybackslash\hspace{0pt}}p{#1}}
@@ -46,6 +47,48 @@
 \usepackage{tikz}
 	\tikzstyle{every picture}+=[remember picture,overlay]
 	\usetikzlibrary{arrows}
+	\usetikzlibrary{trees}
+
+\usepackage{forest}
+
+%\tikzstyle{block} = [rectangle, draw, fill=white, rounded corners,
+%                 minimum size=2em]
+%\tikzstyle{branch} = [thick, draw]
+
+\usetikzlibrary{positioning, backgrounds}
+
+\tikzset{
+	timeline/.style={text centered, text width=2cm},
+	no edge from this parent/.style={
+		every child/.append style={
+			edge from parent/.style={draw=none}}},
+}
+
+\forestset{
+	every leaf node/.style={
+		if n children=0{#1}{}
+	},
+	every tree node/.style={
+		if n children=0{}{#1}
+	},
+	mytree/.style={
+		for tree={
+			edge path={
+				\noexpand\path [draw, thick, \forestoption{edge}] (!u.parent anchor) |- (.child anchor)\forestoption{edge label};
+			},
+			every tree node={draw=none,inner sep=0, outer sep=0, minimum size=0},
+			every leaf node/.style={align=left},
+			grow'=0,
+			parent anchor=east, 
+			child anchor=west,
+			anchor=west,
+			l sep=0.5cm,
+			s sep=3mm,
+			draw=none,
+			if n children=0{tier=word}{}
+		}
+	}
+}
 
 \mode<presentation>
 {
@@ -58,7 +101,7 @@
 \begin{document}
 
 {
-%\usebackgroundtemplate{\includegraphics[width=\paperwidth]{columbine_intro}}
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{columbine_intro}}
 \begin{frame}[t]{\textcolor{white}{Reproductive isolation in columbines.\newline{\small Written by J. Phil Gibson, University of Oklahoma. Modified by Michael S. Taylor.}}}
 
 \vfilll
@@ -67,53 +110,58 @@
 \end{frame}
 }
 %
-%{
-%\usebackgroundtemplate{\includegraphics[width=\paperwidth]{sunflowers}}
 \begin{frame}[t]{What will this case study address?}
 
+	\begin{multicols}{2}
 	\hangpara How can a phylogenetic perspective provide insights on evolution and ecology of plant reproduction?
 	
 	\hangpara How can we identify and test for reproductive isolation in plant species?
 
 	\hangpara How do flowers, pollinators, and pollination systems work?
 
+	\columnbreak
+	
+	\includegraphics[width=0.45\textwidth]{coneflower_butterfly}
+	\end{multicols}
 	 
-%	\hfill \tiny \textcolor{white}{Trey Ratcliff, Flickr, \ccbyncsa{2}}
+	\vfilll
+	
+	\hfill \tiny \href{https://www.flickr.com/photos/usdagov/12837726385/in/photolist-kyqGN6-fh8AaV-kyTDd4-i44Hma-dMyexJ-U9oNPh-8MVKpC-9iEtgR-pfUkfN-i6BB1D-WeaPsw-aqUmTV-6R2QfY-e1GG39-JdQ1fs-YNbHzz-9gp9eM-att94W-wqBjH2-ePxjLW-kyWRcE-Ydheej-8MSKyg-bfTrkF-9gsens-8FgBqc-WBMVv8-XR5juK-Kcompi-FoKX42-8Pk8CA-RLnLix-XK1ySw-pxAjzB-okRa8S-WTUtFQ-f8KyKZ-pqdijo-pbz8dh-8FjQDY-8MVKru-cEHMp7-eY8rmA-JcEdDd-f9epwz-8FgBtV-br2Mtc-WmM4uM-e5Cc3s-WeaQP9}{\textsc{usda}, Flickr, \ccby{2}}
 \end{frame}
-%}
 %
-%{
-%\usebackgroundtemplate{\includegraphics[width=\paperwidth]{spider_bee}
-%}
-\begin{frame}[t]{\ques1 The diagram below is a phylogeny for 5 species in the same genus. This phylogeny shows\dots}
+\begin{frame}[t]{\ques1 The diagram below is a phylogeny for five species in the same genus. This phylogeny shows\dots}
 		
-	\begin{enumerate}[label=\textsc{\alph*.}] %% Put choices in minipage on left with figure on right.
+
+	\begin{multicols}{2}
+	\begin{enumerate}
 		\item the degree to which organisms look like one another.
 		
-		\item a hypothesis of how different organisms are related through common ancestors.   
+		\item \alert<2>{a hypothesis of how different organisms are related through common ancestors.}
 
 		\item a hypothesized sequence in which species evolved from left to right.
 
 		\item the amount of change each species has experienced.
 
-		\item which species are most closely related to the species at point M. 
+		\item which species are most closely related to the species at point 1. 
 
 	\end{enumerate}
+	
+	\columnbreak
 
-%\tiny Alvesgaspar, Wikimedia, \ccbysa{4}
+		\hfill \includegraphics[width=0.4\textwidth]{columbine_case_study_phylogeny1}
+\end{multicols}
 \end{frame}
-%}
 %
-{
-%\usebackgroundtemplate{\includegraphics[width=\paperwidth]{marine_iguana}}
 \begin{frame}[t]{\ques2 What do the lines in this phylogeny represent?}
 
+	\begin{multicols}{2}
 	\begin{enumerate}
-		\item The history of mating between individuals.
-
-		\item Lineages of organisms.
 
 		\item Each line represents a single individual.
+
+		\item The history of mating between individuals.
+
+		\item \alert<2>{Lineages of organisms.}
 
 		\item Which species evolved first, second, third, etc.
 
@@ -121,79 +169,99 @@
 
 	\end{enumerate}
 
-%	\textcolor{white}{\tiny Les Williams, Flickr, \ccbysa{2}}
+	\columnbreak
+	
+	\hfill \includegraphics[width=0.4\textwidth]{columbine_case_study_phylogeny_plain}
+	\end{multicols}
 \end{frame}
-}
 %
-{
-%\usebackgroundtemplate{\includegraphics[width=\paperwidth]{bird_paradise.jpg}}
 \begin{frame}[t]{\ques3 What do the nodes (indicated by G, P, R, and M) represent in the phylogeny?}
 
-
+	\begin{multicols}{2}
 	\begin{enumerate}
-		\item Where two species hybridized.
+
+		\item The sequence in which species \textsc{a}–\textsc{e} evolved.
 		
-		\item Lineages of organisms.
+		\item The point in time where two species hybridized.
 		
-		\item Common ancestors of different species.
+		\item The ancestral lineages of organisms.
 		
-		\item The sequence in which species 1-5 evolved.
+		\item \alert<2>{Common ancestors of different species at the time of speciation.}
 		
 		\item None of the above.
 
 	\end{enumerate}
 
-%	\tiny\textcolor{white}{\href{http://www.youtube.com/watch?v=KIYkpwyKEhY}{Link to Video} \hfill \copyright\,Tim Laman, All Rights Reserved}
+	\columnbreak
+	
+	\hfill \includegraphics[width=0.4\textwidth]{columbine_case_study_phylogeny_labeled}
+		
+	\end{multicols}
 \end{frame}
-}
 %
 {
-\begin{frame}[t]{\ques4  What does the point labeled R indicate?}
+\begin{frame}[t]{\ques4  What does the node labeled 2 indicate?}
 	
+	\begin{multicols}{2}
 	\begin{enumerate}
-		\item Species 5 in the past.
+		\item Species~\textsc{e} in the past.
 		
-		\item Species 2 in the past.
+		\item Where species~\textsc{e} evolved into species~\textsc{b}.
+		
+		\item Species~\textsc{b} in the past.
 
-		\item Where species 2 and species 5 hybridized.
+		\item Where species~\textsc{b} evolved into species~\textsc{e}.
 
-		\item The common ancestor of species 2, 3, 4, \& 5.
+%		\item Where species \textsc{b} and species \textsc{e} hybridized.
 
-		\item Where species 5 became species 2.
+		\item \alert<2>{The common ancestor of species~\textsc{b}, \textsc{c}, \textsc{d}, \& \textsc{e}.}
 
 	\end{enumerate}
+	
+	\columnbreak
+	
+		\hfill \includegraphics[width=0.4\textwidth]{columbine_case_study_phylogeny_labeled}
+	\end{multicols}
+		
 \end{frame}
 }
 %
-\begin{frame}[t]{\ques5 Which statement(s) below accurately describe what is happening at the nodes indicated by MRPG?}
+\begin{frame}[t]{\ques5 Which statement below accurately describes what happened at the nodes labeled 1–4?}
 
+	\begin{multicols}{2}
 	\begin{enumerate}
-		\item Speciation is occurring.
+		\item \alert<2>{Speciation occur in the common ancestor.}
 		
-		\item Mutation and natural selection are making the best new species.  
+		\item Mutation and natural selection made the best new species.  
 		
-		\item One species is turning into another species.
+		\item One species turned into another species.
 		
-		\item Two species are coming together to make a new species.
+		\item Two species came together to make a new species.
 	\end{enumerate}
+	
+	\columnbreak
+	
+	\hfill \includegraphics[width=0.4\textwidth]{columbine_case_study_phylogeny_labeled}
+	\end{multicols}
+		
 \end{frame}
 %
 \begin{frame}[t]{Phylogenies are \emph{hypotheses} about relationships among taxa.}
 	
-	\begin{columns}[t]
-		\begin{column}{0.6\textwidth}
-			\hangpara Branches represent different lineages.  
+	\begin{multicols}{2}
+		\hangpara Branches represent different lineages.\vspace*{-1ex}
 
-			\hangpara Nodes, where clades diverge indicate common ancestors and points of lineage separation (speciation).
+		\hangpara Nodes, where branches diverge, indicate common ancestors at the time of speciation.\vspace*{-1ex}
 
-			\hangpara A clade is a group of lineages that all share a common ancestor. All descendants of the ancestor are included in the clade.
+		\hangpara A clade is a group of lineages that all share a common ancestor. The clade includes all descendants of the ancestor.\vspace*{-1ex}
 			
-			\hangpara Different clades may share features due to common ancestry (ancestral traits), but members of a clade share unique features (derived traits) not present in other clades.
-		\end{column}
-		\begin{column}{0.35\textwidth}
-			The tree goes here.
-		\end{column}
-	\end{columns}
+		\hangpara Members of a clade share unique features (derived traits) not present in other clades.\vspace*{-1ex} %Different clades may share features due to common ancestry (ancestral traits), but 
+
+	\columnbreak
+		
+		\hfill \includegraphics[width=0.4\textwidth]{columbine_case_study_phylogeny_plain}
+		
+	\end{multicols}
 \end{frame}
 %
 \begin{frame}[t]{Flowering plants form a clade that share a unique feature, flowers.}
@@ -202,10 +270,23 @@
 	
 \end{frame}
 %
-\begin{frame}[t]{What do pollinators do?}
-	\hangpara Pollination is the transfer of pollen from an anther to a receptive stigma. Biotic pollination is often a mutualistic relationship between a plant and animal attracted to its flowers to pick up pollen and then carry it to another flower for sexual reproduction. 
+\begin{frame}[t]{Pollination is the transfer of pollen from an anther to a receptive stigma.}
 
-	\hangpara FOrmat slide better.
+	\begin{multicols}{2}
+	\hangpara Biotic pollination is often a \highlight{mutualism} between a plant and animals attracted to the flowers for food or other benefits. 
+	
+	\hangpara In the process, the pollinators pick up pollen and then carry it to another flower, resulting in reproduction for the plant. 
+
+	\columnbreak
+	
+%	\includegraphics[width=0.46\textwidth]{pollen_covered_bee}
+	\includegraphics[width=0.45\textwidth]{hummingbird_anthers}
+	\end{multicols}
+	
+	\vfilll
+	
+%	\hfill \tiny Smudge 9000, Flickr, \ccbysa{2} % Bee
+	\hfill \tiny \href{https://commons.wikimedia.org/wiki/File:RubyThroatedHummingbird.jpg}{Joe Schneid, Wikimedia, \ccby{3}} %  Hbird
 	
 \end{frame}
 %
@@ -295,15 +376,73 @@
 	\end{enumerate}
 \end{frame}
 %
-\begin{frame}[t]
+\begin{frame}[t]{Nectar spurs are innovations that promoted reproductive isolation and speciation in columbines.}
 	
-	\hangpara Nectar spurs are considered innovations that have promoted speciation and reproductive isolation in columbines. Changes in spur length may result in pollinator shifts.
+	\begin{multicols}{2}
+	\hangpara Changes in spur length may result in pollinator shifts.
 
 	\hangpara How could this work? 
 
 	\hangpara How might hummingbirds, bees, and moths differ in why \& how they visit flowers? 
 
+
+	\vfilll
+	
+	\raisebox{2pt}{\textcolor{blue}{\rule{0.25in}{2pt}}} {\footnotesize Bee}\\
+	\raisebox{2pt}{\textcolor{red}{\rule{0.25in}{2pt}}} {\footnotesize Hummingbird} \\
+	\raisebox{2pt}{\textcolor{yellow!85!orange}{\rule{0.25in}{2pt}}} {\footnotesize Hawkmoths}
+	
+	\columnbreak
+	
+%		\vspace*{-1\baselineskip}
+		
+		\includegraphics[width=0.45\textwidth]{columbine_phylogeny}
+	\end{multicols}
+	
+	\pause
+	
+	\tikz \draw [ultra thick] (10.1,2.3) ellipse (1.9cm and 0.7cm);
+	
 \end{frame}
+%
+{
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{aquilegia_formosa}}
+\begin{frame}[t]{\hfill \textcolor{white}{\textit{Aquilegia formosa}}}
+
+	\vspace*{1\baselineskip}
+	
+	%
+	\hfill \parbox{0.34\textwidth}{\raggedright%
+	\textcolor{white}{Spur length of 10–20 mm. \\
+	Moist habitats at low-mid \\ \hspace*{5pt} elevation. \\
+	Pendant (points down).
+	} 
+	}
+	
+	\vfilll
+	
+	\hfill \tiny \textcolor{white}{Daniel Schwen, Wikimedia, \ccbysa{4}}
+\end{frame}
+}
+%
+{
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{aquilegia_pubescens}}
+\begin{frame}[t]{\textcolor{white}{\textit{Aquilegia pubescens}}}
+
+%	\vspace*{1\baselineskip}
+	
+	\vspace*{1em}\parbox{0.4\textwidth}{\raggedright %
+	\textcolor{white}{Spur length of 25–40 mm. \\
+	Dry habitats at high elevation. \\
+	Not pendant (points up).
+	} 
+	}
+	
+	\vfilll
+	
+	\hfill \tiny \textcolor{white}{Daniel Schwen, Wikimedia, \ccbysa{4}}
+\end{frame}
+}
 %
 \begin{frame}[t]{Title?}
 	
@@ -406,7 +545,7 @@
 	\end{enumerate}
 \end{frame}
 %
-\begin{frame}[t]{\ques{10} In the spur shortening experiment, you should expect }
+\begin{frame}[t]{\ques{10} In the spur shortening experiment, you should expect\dots}
 	\begin{enumerate}
 		\item unmanipulated flowers will have more pollen removed by hawkmoths than the shortened spur flowers.
 		\item unmanipulated  flowers will have less pollen removed by hawkmoths than the shortened spur flowers.
@@ -444,7 +583,7 @@
 	\end{columns}
 \end{frame}
 %
-\begin{frame}[t]{\ques{12} Are these results are consistent with the researchers’ prediction about spur length and visitation? \textbf{?? No specific predictions?}}
+\begin{frame}[t]{\ques{12} Are these results consistent with the researchers’ prediction about spur length and visitation? \textbf{?? No specific predictions?}}
 	
 	\begin{columns}[t]
 		\begin{column}{0.28\textwidth}
@@ -486,7 +625,7 @@
 	
 \end{frame}
 %
-\begin{frame}[t]{\ques{14} From these studies we can conclude that}
+\begin{frame}[t]{\ques{14} From these studies we can conclude that\dots}
 	
 	\begin{enumerate}
 		\item orientation promotes mechanical isolation and spur length promotes behavioral isolation.
@@ -497,7 +636,7 @@
 	\end{enumerate}
 \end{frame}
 %
-\begin{frame}[t]{Based upon the data in the floral manipulation studies, spurs act to maintain separate \textit{Aquilegia} species by}
+\begin{frame}[t]{\ques{15} Based upon the data in the floral manipulation studies, spurs act to maintain separate \textit{Aquilegia} species by\dots}
 	
 	\begin{enumerate}
 		\item causing flowers to grow in different habitats.
@@ -517,7 +656,7 @@
 
 \end{frame}
 %
-\begin{frame}[t]{\ques{16} The occurrence of hybrids indicates}
+\begin{frame}[t]{\ques{16} The occurrence of hybrids indicates\dots}
 	
 	\begin{enumerate}
 		\item that A. formosa and A. pubescens are really just one species.
