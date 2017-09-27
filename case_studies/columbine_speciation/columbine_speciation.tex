@@ -1,10 +1,10 @@
 %!TEX TS-program = lualatex
 %!TEX encoding = UTF-8 Unicode
 
-\documentclass[t,hidelinks]{beamer}
+%\documentclass[t,hidelinks]{beamer}
 
 %%%% HANDOUTS For online Uncomment the following four lines for handout
-%\documentclass[t,handout]{beamer}  %Use this for handouts.
+\documentclass[t,handout]{beamer}  %Use this for handouts.
 %\usepackage{handoutWithNotes}
 %\pgfpagesuselayout{3 on 1 with notes}[letterpaper,border shrink=5mm]
 
@@ -46,7 +46,7 @@
 
 \usepackage{tikz}
 	\tikzstyle{every picture}+=[remember picture,overlay]
-	\usetikzlibrary{arrows}
+	\usetikzlibrary{arrows.meta}
 %	\usetikzlibrary{trees}
 
 
@@ -329,14 +329,14 @@
 
 	\columnbreak
 	
-		\includegraphics[width=0.42\textwidth]{fly}\\
-		\includegraphics[width=0.42\textwidth]{dung_fly}
+		\includegraphics[width=0.41\textwidth]{fly}\\
+		\includegraphics[width=0.41\textwidth]{dung_fly}
 		
 	\end{multicols}
 	
 	\vfilll
 	
-	\hfill \tiny Top: \href{https://en.wikipedia.org/wiki/File:Chrysomya_megacephala_male.jpg}{Muhammad Mahdi Karim, Wikimedia \textsc{gnu} 1.2}. Bottom: \href{https://commons.wikimedia.org/wiki/File:Dung_Fly_-_Scatophaga_stercoraria.jpg}{Wikimedia, Public Domain}
+	\hfill \tiny Top: \href{https://en.wikipedia.org/wiki/File:Chrysomya_megacephala_male.jpg}{Muhammad Mahdi Karim, Wikimedia \textsc{gnu} 1.2}.\\ \hfill Bottom: \href{https://commons.wikimedia.org/wiki/File:Dung_Fly_-_Scatophaga_stercoraria.jpg}{Wikimedia, Public Domain}
 \end{frame}
 %
 \begin{frame}[t]{Biotic pollination syndromes}
@@ -381,16 +381,18 @@
 	\begin{multicols}{2}
 	\hangpara \highlight{Bats:} preference for large, white or light colored flowers that open at night and have strong musty odors (chiropterophily).
 	
-	\hangpara \highlight{Lizards:} A relatively recent discovery.
+	\hangpara \highlight{Lizards:} A recent discovery. The gecko functions as a pollinator \emph{and} a seed disperse for the same species of plant, which is rare.
 	
 	\columnbreak
 	
-		\includegraphics[width=0.45\textwidth]{bat_pollinator}
+		\includegraphics[width=0.38\textwidth]{bat_pollinator}\\
+		\includegraphics[width=0.38\textwidth]{gecko_pollinator}
+
 	\end{multicols}
 
 	\vfilll
 	
-	\hfill \tiny \textsc{usda}, Merlin Tuttle, Flickr, \ccby{2}
+	\hfill \tiny Top: \textsc{usda}, Merlin Tuttle, Flickr, \ccby{2}.\\ \hfill Bottom: Hansen \& Müller 2009. Intl. J. Plant Sci. 170: 42
 \end{frame}
 %
 \begin{frame}[t]{Floral features can promote reproductive isolation.}
@@ -558,23 +560,23 @@
 	\columnbreak
 
 		{\centering
-		\includegraphics[width=0.25\textwidth]{a_formosa_small}\\
-		\includegraphics[width=0.25\textwidth]{a_pubescens_small}\\
+		\includegraphics[width=0.24\textwidth]{a_formosa_small}\\
+		\includegraphics[width=0.24\textwidth]{a_pubescens_small}\\
 		}
 	\end{multicols}
 
 	\vfilll
 	
-	\tiny Top: \href{http://species.wikimedia.org/wiki/File:Aquilegia_formosa_14962.JPG}{Walter Siegmund, Wikimedia, \ccbysa{3}}. Bottom: \href{http://calphotos.berkeley.edu/cgi/img_query?enlarge=0000+0000+1209+2492
+	\hfill \tiny Top: \href{http://species.wikimedia.org/wiki/File:Aquilegia_formosa_14962.JPG}{Walter Siegmund, Wikimedia, \ccbysa{3}}. \\ \hfill Bottom: \href{http://calphotos.berkeley.edu/cgi/img_query?enlarge=0000+0000+1209+2492
 }{CalPhotos, \ccbyncsa{3}}
 \end{frame}
 %
-\begin{frame}[t]{Write a hypothesis.}
+\begin{frame}[t]{How could you test the importance of nectar spurs and other floral features on columbine speciation?}
 	
 	\begin{multicols}{2}
-	\hangpara Given the proposed importance of nectar spurs and other floral features, how would you test their influence on columbine speciation?
+	%\hangpara Given the proposed importance of nectar spurs and other floral features, how would you test their influence on columbine speciation?
 
-	\hangpara Develop a hypothesis and design an experiment to  to explore potential causes and function of behavioral isolation and mechanical isolation between \textit{A.~pubescens} and \textit{A.~formosa} flowers.
+	\hangpara \highlight{Develop a hypothesis and design an experiment} to explore potential causes and function of behavioral isolation and mechanical isolation between \textit{A.~pubescens} and \textit{A.~formosa} flowers.
 
 	\columnbreak
 	
@@ -616,7 +618,7 @@
 	
 \end{frame}
 %
-\begin{frame}[t]{Results: Mean visits per flower per hour by different pollinators to \textit{A.~formosa} and \textit{A.~pubescens}.}
+\begin{frame}[t]{Mean visits per flower per hour by different pollinators to \textit{A.~formosa} and \textit{A.~pubescens}.}
 
 	{\centering
 	\includegraphics[width=0.85\textwidth]{columbine_pollinator_results}\par
@@ -671,22 +673,22 @@
 		\begin{tikzpicture}
 		
 		% Left side
-		\tikz \draw [line width = 3pt, ->] (-3.2,5.3) -- (-4.9,4.5); % Hbirds to formosa
+		\tikz \draw [line width = 3pt, -{Latex[length=4mm]}] (-3.2,5.3) -- (-4.9,4.5); % Hbirds to formosa
 		
-		\tikz \draw [line width = 3pt, ->] (-3.2,3.7) -- (-4.9,3.7); % Bees to formosa
+		\tikz \draw [line width = 3pt, -{Latex[length=4mm]}] (-3.2,3.7) -- (-4.9,3.7); % Bees to formosa
 
-		\tikz \draw [line width = 3pt, ->] (-3.2,1.9) -- (-4.9,1.9); % Flies to formosa
+		\tikz \draw [line width = 3pt, -{Latex[length=4mm]}] (-3.2,1.9) -- (-4.9,1.9); % Flies to formosa
 
-		\tikz \draw [line width = 0.25pt, ->] (-3.2,0.2) -- (-4.9,1.3); % Hawkmoth to formosa
+		\tikz \draw [line width = 0.25pt, -{Latex[length=1.5mm]}] (-3.2,0.2) -- (-4.9,1.3); % Hawkmoth to formosa
 
 		% Right side
-		\draw [line width = 0.25pt, ->] (-1.3,5.3) -- (0.4,4.5); % Hbirds to pubescens
+		\draw [line width = 0.25pt, -{Latex[length=1.5mm]}] (-1.3,5.3) -- (0.4,4.5); % Hbirds to pubescens
 
-		\draw [line width = 1.5pt, ->] (-1.3,3.7) -- (0.4,3.7); % Bees to pubescens
+		\draw [line width = 1.5pt, -{Latex[length=2.25mm]}] (-1.3,3.7) -- (0.4,3.7); % Bees to pubescens
 
-		\draw [line width = 1.5pt, ->] (-1.3,1.9) -- (0.4,1.9); % Flies to pubescens
+		\draw [line width = 1.5pt, -{Latex[length=2.25mm]}] (-1.3,1.9) -- (0.4,1.9); % Flies to pubescens
 
-		\draw [line width = 3pt, ->] (-1.3,0.2) -- (0.4,1.3); % Hawkmoth to pubescens
+		\draw [line width = 3pt, -{Latex[length=4mm]}] (-1.3,0.2) -- (0.4,1.3); % Hawkmoth to pubescens
 
 		\end{tikzpicture}
 
@@ -783,7 +785,7 @@
 
 \end{frame}
 %
-\begin{frame}[t]{\ques{12} Did spur length affect the number of visits?}
+\begin{frame}[t]{\ques{12} Did spur length affect the number of visits by hawkmoths?}
 	
 	\begin{columns}[t]
 		\begin{column}{0.28\textwidth}
@@ -833,7 +835,7 @@
 	\tiny Fulton and Hodges 1999. Proc.~R.~Soc.~Lond.~B 266: 2247.
 \end{frame}
 %
-\begin{frame}[t]{\ques{14} From these studies we can conclude that\dots}
+\begin{frame}[t]{\ques{14} From these studies, the researchers could conclude that\dots}
 	
 	\begin{enumerate}
 		\item floral structure causes reproductive isolation after pollination occurs.
