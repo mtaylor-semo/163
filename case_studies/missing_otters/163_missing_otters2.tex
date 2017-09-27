@@ -1,0 +1,269 @@
+%!TEX TS-program = lualatex
+%!TEX encoding = UTF-8 Unicode
+
+\documentclass[t]{beamer}
+
+%%%% HANDOUTS For online Uncomment the following four lines for handout
+%\documentclass[t,handout]{beamer}  %Use this for handouts.
+%\usepackage{handoutWithNotes}
+%\pgfpagesuselayout{3 on 1 with notes}[letterpaper,border shrink=5mm]
+%	\setbeamercolor{background canvas}{bg=black!5}
+
+%\includeonlylecture{student}
+
+%%% Including only some slides for students.
+%%% Uncomment the following line. For the slides,
+%%% use the labels shown below the command.
+
+%% For students, use \lecture{student}{student}
+%% For mine, use \lecture{instructor}{instructor}
+
+
+
+% FONTS
+\usepackage{fontspec}
+\def\mainfont{Linux Biolinum O}
+\setmainfont[Ligatures={Common,TeX}, BoldFont={* Bold}, ItalicFont={* Italic}, Numbers={Proportional, OldStyle}]{\mainfont}
+\setsansfont[Ligatures={Common,TeX}, Scale=MatchLowercase, Numbers={Proportional,OldStyle}, BoldFont={* Bold}, ItalicFont={* Italic},]{Linux Biolinum O} 
+\usepackage{microtype}
+
+\usepackage{amsmath,amssymb}
+%\usepackage{unicode-math}
+%\setmathfont[Scale=MatchLowercase]{TeX Gyre Termes Math}
+
+\usepackage{graphicx}
+	\graphicspath{{/Users/goby/pictures/teach/163/case_studies/}
+	{/Users/goby/pictures/teach/163/lecture/}
+	{/Users/goby/pictures/teach/common/}} % set of paths to search for images
+
+\usepackage{color}
+\definecolor{biolum}{RGB}{111,253,254}
+
+\usepackage{multicol}
+\usepackage{booktabs}
+\usepackage{array}
+\newcolumntype{L}[1]{>{\raggedright\let\newline\\\arraybackslash\hspace{0pt}}p{#1}}
+\newcolumntype{C}[1]{>{\centering\let\newline\\\arraybackslash\hspace{0pt}}p{#1}}
+\newcolumntype{R}[1]{>{\raggedleft\let\newline\\\arraybackslash\hspace{0pt}}p{#1}}
+%\usepackage{textcomp}
+%\usepackage{mhchem}
+\usepackage{enumitem}
+%\usepackage[export]{adjustbox}
+
+
+\usepackage{tikz}
+	\tikzstyle{every picture}+=[remember picture,overlay]
+	\usetikzlibrary{arrows}
+\usetikzlibrary{positioning}
+
+\mode<presentation>
+{
+  \usetheme{Lecture}
+  \setbeamercovered{invisible}
+  \setbeamertemplate{items}[default]
+}
+
+
+\begin{document}
+
+\lecture{instructor}{instructor}
+
+%
+\begin{frame}[t]{Orca don't eat otters\dots right? \hfill Right\char"203D}
+
+	\includegraphics[width=\textwidth]{missing_otter1_otter_orca}
+
+	\vfilll
+	
+	\hfill \tiny Is this thing on?
+\end{frame}
+%
+{
+\setbeamercolor{background canvas}{bg=black} 
+\begin{frame}
+\includegraphics[width=\textwidth]{missing_otter2_squee}
+
+\vfilll
+
+\hfill \tiny Mike Baird, Flickr, \ccby{2}
+\end{frame}
+}
+%
+\begin{frame}[t]{What do you know about killer whales?}
+
+	\hangpara Make a list of the types of information about killer whales you believe the scientists might need to test their hypothesis that increased predation by the whales was the cause of the sea otter decline.
+
+	\pause
+
+	\hangpara What did you think of?
+
+\end{frame}
+%
+{
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{missing_otter2_orca_pod} }
+\begin{frame}[b]{Killer whales are dolphins, a type of toothed whale.}
+	\hfill \tiny Edward Rooks, Flickr Creative Commons.
+\end{frame}
+}
+%
+{
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{missing_otter2_orca_corruption} }
+\begin{frame}[b]{``Killer whale'' is a corruption of whale killer.}
+	\hfill \tiny \textcolor{white}{Robert Pittman, \textsc{noaa}, Wikimedia, public domain.}
+\end{frame}
+}
+%
+
+\begin{frame}[t]{Killer whales live in cold waters in all oceans.}
+
+	\includegraphics[width=\textwidth]{missing_otter2_orca_distribution}
+	
+	\vfilll
+	
+	\hfill \tiny \textcopyright\,American Cetacean Society
+\end{frame}
+
+%
+\begin{frame}[t]{Killer whales have long lives and care for their young.}
+
+	\begin{multicols}{2}
+	
+	\hangpara Live as long as 50–60 years.
+
+	\hangpara Sexually mature at 10 years old but are often older before they first reproduce.
+
+	\hangpara They have  a 17 month gestation period. Young are weaned at 1 year old.
+
+	\hangpara Give birth every 3–10 years.
+
+
+	\columnbreak
+	
+		\includegraphics[width=0.45\textwidth]{missing_otter2_orca_young}
+
+	\end{multicols}
+	
+	\vfilll
+	
+	\hfill \tiny MarineBio.org
+
+\end{frame}
+%
+\begin{frame}[t]{Killer whales have long lives and care for their young.}
+
+	\begin{multicols}{2}
+	
+	\hangpara Resident pods eat fish. 
+
+	\hangpara Transient individuals eat marine mammals.
+
+	\hangpara Eat 3–4\% of body weight per day
+	
+	\columnbreak
+	
+		\includegraphics[width=0.44\textwidth]{missing_otter2_orca_blow}
+		
+		\includegraphics[width=0.44\textwidth]{missing_otter2_orca_breach}
+
+	\end{multicols}
+	
+	\vspace*{-0.5\baselineskip}
+	
+	\hfill \tiny MarineBio.org
+
+\end{frame}
+%
+%{
+%\usebackgroundtemplate{\includegraphics[width=\paperwidth]{please_stand_by} }
+%\begin{frame}[b]
+%\end{frame}
+%}
+%
+{
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{missing_otter2_dispersion} }
+\begin{frame}[b]
+	\hfill \tiny \copyright Pearson Education, Inc.
+\end{frame}
+}
+%
+\begin{frame}[t]{In a manipulative experiment:}
+	\hangpara The \highlight{explanatory variable} is manipulated or controlled by the investigator.
+	
+	\hangpara The \highlight{response variable} is the observed result that is \emph{explained} by the explanatory variable.
+\end{frame}
+%
+\begin{frame}[t]{In a manipulative experiment:}
+	\hangpara The \highlight{treatment group} receives the specific treatment. It is manipulated or controlled by the investigator.
+	
+	\hangpara The \highlight{control group} does not receive the specific treatment. It is not manipulated by the investigator.
+	
+	\hangpara The results from the treatment and control groups are compared to test the treatment had a significant effect.
+
+\end{frame}
+%
+\begin{frame}[t]{Do killer whales eat sea otters? Can they?}
+
+	\href{https://www.youtube.com/watch?v=AtF3FPyRVIw}{\includegraphics[width=\textwidth]{missing_otter2_orca_seal}}
+
+\end{frame}
+%
+\begin{frame}[t]{Could killer whales explain the rapid decrease of sea otters over six years?}
+	\hangpara Describe an experiment that would allow you to test the hypothesis that increased predation by killer whales was the cause of the sea otter decline. 
+	
+	\hangpara Keep in mind the following key components of any good experiment: a \highlight{control} and \highlight{treatment} (for comparison), \highlight{replication} (do it more than once), and consideration of \highlight{confounding factors} (what might cause differences other than what you manipulate in your experiment?).
+
+\end{frame}
+%
+\begin{frame}[t]{Only areas accessible to killer whales showed a decline in sea otter population size.}
+
+\includegraphics[width=\textwidth]{missing_otter2_experiment_results}
+
+Clam Lagoon (filled squares) is \highlight{protected} from killer whales.\newline
+Kuluk Bay (open circles) is \highlight{accessible} to killer whales.
+
+\vfilll
+
+\hfill \tiny Estes et al. 1998. Science 282: 473.
+\end{frame}
+%
+\begin{frame}[t]{How many killer whales would it take to eat 40,000 otters in six years? (extra credit)}
+
+	\includegraphics[width=\textwidth]{missing_otter2_orca_seal}
+
+\end{frame}
+%
+\begin{frame}[t]{How many killer whales would it take to eat 40,000 otters in six years? (extra credit)}
+
+	\hangpara It must be \highlight{typed.} You must \highlight{show your work.}
+
+	\hangpara If you do not type it or if you do not show your work, you will not receive credit.
+
+	\hangpara 5 points if correct.
+
+	\hangpara 2 points if attempted but incorrect.
+
+\end{frame}
+%
+\begin{frame}[t]{How much energy does one otter provide?)}
+
+	\hangpara Use an average otter weight of 29 kg (29,000 g).
+	
+	\hangpara Use 1.7 kilocalories of energy per gram of otter per day.
+
+
+\end{frame}
+%
+\begin{frame}[t]{How much energy does an average killer whale need?}
+
+	\hangpara Use average killer whale weight of 4,000 kg.
+	
+	\hangpara Use 54 kilocalories of energy per kilogram of killer whale per day.
+		
+	\hangpara How many killer whales would it take to eat 40,000 otters in six years?\newline
+		\hspace*{1em} Round to whole otters and killer whales as you proceed.\newline
+		\hspace*{1em} For example, if you  calculate 5.6 otters, then round to 6.
+
+
+\end{frame}
+%
+\end{document}

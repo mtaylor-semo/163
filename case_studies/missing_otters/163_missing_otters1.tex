@@ -1,0 +1,184 @@
+%!TEX TS-program = lualatex
+%!TEX encoding = UTF-8 Unicode
+
+\documentclass[t]{beamer}
+
+%%%% HANDOUTS For online Uncomment the following four lines for handout
+%\documentclass[t,handout]{beamer}  %Use this for handouts.
+%\usepackage{handoutWithNotes}
+%\pgfpagesuselayout{3 on 1 with notes}[letterpaper,border shrink=5mm]
+%	\setbeamercolor{background canvas}{bg=black!5}
+
+%\includeonlylecture{student}
+
+%%% Including only some slides for students.
+%%% Uncomment the following line. For the slides,
+%%% use the labels shown below the command.
+
+%% For students, use \lecture{student}{student}
+%% For mine, use \lecture{instructor}{instructor}
+
+
+
+% FONTS
+\usepackage{fontspec}
+\def\mainfont{Linux Biolinum O}
+\setmainfont[Ligatures={Common,TeX}, Contextuals={NoAlternate}, BoldFont={* Bold}, ItalicFont={* Italic}, Numbers={Proportional, OldStyle}]{\mainfont}
+\setsansfont[Ligatures={Common,TeX}, Scale=MatchLowercase, Numbers={Proportional,OldStyle}, BoldFont={* Bold}, ItalicFont={* Italic},]{Linux Biolinum O} 
+\usepackage{microtype}
+
+\usepackage{amsmath,amssymb}
+%\usepackage{unicode-math}
+%\setmathfont[Scale=MatchLowercase]{TeX Gyre Termes Math}
+
+\usepackage{graphicx}
+	\graphicspath{{/Users/goby/pictures/teach/163/case_studies/}
+	{/Users/goby/pictures/teach/163/lecture/}
+	{/Users/goby/pictures/teach/common/}} % set of paths to search for images
+
+\usepackage{color}
+\definecolor{biolum}{RGB}{111,253,254}
+
+\usepackage{multicol}
+\usepackage{booktabs}
+\usepackage{array}
+\newcolumntype{L}[1]{>{\raggedright\let\newline\\\arraybackslash\hspace{0pt}}p{#1}}
+\newcolumntype{C}[1]{>{\centering\let\newline\\\arraybackslash\hspace{0pt}}p{#1}}
+\newcolumntype{R}[1]{>{\raggedleft\let\newline\\\arraybackslash\hspace{0pt}}p{#1}}
+%\usepackage{textcomp}
+%\usepackage{mhchem}
+\usepackage{enumitem}
+%\usepackage[export]{adjustbox}
+
+
+\usepackage{tikz}
+	\tikzstyle{every picture}+=[remember picture,overlay]
+	\usetikzlibrary{arrows}
+\usetikzlibrary{positioning}
+
+\mode<presentation>
+{
+  \usetheme{Lecture}
+  \setbeamercovered{invisible}
+  \setbeamertemplate{items}[default]
+}
+
+
+\begin{document}
+
+
+\lecture{student}{student}
+\begin{frame}{The case of the missing sea otters.}
+
+	\centering\includegraphics[height=0.8\textheight]{missing_otter1_intro}
+	
+\end{frame}
+%
+{\setbeamercolor{background canvas}{bg=black}
+\begin{frame}[t]{The case of the missing sea otters.}
+
+	\includegraphics[width=\textwidth]{missing_otter1_location}
+	
+	\begin{tikzpicture}
+	
+	\node [yellow] (here) at (10.5,4.2) {\small You are here!};
+	
+	\draw [thick, yellow, ->] (here) -- (10.8,3.45);
+	
+	\node [yellow] (study) at (4.4,3.6) {Study area};
+	
+	\draw [ultra thick, yellow] (1.8,4.6) rectangle (2.7,5.5) ;;
+	
+	\draw [yellow, thick, ->] (study.north west) -- (2.75,4.55);
+	\end{tikzpicture}
+	
+\end{frame}
+}
+%
+\begin{frame}
+
+	\centering\includegraphics[height=0.95\textheight]{missing_otter1_sites}
+	
+\end{frame}
+%
+{
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{missing_otter1_decline} }
+\begin{frame}[b]{How has the size of the sea otter population changed?}
+	\hfill \tiny \textcolor{white}{J.J. Harrison, Wikimedia, \ccbysa{3}}
+\end{frame}
+}
+%
+\begin{frame}[t]{What could have caused the otter population to decline?}
+
+	\begin{multicols}{2}
+	
+	\includegraphics[width=0.5\textwidth]{missing_otter1_decline_small}
+
+	\columnbreak
+	
+	What are the four factors that determine whether 
+	a population is getting larger or smaller?
+
+	\vspace*{\baselineskip}
+
+	In groups (3–4 students), write four hypotheses that might 
+	explain otter population decline. Write one hypothesis
+	for each factor. 
+
+	\vspace*{\baselineskip}
+
+	Be specific. For example, do not write “Fewer 
+	individuals are giving birth.”  What do you think 
+	could be specific causes of decreased birth rates?
+
+	\end{multicols}
+		
+\end{frame}
+%
+{
+\setbeamercolor{background canvas}{bg=black}
+\begin{frame}{\phantom{phantom}}
+	\begin{multicols}{2}
+	
+		\hangpara\textcolor{white}{Four factors that determine population size.}
+	
+	\columnbreak
+	
+		\hangpara\textcolor{white}{Possible causes of decline.}
+	
+	\end{multicols}
+\end{frame}
+}
+%
+\begin{frame}[t]
+	\begin{multicols}{2}
+	
+		Based on this article, which potential causes 
+		of population decline can we eliminate?
+		
+		\vspace*{0.65\baselineskip}
+		
+		\includegraphics[width=0.5\textwidth]{missing_otter1_intro}
+
+	\columnbreak
+	
+		\includegraphics[width=0.5\textwidth]{missing_otter1_article}
+
+	\end{multicols}
+	
+	\vfilll
+	
+	\tiny Excerpted from Stevens, W.K. Search for missing sea otters turns up a few surprises. New York Times, January 5, 1999.
+
+\end{frame}
+%
+\begin{frame}[t]{Orca don't eat otters\dots right? \hfill Right\char"203D}
+
+	\includegraphics[width=\textwidth]{missing_otter1_otter_orca}
+
+	\vfilll
+	
+	\hfill \tiny Is this thing on?
+\end{frame}
+%
+\end{document}

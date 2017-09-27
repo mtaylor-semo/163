@@ -1,0 +1,51 @@
+%!TEX TS-program = lualatex
+%!TEX encoding = UTF-8 Unicode
+
+\documentclass[12pt]{article}
+
+% FONTS
+\usepackage{fontspec}
+\def\mainfont{Linux Libertine O}
+\setmainfont[Ligatures={Common,TeX}, Contextuals={NoAlternate}, BoldFont={* Bold}, ItalicFont={* Italic}, Numbers={Proportional, OldStyle}]{\mainfont}
+\setsansfont[Ligatures={Common,TeX}, Scale=MatchLowercase, Numbers={Proportional,OldStyle}, BoldFont={* Bold}, ItalicFont={* Italic},]{Linux Biolinum O} 
+\usepackage{microtype}
+
+\usepackage{geometry}
+\geometry{letterpaper} 
+\geometry{bottom=1in, left=1.5in}
+
+\usepackage[parfill]{parskip} 
+
+\usepackage{graphicx}
+	\graphicspath{{/Users/goby/pictures/teach/163/case_studies/}
+}
+
+\usepackage{fancyhdr}
+	\setlength{\headheight}{14.5pt}
+\fancyhf{}
+\pagestyle{fancy}
+\lhead{}
+\chead{}
+\rhead{\footnotesize pg. \thepage }
+\renewcommand{\headrulewidth}{0.4pt}
+
+\fancypagestyle{plain}{%
+	\fancyhf{}
+	\lhead{\textsc{bi} 163: Evolution and Ecology}
+	\rhead{Missing Sea Otters, part 1}
+	\renewcommand{\headrulewidth}{0pt}
+}
+
+\begin{document}
+\thispagestyle{plain}
+
+Around 1991, Dr. James Estes and his colleagues at the University of California, Santa Cruz, noticed that the sea otter populations they had been studying for over 20 years were beginning to shrink. Sea otter populations inhabiting several of the Aleutian Islands had declined as much as 90\% in fewer than 10 years. What could cause such a sharp drop in this island chain of Alaska?
+
+Read the following excerpt from an article published in the \textit{New York Times} and see if you can determine where all of the missing otters had gone.
+
+\begin{center}
+	\includegraphics[height=0.75\textheight]{missing_otter1_article}
+\end{center}
+
+{\small Excerpted from Stevens, William K. ``Searching for missing sea otters turns up a few surprises.'' \textit{New York Times,} 05 January 1999.}
+\end{document}
