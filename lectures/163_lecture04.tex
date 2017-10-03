@@ -17,12 +17,11 @@
 %% For students, use \lecture{student}{student}
 %% For mine, use \lecture{instructor}{instructor}
 
-
 % FONTS
 \usepackage{fontspec}
 \def\mainfont{Linux Biolinum O}
 \setmainfont[Ligatures={Common,TeX}, Contextuals={NoAlternate}, BoldFont={* Bold}, ItalicFont={* Italic}, Numbers={OldStyle}]{\mainfont}
-\setsansfont[Ligatures={Common,TeX}, Scale=MatchLowercase, Numbers=OldStyle]{Linux Biolinum O} 
+\setsansfont[Ligatures={Common,TeX}, Scale=MatchLowercase, Numbers=OldStyle, BoldFont={* Bold}, ItalicFont={* Italic},]{Linux Biolinum O} 
 \usepackage{microtype}
 
 \usepackage{graphicx}
@@ -30,224 +29,247 @@
 	{/Users/goby/pictures/teach/common/}} % set of paths to search for images
 
 \usepackage{multicol}
-\usepackage{booktabs}
+%\usepackage{booktabs}
 %\usepackage{textcomp}
 
 \usepackage{tikz}
 	\tikzstyle{every picture}+=[remember picture,overlay]
-	\usetikzlibrary{arrows}
+%	\usetikzlibrary{arrows}
+
+\newcommand{\blurred}[3]{
+\draw [black!#1] node at (#2,#2) {#3};
+\draw [black!#1] node at (0,#2) {#3};
+\draw [black!#1] node at (#2,0) {#3};
+\draw [black!#1] node at (-#2,#2) {#3};
+\draw [black!#1] node at (-#2,0) {#3};
+\draw [black!#1] node at (0,-#2) {#3};
+\draw [black!#1] node at (#2,-#2) {#3};
+\draw [black!#1] node at (-#2,-#2) {#3};
+}
+
+\newcommand{\blurry}[1]{
+\blurred{5}{0.04}{#1}
+\blurred{13}{0.017}{#1}
+\blurred{10}{0.012}{#1}
+\blurred{15}{0.007}{#1}
+\blurred{20}{0.003}{#1}
+\blurred{10}{0.0015}{#1}
+\draw [black!40] node at (0,0) {#1};
+}
 
 \mode<presentation>
 {
   \usetheme{Lecture}
   \setbeamercovered{invisible}
-%  \setbeamertemplate{items}[square]
 }
-
 
 
 \begin{document}
-
+%
 \lecture{student}{student}
-\begin{frame}[t]{Our goals for this lecture are to learn}
-
+%
+\begin{frame}{Our goal for this lecture is to }
 	
-	\hangpara	the difference between \highlight{phenotype} and \highlight{genotype,} and
+	\hangpara explain four of the five processes that cause evolution in populations:
+	
+	\hangpara \quad \highlight{mutation,}
 
-	\hangpara how phenotype changes in response to different \highlight{modes of selection.}
+	\hangpara \quad \highlight{gene flow,}
+	 	 
+	\hangpara \quad \highlight{non-random mating,} and
+	
+	\hangpara \quad \highlight{genetic drift.} 
+
+\end{frame}
+% 
+\begin{frame}[t]{The Hardy-Weinberg equations are a \highlight{null model} for population evolution.}
+	
+	\vspace{-\baselineskip}
+	
+	\hangpara The H-W equations makes five assumptions.
+	
+	\hangpara \quad Mutations do not occur.
+		
+	\hangpara \quad Gene flow does not occur.
+
+	\hangpara \quad Mating is random.
+	
+	\hangpara \quad Genetic drift does not occur.
+	
+	\hangpara \quad Natural selection does not occur.
+	
+	\pause \hangpara \highlight{If \emph{at least one} of these occurs in a population, then the population \emph{will} evolve.}
 	
 \end{frame}
-
 %
 {
-\usebackgroundtemplate{\includegraphics[width=\paperwidth]{individuals_vary}}
-\begin{frame}[b]
-\hfill\textcolor{white}{\tiny \copyright\, Entomart, Wikimedia}
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{mutation_types} }
+\begin{frame}[t]{A \highlight{mutation} is any change to the genome of an organism.}
+
+	\vfilll
+
+	\hfill\rotatebox{90}{\tiny \textcopyright Roberts \& Company}
 \end{frame}
 }
-% Why do populations vary?
-\begin{frame}[t]{The traits of an organism is called the \highlight{phenotype.}}
-	\centering
-	\includegraphics[width=0.8\textwidth]{individuals_vary_plain}\par
+%
+\begin{frame}[t]{Mutations can create new alleles.}
+
+	\hangpara Mutations occur at \highlight{random.}\pause
+	
+	\hangpara Most mutations are \highlight{neutral mutations.}\pause
+	
+	\hangpara Mutations that occur in a gene can create new alleles.\pause
+	
+	\hangpara Some new alleles can be detrimental or beneficial.\pause
+
+	\hangpara More alleles increase \highlight{heterozygosity} in a population.\pause
+	
+	\hangpara Higher heterozygosity increases genetic variation for natural selection to work with.
+	
+\end{frame}
+%
+\begin{frame}[t]{\highlight{Gene flow} is the movement of individuals among populations.}
+	\alt<handout>{}{\includegraphics<1>[width=\textwidth]{gene_flow_beetles_start}}
+	\alt<handout>{}{\includegraphics<2>[width=\textwidth]{gene_flow_beetles_middle}}
+	\includegraphics<3>[width=\textwidth]{gene_flow_beetles_end}
+
+	\onslide<3>When individuals move, their alleles go with them.
 	
 	\vfilll
 	
-	\hfill\tiny \copyright\, Entomart, Wikimedia
+	\hfill \tiny Tsaneda, Wikimedia, \ccby{3}
+\end{frame}
+%
+{
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{mating_mice} }
+\begin{frame}[b]{\highlight{Non-random mating} occurs when individuals choose mates based on phenotype.}
+	\hfill \tiny \textcopyright Pearson Education, Inc.
+\end{frame}
+}
+%
+{
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{charles_ancestry_inbred} }
+\begin{frame}[b]{Non-random mating tends to reduce heterozygosity.}
+\end{frame}
+}
+%
+{
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{shirt_sniffing}}
+\begin{frame}[b]{Non-random mating can \emph{increase} heterozygosity for some genes.}
+	\tiny \textcolor{white}{\copyright\,Associated Press}
+\end{frame}
+}
+%
+\begin{frame}[t]{\highlight{Genetic drift} is \emph{random} change of allele frequencies.}
+	\vspace*{-\baselineskip}
+	\begin{center}
+		\includegraphics[width=0.7\textwidth]{genetic_drift}
+	\end{center}
+
+	\vspace*{-\baselineskip}
+	
+	\hangpara Genetic drift is strongest in small populations.
 
 \end{frame}
 %
-\begin{frame}[t]{What causes the \highlight{phenotype} to vary?}
-	\centering
-	\includegraphics[width=0.8\textwidth]{individuals_vary_plain}
-	
-		\vfilll
-	
-	\hfill\tiny \copyright\, Entomart, Wikimedia
-
+\begin{frame}{Genetic drift \emph{always} causes a \highlight{loss of heterozygosity.}}
+	\includegraphics[width=\textwidth]{loss_of_heterozygosity}
 \end{frame}
 %
-\begin{frame}[t]{The phenotype is determined by the \highlight{genotype.}}
+\begin{frame}{Two types of drift cause \highlight{rapid} loss of heterozygosity.}
 
 	\begin{multicols}{2}
-	
-		\includegraphics[width=0.45\textwidth]{punnett_square_genotype_phenotype}
-	
+		\includegraphics[width=0.5\textwidth]{loss_of_heterozygosity}
 	\columnbreak
-
-	The genotype is the genetic makeup of the organism.\vspace*{2\baselineskip}
-	
-	The genotype is the combination of alleles for one or more gene.
-	
+		\hangpara \highlight{Bottleneck effect} and\\ 
+		\highlight{Founder effect.}
 	\end{multicols}
 	
-	\vfilll
-	
-	\tiny Madeleine Price Ball, Wikimedia, \textsc{cc0}
-
 \end{frame}
-
-% Genotype and phenotype
-%\lecture{instructor}{instructor}
+%
 {
-\usebackgroundtemplate{\includegraphics[width=\paperwidth]{chromosomes}}
-\begin{frame}[c,plain]
-	\begin{tikzpicture}[remember picture, overlay]
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{bottleneck} }
+\begin{frame}[b]{\highlight{Bottlenecks} occur when population size decreases rapidly.}
 
-	\alt<handout>{}{\visible <1,6->{
-		\node at (0.45,2) [right] {The \highlight{genotype} is the genetic makeup of the organism.};}
-	
-	\visible <7>{
-		\node at (0.45,1.4)[right] {The \highlight{phenotype} is the physical expression of the genotype.};
-	}}
-		
-	
-	\alt<handout>{}{\visible <2>{
-		\draw (3,-2.5) -- (3,0.5) -- (3.9,0.5) -- (3.9,-2.5) -- cycle ;
-		\draw (6,-2.5) -- (6,0.5) -- (6.9,0.5) -- (6.9,-2.5) -- cycle ;
-		\draw (9,-2.5) -- (9,0.5) -- (9.9,0.5) -- (9.9,-2.5) -- cycle ;
-	
-		\node at (6.4, 2) (gene) {Gene or Locus};
-	
-		\draw (gene.south west) -- (3.9,0.5);
-		\draw (gene.south) -- (6.45,0.5);
-		\draw (gene.south east) -- (9,0.5);
-	}}
-	
-	\visible <3-4>{
-		\node at (3.45,0.25) (Callele) {$C$};
-		\node at (3.45,-2.25) {$C$};
-
-		\node at (6.45,0.25) (aallele) {$a$};
-		\node at (6.45,-2.25) {$a$};
-	}
-
-	\visible <3,5>{
-		\node at (9.45,0.25) (Tallele) {$T$};
-		\node at (9.45,-2.25) {$t$};
-	}
-	
-	\alt<handout>{}{\visible <3>{
-		\node at (6.4, 2) (allele) {Allele};
-		\draw (allele.south west) -- (Callele.north east);
-		\draw (allele.south) -- (aallele.north);
-		\draw (allele.south east) -- (Tallele.north west);
-	}}
-
-	\visible <4> {
-		\draw (3,-2.5) -- (3,0.5) -- (3.9,0.5) -- (3.9,-2.5) -- cycle ;
-		\draw (6,-2.5) -- (6,0.5) -- (6.9,0.5) -- (6.9,-2.5) -- cycle ;
-
-		\node at (3.45, 1.25) (hc) {\highlight{Homozygous,} $C$ allele};
-		\node at (6.45, -3.5) (ac) {Homozygous, $a$ allele};
-
-		\draw (hc.south) -- (3.45,0.5);
-		\draw (ac.north) -- (6.45,-2.5);
-	}
-	
-	\visible <5> {
-		\draw (9,-2.5) -- (9,0.5) -- (9.9,0.5) -- (9.9,-2.5) -- cycle ;
-
-		\node at (9.45, 1.25) (tc) {\highlight{Heterozygous,} $T$ allele};
-
-		\draw (tc.south) -- (9.45,0.5);
-	}
+	\hfill \tiny \textcopyright Pearson Education, Inc.
+\end{frame}
+}
+%
+\lecture{instructor}{instructor}
+%
+{
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{pacific_ocean} }
+\begin{frame}[b]{}
+\end{frame}
+}
+%
+{
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{pingelap_atoll} }
+\begin{frame}[b]{}
+	\hfill \tiny \textcolor{white}{Google Earth}
+\end{frame}
+}
+%
+{
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{tropical_island_normal} }
+\begin{frame}[b]{}
+	\tiny Benedict Adam, Flickr, \ccby{2}.
+\end{frame}
+}
+%
+{
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{tropical_island_blurred} }
+\begin{frame}[b]{}
+	\begin{tikzpicture}
+		\blurry{\tiny\textcolor{gray}{Benedict Adam, Flickr, \ccby{2}}}
 	\end{tikzpicture}
 \end{frame}
 }
 %
 \lecture{student}{student}
-
-\begin{frame}[t]{If natural selection changes the phenotype, what also had to change?}
-
-\hangpara Three \highlight{modes of selection} describe \emph{how} the phenotype changes in a population.
-
-\hangpara The modes do not say \emph{why} the phenotype changes.
-
-\end{frame}
-%
-\begin{frame}{\highlight{Directional} selection shifts the population toward \emph{one} extreme phenotype.}
-	\centering
-	\begin{columns}[T]
-		\begin{column}{0.5\textwidth}
-			\centering
-			\includegraphics[width=0.9\textwidth]{mode_original}
-		\end{column}
-		\begin{column}{0.5\textwidth}
-			\pause\includegraphics[width=0.9\textwidth]{mode_directional}
-		\end{column}
-	\end{columns}
-\end{frame}
 %
 {
-\usebackgroundtemplate{\includegraphics[width=\paperwidth]{scissortail_flycatcher} }
-\begin{frame}[b]{Females prefer longer tails in male scissortail flycatchers.}
-
-	\hfill \tiny TexasEagle, Flickr, \ccbync{2}
-
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{pingelap_atoll} }
+\begin{frame}[b]{\textcolor{white}{1 in 17 people on Pingelap have achromatopsia.}}
+	\hfill \tiny \textcolor{white}{Google Earth}
 \end{frame}
 }
 %
-\begin{frame}{\highlight{Disruptive} selection shifts the population toward \emph{both} extreme phenotypes.}
-	\centering
-	\begin{columns}[T]
-		\begin{column}{0.5\textwidth}
-			\centering
-			\includegraphics[width=0.9\textwidth]{mode_original}
-		\end{column}
-		\begin{column}{0.5\textwidth}
-			\includegraphics[width=0.9\textwidth]{mode_disruptive}
-		\end{column}
-	\end{columns}
-\end{frame}
-%
 {
-\usebackgroundtemplate{\includegraphics[width=\paperwidth]{geospiza_fortis} }
-\begin{frame}[b]{Beak size is diverging in \textit{Geospiza fortis.}}
-
-	\tiny\textcolor{white}{Mark Putney, Flickr, \ccbysa{2}} \pause\hfill\includegraphics[width=0.45\textwidth]{geospiza_fortis_disruptive}
-
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{founder_effect_silver_eye} }
+\begin{frame}[b,plain]{}
+	\tiny \textcopyright Pearson Education \hfill Toby Hudson, Wikimedia, \ccbysa{3}
 \end{frame}
 }
 %
-\begin{frame}{\highlight{Stabilizing} selection shifts the population toward the intermediate phenotype.}
-	\centering
-	\begin{columns}[T]
-		\begin{column}{0.5\textwidth}
-			\centering
-			\includegraphics[width=0.9\textwidth]{mode_original}
-		\end{column}
-		\begin{column}{0.5\textwidth}
-			\includegraphics[width=0.9\textwidth]{mode_stabilizing}
-		\end{column}
-	\end{columns}
-\end{frame}
+\lecture{instructor}{instructor}
 %
 {
-\usebackgroundtemplate{\includegraphics[width=\paperwidth]{balancing_selection} }
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{hms_bounty} }
 \begin{frame}[b]{}
-
-\tiny \copyright\,Pearson Education, Inc.
+	\hfill \textcolor{white}{\tiny Yasmina, Wikimedia, \ccby{3}}
 \end{frame}
 }
-
+%
+{
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{tahiti} }
+\begin{frame}[b]{}
+	\hfill \textcolor{white}{\tiny Moises Gonzalez, Flickr, ccbync{2}}
+\end{frame}
+}
+%
+{
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{bounty_mutiny} }
+\begin{frame}[b]{}
+	\hfill \textcolor{white}{\tiny National Maritime Museum, Wikimedia, public domain.}
+\end{frame}
+}
+%
+{
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{mutineer_route} }
+\begin{frame}[b]{}
+	\tiny Benton et al. 2015. Investigative Genetics 6: 12.
+\end{frame}
+}
+%
 \end{document}

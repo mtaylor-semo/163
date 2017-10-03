@@ -17,24 +17,25 @@
 %% For students, use \lecture{student}{student}
 %% For mine, use \lecture{instructor}{instructor}
 
+
 % FONTS
 \usepackage{fontspec}
 \def\mainfont{Linux Biolinum O}
 \setmainfont[Ligatures={Common,TeX}, Contextuals={NoAlternate}, BoldFont={* Bold}, ItalicFont={* Italic}, Numbers={OldStyle}]{\mainfont}
-\setsansfont[Ligatures={Common,TeX}, Scale=MatchLowercase, Numbers=OldStyle, BoldFont={* Bold}, ItalicFont={* Italic},]{Linux Biolinum O} 
+\setsansfont[Ligatures={Common,TeX}, Scale=MatchLowercase, Numbers=OldStyle]{Linux Biolinum O} 
 \usepackage{microtype}
 
 \usepackage{graphicx}
 	\graphicspath{{/Users/goby/pictures/teach/163/lecture/}
 	{/Users/goby/pictures/teach/common/}} % set of paths to search for images
 
-%\usepackage{multicol}
-%\usepackage{longtable}
-%\usepackage{booktabs}
+\usepackage{multicol}
+\usepackage{booktabs}
 %\usepackage{textcomp}
 
-%\usepackage{tikz}
-%	\tikzstyle{every picture}+=[remember picture,overlay]
+\usepackage{tikz}
+	\tikzstyle{every picture}+=[remember picture,overlay]
+	\usetikzlibrary{trees}
 %	\usetikzlibrary{arrows}
 
 \mode<presentation>
@@ -45,189 +46,468 @@
 }
 
 
-
 \begin{document}
+
+\begin{frame}{Our goals for this lecture are to learn}
+	
+	\hangpara what is \highlight{descent with modification,}
+
+	\hangpara	the process of \highlight{natural selection,} and
+
+	\hangpara what is meant by \highlight{relative fitness.}
+
+\end{frame}
+
+%
+{
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{hms_beagle}}
+\begin{frame}[b]
+
+\hfill\tiny\textcolor{white}{Wikimedia, public domain.}
+\end{frame}
+}
+%
+{
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{voyage_beagle}}
+\begin{frame}[t]{\textcolor{white}{The \textsc{h.m.s.} Beagle sailed around the world during 1831--1836.}}
+\end{frame}
+}
+%
+{
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{giant_sloth}}
+\begin{frame}[t]{In South America, Darwin witnessed\ldots}
+
+	\hangpara fossils of a giant sloth and other animals,
+
+	\hangpara marine shells on a mountain top, and
+
+	\hangpara a magnitude 8 earthquake,
+
+	\hangpara the Galapagos Islands.
+
+	\vskip0pt plus 1filll
+
+	\hfill\tiny ДиБгд, Wikimedia, public domain.
+\end{frame}
+}
+%
+{
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{darwins_finches}}
+\begin{frame}[b]
+
+	\hfill\tiny Wikimedia, public domain.
+\end{frame}
+}
+%
+{
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{darwin_descent_quote.jpg}}
+\begin{frame}[plain]
+\end{frame}
+}
+%
+{
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{darwin_phylogeny}}
+\begin{frame}[t]
+\end{frame}
+}
+%
+{
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{artificial_selection}}
+\begin{frame}[t]{}
+\end{frame}
+}
+%
+
+{
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{origin_of_species_cover}}
+\begin{frame}[t]
+
+	\vspace*{3\baselineskip}
+
+	\hangpara\parbox[t]{2.25in}{\raggedright %
+There is grandeur in this view of life, with its several powers, having been originally breathed into a few forms or into one; and that, whilst this planet has gone cycling on according to the fixed law of gravity, from so simple a beginning endless forms most beautiful and most wonderful have been, and are being, evolved.}
+
+	\vskip0pt plus 1filll
+	
+	\hfill\tiny Wikimedia, public domain.
+\end{frame}
+}
+%
+{
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{origin_of_species_cover}}
+\begin{frame}[t]
+
+	\vspace*{3\baselineskip}
+	
+	\hangpara Darwin's book had two ideas:
+	
+	\hangpara\hspace*{1em}\highlight{descent with modification} 
+	
+	\hangpara\hspace*{1em}\highlight{natural selection.}
+
+	\vskip0pt plus 1filll
+	
+	\hfill\tiny Wikimedia, public domain.
+\end{frame}
+}
+%
+\begin{frame}{\highlight{Descent with modification} means that}
+\vspace{2ex}
+\hspace{1em}all organisms \highlight{descend} from a common ancestor, and
+\pause
+
+\vspace{1ex}
+\hspace{1em}the descendants are \highlight{modified} from the ancestral form.
+
+\vspace{1ex}
+\pause
+
+\centering
+\begin{tikzpicture}
+%	[every node/.style={orange6, rounded corners},
+	[every node/.append style={rounded corners}]
+	\node at (0,-3.5) [color=orange7] {\textbf{ancestor}}
+		[edge from parent fork up, grow=up,
+		edge from parent/.style={very thick, draw}]
+		child [sibling distance=20mm] {
+			child {node [color=green6] {\textbf{desc. \textsc{c}}}}
+			child {node [color=blue7] {\textbf{desc. \textsc{b}}}}
+		}
+		child [sibling distance=40mm] {
+			child {node [color=orange6] {\textbf{desc. \textsc{a} }}}
+			%child {node {D}}
+		};
+\end{tikzpicture}
+
+\end{frame}
+%
+\lecture{instructor}{instructor}
+{
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{descent_with_modification1}}
+\begin{frame}[b]
+
+\tiny\textcopyright Pearson Education, Inc.
+\end{frame}
+}
+%
+\lecture{student}{student}
+{
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{descent_with_modification2}}
+\begin{frame}[b]
+
+\tiny\textcopyright Pearson Education, Inc.
+\end{frame}
+}
+%
+%
+{
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{darwin_natural_selection_quote_new}}
+\begin{frame}
+\end{frame}
+}
+%
+\lecture{instructor}{instructor}
+{
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{darwin_natural_selection_quote_highlight}
+}
+\begin{frame}[plain]
+\end{frame}
+}
+
+\lecture{student}{student}
+{
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{individuals_vary}
+}
+\begin{frame}[b,plain]
+\hfill\textcolor{white}{\tiny \textcopyright Entomart, Wikimedia}
+\end{frame}
+}
+{
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{overproduce_offspring}}
+\begin{frame}[b]
+\tiny\textcolor{white}{Silke Baron, Wikimedia \ccby{2}}
+\end{frame}
+}
+%
+{
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{not_all_will_survive}}
+\begin{frame}[b]
+\hfill\textcolor{white}{\tiny Pierre Dalous, Wikimedia, \ccbysa{}}
+\end{frame}
+}
+%
+{
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{traits_determine_survival}}
+\begin{frame}[b]
+\hfill\textcolor{white}{\tiny \textcopyright Dustin Siegel, with permission.}
+\end{frame}
+}
+%
+{
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{more_offspring_baby_spiders}}
+\begin{frame}[b]
+\hfill\textcolor{white}{\tiny C. Frank Starmer, \href{http://frank.itlab.us}{frank.itlab.us},\ccbyncsa{}}
+\end{frame}
+}
+%
+{
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{better_traits_dandelion}}
+\begin{frame}[b]
+\hfill\textcolor{white}{\tiny David Carillet, \href{http://www.wildretina.com}{www.wildretina.com}, \ccbyncsa{3}}
+\end{frame}
+}
+
+
+% Cycle of Natural Selection
+\begin{frame}[c]
+	\begin{center}
+	
+	\vspace{1.5cm}
+	\begin{tikzpicture}
+			[scale=0.6, transform shape,
+			myNode/.style={circle, inner sep=2mm, minimum size=4cm, draw=black, fill=blue3},
+			myLine/.style={line width=2pt, draw=black!70!white, ->},
+			textNode/.style={text width=3.5cm, align=flush center, font=\Large}]
+		\node (adapt) at (0,0) {\textcolor{orange6}{\textbf{\Huge Adaptation}}};
+		\foreach \r in {60,120,...,360} {%
+			\begin{scope}[shift={(\r:6)}]
+				\node[myNode] (n\r) {};
+			\end{scope};
+		};
+		\draw [myLine] (n60) to (n360);
+		\draw [myLine] (n360) to (n300);
+		\draw [myLine] (n300) to (n240);
+		\draw [myLine] (n240) to (n180);
+		\draw [myLine] (n180) to (n120);
+		\draw [myLine] (n120) to (n60);
+	
+		\node [textNode] at (n60) {Individuals \highlight{vary} in populations};
+		\node [textNode] at (n360) {Populations \highlight{overproduce} offspring};
+		\node [textNode] at (n300) {Not all \highlight{survive}};
+		\node [textNode] at (n240) {\highlight{Traits} determine survival};
+		\node [textNode] at (n180) {More survival, \highlight{more offspring}};
+		\node [textNode] at (n120) {Better traits \highlight{spread} through population};
+	
+	\end{tikzpicture}
+	
+	\end{center}
+\end{frame}
+
+\setbeamercovered{invisible}
+\setbeamercovered{again covered={\opaqueness<1->{15}}}
+\begin{frame}[t]{Natural selection leads to descent with modification.}
+
+
+	\hangpara \textcolor<2-4>{gray}{Natural selection causes variation in \only<1,4>{\highlight}{reproductive success} among individuals that vary in  \only<1>{\highlight}{heritable traits.}}
+
+	\pause
+	
+	\hangpara	 \textcolor<3->{gray}{Traits that increase reproductive success are called  \only<2>{\highlight}{adaptations.}}
+	
+	\pause 
+	
+	\hangpara	 \textcolor<4->{gray}{Adaptations are traits that have been  \only<3>{\highlight}{modified} from the ancestral form.}
+
+	\pause 
+		
+	\vspace{3ex}
+
+	\hangpara Let us study variation in reproductive success more closely.
+
+
+\end{frame}
+
+\setbeamercovered{invisible}
+\begin{frame}[t]{True or false?}
+
+	\hangpara \textcolor<2->{gray}{Darwin coined the phrase “survival of the fittest.”}
+	
+	\pause
+	
+	\vspace*{2ex}
+	
+	\hangpara\alt<handout>{}{\highlight{False.} The phrase was coined by Herbert Spencer.}
+	
+	\hangpara\alt<handout>{}{Darwin did not use the phrase until the 5th edition of \textit{On the Origin of Species.}}
+
+\end{frame}
+
+\begin{frame}[t]{“Survival of the fittest” is a circular argument.}
+
+	\vspace*{2ex}
+	
+	\begin{center}
+	\begin{tikzpicture}
+		[textNode/.style={text width=2.75cm, align=flush center, font=\huge},
+		smallNode/.style={text width=2cm, font=\large},
+		->, ultra thick]
+	
+		\node [textNode] (survival) at (0,0) {Survival};
+
+		\node [textNode] at (0,-1.5) {\small\textcolor{gray!70!black}{of the}};
+
+		\node [textNode] (fittest) at (0,-3) {Fittest};
+		
+		\draw (survival.east) [bend left=60]  to (fittest.east);
+
+		\draw (fittest.west) [bend left=60]  to (survival.west);
+
+		\pause
+		
+		\node [smallNode, align=flush left] at (3.5,-1.5) {Which survive?};
+
+		\pause
+		
+		\node [smallNode, align=flush right] at (-3.5,-1.5) {Which are the fittest?};
+		
+		\pause
+		
+		\node [align=left] at (-1.5,-5) {Fitness must be measured independently of survival.};
+
+	\end{tikzpicture}
+	\end{center}
+	
+%	\pause
+%	
+%	\vspace*{20ex}
+%	
+%	\hangpara We need an independent way to measure fitness.
+	
+\end{frame}
+
+
+%% REPLACE THESE THREE WITH APPROPRIATE images
+{
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{fitness_offspring}}
+\begin{frame}[b]
+\hfill\textcolor{white}{\tiny Guido Bohne, Flickr \ccbysa{2}}
+\end{frame}
+}
+%
+{
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{fitness_is_relative}}
+\begin{frame}[b]
+\textcolor{white}{\tiny Michael S. Taylor, \ccbysa{4}}
+\end{frame}
+}
+%
+{
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{fitness_not_physical}}
+\begin{frame}[b]
+\hfill\textcolor{white}{\tiny Ian Carroll, Flickr, \ccby{2}}
+\end{frame}
+}
+%
+{
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{savings_account}}
+\begin{frame}[b]
+\hfill\tiny 401(k) 2012, Flickr, \ccbysa{2}
+\end{frame}
+}
+%
+{
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{financial_analogy}}
+\begin{frame}[b]
+%\hfill\textcolor{white}{\tiny Guido Bohne, \ccbysa{2}}
+\end{frame}
+}
+%
+
+%\includegraphics[page=\arabic{4},width=.95\textwidth]{a.pdf}
+
+\lecture{student}{student}
+%
+\begin{frame}[t]{Our goals for this lecture are to learn}
+
+	
+	\hangpara	the difference between \highlight{phenotype} and \highlight{genotype,} and
+
+	\hangpara how phenotype changes in response to different \highlight{modes of selection.}
+	
+\end{frame}
+
+%
+%{
+%\usebackgroundtemplate{\includegraphics[width=\paperwidth]{individuals_vary}}
+%\begin{frame}[b]
+%\hfill\textcolor{white}{\tiny \copyright\, Entomart, Wikimedia}
+%\end{frame}
+%}
+% Why do populations vary?
 %
 \lecture{student}{student}
 
-\begin{frame}{Our goals for this lecture are to }
-	
-	\hangpara explain \highlight{homology} and \highlight{analogy,}
-	
-	\hangpara relate homology and analogy to \highlight{convergent evolution,}
+\begin{frame}[t]{If natural selection changes the phenotype, what also had to change?}
 
-	\hangpara explain why natural selection is selfish, and
-	
-	% \hangpara why ``perfect species'' cannot evolve by natural selection, and
-	
-	\hangpara explore \highlight{sexual selection} as a type of natural selection.
+\hangpara Three \highlight{modes of selection} describe \emph{how} the phenotype changes in a population.
+
+\hangpara The modes do not say \emph{why} the phenotype changes.
 
 \end{frame}
 %
+\begin{frame}{\highlight{Directional} selection shifts the population toward \emph{one} extreme phenotype.}
+	\centering
+	\begin{columns}[T]
+		\begin{column}{0.5\textwidth}
+			\centering
+			\includegraphics[width=0.9\textwidth]{mode_original}
+		\end{column}
+		\begin{column}{0.5\textwidth}
+			\pause\includegraphics[width=0.9\textwidth]{mode_directional}
+		\end{column}
+	\end{columns}
+\end{frame}
+%
 {
-\usebackgroundtemplate{\includegraphics[width=\paperwidth]{descent_with_modification1} }
-\begin{frame}[b]{What is \highlight{descent with modification?}}
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{scissortail_flycatcher} }
+\begin{frame}[b]{Females prefer longer tails in male scissortail flycatchers.}
 
-	\hfill \tiny \copyright Pearson Education, Inc.
+	\hfill \tiny TexasEagle, Flickr, \ccbync{2}
 
 \end{frame}
 }
 %
+\begin{frame}{\highlight{Disruptive} selection shifts the population toward \emph{both} extreme phenotypes.}
+	\centering
+	\begin{columns}[T]
+		\begin{column}{0.5\textwidth}
+			\centering
+			\includegraphics[width=0.9\textwidth]{mode_original}
+		\end{column}
+		\begin{column}{0.5\textwidth}
+			\includegraphics[width=0.9\textwidth]{mode_disruptive}
+		\end{column}
+	\end{columns}
+\end{frame}
+%
 {
-\usebackgroundtemplate{\includegraphics[width=\paperwidth]{homologous_bird_wings} }
-\begin{frame}[b]{A \highlight{homology} is a similar character shared among species due to common ancestry.}
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{geospiza_fortis} }
+\begin{frame}[b]{Beak size is diverging in \textit{Geospiza fortis.}}
 
-	\vfilll
-
-	\tiny Pixabay, \cc \hfill derdento, Pixabay \cc
+	\tiny\textcolor{white}{Mark Putney, Flickr, \ccbysa{2}} \pause\hfill\includegraphics[width=0.45\textwidth]{geospiza_fortis_disruptive}
 
 \end{frame}
 }
 %
-{
-\usebackgroundtemplate{\includegraphics[width=\paperwidth]{homologous_appendages} }
-\begin{frame}[t]{Homologies result from modification of existing traits through evolutionary processes.}
-
-	\vfilll
-
-	\hfill \tiny \copyright Pearson Education, Inc.
-
+\begin{frame}{\highlight{Stabilizing} selection shifts the population toward the intermediate phenotype.}
+	\centering
+	\begin{columns}[T]
+		\begin{column}{0.5\textwidth}
+			\centering
+			\includegraphics[width=0.9\textwidth]{mode_original}
+		\end{column}
+		\begin{column}{0.5\textwidth}
+			\includegraphics[width=0.9\textwidth]{mode_stabilizing}
+		\end{column}
+	\end{columns}
 \end{frame}
-}
 %
 {
-\usebackgroundtemplate{\includegraphics[width=\paperwidth]{convergent_evolution_wings}}
-\begin{frame}[b]{An \highlight{analogy} is a similar character due to similar function, \emph{not} common ancestry.}
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{balancing_selection} }
+\begin{frame}[b]{}
 
-
-\tiny Top: Conty, Wikimedia, \ccby{3} \hfill Bottom: Martin Hauser, Wikimedia \ccby{3}
-\end{frame}
-}
-%
-{
-\usebackgroundtemplate{\includegraphics[width=\paperwidth]{convergent_evolution_streamlined}}
-\begin{frame}[t]{Analogies are the result of \highlight{convergent evolution.}}
-
-	\vspace{3.85cm}
-
-	\tiny \textcolor{white}{Alexander Vasenin, Wikimedia, \ccbysa{3}
-	\hfill Terry Goos, Wikimedia, \ccby{2}}
-
-	\vfilll
-
-	\tiny Nobu Tamura, Wikimedia, \ccby{2} \hfill \textcolor{white}{Ken Funakoshi, Wikimedia, \ccby{2}}
-
-\end{frame}
-}
-%
-{
-\usebackgroundtemplate{\includegraphics[width=\paperwidth]{tetrapod_convergence1}}
-\begin{frame}[b]{Marine tetrapods evolved streamlining independently.}
-
-	\hfill \tiny Kelley and Pyenson 2015. Science 348: 301.
-
-\end{frame}
-}
-%
-{
-\usebackgroundtemplate{\includegraphics[width=\paperwidth]{tetrapod_convergence2}}
-\begin{frame}[b]{Marine tetrapods also evolved “paddles” independently.}
-
-	\hfill \rotatebox{90}{\tiny Kelley and Pyenson 2015. Science 348: 301.}
-
-\end{frame}
-}
-%
-{
-\usebackgroundtemplate{\includegraphics[width=\paperwidth]{homologous_flippers}}
-\begin{frame}[b]
-
-	\hfill \tiny Kelley and Pyenson 2015. Science 348: 301.
-
-\end{frame}
-}
-%
-{
-\usebackgroundtemplate{\includegraphics[width=\paperwidth]{penguin_huddle} }
-\begin{frame}[b]
-\end{frame}
-}
-%
-{
-\usebackgroundtemplate{\includegraphics[width=\paperwidth]{penguin_huddle_biggest} }
-\begin{frame}[b]
-\end{frame}
-}
-%
-{
-\usebackgroundtemplate{\includegraphics[width=\paperwidth]{penguin_huddle_outside} }
-\begin{frame}[b]
-
-	\tiny\textcolor{white}{\href{http://www.youtube.com/watch?v=Cdiapvktzkw}{Link to Video}
-	\hfill
-	Based on Waters et al. 2012. Modeling huddling penguins. PLoS ONE 7: e50277.}
-
-\end{frame}
-}
-%
-{
-\usebackgroundtemplate{\includegraphics[width=\paperwidth]{fitness_deer_harvest} }
-\begin{frame}[b]
-
-	\tiny William V., Flickr Creative Commons.\hfill Scott Bauer, USDA, Public Domain.
-
+\tiny \copyright\,Pearson Education, Inc.
 \end{frame}
 }
 
-{
-\usebackgroundtemplate{\includegraphics[width=\paperwidth]{bird_paradise} }
-\begin{frame}[b]{\hfill\highlight{Sexual selection}}
-
-	\tiny \textcolor{white}{\copyright Tim Laman, All Rights Reserved. 
-	\hfill \href{http://www.youtube.com/watch?v=KIYkpwyKEhY}{Link to Video} }
-	
-\end{frame}
-}
-%
-{
-\usebackgroundtemplate{\includegraphics[width=\paperwidth]{intrasexual_selection_giraffes} }
-\begin{frame}[b]{\highlight{Intrasexual} selection is competition between males.}
-
-	\tiny \textcolor{white}{Luca Galuzzi, \href{http://www.galuzi.it}{www.galuzi.it}, \ccbysa{2.5}
-	\hfill \href{http://www.youtube.com/watch?v=C7HCIGFdBt8}{Link to Video}}
-
-\end{frame}
-}
-%
-{
-\usebackgroundtemplate{\includegraphics[width=\paperwidth]{superb_bird_of_paradise} }
-\begin{frame}[b]{\textcolor{orange5}{Intersexual} \textcolor{white!95!black}{selection is females choosing mates.}}
-
-%	\tiny \textcolor{white}{photographer unknown
-	\tiny \textcolor{white}{\href{https://youtu.be/IPfW7iolmgc}{Link to Video} 
-	\hfill \href{https://youtu.be/1XkPeN3AWIE}{Bonus Video}}
-	
-\end{frame}
-}
-%
-{
-\usebackgroundtemplate{\includegraphics[width=\paperwidth]{phalarope} }
-\begin{frame}[b]{\textcolor{white}{Males are not \textit{always} the pretty ones!}}
-
-	\tiny \textcolor{white}{U.S. Fish \& Wildlife Service.
-	\hfill \href{https://youtu.be/15ZXpbKrZfI}{Link to Video}}
-	
-\end{frame}
-}
-%
-{
-\usebackgroundtemplate{\includegraphics[width=\paperwidth]{sexual_dimorphism_beetles} }
-\begin{frame}[b]{Sexual selection causes phenotype differences between sexes, called \highlight{sexual dimorphism.}}
-
-	\tiny Didier Descouens, Wikimedia \ccbysa{4}
-	\hfill \href{http://www.youtube.com/watch?v=_VBz0FaXN1c}{Link to Video}
-	
-\end{frame}
-}
-%
 \end{document}

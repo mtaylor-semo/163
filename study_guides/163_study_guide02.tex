@@ -7,17 +7,18 @@
 
 \usepackage{fontspec}
 \def\mainfont{Linux Libertine O}
-\setmainfont[Ligatures={Common,TeX}, Contextuals={NoAlternate}, BoldFont={* Bold}, ItalicFont={* Italic}, Numbers={OldStyle,Lining}]{\mainfont}
-\setsansfont[Scale=MatchLowercase]{Linux Biolinum O} 
+\setmainfont[Ligatures={Common,TeX}, Contextuals={NoAlternate}, BoldFont={* Bold}, ItalicFont={* Italic}, Numbers={OldStyle}]{\mainfont}
+\setsansfont[Scale=MatchLowercase, Numbers={OldStyle}]{Linux Biolinum O} 
 \usepackage{microtype}
 
 \usepackage{graphicx} % allow embedded images
-  \setkeys{Gin}{width=\linewidth,totalheight=\textheight,keepaspectratio}
-  \graphicspath{{img/}} % set of paths to search for images
+  \setkeys{Gin}{width=\linewidth}
+  \graphicspath{	{/Users/goby/teach/163/lectures/}}%}%
+
 \usepackage{amsmath}  % extended mathematics
 \usepackage{booktabs} % book-quality tables
-\usepackage{units}    % non-stacked fractions and better unit spacing
-\usepackage{multicol} % multiple column layout facilities
+%\usepackage{units}    % non-stacked fractions and better unit spacing
+%\usepackage{multicol} % multiple column layout facilities
 %\usepackage{fancyvrb} % extended verbatim environments
 %  \fvset{fontsize=\normalsize}% default font size for fancy-verbatim environments
 
@@ -46,7 +47,9 @@
    \renewcommand\allcapsspacing[1]{{\addfontfeatures{LetterSpace=15}#1}}
    \renewcommand\smallcapsspacing[1]{{\addfontfeatures{LetterSpace=10}#1}}
 
-\title{\scshape{bi} 163 Study Guide 02}
+\newcommand\lecturefile{163_lecture02_fullsize}
+
+\title{{\scshape bi} 163 Study Guide 02}
 
 \date{} % without \date command, current date is supplied
 
@@ -55,22 +58,67 @@
 \maketitle	% this prints the handout title, author, and date
 
 %\printclassoptions
-\section*{The History of Evolutionary Thought}
+\section*{Allele and genotype frequencies; Hardy-Weinberg equilibrium}
 
-We\marginnote{\textbf{Read:} pgs. 21, 462--470.} discussed types of ideas, defined evolution, and provided historical context for evolutionary thought that led to the publication of \textit{On the Origin of Species} by Charles Darwin.
+We\marginnote{\textbf{Read:} pgs. 255 (diploid and haploid), 272~(useful 
+genetic vocabulary), 484--487 (gene pools through Hardy-Weinberg).} 
+discussed the calculation of allele and genotype frequencies, and
+introduced the two Hardy-Weinberg equations that model the evolutionary
+change of allele and genotype frequencies. One equation is used to 
+calculate allele frequencies. The other equation is used to calculate 
+genotype frequencies. You must remember which equation is used to 
+calculate allele frequencies and which is used to calculate genotype 
+frequencies. This is the most common mistake made when students 
+attempt to solve Hardy-Weinberg problems so work hard at learning
+and applying these two equations.
+
+\section{Allele Frequency}
+
+The equation for calculating \emph{allele frequencies} is 
+\begin{equation*}
+p+q = 1,
+\end{equation*}
+
+where $p$ is the frequency of allele 1, and $q$ is the frequency of allele 2. In class, we will use only two alleles for a single locus\marginnote{In reality, most genes have many more than two alleles. The calculation of allele frequencies is the same, but with a variable added for each allele. If a gene has three alleles, for example, the equation would be expanded to $p+q+r=1$}, such as $T$ and $t$.  Two variables ($p$ and $q$) are needed to represent two alleles.  Why not use $A$ and $a$ instead of $p$ and $q$?  The vast majority of genes have names longer than a single letter, such as \emph{sonic hedgehog} (\emph{shh}) or \emph{bone morphogenetic protein 4} (\emph{bmp4}). Writing equations with long gene names would get confusing. Variable names like $p$ and $q$ are easier to understand.  In addition, we do not have to concern ourselves with dominant, recessive, or codominant alleles, or other types of gene expression. 
+
+\begin{marginfigure}[0.5in]
+	\includegraphics[page=4]{\lecturefile}
+\end{marginfigure}
+
+I use frequency and proportion interchangeably. They mean the same thing.  Given all alleles in a population, the proportion that is \emph{one particular allele} is the frequency of that allele.  The frequency of an allele represents how common the allele is in the population, expressed as a decimal fraction. For example, if a population has 124 total alleles and 31 of them are the $p$ allele, then $p= 34/124 = 0.25$.  This means that 25\% of the alleles in the population are the $p$ allele.  The remaining proportion (75\%) are the $q$ allele.
+
+\section{Genotype Frequency}
+
+\begin{marginfigure}[0.35in]
+	\includegraphics[page=9]{\lecturefile}
+\end{marginfigure}
+
+Diploid organisms have two alleles for each gene locus. The combination of alleles is the genotype for the gene locus. The genotype might be homozygous (two copies of the same allele) or heterozygous (two different alleles).  Given two alleles, there are three possible genotypes. Set aside $p$ and $q$ for the moment but consider two alleles, $T$ and $t$. The three possible genotypes are $TT$, $tt$, and $Tt$.  The \emph{genotype frequencies} in a population is calculated by
+
+\begin{equation*}
+p^2 + 2pq+q^2=1,
+\end{equation*}
+where $p^2$ is the frequency of one homozygous genotype (e.g., $TT$), $q^2$ is the frequency of the other homozygous genotype ($aa$), and $2pq$ is the frequency of the heterozygous genotype ($Tt$).  Three terms are needed to represent the three possible genotypes. 
+
+How are the two Hardy-Weinberg equations related?  Consider a large, randomly mating population with two alleles.  The alleles are present at frequencies $p$ and $q$.  The proportion of each genotype produced in the next generation is calculated by multiplying $p+q$ times itself\marginnote{Think of individuals \emph{multiplying} (mating) in a population.},
+\begin{equation*}
+(p+q)^2=
+(p+q)(p+q) =
+p^2 + pq + qp + q^2 =
+p^2 + 2pq + q^2.
+\end{equation*}
 
 \section*{Vocabulary}
 
 \vspace{-1\baselineskip}
 \begin{multicols}{2}
-Thomas Robert Malthus\\
-Jean Baptiste de Lamarck \\
-Georges Cuvier \\
-Charles Lyell \\
-Charles Darwin \\
-\textsc{h.m.s.} Beagle \\
-Alfred Russel Wallace \\
-artificial selection 
+allele frequency \\
+diploid\\
+genotype frequency \\
+homozygous (homozygote) \\
+heterozygous (heterzygote) \\
+Hardy-Weinberg equations \\
+Hardy-Weinberg equilibrium
 \end{multicols}
 
 \section*{Concepts}
@@ -79,65 +127,104 @@ You should \emph{write} clear and concise answers to each question in the Concep
 
 \begin{enumerate}
 
-	\item You do not need to know most of the background that I presented for Charles Darwin (e.g., his childhood, \&c.). We will cover the two ideas from his book in subsequent lectures.
-	
-	\item You should know these few facts about these scientists for their historical context:
+	\item When you think about genotypes, remember that the
+	definition varies slightly depending on how you use it. In
+	general, the genotype is the genetic makeup of an organism. 
+	But, the genotype of a \emph{diploid}%
+	\marginnote{\emph{Diploid} refers to organisms that have two 
+	copies of each chromosome and so have two alleles for each 
+	gene. For some diploid species, the males may be haploid, 
+	meaning the males have only one allele for each gene. A few 
+	species are haploid (one allele), tetraploid (4 alleles) or 
+	octoploid (8 alleles) but these species are rare.} 
+	individual can refer to one gene (e.g., it is \emph{AA}, 
+	\emph{Aa}, or \emph{aa}), for multiple genes (e.g., 
+	\emph{Aabb}, \emph{aaBbCc}) or for all genes (the genome).
 
-	\begin{enumerate}[label=\alph*.]
+	\item Know the two formulas that, together, are the Hardy-Weinberg Equations.
 
-	\item Thomas Robert Malthus wrote the \textit{Principle of Populations} that described how the human population would suffer if the rate of population growth exceeded the rate of food production. Darwin incorporated this idea into natural selection, where organisms would “struggle” for limited resources. 
-	
-	\item Jean Baptiste de Lamarck was one of the first scientists to propose that organisms change over time. He proposed that the mechanism of change was “inheritance of acquired characteristics,” which stated that if a structure (like a giraffe's neck) or physiology of an individual changed through use, then the change would be inherited by that individual's offspring. That hypothesis turned out to be incorrect.
+	\item What do the Hardy-Weinberg equations demonstrate about allele frequencies in a population?
 
-	\item Georges Cuvier is sometimes called the “father of paleontology.” Paleontology is the study of fossils and the fossil record. Cuvier was the first to propose that many species that lived in the past went extinct. Cuvier also popularized the idea that the Earth underwent great catastrophes that caused rapid change to the environment and caused the extinctions.
+	\item What is the difference between a heterozygote and a homozygote?
 
-	\item Charles Lyell was a geologist. He supported ``uniformitarianism,'' the idea that the Earth changed very slowly over long periods of time. This is the opposite of Cuvier's catastrophism. Most importantly, Lyell was the first to argue that the Earth was much older than 6000 years old, as was widely believed at the time.
+	\item What is the difference between alleles and genotypes?  What is the difference between allele frequencies and genotype frequencies?
 
-	\item Alfred Russel Wallace was a naturalist that spent lots of time around Australia and the Malay Peninsula (southeast Asia). While working around the Malaysian Peninsula, Wallace developed his own idea of natural selection, independent of Charles Darwin.  Darwin and Wallace published a paper outlining the process of natural selection. Darwin then went on to publish \textit{On the Origin of Species.}
+	\item Which of the two Hardy-Weinberg formulas represent the frequencies of two alleles (at one gene locus) in a population?  Which of the two Hardy-Weinberg formulas represent the frequencies of the three possible genotypes (at one gene locus) in a population?
 
-	\end{enumerate}
-	
-	\item It is always good to know the foundational history of scientific thought. Embrace it!
+	\item Be able to use the Hardy-Weinberg equations to derive allele frequencies and genotype frequencies in a population.  Be able to derive allele frequencies based on numbers on different phenotypes and genotypes in a population (like the flower example we worked in class). 
 
+	\item What does it mean\marginnote{Later, you will learn the evolutionary processes that cause populations to deviate from Hardy-Weinberg equilibrium.} to say that a population is in Hardy-Weinberg equilibrium?
+
+	\item Organisms differ because they have different sets of alleles, not different genes.%
+	\marginnote{There are differences in gene expression but that 
+		is beyond the scope of this lecture.}
+	Human and mice have the same genes but different alleles for 
+	those genes.
 \end{enumerate}
 
 \section*{Example exam questions}
 
 These are examples only and not exhaustive. One or more of these questions may or may not appear on the exam.
 
-\begin{fullwidth}
+\bigskip
+
+\noindent True\hspace{1em}False\hspace{1em} If $p$ = 0.3, then $q^2$ = 0.09.
+
+\bigskip 
+
+\noindent True\hspace{1em}False\hspace{1em} A heterozygote has two different alleles for all genes.\marginnote{For \emph{all} genes in its genome?}
 
 \bigskip
 
-\noindent \rule{1in}{0.4pt} Argued that Earth changed uniformly for much more than 6000 years.
+\noindent \rule{1in}{0.4pt} The physical expression\marginnote{Watch for key words, like “physical expression” to guide you to the correct answer.} of the combination of alleles for several genes in an organism.
 
 \bigskip
 
-\noindent \rule{1in}{0.4pt} Title of the book that influenced Darwin's thinking about organisms competing for\\
-\noindent\hspace*{1in} limited resources.
+\noindent \rule{1in}{0.4pt} Has two alleles at a gene.\marginnote{This question does not say anything about whether the alleles are the same or different. Do not assume anything. Answer based only on what the question asks Which vocabulary term above is the best match?}
+
+
+
+\vspace*{4\baselineskip}
+
+\hfill Answers: \marginnote{\hfill\reflectbox{False. False. Phenotype. Diploid.}}
+
+\vspace*{1\baselineskip}
+
+\noindent A population of 100 individuals in Hardy-Weinberg equilibrium
+has 25 individuals that are $A_1A1$, 50 that are $A_1A_2$, and 25 
+that are $A_2A_2$. Calculate the allele and genotype frequencies 
+for this population. If you are not sure where to begin, see Study Guide 03.
 
 \bigskip
 
-\noindent True\hspace{1em}False\hspace{1em} Alfred Russel Wallace also developed a concept of natural selection. 
+\begin{tabular}{@{}ll@{}}
+	\toprule
+	& Frequency\tabularnewline
+	\midrule
+	& \tabularnewline
+	$A_1$		&	\rule{0.6in}{0.4pt}\tabularnewline[2em]
+	$A_2$		&	\rule{0.6in}{0.4pt}\tabularnewline[2em]
+	$A_1A_1$	&	\rule{0.6in}{0.4pt}\tabularnewline[2em]
+	$A_1A_2$	&	\rule{0.6in}{0.4pt}\tabularnewline[2em]
+	$A_2A_2$	&	\rule{0.6in}{0.4pt}\tabularnewline
+	\bottomrule
+\end{tabular}
 
-\bigskip
 
-\noindent True\hspace{1em}False\hspace{1em} Darwin used his principles of natural selection to explain how artificial selection works \\
-\noindent \phantom{True\hspace{1em}False\hspace{1em}} in show animals, farm animals, and crops.
+\vskip0pt plus 1fill
 
-\bigskip
-
-\noindent His independent development of the process of natural selection caused Darwin to publish \textit{On the Origin of Species.}
-
-\smallskip
-
-\noindent \textsc{a}. Charles Lyell\\
-\noindent \textsc{b}. Alfred Russel Wallace\\
-\noindent \textsc{c}. Georges Cuvier\\
-\noindent \textsc{d}. Robert Thomas Malthus\\
-\noindent \textsc{e}. Jean Baptiste de Lamarck\\
-
-\end{fullwidth}
-
+\begin{margintable}
+\hfill \begin{tabular}{@{}lr@{}}
+	\toprule
+	& Frequency\tabularnewline
+	\midrule
+	$A_1$		&	0.50\tabularnewline
+	$A_2$		&	0.50\tabularnewline
+	$A_1A_1$	&	0.25\tabularnewline
+	$A_1A_2$	&	0.50\tabularnewline
+	$A_2A_2$	&	0.25\tabularnewline
+	\bottomrule
+\end{tabular}
+\end{margintable}
 
 \end{document}

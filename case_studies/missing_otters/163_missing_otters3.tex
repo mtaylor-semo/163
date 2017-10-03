@@ -1,0 +1,259 @@
+%!TEX TS-program = lualatex
+%!TEX encoding = UTF-8 Unicode
+
+%\documentclass[t]{beamer}
+
+%%%% HANDOUTS For online Uncomment the following four lines for handout
+\documentclass[t,handout]{beamer}  %Use this for handouts.
+%\usepackage{handoutWithNotes}
+%\pgfpagesuselayout{3 on 1 with notes}[letterpaper,border shrink=5mm]
+%	\setbeamercolor{background canvas}{bg=black!5}
+
+\includeonlylecture{student}
+
+%%% Including only some slides for students.
+%%% Uncomment the following line. For the slides,
+%%% use the labels shown below the command.
+
+%% For students, use \lecture{student}{student}
+%% For mine, use \lecture{instructor}{instructor}
+
+
+
+% FONTS
+\usepackage{fontspec}
+\def\mainfont{Linux Biolinum O}
+\setmainfont[Ligatures={Common,TeX}, BoldFont={* Bold}, ItalicFont={* Italic}, Numbers={Proportional, OldStyle}]{\mainfont}
+\setsansfont[Ligatures={Common,TeX}, Scale=MatchLowercase, Numbers={Proportional,OldStyle}, BoldFont={* Bold}, ItalicFont={* Italic},]{Linux Biolinum O} 
+\usepackage{microtype}
+
+\usepackage{amsmath,amssymb}
+%\usepackage{unicode-math}
+%\setmathfont[Scale=MatchLowercase]{TeX Gyre Termes Math}
+
+\usepackage{graphicx}
+	\graphicspath{{/Users/goby/pictures/teach/163/case_studies/}
+	{/Users/goby/pictures/teach/163/lecture/}
+	{/Users/goby/pictures/teach/common/}} % set of paths to search for images
+
+\usepackage{color}
+\definecolor{biolum}{RGB}{111,253,254}
+
+\usepackage{multicol}
+\usepackage{longtable}
+\usepackage{booktabs}
+\usepackage{array}
+\newcolumntype{L}[1]{>{\raggedright\let\newline\\\arraybackslash\hspace{0pt}}p{#1}}
+\newcolumntype{C}[1]{>{\centering\let\newline\\\arraybackslash\hspace{0pt}}p{#1}}
+\newcolumntype{R}[1]{>{\raggedleft\let\newline\\\arraybackslash\hspace{0pt}}p{#1}}
+%\usepackage{textcomp}
+%\usepackage{mhchem}
+\usepackage{enumitem}
+%\usepackage[export]{adjustbox}
+
+
+%\usepackage{tikz}
+%	\tikzstyle{every picture}+=[remember picture,overlay]
+%	\usetikzlibrary{arrows}
+%\usetikzlibrary{positioning}
+
+\mode<presentation>
+{
+  \usetheme{Lecture}
+  \setbeamercovered{invisible}
+  \setbeamertemplate{items}[default]
+}
+
+
+\begin{document}
+
+%
+\begin{frame}[t]{How many killer whales would it take to eat 40,000 otters in six years? (extra credit)}
+
+	\includegraphics[width=\textwidth]{missing_otter2_orca_seal}
+
+\end{frame}
+%
+\begin{frame}[t]{How many killer whales would it take to eat 40,000 otters in six years? (extra credit)}
+
+	\hangpara For otter energy provided, use \newline	
+	\hspace*{1em} an average otter weight of 29 kg (29,000 g), and \newline
+	\hspace*{1em} 1.7 kilocalories of energy per gram of otter per day.
+
+	\hangpara For killer whale energy requirements, use \newline
+	\hspace*{1em} an average killer whale weight of 4,000 kg, and \newline
+	\hspace*{1em} 54 kilocalories of energy per kilogram of killer whale per day.
+
+\end{frame}
+%
+\lecture{instructor}{instructor}
+
+\begin{frame}[t]{An average otter has 49,300 kilocalories of energy.}
+
+	\begin{multicols}{2}
+	
+	\hangpara Average otter weight = 29,000 g.
+	
+	\hangpara Energy = 1.7 kcal / gram.
+
+	\hangpara 29,000 g $\times$ 1.7 kcal/g = 49,300 kcal.
+
+	\columnbreak
+	
+		\includegraphics[width=0.45\textwidth]{missing_otter3_swarm}
+		
+	\end{multicols}
+	
+\end{frame}
+%
+\begin{frame}[t]{An average killer whale needs 216,000 kilocalories of energy.}
+
+	\begin{multicols}{2}
+	
+	\hangpara Average killer whale weight = 4,000 kg.
+	
+	\hangpara Energy needs = 54 kcal / kg
+
+	\hangpara 4,000 kg $\times$ 54 kcal/kg = 216,000 kcal.
+
+	\columnbreak
+	
+		\includegraphics[width=0.45\textwidth]{missing_otter3_kw_eating}
+		
+	\end{multicols}
+	
+\end{frame}
+%
+\begin{frame}[t]{Only 4--5 killer whales can cause the sea otter population decline by 40,000 individuals in six years.}
+
+	\vspace*{-\baselineskip}
+	
+	\hangpara How many otters per day would one killer whale need?
+		
+		\[216,000\ \mathrm{kcal} / 49,300\ \mathrm{kcal} = 4.38\ \mathrm{otters} \approx 4\mathrm{–}5\ \mathrm{otters}\]
+		
+	\pause
+	\hangpara How many otters could one killer whale eat in six years?
+	\begin{align*}4 \times 365 \times 6 &= 8,760\ \mathrm{otters}\\
+	5 \times 365 \times 6 &= 10,950\ \mathrm{otters}\end{align*}
+
+	\pause
+	\hangpara How many killer whales could 40,000 otters in six years?
+	\begin{align*}40,000 / 8,760 &= 4.57 \approx 5\ \mathrm{killer\ whales.}\\
+	40,000 / 10,950 &= 3.65 \approx 4\ \mathrm{killer\ whales.}\end{align*}
+
+\end{frame}
+%
+\lecture{student}{student}
+
+\begin{frame}[t]{Why did killer whales suddenly start eating sea otters?}
+
+	\hangpara Otters and killer whales coexisted for thousands of years without any predation.
+
+	\hangpara Killer whales only recently switched to otters as prey.
+
+	\hangpara Could the decline of otters have further effects on the marine community in southern Alaska?
+
+\end{frame}
+%
+{
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{missing_otter3_otter_and_urchins} }
+\begin{frame}[b]{\textcolor{white}{I am essential to the community. Now, let me eat.}}
+%	\hfill \tiny Edward Rooks, Flickr Creative Commons.
+\end{frame}
+}
+%
+{
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{missing_otter3_red_sea_urchin} }
+\begin{frame}[b]
+	\hfill \tiny \textcolor{white}{Kirk L. Onthank, Wikimedia, \ccby{3}}
+\end{frame}
+}
+%
+{
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{missing_otter3_kelp_forest} }
+\begin{frame}[b]
+	\hfill \tiny \textcolor{white}{Peter Southwood, Wikimedia, \ccbysa{3}}
+\end{frame}
+}
+%
+{
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{missing_otter3_urchin_front} }
+\setbeamercolor{background canvas}{bg=black}
+\begin{frame}[b]
+	 \tiny \textcolor{white}{\copyright\ National Geographic}
+\end{frame}
+}
+%
+{
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{missing_otter3_kelp_graphs} }
+\begin{frame}[b]
+	\tiny Based on Estes and Duggins 1995. Ecological Monographs 65: 75--100.
+\end{frame}
+}
+%
+{
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{missing_otter3_algae_graphs} }
+\begin{frame}[b]
+	\tiny Based on Estes and Duggins 1995. Ecological Monographs 65: 75--100.
+\end{frame}
+}
+%
+\begin{frame}[t]{Sea otters are needed for healthy kelp forest communities.}
+
+\vspace*{-0.5\baselineskip}
+
+%\begin{longtable}{@{}L{25mm}C{18mm}C{18mm}C{18mm}C{18mm}@{}}
+\begin{longtable}{@{}L{0.21\textwidth}C{0.15\textwidth}C{0.15\textwidth}C{0.15\textwidth}C{0.15\textwidth}@{}}
+\toprule
+	& \multicolumn{2}{C{0.3\textwidth}}{Amchitka Is.\newline (Otters Present)} & \multicolumn{2}{C{0.3\textwidth}}{Shemya Is.\newline (Otters Absent)}\tabularnewline
+\cmidrule(r){2-3} \cmidrule(l){4-5}
+	&	1972	&	1987	&	1972	& 1987 \tabularnewline
+\midrule	 
+Kelp Density (inds./0.25 m2) & 5.1\,±\,0.7 & 4.7\,±\,1.2 & 0 & 0.5\tabularnewline[2em]
+Urchin Density (inds./0.25 m\textsuperscript{2}) & 27.9\,±\,14.4 & 23.4\,±\,7.5 & 50\,±\,14.6 & 38.6\,±\,1.4\tabularnewline[2em]
+Urchin Biomass (g/0.25 m\textsuperscript{2}) & 45.1\,±\,16.9 & 36.7\,±\,15.0 & 368.2\,±\,151.7 & 369\,±\,14.3\tabularnewline
+\bottomrule
+\end{longtable}
+
+\vspace*{-1.5\baselineskip}
+
+\hangpara Fewer otters in the kelp forest allowed the population size of sea urchins to increase.  More sea urchins ate more kelp so kelp density decreased.  This is called a \highlight{trophic cascade.}
+
+\end{frame}
+%
+{
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{missing_otter3_trophic_cascade} }
+\begin{frame}[t]
+
+	\vspace*{4\baselineskip}
+	
+	\hangpara \parbox{0.35\textwidth}{\raggedright%
+	A \highlight{trophic cascade} occurs when the abundance of a predator at one trophic level affects the abundance of organisms at lower trophic levels.	
+	}
+
+	\vfilll
+	
+	\tiny \copyright\ McGraw-Hill.
+\end{frame}
+}
+%
+{
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{missing_otter3_diversity} }
+\begin{frame}[b]
+
+	\textcolor{white}{\tiny (t): Mike Liu. (b): Ed Bierman. \hfill All: Flickr \ccbyncsa{2} \hfill (t): Ed Bierman. (b): Brenna Green. }
+\end{frame}
+}
+%
+\end{document}
+
+
+% kelp diver Ed Bierman Flickr \ccby{2}
+% sea slug Ed Bierman Flickr \ccby{2}
+
+% Garibaldi Mike Liu, Flickr \ccbysa{2}
+
+% Kelp bass Briant Gratwicke Flickr \ccby{2}
+
+% Snail on batstar Brenna Green, Flickr \ccbncsa{2}

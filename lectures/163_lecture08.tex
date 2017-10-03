@@ -10,32 +10,35 @@
 
 %\includeonlylecture{student}
 
+%%% Including only some slides for students.
+%%% Uncomment the following line. For the slides,
+%%% use the labels shown below the command.
+
+%% For students, use \lecture{student}{student}
+%% For mine, use \lecture{instructor}{instructor}
+
+
+%\usepackage{pgf,pgfpages}
+%\pgfpagesuselayout{4 on 1}[letterpaper,border shrink=5mm]
+
 % FONTS
 \usepackage{fontspec}
 \def\mainfont{Linux Biolinum O}
 \setmainfont[Ligatures={Common,TeX}, Contextuals={NoAlternate}, BoldFont={* Bold}, ItalicFont={* Italic}, Numbers={OldStyle}]{\mainfont}
-\setsansfont[Ligatures={Common,TeX}, Scale=MatchLowercase, Numbers=OldStyle, BoldFont={* Bold}, ItalicFont={* Italic},]{Linux Biolinum O} 
+\setsansfont[Ligatures={Common,TeX}, Scale=MatchLowercase, Numbers=OldStyle]{Linux Biolinum O} 
 \usepackage{microtype}
 
 \usepackage{graphicx}
 	\graphicspath{{/Users/goby/pictures/teach/163/lecture/}
 	{/Users/goby/pictures/teach/common/}} % set of paths to search for images
 
+%\usepackage{units}
+\usepackage{booktabs}
 \usepackage{multicol}
-%\usepackage{booktabs}
-%\usepackage{textcomp}
 
 \usepackage{tikz}
 	\tikzstyle{every picture}+=[remember picture,overlay]
-%	\usetikzlibrary{arrows}
-
-\usepackage{amsmath}
-%\usepackage{units}
-%\usepackage{booktabs}
-
-%\usepackage{tikz}
-
-%\usepackage{ifthen}
+	\usetikzlibrary{trees}
 
 \mode<presentation>
 {
@@ -44,213 +47,442 @@
 %  \setbeamertemplate{items}[square]
 }
 
-\usefonttheme[onlymath]{serif}
+%\usefonttheme[onlymath]{serif}
+%\usecolortheme[named=blue7]{structure}
 
 \begin{document}
 
-% Lecture goals
-\lecture{student}{student}
 \begin{frame}{Our goal for this lecture is to}
 	
-	\hangpara practice \highlight{Hardy-Weinberg} problems.
-
-	\hangpara You will need calculator and paper.
-
-	\hangpara Solve each problem yourself. Then compare.
-\end{frame}
-%
-\lecture{instructor}{instructor}
-
-\begin{frame}{Remember the two Hardy-Weinberg equations.}
-	Without looking at your notes, what are the two equations?\pause
-	\hangpara\huge$p+q=1$\pause
-
-	\normalsize\vspace{2ex}
-\hangpara\huge$p^2+2pq+q^2=1$
+	\hangpara learn how to interpret phylogenetic trees.
 
 \end{frame}
+
 %
-\lecture{student}{student}
 
-\begin{frame}{Example Problem. }
-	\hangpara In a group of 100 students, 36 were homozygous for a trait (\emph{AA}), 48 were heterozygous (\emph{Aa}), and 16 were homozygous for the other trait (\emph{aa}).
+%
+\begin{frame}{A genealogy shows ancestor and descendant relationships.}
 
-	\hangpara 1. Calculate the total number of alleles and the two allele frequencies.
+\begin{multicols}{2}
 
-	\hangpara 2. Calculate the three genotype frequencies.
+	\hangpara Bob and Carol are siblings.
+
+	\hangpara Thelma and Darryl are shared, or common, ancestors of Bob and Carol.
+	
+	\hangpara Bob and Carol are equally related to each other.
+
+\columnbreak
+
+	\includegraphics[width=0.25\textwidth]{bob_carol}
+
+\end{multicols}
+
+\end{frame}
+%
+\begin{frame}{A genealogy shows ancestor and descendant relationships.}
+
+\begin{multicols}{2}
+
+	\hangpara The most recent common ancestor of Bob and Carol is Thelma.
+
+	\hangpara The most recent common ancestor of Ted and Alice is Louise.
+	
+	\hangpara Florence, the grandmother, is the common ancestor for all four children.
+
+\columnbreak
+
+	\includegraphics[width=0.45\textwidth]{bob_carol_ted_alice}
+
+\end{multicols}
+
+\end{frame}
+%
+\begin{frame}{A phylogeny is a \emph{hypothesis} of ancestor and descendant relationships.}
+
+\begin{multicols}{2}
+
+	\hangpara Identify descendant relationships.
+
+	\hangpara Specific ancestors are unknown.
+	
+	\hangpara Vertical axis represents time not generations.
+
+\columnbreak
+
+	\includegraphics[width=0.45\textwidth]{badger_otter}
+
+\end{multicols}
 
 \end{frame}
 %
 {
-\setbeamercovered{%
-	still covered={\opaqueness<1->{0}},
-	again covered={\opaqueness<1->{25}}
-	}
-\begin{frame}{Example Problem. Solution.}
-\begin{multicols}{2}
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{vertebrate_phylogeny_vertical}}
+\begin{frame}[b]{Here is a hypothesis.}
 
-	\onslide<1-5,9,10>\hangpara \textbf{Allele Frequencies}
-	
-	\onslide<1-3>\hangpara Total alleles $100 \times 2 = 200.$
-	
-	\onslide<2>\hangpara \emph{S} alleles: $(36 \times 2) + 48 = 120.$
-	
-	\onslide<2,4,9>\hangpara $p = \dfrac{120}{200} = \highlight{\mathbf{0.6}}.$
-
-	\onslide<3>\hangpara \emph{s} alleles: $(16 \times 2) + 48 = 80.$ 
-
-	\onslide<3,4,10>\hangpara $q = \dfrac{80}{200} = \highlight{\mathbf{0.4}}.$
-	
-	\onslide<4>\hangpara $0.6 + 0.4 = 1.$ \checkmark
-
-\columnbreak
-
-	\onslide<5-10>\hangpara \textbf{Genotype Frequencies}
-	
-	\onslide<5,8,9>\hangpara $p^2=  \dfrac{36}{100} =\highlight{\mathbf{0.36}}.$  
-
-	\onslide<6,8>\hangpara $2pq = \dfrac{48}{100} = \highlight{\mathbf{0.48}}.$
-
-	\onslide<7-8,10>\hangpara $q^2 = \dfrac{16}{100} = \highlight{\mathbf{0.16}}$.
-
-	\onslide<8>\hangpara $0.36 + 0.48 + 0.16 =1.$ \checkmark
-	
-	\onslide<9-10>\rule{0.4\textwidth}{0.1pt}\vspace{-0.5\baselineskip}
-	
-	\onslide<9>\hangpara \highlight{$p = \sqrt{0.36} = 0.6,$} and
-	
-	\onslide<10>\highlight{$q = \sqrt{0.16} = 0.4.$}
-
-\end{multicols}
-
+\tiny Modified from \textcopyright Pearson Education, Inc.
 \end{frame}
 }
 %
-\begin{frame}{Is this population in Hardy--Weinberg equilibrium?}
-	\hangpara You study a group of 274 flowering plants.  136 plants have red flowers, 114 plants have pink flowers and the remaining plants have white flowers. Plants with red flowers are homozygous for the \emph{R} allele, plants with white flowers are homozygous for the \emph{r} allele, and plants with pink flowers are heterozygous.
-
-	\hangpara 1. Calculate the total number of alleles and the two allele frequencies.
-
-	\hangpara 2. Calculate the three genotype frequencies.
-
-	\hangpara Round to 3 digits after each calculation.
-\end{frame}
 %
-\lecture{instructor}{instructor}
 {
-\setbeamercovered{%
-	still covered={\opaqueness<1->{0}},
-	again covered={\opaqueness<1->{25}}
-	}
-\begin{frame}{Is this population in Hardy--Weinberg? Solution.}
-\begin{multicols}{2}
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{vertebrate_phylogeny_rotated}}
+\begin{frame}[b]{Groups can be rearranged without changing the hypothesis.}
 
-	\onslide<1-4>\hangpara \textbf{Allele Frequencies}
-	
-	\onslide<1-3>\hangpara Total alleles: $274 \times 2 = 548.$
-	
-	\onslide<2>\hangpara \emph{R} alleles: $(136 \times 2) + 114 = 386.$
-	
-	\onslide<2,4,9>\hangpara $p = \dfrac{386}{548} = \highlight{\mathbf{0.704}}.$
-
-	\onslide<3>\hangpara \emph{r} alleles: $(24 \times 2) + 114 = 162.$ 
-
-	\onslide<3,4,10>\hangpara $q = \dfrac{162}{548} = \highlight{\mathbf{0.296}}.$
-	
-	\onslide<4>\hangpara $0.704 + 0.296 = 1.$ \checkmark
-
-\columnbreak
-
-	\onslide<5-8>\hangpara \textbf{Genotype Frequencies}
-	
-	\onslide<5,8,9>\hangpara $p^2 = \dfrac{136}{274} = \highlight{\mathbf{0.496}}.$ 
-
-	\onslide<6,8>\hangpara $2pq = \dfrac{114}{274} = \highlight{\mathbf{0.416}}.$
-
-	\onslide<7-8,10>\hangpara $q^2 = \dfrac{24}{274} = \highlight{\mathbf{0.088}}.$
-
-	\onslide<8>\hangpara $0.496 + 0.416 + 0.088 = 1$ \checkmark
-	
-	\onslide<9-10>\rule{0.4\textwidth}{0.1pt}\vspace{-0.5\baselineskip}
-	
-	\onslide<9>\hangpara \highlight{$p = \sqrt{0.496} = 0.704,$} and
-	
-	\onslide<10>\highlight{$q = \sqrt{0.088} = 0.296.$}
-
-\end{multicols}
+\tiny Modified from \textcopyright Pearson Education, Inc.
 \end{frame}
 }
 %
-\lecture{student}{student}
-
-\begin{frame}{Is this population in Hardy--Weinberg equilibrium?}
-	\vspace{-1\baselineskip}
-	\hangpara Most flowers have a female reproductive structure called the pistil. Pistil length is controlled by a single gene with two alleles. In a group of 500 plants, you found that 320 had short pistils (homozygotes), 175 had medium pistils (heterozygotes), and 5 flowers had long pistils (homozygotes). 
-
-	\hangpara 1. Calculate the two allele frequencies.
-
-	\hangpara 2. Calculate the three genotype frequencies.
-
-	\hangpara Round to 3 digits after each calculation.
-\end{frame}
 %
-\lecture{instructor}{instructor}
 {
-\setbeamercovered{%
-	still covered={\opaqueness<1->{0}},
-	again covered={\opaqueness<1->{25}}
-	}
-\begin{frame}{Is this population in Hardy--Weinberg? Solution.}
-\vspace{-1\baselineskip}
-\begin{multicols}{2}
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{vertebrate_phylogeny_horizontal}}
+\begin{frame}[b]{The tree can be turned sideways.}
 
-	\onslide<1-4>\hangpara \textbf{Allele Frequencies}
-	
-	\onslide<1-3>\hangpara Total alleles: $500 \times 2 = 1000.$
-	
-	\onslide<2>\hangpara \emph{S} alleles: $(320 \times 2) + 175 = 815.$
-	
-	\onslide<2,4,11>\hangpara $p = \dfrac{815}{1000} = \highlight{\mathbf{0.815}}.$
+\tiny Modified from \textcopyright Pearson Education, Inc.
+\end{frame}
+}
+%
 
-	\onslide<3>\hangpara \emph{s} alleles: $(5 \times 2) + 175 = 185.$ 
+%
+{
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{phylogeny_branches}}
+\begin{frame}[b]
 
-	\onslide<3,4,12>\hangpara $q = \dfrac{185}{1000} = \highlight{\mathbf{0.185}}.$
-	
-	\onslide<4,9-10>\hangpara $0.815 + 0.185 = 1.$ \checkmark
+\tiny Modified from \textcopyright Pearson Education, Inc.
+\end{frame}
+}
+%
+{
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{phylogeny_nodes}}
+\begin{frame}[b]
 
-\columnbreak
+\tiny Modified from \textcopyright Pearson Education, Inc.
+\end{frame}
+}
+%
+{
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{phylogeny_time}}
+\begin{frame}[b]
 
-	\onslide<5-8>\hangpara \textbf{Genotype Frequencies}
-	
-	\onslide<5,8,11>\hangpara $p^2 = \dfrac{320}{500} = \highlight{\mathbf{0.64}}.$ 
+\tiny Modified from \textcopyright Pearson Education, Inc.
+\end{frame}
+}
+% Phylogenies are falsifiable
+{
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{phylogenies_falsifiable}}
+\begin{frame}[b]
 
-	\onslide<6,8>\hangpara $2pq = \dfrac{175}{500} = \highlight{\mathbf{0.35}}.$
+\hfill\tiny Source unknown.
+\end{frame}
+}
+%
+%\lecture{instructor}{instructor}
+% Phylogenies can have polytomies
+{
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{polytomy}}
+\begin{frame}[b]
 
-	\onslide<7-8,12>\hangpara $q^2 = \dfrac{5}{500} = \highlight{\mathbf{0.01}}.$
-
-	\onslide<8-10>\hangpara $0.64 + 0.35 + 0.01 = 1$ \checkmark
-	
-	\onslide<9-12>\hangpara \highlight{\textbf{Not in HWE!}}
-	\onslide<10>\textbf{\ WTF?}\vspace{-0.5\baselineskip}
-	
-	\onslide<11>\hangpara \highlight{$p = \sqrt{0.64} = 0.8 \ne 0.815,$} and
-	
-	\onslide<12>\highlight{$q = \sqrt{0.01} = 0.1 \ne 0.185.$}
-
-\end{multicols}
+\tiny Burke Lab (burkelab.research.wesleyan.edu).
 \end{frame}
 }
 %
 %\lecture{student}{student}
-%\begin{frame}{Is the population \highlight{really} not in HWE?}
+%% Your must not have polytomies
+%{
+%\usebackgroundtemplate{\includegraphics[width=\paperwidth]{polytomy1}}
+%\begin{frame}[b]
 %
-%	\hangpara The difference may be due to \highlight{random sampling}, or
-%	\pause
-%	
-%	\hangpara due to \highlight{evolutionary processes.}
-%	\pause
-%	
-%	\hangpara Perform statistical test to find out.
+%\tiny Burke Lab (burkelab.research.wesleyan.edu).
 %\end{frame}
+%}
+%
+% Trees have roots
+{
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{phylogeny_root}}
+\begin{frame}[b]{Trees may have have roots.}
 
+\tiny Burke Lab (burkelab.research.wesleyan.edu).
+\end{frame}
+}
+% Basal
+{
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{phylogeny_basal_gnathostomes}}
+\begin{frame}[b]{\highlight{Basal} groups branch off near the root.}
+
+%\tiny Burke Lab (burkelab.research.wesleyan.edu).
+\end{frame}
+}
+%
+{
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{phylogeny_basal_vertebrates}}
+\begin{frame}[b]{\highlight{Basal} groups have evolved for as long as other groups.}
+
+%\tiny Burke Lab (burkelab.research.wesleyan.edu).
+\end{frame}
+}
+%
+%\lecture{instructor}{instructor}
+% Branch Lengths
+{
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{branch_lengths}}
+\begin{frame}[b]{Branch lengths do not always represent time.}
+
+\hfill\tiny Crawford et al. 2012. Biology Letters doi:10.1098/rsbl.2012.0331.
+\end{frame}
+}
+%
+%\lecture{student}{student}
+%{
+%\usebackgroundtemplate{\includegraphics[width=\paperwidth]{branch_lengths1}}
+%\begin{frame}[b]{Branch lengths do not always represent time.}
+%
+%\hfill\tiny Crawford et al. 2012. Biology Letters doi:10.1098/rsbl.2012.0331.
+%\end{frame}
+%}
+% Clades
+\begin{frame}[t]{Phylogenetic trees are composed of \highlight{clades.}}
+
+\begin{multicols}{2}
+
+	\includegraphics[height=0.75\textheight]{monophyletic_group}
+
+\columnbreak
+
+	\hangpara A \highlight{clade} or \highlight{monophyletic group} contains an ancestor and \emph{all} of its descendants.
+
+\end{multicols}
+
+	\vfilll
+
+\tiny \textcopyright Pearson Education, Inc.
+\end{frame}
+%
+\begin{frame}[t]{These shaded groups are \emph{not} clades.}
+
+	\includegraphics[width=\textwidth]{monophyletic_not}
+
+	\vfilll
+
+\tiny \textcopyright Pearson Education, Inc.
+\end{frame}
+%
+% Phylogenetic hierarchy
+\lecture{instructor}{instructor}
+{
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{phylogeny_hierarchy1}}
+\begin{frame}[b]{Trees are a hierarchy of clades nested within clades.}
+
+\tiny \textcopyright Pearson Education, Inc.
+\end{frame}
+}
+{
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{phylogeny_hierarchy2}}
+\begin{frame}[b]{Trees are a hierarchy of clades nested within clades.}
+
+\tiny \textcopyright Pearson Education, Inc.
+\end{frame}
+}
+\lecture{student}{student}
+{
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{phylogeny_hierarchy3}}
+\begin{frame}[b]{Trees are a hierarchy of clades nested within clades.}
+
+\tiny \textcopyright Pearson Education, Inc.
+\end{frame}
+}
+% Phylogenetic relatedness based on clades
+{
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{phylogeny_relatedness}}
+\begin{frame}[b]{Taxa in the same clade are more closely related than those outside the clade.}
+
+%\tiny \textcopyright Pearson Education, Inc.
+\end{frame}
+}
+%% Phylogeny informs classification.
+
+%
+\lecture{instructor}{instructor}
+{
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{vertebrate_phylo1}}
+\begin{frame}[b]
+
+	\tiny Fig. 34.2, \textcopyright Pearson Education, Inc.
+\end{frame}
+}
+%
+\lecture{student}{student}
+%
+{
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{vertebrate_phylo2}}
+\begin{frame}[t]{\onslide<2->{What is a fish?}}
+
+%	\hangpara Phylogenies help our classification.
+	
+	\vfilll
+	
+	\tiny Fig. 34.2, \tiny \textcopyright Pearson Education, Inc.
+\end{frame}
+}
+%
+\lecture{instructor}{instructor}
+{
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{vertebrate_phylo3}}
+\begin{frame}[t]{The classes of vertebrates I learned were}
+
+	\vfilll
+	
+	\tiny Fig. 34.2, \tiny \textcopyright Pearson Education, Inc.
+\end{frame}
+}
+%
+\lecture{student}{student}
+{
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{vertebrate_phylo4}}
+\begin{frame}[t]{The classes of vertebrates I learned were}
+
+	\vspace*{-0.5\baselineskip}
+	
+	\hangpara “Fishes” are shaded. What is the problem with this classification?
+		
+\end{frame}
+}
+{
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{vertebrate_phylo5}}
+\begin{frame}[t]{The classes of vertebrates I teach are}
+
+	\vspace*{-0.5\baselineskip}
+	
+	\hangpara So, what is a fish? \alt<handout>{}{\pause \highlight{You are!}}
+	
+\end{frame}
+}
+
+
+% Trees can be pruned.
+{
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{archosaur_phylogeny1}}
+\begin{frame}[b]{Trees can be pruned but relationships are the same.}
+
+\end{frame}
+}
+
+{
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{archosaur_phylogeny2}}
+\begin{frame}[b]{Trees can be pruned but relationships are the same.}
+
+\end{frame}
+}
+{
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{archosaur_phylogeny3}}
+\begin{frame}[b]{Trees can be pruned but relationships are the same.}
+
+\end{frame}
+}
+
+% Different ways of drawing phylogenies
+{
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{phylogeny_three_ways}}
+\begin{frame}[b]
+
+\hfill\tiny Source unknown.
+\end{frame}
+}
+%
+
+% Two Dinosaur Phylogenies
+%{
+%\usebackgroundtemplate{\includegraphics[width=\paperwidth]{dino_phylogenies}}
+%\begin{frame}[b]{Phylogenies can be displayed in different ways.}
+%
+%\tiny Pisani et al. 2001 \hfill \textcopyright Sinauer Associates, Inc.
+%\end{frame}
+%}
+%
+
+% Mammalian phylogenies
+{
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{mammal_circle_phylogeny}}
+\begin{frame}[b]
+
+\hfill\tiny Bininida-Emonds et al. 2007. Nature 446: 507.
+\end{frame}
+}
+%
+{
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{rodent_phylogeny}}
+\begin{frame}[b]
+
+\hfill\tiny Blanga-Kanfi et al. 2009. BMC Evolutionary Biology 9: 71.
+\end{frame}
+}
+%
+%\lecture{instructor}{instructor}
+%%
+%\begin{frame}[t]{How did behavior and color evolve in gobies?}
+%	\includegraphics[width=\textwidth]{genie_cleaner}
+%	
+%	\vfilll
+%	
+%	\hfill\tiny \textcopyright Paul Humann.
+%	
+%\end{frame}
+%%
+%\begin{frame}[t]{How did behavior and color evolve in gobies?}
+%
+%	\vspace*{-0.5\baselineskip}
+%	
+%	\begin{center}
+%	
+%	\includegraphics[height=0.83\textheight]{horsti_sponge}
+%	
+%	\end{center}
+%	
+%	\vfilll
+%	
+%	\hfill\tiny \textcopyright Jim Christensen.
+%	
+%\end{frame}
+%%
+%\begin{frame}[t]{How did behavior and color evolve in gobies?}
+%
+%	\vspace*{-0.5\baselineskip}
+%	
+%	\begin{center}
+%	
+%	\includegraphics[height=0.83\textheight]{atronasus_hover}
+%	
+%	\end{center}
+%	
+%	\vfilll
+%	
+%	\hfill\tiny Photographer not remembered, unfortunately.
+%	
+%\end{frame}
+%%
+%\begin{frame}[t]{How did behavior and color evolve in gobies?}
+%	\includegraphics[width=\textwidth]{elacatinus_color}
+%	
+%	\vfilll
+%
+%	\hfill\tiny \textcopyright Paul Humann.
+%	
+%\end{frame}
+%%
+%\lecture{student}{student}
+%%
+%{
+%\usebackgroundtemplate{\includegraphics[width=\paperwidth]{goby_phylogeny}}
+%\begin{frame}[b]
+%
+%\hfill\tiny Taylor and Hellberg 2005. Evolution 59: 374.
+%\end{frame}
+%}
+%%
+{
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{mental_gland_morphology}}
+\begin{frame}[b]
+
+\hfill\tiny Sever et al. 2016. Copeia 104: 83.
+\end{frame}
+}
+%
 \end{document}

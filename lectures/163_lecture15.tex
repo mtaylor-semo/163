@@ -17,7 +17,7 @@
 %% For students, use \lecture{student}{student}
 %% For mine, use \lecture{instructor}{instructor}
 
-% FONTS
+% Fonts
 \usepackage{fontspec}
 \def\mainfont{Linux Biolinum O}
 \setmainfont[Ligatures={Common,TeX}, Contextuals={NoAlternate}, BoldFont={* Bold}, ItalicFont={* Italic}, Numbers={OldStyle}]{\mainfont}
@@ -37,7 +37,6 @@
 %\usepackage{textcomp}
 %\usepackage{mhchem}
 \usepackage{enumitem}
-%\usepackage[export]{adjustbox}
 
 
 \usepackage{tikz}
@@ -49,269 +48,179 @@
 {
   \usetheme{Lecture}
   \setbeamercovered{invisible}
+  \setbeamertemplate{items}[square]
 }
-
 
 \begin{document}
 
 \lecture{student}{student}
 
-\begin{frame}{Our goal for this lecture is to learn about}
-	
-	\hangpara \highlight{molecular clocks}, and
-	
-	\hangpara genome evolution,
-	
-	\hangpara the evolutionary role of \highlight{homeotic genes} and other developmental genes.
+\begin{frame}{Our goal for this lecture is to}
 
-\end{frame}
-%
-\begin{frame}[b]{Mutations occur at a \emph{roughly} constant rate, called a \highlight{molecular clock.}}
+	\hangpara show how real populations grow compared to the logistic growth curve,
 
-\begin{tikzpicture}
-	\tikzset{every node/.style={font=\footnotesize}};
-	\node (ca) [align=right] at (1,5){\footnotesize Common ancestor:\\ \textsc{caatttatcg}};
-	
-	\draw [thick] (ca.east) -- ++(15:8cm) 
-		node [midway, above left, align=right](25up)
-			{25 \textsc{my} later \\\textsc{caattt\textbf{\textcolor{orange6}{g}}tcg}} 
-		node [right, above left, align=right](50up)
-			{50 \textsc{my} later\\ \textsc{caat\textbf{\textcolor{orange6}{a}}t\textbf{\textcolor{orange6}{g}}tcg}};
-	\draw [thick] (ca.east) -- ++(-15:8cm) 
-		node [midway, below left, align=right](25down)
-			{\textsc{caa\textbf{\textcolor{orange6}{c}}ttatct}\\25 \textsc{my} later} 
-		node [right, below left, align=right](50down)
-			{\textsc{caa\textbf{\textcolor{orange6}{c}}ttatc\textbf{\textcolor{orange6}{t}}}\\50 \textsc{my} later};
-	
-%	\draw 
-	\node (arrowbase1) at (3,5){};
-	\node (arrowbase2) [below=of 25up.east,xshift=0.5cm,yshift=0.639cm]{};
-	\node (arrowbase3) [above=of 25down.east,xshift=0.5cm,yshift=-0.639cm]{};
-	
-	\draw [thick] (25up.east) -- ++(-90:0.45cm);
-	\draw [thick] (25down.east) -- ++(90:0.45cm);
+	\hangpara learn about \highlight{density and dispersion} of individuals in a population,
 
-	\draw [thick] (50up.east) -- ++(-90:0.45cm);
-	\draw [thick] (50down.east) -- ++(90:0.45cm);
-
-	\draw [->] (arrowbase1.center) -- ++(15: 3.3cm) node (arrow1){};
-	\draw [->] (arrowbase1.center) -- ++(-15: 3.3cm) node (arrow2){};
+	\hangpara learn how \highlight{negative feedback} controls \highlight{density-dependent} population growth, and
 	
-	\draw [->] (arrowbase2.center) -- ++(15: 3.4cm);
-	\draw [->] (arrowbase3.center) -- ++(-15: 3.4cm);
+	\hangpara learn how \highlight{density-independent} factors control population growth.
 	
-\end{tikzpicture}
-
 \end{frame}
 %
 {
-\usebackgroundtemplate{\includegraphics[width=\paperwidth]{molecular_clock_calibration} }
-\begin{frame}[b]{Molecular clocks have to be calibrated to the fossil record or known geological events.}
-
-\hfill \tiny Bromham and Penny 2003. Nature Reviews Genetics 4: 216.
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{real_populations_daphnia} }
+\begin{frame}{Populations initially \highlight{exceed} carrying capacity.}
 \end{frame}
 }
-%
-\begin{frame}[t]{If two species differ by 30 mutations, when did they last share a common ancestor?}
-
-	\includegraphics[width=\textwidth]{molecular_clock_mammals}
-	
-	\onslide<2>{\vspace*{0.5\baselineskip}How many mutations if they last shared a common ancestor about 60 \textsc{mya}?}
-
-	\vskip0pt plus 1filll
-	
-	\hfill \tiny \textcopyright Pearson Education, Inc.
-\end{frame}
 %
 {
-\usebackgroundtemplate{\includegraphics[width=\paperwidth]{molecular_clock_genes} }
-\begin{frame}[b]{Different genes have different clock rates.}
-
-\end{frame}
+	\usebackgroundtemplate{\includegraphics[width=\paperwidth]{real_populations_sparrow} }
+	\begin{frame}{Populations \highlight{fluctuate around} carrying capacity.}
+	\end{frame}
 }
-%
-\begin{frame}{What genetic changes explain macroevolutionary change?}
-
-	\hangpara If the fossil record documents macroevolutionary change, 
-	then the \highlight{genomes} of the descendants should document those changes.
-	 
-\end{frame}
 %
 {
-\usebackgroundtemplate{\includegraphics[width=\paperwidth]{gene_duplication} }
-\begin{frame}[b]
+	\usebackgroundtemplate{\includegraphics[width=\paperwidth]{dispersion_patterns} }
+	\begin{frame}[b]{\highlight{Dispersion} is the spacing pattern of individuals in a population.}
+		\hfill \tiny \copyright Pearson Education, Inc.
+	\end{frame}
+}
+%
+{
+	\usebackgroundtemplate{\includegraphics[width=\paperwidth]{dispersion_clumped} }
+	\begin{frame}[b]{\highlight{Clumped} dispersion can be due to patchy resources, social factors, or protection.}
+		%	\hfill \tiny \copyright Pearson Education, Inc.
+	\end{frame}
+}
+%
+{
+	\usebackgroundtemplate{\includegraphics[width=\paperwidth]{dispersion_uniform} }
+	\begin{frame}[t]{\highlight{Uniform} dispersion can be due to territoriality or aggressive interactions among individuals.}
+		
+		\vfilll 
+		
+		\tiny\textcolor{orange5}{Foliash, Wikimedia, public domain.}
+	\end{frame}
+}
+%
+{
+	\usebackgroundtemplate{\includegraphics[width=\paperwidth]{dispersion_random} }
+	\begin{frame}[t]{\highlight{Random} dispersion can be due to constant environment and resources.}
+		
+		\vfilll 
+		
+		\tiny \textcolor{white}{Strecosa, Pixabay, \cc0.}
+	\end{frame}
+}
+%
+{
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{density_trees} }
+\begin{frame}[b]{\highlight{Density} is the number of individuals per unit of area or volume.}
+	\hfill \tiny N\textsc{asa} Wikimedia, public domain
 \end{frame}
 }
 %
-\begin{frame}{The globin family evolved by gene duplication.}
-
-	\centering\includegraphics[height=0.82\textheight]{gene_duplication_globins}
-	 
-	 \vfilll
-	 
-	 \hfill \tiny \textcopyright Pearson Education, Inc.
-\end{frame}
+{
+	\usebackgroundtemplate{\includegraphics[width=\paperwidth]{density_atacama_dry} }
+	\begin{frame}[b]{Plant populations in the dry Atacama Desert usually have low density.}
+		\hfill \tiny \textcolor{white}{travfotos, Flickr, \ccbync{2}}
+	\end{frame}
+}
 %
-
-%% Orthologous and paralogous was too complicated. No need for it.
-
-%\begin{frame}{Two types of \highlight{homologous genes} are found in the genome.}
+{
+	\usebackgroundtemplate{\includegraphics[width=\paperwidth]{density_atacama_desert} }
+	\begin{frame}[b]{Populations in the Atacama Desert can reach high density after a rare rain.}
+		\hfill \tiny \textcolor{white}{Mario Ruiz, \textsc{epa}}
+	\end{frame}
+}
 %
-%	\includegraphics[width=\textwidth]{gene_duplication_homologs}
-%	 
-%	 \vfilll
-%	 
-%	 \hfill \tiny \textcopyright Pearson Education, Inc.
+%
+%\lecture{instructor}{instructor}
+%{
+%\usebackgroundtemplate{\includegraphics[width=\paperwidth]{real_populations_sparrow} }
+%\begin{frame}{Populations \highlight{fluctuate around} carrying capacity.}
 %\end{frame}
-%%
-%\begin{frame}
+%}
+%\lecture{student}{student}
 %
-%	\begin{overprint}
-%		\alt<handout>{}{\onslide<1>\includegraphics[height=0.78\textheight]{para_ortho_1}
-%		\onslide<2>\includegraphics[height=0.78\textheight]{para_ortho_2}
-%		\onslide<3>\includegraphics[height=0.78\textheight]{para_ortho_3}
-%		\onslide<4>\includegraphics[height=0.78\textheight]{para_ortho_4}
-%		\onslide<5>\includegraphics[height=0.78\textheight]{para_ortho_5}
-%		\onslide<6>\includegraphics[height=0.78\textheight]{para_ortho_6}}
-%		\onslide<7>\includegraphics[height=0.78\textheight]{para_ortho_7}
-%	\end{overprint}
-%	
-%\end{frame}
-%%
-%\begin{frame}[t]{Identify some paralogs and homologs.}
-%	\includegraphics[width=\textwidth]{gene_duplication_phylogeny}
-%	
-%	\vfilll
-%	
-%	\hfill \tiny Ballerini and Kramer 2011. Frontiers in Plant Science 2(81): 1.
-%\end{frame}
-%
-\begin{frame}[t]{Duplicated genes can become \highlight{pseudogenes} or evolve new functions.}
+\begin{frame}{}
+
+	\hangpara \highlight{Density-dependent} population regulation occurs when high population density \highlight{decreases birth rate} or \highlight{increases death rate}.
 	
-	\includegraphics[width=\textwidth]{gene_duplication_pseudogenes_opsins}\\
+	\hangpara What would happen to population size ($N$) over time?
 	
-	\vfilll
-	 
-	\hfill \tiny Top: \textcopyright Pearson Education, Inc. Bottom: \textcopyright Oxford University Press.
-\end{frame}
-%
-\begin{frame}[t]{Olfactory receptors in vertebrates have hundreds of homologous genes.}
-	
-	\includegraphics[width=\textwidth]{gene_duplication_olfactory_receptors}\\
-	
-	\vfilll
-	 
-	\hfill \tiny Niimura et al. 2014. Genome Research 24: 1485.
 \end{frame}
 %
 {
-\usebackgroundtemplate{\includegraphics[width=\paperwidth]{homeotic_genes_hox} }
-\begin{frame}[b]
-
-	\hfill \tiny \href{http://learn.genetics.utah.edu/basics/hoxgenes}{learn.genetics.utah.edu}
-\end{frame}
-}
-%
-\begin{frame}[t]{The role of homeotic genes was discovered through their mutations.}
-	\vspace*{-0.5\baselineskip}
-	\begin{center}
-		\includegraphics[width=0.85\textwidth]{homeotic_genes_antp}
-	\end{center}
-	
-	A mutation to the \textit{Antp} \textit{Hox} gene in Drosophila causes legs to grow where the antennae should be.
-	\vfilll
-
-	\hfill \tiny Fig. 18.20 \textcopyright Pearson Education, Inc.
-\end{frame}
-%
-\begin{frame}[t]{Homeotic proteins regulate other genes.}
-	\vspace*{-0.5\baselineskip}
-	\begin{center}
-		\includegraphics[width=0.75\textwidth]{homeotic_genes_regulation}
-	\end{center}
-	
-	If the binding sequence changes, the gene may be ``turned on'' in the wrong place or ``turned off.''
-	\vfilll
-
-	\hfill \tiny \href{http://learn.genetics.utah.edu/basics/hoxgenes}{learn.genetics.utah.edu}
-\end{frame}
-%
-{
-\usebackgroundtemplate{\includegraphics[width=\paperwidth]{homeotic_genes_hox_fly} }
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{density_dependent_song_sparrow} }
 \begin{frame}[b]{}
-
-	\tiny \href{http://learn.genetics.utah.edu/basics/hoxgenes}{learn.genetics.utah.edu}
+\tiny\textcolor{gray!20!white}{Keith, Wikimedia, \ccby{2}.}
 \end{frame}
 }
 %
 {
-\usebackgroundtemplate{\includegraphics[width=\paperwidth]{homeotic_genes_inverts} }
-\begin{frame}[b]{\textit{Ubx} is a \textit{Hox} gene that controls leg position in invertebrates.}
-
-	\hfill \tiny Fig. 25.25 \textcopyright Pearson Education, Inc.
-\end{frame}
-}
-%
-{
-\usebackgroundtemplate{\includegraphics[width=\paperwidth]{homeotic_genes_arthropod_diversity} }
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{density_dependent_sparrow_nest} }
 \begin{frame}[b]{}
+\tiny\textcolor{gray!20!white}{K.P. McFarland, Flickr, \ccbync{2}.}
+\end{frame}
+}
+%
+\begin{frame}[b]{How does clutch size change? Why?}
+	\begin{center}
+		\includegraphics[height=0.8\textheight]{density_dependent_clutchsize.pdf}
+	\end{center}	
 
-	\tiny \href{http://learn.genetics.utah.edu/basics/hoxgenes}{learn.genetics.utah.edu}
+	\tiny Arcese and Smith 1988, J. Animal Ecology 57: 119-136.
+\end{frame}
+%
+\begin{frame}[b]{How does nest failure change? Why?}
+	\begin{center}
+		\includegraphics[height=0.8\textheight]{density_dependent_failure.pdf}
+	\end{center}	
+
+	\tiny Arcese and Smith 1988, J. Animal Ecology 57: 119-136.
+\end{frame}
+%
+{
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{density_dependent_territory} }
+\begin{frame}[b]{}
+\tiny\textcolor{orange5}{Foliash, Wikimedia, public domain.}
 \end{frame}
 }
 %
 {
-\usebackgroundtemplate{\includegraphics[width=\paperwidth]{homeotic_genes_vertebrates} }
-\begin{frame}[b]{\textit{Hox genes} also control the vertebrate body plan.}
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{density_dependent_lynx_hare} }
+\begin{frame}[b]{}
+\end{frame}
+}
+%
+\begin{frame}{}
 
-	\tiny \href{http://learn.genetics.utah.edu/basics/hoxgenes}{learn.genetics.utah.edu}
+	\hangpara \highlight{Density-independent} population regulation decreases birth rate or increases death rate \highlight{regardless} of current population size.
+		
+\end{frame}
+%
+{
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{density_independent_dunes} }
+\begin{frame}[b]{}
+\hfill\tiny Sandy Richard, Flickr,\ccbyncsa{2} .
 \end{frame}
 }
 %
 {
-\usebackgroundtemplate{\includegraphics[width=\paperwidth]{homeotic_genes_vertebrate_duplication} }
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{isle_royale} }
 \begin{frame}[b]
 
+	\hfill \tiny \textcolor{white}{Google Earth}
 \end{frame}
 }
 %
 {
-\usebackgroundtemplate{\includegraphics[width=\paperwidth]{eyes_structure} }
-\begin{frame}{Eyes evolved independently multiple times.}
-
-\begin{minipage}{0.27\textwidth}
-	
-	\flushright
-	\vspace{2em}
-	\hangpara Insect
-	
-	\vspace{5em}
-	
-	\hangpara Giant clam	
-	\vspace{5em}
-	
-	\hangpara Human
-	
-\end{minipage}
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{isle_royale_popsize} }
+\begin{frame}{}
 \end{frame}
 }
 %
-{
-\usebackgroundtemplate{\includegraphics[width=\paperwidth]{eyes_pax6} }
-\begin{frame}[t]{The \highlight{\textit{Pax6}} developmental gene controls eye development.}
 
-	\vfilll
-	
-	\tiny Carroll et al. 2005. \textit{From DNA to Diversity}. Blackwell.
-\end{frame}
-}
-%
-{
-\usebackgroundtemplate{\includegraphics[width=\paperwidth]{homeotic_genes_paedomorphosis} }
-\begin{frame}[b]
 
-	\tiny Fig. 25.23 \textcopyright Pearson Education, Inc.
-\end{frame}
-}
-%
 \end{document}

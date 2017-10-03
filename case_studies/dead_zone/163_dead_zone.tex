@@ -1,0 +1,791 @@
+%!TEX TS-program = lualatex
+%!TEX encoding = UTF-8 Unicode
+
+\documentclass[t]{beamer}
+
+%%%% HANDOUTS For online Uncomment the following four lines for handout
+%\documentclass[t,handout]{beamer}  %Use this for handouts.
+%\usepackage{handoutWithNotes}
+%\pgfpagesuselayout{3 on 1 with notes}[letterpaper,border shrink=5mm]
+%	\setbeamercolor{background canvas}{bg=black!5}
+
+%\includeonlylecture{student}
+
+%%% Including only some slides for students.
+%%% Uncomment the following line. For the slides,
+%%% use the labels shown below the command.
+
+%% For students, use \lecture{student}{student}
+%% For mine, use \lecture{instructor}{instructor}
+
+
+
+% FONTS
+\usepackage{fontspec}
+\def\mainfont{Linux Biolinum O}
+%\setmainfont[Ligatures={Common,TeX}, Contextuals={NoAlternate}, BoldFont={* Bold}, ItalicFont={* Italic}, Numbers={Proportional, OldStyle}]{\mainfont}
+\setsansfont[Ligatures={Common,TeX}, Scale=MatchLowercase, Numbers={Proportional,OldStyle}, BoldFont={* Bold}, ItalicFont={* Italic},]{Linux Biolinum O} 
+\newfontface\lining[Numbers=Lining]{\mainfont}
+\setmonofont[Scale=MatchLowercase]{Linux Libertine Mono O}
+%\usepackage{microtype}
+
+\usepackage{amsmath,amssymb}
+%\usepackage{unicode-math}
+%\setmathfont[Scale=MatchLowercase]{TeX Gyre Termes Math}
+
+\usepackage{graphicx}
+	\graphicspath{{/Users/goby/pictures/teach/163/case_studies/}
+	{/Users/goby/pictures/teach/163/lecture/}
+	{/Users/goby/pictures/teach/common/}} % set of paths to search for images
+
+\usepackage{multicol}
+\usepackage{booktabs}
+\usepackage{array}
+\newcolumntype{L}[1]{>{\raggedright\let\newline\\\arraybackslash\hspace{0pt}}p{#1}}
+\newcolumntype{C}[1]{>{\centering\let\newline\\\arraybackslash\hspace{0pt}}p{#1}}
+\newcolumntype{R}[1]{>{\raggedleft\let\newline\\\arraybackslash\hspace{0pt}}p{#1}}
+%\usepackage{textcomp}
+%\usepackage{mhchem}
+\usepackage{enumitem}
+\setlist[enumerate]{itemsep=\baselineskip,label=\textsc{\alph*}.}
+
+\newcommand*{\cq}[1]{%
+	\#{\lining#1}:%
+}
+
+\usepackage{tikz}
+	\tikzstyle{every picture}+=[remember picture,overlay]
+	\usetikzlibrary{arrows}
+\usetikzlibrary{positioning}
+
+\mode<presentation> {%
+  \usetheme{Lecture}
+  \setbeamercovered{invisible}
+  \setbeamertemplate{items}[default]
+}
+
+
+\begin{document}
+
+\lecture{student}{student}
+
+
+{
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{gulf_dead_zone_intro} }
+\begin{frame}[b]
+
+	\textcolor{white}{\tiny Written by\\[-3pt] \small Kristi Hannam, \textsc{suny}-Geneseot \hfill \tiny thepipe26, Flickr, \ccby{2}}
+
+\end{frame}
+}
+%
+{
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{gulf_of_mexico_location} }
+\begin{frame}[b]
+
+	\hfill \tiny \textcolor{white}{Google Earth}
+
+\end{frame}
+}
+%
+{
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{shrimp_cocktail} }
+\begin{frame}[t]
+
+	\vspace*{2\baselineskip}
+	
+	\hspace*{60mm}\parbox{55mm}{%
+		\raggedright Susan had moved in with Aunt Janet in Louisiana for the summer. She wanted to enjoy the sun and the beach, and save some money for college next fall. A week ago, she found a job as a waitress at Captain Joe’s Seafood Shack.\vspace*{\baselineskip}
+
+At lunch, a businessman asked, “Where’s the shrimp from anyway?” \vspace*{\baselineskip}
+
+She’d been asked this twice before already, so she knew the answer. “From Thailand.”}
+
+\vfilll
+
+\hfill \tiny Jon Sullivan, Wikimedia, public domain
+\end{frame}
+}
+%
+{
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{shrimp_boat} }
+\begin{frame}[t]
+
+	\vspace*{1\baselineskip}
+	
+	\hangpara \parbox{54mm}{%
+		\raggedright The next morning, Susan and Aunt Janet 
+		were eating breakfast while watching boats on the Gulf.\vspace*{\baselineskip}
+
+		Aunt Janet pointed. “See that boat with the funny stuff 
+		off the side? That’s George. He’s a shrimper.”\vspace*{\baselineskip}
+
+		“A shrimper? Then why does Captain Joe buy shrimp from Thailand?”\vspace*{\baselineskip}
+	
+		“I don’t know. Why don’t you ask him!”
+	}
+
+	\vfilll
+
+	\hfill \tiny Robert K. Brigham, \textsc{noaa}, Wikimedia, \ccby{2}
+\end{frame}
+}
+%
+{
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{steamed_shrimp} }
+\begin{frame}[t]
+
+	\vspace*{2\baselineskip}
+	
+	\hangpara \parbox{54mm}{%
+		\raggedright Captain Joe was busily setting up lunchtime plates when Susan found him. 
+
+“If there are shrimp in the Gulf, why do you buy shrimp from Thailand, Captain Joe?” \vspace*{\baselineskip}
+
+He stared at her, annoyed by the interruption. “Too expensive!” he grunted. 
+}
+
+\vfilll
+
+\hfill \tiny Renee Comet, National Cancer Institute, public domain
+\end{frame}
+}
+%
+{
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{gulf_mexico_sunset} }
+\begin{frame}[t]
+
+	\vspace*{5\baselineskip}
+	
+	\hspace*{65mm}\parbox{53mm}{%
+		\raggedright \textcolor{white}{At Aunt Janet’s that evening, Susan found her aunt sitting on the front porch talking to George. After introducing herself, Susan asked him, “Is Captain Joe’s the only restaurant around here that doesn’t serve local shrimp?”}
+}
+
+\vfilll
+
+\hfill \tiny \textcolor{white}{Ed Yourdon, Flickr, \ccbyncsa{2}}
+\end{frame}
+}
+%
+{
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{shrimp_hatchery} }
+\begin{frame}[t]
+
+	\vspace*{4\baselineskip}
+	
+	\hspace*{65mm}\parbox{53mm}{%
+		\raggedright “Definitely not,” George said in reply to Susan’s question. 
+		“Most of the area right off the coast here isn’t good for fishing or shrimping 
+		anymore. Restaurant owners can get cheaper shrimp from farms in Asia 
+		or South America,” he added.}
+
+\vfilll
+
+\tiny \textsc{Noaa}, Wikimedia, public domain
+\end{frame}
+}
+%
+\begin{frame}
+
+	\begin{multicols}{2}
+	
+	George continued, “People around here have a lot of different 
+	ideas about why shrimp are going away. Some think hurricanes 
+	like Katrina are to blame, others think overfishing, pollution, or 
+	climate change are the cause.  I don’t know for sure, but something 
+	has definitely happened—people are calling our part of the Gulf a 
+	\highlight{Dead Zone}—and it seems to be growing every year.”
+	\columnbreak
+	
+		{\centering\includegraphics[width=0.45\textwidth]{small_shrimp_boat}\par
+		}
+	\end{multicols}
+	
+	\vfilll
+	
+	\hfill \tiny Florida Keys Public Library, Flickr, \ccby{2}
+\end{frame}
+%
+\begin{frame}[t]{\cq{1} What do you think might be the reason why shrimp have disappeared from the Gulf of Mexico?}
+
+	\begin{enumerate}
+		\item Hurricane Katrina in 2005 destroyed all the shrimp and their habitat.
+		
+		\item Pollution has killed off shrimp populations.
+		
+		\item Rising water temperatures caused by climate change have made the habitat inhospitable to shrimp.
+		
+		\item Overfishing has depleted shrimp populations. 
+	\end{enumerate}
+\end{frame}
+%
+%{
+%\usebackgroundtemplate{\includegraphics[width=\paperwidth]{hurricane_katrina} }
+%\begin{frame}[t]{The four working hypotheses for the Dead Zone are:}
+%
+%	\begin{enumerate}
+%		\item Hurricane Katrina in 2005,
+%		
+%		\item Pollution,
+%		
+%		\item Climate change, and
+%		
+%		\item Overfishing.
+%		
+%	\end{enumerate}
+%
+%	\vfilll
+%
+%	\hfill \tiny \textsc{Noaa}, Wikimedia, public domain
+%\end{frame}
+%}
+
+%\begin{frame}[t]{The four working hypotheses for the Dead Zone are:}
+%
+%	\begin{enumerate}
+%		\item Hurricane Katrina in 2005,
+%		
+%		\item Pollution,
+%		
+%		\item Climate change, and
+%		
+%		\item Overfishing.
+%		
+%	\end{enumerate}
+%\end{frame}
+%
+\begin{frame}{What does this graph tell you about the average shrimp catch over time?}
+
+	\vspace*{-\baselineskip}
+	
+	{\centering\includegraphics[width=0.75\textwidth]{shrimp_cpue}\par
+	}
+
+	{\small Annual changes of Catch per Unit Effort (CPUE) for brown shrimp in areas of the Gulf of Mexico. Colored bars show the mean CPUE for each decade.}
+	
+	\vfilll
+	
+	\hfill \tiny Data: James Nance, National Marine Fisheries Service.
+\end{frame}
+%
+\begin{frame}{\cq{2} Which hypothesis does this graph falsify?}
+
+	\begin{columns}[t]
+		\column{0.3\textwidth}
+
+			\begin{enumerate}
+				\item Hurricane Katrina
+				\item Pollution
+				\item Climate change
+				\item Overfishing
+			\end{enumerate}
+			
+		\column{0.6\textwidth}
+
+			\includegraphics[width=\columnwidth]{shrimp_cpue}
+
+	\end{columns}
+
+	\vfilll
+	
+	\hfill \tiny Data: James Nance, National Marine Fisheries Service.
+\end{frame}
+%
+\begin{frame}
+	Watching the news that night, Susan saw 
+	an image of the mouth of the 
+	Mississippi River that caught her attention. What do you think it was?
+
+	\includegraphics[width=\textwidth]{mississippi_delta_satellite}
+
+	\vfilll
+
+	\hfill \tiny \textsc{Nasa} Earth Observatory
+\end{frame}
+%
+\begin{frame}{\cq{3} Which hypothesis does this image support?}
+
+	\begin{columns}[t]
+		\column{0.3\textwidth}
+			\begin{enumerate}
+				\item Hurricane Katrina
+				\item Pollution
+				\item Climate change
+				\item Overfishing
+			\end{enumerate}
+			
+		\column{0.6\textwidth}
+
+			\includegraphics[width=\columnwidth]{mississippi_delta_satellite}
+
+	\end{columns}
+
+	\vfilll
+	
+	\hfill \tiny \textsc{Nasa} Earth Observatory
+
+\end{frame}
+%
+\lecture{instructor}{instructor}
+
+\begin{frame}{Of her original hypotheses, Susan decided the evidence suggests she should explore the pollution hypothesis.}
+
+	\begin{columns}[t]
+		\column{0.3\textwidth}
+			\begin{enumerate}
+				\item Hurricane Katrina
+				\item \highlight{Pollution}
+				\item Climate change
+				\item Overfishing
+			\end{enumerate}
+			
+		\column{0.6\textwidth}
+
+			\includegraphics[width=\columnwidth]{mississippi_delta_satellite}
+
+	\end{columns}
+	
+	\begin{tikzpicture}
+		
+		\draw [thick] (1,4.5) -- (4,4);
+		\draw [thick] (1,4) -- (4,4.5);
+		
+		\draw [orange6,thick] (1.75,3.25) circle [x radius = 0.9cm, y radius=0.4cm];
+	
+	\end{tikzpicture}
+
+	\vfilll
+	
+	\hfill \tiny \textsc{Nasa} Earth Observatory
+
+\end{frame}
+%
+\lecture{student}{student}
+
+\begin{frame}{Susan decided to investigate the sediment plume to see if there was a link to the disappearing shrimp in the Dead Zone.}
+
+	\begin{columns}[t]
+	
+		\column{0.35\textwidth}
+		
+			She found this map of the Mississippi River basin.
+			
+			\vspace*{2\baselineskip}
+			
+			She also learned that the Mississippi River basin drains water from 31 states.
+			
+		\column{0.55\textwidth}
+		
+			\includegraphics[width=\columnwidth]{mississippi_river_basin}
+			 
+	\end{columns}
+	
+	\vfilll
+	
+	\hfill \tiny \textsc{Usgs} Fact Sheet 016-00
+	
+\end{frame}
+%
+\begin{frame}{Susan realized that runoff from an enormous area could be causing the sediment plume.}
+
+	\begin{columns}[t]
+	
+		\column{0.45\textwidth}
+		
+			\emph{But,} the size of the Mississippi River basin hasn’t changed in thousands of years.
+			
+			\vspace*{1\baselineskip}
+			
+			People have been shrimping and fishing in the Gulf for over 100 years.
+			
+			\vspace*{1\baselineskip}
+			
+			So, \emph{what} could be causing the problem \emph{now?}
+			
+		\column{0.45\textwidth}
+		
+			\includegraphics[width=\columnwidth]{mississippi_river_basin}
+			 
+	\end{columns}
+	
+	\vfilll
+	
+	\hfill \tiny \textsc{Usgs} Fact Sheet 016-00
+	
+\end{frame}
+%
+\begin{frame}{Susan listed some facts about the Mississippi River basin.}
+	\vspace*{-\baselineskip}
+	\begin{columns}[t]
+	
+		\column{0.45\textwidth}
+		
+			Largest river basin in North America and the third largest basin in the world. 
+			
+			\vspace*{1\baselineskip}
+			
+			71 million people in 31 states live within the basin.
+			
+			\vspace*{1\baselineskip}
+			
+			Includes one of the most productive farming regions in the world:\\
+				\hspace*{1em}\textasciitilde60\% of the basin is cropland,\\
+				\hspace*{1em}\textasciitilde20\% woodland,\\
+				\hspace*{1em}\textasciitilde20\% pasture,\\
+				\hspace*{1em}\textasciitilde2\% wetland, and\\
+				\hspace*{1em}\textasciitilde0.6\% urban land.
+															
+		\column{0.45\textwidth}
+		
+			\includegraphics[width=\columnwidth]{mississippi_river_basin}
+			 
+	\end{columns}
+	
+	\vfilll
+	
+	\tiny Goolsby and Battaglin 2000 \hfill \textsc{Usgs} Fact Sheet 016-00
+	
+\end{frame}
+%
+\begin{frame}{What does this figure tell you about the \highlight{runoff} to the Mississippi River basin over time?}
+	\vspace*{-\baselineskip}
+	\begin{columns}[t]
+
+		\column{0.6\textwidth}
+
+			\includegraphics[width=\columnwidth]{mississippi_river_runoff}
+
+		\column{0.3\textwidth}
+		
+			Average annual nitrate concentrations in selected rivers during 1905–07 (yellow) and 1980–96 (blue).
+			
+	\end{columns}
+	\vfilll
+	\hfill \tiny \textsc{Usgs} Fact Sheet 135-00
+\end{frame}
+%
+\begin{frame}{What does this figure tell you about the \highlight{runoff} to the Mississippi River basin over time?}
+
+	{\centering\includegraphics[width=0.85\textwidth]{mississippi_river_discharge}\par
+	}
+	
+	Annual nitrate flux and mean annual streamflow from the Mississippi River basin to the Gulf of Mexico.
+	
+	\vfilll
+	
+	\hfill \tiny \textsc{Usgs} Fact Sheet 135-00
+
+\end{frame}
+%
+\begin{frame}{\cq{4} What do these figures tell you about the \highlight{runoff} to the Mississippi River basin over time?}
+
+	\vspace*{-\baselineskip}
+	\begin{columns}[t]
+
+		\column{0.4\textwidth}
+	
+			\includegraphics[width=0.9\columnwidth]{mississippi_river_runoff}
+
+		\column{0.4\textwidth}
+	
+			\includegraphics[width=\columnwidth]{mississippi_river_discharge}
+
+	\end{columns}
+
+	\begin{enumerate}[itemsep=1pt]
+		\item Annual nitrate concentrations have increased over time.
+	
+		\item Nitrate concentration varies with stream flow.
+	
+		\item The biggest source of nitrates is the area farthest from the Gulf of Mexico. 
+	
+		\item Only \textsc{a} and \textsc{c} are true.
+	
+		\item \textsc{a}, \textsc{b}, and \textsc{c} are true.
+
+	\end{enumerate}
+
+\end{frame}
+%
+\begin{frame}{Susan recalled a nitrogen cycle figure from her biology course.}
+	
+	\includegraphics[width=\textwidth]{nitrogen_sources}
+	
+	\vfilll
+	
+	\hfill \tiny \url{http://serc.carleton.edu/images/microbelife/microbservatories/northinlet/Nitrogen_Cycle}
+
+\end{frame}
+%
+\begin{frame}{Sources of nitrogen input to the Mississippi River basin.}
+
+	{\centering\includegraphics[width=0.95\textwidth]{nitrogen_inputs}\par
+	}
+	
+	\vfilll
+	
+	\hfill \tiny \textsc{Usgs} Fact Sheet 135-00
+\end{frame}
+%
+\begin{frame}{\cq{5} What is the most likely source of increased nitrogen in the Mississippi River basin?}
+
+	\vspace*{-\baselineskip}
+	
+	\begin{columns}[t]
+	
+		\column{0.35\textwidth}
+			\begin{enumerate}
+				\item Fossil fuel emissions.
+				
+				\item Organic matter.
+				
+				\item Leaching of nitrates from nitrification.
+				
+				\item Fertilizer runoff.
+				
+			\end{enumerate}
+			
+		\column{0.55\textwidth}
+		
+				\includegraphics[width=\columnwidth]{nitrogen_inputs}
+				
+	\end{columns}
+	
+\end{frame}
+%
+{
+	\usebackgroundtemplate{\includegraphics[width=\paperwidth]{dead_zone_nitrogen_yield} }
+	\begin{frame}[b]{The upper midwest is the greatest source of nitrogen input to the Gulf of Mexico.}
+		
+		
+		\tiny \textsc{USGS}, public domain % Sparrow NAtional Water Quality assessment program.
+	\end{frame}
+}
+%
+\begin{frame}{How could increased nitrates be connected to decreased fish and shrimp populations?}
+
+	\hangpara Susan wanted to connect her new knowledge to the problem of the disappearing shrimp.
+	
+	\hangpara She had figured out two important facts:
+	
+	\alt<handout>{}{
+	\begin{enumerate}[label=\lining\arabic*.]
+		\item Nitrates flow into the Gulf of Mexico from the Mississippi River watershed (especially from states further north).
+	
+		\item The nitrates are carried by the freshwater river into the saltwater Gulf of Mexico.
+	\end{enumerate}}
+	
+\end{frame}
+%
+\begin{frame}{\cq{6} When the freshwater river flows into the saltwater Gulf, what do you predict will happen?}
+
+	\begin{enumerate}
+		\item The freshwater and the saltwater will mix, lowering the overall salinity of the Gulf.
+	
+		\item The warmer freshwater will sink to the bottom of the Gulf, and the colder saltwater will float above.
+
+		\item The less dense freshwater will float on top of the more dense saltwater.
+		
+		\item The amount of freshwater entering the Gulf is so small compared to the total volume of the Gulf that there will be no noticeable effect of the freshwater input.
+	\end{enumerate}
+	
+\end{frame}
+%
+\lecture{instructor}{instructor}
+
+\begin{frame}{Let's test your predictions.}
+
+	\hangpara Video of temperature and salinity experiments:\bigskip
+	
+	\url{http://www.smm.org/deadzone/activities/top.html} \bigskip\bigskip
+	
+	\hangpara Video of what happens in the Gulf:\vspace*{\baselineskip}
+	
+	\url{http://www.smm.org/deadzone/causes/dead-zone.html}
+
+	
+\end{frame}
+%
+\lecture{student}{student}
+
+\begin{frame}{How does excess nitrogen cause the \highlight{dead zone?}}
+
+	{\centering \includegraphics[width=\textwidth]{dead_zone_cause}\par
+	}
+	
+	\vfilll
+	
+	\tiny Dan Swenson, \textit{The Times-Picayune}, New Orleans.	
+\end{frame}
+%
+\begin{frame}{\highlight{Eutrophication} leads to hypoxia in the benthic waters of the Gulf of Mexico.}
+
+	\hangpara Eutrophication means nutrient enrichment. The excess nitrogen is a nutrient for marine algae, causing the algae bloom.
+	
+	\hangpara Hypoxia means low oxygen. Decomposition of dead algae and other organisms uses oxygen, creating hypoxic conditions.
+	
+	\hangpara Normal oxygen levels: \textasciitilde4.8 mg/L\\
+	Hypoxia: \textless 2–3 mg/L\\
+	Anoxia: 0 mg/L
+\end{frame}
+%
+\lecture{instructor}{instructor}
+
+\begin{frame}{Bottom-water dissolved oyxgen: 2013.}
+
+	\includegraphics[width=\textwidth]{dead_zone_2013}
+
+	Distribution of bottom-water dissolved oxygen July—August (west of the Mississippi River delta), 2013. Black line indicates dissolved oxygen level of 2 mg/L.
+	
+	\vfilll
+	
+	\hfill \tiny Nancy N. Rabalais, \textsc{lumcon}, and R. Eugene Turner, Louisiana State University
+
+\end{frame}
+%
+\begin{frame}{Bottom-water dissolved oyxgen: 2014.}
+
+	\includegraphics[width=\textwidth]{dead_zone_2014}
+
+	Distribution of bottom-water dissolved oxygen July—August (west of the Mississippi River delta), 2014. Black line indicates dissolved oxygen level of 2 mg/L.
+	
+	\vfilll
+	
+	\hfill \tiny Nancy N. Rabalais, \textsc{lumcon}, and R. Eugene Turner, Louisiana State University
+
+\end{frame}
+
+%
+\lecture{student}{student}
+
+\begin{frame}{Bottom-water dissolved oyxgen: 2015.}
+
+	\includegraphics[width=\textwidth]{dead_zone_2015}
+
+	Distribution of bottom-water dissolved oxygen July—August (west of the Mississippi River delta), 2015. Black line indicates dissolved oxygen level of 2 mg/L.
+	
+	\vfilll
+	
+	\hfill \tiny Nancy N. Rabalais, \textsc{lumcon}, and R. Eugene Turner, Louisiana State University
+
+\end{frame}
+%
+\begin{frame}{Dead zone size greatly exceeds the desired goal.}
+
+	{\centering \includegraphics[width=\textwidth]{dead_zone_long_term_2015}\par
+	}
+
+	\vfilll
+	
+	\hfill \tiny Nancy N. Rabalais, \textsc{lumcon}, and R. Eugene Turner, Louisiana State University
+
+\end{frame}
+%
+\lecture{instructor}{instructor}
+
+\begin{frame}{Evidence supports eutrophication from pollution as a cause of the dead zone.}
+
+	\begin{columns}[t]
+		\column{0.3\textwidth}
+			\begin{enumerate}
+				\item Hurricane Katrina
+				\item \highlight{Pollution and eutrophication}
+				\item Climate change
+				\item Overfishing
+			\end{enumerate}
+			
+		\column{0.6\textwidth}
+
+			\includegraphics[width=\columnwidth]{mississippi_delta_satellite}
+
+	\end{columns}
+	
+	\begin{tikzpicture}
+		
+		\draw [thick] (1,4.5) -- (4,4);
+		\draw [thick] (1,4) -- (4,4.5);
+		
+		\draw [orange6,thick] (2.12,3) circle [x radius = 1.5cm, y radius=0.62cm];
+	
+	\end{tikzpicture}
+	
+	\hangpara But what about climate change and overfishing?
+	
+\end{frame}
+%
+\lecture{student}{student}
+
+\begin{frame}{\cq{7} Does the evidence you’ve seen so far mean that climate change and overfishing are NOT to blame for the decline of the shrimp fishery?}
+	
+	\begin{enumerate}
+		\item No.
+		
+		\item Yes.
+		
+	\end{enumerate}
+\end{frame}
+%
+\begin{frame}{Dead zones are a global problem.}
+
+	\includegraphics[width=\textwidth]{global_dead_zones}
+	
+	Red circles show location and relative sizes of many dead zones. Black circles indicate dead zones of unknown size.
+	
+	\vfilll
+	
+	\hfill \tiny \textsc{Nasa} Earth Observatory
+	
+\end{frame}
+%
+\begin{frame}{Iron can be a limiting nutrient, too.}
+
+	\includegraphics[width=\textwidth]{iron_enrichment}
+		
+	\vfilll
+	
+	\hfill \tiny \textsc{Nasa} Goddard Space Center
+\end{frame}
+%
+\begin{frame}{Who is responsible?}
+
+	\begin{columns}[t]
+	
+		\column{0.45\textwidth}
+	
+			Upon figuring this all out, Susan was quite upset.  \bigskip
+
+			She was amazed that farmers in the Midwest might 
+			be to blame for the lack of shrimp in the water off the 
+			Louisiana coast. 
+	
+		\column{0.45\textwidth}
+
+			\includegraphics[width=\columnwidth]{moo_cows}
+				
+	\end{columns}
+
+	\vfilll
+	
+	\hfill \tiny Peggy\_Marco, Pixabay, \textsc{cc0}
+	
+\end{frame}
+%
+\lecture{instructor}{instructor}
+
+\begin{frame}{Your mission, should you choose to accept it.*}
+
+	\hangpara The dead zone causes 1) economic harm through lost jobs and increased food costs, and 2) ecological harm to one of the most important natural fisheries and surrounding environment. 
+	
+	\hangpara Suppose you are on a government panel studying the Dead Zone problem. What recommendations would you make for solving the problem of the Dead Zone?
+	
+	\hangpara Who should be responsible for fixing the problem? What actions should they take?  How should your plan be funded?
+	
+	\hangpara 10 points awarded on depth of thought, clarity, and originality.  1 hand-written page.
+
+	\vfilll
+	
+	\hfill \tiny *If you choose not to accept it, you choose not to accept any points.
+
+\end{frame}
+%%
+\end{document}

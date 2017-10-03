@@ -1,0 +1,154 @@
+%!TEX TS-program = lualatex
+%!TEX encoding = UTF-8 Unicode
+
+\documentclass[letterpaper]{tufte-handout}
+
+%\geometry{showframe} % display margins for debugging page layout
+
+\usepackage{fontspec}
+\def\mainfont{Linux Libertine O}
+\setmainfont[Ligatures={Common,TeX}, Contextuals={NoAlternate}, BoldFont={* Bold}, ItalicFont={* Italic}, Numbers={OldStyle}]{\mainfont}
+\setsansfont[Scale=MatchLowercase]{Linux Biolinum O} 
+\usepackage{microtype}
+
+\usepackage{graphicx} % allow embedded images
+  \setkeys{Gin}{width=\linewidth}
+  \graphicspath{	{/Users/goby/teach/163/lectures/}}%}%
+%	{~/Pictures/teach/163/lecture/}%
+%	{} % set of paths to search for images
+\usepackage{amsmath}  % extended mathematics
+\usepackage{booktabs} % book-quality tables
+\usepackage{units}    % non-stacked fractions and better unit spacing
+\usepackage{multicol} % multiple column layout facilities
+%\usepackage{fancyvrb} % extended verbatim environments
+%  \fvset{fontsize=\normalsize}% default font size for fancy-verbatim environments
+
+%\makeatletter
+%% Paragraph indentation and separation for normal text
+%\renewcommand{\@tufte@reset@par}{%
+%  \setlength{\RaggedRightParindent}{1.0pc}%
+%  \setlength{\JustifyingParindent}{1.0pc}%
+%  \setlength{\parindent}{1pc}%
+%  \setlength{\parskip}{0pt}%
+%}
+%\@tufte@reset@par
+
+% Paragraph indentation and separation for marginal text
+%\renewcommand{\@tufte@margin@par}{%
+%  \setlength{\RaggedRightParindent}{0pt}%
+%  \setlength{\JustifyingParindent}{0.5pc}%
+%  \setlength{\parindent}{0.5pc}%
+%  \setlength{\parskip}{0pt}%
+%}
+%\makeatother
+
+% Set up the spacing using fontspec features
+   \renewcommand\allcapsspacing[1]{{\addfontfeatures{LetterSpace=15}#1}}
+   \renewcommand\smallcapsspacing[1]{{\addfontfeatures{LetterSpace=10}#1}}
+   
+%\ifluatex
+%  \newcommand{\textls}[2][5]{%
+%    \begingroup\addfontfeatures{LetterSpace=#1}#2\endgroup
+%  }
+%  \renewcommand{\allcapsspacing}[1]{\textls[15]{#1}}
+%  \renewcommand{\smallcapsspacing}[1]{\textls[10]{#1}}
+%  \renewcommand{\allcaps}[1]{\textls[15]{\MakeTextUppercase{#1}}}
+%  \renewcommand{\smallcaps}[1]{\smallcapsspacing{\scshape\MakeTextLowercase{#1}}}
+%  \renewcommand{\textsc}[1]{\smallcapsspacing{\textsmallcaps{#1}}}
+%\fi
+  
+  
+\newcommand\lecturefile{163_lecture00}
+  
+\title{{\scshape bi} 163 Study Guide 00\hfill}
+
+\date{} % without \date command, current date is supplied
+
+\begin{document}
+
+\maketitle	% this prints the handout title, author, and date
+
+%\printclassoptions
+
+%\section{Introduction}
+
+The\marginnote{\textbf{Read:} Assigned reading from the textbook will be here.\\ \vspace*{10\baselineskip}} study guides will help you learn the material. The guides may also contain more information to supplement the lecture. Study guides \emph{may} also contain example test questions (but no promises).  Read the study guides in advance of lecture to get familiar with the day's topic. Bring the study guide to class to see the vocabulary and questions in context of the lecture discussion. This will help you recall the information during your daily (or every other day) study.
+
+\section{Vocabulary}\marginnote{The terms listed here and the concept questions below are examples for a typical study guide. You will learn some of this vocabulary later in the semester.} 
+
+\vspace{-1\baselineskip}
+\begin{multicols}{2}
+Carolus Linnaeus\\
+\textit{Systema Natur\ae}\\
+Binomial nomenclature\\
+Taxonomic classification
+\end{multicols}
+
+The vocabulary lists the terms from each lecture that you should know.You should be able to define these terms and recognize definitions of these terms. Definitions, however, are not enough. You must be able to recognize and apply these terms in a broader context.  I will use the terms in lecture, and for online homework and exams. If you do not know the terms, you may not fully understand the lecture or be able to answer a question on the exam. I expect you to use the proper vocabulary in your answers to questions on exams and assignments because you will be expected to know them as a scientist.  Get in the habitat of using terms as you learn the material.  I may not cover all terms in class or do so only in passing.  I expect that you will learn them by reading your textbook and using the glossary in your textbook, to put them into the context of evolution and ecology. 
+
+\section{Concepts}
+
+The concepts section includes several short-answer questions to help think about the material we covered in lecture. You should \emph{write}\marginnote{Write the answers. Just thinking about an answer is not a good study habit. Our brains tend to skim across the answers without forming a deep understanding. Writing your answers on paper (or typing them on a computer) will help you clarify your thoughts, identify gaps in your understanding, and commit your knowledge to long-term memory.} clear and concise answers to each question in the Concepts section.  The questions are not necessarily independent.  
+\begin{marginfigure}
+	\includegraphics[page=14]{\lecturefile}
+\end{marginfigure}
+
+
+Remember to “think horizontally” and to “connect the dots.”  Study guide questions may be used as a basis for multiple choice, matching or true/false questions, or for short answer questions, but I may also create exam and assignment questions that do not appear on the study guides.  These are guides, not exhaustive test banks. Here are two example questions that you do not need to know right now.
+
+
+\begin{enumerate}
+	\item Who was Carolus Linnaeus? What was his contribution to the sciences of taxonomy and classification?
+
+	\item Approximately how many species have been cataloged (described)? About how many species today might exist on Earth?
+	
+	\item Many more questions will usually be listed.
+	
+\end{enumerate}
+
+\section{How to study}
+
+The university expects that you spend two hours studying for each hour you spend in lecture. Think about this for a moment. If your schedule is 15 credit hours, that is about 30 \emph{additional} hours of study outside of the classroom. Together, in-class time and outside study time is about 45 hours a week. In other words, your education is a full-time job.  You should treat it as such.
+
+Each person learns differently but, for every student, learning begins \emph{before} lecture.  I recommend the following steps to increase your chance of success for this course. 
+
+
+\begin{enumerate}
+
+	\item Print off and review the study guides before lecture. Bring the study guide with you to lecture.
+	
+	\item Read or at least skim the assigned reading from the textbook before lecture. Study the figures in the assigned reading because I will use many of this figures in lecture.
+	
+	\item Take good notes.\begin{marginfigure}\includegraphics[page=11]{\lecturefile}\end{marginfigure} Most slides contain a single sentence that is the main point to get from that slide. But, I will go into more depth. You must learn to listen carefully to what I say and write down the information you think is important. I tend to stress and repeat the most important concepts. 
+	
+	\item If you reviewed the study guide in advance, you will recognize some of the concept questions when I talk about those concepts in lecture. Write a cross reference in your notes, like “See study guide question \#2” so that you link your notes to the study guide questions.
+	
+	\item Within 24–48 hours after lecture, study your notes.\marginnote{Put away your smart phone so that you are not distracted. You may think you can multitask but multiple scientific studies show that is not the case. Your capacity to learn is greatly diminished when distracted. Your friends are not going anywhere.}  Sooner is better than later because the material will still be fresh in your mind. It will be easier for you to recall things I said in lecture.
+	
+	\item Study the assigned reading in the textbook. Take notes from your reading of the textbook.
+	
+	\item Write one more set of notes that merges together your notes from class and your notes from the textbook.  
+	
+	Your first set of notes are based on things that I say in lecture. Your notes are based on my “voice.” The notes you take from the textbook are based on the “voice” of the text. By merging them together, you begin to think about the material in your own “voice.” That is when you begin to \emph{own} the information.
+	
+	\item Answer the questions on the study guide. This will help you to identify areas where your knowledge is strong and areas where your knowledge is weak. You can then focus on your weaknesses to strengthen them.
+	
+	\item Write questions about concepts that you still do not understand. Visit with me regularly. I will help you to answer those questions. My door is open to you. Take advantage of my knowledge as a resource to improve your understanding. I am \emph{always} happy to meet with you. I promise that I will not think you are dumb for not knowing something. Instead, I will be pleased that you are committed to learning something you do not yet understand. 
+	
+	\item Repeat this for each lecture, with one addition. Review your final set of notes and the study guide from the previous lecture before studying the new lecture. That will help you to “connect the dots,” to see how the concepts of each lecture fit together in the big picture. 
+	
+\end{enumerate}
+
+This sounds like a lot but it really is not.  Most readings are just a few pages for each lecture. With practice, you'll find that you can do this in 1–2 hours.  If you do this for each lecture, you learn the material more quickly, more thoroughly, and retain it better. You will learn it much better that you would if you tried to cram in all of the material during an all-night study session right before an exam.  My tests are designed to test your ability to apply information and to see the relationships among concepts. Cramming will not give your brain the time necessary to make the connections. Regular study will greatly increase your ability to see the connections. 
+
+\begin{marginfigure}[1in]
+	\includegraphics[page=9]{\lecturefile}
+\end{marginfigure}
+
+Your success is my number one goal for this course but I can only do so much. Most of the heavy lifting will fall on you. Remember that you must have a grade of C or better to move on to the next biology course. Set a personal goal to perform your best in this course and always remember that goal. You can do it but you \emph{must} put forth the effort.
+
+\subsection{Good luck!}
+
+
+
+\end{document}

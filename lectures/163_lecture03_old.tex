@@ -1,0 +1,147 @@
+%!TEX TS-program = lualatex
+%!TEX encoding = UTF-8 Unicode
+
+\documentclass[t]{beamer}
+
+%%%% HANDOUTS For online Uncomment the following four lines for handout
+%\documentclass[t,handout]{beamer}  %Use this for handouts.
+%\usepackage{handoutWithNotes}
+%\pgfpagesuselayout{3 on 1 with notes}[letterpaper,border shrink=5mm]
+
+%\includeonlylecture{student}
+
+%%% Including only some slides for students.
+%%% Uncomment the following line. For the slides,
+%%% use the labels shown below the command.
+
+%% For students, use \lecture{student}{student}
+%% For mine, use \lecture{instructor}{instructor}
+
+
+%\usepackage{pgf,pgfpages}
+%\pgfpagesuselayout{4 on 1}[letterpaper,border shrink=5mm]
+
+% FONTS
+\usepackage{fontspec}
+\def\mainfont{Linux Biolinum O}
+\setmainfont[Ligatures={Common,TeX}, Contextuals={NoAlternate}, BoldFont={* Bold}, ItalicFont={* Italic}, Numbers={OldStyle}]{\mainfont}
+\setsansfont[Ligatures={Common,TeX}, Scale=MatchLowercase, Numbers=OldStyle]{Linux Biolinum O} 
+\usepackage{microtype}
+
+\usepackage{graphicx}
+	\graphicspath{{/Users/goby/pictures/teach/163/lecture/}
+	{/Users/goby/pictures/teach/common/}} % set of paths to search for images
+
+%\usepackage{units}
+\usepackage{booktabs}
+%\usepackage{textcomp}
+\usepackage{multicol}
+
+\usepackage{tikz}
+	\tikzstyle{every picture}+=[remember picture,overlay]
+	\usetikzlibrary{trees}
+
+\mode<presentation>
+{
+  \usetheme{Lecture}
+  \setbeamercovered{invisible}
+%  \setbeamertemplate{items}[default]
+}
+
+
+\begin{document}
+
+
+% Lecture goals
+\begin{frame}{Our goal for this lecture is to}
+	
+	\hangpara practice solving the Hardy-Weinberg equations.
+		
+\end{frame}
+%
+
+%% Consider a population: Phenotype
+%\begin{frame}{Calculate allele frequencies for 500 individuals.}
+%	\vspace{-1\baselineskip}
+%	\begin{center}
+%		\includegraphics[width=0.7\textwidth]{genotype_carnations}
+%	\end{center}
+%	
+%	\vspace{-\baselineskip}
+%	\hangpara How many total alleles are in the population?
+%	\pause
+%		
+%	\hangpara How many $C^R$ alleles are in the population?
+%	\pause
+%
+%	\hangpara How many $C^W$ alleles are in the population?
+%	\pause
+%
+%	\hangpara What is the frequency (proportion) of each allele in the population?
+%	
+%\end{frame}
+%
+%% Consider a population: Genotype
+%\begin{frame}{Consider a population of 500 diploid individuals.}
+%
+%	\vspace{-\baselineskip}
+%	\begin{center}
+%		\includegraphics[width=0.7\textwidth]{genotype_carnations.jpg}
+%	\end{center}
+%
+%	\vspace{-\baselineskip}
+%	\hangpara Given two alleles, how many genotypes are \textit{possible}?
+%	\pause
+%		
+%	\hangpara What is the frequency of the $C^RC^R$ genotype?
+%	\pause
+%
+%	\hangpara How the frequency of the $C^RC^W$ genotype?
+%	\pause
+%
+%	\hangpara What is the frequency of the $C^WC^W$ genotype?
+%	
+%\end{frame}
+%
+%
+%
+%\begin{frame}[t]{Two equations show that populations cannot evolve if a population meets five assumptions.}
+%
+%	\vspace*{-\baselineskip}
+%	
+%	\begin{multicols}{2}
+%
+%	\hangpara \highlight{No} mutation,
+%	
+%	\hangpara \highlight{No} gene flow,
+%
+%	\hangpara \highlight{No} genetic drift,
+%	
+%	\hangpara \highlight{No} non-random mating, and
+%	
+%	\hangpara \highlight{No} natural selection.
+%	
+%	\columnbreak
+%
+%	\hangpara $p + q = 1$
+%	
+%	\hangpara $p^2 + 2pq + q^2 = 1$
+%	
+%	\end{multicols}
+%
+%\end{frame}
+%%
+%% Hardy-Weinberg Equilibrium
+%\begin{frame}[t]{The Hardy-Weinberg equations act as a null hypothesis.}
+%
+%	\hangpara When the five assumptions are met, the equations show a population will not evolve.
+%	
+%	\hangpara If at least one assumption is violated, then a population will evolve.
+%	
+%	\hangpara We can learn how populations evolve by comparing real populations to the null hypothesis.
+%
+%
+%\end{frame}
+%%
+
+\end{document}

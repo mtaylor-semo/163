@@ -1,14 +1,14 @@
 %!TEX TS-program = lualatex
 %!TEX encoding = UTF-8 Unicode
 
-%\documentclass[t]{beamer}
+\documentclass[t]{beamer}
 
 %%%% HANDOUTS For online Uncomment the following four lines for handout
-\documentclass[t,handout]{beamer}  %Use this for handouts.
-\includeonlylecture{student}
-\usepackage{handoutWithNotes}
-\pgfpagesuselayout{3 on 1 with notes}[letterpaper,border shrink=5mm]
+%\documentclass[t,handout]{beamer}  %Use this for handouts.
+%\usepackage{handoutWithNotes}
+%\pgfpagesuselayout{3 on 1 with notes}[letterpaper,border shrink=5mm]
 
+%\includeonlylecture{student}
 
 %%% Including only some slides for students.
 %%% Uncomment the following line. For the slides,
@@ -17,16 +17,26 @@
 %% For students, use \lecture{student}{student}
 %% For mine, use \lecture{instructor}{instructor}
 
+
+
 % Fonts
 \usepackage{fontspec}
 \def\mainfont{Linux Biolinum O}
-\setmainfont[Ligatures={Common,TeX}, Contextuals={NoAlternate}, BoldFont={* Bold}, ItalicFont={* Italic}, Numbers={OldStyle}]{\mainfont}
-\setsansfont[Ligatures={Common,TeX}, Scale=MatchLowercase, Numbers=OldStyle, BoldFont={* Bold}, ItalicFont={* Italic},]{Linux Biolinum O} 
+\setmainfont[Ligatures={Common,TeX}, Contextuals={NoAlternate}, BoldFont={* Bold}, ItalicFont={* Italic}, Numbers={Proportional, OldStyle}]{\mainfont}
+\setsansfont[Ligatures={Common,TeX}, Scale=MatchLowercase, Numbers={Proportional,OldStyle}, BoldFont={* Bold}, ItalicFont={* Italic},]{Linux Biolinum O} 
 \usepackage{microtype}
+
+\usepackage{amsmath,amssymb}
+%\usepackage{unicode-math}
+%\setmathfont[Scale=MatchLowercase]{TeX Gyre Termes Math}
 
 \usepackage{graphicx}
 	\graphicspath{{/Users/goby/pictures/teach/163/lecture/}
 	{/Users/goby/pictures/teach/common/}} % set of paths to search for images
+
+\usepackage{color}
+%\definecolor{biolum}{RGB}{111,253,254}
+\definecolor{biolum}{RGB}{6,174,249}
 
 \usepackage{multicol}
 \usepackage{booktabs}
@@ -57,266 +67,389 @@
 
 \lecture{student}{student}
 
-\begin{frame}{Our goal for this lecture is to }
+\begin{frame}{Our goal for this lecture is to}
 
-%	\hangpara learn about the \highlight{hierarchical organization} of life.
+	\hangpara learn how \highlight{source} and \highlight{sink} populations\\are interconnected to form \highlight{metapopulations.}
 	
-	\hangpara introduce \highlight{ecology,} and
+\end{frame}
+%
+%{
+%\usebackgroundtemplate{\includegraphics[width=\paperwidth]{wombat} }
+%\begin{frame}[b]
+%	\hfill \tiny \textcolor{white}{J.J. Harrison, Wikimedia, \ccbysa{3}}
+%\end{frame}
+%}
+%%
+%{
+%\usebackgroundtemplate{\includegraphics[width=\paperwidth]{wombat_range} }
+%\begin{frame}{}
+%
+%\end{frame}
+%}
+%
+\begin{frame}{\highlight{Metapopulations} are larger groups of smaller subpopulations.}
+
+	\hangpara They have patches of suitable habitat surrounded by unsuitable habitat.
 	
-	\hangpara demonstrate \highlight{population growth,}
+	\hangpara They are subject to local extinction and recolonization.
 	
-	\hangpara using \highlight{exponential} and \highlight{logistic} growth models.
+	\hangpara Interactions occur more often within subpopulations than among subpopulations.
 
 \end{frame}
 %
-%\begin{frame}{Life is a hierarchy of increasing complexity.}
-%\vspace*{-0.5\baselineskip}	
-%\hangpara \begin{tabular}{@{}L{34mm}L{34mm}L{34mm}@{}}
-%\toprule
-%\onslide<1->Cellular 	&
-%Organismal 		&
-%Biosphere 		\\
-%\midrule
-% &	&	\\
-%\onslide<2->Cell		&
-%\onslide<3->Organism	&
-%\onslide<9->\alt<handout>{\rule{30mm}{0.4pt}}{Landscape}\\[1em]
-%%
-%\onslide<2->Organelle		&
-%\onslide<3->Organ System	&
-%\onslide<8->\alt<handout>{\rule{30mm}{0.4pt}}{Ecosystem}\\[1em]
-%%
-%\onslide<2->Macromolecules	&
-%\onslide<3->Organ			&
-%\onslide<7->\alt<handout>{\rule{30mm}{0.4pt}}{Community} \\[1em]
-%%
-%\onslide<2->Molecule		&
-%\onslide<3->Tissue			&
-%\onslide<6->\alt<handout>{\rule{30mm}{0.4pt}}{Species}	\\[1em]
-%%
-%\onslide<2->Atom			&
-%						&
-%\onslide<5->\alt<handout>{\rule{30mm}{0.4pt}}{Population}\\[1em]
-%%\bottomrule
-%\end{tabular}
-%
-%\only<4>{\alt<handout>{}{\hangpara In groups, discuss what levels make up the biosphere.}}
-%
-%\onslide<10->\hangpara\highlight{Emergent properties} are properties of life present at one level that were not present in lower levels.
-%
-%\onslide<11->\hangpara What levels do you think are encompassed by evolution?  By ecology? 
-%\end{frame}
-%
 {
-\usebackgroundtemplate{\includegraphics[width=\paperwidth]{ecosystem} }
-\begin{frame}[b]{\hfill What is ecology?}
-	\tiny\textcolor{white}{Jeff Taylor, Wikimedia, \ccbysa{3}.}%Elwha River Photo by
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{metapopulation_glanville_fritillary} }
+\begin{frame}[b]
+	\hfill \tiny	\textcolor{white}{Marie-Lan Nguyen, Flickr, \ccby{2}}
 \end{frame}
 }
 %
-\begin{frame}[t]{Ecology has many fields of study.}
-	\begin{minipage}[t]{0.6\textwidth}
-		\vspace{0pt}
-		\includegraphics[width=0.99\textwidth]{ecology_disciplines}
-	\end{minipage}
-	\hfill
-	\begin{minipage}[t]{0.3\textwidth}
-		\vspace{0pt}
-		\highlight{Population}\\
-		\highlight{Community}\\
-		\highlight{Ecosystem}\\
-		Landscape\\
-		Evolutionary\\
-		Behavioral\\
-		Nutritional\\
-		many more\dots
+{
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{metapopulation_fritillary_patches} }
+\begin{frame}[b]
+	\tiny \textcopyright Pearson Education, Inc.
+\end{frame}
+}
+%
+\begin{frame}{A hypothetical metapopulation.}
+	\centering
+	\includegraphics[height=0.8\textheight]{metapopulation_class}
+	
+	\vfilll
+	
+	\hfill \tiny \textcopyright T. G. Barnes, University of Kentucky Cooperative Extension Service.
+\end{frame}
+
+%
+\begin{frame}{What do \highlight{source} and \highlight{sink} mean?}
+	\centering
+	\includegraphics[height=0.8\textheight]{metapopulation_class}
+	
+	\vfilll
+	
+	\hfill \tiny \textcopyright T. G. Barnes, University of Kentucky Cooperative Extension Service.
+\end{frame}
+%
+\begin{frame}[c]{}
+	\begin{multicols}{2}
+		\onslide<1->\includegraphics[width=0.45\textwidth]{metapopulation_class}
+
+
+	\columnbreak
+		\onslide<1->\hangpara \highlight{Source populations} have high emigration and low local extinction.
+		
+		\onslide<2>\hangpara \highlight{Sink populations} have high local extinction but are recolonized by occasional immigration. 
+	
+	\end{multicols}
+
+\end{frame}
+%
+\begin{frame}{Why are some habitat patches \highlight{sources} and others \highlight{sinks?}}
+	\centering
+	\includegraphics[height=0.8\textheight]{metapopulation_class}
+
+	\vfilll
+	
+	\hfill \tiny \textcopyright T. G. Barnes, University of Kentucky Cooperative Extension Service.
+	
+\end{frame}
+%
+\begin{frame}[t]{What are the characteristics of a source?}
+	\begin{minipage}{0.5\textwidth}
+		\begin{center}
+			\vspace{1\baselineskip}
+			\includegraphics[width=0.9\textwidth]{metapopulation_class}
+		\end{center}
+	\end{minipage}\begin{minipage}{0.5\textwidth}
+		\flushleft
+		
+		\hangpara \textcolor{white}{A}\vspace{-1\baselineskip}
+		
+		\hangpara \makebox[0.8\textwidth]{\hrulefill}
+		
+		\hangpara \makebox[0.8\textwidth]{\hrulefill}
+		
+		\hangpara \makebox[0.8\textwidth]{\hrulefill}
+		
+		\hangpara \makebox[0.8\textwidth]{\hrulefill}
+		
 	\end{minipage}	
 \end{frame}
-%
-{
-\usebackgroundtemplate{\includegraphics[width=\paperwidth]{population_meerkats} }
-\begin{frame}[b]{\textcolor{white}{What is a population?}}
 
-	\tiny\textcolor{white}{Spencer Wright, Flickr, \ccby{2}.}
-\end{frame}
-}
-%
-{
-\usebackgroundtemplate{\includegraphics[width=\paperwidth]{population_dynamics} }
-\begin{frame}[b]{Populations vary in space and time.}
-
-	\hfill \tiny Fig. 53.3 \textcopyright Pearson Education, Inc.
-\end{frame}
-}
-%
-{
-\usebackgroundtemplate{\includegraphics[width=\paperwidth]{Ecoli} }
-\begin{frame}[b]{\textcolor{white}{Meet \textit{Escherichia coli.}}}
-	\tiny \hfill \textcolor{white}{NIAID, National Institutes of Health, public domain.}%E. coli
-\end{frame}
-}
-%
-\begin{frame}{}
-	\hangpara\Large What factors do we need to account for population growth under \highlight{idealized} conditions? 
-\end{frame}
-%
-\begin{frame}{Population growth depends on birth and death rates.}
-
-	\hangpara \textit{b} = per capita birth rate (number born per 1000 individuals). \pause
-	
-	\hangpara \textit{d} = per capita death rate (number died per 1000 individuals). \pause
-	
-	\hangpara \textit{r} = \textit{b} – \textit{d} = intrinsic rate of population growth. \pause
-	
-	\hangpara If \textit{r} \textgreater{} 0, then population is growing larger.
-	
-	\hangpara If \textit{r} \textless{} 0 then population is growing smaller.
-	
-	
-\end{frame}
-%
-\begin{frame}{\highlight{Exponential growth} occurs only in idealized conditions.}
-	\begin{center}
-		\Huge $\frac{\Delta N}{\Delta t} = rN$
-	\end{center}
-	
-	\hangpara $\Delta N = $ change in population size,
-
-	\hangpara $\Delta t = $ change in time,
-	
-	\hangpara $r = $ intrinsic rate of population growth, and
-	
-	\hangpara $N = $ size of the population.
-	
-\end{frame}
-%
-{
-\usebackgroundtemplate{\includegraphics[width=\paperwidth]{exponential_growth}}
-\begin{frame}[b]
-\end{frame}
-}
-%
-{
-\usebackgroundtemplate{\includegraphics[width=\paperwidth]{human_population_growth}}
-\begin{frame}[b]
-\end{frame}
-}
-%
-\begin{frame}{}
-
-	\hangpara\Large Most populations do not grow under idealized conditions.
-	
-	\hangpara\Large What else do we need to account for?
-	
-	\pause
-	\hangpara \highlight{Carrying capacity.}
-	
-\end{frame}
-%
-\begin{frame}{\highlight{Logistic growth} occurs in natural conditions.}
-	\begin{center}
-		\Huge $\frac{\Delta N}{\Delta t} = rN\left(\frac{K-N}{K}\right)$
-	\end{center}
-	
-	\hangpara $\Delta N = $change in population size,
-
-	\hangpara $\Delta t = $ change in time,
-	
-	\hangpara $r = $ intrinsic rate of population growth, 
-	
-	\hangpara $N = $ size of the population, and
-	
-	\hangpara \highlight{$K = $ carrying capacity.}
-	
-\end{frame}
-%
-\begin{frame}
-	\hangpara Assume $r = 1.0$.
-	
-	\hangpara If $K = 3000$ and $N = 1000$, \pause then
-	
-	\hangpara {\Large $\frac{K-N}{K} = \frac{(3000-1000)}{3000} =  \frac{2}{3}$.}
-	
-	\hangpara This means that 2/3 of resources are \emph{still available} for population growth. \pause Therefore,
-	
-	\hangpara $\frac{\Delta N}{\Delta t} = rN\left(\frac{K-N}{K}\right) = (1.0)(1000)(\frac{2}{3}) = 666.67$ individuals added.
-\end{frame}
-%
-\begin{frame}
-	\hangpara Assume $r = 1.0$.
-	
-	\hangpara If $K = 3000$ and $N = 2000$, \pause then
-	
-	\hangpara {\Large $\frac{K-N}{K} = \frac{(3000-2000)}{3000} =  \frac{1}{3}$.}
-	
-	\hangpara This means that 1/3 of resources are available for population growth. \pause Therefore,
-	
-	\hangpara $\frac{\Delta N}{\Delta t} = rN\left(\frac{K-N}{K}\right) = (1.0)(1000)(\frac{1}{3}) = 333.33$ individuals added.
-\end{frame}
-%
-{
-\usebackgroundtemplate{\includegraphics[width=\paperwidth]{logistic_growth}}
-\begin{frame}
-\end{frame}
-}
 %
 \lecture{instructor}{instructor}
 
-\begin{frame}[t]{What is the new population size?}
-	\begin{columns}
-		\begin{column}{0.24\textwidth}
-			
-			\hangpara $N_0 = 2000.$
-	
-			\hangpara $ K = 4000.$
-	
-			\hangpara $b = 0.1.$
-	
-			\hangpara $d = 0.05.$ \pause
-	
-		\end{column}
-		\begin{column}{0.74\textwidth}
-			
-			\hangpara $r = 0.1 - 0.05 = 0.05.$ \pause
+\begin{frame}[t]{Source populations}
+	\begin{minipage}{0.5\textwidth}
+		\begin{center}
+			\vspace{1\baselineskip}
+			\includegraphics[width=0.9\textwidth]{metapopulation_class}
+		\end{center}
+	\end{minipage}\begin{minipage}{0.5\textwidth}
+		\flushleft
 		
-			\hangpara $rN = 0.05 \times 2000 = 100.$ \pause
+		\hangpara \textcolor{white}{A}\vspace{-1\baselineskip}
 		
-			\hangpara $\frac{K-N}{K} = \frac{4000-2000}{4000} = 0.5.$ \pause
+		\hangpara are in the center of the range,\pause
 		
-			\hangpara $\frac{\Delta N}{\Delta T} = rN\left(\frac{K-N}{K}\right) = 100 \times 0.5 = 50.$ \pause
+		\hangpara have high \highlight{habitat quality,}\pause
 		
-			\hangpara $N_1 = 2000 + 50 = 2050.$
-		\end{column}
-	\end{columns}
+		\hangpara have more births than deaths, \pause
+		
+		\hangpara and so have \highlight{more emigration} than immigration.
+		
+	\end{minipage}	
+\end{frame}
+
+%
+\lecture{student}{student}
+
+\begin{frame}[t]{What are the characteristics of a sink?}
+	\begin{minipage}{0.5\textwidth}
+		\begin{center}
+			\vspace{1\baselineskip}
+			\includegraphics[width=0.9\textwidth]{metapopulation_class}
+		\end{center}
+	\end{minipage}\begin{minipage}{0.5\textwidth}
+		\flushleft
+		
+		\hangpara \textcolor{white}{A}\vspace{-1\baselineskip}
+		
+		\hangpara \makebox[0.8\textwidth]{\hrulefill}
+		
+		\hangpara \makebox[0.8\textwidth]{\hrulefill}
+		
+		\hangpara \makebox[0.8\textwidth]{\hrulefill}
+		
+		\hangpara \makebox[0.8\textwidth]{\hrulefill}
+		
+	\end{minipage}	
 \end{frame}
 %
-\begin{frame}[t]{What is the new population size?}
-	\begin{columns}
-		\begin{column}{0.24\textwidth}
-			
-			\hangpara $N_0 = 4000.$
-			
-			\hangpara $ K = 3000.$
-			
-			\hangpara $b = 0.1.$
-			
-			\hangpara $d = 0.4.$ \pause
-			
-		\end{column}
-		\begin{column}{0.74\textwidth}
-			
-			\hangpara $r = 0.1 - 0.4 = -0.3.$ \pause
-			
-			\hangpara $rN = -0.3 \times 4000 = -1200.$ \pause
-			
-			\hangpara $\frac{K-N}{K} = \frac{3000-4000}{3000} = -0.33\overline{3}.$ \pause
-			
-			\hangpara $\frac{\Delta N}{\Delta T} = rN\left(\frac{K-N}{K}\right) = -1200 \times -0.33\overline{3} = 400.$ \pause
-			
-			\hangpara $N_1 = 4000 + 400 = 4400.$ 
+\lecture{instructor}{instructor}
 
-			\hangpara \highlight{WTF?} How did the population grow larger?
-		\end{column}
-	\end{columns}
+\begin{frame}[t]{Sink populations}
+	\begin{minipage}{0.5\textwidth}
+		\begin{center}
+			\vspace{1\baselineskip}
+			\includegraphics[width=0.9\textwidth]{metapopulation_class}
+		\end{center}
+	\end{minipage}\begin{minipage}{0.5\textwidth}
+		\flushleft
+		
+		\hangpara \textcolor{white}{A}\vspace{-1\baselineskip}
+		
+		\hangpara are near the margins of the range,\pause
+		
+		\hangpara have low habitat quality,\pause
+		
+		\hangpara have more deaths than births,\pause
+		
+		\hangpara and so have \highlight{more immigration} than emigration.
+		
+	\end{minipage}	
 \end{frame}
+%
+\lecture{student}{student}
+
+\begin{frame}{Why do sink populations go extinct?}
+	\begin{minipage}{0.5\textwidth}
+		\begin{center}
+			\vspace{1\baselineskip}
+			\includegraphics[width=0.9\textwidth]{metapopulation_class}
+		\end{center}
+	\end{minipage}\begin{minipage}{0.5\textwidth}
+		\flushleft
+		
+		\hangpara \textcolor{white}{A}\vspace{-1\baselineskip}
+		
+		\hangpara \makebox[0.8\textwidth]{\hrulefill}
+		
+		\hangpara \makebox[0.8\textwidth]{\hrulefill}
+		
+		\hangpara \makebox[0.8\textwidth]{\hrulefill}
+		
+		\hangpara \makebox[0.8\textwidth]{\hrulefill}
+		
+		\hangpara \makebox[0.8\textwidth]{\hrulefill}
+		
+	\end{minipage}	
+\end{frame}
+%
+\lecture{instructor}{instructor}
+
+\begin{frame}[t]{Sink populations go extinct because of}
+	\begin{minipage}{0.5\textwidth}
+		\begin{center}
+			\vspace{1\baselineskip}
+			\includegraphics[width=0.9\textwidth]{metapopulation_class}
+		\end{center}
+	\end{minipage}\begin{minipage}{0.5\textwidth}
+		\flushleft
+		
+		\hangpara \textcolor{white}{A}\vspace{-1\baselineskip}
+		
+		\hangpara habitat quality,\pause
+		
+		\hangpara $d + e > b + i$,\pause
+		
+		\hangpara distance of sink from source,\pause
+		
+		\hangpara size of sink patch,\pause
+		
+		\hangpara and random events.
+		
+	\end{minipage}	
+\end{frame}
+%
+\lecture{student}{student}
+
+\begin{frame}{What does sink recolonization depend on?}
+	\begin{minipage}{0.5\textwidth}
+		\begin{center}
+			\vspace{1\baselineskip}
+			\includegraphics[width=0.9\textwidth]{metapopulation_class}
+		\end{center}
+	\end{minipage}\begin{minipage}{0.5\textwidth}
+		\flushleft
+		
+		\hangpara \textcolor{white}{A}\vspace{-1\baselineskip}
+		
+		\hangpara \makebox[0.8\textwidth]{\hrulefill}
+		
+		\hangpara \makebox[0.8\textwidth]{\hrulefill}
+		
+		\hangpara \makebox[0.8\textwidth]{\hrulefill}
+		
+		\hangpara \makebox[0.8\textwidth]{\hrulefill}
+		
+		\hangpara \makebox[0.8\textwidth]{\hrulefill}
+		
+		\hangpara \makebox[0.8\textwidth]{\hrulefill}		
+	\end{minipage}		
+\end{frame}
+%
+\lecture{instructor}{instructor}
+
+\begin{frame}[t]{Sink recolonization depends on}
+	\begin{minipage}{0.5\textwidth}
+		\begin{center}
+			\vspace{1\baselineskip}
+			\includegraphics[width=0.9\textwidth]{metapopulation_class}
+		\end{center}
+	\end{minipage}\begin{minipage}{0.5\textwidth}
+		\flushleft
+		
+		\hangpara \textcolor{white}{A}\vspace{-1\baselineskip}
+		
+		\hangpara habitat quality,\pause
+		
+		\hangpara rate of source emigration,\pause
+		
+		\hangpara distance of sink from source,\pause
+		
+		\hangpara size of sink patch,\pause
+		
+		\hangpara unsuitable habitat between patches,\pause
+		
+		\hangpara and random events.
+		
+	\end{minipage}	
+\end{frame}
+%
+\lecture{student}{student}
+
+\begin{frame}[t]{Organisms can move among patches through \highlight{corridors} of suitable habitat.}
+
+	\centering \includegraphics[width=0.85\textwidth]{metapopulation_corridors}
+
+	\vfilll
+	
+	\hfill \tiny \textcopyright T. G. Barnes, University of Kentucky Cooperative Extension Service.
+\end{frame}
+%
+\lecture{instructor}{instructor}
+
+{
+	\usebackgroundtemplate{\includegraphics[width=\paperwidth]{metapopulation_exercise} }
+	\begin{frame}[b]{}
+	\end{frame}
+}
+%
+\begin{frame}[c]{}
+	\begin{minipage}{0.8\textwidth}
+		\begin{center}
+			\vspace{1\baselineskip}
+			\includegraphics[width=0.9\textwidth]{metapopulation_exercise}
+		\end{center}
+	\end{minipage}\begin{minipage}{0.19\textwidth}
+		\flushleft
+		
+		\textbf{Source}\\
+		
+		\vspace*{9\baselineskip}
+		
+		\vspace*{2ex}
+		
+		\textbf{Sink} 
+		
+	\end{minipage}	
+\end{frame}
+%
+\begin{frame}[c]{}
+	\begin{minipage}{0.8\textwidth}
+		\begin{center}
+			\vspace{1\baselineskip}
+			\includegraphics[width=0.9\textwidth]{metapopulation_exercise}
+		\end{center}
+	\end{minipage}\begin{minipage}{0.19\textwidth}
+		\flushleft
+		
+		\textbf{Source}\\
+		4H\\
+		7H\\
+		
+		\vspace{1ex}
+		8H=5H\\
+		6M\\
+		2M\\
+		10L\\
+		
+		\vspace{1ex}
+		9L\\
+		1M\\
+		3L\\
+		\textbf{Sink} 
+		
+	\end{minipage}	
+\end{frame}
+%
+
+%\lecture{instructor}{instructor}
+%
+%{
+%\usebackgroundtemplate{\includegraphics[width=\paperwidth]{deep_sea_adaptations_biolum} }
+%\begin{frame}[b]{\textcolor{biolum}{Cool stuff in biology: bioluminescence}}
+%
+%	\tiny\textcolor{white}{\href{https://www.youtube.com/watch?v=UXl8F-eIoiM}{Link to video}}
+%\end{frame}
+%}
+%%
+%{
+%\usebackgroundtemplate{\includegraphics[width=\paperwidth]{cool_shit_vomit_biolum} }
+%\begin{frame}[b]{\textcolor{biolum}{Don't you wish that you could vomit bioluminescence?}}
+%
+%\hfill \tiny \textcolor{biolum}{\textsc{noaa} Ocean Explorer, Flickr, \ccbysa{2}}
+%\end{frame}
+%}
+%%
+%{
+%\usebackgroundtemplate{\includegraphics[width=\paperwidth]{cool_shit_dragonfish} }
+%\begin{frame}[b]
+%
+%\tiny \textcolor{biolum}{\textcopyright\,Edith Widder, Ocean Research \& Conservation Assoc.}
+%\end{frame}
+%}
+
+%
 \end{document}

@@ -9,14 +9,12 @@
 \def\mainfont{Linux Libertine O}
 \setmainfont[Ligatures={Common,TeX}, Contextuals={NoAlternate}, BoldFont={* Bold}, ItalicFont={* Italic}, Numbers={OldStyle}]{\mainfont}
 \setsansfont[Scale=MatchLowercase, Numbers={OldStyle}]{Linux Biolinum O} 
+\setmonofont{Linux Libertine O}
 \usepackage{microtype}
 
 \usepackage{graphicx} % allow embedded images
-  \setkeys{Gin}{width=\linewidth}
-  \graphicspath{	{/Users/goby/teach/163/lectures/}
-  {/Users/goby/Pictures/teach/163/exam/}}%}%
-
-
+  \setkeys{Gin}{width=\linewidth,totalheight=\textheight,keepaspectratio}
+  \graphicspath{{img/}} % set of paths to search for images
 \usepackage{amsmath}  % extended mathematics
 \usepackage{booktabs} % book-quality tables
 \usepackage{units}    % non-stacked fractions and better unit spacing
@@ -25,6 +23,7 @@
 %  \fvset{fontsize=\normalsize}% default font size for fancy-verbatim environments
 
 \usepackage{enumitem}
+\usepackage{mhchem}
 
 \makeatletter
 % Paragraph indentation and separation for normal text
@@ -49,9 +48,9 @@
    \renewcommand\allcapsspacing[1]{{\addfontfeatures{LetterSpace=15}#1}}
    \renewcommand\smallcapsspacing[1]{{\addfontfeatures{LetterSpace=10}#1}}
 
-\newcommand\lecturefile{163_lecture10_fullsize}
-
 \title{{\scshape bi} 163 Study Guide 10}
+
+\newcommand{\answers}[1]{\hfill Answers:\marginnote{\hfill\reflectbox{#1}}}
 
 \date{} % without \date command, current date is supplied
 
@@ -60,25 +59,22 @@
 \maketitle	% this prints the handout title, author, and date
 
 %\printclassoptions
-\section*{Descent with modification and phylogenetic trees.}
+\section*{Fossils, the fossil record, and the evolution of eukaryotes }
 
-We\marginnote{\textbf{Read:} pgs. 14-15, 467--468, 549--556, 558.} discussed Darwin's concept of Descent with Modification and learned to interpret phylogenetic trees.
+We\marginnote{\textbf{Read:} 522--530. For fun: read page 533 on plate tectonics for a little background on the changing arrangement of the continents.} fossils, how they are formed, and began to explore major macroevolutionary changes based on evidence from the fossil record. We also covered endosymbiosis.
 
 \section*{Vocabulary}
 
 \vspace{-1\baselineskip}
 \begin{multicols}{2}
-Descent with modification\\
-common (shared) ancestor \\
-descendants \\
-branches \\
-nodes \\
-root \\
-basal group \\
-taxon (plural: taxa) \\
-clade \\
-monophyletic group \\
-
+macroevolution \\
+fossil\\
+trace fossils \\
+radiometric dating \\
+relative dating \\
+cyanobacteria \\
+oxygen revolution \\
+endosymbiosis
 \end{multicols}
 
 \section*{Concepts}
@@ -87,66 +83,29 @@ You should \emph{write} clear and concise answers to each question in the Concep
 
 \begin{enumerate}
 
-	\item Explain descent with modification as developed by Darwin. Relate the concept to phylogenetic trees. That is, how do you think we can use phylogenetic trees to study descent with modification. 
+	\item What is macroevolution? How does it compare to microevolution? Can macroevolution occur without microevolution? Explain why.
+	
+	\item What is a fossil? Name a few types of fossils. 
 
-	\item Identify common ancestors and descendants.
+	\item Explain how a permineralized fossil forms. What type of conditions (habitat, etc.) are necessary?
 
-	\item Why can descent with modification be represented with phylogenetic trees? 
-
-	\item Identify branches, nodes, and roots on a phylogenetic tree. Describe what is represented by each.
-
-	\begin{marginfigure}[0.75in]
-		\includegraphics[page=8]{\lecturefile}\\
-		\includegraphics[page=9]{\lecturefile}
-	\end{marginfigure}
-
-	\item Identify a basal group on a tree.
-
-	\item Identify a clade or monophyletic group on a tree. Explain what is meant by a clade or monophyletic group. Given a tree, recognize a group that is \emph{not} monophyletic on a tree.  Be able to make it monophyletic.
-
-	\item Given a phylogenetic tree, be able to tell whether an organism is more closely related on one organism or another, or equally related to both, based on common ancestor and presence in the same clade. 
-
-	\item Explain what is mean that a phylogenetic tree is a hierarchy of clades nested within clades.
-
-	\item Be able to identify identical trees that are displayed in different arrangements (e.g., goal posts vs circle tree).
-
-	\item Remember that phylogenetic trees are hypotheses. Hypotheses make predictions.
-\begin{marginfigure}[0.75in]
-	\includegraphics[page=11]{\lecturefile}
-\end{marginfigure}
-
-	\item Remember that trees can be pruned. Be able to recognize a tree that has been pruned when compared to a tree with all groups present. A good way to practice this is to make a larger tree and pick 2--3 groups to remove. Redraw the tree without those groups. Make sure the relationships are still unchanged. Practice with a friend to be sure you get the same results.
-
-	\item Describe how phylogenetic trees are related\marginnote{Think in terms of clades or monophyletic groups. What does it mean to say, for example, all of these species belong in the same genus or in the same family? What does it say about species \emph{not} in the same genus or family?}  to modern classification schemes. That is, how can we use phylogenetic trees to help us classify organisms based on common ancestry. Hint: should organisms in the same taxon (genus, family, order, etc.) share the same common ancestor? Why or why not? Relate that to the concept of clades and monophyletic groups.
-
+	\item Briefly explain radiometric dating.\marginnote{\url{http://evolution.berkeley.edu/evolibrary/article/radiodating_01}} Why is carbon-14 ({\addfontfeatures{Numbers=Lining}\ce{^{14}C}}) rarely used for dating fossils? 
+	
+	\item Many of the radioisotopes that can be used for radiometric dating cannot be used for dating fossils, even though their half-lives are very long. Why is this? How can fossils be dated if the fossils themselves do not contain radioisotopes.
+	
+	\item When did life first appear on Earth? Why types of organisms were they? Why were these organisms important for the eventual evolution of eukaryotes, even though they evolved more than 1.5 billion years before eukaryotes?\label{cyano_question}
+	
+	\item What was the ``oxygen revolution?'' About when did it occur?  How much did the oxygen concentration of the atmosphere (in percent) change during this time? (Study the assigned reading for these details.)
+	
+	\item The answer to question \ref{cyano_question} was one of the important events that facilitated the evolution of eukaryotes. What was the second event?
+	
+	\item Explain endosymbiosis \marginnote{\url{http://undsci.berkeley.edu/lessons/pdfs/endosymbiosis.pdf}} as a theory to explain the presence of mitochondria and chloroplasts in eukaryotic cells.
+	
+	\item Why do all eukaryotic cells have mitochondria but only plants have chloroplasts. Relate this to the endosymbiosis.
+	
+	\item Explain some of the evidence that supports the theory of endosymbiosis.
+	
+	
 \end{enumerate}
-\section*{Example exam questions}
-
-These are examples only and not exhaustive. One or more of these questions may or may not appear on the exam.
-
-\bigskip
-
-\noindent \rule{1in}{0.4pt} Another name for a monophyletic group.
-
-\bigskip
-
-\noindent True\hspace{1em}False\hspace{1em} The basal group is the most primitive group on a phylogenetic  \\
-\noindent \phantom{True\hspace{1em}False\hspace{1em}} tree.
-
-\bigskip
-
-\noindent According to the hypothesis at right, the green alga is
-
-\smallskip
-\begin{marginfigure}[0.75in]
-	\includegraphics[width=\columnwidth]{exam1_tree1}
-\end{marginfigure}
-
-\noindent \textsc{a}. more closely related to a red alga than to a moss.\\
-\noindent \textsc{b}. more closely related to a moss than to a pine. \\
-\noindent \textsc{c}. more closely related to a moss than to a red alga. \\
-\noindent \textsc{d}. equally related to a moss and a red algae. \\
-\noindent \textsc{e}. equally related to a red alga, a moss, and a pine.
-
 
 \end{document}

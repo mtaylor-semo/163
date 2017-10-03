@@ -17,26 +17,40 @@
 %% For students, use \lecture{student}{student}
 %% For mine, use \lecture{instructor}{instructor}
 
+% FONTS
 
-
-% Fonts
 \usepackage{fontspec}
 \def\mainfont{Linux Biolinum O}
-\setmainfont[Ligatures={Common,TeX}, Contextuals={NoAlternate}, BoldFont={* Bold}, ItalicFont={* Italic}, Numbers={Proportional, OldStyle}]{\mainfont}
-\setsansfont[Ligatures={Common,TeX}, Scale=MatchLowercase, Numbers={Proportional,OldStyle}, BoldFont={* Bold}, ItalicFont={* Italic},]{Linux Biolinum O} 
-\usepackage{microtype}
+\setmainfont[Ligatures={Common,TeX}, Contextuals={NoAlternate}, Numbers={Proportional, OldStyle}]{\mainfont}
+\setsansfont[Ligatures={Common,TeX}, Scale=MatchLowercase, Numbers={Proportional,OldStyle}, BoldFont={* Bold}, ItalicFont={* Italic},]\mainfont
+
+\newfontface\lining[Numbers={Lining}]\mainfont
+
 
 \usepackage{amsmath,amssymb}
-%\usepackage{unicode-math}
-%\setmathfont[Scale=MatchLowercase]{TeX Gyre Termes Math}
+\usefonttheme[onlymath]{serif}
+\usepackage{unicode-math}
+\setmathfont[Scale=MatchLowercase]{TeX Gyre Pagella Math}
+
+\usepackage{microtype}
+
+
+\mode<presentation>
+{
+	\usetheme{Lecture}
+	\setbeamercovered{invisible}
+	\setbeamertemplate{items}[default]
+%	\usefonttheme{professionalfonts}
+}
+
 
 \usepackage{graphicx}
 	\graphicspath{{/Users/goby/pictures/teach/163/lecture/}
 	{/Users/goby/pictures/teach/common/}} % set of paths to search for images
 
-\usepackage{color}
-%\definecolor{biolum}{RGB}{111,253,254}
-\definecolor{biolum}{RGB}{6,174,249}
+\usepackage{xcolor}
+
+\def\mygray{gray!50}
 
 \usepackage{multicol}
 \usepackage{booktabs}
@@ -49,407 +63,414 @@
 \usepackage{enumitem}
 %\usepackage[export]{adjustbox}
 
+\usepackage{calc} %For widthof, in one slide below.
+\makeatletter
+\def\@hspace#1{\begingroup\setlength\dimen@{#1}\hskip\dimen@\endgroup}
+\makeatother
 
 \usepackage{tikz}
+%		%tikzstyle{every picture} conflicts for some reason with the pgfplots stuff above.
 	\tikzstyle{every picture}+=[remember picture,overlay]
 	\usetikzlibrary{arrows}
-\usetikzlibrary{positioning}
-
-\mode<presentation>
-{
-  \usetheme{Lecture}
-  \setbeamercovered{invisible}
-  \setbeamertemplate{items}[square]
-}
-
+%\usetikzlibrary{positioning}
 
 \begin{document}
 
 \lecture{student}{student}
 
-\begin{frame}{Our goal for this lecture is to}
+\begin{frame}{Our goal for this lecture is to learn about}
 
-	\hangpara learn how \highlight{source} and \highlight{sink} populations\\are interconnected to form \highlight{metapopulations.}
+	\hangpara \highlight{species diversity},
+	
+	\hangpara \highlight {keystone species}, and
+	
+	\hangpara \highlight {ecological succession.}
 	
 \end{frame}
 %
-%{
-%\usebackgroundtemplate{\includegraphics[width=\paperwidth]{wombat} }
-%\begin{frame}[b]
-%	\hfill \tiny \textcolor{white}{J.J. Harrison, Wikimedia, \ccbysa{3}}
-%\end{frame}
-%}
-%%
-%{
-%\usebackgroundtemplate{\includegraphics[width=\paperwidth]{wombat_range} }
-%\begin{frame}{}
-%
-%\end{frame}
-%}
-%
-\begin{frame}{\highlight{Metapopulations} are larger groups of smaller subpopulations.}
+\begin{frame}{\highlight{Species diversity} measures the number and relative abundance of species in a community.}
 
-	\hangpara They have patches of suitable habitat surrounded by unsuitable habitat.
+	\hangpara \highlight{Species richness:} The number of species in a community.
 	
-	\hangpara They are subject to local extinction and recolonization.
+	\hangpara \highlight{Evenness:} The relative abundance of each species in a community.
 	
-	\hangpara Interactions occur more often within subpopulations than among subpopulations.
+	\hangpara \highlight{Shannon diversity index} is a widely used measure of diversity.
+	
+	\[H' = -\sum p_i\,\mathrm{ln}\,p_i\]
+	
+\end{frame}
+{
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{community_diversity_example} }
+\begin{frame}[t]{Which community has the greatest diversity?}
+
+	\pause
+
+	\vspace*{10\baselineskip}
+	
+	Community 1: \\$H\prime = -(0.25\,\mathrm{ln}\,0.25 + 0.25\,\mathrm{ln}\,0.25 +0.25\,\mathrm{ln}\,0.25 +0.25\,\mathrm{ln}\,0.25) = 1.39$
+
+	\vspace*{\baselineskip}
+	
+	Community 2: \\$H\prime = -(0.80\,\mathrm{ln}\,0.80 + 0.05\,\mathrm{ln}\,0.05 +0.05\,\mathrm{ln}\,0.05 +0.10\,\mathrm{ln}\,0.10) = 0.71$
+	
+	\vfilll
+
+	\hfill \tiny Fig.~54.11~Pearson Education, Inc.
 
 \end{frame}
+}
 %
 {
-\usebackgroundtemplate{\includegraphics[width=\paperwidth]{metapopulation_glanville_fritillary} }
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{keystone_species} }
 \begin{frame}[b]
-	\hfill \tiny	\textcolor{white}{Marie-Lan Nguyen, Flickr, \ccby{2}}
+
+\hfill \tiny \textcolor{white}{\copyright\,Dave Cowles, Walla Walla University}
 \end{frame}
 }
 %
+\begin{frame}[t]{\textit{Pisaster} sea stars increased tide pool diversity.}
+
+	\includegraphics[width=\textwidth]{keystone_results}
+	
+	\vfilll
+	
+	\hfill \tiny Fig.~54.18 \copyright\,Pearson Education, Inc.
+\end{frame}
+%
 {
-\usebackgroundtemplate{\includegraphics[width=\paperwidth]{metapopulation_fritillary_patches} }
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{keystone_herbivore_effects} }
+\begin{frame}[b]{Herbivores maintain diversity through keystone actions.}
+
+	\hfill \tiny Fig.~13.4 \copyright\,Sinauer Associates, Inc.
+\end{frame}
+}
+%
+\begin{frame}[t]{The loss of sea urchins caused a lose of diversity on Jamaican coral reefs.}
+
+	{\centering \includegraphics[height=0.75\textheight]{keystone_urchin_grazing} \par
+	}
+	
+	\vfilll
+	
+	\hfill \tiny Pecht and Pecht 2015. PeerJ Preprints.
+\end{frame}
+
+%
+{
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{disturbance_diversity} }
 \begin{frame}[b]
-	\tiny \textcopyright Pearson Education, Inc.
+
+\hfill \tiny \textcolor{white}{\textsc{noaa}, public domain.}
 \end{frame}
 }
 %
-\begin{frame}{A hypothetical metapopulation.}
-	\centering
-	\includegraphics[height=0.8\textheight]{metapopulation_class}
-	
-	\vfilll
-	
-	\hfill \tiny \textcopyright T. G. Barnes, University of Kentucky Cooperative Extension Service.
+{
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{disturbance_intermediate} }
+\begin{frame}[b]{Diversity can be greatest at intermediate levels of disturbance.}
+
+	\hfill \tiny Fig.~54.20 \copyright\,Pearson Education, Inc.
 \end{frame}
-
-%
-\begin{frame}{What do \highlight{source} and \highlight{sink} mean?}
-	\centering
-	\includegraphics[height=0.8\textheight]{metapopulation_class}
-	
-	\vfilll
-	
-	\hfill \tiny \textcopyright T. G. Barnes, University of Kentucky Cooperative Extension Service.
-\end{frame}
-%
-\begin{frame}[c]{}
-	\begin{multicols}{2}
-		\onslide<1->\includegraphics[width=0.45\textwidth]{metapopulation_class}
-
-
-	\columnbreak
-		\onslide<1->\hangpara \highlight{Source populations} have high emigration and low local extinction.
-		
-		\onslide<2>\hangpara \highlight{Sink populations} have high local extinction but are recolonized by occasional immigration. 
-	
-	\end{multicols}
-
-\end{frame}
-%
-\begin{frame}{Why are some habitat patches \highlight{sources} and others \highlight{sinks?}}
-	\centering
-	\includegraphics[height=0.8\textheight]{metapopulation_class}
-
-	\vfilll
-	
-	\hfill \tiny \textcopyright T. G. Barnes, University of Kentucky Cooperative Extension Service.
-	
-\end{frame}
-%
-\begin{frame}[t]{What are the characteristics of a source?}
-	\begin{minipage}{0.5\textwidth}
-		\begin{center}
-			\vspace{1\baselineskip}
-			\includegraphics[width=0.9\textwidth]{metapopulation_class}
-		\end{center}
-	\end{minipage}\begin{minipage}{0.5\textwidth}
-		\flushleft
-		
-		\hangpara \textcolor{white}{A}\vspace{-1\baselineskip}
-		
-		\hangpara \makebox[0.8\textwidth]{\hrulefill}
-		
-		\hangpara \makebox[0.8\textwidth]{\hrulefill}
-		
-		\hangpara \makebox[0.8\textwidth]{\hrulefill}
-		
-		\hangpara \makebox[0.8\textwidth]{\hrulefill}
-		
-	\end{minipage}	
-\end{frame}
-
-%
-\lecture{instructor}{instructor}
-
-\begin{frame}[t]{Source populations}
-	\begin{minipage}{0.5\textwidth}
-		\begin{center}
-			\vspace{1\baselineskip}
-			\includegraphics[width=0.9\textwidth]{metapopulation_class}
-		\end{center}
-	\end{minipage}\begin{minipage}{0.5\textwidth}
-		\flushleft
-		
-		\hangpara \textcolor{white}{A}\vspace{-1\baselineskip}
-		
-		\hangpara are in the center of the range,\pause
-		
-		\hangpara have high \highlight{habitat quality,}\pause
-		
-		\hangpara have more births than deaths, \pause
-		
-		\hangpara and so have \highlight{more emigration} than immigration.
-		
-	\end{minipage}	
-\end{frame}
-
-%
-\lecture{student}{student}
-
-\begin{frame}[t]{What are the characteristics of a sink?}
-	\begin{minipage}{0.5\textwidth}
-		\begin{center}
-			\vspace{1\baselineskip}
-			\includegraphics[width=0.9\textwidth]{metapopulation_class}
-		\end{center}
-	\end{minipage}\begin{minipage}{0.5\textwidth}
-		\flushleft
-		
-		\hangpara \textcolor{white}{A}\vspace{-1\baselineskip}
-		
-		\hangpara \makebox[0.8\textwidth]{\hrulefill}
-		
-		\hangpara \makebox[0.8\textwidth]{\hrulefill}
-		
-		\hangpara \makebox[0.8\textwidth]{\hrulefill}
-		
-		\hangpara \makebox[0.8\textwidth]{\hrulefill}
-		
-	\end{minipage}	
-\end{frame}
-%
-\lecture{instructor}{instructor}
-
-\begin{frame}[t]{Sink populations}
-	\begin{minipage}{0.5\textwidth}
-		\begin{center}
-			\vspace{1\baselineskip}
-			\includegraphics[width=0.9\textwidth]{metapopulation_class}
-		\end{center}
-	\end{minipage}\begin{minipage}{0.5\textwidth}
-		\flushleft
-		
-		\hangpara \textcolor{white}{A}\vspace{-1\baselineskip}
-		
-		\hangpara are near the margins of the range,\pause
-		
-		\hangpara have low habitat quality,\pause
-		
-		\hangpara have more deaths than births,\pause
-		
-		\hangpara and so have \highlight{more immigration} than emigration.
-		
-	\end{minipage}	
-\end{frame}
-%
-\lecture{student}{student}
-
-\begin{frame}{Why do sink populations go extinct?}
-	\begin{minipage}{0.5\textwidth}
-		\begin{center}
-			\vspace{1\baselineskip}
-			\includegraphics[width=0.9\textwidth]{metapopulation_class}
-		\end{center}
-	\end{minipage}\begin{minipage}{0.5\textwidth}
-		\flushleft
-		
-		\hangpara \textcolor{white}{A}\vspace{-1\baselineskip}
-		
-		\hangpara \makebox[0.8\textwidth]{\hrulefill}
-		
-		\hangpara \makebox[0.8\textwidth]{\hrulefill}
-		
-		\hangpara \makebox[0.8\textwidth]{\hrulefill}
-		
-		\hangpara \makebox[0.8\textwidth]{\hrulefill}
-		
-		\hangpara \makebox[0.8\textwidth]{\hrulefill}
-		
-	\end{minipage}	
-\end{frame}
-%
-\lecture{instructor}{instructor}
-
-\begin{frame}[t]{Sink populations go extinct because of}
-	\begin{minipage}{0.5\textwidth}
-		\begin{center}
-			\vspace{1\baselineskip}
-			\includegraphics[width=0.9\textwidth]{metapopulation_class}
-		\end{center}
-	\end{minipage}\begin{minipage}{0.5\textwidth}
-		\flushleft
-		
-		\hangpara \textcolor{white}{A}\vspace{-1\baselineskip}
-		
-		\hangpara habitat quality,\pause
-		
-		\hangpara $d + e > b + i$,\pause
-		
-		\hangpara distance of sink from source,\pause
-		
-		\hangpara size of sink patch,\pause
-		
-		\hangpara and random events.
-		
-	\end{minipage}	
-\end{frame}
-%
-\lecture{student}{student}
-
-\begin{frame}{What does sink recolonization depend on?}
-	\begin{minipage}{0.5\textwidth}
-		\begin{center}
-			\vspace{1\baselineskip}
-			\includegraphics[width=0.9\textwidth]{metapopulation_class}
-		\end{center}
-	\end{minipage}\begin{minipage}{0.5\textwidth}
-		\flushleft
-		
-		\hangpara \textcolor{white}{A}\vspace{-1\baselineskip}
-		
-		\hangpara \makebox[0.8\textwidth]{\hrulefill}
-		
-		\hangpara \makebox[0.8\textwidth]{\hrulefill}
-		
-		\hangpara \makebox[0.8\textwidth]{\hrulefill}
-		
-		\hangpara \makebox[0.8\textwidth]{\hrulefill}
-		
-		\hangpara \makebox[0.8\textwidth]{\hrulefill}
-		
-		\hangpara \makebox[0.8\textwidth]{\hrulefill}		
-	\end{minipage}		
-\end{frame}
-%
-\lecture{instructor}{instructor}
-
-\begin{frame}[t]{Sink recolonization depends on}
-	\begin{minipage}{0.5\textwidth}
-		\begin{center}
-			\vspace{1\baselineskip}
-			\includegraphics[width=0.9\textwidth]{metapopulation_class}
-		\end{center}
-	\end{minipage}\begin{minipage}{0.5\textwidth}
-		\flushleft
-		
-		\hangpara \textcolor{white}{A}\vspace{-1\baselineskip}
-		
-		\hangpara habitat quality,\pause
-		
-		\hangpara rate of source emigration,\pause
-		
-		\hangpara distance of sink from source,\pause
-		
-		\hangpara size of sink patch,\pause
-		
-		\hangpara unsuitable habitat between patches,\pause
-		
-		\hangpara and random events.
-		
-	\end{minipage}	
-\end{frame}
-%
-\lecture{student}{student}
-
-\begin{frame}[t]{Organisms can move among patches through \highlight{corridors} of suitable habitat.}
-
-	\centering \includegraphics[width=0.85\textwidth]{metapopulation_corridors}
-
-	\vfilll
-	
-	\hfill \tiny \textcopyright T. G. Barnes, University of Kentucky Cooperative Extension Service.
-\end{frame}
+}
 %
 \lecture{instructor}{instructor}
 
 {
-	\usebackgroundtemplate{\includegraphics[width=\paperwidth]{metapopulation_exercise} }
-	\begin{frame}[b]{}
-	\end{frame}
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{grand_tetons_burn} }
+\begin{frame}[b]
+
+\hfill \tiny \textcolor{white}{Google Earth}
+\end{frame}
 }
 %
-\begin{frame}[c]{}
-	\begin{minipage}{0.8\textwidth}
-		\begin{center}
-			\vspace{1\baselineskip}
-			\includegraphics[width=0.9\textwidth]{metapopulation_exercise}
-		\end{center}
-	\end{minipage}\begin{minipage}{0.19\textwidth}
-		\flushleft
+\lecture{student}{student}
+
+{
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{succession_intro} }
+\begin{frame}[t]
+
+	\vspace*{0.2\textheight}
+
+	\hspace*{65mm} \parbox{50mm}{\raggedright Disasters lead to \highlight{ecological succession.}}
+	
+	\vspace*{\baselineskip}
+	
+	\hspace*{65mm} \parbox{50mm}{\raggedright Ecological succession describes how community structure changes over time.}
+
+	\vspace*{\baselineskip}
+	
+	\hspace*{65mm} \parbox{50mm}{\raggedright Community structure refers to the composition of species present in the community.}
+	
+	\vfilll
+	
+	\hfill \tiny Greg Willis, Wikimedia \ccbysa{2}
+
+\end{frame}
+}
+%
+\lecture{instructor}{instructor}
+
+{
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{succession_helens_before} }
+\begin{frame}[b]
+
+	\tiny \textcolor{white}{17 May 1980, one day before eruption. \hfill \textsc{usgs}, public domain}
+
+\end{frame}
+}
+%
+{
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{succession_helens_after} }
+\begin{frame}[b]
+
+	\tiny \textcolor{white}{Some time after the eruption. \hfill \textsc{usgs}, public domain}
+
+\end{frame}
+}
+%
+\lecture{student}{student}
+
+{
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{succession_helens} }
+\begin{frame}[b]{\highlight{Primary succession} occurs when rock must turn into soil.}
+
+	\begin{tikzpicture}
+
+		\draw [ultra thick, ->] (18em, 17em) -- (18em, 13em);
 		
-		\textbf{Source}\\
+	\end{tikzpicture}
+
+	\hfill \tiny \textcolor{white}{Dabldoyou, Wikimedia, \ccbysa{4}}
+
+\end{frame}
+}
+%
+{
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{succession_helens} }
+\begin{frame}[b]{\highlight{Secondary succession} occurs when soil is already present.}
+
+	\begin{tikzpicture}
+
+		\draw [ultra thick, white, ->] (18em, 11em) -- (18em, 7em);
+
+	\end{tikzpicture}
+
+	\hfill \tiny \textcolor{white}{Dabldoyou, Wikimedia, \ccbysa{4}}
+
+\end{frame}
+}
+%
+{
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{succession_stages} }
+\begin{frame}[b]{Secondary succession follows a progression after a disturbance to return to a mature community.}
+
+	\begin{tikzpicture}
+			
+		\onslide<1->\draw (-0.5em, 18.2em) --  node [above, midway] {Mature} (7em, 18.2em);
 		
-		\vspace*{9\baselineskip}
-		
-		\vspace*{2ex}
-		
-		\textbf{Sink} 
-		
-	\end{minipage}	
+		\onslide<2->\draw (7.8em, 18.2em) --  node [above, midway] {Disturbance removes community to soil} (31.5em, 18.2em);
+
+		\onslide<3->\draw (-0.5em, 4.5em) --  node [below, midway, text width=7em] {Early\\ successional species} (7em, 4.5em);
+
+		\onslide<4->\draw (7.8em, 4.5em) --  node [below, midway, text width=14em] {Intermediate successional species} (23.5em, 4.5em);
+
+		\onslide<5->\draw (24em, 4.5em) --  node [below, midway, text width=7em] {Late\\ successional species} (31.5em, 4.5em);
+
+	\end{tikzpicture}
+
+	\hfill \tiny Katelyn Murphy, Wikimedia, \ccbysa{4}
+
+
 \end{frame}
 %
-\begin{frame}[c]{}
-	\begin{minipage}{0.8\textwidth}
-		\begin{center}
-			\vspace{1\baselineskip}
-			\includegraphics[width=0.9\textwidth]{metapopulation_exercise}
-		\end{center}
-	\end{minipage}\begin{minipage}{0.19\textwidth}
-		\flushleft
-		
-		\textbf{Source}\\
-		4H\\
-		7H\\
-		
-		\vspace{1ex}
-		8H=5H\\
-		6M\\
-		2M\\
-		10L\\
-		
-		\vspace{1ex}
-		9L\\
-		1M\\
-		3L\\
-		\textbf{Sink} 
-		
-	\end{minipage}	
+%% EARLY SUCCESSION
+{
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{succession_forest_stages} }
+\begin{frame}[b]{\highlight{Early successional species} (pioneer species) are generalists that facilitate the arrival of later species.}
+
+	\begin{tikzpicture}
+
+		% Stage 1
+		\node[draw,circle,minimum size=0.35cm,inner sep=0pt] at (8em,18.5em) {\footnotesize\lining 1};
+		\node (legend1) [draw,circle,minimum size=0.35cm,inner sep=0pt] at (0em,19em) {\footnotesize\lining 1};
+		\node at (legend1.east) [text width = 2em, right] {\scriptsize Rock};
+
+		\node[draw,circle,minimum size=0.3cm,inner sep=0pt] at (9.3em,2.5em) {\scriptsize\lining 1};
+
+		% Stage 2
+		\node[draw,circle,minimum size=0.35cm,inner sep=0pt, orange6] at (12.5em,18.5em) {\footnotesize\lining 2};
+		\node (legend2) [draw,circle,minimum size=0.35cm,inner sep=0pt, orange6] at (0em,17em) {\footnotesize\lining 2};
+		\node at (legend2.east) [orange6, text width = 2em, right] {\scriptsize Mosses\\[-5pt] Grasses};
+
+		\node[draw,circle,minimum size=0.3cm,inner sep=0pt] at (13em,2.5em) {\scriptsize\lining 2};
+
+		%Stage3
+		\node[draw,circle,minimum size=0.35cm,inner sep=0pt, orange6] at (17em,18.5em) {\footnotesize\lining 3};
+		\node (legend3) [draw,circle,minimum size=0.35cm,inner sep=0pt, orange6] at (0em,15em) {\footnotesize\lining 3};
+		\node at (legend3.east) [orange6, text width = 4em, right] {\scriptsize Grasses\\[-5pt] Perennials};
+
+		\node[draw,circle,minimum size=0.3cm,inner sep=0pt] at (16.5em,2.5em) {\scriptsize\lining 3};
+
+		%Stage4
+		\node[draw,circle,minimum size=0.35cm,inner sep=0pt] at (20.2em,18.5em) {\footnotesize\lining 4};
+		\node (legend4) [draw,circle,minimum size=0.35cm,inner sep=0pt] at (0em,13em) {\footnotesize\lining 4};
+		\node at (legend4.east) [text width = 4em, right] {\scriptsize Woody\\[-5pt] pioneers};
+
+		\node[draw,circle,minimum size=0.3cm,inner sep=0pt] at (20em,2.5em) {\scriptsize\lining 4};
+
+		%Stage5
+		\node[draw,circle,minimum size=0.35cm,inner sep=0pt] at (24em,18.5em) {\footnotesize\lining 5};
+		\node (legend4) [draw,circle,minimum size=0.35cm,inner sep=0pt] at (0em,11em) {\footnotesize\lining 5};
+		\node at (legend4.east) [text width = 5em, right] {\scriptsize Fast\\[-5pt] growing trees};
+
+		\node[draw,circle,minimum size=0.3cm,inner sep=0pt] at (23.7em,2.5em) {\scriptsize\lining 5};
+
+		%Stage6
+		\node[draw,circle,minimum size=0.35cm,inner sep=0pt] at (28.2em,18.5em) {\footnotesize\lining 6};
+		\node (legend4) [draw,circle,minimum size=0.35cm,inner sep=0pt] at (0em,9em) {\footnotesize\lining 6};
+		\node at (legend4.east) [text width = 4em, right] {\scriptsize Mature\\[-5pt] forest};
+
+		\node[draw,circle,minimum size=0.3cm,inner sep=0pt] at (27.3em,2.5em) {\scriptsize\lining 6};
+
+
+	\end{tikzpicture}
+
+	\hfill \tiny LucasMartinFrey, Wikimedia, \ccby{3}
+
 \end{frame}
+}
 %
+%% INTERMEDIATE SUCCESSION
+{
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{succession_forest_stages} }
+%\setbeamertemplate{background}[grid][color=black!50!white, step=1em]
+\begin{frame}[b]{\highlight{Intermediate successional species} are generalists or specialists that facilitate, inhibit, or tolerate other species.}
 
-%\lecture{instructor}{instructor}
-%
-%{
-%\usebackgroundtemplate{\includegraphics[width=\paperwidth]{deep_sea_adaptations_biolum} }
-%\begin{frame}[b]{\textcolor{biolum}{Cool stuff in biology: bioluminescence}}
-%
-%	\tiny\textcolor{white}{\href{https://www.youtube.com/watch?v=UXl8F-eIoiM}{Link to video}}
-%\end{frame}
-%}
-%%
-%{
-%\usebackgroundtemplate{\includegraphics[width=\paperwidth]{cool_shit_vomit_biolum} }
-%\begin{frame}[b]{\textcolor{biolum}{Don't you wish that you could vomit bioluminescence?}}
-%
-%\hfill \tiny \textcolor{biolum}{\textsc{noaa} Ocean Explorer, Flickr, \ccbysa{2}}
-%\end{frame}
-%}
-%%
-%{
-%\usebackgroundtemplate{\includegraphics[width=\paperwidth]{cool_shit_dragonfish} }
-%\begin{frame}[b]
-%
-%\tiny \textcolor{biolum}{\textcopyright\,Edith Widder, Ocean Research \& Conservation Assoc.}
-%\end{frame}
-%}
+	\begin{tikzpicture}
 
+		% Stage 1
+		\node[draw,circle,minimum size=0.35cm,inner sep=0pt] at (8em,18.5em) {\footnotesize\lining 1};
+		\node (legend1) [draw,circle,minimum size=0.35cm,inner sep=0pt] at (0em,19em) {\footnotesize\lining 1};
+		\node at (legend1.east) [text width = 2em, right] {\scriptsize Rock};
+
+		\node[draw,circle,minimum size=0.3cm,inner sep=0pt] at (9.3em,2.5em) {\scriptsize\lining 1};
+
+		% Stage 2
+		\node[draw,circle,minimum size=0.35cm,inner sep=0pt] at (12.5em,18.5em) {\footnotesize\lining 2};
+		\node (legend2) [draw,circle,minimum size=0.35cm,inner sep=0pt] at (0em,17em) {\footnotesize\lining 2};
+		\node at (legend2.east) [text width = 2em, right] {\scriptsize Mosses\\[-5pt] Grasses};
+
+		\node[draw,circle,minimum size=0.3cm,inner sep=0pt] at (13em,2.5em) {\scriptsize\lining 2};
+
+		%Stage3
+		\node[draw,circle,minimum size=0.35cm,inner sep=0pt] at (17em,18.5em) {\footnotesize\lining 3};
+		\node (legend3) [draw,circle,minimum size=0.35cm,inner sep=0pt] at (0em,15em) {\footnotesize\lining 3};
+		\node at (legend3.east) [text width = 4em, right] {\scriptsize Grasses\\[-5pt] Perennials};
+
+		\node[draw,circle,minimum size=0.3cm,inner sep=0pt] at (16.5em,2.5em) {\scriptsize\lining 3};
+
+		%Stage4
+		\node[draw,circle,minimum size=0.35cm,inner sep=0pt, orange6] at (20.2em,18.5em) {\footnotesize\lining 4};
+		\node (legend4) [draw,circle,minimum size=0.35cm,inner sep=0pt, orange6] at (0em,13em) {\footnotesize\lining 4};
+		\node at (legend4.east) [orange6, text width = 4em, right] {\scriptsize Woody\\[-5pt] pioneers};
+
+		\node[draw,circle,minimum size=0.3cm,inner sep=0pt] at (20em,2.5em) {\scriptsize\lining 4};
+
+		%Stage5
+		\node[draw,circle,minimum size=0.35cm,inner sep=0pt, orange6] at (24em,18.5em) {\footnotesize\lining 5};
+		\node (legend4) [draw,circle,minimum size=0.35cm,inner sep=0pt, orange6] at (0em,11em) {\footnotesize\lining 5};
+		\node at (legend4.east) [orange6, text width = 5em, right] {\scriptsize Fast\\[-5pt] growing trees};
+
+		\node[draw,circle,minimum size=0.3cm,inner sep=0pt] at (23.7em,2.5em) {\scriptsize\lining 5};
+
+		%Stage6
+		\node[draw,circle,minimum size=0.35cm,inner sep=0pt] at (28.2em,18.5em) {\footnotesize\lining 6};
+		\node (legend4) [draw,circle,minimum size=0.35cm,inner sep=0pt] at (0em,9em) {\footnotesize\lining 6};
+		\node at (legend4.east) [text width = 4em, right] {\scriptsize Mature\\[-5pt] forest};
+
+		\node[draw,circle,minimum size=0.3cm,inner sep=0pt] at (27.3em,2.5em) {\scriptsize\lining 6};
+
+
+	\end{tikzpicture}
+
+	\hfill \tiny LucasMartinFrey, Wikimedia, \ccby{3}
+
+\end{frame}
+}
+%
+%% LATE SUCCESSION
+{
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{succession_forest_stages} }
+\begin{frame}[b]{\highlight{Late successional species} (climax species) are specialists that define the mature community.}
+
+	\begin{tikzpicture}
+
+		% Stage 1
+		\node[draw,circle,minimum size=0.35cm,inner sep=0pt] at (8em,18.5em) {\footnotesize\lining 1};
+		\node (legend1) [draw,circle,minimum size=0.35cm,inner sep=0pt] at (0em,19em) {\footnotesize\lining 1};
+		\node at (legend1.east) [text width = 2em, right] {\scriptsize Rock};
+
+		\node[draw,circle,minimum size=0.3cm,inner sep=0pt] at (9.3em,2.5em) {\scriptsize\lining 1};
+
+		% Stage 2
+		\node[draw,circle,minimum size=0.35cm,inner sep=0pt] at (12.5em,18.5em) {\footnotesize\lining 2};
+		\node (legend2) [draw,circle,minimum size=0.35cm,inner sep=0pt] at (0em,17em) {\footnotesize\lining 2};
+		\node at (legend2.east) [text width = 2em, right] {\scriptsize Mosses\\[-5pt] Grasses};
+
+		\node[draw,circle,minimum size=0.3cm,inner sep=0pt] at (13em,2.5em) {\scriptsize\lining 2};
+
+		%Stage3
+		\node[draw,circle,minimum size=0.35cm,inner sep=0pt] at (17em,18.5em) {\footnotesize\lining 3};
+		\node (legend3) [draw,circle,minimum size=0.35cm,inner sep=0pt] at (0em,15em) {\footnotesize\lining 3};
+		\node at (legend3.east) [text width = 4em, right] {\scriptsize Grasses\\[-5pt] Perennials};
+
+		\node[draw,circle,minimum size=0.3cm,inner sep=0pt] at (16.5em,2.5em) {\scriptsize\lining 3};
+
+		%Stage4
+		\node[draw,circle,minimum size=0.35cm,inner sep=0pt] at (20.2em,18.5em) {\footnotesize\lining 4};
+		\node (legend4) [draw,circle,minimum size=0.35cm,inner sep=0pt] at (0em,13em) {\footnotesize\lining 4};
+		\node at (legend4.east) [text width = 4em, right] {\scriptsize Woody\\[-5pt] pioneers};
+
+		\node[draw,circle,minimum size=0.3cm,inner sep=0pt] at (20em,2.5em) {\scriptsize\lining 4};
+
+		%Stage5
+		\node[draw,circle,minimum size=0.35cm,inner sep=0pt] at (24em,18.5em) {\footnotesize\lining 5};
+		\node (legend4) [draw,circle,minimum size=0.35cm,inner sep=0pt] at (0em,11em) {\footnotesize\lining 5};
+		\node at (legend4.east) [text width = 5em, right] {\scriptsize Fast\\[-5pt] growing trees};
+
+		\node[draw,circle,minimum size=0.3cm,inner sep=0pt] at (23.7em,2.5em) {\scriptsize\lining 5};
+
+		%Stage6
+		\node[draw,circle,minimum size=0.35cm,inner sep=0pt, orange6] at (28.2em,18.5em) {\footnotesize\lining 6};
+		\node (legend4) [draw,circle,minimum size=0.35cm,inner sep=0pt, orange6] at (0em,9em) {\footnotesize\lining 6};
+		\node at (legend4.east) [orange6, text width = 4em, right] {\scriptsize Mature\\[-5pt] forest};
+
+		\node[draw,circle,minimum size=0.3cm,inner sep=0pt] at (27.3em,2.5em) {\scriptsize\lining 6};
+
+
+	\end{tikzpicture}
+
+	\hfill \tiny LucasMartinFrey, Wikimedia, \ccby{3}
+
+\end{frame}
+}
+%
+{
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{succession_quail_habitat} }
+\begin{frame}[b]{Bobwhite quail requires early successional habitat.}
+
+	\hfill \tiny \textcolor{white}{\textsc{usda}, Flickr, \ccby{2}}
+
+\end{frame}
+}
+%
+{
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{succession_kirtland_warbler} }
+\begin{frame}[b]{Kirtland's warbler requires intermediate successional habitat.}
+
+	\hfill \tiny \textsc{usfws}, Flickr, \ccby{2}
+
+\end{frame}
+}
+%
 %
 \end{document}

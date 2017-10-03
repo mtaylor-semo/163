@@ -13,7 +13,8 @@
 
 \usepackage{graphicx} % allow embedded images
   \setkeys{Gin}{width=\linewidth}
-  \graphicspath{	{/Users/goby/teach/163/lectures/}}%}%
+  \graphicspath{	{/Users/goby/teach/163/lectures/}
+  {/Users/goby/Pictures/teach/163/lecture/}}%}%
 
 \usepackage{amsmath}  % extended mathematics
 \usepackage{booktabs} % book-quality tables
@@ -47,9 +48,9 @@
    \renewcommand\allcapsspacing[1]{{\addfontfeatures{LetterSpace=15}#1}}
    \renewcommand\smallcapsspacing[1]{{\addfontfeatures{LetterSpace=10}#1}}
 
-\newcommand\lecturefile{163_lecture07_fullsize}
-
 \title{{\scshape bi} 163 Study Guide 07}
+
+\newcommand{\answers}[1]{\hfill Answers:\marginnote{\hfill\reflectbox{#1}}}
 
 \date{} % without \date command, current date is supplied
 
@@ -58,85 +59,79 @@
 \maketitle	% this prints the handout title, author, and date
 
 %\printclassoptions
-\section{Hardy-Weinberg equilibrium and microevolution in populations}
-We\marginnote{\textbf{Read:} Pgs. 206--210 for information on genes, alleles, genotypes and phenotypes. Review the reading assigned for Lecture 2.} covered two equations that are necessary to establish whether a population is in Hardy-Weinberg equilibrium. One equation is used to calculate allele frequencies. The other equation is used to calculate genotype frequencies. You must remember which equation is used for to calculate allele frequencies and which is used to calculate genotype frequencies. Failure to do so is the most common mistake made when students attempt to solve Hardy-Weinberg problems.
+\section*{Species and speciation}
 
-\section{Allele Frequency}
+We\marginnote{\textbf{Read:} 500--513.} covered different ways of thinking about what is a species and problems with each species concept. We also learned how biological reproductive isolation causes new species to evolve. We explored the role of geography in the speciation process, how hybrid zones form, and possible speciation outcomes from hybrid zones.
 
-The equation for calculating \emph{allele frequencies} is 
-\begin{equation*}
-	p+q = 1,
-\end{equation*}
+\section*{Vocabulary}
 
-where $p$ is the frequency of allele 1, and $q$ is the frequency of allele 2. In class, we will use only two alleles for a single locus\marginnote{In reality, most genes have many more than two alleles. The calculation of allele frequencies is the same, but with a variable added for each allele. If a gene has three alleles, for example, the equation would be expanded to $p+q+r=1$}, such as $T$ and $t$.  Two variables ($p$ and $q$) are needed to represent two alleles.  Why not use $A$ and $a$ instead of $p$ and $q$?  The vast majority of genes have names longer than a single letter, such as \emph{sonic hedgehog} (\emph{shh}) or \emph{bone morphogenetic protein 4} (\emph{bmp4}). Writing equations with long gene names would get confusing. Variable names like $p$ and $q$ are easier to understand.  In addition, we do not have to concern ourselves with dominant, recessive, or codominant alleles, or other types of gene expression. 
-
-\begin{marginfigure}[0.5in]
-	\includegraphics[page=7]{\lecturefile}
-\end{marginfigure}
-
-I use frequency and proportion interchangeably. They mean the same thing.  Given all alleles in a population, the proportion that is \emph{one particular allele} is the frequency of that allele.  The frequency of an allele represents how common the allele is in the population, expressed as a decimal fraction. For example, if a population has 124 total alleles and 31 of them are the $p$ allele, then $p= 34/124 = 0.25$.  This means that 25\% of the alleles in the population are the $p$ allele.  The remaining proportion (75\%) are the $q$ allele.
-
-\section{Genotype Frequency}
-
-\begin{marginfigure}[0.35in]
-	\includegraphics[page=10]{\lecturefile}
-\end{marginfigure}
-
-Diploid organisms have two alleles for each gene locus. The combination of alleles is the genotype for the gene locus. The genotype might be homozygous (two copies of the same allele) or heterozygous (two different alleles).  Given two alleles, there are three possible genotypes. Set aside $p$ and $q$ for the moment but consider two alleles, $T$ and $t$. The three possible genotypes are $TT$, $tt$, and $Tt$.  The \emph{genotype frequencies} in a population is calculated by
-
-\begin{equation*}
-p^2 + 2pq+q^2=1,
-\end{equation*}
-where $p^2$ is the frequency of one homozygous genotype (e.g., $TT$), $q^2$ is the frequency of the other homozygous genotype ($aa$), and $2pq$ is the frequency of the heterozygous genotype ($Tt$).  Three terms are needed to represent the three possible genotypes. 
-
-How are the two Hardy-Weinberg equations related?  Consider a large, randomly mating population with two alleles.  The alleles are present at frequencies $p$ and $q$.  The proportion of each genotype produced in the next generation is calculated by multiplying $p+q$ times itself\marginnote{Think of individuals \emph{multiplying} (mating) in a population.},
-\begin{equation*}
-(p+q)^2=
-(p+q)(p+q) =
-p^2 + pq + qp + q^2 =
-p^2 + 2pq + q^2.
-\end{equation*}
-
-
-\section{Vocabulary}
 \vspace{-1\baselineskip}
 \begin{multicols}{2}
-microevolution\\
-gene (gene locus)\\
-allele\\
-diploid\\
-homozygous (homozygote)\\
-heterozygous (heterozygote)\\
-population\\
-Hardy-Weinberg Equations\\
-Hardy-Weinberg Equilibrium\\
+speciation \\
+macroevolution \\
+species concepts\\
+morphological species concept\\
+cryptic species\\
+biological species concept\\
+reproductive isolation \\
+speciation \\
+reproductive isolation \\
+prezygotic barriers \\
+postzygotic barriers \\
+habitat isolation \\
+behavioral isolation \\
+temporal isolation \\
+mechanical isolation \\
+gamete incompatibility \\
+hybrid sterility \\
+hybrid inviability \\
+hybrid breakdown \\
+allopatric speciation \\
+sympatric speciation \\
+hybrid zone \\
+stability \\
+reinforcement \\
+fusion %\\
+%ring species 
 \end{multicols}
 
-\section{Concepts}
+\section*{Concepts}
 
 You should \emph{write} clear and concise answers to each question in the Concepts section.  Remember to ``think horizontally'' and to ``connect the dots.'' 
 
 \begin{enumerate}
 
-	\item What does it mean to say that a population is in Hardy-Weinberg equilibrium?\marginnote{Recall what happens if the five assumptions of Hardy-Weinberg equations are met.}
+	\item Compare and contrast the two species concepts given above.
 
-	\item Know the two formulas that, together, are the Hardy-Weinberg Equations.
+	\item What are cryptic species?
 
-	\item What do the Hardy-Weinberg equations demonstrate about allele frequencies in a population?
-
-	\item What is the difference between a heterozygote and a homozygote?
-
-	\item What is the difference between alleles and genotypes?  What is the difference between allele frequencies and genotype frequencies?
-
-	\item Which of the two Hardy-Weinberg formulas represent the frequencies of two alleles (at one gene locus) in a population?  Which of the two Hardy-Weinberg formulas represent the frequencies of the three possible genotypes (at one gene locus) in a population?
-
-	\item Be able to use the Hardy-Weinberg equations to derive allele frequencies and genotype frequencies in a population.  Be able to derive allele frequencies based on numbers on different phenotypes and genotypes in a population (like the flower example we worked in class). 
+	\item Explain the biological species concept.  Does this concept apply to sexually reproducing species?  Does this concept apply to asexually reproducing species?
 	
-%	\begin{itemize}
-%		\item[$\triangleright$] We will have a lab devoted to Hardy-Weinberg problems and we will do some practice exercises in class.
-%	\end{itemize}
+	\item Explain two problems applying the biological species concept that is not related to whether the species reproduces sexually or asexually.
 
-\end{enumerate}
+	\item What does the biological species concept emphasize in the speciation process?
+
+	\item What is speciation?  
+
+	\item Explain \marginnote{More than one type of prezygotic and postzygotic barrier can contribute to speciation.}
+ the difference between prezygotic and postzygotic isolation barriers. Provide examples for each of the prezygotic and postzygotic barriers.
+ 
+	\item Briefly describe how each of the prezygotic and postzygotic\marginnote{Reproductive isolation occurs when some aspect about the biology of the organism causes the inability to reproduce, such as being adapted to different habitats, or producing sterile hybrid offspring.} isolation barriers can lead to reproductive isolation.
+
+	\item Explain how allopatric speciation can contribute to the evolution of biological reproductive isolation.
+	
+	\item Explain the difference between allopatric and sympatric speciation. \marginnote{Remember that allopatric and sympatric speciation refer to geography, not biological reproductive isolation. Allopatric speciation means that a population was divided into two geographic areas with no gene flow (see below). Biological reproductive isolation must still evolve for speciation to occur.}% Organisms can have allopatric distribution but not be different species.}
+	
+	\begin{marginfigure}%[0.5in]
+		\centering\includegraphics[width=0.7\columnwidth]{allopatric_diagram}
+	\end{marginfigure}
+
+	
+	\item Describe how phylogenetic trees can be used to look for evidence of allopatric speciation.
+	
+	\item Explain how hybrid zones can form. Compare and contrast each of the three possible outcomes from hybrid zones (stability, reinforcement, fusion). Explain which of the three outcomes continues or maintains the speciation process and which can lead to the loss of species.
+	
+%	\item Explain what is a ring species and how they form.
 
 \section*{Example exam questions}
 
@@ -144,26 +139,28 @@ These are examples only and not exhaustive. One or more of these questions may o
 
 \bigskip
 
-\noindent True\hspace{1em}False\hspace{1em} If \textit{p} = 0.3, then homozygosity = 0.09.\marginnote{How many was can individuals in a population be homozygous?}
-
-\bigskip \bigskip
-
-\noindent Among Caucasians in the U.S., about 1 in 2500 individuals have the disease cystic fibrosis. Cystic fibrosis occurs when individuals are homozygous for the \textit{c} allele. Based on this information, fill in the following table with the frequencies for alleles and genotypes. Be sure to write out your calculations. I will give you Hardy-Weinberg problem worth as much as 15 points on the exam. You will be required to show your work.
+\noindent \rule{1in}{0.4pt} Different reproductive behaviors prevent copulation.
 
 \bigskip
 
-\begin{tabular}{@{}ll@{}}
-\toprule
-	& Frequency\tabularnewline
-\midrule
-	& \tabularnewline
-\textit{C}	&	\rule{0.6in}{0.4pt}\tabularnewline[2em]
-\textit{c}	&	\rule{0.6in}{0.4pt}\tabularnewline[2em]
-\textit{CC}	&	\rule{0.6in}{0.4pt}\tabularnewline[2em]
-\textit{Cc}	&	\rule{0.6in}{0.4pt}\tabularnewline[2em]
-\textit{cc}	&	\rule{0.6in}{0.4pt}\tabularnewline
-\bottomrule
-\end{tabular}
+\noindent True\hspace{1em}False\hspace{1em} Reinforcement enhances the chance of forming hybrids.
 
+\bigskip
+
+\noindent Two closely related species of maple trees occur together in the southeastern United States.  Pollen from each species is distributed by the wind.  If the pollen from one species lands on the stigma (female pollen receptor) of the other species but a protein interaction between the pollen and stigma prevents fertilization, then which reproductive barrier keeps the two maple species isolated?
+
+\smallskip
+
+\noindent \textsc{a}. mechanical.\\
+\noindent \textsc{b}. behavioral. \\
+\noindent \textsc{c}. habitat. \\
+\noindent \textsc{d}. gametic. \\
+\noindent \textsc{e}. temporal.
+
+\end{enumerate}
+
+\vskip0pt plus 1fill
+
+\answers{Behavioral isolation. False. D.}
 
 \end{document}
