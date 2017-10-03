@@ -3,7 +3,7 @@
 
 \documentclass[12pt, hidelinks]{exam}
 
-%\printanswers
+\printanswers
 
 
 \usepackage{graphicx}
@@ -498,25 +498,45 @@ Provide an explanation based on habitat, natural selection, and gene flow that m
 
 \textsc{Tree for question~\ref{genetic_phylogeny}.}
 
+%\begin{forest} mytree
+%[
+% [
+%  [\textit{G. stehlini}]
+%  [
+%   [\textit{G. atlantica}]
+%   [
+%	[\textit{G. galloti} Tenerife]
+%	[
+%	 [\textit{G. galloti} Palma] 
+%	 [
+%	  [\textit{G.galloti} Gomera]
+%	  [\textit{G. galloti} Hierro]
+%	 ]
+%	]
+%   ]
+%  ]
+% ]
+%]
+%\end{forest}
+
 \begin{forest} mytree
 [
  [
   [\textit{G. stehlini}]
   [
    [\textit{G. atlantica}]
-   [
-	[\textit{G. galloti} Tenerife]
-	[
-	 [\textit{G. galloti} Palma] 
-	 [
-	  [\textit{G.galloti} Gomera]
-	  [\textit{G. galloti} Hierro]
-	 ]
-	]
+   [[
+    [\textit{G. galloti} Tenerife]
+	[\textit{G. galloti} Palma] 
    ]
-  ]
+   [
+	[\textit{G.galloti} Gomera]
+	[\textit{G. galloti} Hierro]
+   ]
+  ]]
  ]
 ]
+%	]
 \end{forest}
 
 \fi
