@@ -3,7 +3,7 @@
 
 \documentclass[12pt, hidelinks]{exam}
 
-\printanswers
+%\printanswers
 
 
 \usepackage{graphicx}
@@ -219,10 +219,11 @@ these questions.
 \subsubsection*{Part 1: Lizard phylogeny based on geographic distance}
 
 \textit{Review the general principles on page~\pageref{general_principles} to successfully answer the questions below.}
-	
-Using Figure~\ref{fig:canary_islands}, measure the distance in kilometers of each island to the mainland (Africa). List these distances on a separate page. Include the following islands: Lanzarote, Fuerteventura, Gran Canaria, Tenerife, Gomera, Palma, and Hierro.
 
 \begin{questions}
+	
+\question
+Using Figure~\ref{fig:canary_islands}, measure the distance in kilometers of each island to the mainland (Africa). List these distances on a separate page. Include the following islands: Lanzarote, Fuerteventura, Gran Canaria, Tenerife, Gomera, Palma, and Hierro.
 
 \question\label{ques:colonization_order_prediction}
 Which island is most likely to have been colonized first and which last? Tell why you think so.
@@ -231,15 +232,15 @@ Which island is most likely to have been colonized first and which last? Tell wh
 Fuerteventura (or/and Lanzarote) should be colonized first. It is the largest and closest to Africa. Hierro is smallest and farthest so it was probably colonized last (most recently).}
 
 \question\label{geography_phylogeny}
-Using Figure~\ref{fig:distribution} and your reasoning from Question~\ref{ques:colonization_order_prediction}, draw a phylogenetic tree of the species and populations of \emph{Gallotia.} Draw your tree on a separate sheet of paper. Label your end branches with the following species and population names: 
+Using Figure~\ref{fig:distribution} and your reasoning from Question~\ref{ques:colonization_order_prediction}, draw a phylogenetic tree of the species and populations of \emph{Gallotia.} Draw your tree on a separate sheet of paper. Label your end branches with the following species and island names: 
 
-\begin{tabular}{@{}L{0.8in}L{0.8in}L{0.8in}L{0.8in}L{0.8in}L{0.8in}@{}}
-	\textit{atlantica}				&
-	\textit{stehlini} 				&
-	\textit{galloti} Tenerife	&
+\begin{tabular}{@{}L{0.78in}L{0.78in}L{0.78in}L{0.78in}L{0.78in}L{0.99in}@{}}
+	\textit{atlantica} Gran Canaria		&
+	\textit{galloti} Gomera		&
+	\textit{galloti} Hierro		&
 	\textit{galloti} Palma 		&
-	\textit{galloti} Gomera	&
-	\textit{galloti} Hierro		\tabularnewline
+	\textit{galloti} Tenerife	&
+	\textit{stehlini}\newline Fuerteventura/\newline Lanzarote			\tabularnewline
 \end{tabular}
 
 Ask your instructor to check your tree before proceeding to the next part. Be prepared to explain your reasoning.\ifprintanswers \textbf{See last page of key for tree.}\fi
@@ -261,16 +262,16 @@ argon, was used to estimate the age of the rocks.
 	Lanzarote \& 
 	Fuerteventura	& 
 	Gran Canaria 	& 
-	Tenerife			&
+	Tenerife		&
 	Gomera			&
-	Palma 				&
-	Hierro				\tabularnewline
+	Palma 			&
+	Hierro			\tabularnewline
 	\midrule
-	24.0					&
-	17.1					&
-	15.1					&
-	5.3					&
-	2.0					&
+	24.0			&
+	17.1			&
+	15.1			&
+	5.3				&
+	2.0				&
 	0.8					\tabularnewline
 	\bottomrule
 \end{longtable}
@@ -294,7 +295,7 @@ Fill in Table~\ref{tab:dna_similarity} by comparing the \textsc{dna} sequences b
 
 \vspace{\baselineskip}
 
-{\captionof{table}[DNA sequence similarity]{D\textsc{na} sequence similarity for Canary Island lizards.\label{tab:dna_similarity}}
+{\captionof{table}{D\textsc{na} sequence differences among Canary Island lizards.\label{tab:dna_similarity}}
 	\begin{tikzpicture}
 		\node {\includegraphics[width=0.95\textwidth]{06_lizard_biogeo_pairwise_dna}};
 		
@@ -321,44 +322,52 @@ Fill in Table~\ref{tab:dna_similarity} by comparing the \textsc{dna} sequences b
 	\end{tikzpicture}
 }
 
-\question \label{genetic_phylogeny}
-Use these data like you did with the presence absence matrix to make a phylogenetic tree. Draw the tree on a separate sheet of paper. \emph{Read the important information below.}
-
-\textsc{Important:} Low numbers express greater genetic similarity between two species, which means they share a more recent common ancestor. For example, \textit{G. galloti} from Gomera and Hierro will show the fewest number of differences, meaning they share a more recent common ancestor compared to the other pairs. Pairs with high numbers have lower genetic similarity, so their common ancestry would be farther back in time.
-
-\textsc{Hint:} Interpret these number broadly. Consider species with 30–45 differences to have the \emph{same number} of differences. Do the same for 15–29 differences. Treat numbers less than 10 as is. That should make tree construction easier. 
+\newpage
 
 \question
 Which two species or populations are most closely related? Justify your answer. 
 
-\AnswerBox{2\baselineskip}{\textit{G. galloti} from Hierro and Gomera should have the fewest differences (about 4).}
+\AnswerBox{1\baselineskip}{\textit{G. galloti} from Hierro and Gomera should have the fewest differences (about 4).}
 
 \question
 Which species or population is most distantly related to the rest? Why do you say so? 
 
-\AnswerBox{2\baselineskip}{\textit{G. stehlini} has the greatest genetic distance to other species so it is the basal species.}
+\AnswerBox{1\baselineskip}{\textit{G. stehlini} has the greatest genetic distance to other species so it is the basal species.}
+
+\question
+You will now make a phylogenetic tree from \textsc{dna} differences but the results are too complex to make a phylogeny by hand, so simplify the data. For differences 
+
+\begin{itemize}
+	\begin{multicols}{2}
+	\item between 30--49, use 35.
+	\item between 21--29, use 25.
+	\item between 11--20, use 15.
+	\item of 10 or less, use the actual value.
+\end{multicols}
+\end{itemize}
+
+\question \label{genetic_phylogeny}
+Use the simplified differences to draw a phylogenetic tree on a separate sheet of paper. \emph{Read the important information below.}
+
+\textsc{Important:} Low numbers express greater genetic similarity between two species, which means they share a more recent common ancestor. For example, \textit{G. galloti} from Gomera and Hierro will show the fewest number of differences, meaning they share a more recent common ancestor compared to the other pairs. Pairs with high numbers have lower genetic similarity, so their common ancestry would be farther back in time.
+
+%\textsc{Hint:} Interpret these number broadly. Consider species with 30–45 differences to have the \emph{same number} of differences. Do the same for 15–29 differences. Treat numbers less than 10 as is. That should make tree construction easier. 
 
 Refer to your phylogenetic tree based on genetic similarities found in Table~\ref{tab:dna_similarity}. Compare it to the phylogeny chart you drew based on the geographic distances and geologic age of the islands. 
 
-\question Describe the difference(s) between your two phylogenies? 
+\question Describe the difference(s) between the phylogeny you made based on island distance and age to the phylogeny you made based on \textsc{dna} differences.
 
 \AnswerBox{2\baselineskip}{Depends on their phylogenies. Roll with it.}
 
-\question
-Use your two phylogenies to tell which species, \textit{G. stehlini} or \textit{G. atlantica,} is the ancestor of the other? Explain your reasoning. 
-
-\AnswerBox{3\baselineskip}{Probably \textit{G. stehlini} because of molecular data. If needed, tell student chance and variable ocean currents could affect when organisms arrive on an island.}
-
-\question
-Predict what is likely to happen to the four populations of \textit{G. galloti} on the four westernmost islands. State what evolutionary conditions will support this prediction, and why.
-
-\AnswerBox{3\baselineskip}{If gene flow is disrupted could become different species. They might include natural selection, drift, and mutation but \emph{should} mention gene flow for speciation. If they say gene flow is high so no speciation, ask them if there would be genetic differences among the island populations if gene flow is high.}
-
-\newpage
-
-Tenerife is the largest island with \textit{G. galloti} (Figure~\ref{fig:distribution}). Tenerife is moist and lush in the north while arid and barren in the south. The \textit{G. galloti} sequence you used earlier was from a northern lizard. 
+%\question
+%Use your two phylogenies to tell which species, \textit{G. stehlini} or \textit{G. atlantica,} is the ancestor of the other? Explain your reasoning. 
+%
+%\AnswerBox{3\baselineskip}{Probably \textit{G. stehlini} because of molecular data. If needed, tell student chance and variable ocean currents could affect when organisms arrive on an island.}
+%
 
 \question
+Tenerife is the largest of the four islands that have \textit{G. galloti} (Figure~\ref{fig:distribution}). Tenerife is moist and lush in the north while arid and barren in the south. The \textit{G. galloti} sequence you used earlier was from a northern lizard. 
+
 Would you predict any \textsc{dna} differences between lizards that live on the northern part of Tenerife compared to lizards that live on the southern part? Explain.
 
 \AnswerBox{2\baselineskip}{Student's choice.}
@@ -375,13 +384,13 @@ Table~\ref{tab:galloti} shows the sequences for northern and southern \textit{G.
 \begin{longtable}[l]{ll}
 \caption{D\textsc{na} for \textit{G. galloti} from northern and southern Tenerife. A period \\indicates the same nucleotide as northern \textit{G. galloti.}\label{tab:galloti}}\tabularnewline
 \toprule
-{\regfont North} & TTCAAGGCAATACACCATCGTTATTTACGTGAAATATTGG \tabularnewline
-{\regfont South} & .C......A..G.....C......C...A.....C..C.. \tabularnewline
+{\regfont North} & TTCAATACACCACCGTCATTGAAATATTGG \tabularnewline
+{\regfont South} & .C....G.....T...T..C....C..C.. \tabularnewline
 \bottomrule
 \end{longtable}
 }
 
-Number of differences: \ifprintanswers \textbf{8} \fi
+Number of differences: \ifprintanswers \textbf{7} \fi
 
 \vspace{\baselineskip}
 
@@ -394,6 +403,12 @@ Did the results agree with your prediction?
 Provide an explanation based on habitat, natural selection, and gene flow that might explain the genetic differences between the northern and southern lizards on Tenerife.
 
 \AnswerBox{3\baselineskip}{Wide latitude but allow for adaptation to environmental conditions may limit gene flow. Some may even go hybrid zone route.}
+
+\question[Checkout]
+Predict what is likely to happen to the four populations of \textit{G. galloti} on the four westernmost islands. State what evolutionary conditions will support this prediction, and why.
+
+\AnswerBox{3\baselineskip}{If gene flow is disrupted could become different species. They might include natural selection, drift, and mutation but \emph{should} mention gene flow for speciation. If they say gene flow is high so no speciation, ask them if there would be genetic differences among the island populations if gene flow is high.}
+
 
 
 \end{questions}
