@@ -607,8 +607,12 @@ number. Hint: What is the figure number for the above figure?
 \begin{minipage}{0.7\textwidth}
 	\includegraphics[width=\textwidth]{02_ok_earthquakes}\\
 	
-	\vspace{0.15\textheight}
-
+	\ifprintanswers 
+		\textbf{Figure 2. Number of Oklahoma earthquakes per year for 1980–2016.}
+		\vspace*{\baselineskip}
+	\else
+		\vspace{0.1\textheight}
+	\fi
 %\newpage
 	
 \end{minipage}%
@@ -624,6 +628,13 @@ Be sure to include  the correct figure number.
 \hfil%
 \begin{minipage}{0.7\textwidth}
 	\includegraphics[width=\textwidth]{02_ecosystem_distribution}\\
+	
+	\ifprintanswers 
+		\textbf{{\small Figure 3. Distribution of three ecosystems based on mean annual precipitation and mean annual temperature. The dominant plant group for each ecosystem is Subalpine Larch (gray triangles), Mixed Grassland (white squares), and Western Redcedar (black diamonds).}}
+		%\vspace*{\baselineskip}
+	\else
+		\vspace{0.01\textheight}
+	\fi
 	
 %	\vspace{3\baselineskip}
 %	\vspace{0.15\textheight}

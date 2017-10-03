@@ -2,6 +2,9 @@
 %!TEX encoding = UTF-8 Unicode
 
 \documentclass[12pt, hidelinks]{exam}
+
+%\printanswers
+
 \usepackage{graphicx}
 	\graphicspath{{/Users/goby/Pictures/teach/163/lab/}
 	{img/}} % set of paths to search for images
@@ -99,7 +102,6 @@
 \newlength{\basespace}
 \setlength{\basespace}{5\baselineskip}
 
-%\printanswers
 
 \begin{document}
 
@@ -122,39 +124,91 @@ from the head to the tail. One species has a stripe that is restricted to the he
 	Smithsonian Institute, Flickr, public domain}
 \end{center}
 
-For this exercise, you will work in pairs or in a group of three students. Together,
- you will use a phylogeny of 21 \textit{Elacatinus} species and
+Work in pairs. Together,
+you will use a phylogeny of 21 \textit{Elacatinus} species and
 populations to explore how changes of behavior and color may have
 contributed to speciation in these fishes.
 
-The phylogeny is on the last page. Match the species on the phylogeny
- to the behavior (cleaner, sponge-dweller, or hovering) and the stripe color 
- (blue, yellow or white). Then, study the tree for evolutionary patterns and
-  answer the following questions.
+The phylogeny is on page~\pageref{phylogeny}. Match the species on the phylogeny
+to the behavior (cleaner, sponge-dweller, or hovering) and the stripe color 
+(blue, yellow or white) shown in the table on page~\pageref{color_behavior}. 
+Then, study the tree for evolutionary patterns and answer the following questions.
 
+\emph{Apply parsimony to find the fewest number of changes for each behavior and color.}
 \begin{questions}
 
 \question
-How many times did the cleaning behavior evolve? \textsc{Hint:} 
-Trace all species with the same behavior back to their most distance common ancestor.
-That is when the behavior most likely evolved. 
+How many times did the cleaning behavior evolve? \textsc{Hint:} Trace all species with the same behavior back to their most distance common ancestor. That is when the behavior most likely evolved.
 
-\AnswerBox{\baselineskip}{Once}
+\AnswerBox{0.5\baselineskip}{Once}
 
 \question
 How many times did the sponge-dwelling behavior evolve?
 
-\AnswerBox{\baselineskip}{Once}
+\AnswerBox{0.5\baselineskip}{Once}
 
 \question
 How many times did the hovering behavior evolve?
 
-\AnswerBox{\baselineskip}{Twice}
+\AnswerBox{0.5\baselineskip}{Twice}
 
-\question
+\hfill \textbf{Questions continue on page~\pageref{questions_continued}.}
+
+\newpage
+
+	\ifprintanswers
+		\includegraphics[height=0.75\textheight]{06_elacatinus_phylogeny_key}\label{phylogeny}
+	\else
+		\includegraphics[height=0.75\textheight]{06_elacatinus_phylogeny}\label{phylogeny}
+	\fi
+	
+\newpage
+
+% Table and Phylogeny here.
+\subsubsection*{\textit{Elacatinus} behavior and stripe colors}
+
+
+Match behavior and stripe colors to the species on the phylogeny. Be sure to
+match the proper populations where shown. Populations are shown only for
+species with different colors for different populations.
+
+\label{color_behavior}
+\begin{tabular}[c]{@{}llll@{}}
+	\toprule
+	\textit{Elacatinus}		&	Population		&	Behavior		&	Stripe Color \tabularnewline
+	\midrule
+	\textit{atronasus}		&					&	Hovering		&	Yellow	\tabularnewline
+	\textit{chancei} 		&	North Caribbean	&	Sponge-dweller	&	Yellow	\tabularnewline
+	\textit{chancei} 		&	South Caribbean	&	Sponge-dweller	&	Yellow	\tabularnewline
+	\textit{evelynae} 		&	Bahamas			&	Cleaner			&	Yellow	\tabularnewline
+	\textit{evelynae} 		&	East Caribbean	&	Cleaner			&	Blue 	\tabularnewline
+	\textit{evelynae} 		&	West Caribbean	&	Cleaner			&	White	\tabularnewline
+	\textit{figaro}			&					&	Cleaner			&	Yellow	\tabularnewline
+	\textit{genie}			&					&	Cleaner			&	White	\tabularnewline
+	\textit{horsti} 		&	Grand Cayman	&	Sponge-dweller	&	Yellow	\tabularnewline
+	\textit{horsti} 		&	South Caribbean	&	Sponge-dweller	&	Yellow	\tabularnewline
+	\textit{horsti} 		&	Bahamas			&	Sponge-dweller	&	Yellow	\tabularnewline
+	\textit{horsti} 		&	Jamaica			&	Sponge-dweller	&	White	\tabularnewline
+	\textit{illecebrosus}	&	Columbia		&	Cleaner			&	Blue	\tabularnewline
+	\textit{illecebrosus} 	&	Panama			&	Cleaner			&	Yellow	\tabularnewline
+	\textit{jarocho}		&					&	Hovering		&	Yellow	\tabularnewline
+	\textit{lori}			&					&	Sponge-dweller	&	White	\tabularnewline
+	\textit{louisae}		&					&	Sponge-dweller	&	Yellow	\tabularnewline
+	\textit{oceanops}		&					&	Cleaner			&	Blue	\tabularnewline
+	\textit{prochilos}		&					&	Cleaner			&	White	\tabularnewline
+	\textit{randalli}		&					&	Cleaner			&	Yellow	\tabularnewline
+	\textit{xanthiprora}	&					&	Sponge-dweller	&	Yellow	\tabularnewline
+	\bottomrule
+\end{tabular}
+
+\textbf{You can separate the two pages to more easily match traits to the phylogeny.}
+
+\newpage
+
+\question \label{questions_continued}
 Assuming that lateral stripe color evolved in the common ancestor
 of \emph{all} of these species (the root of the tree), what is the most likely ancestral lateral
-stripe color? Explain. \textsc{Hint:} Which color is basal in each of the two main behavioral groups?
+stripe color? Explain. %\textsc{Hint:} Which color is basal in each of the two main behavioral groups?
 
 \AnswerBox{3\baselineskip}{Yellow. Most species have it so their ancestor probably had it.}
 
@@ -164,7 +218,7 @@ How many times did each of the other colors evolve independently?
 \AnswerBox{2\baselineskip}{Blue: 3 Times. \quad White: 5 times}
 
 
-\question
+\question[Checkout]
 Do you think northern and southern populations of 
 \textit{Elacatinus chancei} should be considered a single species?
 Explain.
@@ -172,16 +226,17 @@ Explain.
 \AnswerBox{3\baselineskip}{Probably different species but let students defend own decision. 
 If guidance sought, point out that \textit{E. chancei} (both pops) has a stripe restricted to the head
 but \textit{E. horsti} has a stripe that runs the full body length. Both pops of \textit{E. chancei} are also
-genetically distinct. Would gene flow allow them to be gentically different?}
+genetically distinct. Would gene flow allow them to be genetically different?}
 
-\question
+\question[Checkout]
 Identify one other species shown in the phylogenetic tree
-that could treated as actually being more than one species. Explain why you think so.
+that could be treated as actually being more than one species. Explain why you think so.
 
 \AnswerBox{3\baselineskip}{\textit{horsti, illecebrosus, evelynae} are most likely choices. 
 The populations differ by color. You can add that the populations are genetically different, if 
 they want a little guidance. Lead them by asking if gene flow between pops would allow them
 to be genetically different.}
+
 
 %When the fishes are preserved for study, the color of the stripe disappears. Without the color
 %individuals from different populations cannot be distinguished. As a result, 
@@ -194,46 +249,5 @@ to be genetically different.}
 %\AnswerBox{\baselineskip}{Cryptic species.}
 
 \end{questions}
-
-\newpage
-
-\subsubsection*{\textit{Elacatinus} behavior and stripe colors}
-
-
-Match behavior and stripe colors to the species on the phylogeny. Be sure to
-match the proper populations where shown. Populations are shown only for
-species with different colors for different populations.
-
-\begin{tabular}[c]{@{}llll@{}}
-\toprule
-\textit{Elacatinus}		&	Population			&	Behavior				&	Stripe Color \tabularnewline
-\midrule
-\textit{atronasus}		&								&	Hovering				&	Yellow	\tabularnewline
-\textit{chancei} 			&	North Caribbean	&	Sponge-dweller		&	Yellow	\tabularnewline
-\textit{chancei} 			&	South Caribbean	&	Sponge-dweller		&	Yellow	\tabularnewline
-\textit{evelynae} 		&	Bahamas				&	Cleaner					&	Yellow	\tabularnewline
-\textit{evelynae} 		&	East Caribbean		&	Cleaner					&	Blue 		\tabularnewline
-\textit{evelynae} 		&	West Caribbean	&	Cleaner					&	White	\tabularnewline
-\textit{figaro}				&								&	Cleaner					&	Yellow	\tabularnewline
-\textit{genie}				&								&	Cleaner					&	White	\tabularnewline
-\textit{horsti} 				&	Grand Cayman		&	Sponge-dweller		&	Yellow	\tabularnewline
-\textit{horsti} 				&	Bahamas				&	Sponge-dweller		&	Yellow	\tabularnewline
-\textit{horsti} 				&	Bahamas				&	Sponge-dweller		&	Yellow	\tabularnewline
-\textit{horsti} 				&	Jamaica				&	Sponge-dweller		&	White	\tabularnewline
-\textit{illecebrosus}	&	Columbia				&	Cleaner					&	Blue		\tabularnewline
-\textit{illecebrosus} 	&	Panama				&	Cleaner					&	Yellow	\tabularnewline
-\textit{jarocho}			&								&	Hovering				&	Yellow	\tabularnewline
-\textit{lori}					&								&	Sponge-dweller		&	Yellow	\tabularnewline
-\textit{louisae}			&								&	Sponge-dweller		&	Yellow	\tabularnewline
-\textit{oceanops}		&								&	Cleaner					&	Blue		\tabularnewline
-\textit{prochilos}		&								&	Cleaner					&	White	\tabularnewline
-\textit{randalli}			&								&	Cleaner					&	Yellow	\tabularnewline
-\textit{xanthiprora}		&								&	Sponge-dweller		&	Yellow	\tabularnewline
-\bottomrule
-\end{tabular}
-
-\newpage
-
-	\includegraphics[width=0.85\textwidth]{06_elacatinus_phylogeny}
 
 \end{document}  
