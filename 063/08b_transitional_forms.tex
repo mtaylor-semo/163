@@ -2,6 +2,19 @@
 %!TEX encoding = UTF-8 Unicode
 
 \documentclass[12pt, hidelinks]{exam}
+
+\printanswers
+
+% To define fonts for particular uses within a document. For example, 
+% This sets the Libertine font to use tabular number format for tables.
+%\newfontfamily{\tablenumbers}[Numbers={Monospaced}]{Linux Libertine O}
+% \newfontfamily{\libertinedisplay}{Linux Libertine Display O}
+\usepackage{fontspec}
+\setmainfont[Ligatures={TeX}, BoldFont={* Bold}, ItalicFont={* Italic}, BoldItalicFont={* BoldItalic}, Numbers={OldStyle}]{Linux Libertine O}
+\setsansfont[Scale=MatchLowercase,Ligatures=TeX, Numbers=OldStyle]{Linux Biolinum O}
+%\setmonofont[Scale=MatchLowercase]{Inconsolatazi4}
+\usepackage{microtype}
+
 \usepackage{graphicx}
 	\graphicspath{{/Users/goby/Pictures/teach/163/lab/}
 	{img/}} % set of paths to search for images
@@ -14,22 +27,11 @@
 \usepackage{mathtools}
 	\everymath{\displaystyle}
 
-\usepackage{fontspec}
-\setmainfont[Ligatures={TeX}, BoldFont={* Bold}, ItalicFont={* Italic}, BoldItalicFont={* BoldItalic}, Numbers={OldStyle}]{Linux Libertine O}
-\setsansfont[Scale=MatchLowercase,Ligatures=TeX, Numbers=OldStyle]{Linux Biolinum O}
-%\setmonofont[Scale=MatchLowercase]{Inconsolatazi4}
-\usepackage{microtype}
-
-
-% To define fonts for particular uses within a document. For example, 
-% This sets the Libertine font to use tabular number format for tables.
- %\newfontfamily{\tablenumbers}[Numbers={Monospaced}]{Linux Libertine O}
-% \newfontfamily{\libertinedisplay}{Linux Libertine Display O}
-
 \usepackage{booktabs}
 \usepackage{multicol}
 
 \usepackage{tikz}
+\usetikzlibrary{backgrounds}
 \usepackage{forest}
 \forestset{
     every leaf node/.style={
@@ -57,7 +59,77 @@
     }
 }
 
+\forestset{
+	every leaf node/.style={
+		if n children=0{\raggedright #1}{}
+	},
+	every tree node/.style={
+		if n children=0{}{#1}
+	},
+	uprighttree/.style={
+		for tree={
+			edge path={
+				\noexpand\path [draw, ultra thick, \forestoption{edge}] (!u.parent anchor) -| (.child anchor)\forestoption{edge label};
+			},
+			every tree node={draw=none,inner sep=0, outer sep=0, minimum size=0},
+			every leaf node/.style={align=right},
+			grow'=north,
+			parent anchor=north, 
+			child anchor=south,
+			anchor=base,
+			l sep=0.5cm,
+			s sep=3mm,
+			draw=none,
+			if n children=0{tier=word, align=center, base=bottom}{}
+		}
+	}
+}
 
+\forestset{
+	declare dimen register={timeline offset},
+	timeline offset'=10mm,
+	declare toks register={timeline target},
+	timeline target=,
+	declare boolean={tree node}{0},
+	timelinetree/.style={
+		for tree={
+			edge+={ultra thick},
+			edge path'={
+				(!u.parent anchor) -| (.child anchor)
+			},
+			grow=north,
+			parent anchor=children,
+			child anchor=parent,
+			anchor=base,
+			l sep=1cm,
+			s sep=3mm,
+			if n children=0{tier=word, align=center, base=bottom, not tree node}{coordinate, tree node}
+		}
+	},
+	%
+	age/.style={
+		tikz+={
+			\begin{scope}[on background layer] 
+				\draw [gray, thick, dotted] () -- ( -| timeline base) node[black,anchor=east]{#1}; 
+			\end{scope} 
+		}
+	},
+	%
+	timeline/.style={
+		before drawing tree={
+			timeline target/.option=name,
+			tempdima/.option=y,
+			for tree={
+				if={>OR>{y}{tempdima}}{timeline target/.option=name}{},
+			}
+		},
+		tikz+={
+			\begin{scope}[on background layer]
+				\draw ([xshift=-\foresteregister{timeline offset}]current bounding box.west |- .parent anchor) coordinate (timeline base) -- (\foresteregister{timeline target}.child anchor -| timeline base) node [above] {\textsc{mya}};
+			\end{scope}
+		},
+	},
+}
 
 \usepackage{longtable}
 %\usepackage{siunitx}
@@ -116,15 +188,7 @@
 \setlength{\basespace}{5\baselineskip}
 
 
-%
-%\makeatletter
-%\def\SetTotalwidth{\advance\linewidth by \@totalleftmargin
-%\@totalleftmargin=0pt}
-%\makeatother
-
 \usepackage{wrapfig}
-
-%\printanswers
 
 \newlength{\tempintextsep}
 \setlength{\tempintextsep}{\intextsep}
@@ -134,20 +198,19 @@
 \subsection*{Transitional forms and the fossil record}% (\numpoints\ points)}
 
 
-\setlength{\intextsep}{0pt}
+%\setlength{\intextsep}{0pt}
 
-%\begin{center}
-\begin{wrapfigure}[10]{r}[23pt]{0pt}
-\begin{forest} mytree
-[[	
-	[cat]
-	[fish]
-	[human]
-	[pigeon]
-	[turtle]
-	[salamander]
-]]
-\end{forest}
+%\begin{wrapfigure}[12]{r}[23pt]{0pt}
+%\begin{forest} mytree
+%[[	
+%	[cat]
+%	[fish]
+%	[human]
+%	[pigeon]
+%	[turtle]
+%	[salamander]
+%]]
+%\end{forest}
 %	\begin{tikzpicture}
 %		[branch/.style={thick}]
 %		
@@ -160,35 +223,54 @@
 %		\draw [branch] (0,1) -- (3,4) node [above right, xshift=-10pt] {\strut salamder};
 %
 %	\end{tikzpicture}
-\end{wrapfigure} After the examining the skeletal evidence, you should have a 
-tree that looks similar to the one shown at right. The skeletons and embryos
-provided evidence of common ancestry for the six organisms but not enough to resolve 
-the the relationships of each one. Other skeletal evidence exists
-that can resolve relationships, but it is hard to use in a course like this.
- Instead, you will use evidence from the fossil record. % \bigskip
+%\end{wrapfigure} 
+Characters from the vertebrate skeletons and embryos provided evidence of common 
+ancestry but you could not tell, for example, whether the cat is more closely related to the bat or macaque. 
+Other skeletal evidence exists
+that can resolve those relationships, but it is hard to use in a course like this.
 
-%\end{center}
+Instead, you will use evidence from the fossil record. Fossils provide evidence of common ancestry because of descent with modification. The descendants have traits that were modified from the ancestral form. The modified traits do not appear suddenly but change slowly over time. These changes can be detected in the fossil record.% shown in the trees below. 
+
+For example, the hypothesis below makes several predictions about common ancestor. Dolphins and tunas are predicted to share a common ancestor with each other but not with seastars, clams, fungi, or oak trees.  
+
+Seastars Fungi are predicted to share Ancestor 1. Soon after speciation (dotted line), the descendants will look much like their ancestor but some traits will be slightly modified. Much later (dashed line), the descendants look less like their ancestor and more like their present day forms. 
+
+\begin{tikzpicture}
+	[branch/.style={thick}]
+	
+	% Tree 1
+	\draw (0,0) node [below] {Past} -- (0,3) node [above] {\strut Present};
+	\draw [branch] (5,0) node [below] {Anc. 1} -- (5,1);
+	\draw [branch] (3.25,1) -- (6.75,1);
+	
+	% Tree 1, Left clade
+	\draw [branch] (3.25,1) -- (3.25,2);
+	\draw [branch] (2.25,2) -- (4.25,2);
+	
+	\draw [branch] (2.25,2) -- (2.25,3) node [above] {\strut Seastar};
+	\draw [branch] (4.25,2) -- (4.25,3) node [above] {\strut Clams};
+	
+	
+	% Tree 1, Right clade
+	\draw [branch] (6.75,1) -- (6.75,2);
+	\draw [branch] (5.75,2) -- (7.75,2);
+	\draw [branch] (5.75,2) -- (5.75,3) node [above] {\strut Fungi};
+	\draw [branch] (7.75,2) -- (7.75,3) node [above] {\strut Oak Trees};
+	
+	% Tree 2
+	\draw (11,0) node [below] {Anc. 2} -- (11,1);
+	\draw (10,1) -- (12,1);
+	\draw (10,1) -- (10,3) node [above] {\strut Dolphin};
+	\draw (12,1) -- (12,3) node [above] {\strut Tuna Fish}; 
 
 
+	\draw [densely dotted, thick] (2,1.5) -- (12.5,1.5);
+	\draw [dashed, thick] (2,2.5) -- (12.5,2.5);
 
-\setlength{\intextsep}{\tempintextsep}
+\end{tikzpicture}
 
-\begin{wrapfigure}[13]{r}{0pt}
-%	\includegraphics[width=0.45\textwidth]{07_transitional_tree_full}
-	\begin{tikzpicture}
-		[branch/.style={thick}]
-		\draw [branch] (-1.5,0) node [below] {Anc. 1} -- (-1.5,1);
-		\draw [branch] (-1.5,1) -- (-3,4) node [above] {Desc. \textsc{a}};
-		\draw [branch] (-1.5,1) -- (0,4) node [above] {Desc. \textsc{b}};
-		\draw [branch] (2.5,0) node [below] {Anc. 2} -- (2.5,4) node [above] {Desc. \textsc{c}};
-		
-		\draw [densely dotted, thick] (-3,1.5) -- (3,1.5);
-		\draw [dashed, thick] (-3,3.2) -- (3,3.2);
-		
-	\end{tikzpicture}
-\end{wrapfigure}Fossils provide evidence of common ancestry because of descent with modification, meaning that species share an ancestor but some of their traits have been modified from the ancestral form. Modified traits do not appear suddenly but slowly become different over time, shown in the tree at right. Descendants \textsc{a} and \textsc{b} are predicted to share Ancestor~1. Soon after speciation (dotted line), the descendants still strongly resemble the ancestor but some traits will be slightly modified. Much later (dashed line), the descendants look less like their ancestor and more like their final forms. 
 
-The fossils that show these changing traits are called \textit{transitional forms.} A transitional form is an intermediate species found in the fossil record that contains traits of both the ancestor and the descendant. Transitional forms should appear only between organisms that do have a common ancestor.  In the tree above, transitional forms should appear between Ancestor~1 and Descendants~\textsc{a} and \textsc{b}. Transitional forms should \textit{not} appear Ancestor~1 and Descendant~\textsc{c}.  If a transitional form were found between Ancestor~1 and Descendant~\textsc{c}, then the hypothesis would be falsified. Similarly, if a transitional form were found between Ancestor~2 and Descendants~\textsc{a} or \textsc{b}, then the hypothesis would be falsified.
+The fossils that show these changing traits are called \textbf{transitional forms.} A transitional form is an intermediate species found in the fossil record that contains traits of both the ancestor and the descendant. Transitional forms should appear only between organisms that share a common ancestor.  In the tree above, transitional forms should appear between Ancestor~1 and Descendants~\textsc{a} and \textsc{b}. Transitional forms should \textit{not} appear between Ancestor~1 and Descendant~\textsc{c}.  If a transitional form were found between Ancestor~1 and Descendant~\textsc{c}, then the hypothesis would be falsified. Similarly, if a transitional form were found between Ancestor~2 and Descendants~\textsc{a} or \textsc{b}, then the hypothesis would be falsified.
 
 \begin{questions}
 
@@ -201,24 +283,52 @@ Hypothesis 1:
 
 \begin{center}
 
-\begin{tikzpicture}
-	[scale=0.85, branch/.style={thick}]
-	
-	\coordinate (root) at (0,0);
-	\coordinate (rm) at (-2,2);
-	\coordinate (rb) at (-3,3);
-	\coordinate (fa) at (3,3);
-	\draw [branch] (0,-1) node [below] {Vertebrate ancestor} -- (root);
-	\draw [branch] (root) -- (rm);
-	\draw [branch] (rm) -- (-0,4) node [above] {\strut Mammal}; % mammals
-	\draw [branch] (rm) -- (rb);
-	\draw [branch] (rb) -- (-2,4) node [above] {\strut Bird}; % birds
-	\draw [branch] (rb) -- (-4,4) node [above] {\strut Reptile}; %reptiles
-	\draw [branch] (root) -- (fa);
-	\draw [branch] (fa) -- (4,4) node [above] {\strut Amphibian};
-	\draw [branch] (fa) -- (2,4) node [above] {\strut Fish};
-	
-\end{tikzpicture}\label{hypothesis1}
+%\begin{tikzpicture}
+%	[scale=0.85, branch/.style={thick}]
+%	
+%	\coordinate (root) at (0,0);
+%	\coordinate (rm) at (-2,2);
+%	\coordinate (rb) at (-3,3);
+%	\coordinate (fa) at (3,3);
+%	\draw [branch] (0,-1) node [below] {Vertebrate ancestor} -- (root);
+%	\draw [branch] (root) -- (rm);
+%	\draw [branch] (rm) -- (-0,4) node [above] {\strut Mammal}; % mammals
+%	\draw [branch] (rm) -- (rb);
+%	\draw [branch] (rb) -- (-2,4) node [above] {\strut Bird}; % birds
+%	\draw [branch] (rb) -- (-4,4) node [above] {\strut Reptile}; %reptiles
+%	\draw [branch] (root) -- (fa);
+%	\draw [branch] (fa) -- (4,4) node [above] {\strut Amphibian};
+%	\draw [branch] (fa) -- (2,4) node [above] {\strut Fish};
+%	
+%\end{tikzpicture}\label{hypothesis1}
+
+\begin{forest} uprighttree
+[,
+ [,name=vert_anc
+  [,name=saurischian_anc
+   [,name=archosaur_anc
+    [Reptiles]
+    [Birds]
+   ]  
+   [Mammals]
+  ]
+  [,name=fish_anc
+   [Fishes]
+   [Amphibians]
+  ]
+ ]
+]
+%
+\filldraw (archosaur_anc) circle [radius=3pt, fill=black, yshift=-5mm] node [left, xshift=-1mm, yshift=-5mm] {{\small Reptile-like ancestor}};
+%
+\filldraw (saurischian_anc) circle [radius=3pt, fill=black, yshift=-5mm] node [left, xshift=-1mm, yshift=-5mm] {{\small Reptile-like ancestor}};
+%%
+\filldraw (fish_anc) circle [radius=3pt, fill=black, yshift=-5mm] node [right, xshift=1mm, yshift=-5mm] {{\small Fish-like ancestor}};
+%%
+\filldraw (vert_anc) circle [radius=3pt, fill=black, yshift=-5mm] node [left, xshift=-1mm, yshift=-5mm] {{\small Vertebrate ancestor}};
+%%
+%
+\end{forest}\label{hypothesis1}
 
 \end{center}
 
@@ -228,24 +338,51 @@ Hypothesis 2:
 
 \begin{center}
 
-\begin{tikzpicture}
-	[scale=0.85,branch/.style={thick}]
-	
-	\coordinate (root) at (0,0);
-	\coordinate (rm) at (-2,2);
-	\coordinate (rb) at (-3,3);
-	\coordinate (fa) at (3,3);
-	\draw [branch] (0,-1) node [below] {Vertebrate ancestor} -- (root);
-	\draw [branch] (root) -- (rm);
-	\draw [branch] (rm) -- (-0,4) node [above] {\strut Fish}; % mammals
-	\draw [branch] (rm) -- (rb);
-	\draw [branch] (rb) -- (-2,4) node [above] {\strut Amphibian}; % birds
-	\draw [branch] (rb) -- (-4,4) node [above] {\strut Reptile}; %reptiles
-	\draw [branch] (root) -- (fa);
-	\draw [branch] (fa) -- (4,4) node [above] {\strut Bird};
-	\draw [branch] (fa) -- (2,4) node [above] {\strut Mammal};
-	
-\end{tikzpicture}\label{hypothesis2}
+\begin{forest} uprighttree
+[
+ [,name=vert_anc
+  [,name=fish_anc
+   [,name=amphibian_anc
+	[Reptiles]
+	[Amphibians]
+   ]  
+   [Fishes]
+  ]
+  [[,name=mammal_anc
+   [Mammals]
+   [Birds]
+  ]]
+ ]
+]
+%
+\filldraw (amphibian_anc) circle [radius=3pt, fill=black, yshift=-5mm] node [left, xshift=-1mm, yshift=-5mm] {{\small Amphibian-like ancestor}};
+%
+\filldraw (fish_anc) circle [radius=3pt, fill=black, yshift=-5mm] node [left, xshift=-1mm, yshift=-5mm] {{\small Fish-like ancestor}};
+%
+\filldraw (vert_anc) circle [radius=3pt, fill=black, yshift=-5mm] node [left, xshift=-1mm, yshift=-5mm] {{\small Vertebrate ancestor}};
+%
+\filldraw (mammal_anc) circle [radius=3pt, fill=black, yshift=-10mm] node [right, xshift=1mm, yshift=-10mm] {{\small Mammal-like ancestor}};
+%
+\end{forest}\label{hypothesis2}
+
+%\begin{tikzpicture}
+%	[scale=0.85,branch/.style={thick}]
+%	
+%	\coordinate (root) at (0,0);
+%	\coordinate (rm) at (-2,2);
+%	\coordinate (rb) at (-3,3);
+%	\coordinate (fa) at (3,3);
+%	\draw [branch] (0,-1) node [below] {Vertebrate ancestor} -- (root);
+%	\draw [branch] (root) -- (rm);
+%	\draw [branch] (rm) -- (-0,4) node [above] {\strut Fish}; % mammals
+%	\draw [branch] (rm) -- (rb);
+%	\draw [branch] (rb) -- (-2,4) node [above] {\strut Amphibian}; % birds
+%	\draw [branch] (rb) -- (-4,4) node [above] {\strut Reptile}; %reptiles
+%	\draw [branch] (root) -- (fa);
+%	\draw [branch] (fa) -- (4,4) node [above] {\strut Bird};
+%	\draw [branch] (fa) -- (2,4) node [above] {\strut Mammal};
+%	
+%\end{tikzpicture}\label{hypothesis2}
 
 \end{center}
 
@@ -253,23 +390,23 @@ Hypothesis 2:
 
 \begin{parts}
 
-	\part Which tree(s) predict a transition between reptiles and mammals? \ifprintanswers\textbf{A}\fi
+	\part Which hypothesis predicts a transition between reptiles and mammals? \ifprintanswers\textbf{1}\fi
 
 	\vspace{\stretch{1}}
 
-	\part Which tree(s) predict a transition between reptiles and birds?  \ifprintanswers\textbf{A}\fi
+	\part Which hypothesis predicts a transition between reptiles and birds?  \ifprintanswers\textbf{1}\fi
 	
 	\vspace{\stretch{1}}
 	
-	\part Which tree(s) predict a transition between birds and mammals?   \ifprintanswers\textbf{B}\fi
+	\part Which hypothesis predicts a transition between birds and mammals?   \ifprintanswers\textbf{2}\fi
 
 	\vspace{\stretch{1}}
 	
-	\part Which tree(s) predict a transition between fishes and amphibians?  \ifprintanswers\textbf{A and B}\fi
+	\part Which hypothesis predicts a transition between fishes and amphibians?  \ifprintanswers\textbf{1 and 2}\fi
 	
 	\vspace{\stretch{1}}
 	
-	\part Which tree(s) predict a transition between amphibians and reptiles?  \ifprintanswers\textbf{B and arguably A}\fi
+	\part Which hypothesis predicts a transition between amphibians and reptiles?  \ifprintanswers\textbf{2 and arguably 1}\fi
 
 	
 \end{parts}
@@ -278,32 +415,38 @@ Hypothesis 2:
 
 \subsubsection*{Reptile / mammal transition: predictions}
 
-Mammals are distinguished from reptiles by many traits, like being warm-blooded, giving live birth, and having mammary glands. These traits, however, do not appear in fossil mammals. Fortunately, mammals and reptiles have different features in their skulls that allow you to easily tell whether a fossil was a mammal or a reptile.  Zoologists distinguish between reptiles and mammals primarily by the structure of the lower jaw.  Most reptiles, along with birds and amphibians, have skulls that look roughly like this:
+Mammals are distinguished from reptiles by many traits, like being warm-blooded, giving live birth, and having mammary glands, but these traits to do not appear in fossils. %These traits, however, do not appear in fossil mammals. 
+Fortunately, mammals and reptiles have different features in their skulls that allow you to easily tell whether a fossil was a mammal or a reptile.  Zoologists distinguish between reptiles and mammals primarily by the structure of the lower jaw.  Most reptiles, along with birds and amphibians, have skulls that look roughly like this:
 
-\begin{center}\includegraphics[width=0.7\textwidth]{07_reptile_skull}\end{center}
+\begin{center}\includegraphics[width=0.65\textwidth]{07_reptile_skull}\end{center}
 
-Turtles and crocodilians (alligators, etc.) have some differences from this model, but the jaw structure is essentially the same in them, too.  Note that each side of the lower jaw in these organisms is composed of several bones:  the dentary, which carries the teeth (hence the name), somewhere between 2 and 5 other bones, and the articular, which actually makes contact with the skull (articulates with it) to form the jaw joint (hence its name).  The bone in the skull that makes contact with the articular is the quadrate.  Therefore, reptiles, birds, and amphibians have a \emph{quadrate-articular} jaw joint.  
+Turtles and crocodilians (alligators, etc.) have some differences from this model, but the jaw structure is essentially the same in them, too.  Each side of the lower jaw in these organisms is composed of several bones:  the \textbf{dentary,} which carries the teeth (hence the name), somewhere between 2 and 5 other bones, and the \textbf{articular,} which actually makes contact with the skull (articulates with it) to form the jaw joint (hence its name).  The bone in the skull that makes contact with the articular is the \textbf{quadrate.}  Therefore, reptiles, birds, and amphibians have a \textbf{quadrate-articular} jaw joint.  
 
 Now look at a mammalian skull:
 
-	\begin{center}\includegraphics[width=0.7\textwidth]{07_mammal_skull} \end{center}
+	\begin{center}\includegraphics[width=0.65\textwidth]{07_mammal_skull} \end{center}
 	
-Note that the dentary is the only bone in the lower jaw of a mammal—one on each side.  The dentary makes contact with a bone in the skull called the squamosal, forming a \emph{dentary-squamosal} jaw joint. 
+Note that the dentary is the only bone in the lower jaw of a mammal—one on each side.  The dentary makes contact with a bone in the skull called the \textbf{squamosal,} forming a \textbf{dentary-squamosal} jaw joint. 
 
-There are some other bone differences between reptiles and mammals.  Reptiles mostly have no separation between the nasal passages and the mouth.  In mammals, they are separated by a plate of bone called the secondary palate.  Reptiles have teeth that are all simple cones, each with a single root.  Mammals have teeth of a variety of types, some of which have multiple points, or cusps, and multiple roots.  
+\textbf{Notice the difference in tooth shape between reptiles and mammals.} Reptiles have teeth that are all simple cones, each with a single root.  Mammals have teeth of a variety of types, some of which have multiple points, or cusps, and multiple roots.
 
-Look again at the two hypotheses above (page~\pageref{hypothesis1}). Hypothesis~1 predicts that reptiles and mammals have a common ancestor and so should have transitional forms. Hypothesis~2 does not make this prediction. Now, reptiles are found in the fossil record starting in rocks dating to about 320 million years ago, while the earliest mammal fossils are in rocks dating to about 220 million years ago.\footnote{The techniques by which fossils are dated will be briefly covered in lecture. The dates provided here are the generally accepted dates for various fossils and rock formations, independently confirmed by lots of labs, with a margin of error well under 5\%.  (Ideas and illustrations in this page based on Hopson, JA 1987.  The Mammal-Like Reptiles.  American Biology Teacher 49:16-26)}  So, hypothesis 1 predicts that mammals evolved from some early reptile (rather than the other way around). Hypothesis~1 would therefore predict that we should see a series of organisms in the past that get gradually more and more like mammals and less like reptiles (of course, other reptiles continue being reptiles and get more similar to modern reptiles over time).  
+%There are some other bone differences between reptiles and mammals.  Reptiles mostly have no separation between the nasal passages and the mouth.  In mammals, they are separated by a plate of bone called the secondary palate.  Reptiles have teeth that are all simple cones, each with a single root.  Mammals have teeth of a variety of types, some of which have multiple points, or cusps, and multiple roots.  
+%
+
+%\newpage
+
+Look again at the two hypotheses above (page~\pageref{hypothesis1}). Hypothesis~1 predicts that reptiles and mammals have a common ancestor and so should have transitional forms. Hypothesis~2 does not make this prediction. Reptiles are found in the fossil record dating to about 320 million years ago, while the earliest mammal fossils date to about 220 million years ago.\footnote{The techniques by which fossils are dated will be briefly covered in lecture. The dates provided here are the generally accepted dates for various fossils and rock formations, independently confirmed by lots of labs, with a margin of error well under 5\%.  (Ideas and illustrations in this page based on Hopson, JA 1987.  The Mammal-Like Reptiles.  American Biology Teacher 49:16-26)}  So, Hypothesis 1 predicts that mammals evolved from some early reptile (rather than the other way around). Hypothesis~1 would therefore predict that we should see a series of organisms in the past that get gradually more and more like mammals and less like reptiles (of course, other reptiles continue being reptiles and get more similar to modern reptiles over time).  
 
 \question
-Specifically, in terms of jaw, tooth, and type of jaw joint identified above, what does hypothesis~1 predict you should see in these extinct transitional fossils?  Explain.
+Specifically, in terms of jaw, type of jaw joint, and tooth shape identified above, what does Hypothesis~1 predict you should see in these extinct transitional fossils?  Explain.
 
 \AnswerBox{6\baselineskip}{%
-Hypothesis 1 predicts that the dentary bone should enlarge to become the entire lower jaw, the teeth should change from conical to complex, rooted teeth, and the articular-quadrate joint should get replaced by the dentary-squamosal joint; 
+Hypothesis 1 predicts that the dentary bone should enlarge to become the entire lower jaw, the teeth should change from conical to complex, rooted teeth, and the articular-quadrate joint should get replaced by the dentary-squamosal joint.
 }
 
 
 \question
-Hypothesis 2, on the other hand, predicts that you should not see a gradual progression from reptile to more and more mammalian, but rather that you will see extinct reptiles and extinct mammals.  Any ``in between'' characteristics will just be chance resemblances.  So, in terms of jaw, tooth,  and type of jaw joint, what does hypothesis~2 predict we'll see in extinct organisms?  Explain.
+Hypothesis 2, on the other hand, predicts that you should not see a gradual progression from reptile to more and more mammalian, but rather that you will see extinct reptiles and extinct mammals.  Any ``in between'' characteristics will just be chance resemblances.  So, in terms of jaw, type of jaw joint, and tooth shape, what does Hypothesis~2 predict you should see in extinct organisms?  Explain.
 
 \AnswerBox{6\baselineskip}{%
 Hypothesis 2 predictions that none of the features should change. Reptile skulls should have multiple bones in the lower jaw, the teeth should always be conical, and they should always have an articular-quadrate bone. Mammal skulls should always have only a dentary bone for the lower jaw, complex rooted teeth, and a dentary-squamosal joint.}
@@ -336,24 +479,46 @@ Hypothesis~1 predicts that you should see successive stages from ``very reptilia
 %The first two both have to do with jaws so look first at the jaws of
 %some extinct animals. Diagrams of the skulls of eight different fossil species are at your
 %desk. 
-Your instructor will handout diagrams of the skulls of eight fossil species.
-Here are what the abbreviations on the diagrams stand for:
+Your instructor will handout diagrams of the skulls of eight fossil species. The diagrams use abbreviations for the bone names, listed here:
+%Here are what the abbreviations on the diagrams stand for:
 
-\begin{longtable}[c]{@{}L{0.22\textwidth}L{0.22\textwidth}L{0.22\textwidth}L{0.22\textwidth}@{}}
-\toprule
-a - angular & dent - dentary & part - prearticular & qj -
-quadratojugal\tabularnewline
-\midrule
-\endhead
-ang - angular & j - jugal & pf - prefrontal & ref lam - reflected lamina
-of angular\tabularnewline
-art - articular & max - maxilla & po - postorbital & sa -
-surangular\tabularnewline
-d - dentary & pal - palatine & q - quadrate & sq -
-squamosal\tabularnewline
-& & & sur - surangular\tabularnewline
-\bottomrule
-\end{longtable}
+%\begin{longtable}[c]{@{}L{0.22\textwidth}L{0.22\textwidth}L{0.22\textwidth}L{0.22\textwidth}@{}}
+%\toprule
+%a - angular		& dent - dentary	& part - prearticular	& qj - quadratojugal \tabularnewline
+%ang - angular	& j - jugal 		& pf - prefrontal 		& ref lam - reflected lamina of angular \tabularnewline
+%art - articular	& max - maxilla 	& po - postorbital 		& sa - surangular \tabularnewline
+%d - dentary 	& pal - palatine 	& q - quadrate 			& sq - squamosal \tabularnewline
+%				& 					& 						& sur - surangular\tabularnewline
+%\bottomrule
+%\end{longtable}
+%
+
+\begin{multicols}{4}
+	a, ang\,---\,angular \\
+	art\,---\,articular \\
+	d, dent\,---\,dentary \\
+	j\,---\,jugal 
+	
+	\columnbreak
+	
+	max\,---\,maxilla \\
+	pal\,---\,palatine \\
+	part\,---\,prearticular \\
+	pf\,---\,prefrontal 
+
+	\columnbreak
+	
+	po\,---\,postorbital \\
+	q\,---\,quadrate \\
+	qj\,---\,quadratojugal \\
+	ref\,lam\,---\,reflected lamina of angular
+	
+	\columnbreak
+	
+	sa\,---\,surangular \\
+	sq\,---\,squamosal \\
+	sur\,---\,surangular
+\end{multicols}
 
 In each diagram, the dentary has been highlighted. Since the dentary is the whole jaw in mammals, but a relatively
 small part of the jaw in reptiles, you should be able to arrange these
@@ -389,10 +554,11 @@ Based on your results, what can you conclude about Hypothesis~1 and Hypothesis~2
 Hypothesis~1 predicted transitional forms between reptiles and mammals. Transitional forms were found so H1 was supported. %Because hypothesis 2 predicted no common ancestor between reptiles and mammals, H2 was falsified.
 }
 
-So far, you have arranged these fossils in order according to how reptilian or mammalian they appear.  The fossils themselves were found in rock formations of various ages, and those rock formations can be dated, in most cases within a range of about 5\% of the total age.  Thus there is a natural sequence for when these organisms lived.  You could put them in order based on the age of the rocks you find their fossils in, from oldest to youngest rocks to see the order in which they appear in the fossil record. 
+So far, you have arranged these fossils in order according to how reptilian or mammalian they appear. % The fossils themselves were found in rock formations of various ages, and those rock formations can be dated, in most cases within a range of about 5\% of the total age.  Thus there is a natural sequence for when these organisms lived.  
+You could put them in order based on the age of the rocks you find their fossils in, from oldest to youngest rocks to see the order in which they appear in the fossil record. 
 
 \question
-If hypothesis~1 is right, mammals evolved from reptile ancestors.  What does hypothesis~1 predict you should you see if you arrange these organisms in order based on the age of the rocks in which their fossils are found?  Explain.
+If Hypothesis~1 is right, mammals evolved from reptile ancestors.  What does hypothesis~1 predict you should you see if you arrange these organisms in order based on the age of the rocks in which their fossils are found?  Explain.
 
 \AnswerBox{4\baselineskip}{%
 	Predicts that the order of the organisms listed in question~\ref{order_question} is the order they should appear in the fossil record. The first listed above should appear first in the fossil record (be the oldest). The last is the list should appear last in the fossil record (be the youngest). 
@@ -433,7 +599,7 @@ same family might survive. Do not worry about the taxonomic
 levels; the information is included for clarity.
 
 \question
-What do you conclude about hypothesis~1 based on the
+What do you conclude about Hypothesis~1 based on the
 evidence from time of appearance in the fossil record of the various
 mammal-like reptiles? Explain. 
 
@@ -442,7 +608,7 @@ The fossils appear in the order predicted by the transitional form evidence and 
 }
 
 \question
-What do you conclude about hypothesis 2 based on this
+What do you conclude about Hypothesis~2 based on this
 evidence? Explain.
 
 \AnswerBox{2\baselineskip}{%
@@ -459,60 +625,94 @@ Reptiles and mammals are not the only organisms that show evidence of transition
 \question
 Hypothesis~1 predicted that birds and reptiles share the most recent common ancestor. Hypothesis~2 predicted that birds and mammals shared the most recent common ancestor. Which hypothesis is supported based on the evidence presented?
 
-\AnswerBox{2\baselineskip}{Hypothesis 1.}
+\AnswerBox{2\baselineskip}{Hypothesis 1 was supported.}
 
 
 \question
-Was hypothesis~1, hypothesis~2, or both supported by the evidence of fish-amphibian transitional forms? Explain.
+Was Hypothesis~1, Hypothesis~2, or both supported by the evidence of fish-amphibian transitional forms? Explain.
 
-\AnswerBox{2\baselineskip}{Definitely H1, arguably H2.}
+\AnswerBox{2\baselineskip}{Both hypotheses were supported.}
 
 \question
-Was hypothesis~1, hypothesis~2, or both supported by the evidence of amphibian-reptile transitional forms?
+Was Hypothesis~1, Hypothesis~2, or both supported by the evidence of amphibian-reptile transitional forms?
 
-\AnswerBox{2\baselineskip}{Definitely H2, arguably H1.}
+\AnswerBox{2\baselineskip}{Hypothesis 2 was supported.}
 
-Neither hypothesis on page~\pageref{hypothesis1} is entirely consistent with \emph{all} evidence from the fossil record, nor with other evidence. The table below lists more homologies for the taxonomic groups. Use this table and the evidence presented earlier to make a phylogenetic tree of the vertebrates. Do not worry if you do not know what some of the homologies are but they have been scientifically verified. The homologies shown do not include all homologies that have been found for these groups.
+Neither hypothesis on page~\pageref{hypothesis1} is entirely consistent with \emph{all} evidence from the fossil record, nor with other evidence. The table below lists more homologies for groups of vertebrates. Use this table and the evidence presented earlier to make a phylogenetic tree of the vertebrates. Do not worry if you are unfamiliar with these homologies but they have been scientifically verified. They are a small set of all homologies that have been found for these groups.
 
-\begin{longtable}[c]{@{}L{1in}C{1in}C{1in}C{1in}C{1in}@{}}
-	\toprule
-	Taxon 				&	Vertebrae	& Tetrapods\newline(4 appendages)	&	Amniotic Egg	& Diapsid skull \tabularnewline
-	\midrule
-	Bony Fish			& 1				&	0							& 0 						& 0 \tabularnewline
-	Amphibians		& 1				&	1							& 0 						& 0 \tabularnewline
-	Mammals			& 1				&	1							& 1 						& 0 \tabularnewline
-	Birds					& 1				&	1							& 1 						& 1 \tabularnewline
-	Reptiles			& 1				&	1							& 1 						& 1 \tabularnewline
-	\bottomrule
-\end{longtable}
-
-\newpage
-
-Just like you used the time of appearance in the fossil record for mammal-like reptiles, you can use the time of appearance in the fossil record for the other taxonomic groups. The time of appearance for the major taxonomic groups (fishes, amphibians, etc.) is listed in the table below. The time is listed in millions of years ago (\textsc{mya}). The groups appeared sometime during the periods listed, based on the earliest fossils found so far.
-
-\begin{longtable}[c]{@{}L{1in}L{1.5in}L{2.5in}@{}}
+\begin{longtable}[c]{@{}L{1in}C{0.75in}C{0.75in}C{1in}C{0.6in}C{0.75in}@{}}
 \toprule
-Period	& Duration, \textsc{mya} 	&	Events in fossil record \tabularnewline
+Taxon 			& Amniotic\newline Egg	& Diapsid\newline Skull	& Four\newline Appendages	& Jaws	& Vertebrae \tabularnewline
 \midrule
-Jurassic			&	201–145	&	First birds.  \tabularnewline
-Triassic				&	252–201	&	First mammals, non-avian dinosaurs. \tabularnewline
-Permian			&	299–252	&	Mammal-like reptiles. Ended with largest recorded mass extinction. \tabularnewline
-Carboniferous	&	359–299	&	First reptiles. \tabularnewline
-Devonian			&	419–359	&	First tetrapods (amphibians). \tabularnewline
-Silurian				&	444–419	&	First fishes with jaws, first land plants and land invertebrates, first fungi. \tabularnewline
-Ordovician		&	485–444	&	First vertebrates (fishes without jaws). \tabularnewline
+Amphibians		& 0 			& 0 			& 1		& 1	& 1	\tabularnewline
+Birds			& 1 			& 1 			& 1		& 1	& 1 \tabularnewline
+Jawed Fishes	& 0 			& 0 			& 0		& 1 & 1	\tabularnewline
+Jawless Fishes	& 0 			& 0				& 0		& 0 & 1 \tabularnewline
+Mammals			& 1 			& 0 			& 1		& 1 & 1	\tabularnewline
+Reptiles		& 1 			& 1 			& 1		& 1 & 1	\tabularnewline
 \bottomrule
+
 \end{longtable}
 
-\question
-Draw your vertebrate phylogeny based on the homologies and that is consistent with the transitional forms and time of appearance in the fossil record. 
+%\newpage
 
-Draw your phylogeny below or on the back of this page.
+\question[Checkout]
+Draw your vertebrate phylogeny based on the homologies and that is consistent with the transitional forms and time of appearance in the fossil record. Draw your phylogeny at the bottom of or on the back of page~\pageref{transition_table}.
 
-\question
+%You can use the time of appearance in the fossil record for the other taxonomic groups, too. 
+The time period when major taxonomic groups (fishes, amphibians, etc.) appeared in the fossil record is listed in the table below. The duration, listed as millions of years ago (\textsc{mya}), shows how long each period lasted. The groups appeared sometime during the periods listed, based on the earliest fossils found so far.
+
+\begin{longtable}[c]{@{}L{1in}L{1.35in}L{2.65in}@{}}
+\toprule
+Period			& Duration, \textsc{mya} 	& Events in fossil record \tabularnewline
+\midrule
+Jurassic		& 201–145					& Reptile-bird transition. First birds.  \tabularnewline
+Triassic		& 252–201					& First mammals, non-avian dinosaurs. \tabularnewline
+Permian			& 299–252					& Reptile-mammal transition. Mammal-like reptiles. \tabularnewline
+Carboniferous	& 359–299					& Amphibian-reptile transition. First reptiles. \tabularnewline
+Devonian		& 419–359					& Fish-amphibian transition. First amphibian (tetrapodss). \tabularnewline
+Silurian		& 444–419					& Jawless to jawed fish transition. First jawed fishes. \tabularnewline
+Ordovician		& 485–444					& First vertebrates (fishes without jaws). \tabularnewline
+\bottomrule
+\end{longtable}\label{transition_table}
+
+
+\question[Checkout]
 Add a time scale along the left side of your phylogeny. Write the time of appearance in the fossil record along the time scale and even with the node where two lineages split. Use the beginning of the period as the time of appearance for each group.
 
+\ifprintanswers
+\medskip
 
+\scalebox{0.93}{%
+\begin{forest}
+timelinetree,
+timeline
+[, age=485
+[, age=444
+  [jawless fishes]
+% [vertebrate ancestor, age=444
+  [, age=419
+   [jawed fishes]
+    [, age=359
+     [,
+	  [amphibians]
+     ]
+      [,age=299
+       [
+	    [mammals]
+	   ]
+	    [,age=201
+	     [birds]
+	     [reptiles]
+	    ]
+      ]
+    ]
+%  ]
+ ]
+]]
+\end{forest}
+}%end Scalebox
+\fi
 \end{questions}
 
 \end{document}  
