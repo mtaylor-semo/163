@@ -229,48 +229,48 @@ ancestry but you could not tell, for example, whether the cat is more closely re
 Other skeletal evidence exists
 that can resolve those relationships, but it is hard to use in a course like this.
 
-Instead, you will use evidence from the fossil record. Fossils provide evidence of common ancestry because of descent with modification. The descendants have traits that were modified from the ancestral form. The modified traits do not appear suddenly but change slowly over time. These changes can be detected in the fossil record.% shown in the trees below. 
+Instead, you will use evidence from the fossil record. Fossils provide evidence of common ancestry because of descent with modification. The descendants have traits that were modified from the ancestral form. The modified traits do not appear suddenly but change slowly over time. These changes can be detected in the fossil record.
 
-For example, the hypothesis below makes several predictions about common ancestor. Dolphins and tunas are predicted to share a common ancestor with each other but not with seastars, clams, fungi, or oak trees.  
+For example, the hypothesis below predicts that bison and whales descend from Ancestor~1. Soon after bison and whale diverged (time point~\textsc{a}, dotted line), many of their traits would have looked much like their ancestor but some traits would have been slightly modified. Much later (time point~\textsc{b}, dashed line), more of their traits would have looked more like present day bison and whales and less like their ancestor. 
 
-Seastars Fungi are predicted to share Ancestor 1. Soon after speciation (dotted line), the descendants will look much like their ancestor but some traits will be slightly modified. Much later (dashed line), the descendants look less like their ancestor and more like their present day forms. 
+Also at time point~\textsc{a}, the initial descendants of Ancestor~2 would still have had more ancestral traits than modified traits. At time point~\textsc{b}, bear- and seal-like organisms would have had more traits that resembled the traits of modern bears and seals and fewer ancestral traits. The same would have applied to elephants and manatees.
 
 \begin{tikzpicture}
 	[branch/.style={thick}]
 	
-	% Tree 1
+	% Time line
 	\draw (0,0) node [below] {Past} -- (0,3) node [above] {\strut Present};
-	\draw [branch] (5,0) node [below] {Anc. 1} -- (5,1);
-	\draw [branch] (3.25,1) -- (6.75,1);
 	
-	% Tree 1, Left clade
-	\draw [branch] (3.25,1) -- (3.25,2);
-	\draw [branch] (2.25,2) -- (4.25,2);
-	
-	\draw [branch] (2.25,2) -- (2.25,3) node [above] {\strut Seastar};
-	\draw [branch] (4.25,2) -- (4.25,3) node [above] {\strut Clams};
-	
-	
-	% Tree 1, Right clade
-	\draw [branch] (6.75,1) -- (6.75,2);
-	\draw [branch] (5.75,2) -- (7.75,2);
-	\draw [branch] (5.75,2) -- (5.75,3) node [above] {\strut Fungi};
-	\draw [branch] (7.75,2) -- (7.75,3) node [above] {\strut Oak Trees};
-	
+	% Tree 1
+	\draw (3,0) node [below] {Anc. 1} -- (3,1);
+	\draw (2,1) -- (4,1);
+	\draw (2,1) -- (2,3) node [above] {\strut Bison};
+	\draw (4,1) -- (4,3) node [above] {\strut Whale}; 
+
 	% Tree 2
-	\draw (11,0) node [below] {Anc. 2} -- (11,1);
-	\draw (10,1) -- (12,1);
-	\draw (10,1) -- (10,3) node [above] {\strut Dolphin};
-	\draw (12,1) -- (12,3) node [above] {\strut Tuna Fish}; 
+	\draw [branch] (9,0) node [below] {Anc. 2} -- (9,1);
+	\draw [branch] (7.25,1) -- (10.75,1);
+	
+	% Tree 2, Left clade
+	\draw [branch] (7.25,1) -- (7.25,2);
+	\draw [branch] (6.25,2) -- (8.25,2);	
+	\draw [branch] (6.25,2) -- (6.25,3) node [above] {\strut Bear};
+	\draw [branch] (8.25,2) -- (8.25,3) node [above] {\strut Seal}; 	
 
+	% Tree 2, Right clade
+	\draw [branch] (10.75,1) -- (10.75,2);
+	\draw [branch] (9.75,2) -- (11.75,2);
+	\draw [branch] (9.75,2) -- (9.75,3) node [above] {\strut Elephant};
+	\draw [branch] (11.75,2) -- (11.75,3) node [above] {\strut Manatee};
 
-	\draw [densely dotted, thick] (2,1.5) -- (12.5,1.5);
-	\draw [dashed, thick] (2,2.5) -- (12.5,2.5);
+	% Horizontal lines
+	\draw [dashed, thick] (0,2.5) node [left] {\textsc{b}} -- (12,2.5);
+	\draw [densely dotted, thick] (0,1.3) node [left] {\textsc{a}} -- (12,1.3);
 
 \end{tikzpicture}
 
 
-The fossils that show these changing traits are called \textbf{transitional forms.} A transitional form is an intermediate species found in the fossil record that contains traits of both the ancestor and the descendant. Transitional forms should appear only between organisms that share a common ancestor.  In the tree above, transitional forms should appear between Ancestor~1 and Descendants~\textsc{a} and \textsc{b}. Transitional forms should \textit{not} appear between Ancestor~1 and Descendant~\textsc{c}.  If a transitional form were found between Ancestor~1 and Descendant~\textsc{c}, then the hypothesis would be falsified. Similarly, if a transitional form were found between Ancestor~2 and Descendants~\textsc{a} or \textsc{b}, then the hypothesis would be falsified.
+The fossils that show these changing traits are called \textbf{transitional forms.} A transitional form is an intermediate species found in the fossil record that contains traits of both the ancestor and the descendant. Transitional forms should appear only between organisms that share a common ancestor.  In the tree above, transitional forms should appear between Ancestor~1 and bison and whales. Transitional forms should \textit{not} appear between Ancestor~1 and, for example, bears or manatees.  If a transitional form were found between Ancestor~1 and a bear or a manatee, then the hypothesis would be falsified. Similarly, if a transitional form were found between Ancestor~2 and bison or whales, then the hypothesis would be falsified.
 
 \begin{questions}
 
