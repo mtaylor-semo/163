@@ -2,6 +2,10 @@
 %!TEX encoding = UTF-8 Unicode
 
 \documentclass[12pt, hidelinks]{exam}
+
+%\printanswers
+
+
 \usepackage{graphicx}
 	\graphicspath{{/Users/goby/Pictures/teach/163/lab/}
 	{img/}} % set of paths to search for images
@@ -168,8 +172,6 @@
 
 \newcommand{\dna}{\textsc{dna}}
 
-%\printanswers
-
 \begin{document}
 
 \subsection*{Use dna sequence to make phylogenetic trees}
@@ -251,24 +253,24 @@ The table on the next page contains a list of homologies for the taxonomic group
 
 \begin{landscape}
 
-\begin{longtable}{@{}L{1in}L{0.25in}L{0.25in}L{0.25in}L{0.25in}L{0.25in}L{0.25in}L{0.25in}L{0.25in}L{0.25in}L{0.25in}L{0.25in}L{0.25in}L{0.25in}@{}}
+\begin{longtable}{@{}L{1in}L{0.25in}L{0.25in}L{0.25in}L{0.25in}L{0.25in}L{0.25in}L{0.25in}L{0.25in}L{0.25in}L{0.25in}L{0.25in}L{0.25in}L{0.25in}L{0.25in}@{}}
 \toprule
-Taxon			&	A	&	B	&	C	&	D	&	E	&	F	&	G	&	H	&	I	&	J	&	K	&	L	&	M	\tabularnewline
+Taxon		& A	& B	& C	& D	& E	& F	& G	& H	& I	& J	& K	& L	& M & N	\tabularnewline
 \midrule
-Bacteria		&	0	&	0	&	0	&	0	&	0	&	0	&	0	&	0	&	0	&	0	&	0	&	0	&	0	\tabularnewline
-Paramecium	&	1	&	0	&	0	&	1	&	0	&	0	&	0	&	0	&	0	&	0	&	0	&	0	&	0	\tabularnewline
-Plants			&	1	&	1	&	1	&	1	&	0	&	0	&	0	&	0	&	0	&	0	&	0	&	0	&	0	\tabularnewline
-Algae			&	1	&	1	&	1	&	1	&	0	&	0	&	0	&	0	&	0	&	0	&	0	&	0	&	0	\tabularnewline
-Fungi			&	1	&	0	&	0	&	1	&	1	&	0	&	0	&	0	&	0	&	0	&	0	&	0	&	0	\tabularnewline
-Mollusks		&	1	&	0	&	0	&	1	&	0	&	1	&	1	&	1	&	0	&	0	&	0	&	0	&	0	\tabularnewline
-Annelids		&	1	&	0	&	0	&	1	&	0	&	1	&	1	&	1	&	0	&	0	&	0	&	0	&	0	\tabularnewline
-Arthropods	&	1	&	0	&	0	&	1	&	0	&	1	&	0	&	1	&	0	&	0	&	0	&	0	&	0	\tabularnewline
-Echinoderms	&	1	&	0	&	0	&	1	&	0	&	1	&	0	&	0	&	1	&	0	&	0	&	0	&	0	\tabularnewline
-Mammals		&	1	&	0	&	0	&	1	&	0	&	1	&	0	&	0	&	1	&	1	&	1	&	1	&	0	\tabularnewline
-Reptiles		&	1	&	0	&	0	&	1	&	0	&	1	&	0	&	0	&	1	&	1	&	1	&	1	&	1	\tabularnewline
-Birds				&	1	&	0	&	0	&	1	&	0	&	1	&	0	&	0	&	1	&	1	&	1	&	1	&	1	\tabularnewline
-Amphibians	&	1	&	0	&	0	&	1	&	0	&	1	&	0	&	0	&	1	&	1	&	1	&	0	&	0	\tabularnewline
-Fishes			&	1	&	0	&	0	&	1	&	0	&	1	&	0	&	0	&	1	&	1	&	0	&	0	&	0	\tabularnewline
+Bacteria	& 0	& 0	& 0	& 0	& 0	& 0	& 0	& 0	& 0	& 0	& 0	& 0	& 0 & 1	\tabularnewline
+Paramecium	& 1	& 0	& 0	& 1	& 0	& 0	& 0	& 0	& 0	& 0	& 0	& 0	& 0 & 1	\tabularnewline
+Plants		& 1	& 1	& 1	& 1	& 0	& 0	& 0	& 0	& 0	& 0	& 0	& 0	& 0 & 1	\tabularnewline
+Algae		& 1	& 1	& 1	& 1	& 0	& 0	& 0	& 0	& 0	& 0	& 0	& 0	& 0 & 1	\tabularnewline
+Fungi		& 1	& 0	& 0	& 1	& 1	& 0	& 0	& 0	& 0	& 0	& 0	& 0	& 0 & 1	\tabularnewline
+Mollusks	& 1	& 0	& 0	& 1	& 1	& 1	& 1	& 1	& 0	& 0	& 0	& 0	& 0 & 1	\tabularnewline
+Annelids	& 1	& 0	& 0	& 1	& 1	& 1	& 1	& 1	& 0	& 0	& 0	& 0	& 0 & 1	\tabularnewline
+Arthropods	& 1	& 0	& 0	& 1	& 1	& 1	& 0	& 1	& 0	& 0	& 0	& 0	& 0 & 1	\tabularnewline
+Echinoderms	& 1	& 0	& 0	& 1	& 1	& 1	& 0	& 0	& 1	& 0	& 0	& 0	& 0 & 1	\tabularnewline
+Mammals		& 1	& 0	& 0	& 1	& 1	& 1	& 0	& 0	& 1	& 1	& 1	& 1	& 0 & 1	\tabularnewline
+Reptiles	& 1	& 0	& 0	& 1	& 1	& 1	& 0	& 0	& 1	& 1	& 1	& 1	& 1 & 1	\tabularnewline
+Birds		& 1	& 0	& 0	& 1	& 1	& 1	& 0	& 0	& 1	& 1	& 1	& 1	& 1 & 1	\tabularnewline
+Amphibians	& 1	& 0	& 0	& 1	& 1	& 1	& 0	& 0	& 1	& 1	& 1	& 0	& 0 & 1	\tabularnewline
+Fishes		& 1	& 0	& 0	& 1	& 1	& 1	& 0	& 0	& 1	& 1	& 0	& 0	& 0 & 1	\tabularnewline
 
 \bottomrule
 \end{longtable}\label{presence_table}
@@ -282,15 +284,16 @@ Key to letter codes:
 		\item Cells with chloroplasts.
 		\item Cell walls composed of cellulose.
 		\item Cells with mitochondria.
-		\item Cell walls composed of chiton.
+		\item Cellular production of chitin.
 		\item Cell walls absent.
 		\item Trochophore larvae.
 		\item Protostome development.
 		\item Deuterostome development.
-		\item	Internal skeleton with vertebrae.
+		\item Internal skeleton with vertebrae.
 		\item Tetrapods.
 		\item Amniotic egg.
 		\item Diapsid skulls.
+		\item DNA for genetic information.
 	\end{enumerate}
 \end{multicols}
 
@@ -304,26 +307,69 @@ Key to letter codes:
 \begin{center}
 
 \adjustbox{width=\linewidth}{
-  \begin{forest}
-    mytree,
+\begin{forest}
+mytree,
+[
+ [,name=root
+  [bacteria]
+  [,name=eukaryotes
+   [\textit{Paramecium}]
     [
-    	[	[bacteria]
-		[	[Paramecium]
-    	  [[[[algae][plants]]]
-      [[fungi]
-      [
-		[[[mollusks][annelids]]
-		[
-			[arthropods]
-		]]
-		[[echinoderms]
-      	  [[fishes]
-            [[[amphibians]]
-                [[mammals]
-                  [[birds][reptiles]]]]]]
-          ]]
-      ]]]]
-  \end{forest}}
+     [
+      [,name=chloro
+       [algae]
+       [plants]
+      ]
+     ]
+     [,name=unikonts
+      [fungi]
+      [,name=animals
+       [,name=protostomes
+        [,name=trochophore
+         [mollusks]
+         [annelids]
+        ]
+	    [
+		 [arthropods]
+	    ]
+	   ]
+	   [,name=deuterostomes
+	    [echinoderms]
+   	    [,name=vertebrates
+   	     [fishes]
+         [,name=tetrapods
+          [
+           [amphibians]
+          ]
+          [,name=amniotes
+           [mammals]
+           [,name=reptiles
+            [birds]
+            [reptiles]
+           ]
+          ]
+         ]
+        ]
+       ]
+      ]
+     ]
+    ]
+   ]
+  ]
+ ]
+\filldraw (root) circle [radius=3pt, fill=black, yshift=-5mm] node [left, xshift=-1mm, yshift=-5mm] {{\small \textsc{n}}};
+\filldraw (eukaryotes) circle [radius=3pt, fill=black, yshift=-5mm] node [left, xshift=-1mm, yshift=-5mm] {{\small \textsc{a,d}}};
+\filldraw (chloro) circle [radius=3pt, fill=black, yshift=-5mm] node [left, xshift=-1mm, yshift=-5mm] {{\small \textsc{b, c}}};
+\filldraw (unikonts) circle [radius=3pt, fill=black, yshift=-5mm] node [left, xshift=-1mm, yshift=-5mm] {{\small \textsc{e}}};
+\filldraw (animals) circle [radius=3pt, fill=black, yshift=-5mm] node [left, xshift=-1mm, yshift=-5mm] {{\small \textsc{f}}};
+\filldraw (protostomes) circle [radius=3pt, fill=black, yshift=-5mm] node [left, xshift=-1mm, yshift=-5mm] {{\small \textsc{h}}};
+\filldraw (trochophore) circle [radius=3pt, fill=black, yshift=-5mm] node [left, xshift=-1mm, yshift=-5mm] {{\small \textsc{g}}};
+\filldraw (deuterostomes) circle [radius=3pt, fill=black, yshift=-5mm] node [left, xshift=-1mm, yshift=-5mm] {{\small \textsc{i}}};
+\filldraw (vertebrates) circle [radius=3pt, fill=black, yshift=-5mm] node [left, xshift=-1mm, yshift=-5mm] {{\small \textsc{j}}};
+\filldraw (tetrapods) circle [radius=3pt, fill=black, yshift=-5mm] node [left, xshift=-1mm, yshift=-5mm] {{\small \textsc{k}}};
+\filldraw (amniotes) circle [radius=3pt, fill=black, yshift=-5mm] node [left, xshift=-1mm, yshift=-5mm] {{\small \textsc{l}}};
+\filldraw (reptiles) circle [radius=3pt, fill=black, yshift=-5mm] node [left, xshift=-1mm, yshift=-5mm] {{\small \textsc{m}}};
+\end{forest}}
 \end{center}
 \fi
 
