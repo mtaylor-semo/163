@@ -130,14 +130,14 @@
 
 \subsection*{The $t$-test in Excel}
 
-The $t$-test is relatively simple to calculate by hand but would quickly grow tedious if you had a large dataset to analyze. Fortunately, you can analyze a dataset with a $t$-test easily in Excel. Excel provides several functions for the $t$-test. You will use two of those functions, and a few other functions to calculate degrees of freedom and to cross check your earlier results.
+The $t$-test is relatively simple to calculate by hand but would grow tedious if you had a large data set to analyze. Fortunately, you can analyze a data set with a $t$-test easily in Excel. Excel provides several functions for the $t$-test. You will use two of those functions, and a few other functions to calculate degrees of freedom and to cross check your earlier results.
 
 \emph{Perform these steps exactly as described. Failure to follow these instructions could result in failure to earn your points for this lab.} 
 
 \begin{enumerate}
 	\item Type "\Popa" into \xcell{B1}. Type "\Popb" into \xcell{C1}.
 
-	\item Enter your measurements for shell width \emph{from the earlier part of this exercise} for \Popa{} into cells {\liningnum B2 through B16}. Enter one measurement per cell.
+	\item Enter your measurements for shell width \emph{from the previous handout} for \Popa{} into cells {\liningnum B2 through B16}. Enter one measurement per cell.
 	
 	\item Enter your measurements for shell width for \Popb{} into cells {\liningnum C2 through C16}.
 	
@@ -174,7 +174,7 @@ In the earlier part of this exercise, you calculated the variance and the standa
 
 	\item Click on \xcell{B20}. Type \texttt{=STDEV.S(B2:B16)} and press Enter. Click on \xcell{C20}. Type \texttt{=STDEV.S(C2:C16)} and press Enter. 
 	
-		If you get a \texttt{\#NAME} error, use \texttt{STDEV()} instead, without the \texttt{.S}. You will get the same result. The \texttt{\#NAME} error may occur if you are using an older version of Excel. 
+		If you get a \texttt{\#NAME} error, use \texttt{STDEV()} instead, without the \texttt{.S}. You will get the same result. The \texttt{\#NAME} error occurs with old versions of Excel.  
 		
 		\textbf{Important:} Check that the standard deviation $\left(s\right)$ here is the same value you calculated be hand. If they disagree, then you will have incorrectly calculated the $t$ value by hand. Double check your math and be sure you have the same result before proceding.
 	
@@ -187,7 +187,7 @@ Excel provides two functions to perform a $t$-test. The first function you will 
 \begin{enumerate}[resume]
 	\item To calculate the probability using the \texttt{T.TEST()} function, click in \xcell{B21} and enter\\ \texttt{=T.TEST(B2:B16,C2:C16,2,2)}. 
 	
-	If you get a \texttt{\#NAME} error, use \texttt{TTEST()} instead, without the period. You will get the same result. The \texttt{\#NAME} error may occur if you are using an older version of Excel. 
+	If you get a \texttt{\#NAME} error, use \texttt{TTEST()} instead, without the period. You will get the same result. The \texttt{\#NAME} error occurs with old versions of Excel.  
 
 \end{enumerate}
 
@@ -198,7 +198,7 @@ The second function you need is \texttt{T.INV.2T(),} which gives you the actual 
 \begin{enumerate}[resume]
 	\item Click on \xcell{B21} and enter \texttt{=T.INV.2T(B20,(B18+C18-2))}. You could enter 28 for degrees of freedom but do not. What if you added more data? You would have to manually edit all of your formulas. By properly using cells references, your calculations are automatically adjusted. 
 	
-	If you get a \texttt{\#NAME} error, use \texttt{TINV()} instead, without the period or \texttt{2T}. You will get the same result. The \texttt{\#NAME} error may occur if you are using an older version of Excel. 
+	If you get a \texttt{\#NAME} error, use \texttt{TINV()} instead, without the period or \texttt{2T}. You will get the same result. The \texttt{\#NAME} error occurs with old versions of Excel. 
 \end{enumerate}
 	
 Because Excel gives you the exact probability, you do not have to compare the calculated $t$ value to the a table. To properly report the results of your $t$-test, you must use both formulas. 
@@ -206,7 +206,7 @@ Because Excel gives you the exact probability, you do not have to compare the ca
 \begin{questions}
 
 \question
-Check to see that you got the same results in Excel that you got in the previous exercise. If the results disagree, carefully check your analyses in both exercises to find and correct the error. Ask your instructor for help, if necessary.
+Check to see that you get the same results in Excel that you got in the previous exercise. If the results disagree, carefully check your analyses in both exercises to find and correct the error. Ask your instructor for help, if necessary.
 
 \question[Checkout]
 Show the results of your Excel $t$-test and your hand-calculated $t$-tests to your instructor. Failure to show your results to your instructor will result in no points for the lab. Do not waste your hard work!

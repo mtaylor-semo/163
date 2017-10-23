@@ -63,6 +63,8 @@
 
 \usepackage[sc]{titlesec}
 
+\usepackage{afterpage}
+
 %% Commands for Exam class
 \renewcommand{\solutiontitle}{\noindent}
 \unframedsolutions
@@ -177,7 +179,7 @@ experiments often have many variables. No matter how many variables
 are included in an experiment, they are usually one of two types.
 
 \begin{enumerate}
-\item
+\item \label{response_variable}
   \textbf{Explanatory variable:} a manipulated or controlled variable in an experiment
   or study whose presence or degree determines a change in the response
   variable. The explanatory variable is also known as the \textbf{independent
@@ -197,85 +199,85 @@ are included in an experiment, they are usually one of two types.
   hypotheses would be the time of blooming.
   
 \end{enumerate}
-
-To gauge your understanding so far, read the following passage and then
-answer the questions that follow.
-
-Dr. Noymer was interested in the effect on populations of the global flu
-epidemic that happened in 1918. He hypothesized that babies less than
-one year old, with their
-weak immune systems, would die in a higher percentage than adults aged
-25–34 when the year with the epidemic (1918) was compared to to the year
-before (1917).
-
-
-\begin{questions}
-
-\question
-What is the explanatory variable? 
-
-\AnswerBox{2\baselineskip}{Age.}
-
-
-\question
-What is the response variable?
-
-\AnswerBox{2\baselineskip}{% 
-Whether the babies/adults got sick or not.
-}
-
-\question
-Write a null hypothesis based on Noymer's conjecture.
-
-\AnswerBox{2\baselineskip}{%
-The increased percentage of babies and adults getting sick will not be different between 1917 and 1918.
-}
-
-\question
-Write a research hypothesis based on Noymer's conjecture.
-
-\AnswerBox{2\baselineskip}{%
-That babies will show a greater increase in sickness than adults from 1917 to 1918.
-}
-
-\newpage
-
-Noymer's results, adapted from \emph{Age-specific death rates (per
-100,000), Influenza \& Pneumonia, USA} (Noymer, 2007), are given in Table~\ref{us_deaths}. 
-They could not tell flu and pneumonia apart, so they were both counted together.
-
-{\setlength{\LTcapwidth}{3in}\tablenumbers
-\begin{longtable}{@{}R{0.5in}R{0.5in}R{0.5in}R{1in}@{}}
-\caption{U.S. deaths per 100,000 attributed to influenza and
-pneumonia during 1917–1918.}\label{us_deaths}\tabularnewline
-\toprule
-Age & 1917 & 1918 & Increase in deaths\tabularnewline
-\midrule
-\textless{}1 & 2944.5 & 4540.9 & 152\%\tabularnewline
-1–4 & 422.7 & 1436.2 &\tabularnewline
-5–14 & 47.9 & 352.7 &\tabularnewline
-15–24 & 78 & 1175.7 &\tabularnewline
-25–34 & 117.7 & 1998 & 1707\%\tabularnewline
-35–44 & 193.2 & 1097.6 &\tabularnewline
-45–54 & 292.3 & 686.8 &\tabularnewline
-\bottomrule
-\end{longtable}}
-
-\question
-What do these data say about the null hypothesis?
-
-\AnswerBox{2\baselineskip}{%
-They appear to falsify it. The percent increase was much larger for adults than babies.
-}
-
-\question
-Was Noymer's research hypothesis proven true? Supported? Supported
-weakly? Falsified? Explain.
-
-\AnswerBox{2\baselineskip}{%
-Falsified. He predicted that more babies would get sick. Instead, more adults got sick.
-}
-
+%
+%To gauge your understanding so far, read the following passage and then
+%answer the questions that follow.
+%
+%Dr. Noymer was interested in the effect on populations of the global flu
+%epidemic that happened in 1918. He hypothesized that babies less than
+%one year old, with their
+%weak immune systems, would die in a higher percentage than adults aged
+%25–34 when the year with the epidemic (1918) was compared to to the year
+%before (1917).
+%
+%
+%\begin{questions}
+%
+%\question
+%What is the explanatory variable? 
+%
+%\AnswerBox{2\baselineskip}{Age.}
+%
+%
+%\question
+%What is the response variable?
+%
+%\AnswerBox{2\baselineskip}{% 
+%Whether the babies/adults got sick or not.
+%}
+%
+%\question
+%Write a null hypothesis based on Noymer's conjecture.
+%
+%\AnswerBox{2\baselineskip}{%
+%The increased percentage of babies and adults getting sick will not be different between 1917 and 1918.
+%}
+%
+%\question
+%Write a research hypothesis based on Noymer's conjecture.
+%
+%\AnswerBox{2\baselineskip}{%
+%That babies will show a greater increase in sickness than adults from 1917 to 1918.
+%}
+%
+%\newpage
+%
+%Noymer's results, adapted from \emph{Age-specific death rates (per
+%100,000), Influenza \& Pneumonia, USA} (Noymer, 2007), are given in Table~\ref{us_deaths}. 
+%They could not tell flu and pneumonia apart, so they were both counted together.
+%
+%{\setlength{\LTcapwidth}{3in}\tablenumbers
+%\begin{longtable}{@{}R{0.5in}R{0.5in}R{0.5in}R{1in}@{}}
+%\caption{U.S. deaths per 100,000 attributed to influenza and
+%pneumonia during 1917–1918.}\label{us_deaths}\tabularnewline
+%\toprule
+%Age & 1917 & 1918 & Increase in deaths\tabularnewline
+%\midrule
+%\textless{}1 & 2944.5 & 4540.9 & 152\%\tabularnewline
+%1–4 & 422.7 & 1436.2 &\tabularnewline
+%5–14 & 47.9 & 352.7 &\tabularnewline
+%15–24 & 78 & 1175.7 &\tabularnewline
+%25–34 & 117.7 & 1998 & 1707\%\tabularnewline
+%35–44 & 193.2 & 1097.6 &\tabularnewline
+%45–54 & 292.3 & 686.8 &\tabularnewline
+%\bottomrule
+%\end{longtable}}
+%
+%\question
+%What do these data say about the null hypothesis?
+%
+%\AnswerBox{2\baselineskip}{%
+%They appear to falsify it. The percent increase was much larger for adults than babies.
+%}
+%
+%\question
+%Was Noymer's research hypothesis proven true? Supported? Supported
+%weakly? Falsified? Explain.
+%
+%\AnswerBox{2\baselineskip}{%
+%Falsified. He predicted that more babies would get sick. Instead, more adults got sick.
+%}
+%
 \subsubsection*{Hypothesis testing}
 
 Scientists can rarely collect data from all individuals in a population. Instead, scientists collect data from subsets of individuals sampled from a population to make inferences about the \emph{entire} population. \textbf{Hypothesis testing} asks whether that sampled data would be expected under a specific null hypothesis. For example, hypothesis testing is used to determine whether two groups respond differently to an change in an explanatory variable. The null hypothesis states that the change would \emph{not} have an affect on the population.
@@ -288,20 +290,20 @@ Scientists use probability to decide when to accept or reject the null hypothesi
 
 A statistic is a one-number description of a set of data, or numbers
 used as measurements or counts—lengths of arms, number of days, number
-of fish in a catch—or, rarely, a number in that set. The most basic statistics 
+of fish in a catch—or, rarely, a number in that set. Basic statistics 
 include measures of \emph{central tendency.} A measure of central tendency 
-is one number that describes most of the values in a data set. Three methods 
-are commonly used to describe the central tendency of a data set. 
+is one number that describes most of the values in a data set. Methods 
+ commonly used to describe the central tendency of a data set include 
 
 \begin{enumerate}
 
 	\item \textbf{Mean:} Arithmetic mean or the
 arithmetic average. Add all the scores together and divide by the number
-of scores.
+of scores,
 
 	\item \emph{Median:} In an ordered set of numbers, the number in the middle:
 take the number of scores and divide by 2, count down the distribution
-to find the median. The score at the 50th percentile.
+to find the median. The score at the 50th percentile, and
 
 	\item \emph{Mode:} the most frequent score in the set of
 scores.
@@ -337,7 +339,7 @@ scores.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-Below, you will calculate the sample mean, a statistic you are probably familiar with. 
+For this exercise, you will calculate the sample mean, a statistic you are probably familiar with. 
 To calculate the mean, sum together the individual measurements, and then divide by the total number
 of measurements. The formula to calculate the sample mean $\left(\meanY \right)$ is
 
@@ -368,6 +370,8 @@ and your partner will calculate important statistics for each population.
 Your goal is to determine whether the mean or average shell width
 of each population is the same or different.
 
+\begin{questions}
+
 \question
 Write a null hypotheses about average shell width for each population.
 
@@ -381,7 +385,7 @@ Write a research hypotheses about average shell width for each population.
 %\newpage
 
 \question
-What is the explanatory variable?
+What is the explanatory variable? If you do not remember the difference between explanatory and response variables, see page~\pageref{response_variable}
 
 \AnswerBox{1\baselineskip}{Whether the population is from a stream or river.}
 
@@ -397,61 +401,63 @@ Calculate the mean shell width for two populations of \textit{Corbicula.}
 \emph{Method: } Select haphazardly 15 individuals from each population. \emph{One pair of students will sample
 from \popa{} while the other pair samples from \popb{}}. Measure \emph{in millimeters}
  the width of each shell at the widest point with the ruler. Record each measurement in
- Table~\ref{corbicula_means} on the next page. After you have recorded your 15 measurements,
- return the shells to their bowl. Switch populations with the other pair of students and repeat
- the sampling process for the other population.
+ Table~\ref{corbicula_means} on page~\pageref{corbicula_means}. After you have recorded your 15 measurements,
+ return the shells to their bowl. 
+ 
+ \item Switch populations with the other pair of students and repeat
+ the sampling process for the other population. \textbf{Do not copy the mean from the other pair of students.}
+ 	You must calculate your own mean for \emph{each} population.
  
  \emph{Keep the shells of each population separate.} The shells for \popa{}
- have a black dot inside the shell. Do not mix the populations. 
+ have a bright dot of nail polish inside the shell. Do not mix the populations. 
 
-\newpage
-
+\afterpage{
 {\setlength{\LTcapwidth}{3.99in}\tablenumbers
 \begin{longtable}{@{}|R{1.3in}|C{1.3in}|C{1.3in}|@{}}
 \caption{Shell widths (mm) for two populations of \textit{Corbicula.}\label{corbicula_means}}\tabularnewline
 \hline
 Sample number & \Popa{} & \Popb{} \tabularnewline
 \hline
-1 & & \tabularnewline[2ex]
+1 & & \tabularnewline[1.2ex]
 \hline
-2 & & \tabularnewline[2ex]
+2 & & \tabularnewline[1.2ex]
 \hline
-3 & & \tabularnewline[2ex]
+3 & & \tabularnewline[1.2ex]
 \hline
-4 & & \tabularnewline[2ex]
+4 & & \tabularnewline[1.2ex]
 \hline
-5 & & \tabularnewline[2ex]
+5 & & \tabularnewline[1.2ex]
 \hline
-6 & & \tabularnewline[2ex]
+6 & & \tabularnewline[1.2ex]
 \hline
-7 & & \tabularnewline[2ex]
+7 & & \tabularnewline[1.2ex]
 \hline
-8 & & \tabularnewline[2ex]
+8 & & \tabularnewline[1.2ex]
 \hline
-9 & & \tabularnewline[2ex]
+9 & & \tabularnewline[1.2ex]
 \hline
-10 & & \tabularnewline[2ex]
+10 & & \tabularnewline[1.2ex]
 \hline
-11 & & \tabularnewline[2ex]
+11 & & \tabularnewline[1.2ex]
 \hline
-12 & & \tabularnewline[2ex]
+12 & & \tabularnewline[1.2ex]
 \hline
-13 & & \tabularnewline[2ex]
+13 & & \tabularnewline[1.2ex]
 \hline
-14 & & \tabularnewline[2ex]
+14 & & \tabularnewline[1.2ex]
 \hline
-15 & & \tabularnewline[2ex]
+15 & & \tabularnewline[1.2ex]
 \hline
 Mean $\left(\meanY\right)$ & & \tabularnewline[2ex]
 \hline
-\end{longtable}}
+\end{longtable}}}
 
 \question\label{corbicula_mean_comparison}
-Does one population appear to have wider shells than the other population? Explain.
+Based on your results in Table~\ref{corbicula_means}, does one population appear to have wider shells than the other population? Explain.
 
 \AnswerBox{2\baselineskip}{\Popb{} is probably wider than \popa{}.}
 
-\newpage
+%\newpage
 
 \subsubsection*{Standard deviation}
 
@@ -465,6 +471,7 @@ to the mean. Values near the mean have a high probability of being sampled
 (the \textsc{y}-axis). Some individuals sampled were much shorter or taller than average.
 Values far from the mean have a low probability of being sampled.
 
+\afterpage{
 \medskip
 
 \hfil\begin{minipage}{0.8\textwidth}
@@ -474,7 +481,7 @@ Values far from the mean have a low probability of being sampled.
 	\label{fig:normal_distribution}}
 \end{minipage}\hfill
 
-\medskip
+\medskip} %afterpage
 
 The shape of the distribution is determined by the \emph{dispersion} of the 
 individual measurements around the mean. If most measurements are close 
@@ -540,16 +547,20 @@ Sample & $Y_i$ 	& $\left(Y_i-\meanY\right)$	& $\left(Y_i-\meanY\right)^2$ \tabul
 \end{longtable}}
 
 
-\newpage
+%\newpage
 
 \question
-Copy the widths $(Y_i)$ you measured for \popa{} from Table~\ref{corbicula_means} into Table~\ref{tab:sdA}. Calculate the standard deviation for \popa{}.
+Copy the widths $(Y_i)$ you measured for \popa{} from Table~\ref{corbicula_means} into Table~\ref{tab:sdA} on page~\pageref{tab:sdA}. Calculate the standard deviation for \popa{}.
+
+
+\afterpage{
 
 \bigskip
 
 \Popa{}: $\meanY =$ \AnswerBlank{}
 
-\medskip
+\bigskip
+
 
 {\setlength{\LTcapwidth}{4.85in}\tablenumbers
 \begin{longtable}{@{}|C{1in}|C{1in}|C{1.25in}|C{1.25in}|@{}}
@@ -557,35 +568,35 @@ Copy the widths $(Y_i)$ you measured for \popa{} from Table~\ref{corbicula_means
 \hline
 Sample & $Y_i$ 	& $\left(Y_i-\meanY \right)$	& $\left(Y_i-\meanY \right)^2$ \tabularnewline[2ex]
 \hline
-1 & & & \tabularnewline[2ex]
+1 & & & \tabularnewline[1.2ex]
 \hline
-2 & & & \tabularnewline[2ex]
+2 & & & \tabularnewline[1.2ex]
 \hline
-3 & & & \tabularnewline[2ex]
+3 & & & \tabularnewline[1.2ex]
 \hline
-4 & & & \tabularnewline[2ex]
+4 & & & \tabularnewline[1.2ex]
 \hline
-5 & & & \tabularnewline[2ex]
+5 & & & \tabularnewline[1.2ex]
 \hline
-6 & & & \tabularnewline[2ex]
+6 & & & \tabularnewline[1.2ex]
 \hline
-7 & & & \tabularnewline[2ex]
+7 & & & \tabularnewline[1.2ex]
 \hline
-8 & & & \tabularnewline[2ex]
+8 & & & \tabularnewline[1.2ex]
 \hline
-9 & & & \tabularnewline[2ex]
+9 & & & \tabularnewline[1.2ex]
 \hline
-10 & & & \tabularnewline[2ex]
+10 & & & \tabularnewline[1.2ex]
 \hline
-11 & & & \tabularnewline[2ex]
+11 & & & \tabularnewline[1.2ex]
 \hline
-12 & & & \tabularnewline[2ex]
+12 & & & \tabularnewline[1.2ex]
 \hline
-13 & & & \tabularnewline[2ex]
+13 & & & \tabularnewline[1.2ex]
 \hline
-14 & & & \tabularnewline[2ex]
+14 & & & \tabularnewline[1.2ex]
 \hline
-15 & & & \tabularnewline[2ex]
+15 & & & \tabularnewline[1.2ex]
 \hline
 \cellcolor{gray!20}&\cellcolor{gray!20}& $\textstyle\sum\left(Y_i-\meanY \right)^2$ & \tabularnewline[5ex]
 \hline
@@ -593,7 +604,8 @@ Sample & $Y_i$ 	& $\left(Y_i-\meanY \right)$	& $\left(Y_i-\meanY \right)^2$ \tab
 \hline
 \cellcolor{gray!20}&\cellcolor{gray!20}& $s = \sqrt{\frac{\textstyle\sum\left(Y_i-\meanY\right)^2}{n-1}}$  & \tabularnewline[5ex]
 \hline
-\end{longtable}}
+\end{longtable}} 
+\newpage}
 
 \bigskip
 
@@ -608,11 +620,11 @@ $\meanY =$  \AnswerBlank{} \qquad $s =$  \AnswerBlank{}
 
 \question Which population of \Corbicula{} appears to have the greater variability? Explain.
 
-\AnswerBox{2\baselineskip}{Could be either.}
+\AnswerBox{4\baselineskip}{Could be either.}
 
 \subsubsection*{Standard error of the mean}
 
-Your team and the other team of students at the same table calculated mean shell width for the same populations. Did your teams get the same mean width for \popa{} or for \popb{}? Chance are, you got different means due tot he nature of random sampling.
+Your team and the other team of students at the same table calculated mean shell width for the same populations. Did your teams get the same mean width for \popa{} or for \popb{}? Chance are, you got different means due to the nature of random sampling.
 %If you took another random sample of 15 shells from one of the populations, do you think you would get the same mean as your first sample (assuming you returned the first sample to the population)? What if you took four random samples?  
 Figure~\ref{fig:stderr} shows the distribution for a large population with a mean of 66.5 inches (the solid vertical line) and a standard deviation of 4.4 inches. Four samples of 15 individuals each were taken from the population, and the mean of each sample was plotted (dotted lines). None of the sampled means equal the actual population mean.
 
@@ -628,7 +640,7 @@ need to know the \emph{precision} of the estimated population mean. Precision
 is measured by the \textbf{standard error.} More precise estimates have smaller 
 standard errors, so most estimates of the mean are probably close to the true population mean. Less precise estimates have larger standard errors, so more estimates of the mean are not as close to the true population mean. \emph{Precision tends to increase as sample size increases.} The formula to calculate the standard error of the mean\footnote{A standard error can be calculated for many statistics but it is most often calculated for the mean.} is
 
-\[ \mathrm{SE}_{\meansubY} = \frac{s}{\sqrt{n}}. \]
+\[ s_{\meansubY} = \frac{s}{\sqrt{n}}. \]
 
 %The standard error is very important in statistics and research so you should 
 %\emph{always} report the mean together with its standard error. 
@@ -639,7 +651,7 @@ For example, earlier in this handout, the mean was calculated for four height me
 of 66.0, 68.7, 64.2, and 59.6 inches, for which $\meanY = 64.6$ inches and $s=3.8$ inches. 
 The standard error is therefore
 
-\[	\mathrm{SE}_{\meansubY} = \frac{3.8}{\sqrt{4}} = 1.9\,\mathrm{inches} \]
+\[	s_{\meansubY} = \frac{3.8}{\sqrt{4}} = 1.9\,\mathrm{inches} \]
 
 If the interest of your study was variability of the population mean, then you would report the mean for those four values as $\meanY = 64.6 \pm 1.9$ inches. If the interest of your study was variation \emph{within} the population, then you would report the mean as $\meanY = 64.6 \pm 3.8$ inches. 
 
@@ -648,8 +660,8 @@ Calculate the standard error of the mean for each population of \textit{Corbicul
 
 \bigskip
 
-\Popa{}: $\mathrm{SE}_{\meansubY} =$  \AnswerBlank{} \qquad 
-\Popb{}: $\mathrm{SE}_{\meansubY} =$  \AnswerBlank{}
+\Popa{}: $s_{\meansubY} =$  \AnswerBlank{} \qquad 
+\Popb{}: $s_{\meansubY} =$  \AnswerBlank{}
 
 %\bigskip
 
@@ -659,7 +671,7 @@ You now have the statistics necessary to test the null hypothesis that the two p
 
 You will test your hypothesis with the two-sample \ttest{}.\footnote{The \ttest{} also has one-sample and paired sample versions.} The two-sample \ttest{} compares the means of two independent samples and tests whether they were taken from the same statistical population. Formally, you are testing the null hypothesis that the two populations of \Corbicula{} do \emph{not} differ by shell width. 
 
-\hspace*{1em} $H_0$: The two populations of \Corbicula{} do not differ in mean shell width.\\
+\hspace*{1em} $H_0$: The two populations of \Corbicula{} do not differ in mean shell width.\label{two_hypotheses}\\
 \hspace*{1em} $H_1$: The two populations of \Corbicula{} differ in mean shell width.
 
 If the null hypothesis $\left(H_0\right)$ is supported, then the populations do not differ by mean shell width. The research hypothesis $\left(H_1\right)$ would therefore be falsified. If the null hypothesis is falsified, then the populations do have different mean shell widths. The research hypothesis would therefore be supported.
@@ -674,7 +686,7 @@ The formula for the two-sample \ttest{} with equal sample sizes\footnote{The var
 t = \dfrac{\meanY_1 - \meanY_2}{\sqrt{\dfrac{\left(n_1 - 1\right)s_1^2 + \left(n_2 - 1\right)s_2^2}{n_1 + n_2 -2} \times \left[\dfrac{1}{n_1} + \dfrac{1}{n_2}\right]}}.
 \end{equation*}
 
-Holy crap! The formula looks daunting but you know every variable shown, and you have already performed most of these calculations. $\meanY_{i}$ represents the mean for each group, where the subscript $i$ indicates which group (e.g., \popa{} or \popb{}). It does not matter which population is group 1, as long as you are consistent throughout the analysis. $n_i$ is the sample size. $s^2$ is called the variance and is simply the standard deviation $\left(s\right)$ squared. (Look back at Table~\ref{tab:sdA} and you will see where you calculated the variance for \popa{}.) 
+Yowza! The formula looks daunting but you know every variable shown, and you have already performed most of these calculations. $\meanY_{i}$ represents the mean for each group, where the subscript $i$ indicates which group (e.g., \popa{} or \popb{}). It does not matter which population is group 1, as long as you are consistent throughout the analysis. $n_i$ is the sample size. $s^2$ is called the variance and is simply the standard deviation $\left(s\right)$ squared. (Look back at Table~\ref{tab:sdA} and you will see where you calculated the variance for \popa{}.) 
 
 The four person sample U.\,S.\ adult height used throughout this exercise had $\meanY = 64.6$ inches, $s = 3.8,$ and $n = 4.$ Assume the mean height for another random sample of four individuals was 67.3 inches with a standard deviation of 4.3 inches.
 
@@ -703,7 +715,7 @@ Calculate the value of $t$ as follows.
 	\end{split}
 \end{equation*}
 
-\newpage
+%\newpage
 
 \item Finally, divide the numerator by the denominator,
 
@@ -744,28 +756,28 @@ Critical \textit{t}: \AnswerBlank{}  The $t$ value you calculated above (Questio
 \question
 Is the value of $t$ you calculated larger or smaller than the critical value of $t$?
 
-\AnswerBox{2\baselineskip}{Whatever}
+\AnswerBox{3\baselineskip}{Whatever}
 
 If your calculated $t$ value is smaller than the critical value in the table, then the populations are not different, and you would accept the null hypothesis. The observed differences are probably due to random sampling. If your calculated $t$ value is larger than the tabled value, then the two populations are different, and you reject the null hypothesis and accept the research hypothesis.
 
 
-\question
-Which hypothesis did you accept? Which hypothesis did you reject? Explain how you used your $t$ value and the table of critical $t$ values 
+\question[Checkout]
+Which hypothesis did you accept? Which hypothesis did you reject? Explain how you used your $t$ value and the table of critical $t$ values. If you did not read or do not remember the two hypotheses, see page~\pageref{two_hypotheses}.
 
-\AnswerBox{6\baselineskip}{Whatever}
+\AnswerBox{3\baselineskip}{Whatever}
 
 
 
 
 \end{questions}
 
-
+\newpage
 
 \subsubsection*{Degrees of freedom (df)}\label{degrees_freedom}
 
 The simple way to think about degrees of freedom is the number of values used to calculate a statistic, minus any intermediate statistics that were used in the calculation. For example, when you calculated the standard deviation for one of your \Corbicula{} populations, you used 15 measurements. However, you had to subtract each observation from the mean, which you calculated previously. The mean was an intermediate statistic used to calculate the new statistic, standard deviation. That is why part of the formula was $n-1$ to account for the one intermediate statistic. 
 
-Degrees of freedom are good: more degrees of freedom increase the accuracy of the estimated parameter. Think of it in relation to sample size: larger sample size increases the degrees of freedom to estimate a parameter. If you used 100 individuals to estimate \Corbicula{} width instead of just 15, your estimate for mean shell width would be more accurate. Your estimates for $s$ and $\mathrm{SE}_{\meansubY}$ would also be more accurate. However, failure to account for the number of intermediate statistics would bias your estimates.
+Degrees of freedom are good: more degrees of freedom increase the accuracy of the estimated parameter. Think of it in relation to sample size: larger sample size increases the degrees of freedom to estimate a parameter. If you used 100 individuals to estimate \Corbicula{} width instead of just 15, your estimate for mean shell width would be more accurate. Your estimates for $s$ and $s_{\meansubY}$ would also be more accurate. However, failure to account for the number of intermediate statistics would bias your estimates.
 
 The concept of degrees of freedom is somewhat difficult to understand fully without mathematical depth. You will not have to define degrees of freedom for an exam. Just recognize that degrees of freedom correct for bias and that when you see something like $n-1$ or $n-2$ in a formula, that is the degrees of freedom required for that statistic to correct for bias.
 
