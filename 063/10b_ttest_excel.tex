@@ -196,7 +196,7 @@ Excel provides two functions to perform a $t$-test. The first function you will 
 The second function you need is \texttt{T.INV.2T(),} which gives you the actual $t$ value. This function needs the degrees of freedom and the $p$-value returned by \texttt{T.TEST()}, which is why you did those steps first. The format for the second function is \texttt{T.INV.2T(probability, deg\_freedom)}. \texttt{Probability} is the exact $p$-value returned by the \texttt{T.TEST()} function. Degrees of freedom is the value you calculated in step~\textsc{\ref{df_calc}} This returns the $t$ value for a 2-tailed test (which is the \texttt{.2T} part of the function name).
 
 \begin{enumerate}[resume]
-	\item Click on \xcell{B21} and enter \texttt{=T.INV.2T(B20,(B18+C18-2))}. You could enter 28 for degrees of freedom but do not. What if you added more data? You would have to manually edit all of your formulas. By properly using cells references, your calculations are automatically adjusted. 
+	\item Click on \xcell{B22} and enter \texttt{=T.INV.2T(B21,(B18+C18))}. You could enter 28 for degrees of freedom but do not. What if you added more data? You would have to manually edit all of your formulas. By properly using cells references, your calculations are automatically adjusted. 
 	
 	If you get a \texttt{\#NAME} error, use \texttt{TINV()} instead, without the period or \texttt{2T}. You will get the same result. The \texttt{\#NAME} error occurs with old versions of Excel. 
 \end{enumerate}
