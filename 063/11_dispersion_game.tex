@@ -2,6 +2,10 @@
 %!TEX encoding = UTF-8 Unicode
 
 \documentclass[12pt, hidelinks]{exam}
+
+%\printanswers
+
+
 \usepackage{graphicx}
 	\graphicspath{{/Users/goby/Pictures/teach/163/lab/}
 	{img/}} % set of paths to search for images
@@ -96,15 +100,6 @@
 \newcommand*\AnswerBlank{\rule{0.75in}{0.4pt}\kern0.67pt.}
 \newcommand*\xcell[1]{cell~\liningnum{#1}}
 
-%
-%\makeatletter
-%\def\SetTotalwidth{\advance\linewidth by \@totalleftmargin
-%\@totalleftmargin=0pt}
-%\makeatother
-
-
-%\printanswers
-
 
 \begin{document}
 
@@ -177,25 +172,25 @@ size can affect your ability to detect patterns in nature.
 \begin{enumerate}
 
 \item To determine the dispersion pattern, you need to calculate the sample
-\textbf{mean} $\left( \meanY\right)$, the variance $(s^2)$, the degrees of freedom (d.f.), 
-and a \chisq{} (chi-squared) statistic. You learned how to calculate the mean in the previous lab. You will use
-the mean to calculate the \textbf{variance} $(s^2)$, which is a measure of the variability in your sample. Variance is calculated as 
+\textbf{mean} $\left( \meanY\right)$, the sum of squares, the degrees of freedom (d.f.), 
+and a \chisq{} (chi-squared) statistic. You learned how to calculate the mean in the previous lab. You use
+the mean to calculate the \textbf{sum of squares} $(SS)$, which is the squared difference of each observation from the sample mean. The sum of squares is calculated as 
 
-\[s^2 =  \frac{\sum\limits_{i=1}^n \left( Y_i - \meanY \right)^2}{n-1}. \]
+\[SS =  \sum\limits_{i=1}^n \left( Y_i - \meanY \right)^2. \]
 
-You calculated the variance in the Descriptive Statistics lab as one of the steps to needed to calculate standard deviation. The \emph{degrees of freedom} is the $n-1$ part of the equation above, where $n$ is the number of quadrats that you sampled.
-
-You will use the variance this time to calculate the test statistic, \chisq{}, which is calculated
+You calculated the sum of squares in the Descriptive Statistics lab as one of the steps to needed to calculate standard deviation. 
+%The \emph{degrees of freedom} is the $n-1$ part of the equation above, where $n$ is the number of quadrats that you sampled.
+You use the sum of squares to calculate the test statistic, \chisq{}, which is calculated
 as
 
-\[ \chi^2 = \dfrac{s^2}{\meanY}. \] %= \dfrac{\frac{\sum\limits_{i=1}^n \left( Y_i - \meanY \right) ^2}{n-1}}{\meanY}.\]
+\[ \chi^2 = \dfrac{SS}{\meanY}. \] %= \dfrac{\frac{\sum\limits_{i=1}^n \left( Y_i - \meanY \right) ^2}{n-1}}{\meanY}.\]
 
 The \chisq{} statistic is most appropriate for discrete count data, which is the type of data you will collect. Further, the \chisq{} statistic allows you test hypotheses about dispersion patterns. 
 
 You will then characterize the dispersion pattern using
 \chisq{}, the degrees of freedom (d.f.), and Figure~\ref{fig:chi_df}.
 
-Degrees of freedom is calculated as d.f. $= n-1.$  You can determine the dispersion pattern for the candidate species using Figure~\ref{fig:chi_df}.  
+Degrees of freedom is calculated as $\mathrm{d.f.} = n-1,$ where $n$ is the number of quadrats that you sampled.  You can determine the dispersion pattern for the candidate species using Figure~\ref{fig:chi_df}.  
 
 \end{enumerate}
 
@@ -260,7 +255,7 @@ Repeat this for the green species in column E. Be sure to reference \xcell{D42} 
 
 \bigskip
 
-\chisq{} (blue): \AnswerBlank{} \qquad \chisq{} (green): \AnswerBlank{}
+\chisq{} (blue): \ifprintanswers \textbf{42} \else \AnswerBlank{} \fi \qquad \chisq{} (green): \ifprintanswers \textbf{51} \else \AnswerBlank{} \fi 
 
 \item Determine your degrees of freedom (d.f. $= n-1$, where $n =$ \# of sampled
 quadrats). \textsc{Note:} d.f. should be the same for both species.
@@ -269,8 +264,11 @@ quadrats). \textsc{Note:} d.f. should be the same for both species.
 
 \bigskip
 
-Blue: \ifprintanswers\textbf{Random}\else\rule{1.5in}{0.4pt}\fi \qquad Green: \ifprintanswers\textbf{Clumped}\else\rule{1.5in}{0.4pt}\fi
+Blue: \ifprintanswers\textbf{Random}\else\rule{1.5in}{0.4pt}\fi \qquad Green: \ifprintanswers\textbf{Random/Clumped}\else\rule{1.5in}{0.4pt}\fi
 
+\bigskip
+
+\ifprintanswers \textbf{For instructor reference for question~\textsc{f}, in case \chisq{} values incorrect.\\ Blue:} $\meanY = 0.2, SS = 8.4.$ \qquad \textbf{Green:} $\meanY = 0.124, SS = 6.375$ \fi
 \end{enumerate}
 
 \newpage
@@ -339,7 +337,7 @@ page~\pageref{fig:chi_df}).
 
 \bigskip
 
-Blue: \ifprintanswers\textbf{Random}\else\rule{1.5in}{0.4pt}\fi \qquad Green: \ifprintanswers\textbf{Clumped}\else\rule{1.5in}{0.4pt}\fi
+Blue: \ifprintanswers\textbf{Random}\else\rule{1.5in}{0.4pt}\fi \qquad Green: \ifprintanswers\textbf{Clumped (occ. random)}\else\rule{1.5in}{0.4pt}\fi
 
 %\bigskip
 
