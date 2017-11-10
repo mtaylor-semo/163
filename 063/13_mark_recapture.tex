@@ -1,0 +1,504 @@
+%!TEX TS-program = lualatex
+%!TEX encoding = UTF-8 Unicode
+
+\documentclass[12pt, hidelinks]{exam}
+
+\printanswers
+
+\usepackage{graphicx}
+	\graphicspath{{/Users/goby/Pictures/teach/163/lab/}
+	{img/}} % set of paths to search for images
+
+\usepackage{geometry}
+\geometry{letterpaper, left=1.5in, bottom=1in}                   
+%\geometry{landscape}                % Activate for for rotated page geometry
+\usepackage[parfill]{parskip}    % Activate to begin paragraphs with an empty line rather than an indent
+\usepackage{amssymb, amsmath}
+\usepackage{mathtools}
+	\everymath{\displaystyle}
+
+\usepackage{fontspec}
+\setmainfont[Ligatures={TeX}, BoldFont={* Bold}, ItalicFont={* Italic}, BoldItalicFont={* BoldItalic}, Numbers={Proportional, OldStyle}]{Linux Libertine O}
+\setsansfont[Scale=MatchLowercase,Ligatures=TeX, Numbers={Proportional,OldStyle}]{Linux Biolinum O}
+\setmonofont[Scale=MatchLowercase]{Linux Libertine Mono O}
+\newfontfamily{\liningnum}[Numbers=Lining]{Linux Libertine O}
+\usepackage{microtype}
+
+\usepackage[table]{xcolor}
+
+\usepackage[bold-style=ISO]{unicode-math}
+\setmathfont[Scale=MatchLowercase]{Tex Gyre Pagella Math}
+
+
+\usepackage{pifont} % Use the x mark in the final section.
+
+\usepackage{booktabs}
+\usepackage{multicol}
+
+
+\usepackage{caption}
+\captionsetup{format=plain, justification=raggedright, singlelinecheck=off,labelsep=period,skip=3pt} % Removes colon following figure / table number.
+
+%\usepackage{caption}
+%\captionsetup{font=small} 
+%\captionsetup{singlelinecheck=false}
+%\captionsetup[figure]{labelsep=period, format=plain}
+
+\usepackage{longtable}
+\usepackage{caption}
+\captionsetup{format=plain, justification=raggedright, singlelinecheck=off,labelsep=period,skip=3pt} 
+
+\usepackage{array}
+\newcolumntype{L}[1]{>{\raggedright\let\newline\\\arraybackslash\hspace{0pt}}p{#1}}
+\newcolumntype{C}[1]{>{\centering\let\newline\\\arraybackslash\hspace{0pt}}p{#1}}
+\newcolumntype{R}[1]{>{\raggedleft\let\newline\\\arraybackslash\hspace{0pt}}p{#1}}
+
+\usepackage{enumitem}
+\setlist{leftmargin=*}
+\setlist[1]{labelindent=\parindent}
+\setlist[enumerate]{label=\textsc{\alph*}.}
+\setlist[itemize]{label=\color{white}\textbullet}
+
+\usepackage{hyperref}
+%\usepackage{placeins} %PRovides \FloatBarrier to flush all floats before a certain point.
+\usepackage{hanging}
+
+\usepackage[sc]{titlesec}
+
+%% Commands for Exam class
+\renewcommand{\solutiontitle}{\noindent}
+\unframedsolutions
+\SolutionEmphasis{\bfseries}
+
+\renewcommand{\questionshook}{%
+	\setlength{\leftmargin}{-\leftskip}%
+}
+
+%Change \half command from 1/2 to .5
+\renewcommand*\half{.5}
+
+\pagestyle{headandfoot}
+\firstpageheader{\textsc{bi}\,063 Evolution and Ecology}{}{\ifprintanswers\textbf{KEY}\else Name: \enspace \makebox[2.5in]{\hrulefill}\fi}
+\runningheader{}{}{\footnotesize{pg. \thepage}}
+\footer{}{}{}
+\runningheadrule
+
+\newcommand*\AnswerBox[2]{%
+    \parbox[t][#1]{0.92\textwidth}{%
+    \begin{solution}#2\end{solution}}
+    \vspace{\stretch{1}}
+}
+
+\newenvironment{AnswerPage}[1]
+    {\begin{minipage}[t][#1]{0.92\textwidth}%
+    \begin{solution}}
+    {\end{solution}\end{minipage}
+    \vspace{\stretch{1}}}
+
+\newlength{\basespace}
+\setlength{\basespace}{5\baselineskip}
+
+
+\newcommand\chisq{$\chi^2$}
+\newcommand*\meanY{\overline{Y}\kern0.67pt}
+
+\newcommand*\AnswerBlank[1]{%
+	\ifprintanswers%
+		\textbf{#1}
+	\else%
+		\rule{0.75in}{0.4pt}\kern0.67pt.\fi%
+	}
+
+%\newcommand*\AnswerBlank{\rule{0.75in}{0.4pt}\kern0.67pt.}
+\newcommand*\xcell[1]{cell~\liningnum{#1}}
+
+%
+%\makeatletter
+%\def\SetTotalwidth{\advance\linewidth by \@totalleftmargin
+%\@totalleftmargin=0pt}
+%\makeatother
+
+
+
+\begin{document}
+
+\subsection*{Mark and recapture: estimating population size}
+
+Ecologists are often interested in estimating the total number of
+individuals in a population and whether that number is changing over
+time. If a population is sedentary (does not move very much), then
+population size can be estimated by quadrat
+or other sampling techniques that allow direct counting of individuals. 
+
+Population sizes of mobile organisms, however,
+cannot always be estimated that way. Instead, a frequently used method 
+for sampling populations of mobile individuals is the
+\textbf{mark-recapture} technique. In its simplest form, this method consists of
+capturing some individuals, marking them in some way, releasing them
+back into the population, and, after an appropriate time interval,
+resampling the population. The number of individuals in the original
+population can be estimated with the formula,
+
+\begin{equation} \label{eq:mark_recapture}
+N_1 = \dfrac{M_1 n_2}{M_{12}},
+\end{equation}
+
+where,
+
+\begin{itemize}
+	\item $N_1$ is the estimated population size,
+	\item $M_1$ is the number of marked individuals released into the
+	population from the first capture,
+	\item $n_2$ is the number of
+	individuals taken in the second sample, and
+	\item $M_{12}$ is the
+	number of individuals in the second sample that were marked during the
+	first sample.
+\end{itemize}
+
+Other terms you will need later in this lab include,
+
+\begin{itemize}\label{eq:terms}
+	\item $N_2$ is the estimate of population size at the second
+census,
+
+	\item $M_2$ is the number of individuals marked and released
+during the second census,
+
+	\item $n_3$ is the number of individuals captured in the third
+census, and
+
+	\item $M_{23}$ is the number of individuals marked during the second
+census that are recaptured during the third census.
+\end{itemize}
+
+The accuracy of this technique depends upon some
+rather strict assumptions:
+
+\begin{itemize}[label=\color{black}\textbullet]
+
+\item
+  An individual caught and tagged in the first capture must be neither
+  more nor less likely than other members of the population to be caught
+  on the second capture. This means that tagged individuals must not
+  have a higher mortality rate, tagged individuals mingle freely with
+  other members of the population when released, sufficient time has
+  elapsed between captures to allow dispersal of tagged individuals, and
+  tagged individuals must not become ``trap-happy'' or ``trap-shy''.
+
+\item
+  Tags do not become lost or unrecognizable.
+
+\item
+  There is no emigration or death of tagged individuals. Emigration and
+  death rates for unmarked members of the population must be equal to
+  immigration and birth rates.
+  
+  \item An equal time  of time has elapsed between each sample period.
+
+\end{itemize}
+
+This exercise will help you learn some properties of the mark-recapture method.
+
+\subsection*{Methodology}
+
+\subsubsection*{First capture-mark-release}\label{sec:first_mark}
+
+Each group has a box that contains a population of spiders.%, with a few cockroaches mixed in. 
+Yes, \textsc{ok}, they are beans. Pretend. %Spiders are the larger white beans. Cockroaches are the speckled beans.
+
+\begin{questions}
+
+\question
+How many spiders do you think are present in the box? That is, what is your initial \emph{estimate} of the population size ($N$)?
+
+\bigskip
+
+Estimated $N\colon$ \rule{0.75in}{0.4pt}
+
+You will now estimate population size using the following mark and recapture technique. \textbf{Follow each step exactly.}
+
+\begin{enumerate}
+	\item Elect a sampler for your group who will do all sampling for 
+	this exercise. Choose your spider sampler wisely. The better
+	the sampler, the better your data!
+	
+	\item Designate another person to be the timer. Use a watch or smart phone to count seconds.
+	
+	\item The sampler will capture all the spiders s/he can within a
+	\textbf{45 second period.} 
+	
+	\item Sample only \emph{one spider at a time.}  \textbf{Do not look into the box when you sample to avoid sample bias.} Each spider must be
+	placed on the table before the next spider can be captured. %Cockroaches  must be returned to the box before he next spider can be captured.
+	
+	\item After the sample time has ended, use the black marking pen to mark each sampled spider with a small, distinct dot \emph{on one side only.}
+	
+	\item Record the number of individuals as $M_1$.
+	
+	\bigskip
+	
+	$M_1\colon$ \rule{0.75in}{0.4pt}
+	
+	\item Mix the marked individuals back in with the remaining 
+spiders in the box. Mix well! Make sure the individuals are evenly distributed.
+
+\end{enumerate}
+
+\subsubsection*{Second capture-mark-release}\label{sec:second_mark}
+
+\begin{enumerate}
+
+	\item Repeat the sampling process for another 45 seconds.  \textbf{Do not look into the box when you sample to avoid sample bias.} As before, sampled spiders must be placed on the table before capturing the next individual. %Cockroaches must be returned to the box.
+	
+	\item Record the total number of spiders captured ($n_2$) and the
+	number of marked spiders recaptured ($M_{12}$). 
+	
+	\bigskip
+	
+	$n_2\colon$ \rule{0.75in}{0.4pt} \bigskip
+	
+	$M_{12}\colon$ \rule{0.75in}{0.4pt}
+	
+	\item Mark all the spiders taken in this second sample with a small dot. If the individual was sampled earlier, place the dot \emph{on the same side} as the first dot. Record the 	number of spiders marked this round as $M_2$. (This value will
+	be the same as $n_2$). Add the marked spiders back to the box and mix them well.
+	
+	\bigskip
+	
+	$M_2\colon$ \rule{0.75in}{0.4pt}
+	
+	You will need this value again below.
+	
+\end{enumerate}
+
+\question
+Calculate the population size ($N_1$) of
+spiders \emph{after the second capture}, with this formula,
+
+\[ N_1 = \dfrac{M_1 n_2}{M_{12}}\]
+
+\medskip
+
+$N_1\colon$ \rule{0.75in}{0.4pt}
+
+\question
+Was your estimate close to the actual population size (labeled on
+bottom of the box)? Explain.
+
+\AnswerBox{2\baselineskip}{Answer here.}
+
+\subsubsection*{Estimating change of population size}
+
+Changes in population size can sometimes be estimated with a third round of capture-mark-release, as long as the assumptions described above are met, such as equal time intervals between samples. In this case, you calculate
+$\Delta P$, \emph{the change in population size per individual} (proportional change in
+population size). You calculate the relative change in
+population sizes as,
+
+\begin{equation}
+	\Delta P = \dfrac{\mathrm{Change~in~population~size}}{\mathrm{Population~size~from~first~census}} = \dfrac{N_2 - N_1}{N_1},
+\end{equation}
+
+where, from equation 1, 
+
+\begin{equation*}
+N_1 = \dfrac{M_1 n_2}{M_{12}},
+\end{equation*}
+
+and
+
+\begin{equation}
+N_2 = \dfrac{M_2 n_3}{M_{23}}.
+\end{equation}
+
+Refer to page~\pageref{eq:terms} for the definition of each term.  
+
+\subsubsection*{Third capture-mark-release}\label{sec:third-mark}
+
+\begin{enumerate}
+
+	\item Ask your instructor to adjust your population size, who will then add or remove
+some individuals from your population. Mix spiders \emph{really} well
+after the instructor has adjusted the numbers.
+
+	\item Capture your spiders as before, recording the total number of spiders in
+the third capture ($n_3$) and the number of
+spiders marked in the second capture and then recaptured in the third
+sample ($M_{23}$); all spiders with \emph{two marks} used in the
+second capture).  
+
+	\begin{multicols}{2}
+		$M_2\colon$ \rule{0.75in}{0.4pt} (from above) \bigskip
+
+		$n_3\colon$ \rule{0.75in}{0.4pt} 
+	
+		\columnbreak 
+		
+		$M_{23}\colon$ \rule{0.75in}{0.4pt}\bigskip
+	
+	\end{multicols}
+	
+\end{enumerate}
+
+\question
+Calculate with this formula the population size ($N_2$) of
+spiders \emph{after the third capture},
+
+\[ N_2 = \dfrac{M_2 n_3}{M_{23}}. \]
+
+
+\question
+Was this population size estimate ($N_2$) similar to your original
+estimate ($N_1$)? If not, how do your estimates differ?
+
+\ifprintanswers \textbf{Answers will vary} \fi \vspace*{3\baselineskip}
+
+\question
+Calculate your estimated rate of population change ($\Delta P$) with the formula below to determine
+how many spiders were added or subtracted from your population by the
+instructor. 
+
+\[ \Delta P = \dfrac{N_2 - N_1}{N_1}. \]
+
+The $\Delta P$ value you calculated will be a positive or negative decimal number. To determine how many spiders were added (positive number) or removed (negative number), use
+
+New number of spiders = Original number of spiders in the box $\times$~$\Delta P$.
+
+\bigskip
+
+\question \label{ques:spider_change}
+How many spiders were added or removed? \rule{0.75in}{0.4pt}
+
+
+Once you have calculated the number of spiders added or removed, tell your answer to your
+instructor to determine if you were able to accurately detect the size change
+in your population.
+
+\question
+Was your estimate regarding the change in population correct? Explain.
+
+\ifprintanswers \textbf{Answers will vary} \fi \vspace*{3\baselineskip}
+
+
+\subsubsection*{Does sampling times affect population size estimates?}
+
+In the first part of this lab, the spider sampler had only 45 seconds to
+capture (sample) spiders from the population. To examine the effect of
+sampling time on your estimate of population size, repeat the first and second 
+capture-mark-release sections (pages~\pageref{sec:first_mark}–\pageref{sec:second_mark}) 
+again to estimate $N_1$ (you do not need $M_{2}$).
+\emph{However, this time allow the spider sampler 60 seconds to capture
+spiders}. \textbf{Mark the spiders with a short line (\raisebox{2pt}{\rule{4mm}{1.5pt}}\,; not a dot)} (on the other side if already marked) so you do not mix up the marks from previous captures. Record your new $M_1$, $n_2$, and $M_{12}$ values as you go. \bigskip
+
+	\begin{multicols}{2}
+	$M_1\colon$  \rule{0.75in}{0.4pt} \bigskip
+	
+	$n_2\colon$ \rule{0.75in}{0.4pt}
+	
+	\columnbreak
+	
+	$M_{12}\colon$ \rule{0.75in}{0.4pt} \bigskip
+	
+\end{multicols}
+
+\question
+Use Equation~\ref{eq:mark_recapture} to calculate the population size ($N_1$) of
+spiders after the second capture. \bigskip
+
+$N_1\colon$ \rule{0.75in}{0.4pt}
+
+\question
+Did the accuracy of your estimate of population size improve, given more time for sampling? 
+
+\vspace*{2\baselineskip}
+
+
+\subsubsection*{Swap with another group}
+
+The estimate of population size can be affected by many factors, including the sampling effort. To see this effect, swap your box with another group. Make sure you swap with a group whose box has a different color code.
+
+
+Repeat the sampling procedure with your new set of spiders, allowing 60 seconds for capture time. \textbf{Mark the spiders with an \ding{56} (not a line or dot)} so you do not mix up the marks from previous captures. Record your new $M_1$, $n_2$, and $M_{12}$ values as you go. \bigskip
+
+	\begin{multicols}{2}
+	$M_1\colon$  \rule{0.75in}{0.4pt} \bigskip
+	
+	$n_2\colon$ \rule{0.75in}{0.4pt}
+	
+	\columnbreak
+	
+	$M_{12}\colon$ \rule{0.75in}{0.4pt} \bigskip
+	
+\end{multicols}
+
+\question
+Use Equation~\ref{eq:mark_recapture} to calculate the population size ($N_1$) of
+spiders after the second capture. \bigskip
+
+$N_1\colon$ \rule{0.75in}{0.4pt}
+
+\question
+How did your estimate compare with that of the other group? Were your estimates similar to each other? Was the estimate of one group much closer (say, by 10 or more individuals) to the true number? Both groups together should discuss reasons for differences.
+
+\vspace*{4\baselineskip}
+
+\question[Checkout]
+What does this tell you about the effect of sampling time on estimating
+population size using this mark and recapture technique? If your estimate this time was
+similar to your original estimate, describe what you imagine the effect
+of having more time to sample would be on your estimate of population
+size in a field setting, in which organisms are more likely to be spread
+out across a larger space.
+
+\vspace*{\basespace}
+
+
+\question[Checkout]
+If migration occurred in a natural population being studied, how
+would this influence the reliability of your estimate of population size
+determined using the mark-and-recapture technique?
+
+\vspace*{\basespace}
+
+\question[Checkout]
+You decide to test out a new type of marking technique on a lizard
+population you are interested in characterizing. While other researchers
+have used nail polish to mark individuals, you decided to use acrylic
+paint (e.g., Crayola washable kids paint) as that is what you have on
+hand. You are able to mark 20 individuals. Given the area you sampled,
+you are confident you have captured a large proportion of the population
+(as in competition will limit the number of individuals in any one location
+because they set up territories of a known size). While you intended to
+go out to recapture after a few days, the weather has prevented you from
+doing so from massive rains and flooding. So, it ultimately takes a week
+after releasing your paint-marked individuals for you to return to the
+same location to see how many you can recapture. This time you catch 25
+lizards, but none of them are marked.
+
+\medskip
+
+What are the two possible scenarios that could have led to this result?
+
+\vspace*{\basespace}
+
+\question
+Based on your study design, which scenario is most likely to explain the
+absence of marked individuals in the study area upon your return? (Which
+assumption of the model was likely violated?) Explain your reasoning.
+
+\end{questions}
+
+\ifprintanswers \bfseries
+
+\subsubsection*{Note to instructors}
+
+Start with population sizes of 100 and 130 beans. Half the groups get 100 beans while the other half gets 130 beans. Do not tell them the number of beans until after the estimated $\symbf{N_1}$ the first time.
+
+Boxes are color coded for each population size.
+
+When it is time to increase the population size, increase by 30\%. Thus, the population size of 100 will increase to 130 individuals. The population of 130 will increase to 169 individuals.
+
+Do not tell them the final numbers until the groups have swapped and both have estimated the new $\symbf{N_1}$.
+
+\fi	
+
+
+\end{document}  
