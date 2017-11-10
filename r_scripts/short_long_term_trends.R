@@ -1,6 +1,10 @@
 library(tidyverse)
 library(ggthemes)
 library(RColorBrewer)
+
+#mon_gl <- "http://hadobs.metoffice.com/hadsst3/data/HadSST.3.1.1.0/diagnostics/HadSST.3.1.1.0_monthly_globe_ts.txt"
+#sst_m_avg <- readLines(mon_gl)
+
 sst_m_avg <- readLines("HadSST.3.1.1.0_monthly_globe_ts.txt")
 
 sst_long <- lapply(sst_m_avg, function(x) {#browser()
