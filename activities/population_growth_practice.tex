@@ -1,0 +1,150 @@
+%!TEX TS-program = lualatex
+%!TEX encoding = UTF-8 Unicode
+
+\documentclass[12pt]{exam}
+
+
+%\printanswers
+
+\usepackage{fontspec}
+\setmainfont[Ligatures={TeX}, BoldFont={* Bold}, ItalicFont={* Italic}, BoldItalicFont={* BoldItalic}, Numbers={Monospaced, Lining}]{Linux Libertine O}
+\setsansfont[Scale=MatchLowercase,Ligatures=TeX]{Linux Biolinum O}
+\setmonofont[Scale=MatchLowercase]{Inconsolatazi4}
+\newfontfamily{\tablenumbers}[Numbers={Monospaced,Lining}]{Linux Libertine O}
+\usepackage{microtype}
+
+\usepackage{amsmath}
+
+\usepackage{unicode-math}
+\setmathfont[Scale=MatchLowercase]{TeX Gyre Termes Math}
+
+\usepackage{geometry}
+\geometry{letterpaper, left=1.5in, bottom=1in}                   
+%\geometry{landscape}                % Activate for for rotated page geometry
+\usepackage[parfill]{parskip}    % Activate to begin paragraphs with an empty line rather than an indent
+
+\usepackage{longtable}
+
+%\usepackage{siunitx}
+\usepackage{booktabs}
+\usepackage{array}
+\newcolumntype{L}[1]{>{\raggedright\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+\newcolumntype{C}[1]{>{\centering\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+\newcolumntype{R}[1]{>{\raggedleft\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+
+\usepackage{enumitem}
+\setlist{leftmargin=*}
+\setlist[1]{labelindent=\parindent}
+\setlist[enumerate]{label=\textsc{\alph*}.}
+\setlist[itemize]{label=\color{gray}\textbullet}
+%\usepackage{hyperref}
+%\usepackage{placeins} %PRovides \FloatBarrier to flush all floats before a certain point.
+%\usepackage{hanging}
+
+\usepackage[sc]{titlesec}
+
+%% Commands for Exam class
+\renewcommand{\solutiontitle}{\noindent}
+\unframedsolutions
+\SolutionEmphasis{\bfseries}
+
+
+\pagestyle{headandfoot}
+\firstpageheader{\textsc{bi}\,063 Evolution and Ecology}{}{\ifprintanswers\textbf{KEY}\else Name: \enspace \makebox[2.5in]{\hrulefill}\fi}
+\runningheader{}{}{\footnotesize{pg. \thepage}}
+\footer{}{}{}
+\runningheadrule
+
+
+
+\begin{document}
+
+\subsection*{Population growth practice problems}
+
+Here are ten practice problems for population growth, five for exponential growth and five for logistic growth.  Fill in the blanks as provided.  Answers are on the second page.
+
+$N_1$ means the new population size, after you have calculated $\Delta N$. Assume $\Delta t$ to be one generation. I did not round any other values for the calculations.
+
+I rounded all values of $N_1$ to whole individuals.
+
+\begin{tabular}[l]{@{}R{1in}R{0.75in}R{0.75in}R{0.75in}R{0.75in}R{0.75in}@{}}	
+\toprule
+Exponential	& 1	& 2	& 3	& 4	& 5 \\
+\midrule
+$b$	& 0.06	& 0.016	& 0.16	& 0.68	& 0.38 \\
+$d$	& 0.09	& 0.009	& 0.69	& 0.66	& 0.52 \\
+$N$	& 983	& 1058	& 526	& 2068	& 195 \\
+& 	& 	& 	& 	&  \\
+$r$	& \rule{0.5in}{0.4pt}	& \rule{0.5in}{0.4pt}	& \rule{0.5in}{0.4pt}	& \rule{0.5in}{0.4pt}	& \rule{0.5in}{0.4pt} \\
+& 	& 	& 	& 	&  \\
+$\Delta N$	&\rule{0.5in}{0.4pt}	& \rule{0.5in}{0.4pt}	& \rule{0.5in}{0.4pt}	& \rule{0.5in}{0.4pt}	& \rule{0.5in}{0.4pt} \\
+& 	& 	& 	& 	&  \\
+$N_1$	& \rule{0.5in}{0.4pt}	& \rule{0.5in}{0.4pt}	& \rule{0.5in}{0.4pt}	& \rule{0.5in}{0.4pt}	& \rule{0.5in}{0.4pt} \\
+\bottomrule
+& 	& 	& 	& 	&  \\ 
+& 	& 	& 	& 	&  \\ 
+\toprule
+Logistic	& 1	& 2	& 3	& 4	& 5 \\
+\midrule
+$b$	& 0.06	& 0.016	& 0.16	& 0.68	& 0.38 \\
+$d$	& 0.09	& 0.009	& 0.69	& 0.66	& 0.52 \\
+$N$	& 983	& 1058	& 526	& 2068	& 195 \\
+$K$	& 1000	& 1000	& 750	& 3000	& 250 \\
+& 	& 	& 	& 	&  \\
+$\Delta N$	& \rule{0.5in}{0.4pt}	& \rule{0.5in}{0.4pt}	& \rule{0.5in}{0.4pt}	& \rule{0.5in}{0.4pt}	& \rule{0.5in}{0.4pt} \\
+& 	& 	& 	& 	&  \\
+$N_1$	& \rule{0.5in}{0.4pt}	& \rule{0.5in}{0.4pt}	& \rule{0.5in}{0.4pt}	& \rule{0.5in}{0.4pt}	& \rule{0.5in}{0.4pt} \\
+\bottomrule
+\end{tabular}
+
+\newpage
+
+\subsubsection*{Answer Key}
+
+\begin{longtable}[l]{@{}R{1in}R{0.75in}R{0.75in}R{0.75in}R{0.75in}R{0.75in}@{}}	
+	\toprule
+	Exponential	& 1	& 2	& 3	& 4	& 5 \tabularnewline
+	\midrule
+	$b$	& 0.06	& 0.016	& 0.16	& 0.68	& 0.38 \tabularnewline
+	$d$	& 0.09	& 0.009	& 0.69	& 0.66	& 0.52 \tabularnewline
+	$N$	& 983	& 1058	& 526	& 2068	& 195 \tabularnewline
+	& 	& 	& 	& 	&  \tabularnewline
+	$r$	& -0.03	& 0.007	& -0.53	& 0.02	& -0.14 \tabularnewline
+	$\Delta N$	& -29.49	& 7.41	& -278.78	& 41.36	& -27.30 \tabularnewline
+	$N_1$	& 954	& 1065	& 247	& 2109	& 168 \tabularnewline
+	\bottomrule
+	& 	& 	& 	& 	&  \tabularnewline 
+	& 	& 	& 	& 	&  \tabularnewline 
+	\toprule
+	Logistic	& 1	& 2	& 3	& 4	& 5 \tabularnewline
+	\midrule
+	$b$	& 0.06	& 0.016	& 0.16	& 0.68	& 0.38 \tabularnewline
+	$d$	& 0.09	& 0.009	& 0.69	& 0.66	& 0.52 \tabularnewline
+	$N$	& 983	& 1058	& 526	& 2068	& 195 \tabularnewline
+	$K$	& 1000	& 1000	& 750	& 3000	& 250 \tabularnewline
+	& 	& 	& 	& 	&  \tabularnewline
+	$\Delta N$	& -0.50	& -0.43	& -83.26	& 12.85	& -6.01 \tabularnewline
+	$N_1$	& 983	& 1058	& 443	& 2081	& 189 \tabularnewline
+	\bottomrule
+	
+\end{longtable}
+
+	\bigskip
+	
+	$r$ is the same for both tables.
+	
+	\bigskip
+	
+	Exponential:
+	\begin{equation*}
+	\dfrac{\Delta N}{\Delta T} = rN 
+	\end{equation*}
+	
+	\bigskip
+	
+	Logistic:
+	\begin{equation*}
+	\dfrac{\Delta N}{\Delta T} = rN\left(\dfrac{K-N}{K}\right)
+	\end{equation*}
+
+\end{document}  

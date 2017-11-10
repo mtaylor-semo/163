@@ -1,0 +1,121 @@
+%!TEX TS-program = lualatex
+%!TEX encoding = UTF-8 Unicode
+
+\documentclass[12pt]{exam}
+
+
+%\printanswers
+
+\usepackage{fontspec}
+\setmainfont[Ligatures={TeX}, BoldFont={* Bold}, ItalicFont={* Italic}, BoldItalicFont={* BoldItalic}, Numbers={Monospaced, Lining}]{Linux Libertine O}
+\setsansfont[Scale=MatchLowercase,Ligatures=TeX]{Linux Biolinum O}
+\setmonofont[Scale=MatchLowercase]{Inconsolatazi4}
+\newfontfamily{\tablenumbers}[Numbers={Monospaced,Lining}]{Linux Libertine O}
+\usepackage{microtype}
+
+\usepackage{amsmath}
+
+\usepackage{unicode-math}
+\setmathfont[Scale=MatchLowercase]{TeX Gyre Termes Math}
+
+\usepackage{geometry}
+\geometry{letterpaper, left=1.5in, bottom=1in}                   
+%\geometry{landscape}                % Activate for for rotated page geometry
+\usepackage[parfill]{parskip}    % Activate to begin paragraphs with an empty line rather than an indent
+
+\usepackage{longtable}
+
+%\usepackage{siunitx}
+\usepackage{booktabs}
+\usepackage{array}
+\newcolumntype{L}[1]{>{\raggedright\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+\newcolumntype{C}[1]{>{\centering\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+\newcolumntype{R}[1]{>{\raggedleft\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+
+\usepackage{enumitem}
+\setlist{leftmargin=*}
+\setlist[1]{labelindent=\parindent}
+\setlist[enumerate]{label=\textsc{\alph*}.}
+\setlist[itemize]{label=\color{gray}\textbullet}
+%\usepackage{hyperref}
+%\usepackage{placeins} %PRovides \FloatBarrier to flush all floats before a certain point.
+%\usepackage{hanging}
+
+\usepackage[sc]{titlesec}
+
+%% Commands for Exam class
+\renewcommand{\solutiontitle}{\noindent}
+\unframedsolutions
+\SolutionEmphasis{\bfseries}
+
+
+\pagestyle{headandfoot}
+\firstpageheader{\textsc{bi}\,063 Evolution and Ecology}{}{\ifprintanswers\textbf{KEY}\else Name: \enspace \makebox[2.5in]{\hrulefill}\fi}
+\runningheader{}{}{\footnotesize{pg. \thepage}}
+\footer{}{}{}
+\runningheadrule
+
+
+
+\begin{document}
+
+\subsection*{Mean and standard deviation practice problems}
+
+Here are five practice problems to calculate mean and standard deviation.  Answers are on the second page.
+
+$\overline{Y}$ is the mean. $s$ is the standard deviation.The final answer is rounded to two decimal places. I did not round any values during the calculations.
+
+
+\begin{tabular}[l]{@{}R{0.5in}R{0.75in}R{0.75in}R{0.75in}R{0.75in}R{0.75in}@{}}	
+\toprule
+	& Problem 1	& Problem 2	& Problem 3	& Problem 4	& Problem 5\\
+\midrule
+$Y_1$	& 32	& 43	& 48	& 16	& 14\\
+$Y_2$	& 23	& 35	& 34	& 15	& 46\\
+$Y_3$	& 50	& 12	& 26	& 30	& 27\\
+$Y_4$	& 32	& 11	& 29	& 12	& 30\\
+$Y_5$	& 29	& 35	& 13	& 50	& 38\\
+& 	& 	& 	& \\
+$\overline{Y}$	& \rule{0.5in}{0.4pt}	& \rule{0.5in}{0.4pt}	& \rule{0.5in}{0.4pt}	& \rule{0.5in}{0.4pt}	& \rule{0.5in}{0.4pt}\\
+&	&	&	& \\
+$s$	& \rule{0.5in}{0.4pt}	& \rule{0.5in}{0.4pt}	& \rule{0.5in}{0.4pt}	& \rule{0.5in}{0.4pt}	& \rule{0.5in}{0.4pt}\\
+\bottomrule
+\end{tabular}
+
+\newpage
+
+\subsubsection*{Answer Key}
+
+\begin{tabular}[l]{@{}R{0.5in}R{0.75in}R{0.75in}R{0.75in}R{0.75in}R{0.75in}@{}}	
+	\toprule
+	& Problem 1	& Problem 2	& Problem 3	& Problem 4	& Problem 5\\
+	\midrule
+	$Y_1$	& 32	& 43	& 48	& 16	& 14\\
+	$Y_2$	& 23	& 35	& 34	& 15	& 46\\
+	$Y_3$	& 50	& 12	& 26	& 30	& 27\\
+	$Y_4$	& 32	& 11	& 29	& 12	& 30\\
+	$Y_5$	& 29	& 35	& 13	& 50	& 38\\
+	& 	& 	& 	& \\
+	$\overline{Y}$	& 33.2	& 27.2	& 30.0	& 24.6	& 31.0\\
+	&	&	&	& \\
+	$s$	& 10.08	& 14.70	& 12.71	& 15.81	& 12.04\\
+	\bottomrule
+\end{tabular}
+
+	\bigskip
+	
+	\bigskip
+	
+	Mean:
+	\begin{equation*}
+	\overline{Y} = \dfrac{\sum\limits^n_{i=1} Y_i}{n}
+	\end{equation*}
+	
+	\bigskip
+	
+	Standard Deviation:
+	\begin{equation*}
+	 s = \sqrt{\dfrac{\sum\left(Y_i - \overline{Y}\right)^2}{n-1}}
+	\end{equation*}
+
+\end{document}  
