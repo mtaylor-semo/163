@@ -3,7 +3,7 @@
 
 \documentclass[12pt, hidelinks]{exam}
 
-\printanswers
+%\printanswers
 
 \usepackage{graphicx}
 	\graphicspath{{/Users/goby/Pictures/teach/163/lab/}
@@ -22,7 +22,7 @@
 \setsansfont[Scale=MatchLowercase,Ligatures=TeX, Numbers={Proportional,OldStyle}]{Linux Biolinum O}
 \setmonofont[Scale=MatchLowercase]{Linux Libertine Mono O}
 \newfontfamily{\liningnum}[Numbers=Lining]{Linux Libertine O}
-\usepackage{microtype}
+\usepackage{microtype}%
 
 \usepackage[table]{xcolor}
 
@@ -204,7 +204,7 @@ This exercise will help you learn some properties of the mark-recapture method.
 
 \subsubsection*{First capture-mark-release}\label{sec:first_mark}
 
-Each group has a box that contains a population of spiders.%, with a few cockroaches mixed in. 
+Each pair of students has a box that contains a population of spiders. %, with a few cockroaches mixed in. 
 Yes, \textsc{ok}, they are beans. Pretend. %Spiders are the larger white beans. Cockroaches are the speckled beans.
 
 \begin{questions}
@@ -272,7 +272,7 @@ spiders in the box. Mix well! Make sure the individuals are evenly distributed.
 
 \question
 Calculate the population size ($N_1$) of
-spiders \emph{after the second capture}, with this formula,
+spiders \emph{after the second capture}, with equation~\ref{eq:mark_recapture},
 
 \[ N_1 = \dfrac{M_1 n_2}{M_{12}}\]
 
@@ -281,8 +281,7 @@ spiders \emph{after the second capture}, with this formula,
 $N_1\colon$ \rule{0.75in}{0.4pt}
 
 \question
-Was your estimate close to the actual population size (labeled on
-bottom of the box)? Explain.
+Ask your instructor for the actual population size for your box. Was your estimate close (±20 individuals) to the actual population size, way off (±40 individuals), or somewhere between? Why do you think you did not get closer to the actual number?
 
 \AnswerBox{2\baselineskip}{Answer here.}
 
@@ -297,7 +296,7 @@ population sizes as,
 	\Delta P = \dfrac{\mathrm{Change~in~population~size}}{\mathrm{Population~size~from~first~census}} = \dfrac{N_2 - N_1}{N_1},
 \end{equation}
 
-where, from equation 1, 
+where, from equation~(\ref{eq:mark_recapture}), 
 
 \begin{equation*}
 N_1 = \dfrac{M_1 n_2}{M_{12}},
@@ -315,8 +314,7 @@ Refer to page~\pageref{eq:terms} for the definition of each term.
 
 \begin{enumerate}
 
-	\item Ask your instructor to adjust your population size, who will then add or remove
-some individuals from your population. Mix spiders \emph{really} well
+	\item Ask your instructor to change your population size. Mix spiders \emph{thoroughly}
 after the instructor has adjusted the numbers.
 
 	\item Capture your spiders as before, recording the total number of spiders in
@@ -358,11 +356,16 @@ instructor.
 
 \[ \Delta P = \dfrac{N_2 - N_1}{N_1}. \]
 
-The $\Delta P$ value you calculated will be a positive or negative decimal number. To determine how many spiders were added (positive number) or removed (negative number), use
+The $\Delta P$ value you calculated will be a positive or negative decimal number. 
 
-New number of spiders = Original number of spiders in the box $\times$~$\Delta P$.
 
-\bigskip
+\question
+To estimate how many spiders were added (positive number) or removed (negative number), use
+
+Number added or removed = Original \emph{known} number of spiders in the box $\times$~$\Delta P$.
+
+\textbf{Use the number given to you by your instructor, not your estimate.}\bigskip
+
 
 \question \label{ques:spider_change}
 How many spiders were added or removed? \rule{0.75in}{0.4pt}
@@ -375,10 +378,10 @@ in your population.
 \question
 Was your estimate regarding the change in population correct? Explain.
 
-\ifprintanswers \textbf{Answers will vary} \fi \vspace*{3\baselineskip}
+\AnswerBox{1\baselineskip}{Answers will vary}
 
 
-\subsubsection*{Does sampling times affect population size estimates?}
+\subsubsection*{Does sampling time affect population size estimates?}
 
 In the first part of this lab, the spider sampler had only 45 seconds to
 capture (sample) spiders from the population. To examine the effect of
@@ -416,7 +419,7 @@ Did the accuracy of your estimate of population size improve, given more time fo
 The estimate of population size can be affected by many factors, including the sampling effort. To see this effect, swap your box with another group. Make sure you swap with a group whose box has a different color code.
 
 
-Repeat the sampling procedure with your new set of spiders, allowing 60 seconds for capture time. \textbf{Mark the spiders with an \ding{56} (not a line or dot)} so you do not mix up the marks from previous captures. Record your new $M_1$, $n_2$, and $M_{12}$ values as you go. \bigskip
+Repeat the sampling procedure with your new set of spiders, allowing 60 seconds for capture time. \textbf{Mark the spiders with an \ding{56} (not a line or dot)} so you do not mix up the marks from previous captures. Record your new $M_1$, $n_2$, and $M_{12}$ values as you go. %\bigskip
 
 	\begin{multicols}{2}
 	$M_1\colon$  \rule{0.75in}{0.4pt} \bigskip
@@ -438,7 +441,9 @@ $N_1\colon$ \rule{0.75in}{0.4pt}
 \question
 How did your estimate compare with that of the other group? Were your estimates similar to each other? Was the estimate of one group much closer (say, by 10 or more individuals) to the true number? Both groups together should discuss reasons for differences.
 
-\vspace*{4\baselineskip}
+\AnswerBox{\basespace}{Answers will vary.}
+
+\newpage
 
 \question[Checkout]
 What does this tell you about the effect of sampling time on estimating
@@ -448,7 +453,7 @@ of having more time to sample would be on your estimate of population
 size in a field setting, in which organisms are more likely to be spread
 out across a larger space.
 
-\vspace*{\basespace}
+\AnswerBox{\basespace}{More time would increase the chance of sampling marked individuals, giving you a more reliable estimate of population size.}
 
 
 \question[Checkout]
@@ -456,47 +461,75 @@ If migration occurred in a natural population being studied, how
 would this influence the reliability of your estimate of population size
 determined using the mark-and-recapture technique?
 
-\vspace*{\basespace}
+\AnswerBox{\basespace}{Reliability would decrease. If immigration occured between samples, then the estimate would be too low. If emigration occured between samples, then the esimate would be too high. Emigration of marked individuals would also affect the estimate because not as many could be captured.}
 
-\question[Checkout]
-You decide to test out a new type of marking technique on a lizard
-population you are interested in characterizing. While other researchers
-have used nail polish to mark individuals, you decided to use acrylic
-paint (e.g., Crayola washable kids paint) as that is what you have on
-hand. You are able to mark 20 individuals. Given the area you sampled,
-you are confident you have captured a large proportion of the population
-(as in competition will limit the number of individuals in any one location
-because they set up territories of a known size). While you intended to
-go out to recapture after a few days, the weather has prevented you from
-doing so from massive rains and flooding. So, it ultimately takes a week
-after releasing your paint-marked individuals for you to return to the
-same location to see how many you can recapture. This time you catch 25
-lizards, but none of them are marked.
+\subsubsection*{Final steps: sort your spiders}
 
-\medskip
+To receive full credit for the day, you must help reset the boxes for the next lab.
 
-What are the two possible scenarios that could have led to this result?
-
-\vspace*{\basespace}
-
-\question
-Based on your study design, which scenario is most likely to explain the
-absence of marked individuals in the study area upon your return? (Which
-assumption of the model was likely violated?) Explain your reasoning.
+\begin{enumerate}
+	\item Remove all marked spiders and place them in the container provided by your instructor. Your instructor will then provide you with additional spiders.
+	
+	\item Count 100 spiders, place them in the container marked with blue, and seal the lid. 
+	
+	\item Count 130 spiders, place them in the container marked with green, and seal the lid.
+	
+	\item Count 30 spiders, place them in the bag with the blue tape, and seal the bag.
+	
+	\item Count 39 spiders, place them in the bag with the gray tape, and seal the bag.
+	
+	\item Pat yourself on the back for helping!
+	
+\end{enumerate}
+%\question[Checkout]
+%You decide to test out a new type of marking technique on a lizard
+%population you are interested in characterizing. While other researchers
+%have used nail polish to mark individuals, you decided to use acrylic
+%paint (e.g., Crayola washable kids paint) as that is what you have on
+%hand. You are able to mark 20 individuals. Given the area you sampled,
+%you are confident you have captured a large proportion of the population
+%(as in competition will limit the number of individuals in any one location
+%because they set up territories of a known size). While you intended to
+%go out to recapture after a few days, the weather has prevented you from
+%doing so from massive rains and flooding. So, it ultimately takes a week
+%after releasing your paint-marked individuals for you to return to the
+%same location to see how many you can recapture. This time you catch 25
+%lizards, but none of them are marked.
+%
+%\medskip
+%
+%What are the two possible scenarios that could have led to this result?
+%
+%\vspace*{\basespace}
+%
+%\question
+%Based on your study design, which scenario is most likely to explain the
+%absence of marked individuals in the study area upon your return? (Which
+%assumption of the model was likely violated?) Explain your reasoning.
 
 \end{questions}
+
+\newpage
 
 \ifprintanswers \bfseries
 
 \subsubsection*{Note to instructors}
 
-Start with population sizes of 100 and 130 beans. Half the groups get 100 beans while the other half gets 130 beans. Do not tell them the number of beans until after the estimated $\symbf{N_1}$ the first time.
+Boxes with blue paint have 100 beans. Boxes with green paint have 130 beans.
 
-Boxes are color coded for each population size.
+Baggies with blue paper have 30 beans. Baggies with green paper have 39 beans. 
 
-When it is time to increase the population size, increase by 30\%. Thus, the population size of 100 will increase to 130 individuals. The population of 130 will increase to 169 individuals.
+Mnemonic: Blue before green alphabetically, 100 before 130 numerically.
 
-Do not tell them the final numbers until the groups have swapped and both have estimated the new $\symbf{N_1}$.
+
+
+
+One pair of students at a table gets the box with 100 beans while the other pair gets the box with 130 beans. Do not tell them the number of beans until after they have estimated $\symbf{N_1}$ the first time.
+
+
+When it is time to increase the population size, it will increase by 30\%.  Add all of the beans from the bag with blue paper to the boxes marked with blue paint to go from 100 to 130 individuals. Add all of the beans from the bag with the green paper to the boxes marked with green paint to go from 130 to 169 individuals.
+
+Do not tell them the how many beans you added or the new numbers until the groups have swapped and both have estimated the new $\symbf{N_1}$.
 
 \fi	
 
