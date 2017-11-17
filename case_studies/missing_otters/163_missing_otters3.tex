@@ -1,15 +1,15 @@
 %!TEX TS-program = lualatex
 %!TEX encoding = UTF-8 Unicode
 
-%\documentclass[t]{beamer}
+\documentclass[t]{beamer}
 
 %%%% HANDOUTS For online Uncomment the following four lines for handout
-\documentclass[t,handout]{beamer}  %Use this for handouts.
+%\documentclass[t,handout]{beamer}  %Use this for handouts.
+%\includeonlylecture{student}
 %\usepackage{handoutWithNotes}
 %\pgfpagesuselayout{3 on 1 with notes}[letterpaper,border shrink=5mm]
 %	\setbeamercolor{background canvas}{bg=black!5}
 
-\includeonlylecture{student}
 
 %%% Including only some slides for students.
 %%% Uncomment the following line. For the slides,
@@ -185,6 +185,28 @@
 \end{frame}
 }
 %
+\lecture{instructor}{instructor}
+
+\begin{frame}{Predict the relative abundance of each type of organism, based on whether killer whales are eating sea otters.}
+
+Use an upward arrow ($\Uparrow$) to indicate high abundance and downward arrow ($\Downarrow$) to indicate low abundance.
+
+\begin{center}
+\begin{tabular}{@{}L{1in}C{1.2in}C{1.0in}@{}}
+	\toprule
+	Killer Whales	& Not Eating Otters		& Eating Otters \\
+	\midrule
+	Otters			& $\Uparrow$	& \\[2ex]
+	Sea Urchins		&				& \\[2ex]
+	Kelp			&				& \\
+	\bottomrule
+\end{tabular}
+\end{center}
+\end{frame}
+%
+\lecture{student}{student}
+
+
 {
 \usebackgroundtemplate{\includegraphics[width=\paperwidth]{missing_otter3_kelp_graphs} }
 \begin{frame}[b]
