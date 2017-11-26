@@ -23,8 +23,8 @@ sst_long <- lapply(sst_m_avg, function(x) {#browser()
 
 one_color=brewer.pal(3,'Dark2')[2]
 
-sst_short <- filter(sst_long, ym>="1997/06", ym<="2013/05")
-ticks_short <- sst_short$ym[seq(1,200,by=12)]
+sst_short <- filter(sst_long, ym>="1997/01", ym<="2015/08")
+ticks_short <- sst_short$ym[seq(1,300,by=12)]
 sst_short_plot <- sst_short %>%
   mutate(ym=factor(ym,levels=ym, ordered=T)) %>%
   ggplot(aes(x=ym, y=avg)) + 
