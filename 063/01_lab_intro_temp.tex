@@ -1,0 +1,125 @@
+%!TEX TS-program = lualatex
+%!TEX encoding = UTF-8 Unicode
+
+\documentclass[t]{beamer}
+
+%%%% HANDOUTS For online Uncomment the following four lines for handout
+%\documentclass[t,handout]{beamer}  %Use this for handouts.
+%\usepackage{handoutWithNotes}
+%\pgfpagesuselayout{3 on 1 with notes}[letterpaper,border shrink=5mm]
+
+
+%%% Including only some slides for students.
+%%% Uncomment the following line. For the slides,
+%%% use the labels shown below the command.
+%\includeonlylecture{student}
+
+%% For students, use \lecture{student}{student}
+%% For mine, use \lecture{instructor}{instructor}
+
+
+%\usepackage{pgf,pgfpages}
+%\pgfpagesuselayout{4 on 1}[letterpaper,border shrink=5mm]
+
+% FONTS
+\usepackage{fontspec}
+\def\mainfont{Linux Biolinum O}
+\setmainfont[Ligatures={Common,TeX}, Contextuals={NoAlternate}, Numbers={Proportional, OldStyle}]{\mainfont}
+\setsansfont[Ligatures={Common,TeX}, Scale=MatchLowercase, Numbers={Proportional,OldStyle}, BoldFont={* Bold}, ItalicFont={* Italic},]\mainfont
+
+\newfontface\lining[Numbers={Lining}]\mainfont
+
+\usepackage{graphicx}
+	\graphicspath{{/Users/goby/pictures/teach/163/lab/}
+	{/Users/goby/pictures/teach/common/}} % set of paths to search for images
+
+%\usepackage{units}
+\usepackage{booktabs}
+\usepackage{multicol}
+\usepackage{calc}  % Used for the HiddenWord macro below.
+%\usepackage{textcomp}
+
+\usepackage{tikz}
+%	\tikzstyle{every picture}+=[remember picture,overlay]
+
+\mode<presentation>
+{
+  \usetheme{Lecture}
+  \setbeamercovered{invisible}
+  \setbeamertemplate{items}[square]
+}
+
+%\usefonttheme[onlymath]{serif}
+%\usecolortheme[named=blue7]{structure}
+
+% HiddenWord macro requires the calc package.
+\newcommand\HiddenWord[1]{% 
+	\alt<handout>{\rule{\widthof{#1}}{\fboxrule}}{#1}%
+}
+
+% Chance gray to black if you do not want to gray out text.
+\newcommand\GrayedOut[1]{%
+	\alt<handout>{#1}{\textcolor{gray}{#1}}%
+}
+
+
+\begin{document}
+
+\lecture{instructor}{instructor}
+{
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{hoverflies} }
+\begin{frame}[b,plain]{\textcolor{orange7}{\textsc{bi} 063: Evolution and Ecology Lab}}
+
+%\begin{center}\LARGE\textcolor{white}{Sit towards front of the room.}\end{center}
+
+\hfill\textcolor{white}{\tiny Fir0002, Wikimedia \ccbync{3}}
+\end{frame}
+}
+
+{
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{mike_snake}
+}
+\begin{frame}[t,plain]
+	\large
+	\vspace{5ex}
+	\hangpara \hspace{17em} Mike Taylor
+
+	\hangpara \hspace{17em} \textsc{rh} 217
+
+	\hangpara \hspace{17em} \textsc{m}\,9--10, \textsc{t}\,10--11, \textsc{w}\,11--12.
+
+	\hangpara \hspace{17em} mtaylor@semo.edu
+	
+	\hangpara \hspace{17em} \includegraphics[width=0.4cm]{twitter_icon} @MikeTaylor\textsc{semo}\\
+	\hspace{17em} \#\textsc{bi}063\textsc{taylor}
+
+\end{frame}
+}
+
+
+\begin{frame}[t]{\href{http://learning.semo.edu}{learning.semo.edu}}
+	\begin{center}
+		\includegraphics[width=\textwidth]{moodle_logo}
+		
+		\medskip
+		
+	\end{center}
+	
+\end{frame}
+
+
+\lecture{student}{student}
+%
+\begin{frame}{Scientists usually manipulate and measure variables.}
+	
+	\hangpara  \highlight{Explanatory variable:} a manipulated or controlled variable in an experiment
+	or study whose presence or degree determines a change in the response
+	variable.  
+	
+	\hangpara  \highlight{Response variable:} an observed variable in an experiment or
+	study that changes in response to the presence or degree of one
+	or more explanatory variables.  
+	
+\end{frame}
+
+\end{document}

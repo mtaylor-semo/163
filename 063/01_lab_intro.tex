@@ -1,10 +1,10 @@
 %!TEX TS-program = lualatex
 %!TEX encoding = UTF-8 Unicode
 
-%\documentclass[t]{beamer}
+\documentclass[t]{beamer}
 
 %%%% HANDOUTS For online Uncomment the following four lines for handout
-\documentclass[t,handout]{beamer}  %Use this for handouts.
+%\documentclass[t,handout]{beamer}  %Use this for handouts.
 %\usepackage{handoutWithNotes}
 %\pgfpagesuselayout{3 on 1 with notes}[letterpaper,border shrink=5mm]
 
@@ -12,7 +12,7 @@
 %%% Including only some slides for students.
 %%% Uncomment the following line. For the slides,
 %%% use the labels shown below the command.
-\includeonlylecture{student}
+%\includeonlylecture{student}
 
 %% For students, use \lecture{student}{student}
 %% For mine, use \lecture{instructor}{instructor}
@@ -30,7 +30,7 @@
 \newfontface\lining[Numbers={Lining}]\mainfont
 
 \usepackage{graphicx}
-	\graphicspath{{/Users/goby/pictures/teach/163/lecture/}
+	\graphicspath{{/Users/goby/pictures/teach/163/lab/}
 	{/Users/goby/pictures/teach/common/}} % set of paths to search for images
 
 %\usepackage{units}
@@ -52,8 +52,6 @@
 %\usefonttheme[onlymath]{serif}
 %\usecolortheme[named=blue7]{structure}
 
-\newcommand{\btVFill}{\vskip0pt plus 1filll}
-
 % HiddenWord macro requires the calc package.
 \newcommand\HiddenWord[1]{% 
 	\alt<handout>{\rule{\widthof{#1}}{\fboxrule}}{#1}%
@@ -70,7 +68,7 @@
 \lecture{instructor}{instructor}
 {
 \usebackgroundtemplate{\includegraphics[width=\paperwidth]{hoverflies} }
-\begin{frame}[b,plain]{\textcolor{orange7}{\textsc{bi} 063-02: Evolution and Ecology Lab}}
+\begin{frame}[b,plain]{\textcolor{orange7}{\textsc{bi} 063: Evolution and Ecology Lab}}
 
 %\begin{center}\LARGE\textcolor{white}{Sit towards front of the room.}\end{center}
 
@@ -84,13 +82,16 @@
 \begin{frame}[t,plain]
 	\large
 	\vspace{5ex}
-	\hangpara\hspace{17em} Mike Taylor
+	\hangpara \hspace{17em} Mike Taylor
 
-	\hangpara\hspace{17em} \textsc{rh} 217
+	\hangpara \hspace{17em} \textsc{rh} 217
 
-	\hangpara\hspace{17em} \textsc{m}\,\textsc{w} 9--10~\textsc{am}, \textsc{t}\,10--11~\textsc{am}.
+	\hangpara \hspace{17em} \textsc{m}\,9--10, \textsc{t}\,10--11, \textsc{w}\,11--12.
 
-	\hangpara\hspace{17em} mtaylor@semo.edu
+	\hangpara \hspace{17em} mtaylor@semo.edu
+	
+	\hangpara \hspace{17em} \includegraphics[width=0.4cm]{twitter_icon} @MikeTaylor\textsc{semo}\\
+	\hspace{17em} \#\textsc{bi}063\textsc{taylor}
 
 \end{frame}
 }
@@ -153,12 +154,17 @@
 {
 \usebackgroundtemplate{\includegraphics[width=\paperwidth]{science_objective}}
 \begin{frame}[b]{Science is \highlight{objective.}}
+
+\tiny \textcolor{white}{Tess McBride, \textsc{usfws}, public domain}
 \end{frame}
 }
 
 {
 \usebackgroundtemplate{\includegraphics[width=\paperwidth]{science_testable}}
 \begin{frame}[b]{Science is \highlight{testable.}}
+
+\tiny Tech. Sgt. Bradly A. Schneider, U.S. Natl Air Guard, public domain
+
 \end{frame}
 }
 
@@ -260,7 +266,7 @@
 
 	\textcolor{white}{As Ascension Island (red dot) separated from Brazil over millions of years, generations of turtles continued to visit the island to breed.}
 
-	\btVFill
+	\vfilll
 
 	\hfill\tiny \textcolor{white}{\url{http://www.ucmp.berkeley.edu/geology/tectonics.html}}
 
