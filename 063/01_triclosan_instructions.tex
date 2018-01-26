@@ -1,0 +1,147 @@
+%!TEX TS-program = lualatex
+%!TEX encoding = UTF-8 Unicode
+
+\documentclass[12pt]{exam}
+\usepackage{graphicx}
+	\graphicspath{{/Users/goby/Pictures/teach/163/lab/}} % set of paths to search for images
+
+\usepackage{geometry}
+\geometry{letterpaper, bottom=0.9in}                   
+
+\usepackage{afterpage}
+\usepackage{pdflscape}
+
+\newlength{\myindent}
+\setlength{\myindent}{\parindent}
+\newcommand{\ind}{\hspace*{\myindent}}
+
+
+%\geometry{landscape}                % Activate for for rotated page geometry
+\newlength{\litindent}
+\setlength{\litindent}{\parindent}
+
+\usepackage[parfill]{parskip}    % Activate to begin paragraphs with an empty line rather than an indent
+%\usepackage{amssymb, amsmath}
+%\usepackage{mathtools}
+%	\everymath{\displaystyle}
+
+\usepackage{fontspec}
+\setmainfont[Ligatures={TeX}, BoldFont={* Bold}, ItalicFont={* Italic}, BoldItalicFont={* BoldItalic}, Numbers={OldStyle,Proportional}]{Linux Libertine O}
+\setsansfont[Scale=MatchLowercase,Ligatures=TeX, Numbers=OldStyle]{Linux Biolinum O}
+\setmonofont[Scale=MatchLowercase]{Inconsolatazi4}
+\usepackage{microtype}
+
+\usepackage{unicode-math}
+\setmathfont[Scale=MatchLowercase]{Asana Math}
+%\setmathfont[Scale=MatchLowercase]{XITS Math}
+
+% To define fonts for particular uses within a document. For example, 
+% This sets the Libertine font to use tabular number format for tables.
+\newfontfamily{\tablenumbers}[Numbers={Monospaced}]{Linux Libertine O}
+\newfontfamily{\libertinedisplay}{Linux Libertine Display O}
+
+\usepackage{longtable}
+
+\usepackage{booktabs}
+\usepackage{multirow}
+\usepackage{multicol}
+
+\usepackage[justification=raggedright, labelsep=period]{caption}
+\captionsetup{singlelinecheck=off}
+\captionsetup{skip=0.2em}
+
+%\usepackage{tabularx}
+\usepackage{siunitx}
+\usepackage{array}
+\newcolumntype{L}[1]{>{\raggedright\let\newline\\\arraybackslash\hspace{0pt}}p{#1}}
+\newcolumntype{C}[1]{>{\centering\let\newline\\\arraybackslash\hspace{0pt}}p{#1}}
+\newcolumntype{R}[1]{>{\raggedleft\let\newline\\\arraybackslash\hspace{0pt}}p{#1}}
+
+\newcolumntype{M}[1]{>{\centering\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+
+\usepackage{tikz}
+
+\usepackage{enumitem}
+\setlist{leftmargin=*}
+\setlist[1]{labelindent=\parindent}
+\setlist[enumerate]{label=\textsc{\alph*}., ref=\textsc{\alph*}}
+
+%\usepackage{hyperref}
+\usepackage{hanging}
+
+\usepackage[sc]{titlesec}
+
+
+\renewcommand{\solutiontitle}{\noindent}
+\unframedsolutions
+\SolutionEmphasis{\bfseries}
+
+\renewcommand{\questionshook}{%
+	\setlength{\leftmargin}{-\leftskip}%
+}
+%Change \half command from 1/2 to .5
+%\renewcommand*\half{.5}
+
+
+\makeatletter
+\def\SetTotalwidth{\advance\linewidth by \@totalleftmargin
+\@totalleftmargin=0pt}
+\makeatother
+
+
+
+\pagestyle{headandfoot}
+\firstpageheader{BI 063: Evolution and Ecology}{}{Triclosan Dilution Instructions}
+\runningheader{}{}{\footnotesize{pg. \thepage}}
+\footer{}{}{}
+\runningheadrule
+
+\newcommand*\AnswerBox[2]{%
+    \parbox[t][#1]{0.92\textwidth}{%
+    \begin{solution}#2\end{solution}}
+    \vspace{\stretch{1}}
+}
+
+\newenvironment{AnswerPage}[1]
+    {\begin{minipage}[t][#1]{0.92\textwidth}%
+    \begin{solution}}
+    {\end{solution}\end{minipage}
+    \vspace{\stretch{1}}}
+
+\newlength{\basespace}
+\setlength{\basespace}{5\baselineskip}
+
+\newcommand{\allele}[1]{\textit{#1}}
+
+%\printanswers
+
+\begin{document}
+
+\subsection*{Instructions for making Triclosan solutions}
+
+Each semester needs 1 \si{g} Triclosan. Order from Sigma Aldrich, catalog \textsc{phr}1338-1\textsc{g}.
+
+Students work in groups of 3–4 (one table). Each table gets five small jars, one for each solution.
+
+You need five stock solutions total, all in 50\% ethanol, including control. The five concentrations are 0.0\% (control), 0.1\%, 0.3\%, 0.5\%, and 0.7\%.
+
+\begin{enumerate}
+	\item Dissolve 0.7 g in 100 mL of 50\% ethanol. This is the 0.7\% stock solution.
+	
+	\item Remove 42 mL of the 0.7\% solution and place it in clean jar labeled 0.5\%. 
+	
+	\item Add 17 mL of 50\% ethanol to this jar. This makes 59 mL of is the 0.5\% stock solution.
+	
+	\item Dissolve 0.3 g in 100 mL of 50\% ethanol. This is the 0.3\% stock solution.
+	
+	\item Remove 20 mL of the 0.3\% solution and place it in a clean jar labeled 0.1\%.
+	
+	\item Add 40 mL of 50\% ethanol to this jar. This makes 60 mL of the 0.1\% stock solution.
+	
+\end{enumerate}
+
+Aliquot approximately 9 mL of each solution into the appropriately labeled small jars for use in lab.
+
+Place one paper dot for \emph{each} lab section into each of the filled small jars. For fall with 9 sections (typically), add nine paper dots. For spring with four sections (typically), add four dots.
+
+\end{document}  
