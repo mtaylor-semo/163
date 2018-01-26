@@ -1,0 +1,176 @@
+%!TEX TS-program = lualatex
+%!TEX encoding = UTF-8 Unicode
+
+\documentclass[12pt]{article}
+
+
+%\printanswers
+
+
+\usepackage{graphicx}
+	\graphicspath{{/Users/goby/Pictures/teach/163/ta_how_to/}
+	{img/}} % set of paths to search for images
+
+\usepackage{geometry}
+\geometry{letterpaper, left=1.5in, bottom=1in}                   
+%\geometry{landscape}                % Activate for for rotated page geometry
+\usepackage[parfill]{parskip}    % Activate to begin paragraphs with an empty line rather than an indent
+\usepackage{amssymb, amsmath}
+\usepackage{mathtools}
+	\everymath{\displaystyle}
+
+\usepackage[table]{xcolor}
+
+\usepackage{fontspec}
+\setmainfont[Ligatures={TeX}, BoldFont={* Bold}, ItalicFont={* Italic}, BoldItalicFont={* BoldItalic}, Numbers={OldStyle}]{Linux Libertine O}
+\setsansfont[Scale=MatchLowercase,Ligatures=TeX]{Linux Biolinum O}
+\setmonofont[Scale=MatchLowercase]{Inconsolatazi4}
+\newfontfamily{\tablenumbers}[Numbers={Monospaced,Lining}]{Linux Libertine O}
+\usepackage{microtype}
+
+%\usepackage{bm}
+
+% To define fonts for particular uses within a document. For example, 
+% This sets the Libertine font to use tabular number format for tables.
+ %\newfontfamily{\tablenumbers}[Numbers={Monospaced}]{Linux Libertine O}
+% \newfontfamily{\libertinedisplay}{Linux Libertine Display O}
+
+\usepackage{multicol}
+%\usepackage[normalem]{ulem}
+
+\usepackage{longtable}
+\usepackage{caption}
+	\captionsetup{format=plain, justification=raggedright, singlelinecheck=off,labelsep=period,skip=3pt} % Removes colon following figure / table number.
+%\usepackage{siunitx}
+\usepackage{booktabs}
+\usepackage{array}
+\newcolumntype{L}[1]{>{\raggedright\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+\newcolumntype{C}[1]{>{\centering\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+\newcolumntype{R}[1]{>{\raggedleft\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+
+\usepackage{enumitem}
+\setlist{leftmargin=*}
+\setlist[1]{labelindent=\parindent}
+\setlist[enumerate]{label=\textsc{\alph*}.}
+\setlist[itemize]{label=\color{gray}\textbullet}
+%\usepackage{hyperref}
+%\usepackage{placeins} %PRovides \FloatBarrier to flush all floats before a certain point.
+%\usepackage{hanging}
+
+\usepackage[sc]{titlesec}
+
+%% Commands for Exam class
+
+%\pagestyle{headandfoot}
+%\firstpageheader{\textsc{bi}\,063 Evolution and Ecology}{}{\ifprintanswers\textbf{KEY}\else Name: \enspace \makebox[2.5in]{\hrulefill}\fi}
+%\runningheader{}{}{\footnotesize{pg. \thepage}}
+%\footer{}{}{}
+%\runningheadrule
+
+
+
+
+\begin{document}
+
+\subsection*{Setup a Moodle subcourse}
+
+The Moodle subcourse module is useful for courses like \textsc{bi}~163, \textsc{bi}~173, \textsc{bi}~283, and \textsc{bs}~113 that have multiple independent lab courses (e.g., \textsc{bi}~063), where the lab grade is a component of the overall lecture grade. Individual lab assignment grades are entered into the gradebook of the lab Moodle page. The total lab score from the lab gradebook appears automatically in the lecture gradebook via the subcourse.
+
+To start, you will need a list of students that are enrolled in each lab section and the list of students enrolled in your lecture section. You can ask the lab section instructor for a list or you can get the list yourself if you are included as an instructor for the section. 
+
+\subsubsection*{Create groups for each lab section}
+
+\begin{enumerate}
+
+	\item Login to lecture Moodle page. Click the ``Turn editing on'' button to turn on editing. It is located near the upper right of the browser window.
+
+	\item 	Select “Users \textgreater{} Groups” from the Administration menu (below left).
+
+	\item Click the “Create group” button. Give the group a name that reflects the lab and section number, such as “063-01.” Create a group for each lab section (below right).
+
+	\hfil \includegraphics[width=1.75in]{subcourse_admin_groups} \hfil \includegraphics[width=1.75in]{subcourse_groups} \hfill
+
+	\emph{Here comes the tedious part.}
+
+	\item Select the first group (lab section) and click the “Add/remove users” button. Select the name of a student that is in this lab section, and then click the “Add” button to add the student to the group.
+	
+	Students that are in a lab section but not in your lecture section will not appear in the list. 
+	
+	If your lecture section is so large that not all students are listed, then check your official roster to see if the student is listed. If so, then search for the students name and add the student to the group. 
+
+	\item Repeat this process for each student in this lab section that is also in your lecture section.
+	
+	\item Add yourself to each group so that they do not become hidden from you.
+	
+	\item Students with the number 1 in parentheses next to their names were already added to a group. Use this as a guide so that you do not accidentally add a student to the wrong group. 
+	
+	In the example below, Jalyn Anderson has already been added to a group so he should not be added to the current group. Or, if he \emph{should} be added to the current group, then he was accidentally added to an incorrect group.
+
+	{\centering
+		\includegraphics[width=3in]{subcourse_student_list}\par
+	}
+
+	\item Repeat this entire process for each group (lab section). 
+
+	\item Return to the main lecture Moodle page.
+	
+\end{enumerate}
+
+\subsubsection*{Add the subcourses}
+ 
+\begin{enumerate}
+	\item If not there, return to the lecture Moodle page. Click the ``Turn editing on'' button to turn on editing. It is located near the upper right of the browser window.
+	
+	\item In the main block (where the Announcements forum appears), click on “Add an activity or resource.”
+	
+	\item Scroll down and choose the subcourse activity. Click the “Add” button.
+	
+	{\centering
+		\includegraphics[width=1.75in]{subcourse_select}\par
+	}
+
+	\item Give the subcourse a name that reflects the lab section, such as “\textsc{bi}~063-01 (Instructor Name).” Add the lab instructor name after the section name for quick reference. 
+
+	Under “Referenced course”, choose the lab section from which to retrieve grades. Check the “Redirect to the referenced course” checkbox. If a student clicks on the subcourse, it will redirect them to the Moodle gradebook for the lab so they can view the individual assignment grades.
+	
+	Choose “Separate groups” for the “Group mode” Under “Common module settings.”
+	
+	Restrict access to students in that lab section. Click the “Add restriction\dots” Click the “Group” button. Choose the group that represents that lab section. Click the eye icon so that a slash appears through it. Only students in that lab section will see this subcourse in their gradebook. They will not see subcourses for the other sections. Your screen should look similar to the example below setup for \textsc{bi}~063-04. 
+	
+	{\centering
+		\includegraphics[width=\textwidth]{subcourse_choose_section}\par
+	}
+	
+	\item Click the “Save and return to course” button. The subcourse should now appear on your Moodle page. 
+	
+	\item Add a subcourse for each lab section.
+
+\end{enumerate}
+
+\subsubsection*{Set the gradebook to exclude empty grades}
+
+Your lecture gradebook in Moodle must be set to exclude empty grades. This ensures only the grade from one subcourse, corresponding to the student's lab section, is included in the overall grade. The empty subcourses will be excluded.
+
+\begin{enumerate}
+	\item Choose “Gradebook setup” from the Adminstration menu. 
+	
+	\item Choose “Edit settings” from the lab grade component of the gradebook. Alternatively, if you want to ignore empty  for your lecture assignments, you can edit the settings for the entire course.
+	
+	{\centering
+		\includegraphics[width=0.7\textwidth]{subcourse_edit_settings}\par
+	}
+	
+	\item Be sure the “Exclude empty grades” checkbox is checked. If you have to check the box, then save the changes.
+
+	{\centering
+	\includegraphics[width=3in]{subcourse_exclude_empty}\par
+}
+	
+\end{enumerate}
+
+The setup is a little tedious but it saves time later in the semester.  Further, if you import future courses from this one, the subcourses and groups will already be set. You will need to edit each subcourse to fetch grades from a current lab section but that should be the only change you make. 
+
+
+
+
+\end{document}  
