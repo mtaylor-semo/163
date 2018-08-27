@@ -21,8 +21,9 @@
 \setmainfont[Ligatures={TeX}, BoldFont={* Bold}, ItalicFont={* Italic}, BoldItalicFont={* BoldItalic}, Numbers={OldStyle}]{Linux Libertine O}
 \setsansfont[Scale=MatchLowercase,Ligatures=TeX]{Linux Biolinum O}
 \setmonofont[Scale=MatchLowercase]{Linux Libertine Mono O}
-\newfontfamily\liningnum[Numbers=Lining]{Linux Libertine O}
+\newfontfamily{\liningnum}[Numbers=Lining]{Linux Libertine O}
 \usepackage{microtype}
+
 
 \usepackage{pdflscape}
 
@@ -556,15 +557,26 @@ R	&
 \thispagestyle{empty}
 
 \begin{questions}
-	
+
 \begin{landscape}
 
-Now, make phylogenetic trees from the following presence/absence data sets. Use a separate sheet of paper to draw your trees. Ask your instructor to check your trees to be sure each is correct. %your phylogenetic trees on.
 
+\newgeometry{left=1in, top=3.5in}
+
+Now, make phylogenetic trees from the following presence/absence data sets. Use a separate sheet of paper to draw your trees. Ask your instructor to check your trees to be sure each is correct. 
+
+
+
+%your phylogenetic trees on.
+{
 \liningnum
 
 \begin{minipage}[t]{0.4\textwidth}
+
+\vspace{\baselineskip}
+
 \question
+
 Tree 1.
 
 \begin{longtable}[l]{@{}rcccccc@{}}
@@ -584,6 +596,9 @@ G & 1 & 1 & 1 & 1 & 1 & 1\tabularnewline
 
 \end{minipage}\hspace*{2in}
 \begin{minipage}[t]{0.4\textwidth}
+
+\vspace{\baselineskip}
+	
 \question
 Tree 2.
 \begin{longtable}[l]{@{}rccccc@{}}
@@ -684,7 +699,7 @@ Tiger &
 %
 %\begin{longtable}[l]{@{}rccccccc@{}}
 %\toprule
-%& C1 & C2 & C3 & C4 & C5 & C6 & C7 \tabularnewline
+% & C1 & C2 & C3 & C4 & C5 & C6 & C7 \tabularnewline
 %\midrule
 %%\textbf{OG} & 0 & 0 & 0 & 0 & 0 & 0 & 0\tabularnewline
 %A & 0 & 1 & 0 & 0 & 1 & 1 & 0\tabularnewline
@@ -698,13 +713,16 @@ Tiger &
 %\bottomrule
 %\end{longtable}
 %
+}
 \end{landscape}
+
+\restoregeometry
 
 \ifprintanswers
 
 \newgeometry{top=0.5in, bottom=0.5in}
 
-\thispagestyle{plain}
+\thispagestyle{empty}
 
 
 \textsc{Tree 1}
@@ -807,7 +825,7 @@ Tiger &
 
 Here are the trees in V-form, for the goal-post challenged.
 
-\thispagestyle{plain}
+\thispagestyle{empty}
 
 
 \textsc{Tree 1}
