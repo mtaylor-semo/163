@@ -1,0 +1,149 @@
+%!TEX TS-program = lualatex
+%!TEX encoding = UTF-8 Unicode
+
+\documentclass[t]{beamer}
+
+%%%% HANDOUTS For online Uncomment the following four lines for handout
+%\documentclass[t,handout]{beamer}  %Use this for handouts.
+%\usepackage{handoutWithNotes}
+%\pgfpagesuselayout{3 on 1 with notes}[letterpaper,border shrink=5mm]
+
+
+%%% Including only some slides for students.
+%%% Uncomment the following line. For the slides,
+%%% use the labels shown below the command.
+%\includeonlylecture{student}
+
+%% For students, use \lecture{student}{student}
+%% For mine, use \lecture{instructor}{instructor}
+
+
+%\usepackage{pgf,pgfpages}
+%\pgfpagesuselayout{4 on 1}[letterpaper,border shrink=5mm]
+
+% FONTS
+\usepackage{fontspec}
+\def\mainfont{Linux Biolinum O}
+\setmainfont[Ligatures={Common,TeX}, Contextuals={NoAlternate}, Numbers={Proportional, OldStyle}]{\mainfont}
+\setsansfont[Ligatures={Common,TeX}, Scale=MatchLowercase, Numbers={Proportional,OldStyle}, BoldFont={* Bold}, ItalicFont={* Italic},]\mainfont
+
+\newfontface\lining[Numbers={Lining}]\mainfont
+
+\usepackage{graphicx}
+	\graphicspath{{/Users/goby/pictures/teach/163/activities/}
+	{/Users/goby/pictures/teach/common/}} % set of paths to search for images
+
+%\usepackage{units}
+\usepackage{booktabs}
+\usepackage{multicol}
+%\usepackage{textcomp}
+
+\usepackage{tikz}
+%	\tikzstyle{every picture}+=[remember picture,overlay]
+
+\mode<presentation>
+{
+  \usetheme{Lecture}
+  \setbeamercovered{invisible}
+  \setbeamertemplate{items}[square]
+}
+
+%\usefonttheme[onlymath]{serif}
+%\usecolortheme[named=blue7]{structure}
+
+\begin{document}
+%
+%
+\begin{frame}{I will show you six organisms, each with a distinctive trait.}
+
+\hangpara \highlight{Thought question:} Why did each trait evolve?
+
+\end{frame}
+%
+{
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{lizard_green_blood} }
+\begin{frame}[t]{Some lizards in Papua New Guinea have \textcolor{green6}{green} blood.}
+
+\vfilll 
+
+\hfill \textcolor{white}{\tiny \copyright~Christoper Austin}
+\end{frame}
+}
+%
+{
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{banana_slug} }
+\begin{frame}[t]{Banana slugs are hermaphrodites (both female and male).}
+
+\vfilll 
+
+\hfill \textcolor{white}{\tiny Ben Stanfield, Flickr, \ccby2}
+\end{frame}
+}
+%
+{
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{human_hand} }
+\begin{frame}[t]{The human hand has five digits.}
+
+\vfilll 
+
+\hfill \textcolor{black}{\tiny Zephyris, Wikimedia Commons, \ccby3}
+\end{frame}
+}
+%
+{
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{skunk_cabbage} }
+\begin{frame}[t]{Skunk cabbage can elevate its internal temperature.}
+
+\vfilll 
+
+\tiny \textcolor{white}{dogtooth77, Flick, \ccbyncsa2}
+\end{frame}
+}
+%
+{
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{anglerfish} }
+\begin{frame}[t]{\textcolor{white}{Male anglerfish bite and fuse to the body of the female.}}
+
+\vfilll 
+
+\hfill\tiny\textcolor{white}{\textcopyright\,Theodore W. Pietsch, University of Washington.}
+\end{frame}
+}
+%
+{
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{red_backed_spider} }
+\begin{frame}[t]{Red-backed spiders commit sexual suicide.}
+
+\vfilll 
+
+\hfill \tiny David McClenaghan, Wikimedia Commons, \ccby3
+\end{frame}
+}
+%
+\begin{frame}
+
+\hangpara \begin{tabular}{@{}ll@{}}
+\toprule
+Organism			& Trait \\
+\midrule
+Lizard				& Green Blood \\
+Banana slug			& Hermaphrodites \\
+Humans				& Five digits \\
+Skunk cabbage		& Elevated temperature \\
+Anglerfish			& Fused males \\
+Red-backed spider	& Sexual suicide \\
+\bottomrule
+\end{tabular}
+
+\bigskip
+
+\hangpara Work in pairs. Pick any three species.
+
+\hangpara For each species, write a \emph{detailed} hypothesis that explains why each trait evolved. Try to think of the function of each trait and explain how the trait might have evolved to serve that function.
+
+\hangpara  Do not tell me the trait increases their ability to survive. Do you think five fingers \emph{really} increases your chance of surviving compared to four or six fingers?
+
+\end{frame}
+%
+
+\end{document}
