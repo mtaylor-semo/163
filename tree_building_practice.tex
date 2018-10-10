@@ -1,0 +1,721 @@
+%!TEX TS-program = lualatex
+%!TEX encoding = UTF-8 Unicode
+
+\documentclass[12pt]{article}
+
+
+\usepackage{graphicx}
+	\graphicspath{{/Users/goby/Pictures/teach/163/lab/}
+	{img/}} % set of paths to search for images
+
+\usepackage{geometry}
+\geometry{letterpaper, left=1.5in, bottom=1in}                   
+%\geometry{landscape}                % Activate for for rotated page geometry
+\usepackage[parfill]{parskip}    % Activate to begin paragraphs with an empty line rather than an indent
+\usepackage{amssymb, amsmath}
+\usepackage{mathtools}
+	\everymath{\displaystyle}
+
+\usepackage{fontspec}
+\setmainfont[Ligatures={TeX}, BoldFont={* Bold}, ItalicFont={* Italic}, BoldItalicFont={* BoldItalic}, Numbers={Lining}]{Linux Libertine O}
+\setsansfont[Scale=MatchLowercase,Ligatures=TeX]{Linux Biolinum O}
+\setmonofont[Scale=MatchLowercase]{Linux Libertine Mono O}
+\usepackage{microtype}
+
+
+\usepackage{tikz}
+\usetikzlibrary{trees}
+
+\usepackage{forest}
+
+% To define fonts for particular uses within a document. For example, 
+% This sets the Libertine font to use tabular number format for tables.
+ %\newfontfamily{\tablenumbers}[Numbers={Monospaced}]{Linux Libertine O}
+% \newfontfamily{\libertinedisplay}{Linux Libertine Display O}
+
+\usepackage{booktabs}
+\usepackage{multicol}
+
+\usepackage{caption}
+	\captionsetup{labelsep=period, justification=raggedright} % Removes colon following figure / table number.
+	\captionsetup{singlelinecheck=off}
+	\captionsetup[table]{skip=0pt}
+
+\usepackage{tikz}
+\tikzstyle{block} = [rectangle, draw, fill=white, rounded corners,
+                 minimum size=2em]
+\tikzstyle{branch} = [thick, draw]
+
+\usetikzlibrary{positioning, backgrounds}
+
+
+\forestset{
+	every leaf node/.style={
+		if n children=0{#1}{}
+	},
+	every tree node/.style={
+		if n children=0{}{#1}
+	},
+	mytree/.style={
+		for tree={
+			edge path={
+				\noexpand\path [draw, thick, \forestoption{edge}] (!u.parent anchor) |- (.child anchor)\forestoption{edge label};
+			},
+			every tree node={draw=none,inner sep=0, outer sep=0, minimum size=0},
+			every leaf node/.style={align=left},
+			grow'=0,
+			parent anchor=east, 
+			child anchor=west,
+			anchor=west,
+			l sep=0.5cm,
+			s sep=3mm,
+			draw=none,
+			if n children=0{tier=word}{}
+		}
+	}
+}
+
+
+\usepackage{longtable}
+%\usepackage{siunitx}
+\usepackage{array}
+\newcolumntype{L}[1]{>{\raggedright\let\newline\\\arraybackslash\hspace{0pt}}p{#1}}
+\newcolumntype{C}[1]{>{\centering\let\newline\\\arraybackslash\hspace{0pt}}p{#1}}
+\newcolumntype{R}[1]{>{\raggedleft\let\newline\\\arraybackslash\hspace{0pt}}p{#1}}
+
+
+\usepackage{fancyhdr}
+\fancyhf{}
+\pagestyle{fancy}
+\lhead{}
+\chead{}
+\rhead{\footnotesize pg. \thepage }
+\renewcommand{\headrulewidth}{0.4pt}
+
+\fancypagestyle{plain}{%
+	\fancyhf{}
+	\lhead{\textsc{bi} 163: Evolution and Ecology}
+	\rhead{Phylogenetic Tree Practice}
+	\renewcommand{\headrulewidth}{0pt}
+}
+
+\fancypagestyle{answers}{%
+	\fancyhf{}
+	\lhead{\textsc{bi} 163: Evolution and Ecology}
+	\rhead{\textbf{Solutions}}
+	\renewcommand{\headrulewidth}{0pt}
+}
+
+\begin{document}
+
+\thispagestyle{plain}
+
+Make phylogenetic trees from the following presence/absence data 
+sets. Each data set contains eight species and at least seven 
+characters. Answers are provided after the character matrices.
+Complete each tree, then compare it to the answer. 
+
+Use only 1s to determine relationships. Zeros represent absence 
+of data so you cannot use 0s to determine relationships. 
+
+The last five problems get slightly more involved and provide more
+information for you to think about.
+
+\emph{Remember!} Branches can pivot without changing relationships 
+so your trees might look slighly different from the trees in the 
+answer key. Check the \emph{relationships} to be sure your answer is 
+correct.
+
+\bigskip
+
+\textsc{Tree 1}
+
+\begin{longtable}[l]{@{}rccccccc@{}}
+\toprule
+Species	& C1	& C2	& C3	& C4	& C5	& C6	& C7 \tabularnewline
+\midrule
+A 		& 1 	& 0 	& 0 	& 0		& 0 	& 0 	& 1  \tabularnewline
+B 		& 1 	& 1 	& 1 	& 1		& 1 	& 1 	& 1  \tabularnewline
+C 		& 0 	& 0 	& 0 	& 0 	& 0 	& 0 	& 1  \tabularnewline
+D 		& 1 	& 1 	& 1 	& 1 	& 1 	& 1 	& 1  \tabularnewline
+E 		& 1 	& 0 	& 0 	& 0 	& 0 	& 1 	& 1  \tabularnewline
+F 		& 1 	& 0 	& 0 	& 1 	& 0 	& 1 	& 1  \tabularnewline
+G 		& 1 	& 0 	& 1 	& 1 	& 1 	& 1 	& 1  \tabularnewline
+H 		& 1 	& 0 	& 0 	& 1 	& 1 	& 1 	& 1  \tabularnewline
+\bottomrule
+\end{longtable}
+
+\quad
+
+\textsc{Tree 2}
+
+\begin{longtable}[l]{@{}rccccccc@{}}
+\toprule
+Species	& C1	& C2	& C3	& C4	& C5	& C6	& C7 \tabularnewline
+\midrule
+A 		& 1 	& 0 	& 1 	& 1		& 0 	& 1 	& 1  \tabularnewline
+B 		& 1 	& 0 	& 0 	& 1 	& 1 	& 1 	& 1  \tabularnewline
+C 		& 1 	& 0 	& 0 	& 0 	& 0 	& 0 	& 0  \tabularnewline
+D 		& 1 	& 1 	& 0 	& 0 	& 0 	& 1 	& 0  \tabularnewline
+E 		& 1 	& 0 	& 1 	& 1 	& 0 	& 1 	& 1  \tabularnewline
+F 		& 1 	& 0 	& 0 	& 0 	& 0 	& 1 	& 1  \tabularnewline
+G 		& 1 	& 0 	& 0 	& 1 	& 1 	& 1 	& 1  \tabularnewline
+H 		& 1 	& 1 	& 0 	& 0 	& 0 	& 1 	& 0  \tabularnewline
+\bottomrule
+\end{longtable}
+
+\newpage
+
+\textsc{Tree 3}
+
+\begin{longtable}[l]{@{}rccccccc@{}}
+\toprule
+Species	& C1	& C2	& C3	& C4	& C5	& C6	& C7 \tabularnewline
+\midrule
+A 		& 0 	& 0 	& 1 	& 1		& 1 	& 1 	& 0  \tabularnewline
+B 		& 1 	& 1 	& 0 	& 1 	& 0 	& 0 	& 0  \tabularnewline
+C 		& 1 	& 1 	& 0 	& 1 	& 0 	& 0 	& 0  \tabularnewline
+D 		& 1 	& 0 	& 0 	& 1 	& 0 	& 0 	& 1  \tabularnewline
+E 		& 0 	& 0 	& 1 	& 1 	& 1 	& 1 	& 0  \tabularnewline
+F 		& 0 	& 0 	& 0 	& 1 	& 0 	& 1 	& 0  \tabularnewline
+G 		& 1 	& 0 	& 0 	& 1 	& 0 	& 0 	& 1  \tabularnewline
+H 		& 0 	& 0 	& 1 	& 1 	& 0 	& 1 	& 0  \tabularnewline
+\bottomrule
+\end{longtable}
+
+\quad
+
+\textsc{Tree 4}
+
+\begin{longtable}[l]{@{}rccccccc@{}}
+\toprule
+Species	& C1	& C2	& C3	& C4	& C5	& C6	& C7 \tabularnewline
+\midrule
+A 		& 0 	& 0 	& 0 	& 0		& 0 	& 1 	& 0  \tabularnewline
+B 		& 1 	& 0 	& 0 	& 1 	& 0 	& 1 	& 0  \tabularnewline
+C 		& 1 	& 1 	& 0 	& 1 	& 1 	& 1 	& 1  \tabularnewline
+D 		& 1 	& 1 	& 1 	& 1 	& 0 	& 1 	& 1  \tabularnewline
+E 		& 1 	& 1 	& 1 	& 1 	& 0 	& 1 	& 1  \tabularnewline
+F 		& 1 	& 1 	& 0 	& 1 	& 1 	& 1 	& 1  \tabularnewline
+G 		& 0 	& 0 	& 0 	& 1 	& 0 	& 1 	& 0  \tabularnewline
+H 		& 1 	& 0 	& 0 	& 1 	& 0 	& 1 	& 1  \tabularnewline
+\bottomrule
+\end{longtable}
+
+\quad
+
+\textsc{Tree 5}
+
+\begin{longtable}[l]{@{}rccccccc@{}}
+\toprule
+Species	& C1	& C2	& C3	& C4	& C5	& C6	& C7 \tabularnewline
+\midrule
+A 		& 0 	& 1 	& 1 	& 1		& 1 	& 0 	& 1  \tabularnewline
+B 		& 1 	& 1 	& 1 	& 1 	& 1 	& 1 	& 1  \tabularnewline
+C 		& 0 	& 0 	& 1 	& 0 	& 1 	& 0 	& 0  \tabularnewline
+D 		& 1 	& 1 	& 1 	& 1 	& 1 	& 1 	& 1  \tabularnewline
+E 		& 0 	& 1 	& 1 	& 0 	& 1 	& 0 	& 1  \tabularnewline
+F 		& 0 	& 1 	& 1 	& 0 	& 1 	& 0 	& 0  \tabularnewline
+G 		& 1 	& 1 	& 1 	& 1 	& 1 	& 0 	& 1  \tabularnewline
+H 		& 0 	& 0 	& 0 	& 0 	& 1 	& 0 	& 0  \tabularnewline
+\bottomrule
+\end{longtable}
+
+\quad
+
+\textsc{Tree 6}
+
+Species can share more than one homology.
+
+\begin{longtable}[l]{@{}rcccccccc@{}}
+\toprule
+Species	& C1	& C2	& C3	& C4	& C5	& C6	& C7 & C8 \tabularnewline
+\midrule
+A 		& 1 	& 0 	& 0 	& 1		& 0 	& 0 	& 0  & 0  \tabularnewline
+B 		& 1 	& 1 	& 1 	& 0 	& 0 	& 0 	& 0  & 0  \tabularnewline
+C 		& 1 	& 0 	& 1 	& 0 	& 1 	& 1 	& 1  & 1  \tabularnewline
+D 		& 1 	& 0 	& 1 	& 0 	& 1 	& 0 	& 1  & 1  \tabularnewline
+E 		& 1 	& 0 	& 1 	& 0 	& 1 	& 0 	& 0  & 1  \tabularnewline
+F 		& 1 	& 1 	& 1 	& 0 	& 0 	& 0 	& 0  & 0  \tabularnewline
+G 		& 1 	& 0 	& 0 	& 1 	& 0 	& 0 	& 0  & 0  \tabularnewline
+H 		& 1 	& 0 	& 1 	& 0 	& 1 	& 1 	& 1  & 1  \tabularnewline
+\bottomrule
+\end{longtable}
+
+\quad
+
+\textsc{Tree 7}
+
+\begin{longtable}[l]{@{}rcccccccc@{}}
+\toprule
+Species	& C1	& C2	& C3	& C4	& C5	& C6	& C7 & C8 \tabularnewline
+\midrule
+A 		& 0 	& 0 	& 0 	& 0		& 1 	& 1 	& 1  & 0  \tabularnewline
+B 		& 1 	& 0 	& 0 	& 1 	& 1 	& 1 	& 1  & 0  \tabularnewline
+C 		& 1 	& 1 	& 0 	& 1 	& 1 	& 1 	& 1  & 0  \tabularnewline
+D 		& 0 	& 0 	& 1 	& 0 	& 0 	& 0 	& 1  & 1  \tabularnewline
+E 		& 1 	& 1 	& 0 	& 1 	& 1 	& 1 	& 1  & 0  \tabularnewline
+F 		& 0 	& 0 	& 0 	& 0 	& 0 	& 1 	& 1  & 0  \tabularnewline
+G 		& 1 	& 0 	& 0 	& 0 	& 1 	& 1 	& 1  & 0  \tabularnewline
+H 		& 0 	& 0 	& 1 	& 0 	& 0 	& 0 	& 1  & 1  \tabularnewline
+\bottomrule
+\end{longtable}
+
+\quad
+
+
+\textsc{Tree 8}
+
+\begin{longtable}[l]{@{}rccccccccc@{}}
+\toprule
+Species	& C1 & C2 & C3 & C4	& C5 & C6 & C7 & C8 & C9 \tabularnewline
+\midrule
+A 		& 0  & 1  & 0  & 0	& 1  & 1  & 1  & 1  & 0  \tabularnewline
+B 		& 1  & 1  & 1  & 1 	& 1  & 1  & 0  & 1  & 1  \tabularnewline
+C 		& 0  & 1  & 0  & 0 	& 0  & 0  & 0  & 0  & 0  \tabularnewline
+D 		& 0  & 1  & 0  & 0 	& 1  & 0  & 0  & 0  & 0  \tabularnewline
+E 		& 1  & 1  & 0  & 1 	& 1  & 1  & 0  & 1  & 1  \tabularnewline
+F 		& 0  & 1  & 0  & 1 	& 1  & 1  & 0  & 1  & 0  \tabularnewline
+G 		& 0  & 1  & 0  & 0 	& 1  & 1  & 1  & 1  & 0  \tabularnewline
+H 		& 1  & 1  & 1  & 1	& 1  & 1  & 0  & 1  & 1  \tabularnewline
+\bottomrule
+\end{longtable}
+
+\quad
+
+\textsc{Tree 9}
+
+Characters that are not shared (unique to one species) cannot be used to determine relationships.
+
+\begin{longtable}[l]{@{}rcccccccc@{}}
+\toprule
+Species	& C1 & C2 & C3 & C4	& C5 & C6 & C7 & C8 \tabularnewline
+\midrule
+A 		& 1  & 0  & 0  & 0	& 0  & 0  & 0  & 0  \tabularnewline
+B 		& 1  & 1  & 0  & 1 	& 1  & 1  & 1  & 0  \tabularnewline
+C 		& 1  & 1  & 0  & 1 	& 1  & 1  & 0  & 0  \tabularnewline
+D 		& 1  & 1  & 0  & 1 	& 1  & 1  & 1  & 0  \tabularnewline
+E 		& 1  & 0  & 1  & 1 	& 1  & 1  & 0  & 0  \tabularnewline
+F 		& 1  & 0  & 1  & 1 	& 1  & 1  & 0  & 0  \tabularnewline
+G 		& 1  & 0  & 0  & 0 	& 0  & 1  & 0  & 1  \tabularnewline
+H 		& 1  & 0  & 0  & 0 	& 1  & 1  & 0  & 0  \tabularnewline
+\bottomrule
+\end{longtable}
+
+\quad
+
+
+\textsc{Tree 10}
+
+
+\begin{longtable}[l]{@{}rcccccccccc@{}}
+\toprule
+Species	& C1 & C2 & C3 & C4	& C5 & C6 & C7 & C8 & C9 & C10 \tabularnewline
+\midrule
+A 		& 1  & 1  & 0  & 0	& 1  & 0  & 1  & 0  & 0  & 1   \tabularnewline
+B 		& 1  & 0  & 0  & 0 	& 0  & 0  & 0  & 0  & 0  & 1   \tabularnewline
+C 		& 1  & 1  & 0  & 1 	& 0  & 1  & 1  & 1  & 0  & 1   \tabularnewline
+D 		& 1  & 1  & 1  & 0 	& 0  & 1  & 1  & 0  & 0  & 1   \tabularnewline
+E 		& 1  & 1  & 0  & 1 	& 0  & 1  & 1  & 1  & 0  & 1   \tabularnewline
+F 		& 1  & 1  & 0  & 0 	& 1  & 0  & 1  & 0  & 1  & 1   \tabularnewline
+G 		& 0  & 0  & 0  & 0 	& 0  & 0  & 0  & 0  & 0  & 1   \tabularnewline
+H 		& 1  & 1  & 1  & 0 	& 0  & 1  & 1  & 0  & 0  & 1   \tabularnewline
+\bottomrule
+\end{longtable}
+
+\newpage
+
+\thispagestyle{answers}
+
+\textsc{Tree 1}
+
+\begin{forest} mytree
+	[[,name=base
+	[C]
+	[,name=split1
+	[A]
+	[,name=split2
+	[E]
+	[,name=split3
+	[F]
+	[,name=split4
+	[H]
+	[,name=split5
+	[G]
+	[,name=split6
+	[D]
+	[B]
+	]
+	]
+	]
+	]
+	]
+	]]]
+	\filldraw (base) circle [radius=3pt, fill=black, xshift=-5mm] node [below, xshift=-5mm, yshift=-2pt] {C7};
+	\filldraw (split1) circle [radius=3pt, fill=black, xshift=-5mm] node [below, xshift=-5mm, yshift=-2pt] {C1};
+	\filldraw (split2) circle [radius=3pt, fill=black, xshift=-5mm] node [below, xshift=-5mm, yshift=-2pt] {C6};
+	\filldraw (split3) circle [radius=3pt, fill=black, xshift=-5mm] node [below, xshift=-5mm, yshift=-2pt] {C4};
+	\filldraw (split4) circle [radius=3pt, fill=black, xshift=-5mm] node [below, xshift=-5mm, yshift=-2pt] {C5};
+	\filldraw (split5) circle [radius=3pt, fill=black, xshift=-5mm] node [below, xshift=-5mm, yshift=-2pt] {C3};
+	\filldraw (split6) circle [radius=3pt, fill=black, xshift=-5mm] node [below, xshift=-5mm, yshift=-2pt] {C2};
+\end{forest}
+
+\quad
+
+\textsc{Tree 2}
+
+
+\begin{forest} mytree
+[
+ [,name=base
+  [,name=AEGBFHD
+   [,name=AEGBF
+    [,name=AEGB
+     [,name=AE
+	  [A]
+	  [E]
+     ]
+     [,name=GB
+      [G]
+      [B]
+     ]
+    ]
+  [F]
+  ]
+  [
+   [[,name=HD
+    [H]
+    [D]
+   ]]
+   ]]
+   [
+    [C]
+  ]
+ ]
+]
+	\filldraw (base) circle [radius=3pt, fill=black, xshift=-5mm] node [below, xshift=-5mm, yshift=-2pt] {C1};
+	\filldraw (AEGB) circle [radius=3pt, fill=black, xshift=-5mm] node [above, xshift=-5mm, yshift=2pt] {C4};
+	\filldraw (AE) circle [radius=3pt, fill=black, xshift=-5mm] node [above, xshift=-5mm, yshift=2pt] {C3};
+	\filldraw (GB) circle [radius=3pt, fill=black, xshift=-5mm] node [below, xshift=-5mm, yshift=-2pt] {C5};
+	\filldraw (HD) circle [radius=3pt, fill=black, xshift=-5mm] node [below, xshift=-5mm, yshift=-2pt] {C2};
+	\filldraw (AEGBF) circle [radius=3pt, fill=black, xshift=-5mm] node [below, xshift=-5mm, yshift=-2pt] {C7};
+	\filldraw (AEGBFHD) circle [radius=3pt, fill=black, xshift=-5mm] node [below, xshift=-5mm, yshift=-2pt] {C6};
+\end{forest}
+
+\newpage
+
+\textsc{Tree 3}
+
+
+\begin{forest} mytree
+[
+ [,name=base
+  [,name=AEHF
+   [,name=AEH
+    [,name=AE
+     [A]
+     [E]
+    ]
+    [
+     [H]
+    ]
+   ]
+   [
+    [F]
+   ]
+  ]
+  [,name=DGCB
+   [,name=DG
+	[D]
+	[G]
+   ]
+   [,name=CB
+    [C]
+    [B]
+   ]
+  ]
+ ]
+]
+	\filldraw (base) circle [radius=3pt, fill=black, xshift=-5mm] node [below, xshift=-5mm, yshift=-2pt] {C4};
+	\filldraw (AE) circle [radius=3pt, fill=black, xshift=-5mm] node [below, xshift=-5mm, yshift=-2pt] {C5};
+	\filldraw (AEH) circle [radius=3pt, fill=black, xshift=-5mm] node [below, xshift=-5mm, yshift=-2pt] {C3};
+	\filldraw (AEHF) circle [radius=3pt, fill=black, xshift=-5mm] node [below, xshift=-5mm, yshift=-2pt] {C6};
+	\filldraw (DGCB) circle [radius=3pt, fill=black, xshift=-5mm] node [below, xshift=-5mm, yshift=-2pt] {C1};
+	\filldraw (DG) circle [radius=3pt, fill=black, xshift=-5mm] node [below, xshift=-5mm, yshift=-2pt] {C7};
+	\filldraw (CB) circle [radius=3pt, fill=black, xshift=-5mm] node [below, xshift=-5mm, yshift=-2pt] {C2};
+\end{forest}
+
+\quad
+
+\textsc{Tree 4}
+
+\begin{forest} mytree
+[
+ [,name=base
+  [,name=HDEFCBG
+   [,name=HDEFCB
+    [,name=HDEFC
+     [H]
+      [,name=DEFC
+       [,name=DE
+        [D]
+        [E]
+       ]
+       [,name=FC
+        [F]
+        [C]
+       ]
+      ]
+     ]
+     [B] 
+    ]
+   [G]
+  ]
+  [A]
+ ]
+]
+	\filldraw (base) circle [radius=3pt, fill=black, xshift=-5mm] node [below, xshift=-5mm, yshift=-2pt] {C6};
+	\filldraw (DE) circle [radius=3pt, fill=black, xshift=-5mm] node [below, xshift=-5mm, yshift=-2pt] {C3};
+	\filldraw (FC) circle [radius=3pt, fill=black, xshift=-5mm] node [below, xshift=-5mm, yshift=-2pt] {C5};
+	\filldraw (DEFC) circle [radius=3pt, fill=black, xshift=-5mm] node [below, xshift=-5mm, yshift=-2pt] {C2};
+	\filldraw (HDEFC) circle [radius=3pt, fill=black, xshift=-5mm] node [below, xshift=-5mm, yshift=-2pt] {C7};
+	\filldraw (HDEFCB) circle [radius=3pt, fill=black, xshift=-5mm] node [below, xshift=-5mm, yshift=-2pt] {C1};
+	\filldraw (HDEFCBG) circle [radius=3pt, fill=black, xshift=-5mm] node [below, xshift=-5mm, yshift=-2pt] {C4};
+\end{forest}
+
+\newpage
+
+\textsc{Tree 5}
+
+\begin{forest} mytree
+[
+[,name=base
+ [,name=GBDAEFC
+  [,name=GBDAEF
+   [,name=GBDAE
+    [,name=GBDA
+     [,name=GBD
+      [G]
+      [,name=BD
+       [B]
+       [D]
+      ]
+     ]
+     [A]
+    ]
+    [E]
+   ]
+   [F]
+  ]
+  [C]
+  ]
+ [H]
+ ]
+]
+	\filldraw (base) circle [radius=3pt, fill=black, xshift=-5mm] node [below, xshift=-5mm, yshift=-2pt] {C5};
+	\filldraw (BD) circle [radius=3pt, fill=black, xshift=-5mm] node [below, xshift=-5mm, yshift=-2pt] {C6};
+	\filldraw (GBD) circle [radius=3pt, fill=black, xshift=-5mm] node [below, xshift=-5mm, yshift=-2pt] {C1};
+	\filldraw (GBDA) circle [radius=3pt, fill=black, xshift=-5mm] node [below, xshift=-5mm, yshift=-2pt] {C4};
+	\filldraw (GBDAE) circle [radius=3pt, fill=black, xshift=-5mm] node [below, xshift=-5mm, yshift=-2pt] {C7};
+	\filldraw (GBDAEF) circle [radius=3pt, fill=black, xshift=-5mm] node [below, xshift=-5mm, yshift=-2pt] {C2};
+	\filldraw (GBDAEFC) circle [radius=3pt, fill=black, xshift=-5mm] node [below, xshift=-5mm, yshift=-2pt] {C3};
+\end{forest}
+
+\quad
+
+\textsc{Tree 6}
+
+\begin{forest} mytree
+[
+ [,name=base
+  [,name=CHDEFB
+   [,name=CHDE
+    [,name=CHD
+     [,name=CH
+      [C]
+      [H]
+     ]
+     [D]
+    ]
+    [E]
+   ]
+   [,name=FB
+    [F]
+    [B]
+   ]
+  ]
+  [[,name=AG
+   [A]
+   [G]
+  ]]
+ ]
+]
+	\filldraw (base) circle [radius=3pt, fill=black, xshift=-5mm] node [below, xshift=-5mm, yshift=-2pt] {C1};
+	\filldraw (AG) circle [radius=3pt, fill=black, xshift=-5mm] node [below, xshift=-5mm, yshift=-2pt] {C4};
+	\filldraw (FB) circle [radius=3pt, fill=black, xshift=-5mm] node [below, xshift=-5mm, yshift=-2pt] {C2};
+	\filldraw (CH) circle [radius=3pt, fill=black, xshift=-5mm] node [below, xshift=-5mm, yshift=-2pt] {C6};
+	\filldraw (CHD) circle [radius=3pt, fill=black, xshift=-5mm] node [below, xshift=-5mm, yshift=-2pt] {C7};
+	\filldraw (CHDE) circle [radius=3pt, fill=black, xshift=-6mm] node [below, xshift=-6mm, yshift=-2pt] {C5,C8};
+	\filldraw (CHDEFB) circle [radius=3pt, fill=black, xshift=-5mm] node [below, xshift=-5mm, yshift=-2pt] {C3};
+\end{forest}
+
+\newpage
+
+\textsc{Tree 7}
+
+\begin{forest} mytree
+[
+ [,name=base
+  [,name=AGCEBF
+   [,name=AGCEB
+   [A]
+    [,name=GCEB
+    [G]
+     [,name=CEB
+      [,name=CE
+       [C]
+       [E]
+      ]
+      [B]
+     ]
+    ]
+   ]
+   [F]
+  ]
+  [,name=HD[
+   [H]
+   [D]
+  ]]
+ ]
+]
+	\filldraw (base) circle [radius=3pt, fill=black, xshift=-5mm] node [below, xshift=-5mm, yshift=-2pt] {C7};
+	\filldraw (HD) circle [radius=3pt, fill=black] node [below, yshift=-2pt] {C3,C8};
+	\filldraw (CE) circle [radius=3pt, fill=black, xshift=-5mm] node [below, xshift=-5mm, yshift=-2pt] {C2};
+	\filldraw (CEB) circle [radius=3pt, fill=black, xshift=-5mm] node [below, xshift=-5mm, yshift=-2pt] {C4};
+	\filldraw (GCEB) circle [radius=3pt, fill=black, xshift=-5mm] node [below, xshift=-5mm, yshift=-2pt] {C1};
+	\filldraw (AGCEB) circle [radius=3pt, fill=black, xshift=-5mm] node [below, xshift=-5mm, yshift=-2pt] {C5};
+	\filldraw (AGCEBF) circle [radius=3pt, fill=black, xshift=-5mm] node [below, xshift=-5mm, yshift=-2pt] {C6};
+\end{forest}
+
+\quad
+
+\textsc{Tree 8}
+
+\begin{forest} mytree
+[
+ [,name=base
+  [,name=HBEFAGD
+   [,name=HBEFAG
+    [,name=HBEF
+     [,name=HBE
+      [,name=HB
+       [H]
+       [B]
+      ]
+      [E]
+     ]
+     [F]
+    ]
+    [[,name=AG
+     [A]
+     [G]
+    ]]
+   ]
+   [D]
+  ]
+  [C]
+ ]
+]
+	\filldraw (base) circle [radius=3pt, fill=black, xshift=-5mm] node [below, xshift=-5mm, yshift=-2pt] {C2};
+	\filldraw (HB) circle [radius=3pt, fill=black, xshift=-5mm] node [below, xshift=-5mm, yshift=-2pt] {C3};
+	\filldraw (HBE) circle [radius=3pt, fill=black, xshift=-6mm] node [below, xshift=-6mm, yshift=-2pt] {C1,C9};
+	\filldraw (HBEF) circle [radius=3pt, fill=black, xshift=-5mm] node [below, xshift=-5mm, yshift=-2pt] {C4};
+	\filldraw (AG) circle [radius=3pt, fill=black, xshift=-5mm] node [below, xshift=-5mm, yshift=-2pt] {C7};
+	\filldraw (HBEFAG) circle [radius=3pt, fill=black, xshift=-6mm] node [below, xshift=-6mm, yshift=-2pt] {C6,C8};
+	\filldraw (HBEFAGD) circle [radius=3pt, fill=black, xshift=-5mm] node [below, xshift=-5mm, yshift=-2pt] {C5};
+\end{forest}
+
+\newpage
+
+\textsc{Tree 9}
+
+Character 8 (in gray) is unique to species G. Character 8 cannot be
+used to determine relationships because it is not shared
+by two or more species.
+
+\begin{forest}mytree
+[
+ [,name=base
+  [,name=BDCFEHG
+   [,name=BDCFEH
+    [,name=BDCFE
+     [,name=BDC
+      [,name=BD
+       [B]
+       [D]
+      ]
+      [C]
+     ]
+     [,name=FE
+      [F]
+      [E]
+     ]
+    ]
+    [H]
+   ]
+   [G,name=G]
+  ]
+  [A]
+ ]
+]
+	\filldraw (base) circle [radius=3pt, fill=black, xshift=-5mm] node [below, xshift=-5mm, yshift=-2pt] {C1};
+	\filldraw (BD) circle [radius=3pt, fill=black, xshift=-5mm] node [below, xshift=-5mm, yshift=-2pt] {C7};
+	\filldraw (BDC) circle [radius=3pt, fill=black, xshift=-5mm] node [below, xshift=-5mm, yshift=-2pt] {C2};
+	\filldraw (FE) circle [radius=3pt, fill=black, xshift=-5mm] node [below, xshift=-5mm, yshift=-2pt] {C3};
+	\filldraw (BDCFE) circle [radius=3pt, fill=black, xshift=-5mm] node [below, xshift=-5mm, yshift=-2pt] {C4};
+	\filldraw (BDCFEH) circle [radius=3pt, fill=black, xshift=-5mm] node [below, xshift=-5mm, yshift=-2pt] {C5};
+	\filldraw (BDCFEHG) circle [radius=3pt, fill=black, xshift=-5mm] node [below, xshift=-5mm, yshift=-2pt] {C6};
+	\filldraw [gray] (G) circle [radius=3pt, xshift=-15mm] node [below, xshift=-15mm, yshift=-2pt, color=gray] {C8};
+\end{forest}
+
+\quad
+
+\textsc{Tree 10}
+
+\begin{forest}{mytree}
+[
+ [,name=base
+  [,name=AFDHECB
+   [,name=AFDHEC
+    [,name=AF
+     [A]
+     [F,name=F]
+    ]
+    [,name=DHEC
+     [,name=DH
+      [D]
+      [H]
+     ]
+     [,name=EC
+      [E]
+      [C]
+     ]
+    ]
+   ]
+   [B]
+  ]
+  [G]
+ ]
+]
+	\filldraw (base) circle [radius=3pt, fill=black, xshift=-5mm] node [below, xshift=-5mm, yshift=-2pt] {C10};
+	\filldraw (AF) circle [radius=3pt, fill=black, xshift=-5mm] node [below, xshift=-5mm, yshift=-2pt] {C5};
+	\filldraw (DH) circle [radius=3pt, fill=black, xshift=-5mm] node [below, xshift=-5mm, yshift=-2pt] {C3};
+	\filldraw (EC) circle [radius=3pt, fill=black, xshift=-6mm] node [below, xshift=-6mm, yshift=-2pt] {C4,C8};
+	\filldraw (AFDHEC) circle [radius=3pt, fill=black, xshift=-6mm] node [below, xshift=-6mm, yshift=-2pt] {C2,C7};
+	\filldraw (AFDHECB) circle [radius=3pt, fill=black, xshift=-5mm] node [below, xshift=-5mm, yshift=-2pt] {C1};
+	\filldraw (DHEC) circle [radius=3pt, fill=black, xshift=-5mm] node [below, xshift=-5mm, yshift=-2pt] {C6};
+	\filldraw [gray] (F) circle [radius=3pt, xshift=-10mm] node [below, xshift=-10mm, yshift=-2pt, color=gray] {C9};
+\end{forest}
+
+
+\end{document}  
