@@ -358,7 +358,7 @@ One of you will sample alleles from the population while the other will record t
 	
 	\textsc{Important note:} How many light moths must you remove from the offspring to reflect the change in survivorship? How many dark moths? Can natural selection distinguish between dark moths with \allele{DD} and \allele{Dd} genotypes? 
 	
-	\textbf{If you have to remove an even number of dark individuals, take equal numbers of homozyotes and heterozygote. If you have to remove an odd number of dark individuals, take one more heterozygote than homozygote.}
+	\textbf{If you have to remove an even number of dark individuals, take equal numbers of homozyotes and heterozygotes. If you have to remove an odd number of dark individuals, take one more heterozygote than homozygote.}
 	
 	\item \label{selection_sample_stop} These are the surviving offspring for Generation~1 so record the number of individuals of each genotype in the Generation~1 row of Table~\ref{tab:selection_results}. Calculate new allele frequencies and genotoype frequencies for this generation. Reestablish the population with these new allele frequencies for the 100 alleles (see example below). Record the new allele frequencies in Table~\ref{tab:selection_results}.
 	
@@ -375,7 +375,7 @@ One of you will sample alleles from the population while the other will record t
 
 	Adjust the number of beads in your population so that you have 64 beads that represent the \allele{d} allele and 36 beads that represent the \allele{D} allele.  
 	
-	\item Repeat Steps~\ref{selection_sample_start}–\ref{selection_sample_stop} for four more generations (a total of five generations). Record the allele and gentoype frequencies for each generation in Table~\ref{tab:selection_results}.
+	\item Repeat Steps~\ref{selection_sample_start}–\ref{selection_sample_stop} for four more generations (a total of five generations). Record the allele and genotype frequencies for each generation in Table~\ref{tab:selection_results}. \textbf{Do not apply the 10\% and 50\% selection to the final generation.}
 	
 \end{enumerate}
 
@@ -502,12 +502,15 @@ What mode of selection best matches your results? Explain.
 \AnswerBox{0.5\basespace}{Directional selection. The population phenotype is changing in one direction, from light phenotype to dark phenotype.}
 
 \textbf{Proceed to Question~\ref{ques:chi-square}.}
-	
+
+
+
+
 \subsubsection*{Evolution by gene flow}\label{sec:gene_flow}
 
 Gene flow is defined as the movement of individuals among populations.  If an individual moves to a different population and reproduces, then its alleles are introduced into the new population.  This can change allele frequencies for both populations. You will simulate gene flow between two populations of peppered moths with different allele frequencies. 
 
-For Population~1, the starting allele frequencies will be 0.90 for the light allele and 0.10 for the dark allele. For Population~2, both alleles have a frequency of 0.50. Every generation, 10 individuals will move from Population~1 to Population~2 and 10 individuals will move from Population~2 to Population~1.
+For Population~1, the starting allele frequencies will be 0.90 for the light allele and 0.10 for the dark allele. For Population~2, both alleles have a frequency of 0.50. Every generation, 5 individuals will move from Population~1 to Population~2 and 5 individuals will move from Population~2 to Population~1.
 
 \question\label{ques:migration_prediction}
 Predict how the frequency of each allele will change for \emph{each} of the two populations due to gene flow. Justify your prediction.
@@ -518,7 +521,7 @@ Predict how the frequency of each allele will change for \emph{each} of the two 
 
 \medskip
 
-You will simulate two populations, each with 50 individuals. Population 1 will have starting allele frequencies of 0.90 for the light allele \allele{d} (the light bead) and 0.10 for the dark allele \allele{D} (the dark bead). Population 2 will have a starting allele frequency of 0.50 for both alleles. 
+You will simulate two populations, each with 30 individuals. Population 1 will have starting allele frequencies of 0.90 for the light allele \allele{d} (the light bead) and 0.10 for the dark allele \allele{D} (the dark bead). Population 2 will have a starting allele frequency of 0.50 for both alleles. 
 
 Decide which of you will sample from Population~1 and Population~2. On your table, you have two containers with light and dark beads and some paper sacks. The light and dark beads represent different alleles.
 
@@ -543,20 +546,20 @@ Decide which of you will sample from Population~1 and Population~2. On your tabl
 %	\item Count 50 dark and 50 light beads and place them together in another bag. Label the bag Population 2.  Record the starting allele frequencies in the Generation 0 row in Table~\ref{tab:migration_results} on page~\pageref{tab:migration_results}.
 %	
 
-	\item \label{gene_flow_sample_start}Draw 10 individuals at random (how many alleles?) from the Population~1 sack and set them aside. Draw 10 individuals at random from the Population~2 sack and set them aside. You do not have to count their genotypes. \emph{Remove the individuals from each population before you add them to the other population.}
+	\item \label{gene_flow_sample_start}Draw 5 individuals at random (how many alleles?) from the Population~1 sack and set them aside. Draw 5 individuals at random from the Population~2 sack and set them aside. You do not have to count their genotypes. \emph{Remove the individuals from each population before you add them to the other population.}
 	
-	\item Add the 10 individuals from Population~1 to Population~2. Add the 10 individuals from Population~2 to Population~1. Shake each bag thoroughly.
+	\item Add the 5 individuals from Population~1 to Population~2. Add the 5 individuals from Population~2 to Population~1. Shake each bag thoroughly.
 	
 	\item \label{gene_flow_allele_sample} Reach into the Population~1 bag and draw two alleles at random. Record the genotype (\allele{DD,} \allele{Dd,} or \allele{dd}) of this individual on a separate sheet of paper. Return the two alleles back to the population. (Put them back in the bag with the other beads.)
 	
-	\item Repeat Step~\ref{gene_flow_allele_sample} until you have sampled the genotypes for \textbf{50 individuals} from each population. Record the genotype for \textbf{each} individual you sample. Return the alleles to the population after each sample and mix the population well. 
+	\item Repeat Step~\ref{gene_flow_allele_sample} until you have sampled the genotypes for \textbf{30 individuals} from each population. Record the genotype for \textbf{each} individual you sample. Return the alleles to the population after each sample and mix the population well. 
 
 	\item Do this also for Population~2.
 	\emph{Do not mix the individuals from each population.}
 	
 	\textsc{Note:} Returning the beads to the bag is called \textbf{sampling with replacement.} Returning the alleles to the population simulates a very large population. Drawing the alleles at random simulates random mating.
 	
-	\item \label{gene_flow_sample_stop} Calculate the new allele and genotype frequencies for each population following migration. Record your results in the Generation~1 row of Table~\ref{tab:migration_results}. The population size of each population should still be 50 individuals.
+	\item \label{gene_flow_sample_stop} Calculate the new allele and genotype frequencies for each population following migration. Record your results in the Generation~1 row of Table~\ref{tab:migration_results}. The population size of each population should still be 30 individuals.
 	
 	\item Repeat steps~\ref{gene_flow_sample_start}–\ref{gene_flow_sample_stop} for 4 more generations (5 total).% Calculate the genotype frequencies of each population for the final generation.
 	
@@ -593,14 +596,14 @@ Based on the results of your migration simulation, explain why gene flow between
 
 %\newpage
 
-\subsubsection*{Do your populations deviate from equilibrium? Calculate $\chi^2$}\label{sec:chi_square}
+\subsubsection*{Does your population deviate from equilibrium? Calculate $\chi^2$}\label{sec:chi_square}
 
 \question[Checkout] \label{ques:chi-square}
 Calculate $\chi^2$ for the final generation of your population. Use \emph{only} Population~1 if you did the gene flow section. As a reminder, here is the equation to calculate the statistic.
 
 \[\chi^2 = \sum_{i=1}^{i=j}\frac{(O_i - E_i)^2}{E_i}, \]
 
-In the space below, make a table that shows all steps of your calculation. If necessary, refer to the \textsc{Evolution by genetic drift} exercise from the previous lab. \textbf{Is your final generation is in Hardy-Weinberg equilibrium? Tell how you know.}
+In the space below, make a table that shows all steps of your calculation. If necessary, refer to the \textsc{Evolution by genetic drift} exercise from the previous lab. \textbf{Is your final generation in Hardy-Weinberg equilibrium? Tell how you know.}
 
 \AnswerBox{4\basespace}{%
 }
