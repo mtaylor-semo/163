@@ -1,0 +1,119 @@
+%!TEX TS-program = lualatex
+%!TEX encoding = UTF-8 Unicode
+
+\documentclass[12pt]{article}
+
+
+%\printanswers
+
+
+\usepackage{graphicx}
+	\graphicspath{{/Users/goby/Pictures/teach/163/ta_how_to/}
+	{img/}} % set of paths to search for images
+
+\usepackage{geometry}
+\geometry{letterpaper, left=1.5in, bottom=1in}                   
+%\geometry{landscape}                % Activate for for rotated page geometry
+\usepackage[parfill]{parskip}    % Activate to begin paragraphs with an empty line rather than an indent
+\usepackage{amssymb, amsmath}
+\usepackage{mathtools}
+	\everymath{\displaystyle}
+
+\usepackage[table]{xcolor}
+
+\usepackage{fontspec}
+\setmainfont[Ligatures={TeX}, BoldFont={* Bold}, ItalicFont={* Italic}, BoldItalicFont={* BoldItalic}, Numbers={OldStyle}]{Linux Libertine O}
+\setsansfont[Scale=MatchLowercase,Ligatures=TeX]{Linux Biolinum O}
+\setmonofont[Scale=MatchLowercase]{Inconsolatazi4}
+\newfontfamily{\tablenumbers}[Numbers={Monospaced,Lining}]{Linux Libertine O}
+\usepackage{microtype}
+
+%\usepackage{bm}
+
+% To define fonts for particular uses within a document. For example, 
+% This sets the Libertine font to use tabular number format for tables.
+ %\newfontfamily{\tablenumbers}[Numbers={Monospaced}]{Linux Libertine O}
+% \newfontfamily{\libertinedisplay}{Linux Libertine Display O}
+
+\usepackage{multicol}
+%\usepackage[normalem]{ulem}
+
+\usepackage{longtable}
+\usepackage{caption}
+	\captionsetup{format=plain, justification=raggedright, singlelinecheck=off,labelsep=period,skip=3pt} % Removes colon following figure / table number.
+%\usepackage{siunitx}
+\usepackage{booktabs}
+\usepackage{array}
+\newcolumntype{L}[1]{>{\raggedright\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+\newcolumntype{C}[1]{>{\centering\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+\newcolumntype{R}[1]{>{\raggedleft\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+
+\usepackage{enumitem}
+\setlist{leftmargin=*}
+\setlist[1]{labelindent=\parindent}
+\setlist[enumerate]{label=\textsc{\alph*}.}
+\setlist[itemize]{label=\color{gray}\textbullet}
+%\usepackage{hyperref}
+%\usepackage{placeins} %PRovides \FloatBarrier to flush all floats before a certain point.
+%\usepackage{hanging}
+
+\usepackage[sc]{titlesec}
+
+%% Commands for Exam class
+
+%\pagestyle{headandfoot}
+%\firstpageheader{\textsc{bi}\,063 Evolution and Ecology}{}{\ifprintanswers\textbf{KEY}\else Name: \enspace \makebox[2.5in]{\hrulefill}\fi}
+%\runningheader{}{}{\footnotesize{pg. \thepage}}
+%\footer{}{}{}
+%\runningheadrule
+
+
+\begin{document}
+
+\subsection*{How to set up the grade book for {\scshape bi} 063}
+
+\begin{enumerate}
+	\item Login to Moodle page and choose one of your lab sections. Do this for one section then import that section 
+	to your other sections. Or, repeat this process for each of your lab sections.
+	
+	\item Select “Gradebook setup” from ``Administration'' menu on the left side of the Moodle page.
+	
+	\item At the top of the gradebook is a folder icon with the name of the course and the semester, similar to the one shown below.
+
+	{\centering
+		\includegraphics[width=\textwidth]{gradebook_course_settings}\par
+	}
+
+	\item Click on “Edit,” then “Edit settings” from the menu.
+	
+	\item Click on “Show more\dots”
+	
+	\item Choose “Weighted mean of grades” from the drop-down menu. Do \emph{not} choose the simple weighted mean.
+
+	\item Make sure the check the box for “Exclude empty grades” is checked. Check the box if it is not.  Save the changes.
+	
+	{\centering
+		\includegraphics[width=3in]{gradebook_weighted_mean}\par
+	}
+
+	\item Scroll to the bottom of the page, and then click the “Add category” button.
+	
+	\item Click on “Show more\dots”
+
+	\item Type “Graded” into the Category name field, choose “Simple weighted mean of grades” from the drop-down menu, and be sure “Exclude empty grades” is \emph{not} checked.
+	
+	{\centering
+		\includegraphics[width=3in]{gradebook_graded_settings}\par
+	}
+	
+	\item Save the changes.
+	
+	\item Repeat the process by adding an “Not yet graded” category. Use simple weighted mean but be sure that “Exclude empty grades” \emph{is} checked. 
+		
+\end{enumerate}
+
+\subsubsection*{Edit the Availability dates}
+
+
+
+\end{document}  
