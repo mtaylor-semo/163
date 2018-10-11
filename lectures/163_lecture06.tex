@@ -1,14 +1,14 @@
 %!TEX TS-program = lualatex
 %!TEX encoding = UTF-8 Unicode
 
-\documentclass[t]{beamer}
+%\documentclass[t]{beamer}
 
 %%%% HANDOUTS For online Uncomment the following four lines for handout
-%\documentclass[t,handout]{beamer}  %Use this for handouts.
-%\usepackage{handoutWithNotes}
-%\pgfpagesuselayout{3 on 1 with notes}[letterpaper,border shrink=5mm]
+\documentclass[t,handout]{beamer}  %Use this for handouts.
+\includeonlylecture{student}
+\usepackage{handoutWithNotes}
+\pgfpagesuselayout{3 on 1 with notes}[letterpaper,border shrink=5mm]
 
-%\includeonlylecture{student}
 
 %%% Including only some slides for students.
 %%% Uncomment the following line. For the slides,
@@ -156,6 +156,8 @@
 {
 \usebackgroundtemplate{\includegraphics[width=\paperwidth]{penguin_huddle_biggest} }
 \begin{frame}[b]
+
+%	\hfill\tiny\textcolor{white}{\href{https://www.youtube.com/watch?v=OL7O5O7U4Gs}{Link to Video}}
 \end{frame}
 }
 %
@@ -163,7 +165,8 @@
 \usebackgroundtemplate{\includegraphics[width=\paperwidth]{penguin_huddle_outside} }
 \begin{frame}[b]
 
-	\tiny\textcolor{white}{\href{http://www.youtube.com/watch?v=Cdiapvktzkw}{Link to Video}
+%	\tiny\textcolor{white}{\href{http://www.youtube.com/watch?v=Cdiapvktzkw}{Link to Video}
+	\tiny\textcolor{white}{\href{https://www.youtube.com/watch?v=OL7O5O7U4Gs}{Link to Video}
 	\hfill
 	Based on Waters et al. 2012. Modeling huddling penguins. PLoS ONE 7: e50277.}
 
