@@ -38,6 +38,8 @@
 *.zip
 *.txt
 *.Rhistory
+*.html
+*.mov
 .DS_Store
 
 ## Folders
