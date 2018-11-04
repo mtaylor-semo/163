@@ -1,0 +1,186 @@
+%!TEX TS-program = lualatex
+%!TEX encoding = UTF-8 Unicode
+
+\documentclass[12pt]{exam}
+
+
+%\printanswers
+
+\usepackage{fontspec}
+\setmainfont[Ligatures={TeX}, BoldFont={* Bold}, ItalicFont={* Italic}, BoldItalicFont={* BoldItalic}, Numbers={Monospaced, Lining}]{Linux Libertine O}
+\setsansfont[Scale=MatchLowercase,Ligatures=TeX]{Linux Biolinum O}
+\setmonofont[Scale=MatchLowercase]{Inconsolatazi4}
+\newfontfamily{\tablenumbers}[Numbers={Monospaced,Lining}]{Linux Libertine O}
+\usepackage{microtype}
+
+\usepackage{amsmath}
+
+\usepackage{unicode-math}
+\setmathfont[Scale=MatchLowercase]{TeX Gyre Termes Math}
+
+\usepackage{geometry}
+\geometry{letterpaper, left=1.5in, bottom=1in}                   
+%\geometry{landscape}                % Activate for for rotated page geometry
+\usepackage[parfill]{parskip}    % Activate to begin paragraphs with an empty line rather than an indent
+
+\usepackage{longtable}
+
+%\usepackage{siunitx}
+\usepackage{booktabs}
+\usepackage{array}
+\newcolumntype{L}[1]{>{\raggedright\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+\newcolumntype{C}[1]{>{\centering\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+\newcolumntype{R}[1]{>{\raggedleft\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+
+\usepackage{enumitem}
+\setlist{leftmargin=*}
+\setlist[1]{labelindent=\parindent}
+\setlist[enumerate]{label=\textsc{\alph*}.}
+\setlist[itemize]{label=\color{gray}\textbullet}
+%\usepackage{hyperref}
+%\usepackage{placeins} %PRovides \FloatBarrier to flush all floats before a certain point.
+%\usepackage{hanging}
+
+\usepackage[sc]{titlesec}
+
+%% Commands for Exam class
+\renewcommand{\solutiontitle}{\noindent}
+\unframedsolutions
+\SolutionEmphasis{\bfseries}
+
+
+\pagestyle{headandfoot}
+\firstpageheader{\textsc{bi}\,163 Evolution and Ecology}{}{\ifprintanswers\textbf{KEY}\else Name: \enspace \makebox[2.5in]{\hrulefill}\fi}
+\runningheader{}{}{\footnotesize{pg. \thepage}}
+\footer{}{}{}
+\runningheadrule
+
+
+
+\begin{document}
+
+\subsection*{Shannon-Wiener diversity practice problems}
+
+
+%The species diversity of a community can be estimated by random sampling of individuals from the community. You can calculate \textit{species richness}, which is the total number of unique species in your sample. You can also calculate \textit{relative abundance}, which the proportion of individuals for each species out of the total number of individuals in your sample.
+%
+%Species richness and relative abundance (also known as evenness) can be combined mathematically to represent the \textit{species diversity} of a community with a single value (the diversity index). The number by itself does not tell you too much but communities with higher indices have higher diversity.
+
+Species diversity for a sample can be calculated with any of several different equations. The equation we will use is called the Shannon-Wiener diversity index, or Shannon index for short. The Shannon equation is
+
+\[H^{\prime} = -\sum p_i \ln p_i,\] 
+
+where $H^{\prime}$ is the index, $p_i$ is the relative abundance of each species, $ln$ is the natural logarithm, and $\sum$ indicating summing across all species. Notice the negative sign before the summation symbol. This will make the final index positive, as you will see below.
+
+Here is an example calculation with the number of individuals from each of 5 species.
+
+\begin{tabular}{llllll}
+Species & A & B & C & D & E \tabularnewline
+Number & 11 & 23 & 17 & 24 & 28 \tabularnewline
+\end{tabular}
+
+The calculations are summarized in the table at the end of the list.
+
+\begin{enumerate}
+\item Calculate the total number of individuals in the sample, $11 + 23 + 17 + 24 + 28 = 103.$
+
+\item Calculate $p_i$ by dividing the number of individuals for each species by the total number of individuals, e.g., 11/103 = 0.107, etc.
+%
+%\begin{tabular}{lrr}
+%Species & $n$ & $p_i$ \tabularnewline
+%\toprule
+%A & $11$ & $0.107$ \tabularnewline
+%B & $23$ & $0.223$ \tabularnewline
+%C & $17$ & $0.165$ \tabularnewline
+%D & $24$ & $0.233$ \tabularnewline
+%E & $28$ & $0.272$ \tabularnewline
+%\bottomrule
+%\end{tabular}
+
+\item Calculate the natural log of each $p_i$. This is the “ln” key on your calculator. If your calculator does not have a natural log key, use the “log” key for $\log_{10}$. You will get a different result but that is OK. You are comparing numbers (larger = more diverse) so the actual values do not matter much. If your calculator does not have either key, get a better calculator! 
+
+%\begin{tabular}{lrrr}
+%Species & $n$ & $p_i$ & $\ln p_i$\tabularnewline
+%\toprule
+%A & $11$ & $0.107$ & $-2.235$ \tabularnewline
+%B & $23$ & $0.223$ & $-1.501$ \tabularnewline
+%C & $17$ & $0.165$ & $-1.802$ \tabularnewline
+%D & $24$ & $0.233$ & $-1.457$ \tabularnewline
+%E & $28$ & $0.272$ & $-1.302$ \tabularnewline
+%\bottomrule
+%\end{tabular}
+%
+\item Multiply the two values together, e.g., $0.107 \times -2.235 = -0.239$ and so on.
+
+%\begin{tabular}{lrrrr}
+%Species & $n$ & $p_i$ & $\ln p_i$ & $p_i \ln p_i$ \tabularnewline
+%\toprule
+%A & $11$ & $0.107$ & $-2.235$ & $-0.239$ \tabularnewline
+%B & $23$ & $0.223$ & $-1.501$ & $-0.335$ \tabularnewline
+%C & $17$ & $0.165$ & $-1.802$ & $-0.297$ \tabularnewline
+%D & $24$ & $0.233$ & $-1.457$ & $-0.339$ \tabularnewline
+%E & $28$ & $0.272$ & $-1.302$ & $-0.354$ \tabularnewline
+%\bottomrule
+%\end{tabular}
+
+\item Sum together the values in the final column.
+
+\item Notice the final sum is a negative value. That is why the negative sign appears before the summation symbol in the equation above. It turns the final value positive. 
+\end{enumerate}
+
+\begin{tabular}{lrrrr}
+Species & $n$ & $p_i$ & $\ln p_i$ & $p_i \ln p_i$ \tabularnewline
+\toprule
+A & $11$ & $0.107$ & $-2.235$ & $-0.239$ \tabularnewline
+B & $23$ & $0.223$ & $-1.501$ & $-0.335$ \tabularnewline
+C & $17$ & $0.165$ & $-1.802$ & $-0.297$ \tabularnewline
+D & $24$ & $0.233$ & $-1.457$ & $-0.339$ \tabularnewline
+E & $28$ & $0.272$ & $-1.302$ & $-0.354$ \tabularnewline
+\midrule
+  &  $103$    &         & \hfill $\sum$ & $-1.564$\tabularnewline
+\bottomrule
+\end{tabular}
+
+The Shannon diversity for this sample is $H^{\prime} = 1.564.$
+
+\subsection*{Practice Problems}
+
+Calculate $H^{\prime}$ for each community, then identify the most and least diversity communities.  The correct answers for $\ln$ and $\log_{10}$ are given for you to check your work. Be sure to compare values calculated by the same logarithm function (i.e., only $\ln$ or only $\log_{10}$). Your numbers may be off slightly due to rounding but you should not be off by more than 0.010 or so.
+
+\begin{enumerate}[label=\textsc{Community \alph*:}]
+
+\item 74 71 75 84 55 56 71 54
+
+ Answer $\ln: 2.067$
+ 
+ Answer $\log_{10}: 0.898$
+
+\item 90 93 65 85 74 91 73 85
+
+ Answer $\ln: 2.046$
+ 
+ Answer $\log_{10}: 0.889$
+
+\item 65 65 90 51 83 99 50 52
+
+ Answer $\ln: 2.047$
+ 
+ Answer $\log_{10}: 0.889$
+
+\item 80 43 37 77 94 10 67 63
+
+ Answer $\ln: 1.965$
+ 
+ Answer $\log_{10}: 0.854$
+
+\item 80 82 66 50 38 87 31 38
+
+ Answer $\ln: 2.014$
+ 
+ Answer $\log_{10}: 0.875$
+
+\end{enumerate}
+
+Community A is the most diverse. Community D is the least diverse.
+
+\end{document}  
