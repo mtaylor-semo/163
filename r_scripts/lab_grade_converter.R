@@ -7,7 +7,7 @@
 library(tidyverse)
 
 # Exported from Excel file. 
-grades <- read_csv("final_grades.csv")
+grades <- read_csv("test2.csv", na = "-")
 
 # Select just the columns needed,
 # Rename 'Course total (Letter)' to 'grades 
@@ -19,10 +19,11 @@ new_grades <- grades %>%
          `ID number`, 
          `Email address`, 
          `Course total (Letter)`) %>% 
-  rename(grades = `Course total (Letter)`) %>% 
-  mutate(grades = case_when(grades == 'F' ~ 'F',
-                            grades == 'X' ~ 'X',
-                            grades == 'I' ~ 'I',
+  rename(Grade = `Course total (Letter)`) %>% 
+  filter(!is.na(Grade)) %>% 
+  mutate(Grade = case_when(Grade == 'F' ~ 'F',
+                            Grade == 'X' ~ 'X',
+                            Grade == 'I' ~ 'I',
                             TRUE ~ 'CR'))
 
 # Export the csv file for upload to Grade Reporter.
