@@ -8,45 +8,48 @@ library(tidyverse)
 
 files <- dir(pattern = "*.csv")
 
-grades <- files %>% 
+grades <- files %>%
   map_dfr(function(x) {
-    read_csv(x, na = "-")%>% 
-      select(`First name`, 
-             Surname, 
-             `ID number`, 
-             `Email address`, 
-             `Course total (Letter)`) %>% 
-      rename(Grade = `Course total (Letter)`) %>% 
-      filter(!is.na(Grade)) %>% 
-      mutate(Grade = case_when(Grade == 'F' ~ 'F',
-                               Grade == 'X' ~ 'X',
-                               Grade == 'I' ~ 'I',
-                               TRUE ~ 'CR'))
+    read_csv(x, na = "-") %>%
+      select(`First name`,
+             Surname,
+             `ID number`,
+             `Email address`,
+             `Course total (Letter)`) %>%
+      rename(Grade = `Course total (Letter)`) %>%
+      filter(!is.na(Grade)) %>%
+      mutate(Grade = if_else(Grade %in% c("A", "B", "C", "D"), 
+                             "CR", 
+                             Grade))
+    #      mutate(Grade = case_when(Grade == 'F' ~ 'F',
+    #                               Grade == 'X' ~ 'X',
+    #                               Grade == 'I' ~ 'I',
+    #                               TRUE ~ 'CR'))
   })
 
 # Export the csv file for upload to Grade Reporter.
 write_csv(grades,"063_grades.csv")
 
 
-# Exported from Excel file. 
-grades <- read_csv("test2.csv", na = "-")
-
-# Select just the columns needed,
-# Rename 'Course total (Letter)' to 'grades 
-# per Grade Reporter requirement, replace
-# grades with the appropriate credit.
-new_grades <- grades %>% 
-  select(`First name`, 
-         Surname, 
-         `ID number`, 
-         `Email address`, 
-         `Course total (Letter)`) %>% 
-  rename(Grade = `Course total (Letter)`) %>% 
-  filter(!is.na(Grade)) %>% 
-  mutate(Grade = case_when(Grade == 'F' ~ 'F',
-                            Grade == 'X' ~ 'X',
-                            Grade == 'I' ~ 'I',
-                            TRUE ~ 'CR'))
-
-# Export the csv file for upload to Grade Reporter.
-write_csv(new_grades,"063_grades.csv")
+# # Exported from Excel file. 
+# grades <- read_csv("test2.csv", na = "-")
+# 
+# # Select just the columns needed,
+# # Rename 'Course total (Letter)' to 'grades 
+# # per Grade Reporter requirement, replace
+# # grades with the appropriate credit.
+# new_grades <- grades %>% 
+#   select(`First name`, 
+#          Surname, 
+#          `ID number`, 
+#          `Email address`, 
+#          `Course total (Letter)`) %>% 
+#   rename(Grade = `Course total (Letter)`) %>% 
+#   filter(!is.na(Grade)) %>% 
+#   mutate(Grade = case_when(Grade == 'F' ~ 'F',
+#                             Grade == 'X' ~ 'X',
+#                             Grade == 'I' ~ 'I',
+#                             TRUE ~ 'CR'))
+# 
+# # Export the csv file for upload to Grade Reporter.
+# write_csv(new_grades,"063_grades.csv")
