@@ -1,0 +1,150 @@
+%!TEX TS-program = lualatex
+%!TEX encoding = UTF-8 Unicode
+
+\documentclass[t]{beamer}
+
+%%%% HANDOUTS For online Uncomment the following four lines for handout
+%\documentclass[t,handout]{beamer}  %Use this for handouts.
+%\usepackage{handoutWithNotes}
+%\pgfpagesuselayout{3 on 1 with notes}[letterpaper,border shrink=5mm]
+
+%\includeonlylecture{student}
+
+%%% Including only some slides for students.
+%%% Uncomment the following line. For the slides,
+%%% use the labels shown below the command.
+
+%% For students, use \lecture{student}{student}
+%% For mine, use \lecture{instructor}{instructor}
+
+% FONTS
+\usepackage{fontspec}
+\def\mainfont{Linux Biolinum O}
+\setmainfont[Ligatures={Common,TeX}, Contextuals={NoAlternate}, BoldFont={* Bold}, ItalicFont={* Italic}, Numbers={OldStyle}]{\mainfont}
+\setsansfont[Ligatures={Common,TeX}, Scale=MatchLowercase, Numbers=OldStyle, BoldFont={* Bold}, ItalicFont={* Italic},]{Linux Biolinum O} 
+\usepackage{microtype}
+
+\usepackage{graphicx}
+	\graphicspath{{/Users/goby/pictures/teach/163/activities/}
+	{/Users/goby/pictures/teach/common/}} % set of paths to search for images
+
+\usepackage{caption}
+
+\usepackage{multicol}
+%\usepackage{booktabs}
+%\usepackage{textcomp}
+
+\usepackage{tikz}
+	\tikzstyle{every picture}+=[remember picture,overlay]
+%	\usetikzlibrary{arrows}
+
+
+\mode<presentation>
+{
+  \usetheme{Lecture}
+  \setbeamercovered{invisible}
+}
+
+
+\begin{document}
+%
+\lecture{student}{student}
+%
+\begin{frame}{Our goal for this activity is to explore the evolution of trichromacy in primates.}
+	
+	\begin{tabular}{ccc}
+	\includegraphics[width=0.3\linewidth]{colobus_monkey} &
+	\includegraphics[width=0.3\linewidth]{capuchin_monkey} &
+	\includegraphics[width=0.3\linewidth]{yellow_cheeked_gibbon} \tabularnewline
+	Colobus Monkey & Capuchin Monkey & Buff-cheeked Gibbon \tabularnewline
+	\end{tabular}
+		
+	\vfilll
+	
+	\tiny Eric Kilby, Wikimedia Commons, \ccbysa{2} \hfill
+	David M. Jensen, Wikimedia Commons, \ccbysa{2}\hfill
+	Derek Keats, Flickr, \ccby{2}
+\end{frame}
+% 
+\begin{frame}{Phylogeny of major primate clades.}
+
+
+\includegraphics[width=\linewidth]{primate_phylogeny}
+
+\vfilll
+
+\hfill \tiny Perelman et~al.~2011. PLoS Genetics 7(3):~e1001342.
+
+\end{frame}
+%
+\begin{frame}[t]{Humans have three color opsins (trichromacy)}
+	
+	\includegraphics[width=\linewidth]{spectrum_trichromat}
+	
+\end{frame}
+%
+\begin{frame}[t]{Most mammals have two color opsins (dichromacy)}
+	
+	\includegraphics[width=\linewidth]{spectrum_dichromat}
+	
+\end{frame}
+%
+{
+\setbeamercolor{background canvas}{bg=black}
+\begin{frame}{\textcolor{white}{Opsins have an amino acid “pocket” surrounding a retinal molecule.}}
+\vspace{-1.5\baselineskip}
+{\centering
+\includegraphics[height=0.83\textheight]{rhodopsin_structure}
+\par}
+\vfilll
+\hfill \tiny \textcolor{white}{Roland Deschain, Wikimedia Commons, public domain}
+\end{frame}
+}
+%
+\begin{frame}{Amino acid polarity in the pocket can alter wavelength sensitivity.}
+
+\vspace{-0.5\baselineskip}
+{\centering
+\includegraphics[height=0.79\textheight]{amino_acid_structures}\par}
+
+\vfilll
+
+\hfill \tiny \href{https://commons.wikimedia.org/wiki/File:Figure_03_04_02.jpg}{C\textsc{nx} OpenStax, Wikimedia Commons} \ccby{4}
+\end{frame}
+%
+%
+\begin{frame}{You will }
+	
+	\hangpara use a molecular clock to calculate the time of the last common ancestor for different primate clades,
+	
+	\hangpara calculate the shift of wavelength sensitivity in a duplicated opsin gene, and
+	
+	\hangpara estimate when the gene duplication event happened.
+	
+\end{frame}
+% 
+\begin{frame}{Genetic difference and time since common ancestor.}
+
+\includegraphics[width=\linewidth]{primate_divergence_plot_key}
+\end{frame}
+%
+\begin{frame}[t]{Relative sensitivity for dichromats.}
+
+	\vspace{-0.5\baselineskip}
+
+	\includegraphics[width=\linewidth]{dichromat_plot}
+	
+\end{frame}
+%
+
+\begin{frame}[t]{A 30~nm shift increases long-wavelength sensitivity.}
+	
+	\vspace{-0.5\baselineskip}
+
+	\includegraphics[width=\linewidth]{trichromat_plot}
+	
+\end{frame}
+%
+
+%
+\end{document}

@@ -1,0 +1,245 @@
+%!TEX TS-program = lualatex
+%!TEX encoding = UTF-8 Unicode
+
+\documentclass[12pt, addpoints]{exam}
+
+%\printanswers
+
+\usepackage{fontspec}
+\setmainfont[Ligatures={TeX}, BoldFont={* Bold}, ItalicFont={* Italic}, BoldItalicFont={* BoldItalic}, Numbers={Monospaced, Lining}]{Linux Libertine O}
+\setsansfont[Scale=MatchLowercase,Ligatures=TeX]{Linux Biolinum O}
+\setmonofont[Scale=MatchLowercase]{Inconsolatazi4}
+\newfontfamily{\tablenumbers}[Numbers={Monospaced,Lining}]{Linux Libertine O}
+\usepackage{microtype}
+
+\usepackage{graphicx}
+	\graphicspath{{/Users/goby/Pictures/teach/163/activities/}}
+	
+\usepackage{amsmath}
+
+
+%\usepackage{unicode-math}
+%\setmathfont[Scale=MatchLowercase]{TeX Gyre Termes Math}
+
+\usepackage{geometry}
+\geometry{letterpaper, left=1in, bottom=1in}                   
+\usepackage[parfill]{parskip}    % Activate to begin paragraphs with an empty line rather than an indent
+
+%\usepackage{siunitx}
+\usepackage{booktabs}
+
+\usepackage{array}
+\newcolumntype{L}[1]{>{\raggedright\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+\newcolumntype{C}[1]{>{\centering\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+\newcolumntype{R}[1]{>{\raggedleft\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+
+\usepackage{wrapfig}
+
+\usepackage{threeparttable}
+
+\usepackage[justification=raggedright, labelsep=period]{caption}
+\captionsetup{singlelinecheck=off}
+\captionsetup{skip=0.2em}
+
+\usepackage{enumitem}
+\setlist{leftmargin=*}
+\setlist[1]{labelindent=\parindent}
+\setlist[enumerate]{label=\textsc{\alph*}.}
+%\setlist[itemize]{label=\color{gray}\textbullet}
+
+%\usepackage{hanging}
+
+\usepackage[sc]{titlesec}
+
+\newcommand{\sws}{\textsc{sws}}
+\newcommand{\mws}{\textsc{mws}}
+\newcommand{\lws}{\textsc{lws}}
+
+%% Commands for Exam class
+\newlength{\myindent}
+\setlength{\myindent}{\parindent}
+\newcommand{\ind}{\hspace*{\myindent}}
+
+\renewcommand{\solutiontitle}{\noindent}
+\unframedsolutions
+\SolutionEmphasis{\bfseries}
+
+\renewcommand{\questionshook}{%
+	\setlength{\leftmargin}{-\leftskip}%
+}
+
+\pagestyle{headandfoot}
+\firstpageheader{\textsc{bi}\,163 Evolution and Ecology}{}{\ifprintanswers\textbf{KEY}\else Name: \enspace \makebox[2.5in]{\hrulefill}\fi}
+\runningheader{Evolution of primate trichromacy}{}{\footnotesize{pg. \thepage}}
+\footer{}{}{}
+\runningheadrule
+
+\newcommand*\AnswerBox[2]{%
+    \parbox[t][#1]{0.92\linewidth}{%
+    \begin{solution}#2\end{solution}}
+    \vspace{\stretch{1}}
+}
+
+
+\begin{document}
+
+\subsection*{Evolution of trichromacy in primates (\numpoints~points)}
+
+Most animals see color because of proteins in the retina of the ey called opsins. Different opsins are sensitive to different wavelengths of light that together determine how an animal perceives color. Most animals have 2–4 color opsins although some have only one and some have as many as 11 different opsins.
+
+\begin{wrapfigure}[23]{r}{0.5\linewidth}
+\vspace{-2\baselineskip}
+\centering\includegraphics[width=0.99\linewidth]{primate_phylogeny_vertical}\par
+\caption{Phylogeny of the primates. Letters indicate clade ancestors listed in Table~\ref{tab:divergence}.}\label{fig:primate_phylogeny}
+\end{wrapfigure}\par
+
+Most mammals have only two opsins. \textit{Short wavelength sensitive} opsin (\sws{}) is most sensitive to wavelengths at the blue end of the light spectrum. \textit{Medium wavelength sensitive} opsin (\mws{}) is most sensitive to the middle green part of the spectrum. Animals with \sws{} and \mws{} opsins are called \textit{dichromats.} Some primates, however, have a third opsin called \textit{long wavelength sensitive} opsin (\lws{}) that is most sensitive to the yellow-red end of the spectrum. Animals with three opsins are called \textit{trichromats.}
+
+Here, you will explore the evolution and timing of trichromacy in primates.
+
+\subsubsection*{Primate phylogeny}
+
+The oldest known fossil primate (Fig.~\ref{fig:primate_phylogeny}, branch \textsc{a}) dates back to nearly 56 million years ago (\textsc{mya}) but a \emph{molecular clock} based on many genes suggests the primate  ancestor may have lived even earlier. You will use a molecular clock to estimate the age of the common ancestors shown in Fig.~\ref{fig:primate_phylogeny}, starting on the next page.
+
+%The first step is for you to estimate the time since each group last shared a common ancestor by using a \emph{molecular clock.}
+
+%{\centering
+%\noindent\includegraphics[width=\linewidth]{primate_phylogeny}\par
+%}
+
+
+%\subsubsection*{Molecular clocks and primate ancestors}
+
+\newpage
+
+
+\begin{questions}
+\question[2]
+The mutation rate for the \textit{cytochrome~b} gene in primates is 0.2\% per million years. %Irwin~et~al.~(1991)
+Divide the average mutation rate into the values for genetic difference to estimate the time (\textsc{mya}) since each clade last shared an ancestor (Table~\ref{tab:divergence}). 
+
+{\renewcommand{\arraystretch}{1.2}
+\begin{threeparttable}
+\caption{Nine primate clades and the genetic difference within each clade. Not all ancestors are labeled on the tree.}\label{tab:divergence}
+\begin{tabular}{@{}llrR{1in}@{}}
+\toprule
+Node & Ancestor & Genetic difference & Time (\textsc{mya}) \tabularnewline
+\midrule
+A & Primate & 16.9\% & \ifprintanswers 81.9 \else \newline\rule{0.9in}{0.4pt}\fi \tabularnewline
+B & Haplorhini & 15.7\% & \ifprintanswers 77.3 \else \newline\rule{0.9in}{0.4pt}\fi \tabularnewline
+C & Stepsirrhini & 14.2\% & \ifprintanswers 62.6 \else \newline\rule{0.9in}{0.4pt}\fi \tabularnewline
+D & Anthropoidea & 8.1\% & \ifprintanswers 44.6 \else \newline\rule{0.9in}{0.4pt}\fi \tabularnewline
+E & Catarrhini & 5.8\% & \ifprintanswers 30.0 \else \newline\rule{0.9in}{0.4pt}\fi \tabularnewline
+F & Platyrrhini & 4.8\% & \ifprintanswers 22.2 \else \newline\rule{0.9in}{0.4pt}\fi \tabularnewline
+— & \textit{Cebus\,–\,Callothrix} & 5.4\% & \ifprintanswers 23.9 \else \newline\rule{0.9in}{0.4pt}\fi \tabularnewline
+G & Cercopithecoidea & 2.8\% & \ifprintanswers 14.5 \else \newline\rule{0.9in}{0.4pt}\fi \tabularnewline
+— & \textit{Homo\,–\,Pongo} & 3.3\% & \ifprintanswers 17.9 \else \newline\rule{0.9in}{0.4pt}\fi \tabularnewline
+\bottomrule
+\end{tabular}
+\end{threeparttable}}
+
+\bigskip
+
+\question[2]
+Plot the relationship between genetic difference and time since common ancestor in Fig.~\ref{fig:divergence_plot} on page~\pageref{tab:divergence}. Add a trend line to show the “average” relationship between genetic difference and time since common ancestry for the nine primate clades listed in Table~\ref{tab:divergence}.
+
+\parbox{\linewidth}{%
+\ifprintanswers
+\includegraphics[width=\linewidth]{primate_divergence_plot_key}
+\else
+\includegraphics[width=\linewidth]{primate_divergence_plot_blank}
+\fi
+\captionof{figure}{Plot of genetic differences and time since common ancestor for nine primate clades.}\label{fig:divergence_plot}\par
+}
+
+\subsubsection*{Gene duplication and amino acid replacements}
+
+Opsins, like all proteins, are made from individual \textit{amino acids.} Amino acids are classified as negatively charged, positively charged, non-polar, and polar. The amino acids determine the structure and function of the protein. Amino acids in a protein are changed by mutations to the gene that encodes the protein. 
+
+\begin{minipage}[t]{0.48\linewidth}
+The long wavelength opsin evolved by \textit{gene duplication} of the \mws{} opsin gene. Mutations to the copy changed several amino acids in the protein. Some mutations changed the wavelength sensitivity of the opsin protein.
+
+\bigskip
+
+The mutations that changed the function of the long wavelength opsin happened because non-polar amino acids were replaced by polar amino acids. Table~\ref{tab:amino_acid_properties} lists some non-polar and polar amino acids. 
+\end{minipage}%
+\hfill
+\begin{minipage}[t]{0.48\linewidth}\vspace{-10pt}%
+\begin{threeparttable}[t]
+\captionsetup{type=table, position=top,skip=0pt}
+\captionof{table}{Some non-polar and polar amino acids, and their abbreviations.}\label{tab:amino_acid_properties}
+\begin{tabular}{@{}ll@{}}
+\toprule
+Non-polar 			& Polar \tabularnewline
+\midrule
+Alanine (Ala) 		& Asparagine (Asn)	\tabularnewline
+Isoleucine (Ile)	& Glutamine	(Gln)	\tabularnewline
+Leucine	(Leu)		& Serine (Ser)		\tabularnewline
+Methionine (Met)	& Threonine (Thr)	\tabularnewline
+Phenylalanine (Phe)	& Tyrosine (Tyr)	\tabularnewline
+Proline	(Pro)		&					\tabularnewline
+Valine (Val)		&					\tabularnewline
+\bottomrule
+\end{tabular}\par
+\end{threeparttable}\par
+\end{minipage}
+
+\bigskip
+
+\question[1]
+Below are some non-polar and polar amino acids that differ between the \mws{} and \lws{} opsins. Place an {\large $\times$} below each \textit{non-polar to polar} amino acid change.
+
+\begin{tabular}{@{}*{14}{l}@{}}
+\toprule
+ & 111 & 116 & 153 & 171 & 180 & 236 & 274 & 275 & 277 & 279 & 285 & 296 \tabularnewline
+\midrule
+\textsc{mws} & Val & Tyr & Met & Ile & Ala & Val & Val & Leu & Phe & Phe & Ala & Pro \tabularnewline
+\textsc{lws} & Ile & Ser & Leu & Val & Ser & Met & Ile & Phe & Tyr & Val & Thr & Ala \tabularnewline
+\midrule\noalign{\medskip}
+ {\Large $\times$} 	   & \rule{0.5cm}{0.4pt}
+ & \rule{0.5cm}{0.4pt} & \rule{0.5cm}{0.4pt}
+ & \rule{0.5cm}{0.4pt} & \ifprintanswers{\large $\times$}\else\rule{0.5cm}{0.4pt}\fi
+ & \rule{0.5cm}{0.4pt} & \rule{0.5cm}{0.4pt} 
+ & \rule{0.5cm}{0.4pt} & \ifprintanswers{\large $\times$}\else\rule{0.5cm}{0.4pt}\fi 
+ & \rule{0.5cm}{0.4pt} & \ifprintanswers{\large $\times$}\else\rule{0.5cm}{0.4pt}\fi  
+ & \rule{0.5cm}{0.4pt} \tabularnewline
+\bottomrule
+\end{tabular}
+
+Each type of non-polar to polar amino acid changes the wavelength sensitivity by a different amount but the average shift is about 10~nm.
+
+
+\question[1]\label{ques:long_peak}
+The peak sensitivity of \mws{}~opsin is around 541 nanomters. For each non-polar to polar change, add 10 nm to the peak sensitivity for \mws{}~opsin to calculate the peak sensitivity for \lws{}~opsin.
+
+\medskip
+
+What is the peak sensitivity for \lws{} opsin? \rule{1in}{0.4pt}~nm.
+ 
+\question[1]
+Add a relative sensitivity curve for the \lws{}~opsin to Fig.~\ref{fig:relative_sensitivity}. Draw your curve just like the curve for \mws{}~opsin but shifted to the right by the value you calculated in question~\ref{ques:long_peak}.
+
+\parbox{\linewidth}{
+\ifprintanswers
+	\includegraphics[width=\linewidth]{trichromat_plain_plot}
+\else
+	\includegraphics[width=\linewidth]{dichromat_plain_plot}
+\fi
+\captionof{figure}{Relative sensitivity for short, medium, and long wavelength opsins.}\label{fig:relative_sensitivity}\par
+}
+
+\newpage
+
+
+\question[3]
+Studies across many genera from all of the primate clades shown in Fig.~\ref{fig:primate_phylogeny} have found that only great apes and Old World monkeys have the long wavelength gene. Based on the phylogeny and your calculations from the molecular clock, how long ago do you estimate that the gene duplication must have occurred?  Explain.
+
+\AnswerBox{0.3\textheight}{No more than about 40 million years ago because all great apes and Old World monkeys have the gene. It probably occurred in the ancestor labeled E.}
+
+\question
+\textsc{Discussion question:} New World monkeys do not have the \lws{}~opsin gene yet females in some New World genera can be at least partially sensitive to long wavelengths, and sometimes as sensitive as Old World monkeys and great apes.  How could this be so? \textsc{Hints:} The \mws{}~opsin is on the X-chromosome. \emph{Each} non-polar to polar mutation at the three sites causes a slight increase in the wavelength sensitivity.
+
+\AnswerBox{0.3\textheight}{Mutations create alleles of the \mws{} gene. Some mutations have occurred at the amino acid sites shown above. Females have two X chromosomes so can end up with two different alleles, creating variation in the color vision.}
+
+\end{questions}
+\end{document}  
