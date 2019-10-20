@@ -1,0 +1,233 @@
+%!TEX TS-program = lualatex
+%!TEX encoding = UTF-8 Unicode
+
+\documentclass[t]{beamer}
+
+%%%% HANDOUTS For online Uncomment the following four lines for handout
+%\documentclass[t,handout]{beamer}  %Use this for handouts.
+%\includeonlylecture{student}
+%\usepackage{handoutWithNotes}
+%\pgfpagesuselayout{3 on 1 with notes}[letterpaper,border shrink=5mm]
+
+
+%%% Including only some slides for students.
+%%% Uncomment the following line. For the slides,
+%%% use the labels shown below the command.
+
+%% For students, use \lecture{student}{student}
+%% For mine, use \lecture{instructor}{instructor}
+
+% Fonts
+\usepackage{fontspec}
+\def\mainfont{Linux Biolinum O}
+\setmainfont[Ligatures={Common,TeX}, Contextuals={NoAlternate}, BoldFont={* Bold}, ItalicFont={* Italic}, Numbers={OldStyle}]{\mainfont}
+\setsansfont[Ligatures={Common,TeX}, Scale=MatchLowercase, Numbers=OldStyle, BoldFont={* Bold}, ItalicFont={* Italic},]{Linux Biolinum O} 
+\usepackage{microtype}
+
+\usepackage{graphicx}
+	\graphicspath{{/Users/goby/pictures/teach/163/lecture/}
+	{/Users/goby/pictures/teach/common/}} % set of paths to search for images
+
+\usepackage{multicol}
+\usepackage{booktabs}
+\usepackage{array}
+\newcolumntype{L}[1]{>{\raggedright\let\newline\\\arraybackslash\hspace{0pt}}p{#1}}
+\newcolumntype{C}[1]{>{\centering\let\newline\\\arraybackslash\hspace{0pt}}p{#1}}
+\newcolumntype{R}[1]{>{\raggedleft\let\newline\\\arraybackslash\hspace{0pt}}p{#1}}
+%\usepackage{textcomp}
+%\usepackage{mhchem}
+\usepackage{enumitem}
+
+
+\usepackage{tikz}
+	\tikzstyle{every picture}+=[remember picture,overlay]
+	\usetikzlibrary{arrows}
+\usetikzlibrary{positioning}
+
+\mode<presentation>
+{
+  \usetheme{Lecture}
+  \setbeamercovered{invisible}
+  \setbeamertemplate{items}[square]
+}
+
+\begin{document}
+
+\lecture{student}{student}
+
+{
+\setbeamercolor{background canvas}{bg=black}
+\begin{frame}
+
+\end{frame}
+}
+
+\begin{frame}{\reflectbox{Our goal for this lecture is to}}
+
+	\hangpara \reflectbox{show how real populations grow compared to the logistic growth curve,}
+
+	\hangpara \reflectbox{learn about \highlight{density and dispersion} of individuals in a population,}
+
+	\hangpara \reflectbox{learn how \highlight{negative feedback} controls \highlight{density-dependent} population}\\\reflectbox{ growth, and}
+	
+	\hangpara \reflectbox{learn how \highlight{density-independent} factors control population growth.}
+	
+\end{frame}
+%
+{
+\usebackgroundtemplate{\reflectbox{\includegraphics[width=\paperwidth]{real_populations_daphnia}} }
+\begin{frame}{\reflectbox{Populations initially \highlight{exceed} carrying capacity.}}
+\end{frame}
+}
+%
+{
+	\usebackgroundtemplate{\reflectbox{\includegraphics[width=\paperwidth]{real_populations_sparrow} }}
+	\begin{frame}{\reflectbox{Populations \highlight{fluctuate around} carrying capacity.}}
+	\end{frame}
+}
+%
+{
+	\usebackgroundtemplate{\includegraphics[width=\paperwidth]{dispersion_patterns} }
+	\begin{frame}[b]{\highlight{Dispersion} is the spacing pattern of individuals in a population.}
+		\hfill \tiny \copyright Pearson Education, Inc.
+	\end{frame}
+}
+%
+{
+	\usebackgroundtemplate{\includegraphics[width=\paperwidth]{dispersion_clumped} }
+	\begin{frame}[b]{\highlight{Clumped} dispersion can be due to patchy resources, social factors, or protection.}
+		%	\hfill \tiny \copyright Pearson Education, Inc.
+	\end{frame}
+}
+%
+{
+	\usebackgroundtemplate{\includegraphics[width=\paperwidth]{dispersion_uniform} }
+	\begin{frame}[t]{\highlight{Uniform} dispersion can be due to territoriality or aggressive interactions among individuals.}
+		
+		\vfilll 
+		
+		\tiny\textcolor{orange5}{Foliash, Wikimedia, public domain.}
+	\end{frame}
+}
+%
+{
+	\usebackgroundtemplate{\includegraphics[width=\paperwidth]{dispersion_random} }
+	\begin{frame}[t]{\highlight{Random} dispersion can be due to constant environment and resources.}
+		
+		\vfilll 
+		
+		\tiny \textcolor{white}{Strecosa, Pixabay, \cc0.}
+	\end{frame}
+}
+%
+{
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{density_trees} }
+\begin{frame}[b]{\highlight{Density} is the number of individuals per unit of area or volume.}
+	\hfill \tiny N\textsc{asa} Wikimedia, public domain
+\end{frame}
+}
+%
+{
+	\usebackgroundtemplate{\includegraphics[width=\paperwidth]{density_atacama_dry} }
+	\begin{frame}[b]{Plant populations in the dry Atacama Desert usually have low density.}
+		\hfill \tiny \textcolor{white}{travfotos, Flickr, \ccbync{2}}
+	\end{frame}
+}
+%
+{
+	\usebackgroundtemplate{\includegraphics[width=\paperwidth]{density_atacama_desert} }
+	\begin{frame}[b]{Populations in the Atacama Desert can reach high density after a rare rain.}
+		\hfill \tiny \textcolor{white}{Mario Ruiz, \textsc{epa}}
+	\end{frame}
+}
+%
+%
+%\lecture{instructor}{instructor}
+%{
+%\usebackgroundtemplate{\includegraphics[width=\paperwidth]{real_populations_sparrow} }
+%\begin{frame}{Populations \highlight{fluctuate around} carrying capacity.}
+%\end{frame}
+%}
+%\lecture{student}{student}
+%
+\begin{frame}{}
+
+	\hangpara \highlight{Density-dependent} population regulation occurs when high population density \highlight{decreases birth rate} or \highlight{increases death rate}.
+	
+	\hangpara What would happen to population size ($N$) over time?
+	
+\end{frame}
+%
+{
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{density_dependent_song_sparrow} }
+\begin{frame}[b]{}
+\tiny\textcolor{gray!20!white}{Keith, Wikimedia, \ccby{2}.}
+\end{frame}
+}
+%
+{
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{density_dependent_sparrow_nest} }
+\begin{frame}[b]{}
+\tiny\textcolor{gray!20!white}{K.P. McFarland, Flickr, \ccbync{2}.}
+\end{frame}
+}
+%
+\begin{frame}[b]{How does clutch size change? Why?}
+	\begin{center}
+		\includegraphics[height=0.8\textheight]{density_dependent_clutchsize.pdf}
+	\end{center}	
+
+	\tiny Arcese and Smith 1988, J. Animal Ecology 57: 119-136.
+\end{frame}
+%
+\begin{frame}[b]{How does nest failure change? Why?}
+	\begin{center}
+		\includegraphics[height=0.8\textheight]{density_dependent_failure.pdf}
+	\end{center}	
+
+	\tiny Arcese and Smith 1988, J. Animal Ecology 57: 119-136.
+\end{frame}
+%
+{
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{density_dependent_territory} }
+\begin{frame}[b]{}
+\tiny\textcolor{orange5}{Foliash, Wikimedia, public domain.}
+\end{frame}
+}
+%
+{
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{density_dependent_lynx_hare} }
+\begin{frame}[b]{}
+\end{frame}
+}
+%
+\begin{frame}{}
+
+	\hangpara \highlight{Density-independent} population regulation decreases birth rate or increases death rate \highlight{regardless} of current population size.
+		
+\end{frame}
+%
+{
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{density_independent_dunes} }
+\begin{frame}[b]{}
+\hfill\tiny Sandy Richard, Flickr,\ccbyncsa{2} .
+\end{frame}
+}
+%
+{
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{isle_royale} }
+\begin{frame}[b]
+
+	\hfill \tiny \textcolor{white}{Google Earth}
+\end{frame}
+}
+%
+{
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{isle_royale_popsize} }
+\begin{frame}{}
+\end{frame}
+}
+%
+
+
+\end{document}
