@@ -29,3 +29,27 @@ ggplot(e1_results) +
   coord_flip() +
   labs(x = NULL,
        y = "Number of exams")
+
+
+
+# Used to compare multiple semesters --------------------------------------
+
+e1 <- read_csv("exam1.csv") %>% 
+  gather(key = semester, value = score) %>% 
+  drop_na()
+
+e1_by_semester <- e1 %>% 
+  group_by(semester) %>% 
+  summarise(mean = mean(score, na.rm = TRUE),
+            stdev = sd(score, na.rm = TRUE),
+            N = n())
+
+e1_overall <- e1 %>% 
+  summarise(mean = mean(score, na.rm = TRUE),
+            stdev = sd(score, na.rm = TRUE),
+            N = n())
+
+
+e1x <- e1 %>% mutate(score = case_when())
+
+
