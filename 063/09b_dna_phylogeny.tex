@@ -8,6 +8,7 @@
 
 \usepackage{graphicx}
 	\graphicspath{{/Users/goby/Pictures/teach/163/lab/}
+		{/Users/goby/Pictures/teach/300/exercises/}
 	{img/}} % set of paths to search for images
 
 \usepackage{geometry}
@@ -24,6 +25,8 @@
 \setmonofont[Scale=0.82]{Linux Libertine Mono O}
 \usepackage{microtype}
 
+\newfontfamily{\tablenumbers}[Numbers={Monospaced}]{Linux Libertine O}
+
 \usepackage{pdflscape}
 
 % To define fonts for particular uses within a document. For example, 
@@ -32,6 +35,10 @@
 % \newfontfamily{\libertinedisplay}{Linux Libertine Display O}
 
 \usepackage{booktabs}
+
+\usepackage{caption}
+\captionsetup{labelsep=period} % Removes colon following figure / table number.
+
 \usepackage{multicol}
 
 \usepackage{adjustbox}
@@ -208,37 +215,86 @@ You will analyze two genes, one at a time, using your laptop computer or one tha
 	
 	\item Copy the \emph{entire} sequence set (select all, or ctrl/cmd-A). Remember which sequence you copied because you will need to know in a few more steps.
 	
-	\item Go back to the list of genes. Click on the \textsc{ra}x\textsc{ml} link. This will take you to the \textsc{ra}x\textsc{ml} site\footnote{\textsc{ra}x\textsc{ml} uses a technique called maximum likelihood, a mathematically intensive method that finds the best phylogenetic tree based on different models of \dna{} evolution.} to analyze the \dna{} sequences. 
+%	\item Go back to the list of genes. Click on the \textsc{ra}x\textsc{ml} link. This will take you to the \textsc{ra}x\textsc{ml} site\footnote{\textsc{ra}x\textsc{ml} uses a technique called maximum likelihood, a mathematically intensive method that finds the best phylogenetic tree based on different models of \dna{} evolution.} to analyze the \dna{} sequences. 
+
+	\item Go back to the list of genes. Click on the “Phylogenetic Analysis Website” link to visit the site where you will analyze the \dna{} sequences \ref{fig:home_page}).\footnote{This site uses a technique called maximum likelihood, a mathematically intensive method that finds the best phylogenetic tree based on different models of \dna{} evolution.} 
+
+  	\item Scroll down just a bit until you see the link called “Advanced,” then click it.
+
+	\item Create your workflow (Fig.~\ref{fig:workflow}). The workflow consists of several steps
+that you need to obtain your final tree. You do not need your alignment curated so uncheck Gblocks and
+then click the “Create Workflow” button.
+
+	\item Paste the \textsc{dna} sequences that you copied earlier into the area
+marked “Input Data” (Fig.~\ref{fig:paste_sequences}) and then scroll down to set the
+parameters for the PhyML phylogenetic analysis (Fig.~\ref{fig:phyml}).
+
+\begin{center}
+	\includegraphics[width=0.7\textwidth]{fig3_home_page}
+	\captionof{figure}{Home page of Phylogeny.fr, an online site for performing phylogenetic analyses.\label{fig:home_page}}
+\end{center}
+
+\vfill
+
+\begin{center}
+	\includegraphics[width=0.6\textwidth]{fig4_workflow}
+	\captionof{figure}{Workflow settings.\label{fig:workflow}}
+\end{center}
+
+
+\newpage
+
+\begin{center}
+	\includegraphics[width=0.7\textwidth]{fig5_paste_sequences}
+	\captionof{figure}{Input data for your \textsc{dna} sequences.\label{fig:paste_sequences}}
+\end{center}
+
+\bigskip
+
+\bigskip
+
+\begin{center}
+	\includegraphics[width=0.9\textwidth]{fig6_phyML_settings}
+	\captionof{figure}{PhyML settings for the phylogenetic analysis.\label{fig:phyml}}
+\end{center}
+
+	\item  Set the substitution model to “HKY{\tablenumbers 85} (\textsc{dna/rna})” and then click the “Submit” button near the bottom of the page.
+
+	\item After a few minutes, a phylogenetic tree will appear. Scroll down to section labeled “Select an action and click leaf or internal branch,” and then click the “Reroot (outgroup)” button (Fig.~\ref{fig:reroot}).  Then, scroll back up to the tree to click on the taxon name in the tree, according to this table:
 	
-	\item Paste your sequence set into the large area at the top of the page. If the sequences from a previous analysis is still there, delete it and then paste your new sequences.
-	
-	\item Scroll down to nearly the end of the ``Other Options'' section. Look for ``Outgroup name(s).'' Click that check box. Enter  one of the following outgroup names into the box \emph{exactly}, depending on which sequence you are analyzing. 
-	
-		{\centering\begin{tabular}{@{}ll@{}}
+	{\centering\begin{tabular}{@{}ll@{}}
 		\toprule
-		Gene name &	Outgroup name\\
+		Gene &	Outgroup name\\
 		\midrule
 		18\textsc{s}	&  bacteria\\
 		\textsc{coi}	& mollusk\\
-%		\textsc{rag}1	& bass\\
+		%		\textsc{rag}1	& bass\\
 		\bottomrule		
-		\end{tabular}\par
-		}
+	\end{tabular}\par}
 	
-	\item Scroll back to the top. Click the ``Compute'' button. In a few moments, the analysis will present you with a list of output files. If an \emph{Erreur} warning pops up, close it. It will not affect your analysis.
+	This will reroot the phylogeny with the chosen group in the basal position.
+
+\begin{center}
+	\includegraphics[width=0.7\textwidth]{fig_reroot}
+	\captionof{figure}{Reroot to chosen outgroup.\label{fig:reroot}}
+\end{center}
 	
-	\item Click on ``View tree'' to see the phylogenetic tree based on that \dna{} sequence.
-	
-	\item Draw the tree on a piece of paper. You can save the tree as a \textsc{png} file to your computer or flash drive. However, near the end of the assignment, you will need to see both trees at the same time so drawing each tree on a separate piece of paper may be easiest. \label{final_step}
-	
-	\item Repeat this process for the other gene.
+	\item 
+	\textbf{Show this tree to your instructor.} If successful, your instructor will give you a copy of the tree to work with for the final part of this exercise. \label{final_step}
+
+	\item Click on the “Home” button (near upper left of page) to repeat this process for the other gene.
+
 
 \end{enumerate}
+
+	
+	
+	
 
 \begin{questions}
 
 \question
-Now that you have drawn both phylogenetic trees, assemble them into one large tree with all taxonomic groups. The tree from each gene has representatives for \emph{some} but not all of the taxonomic groups. Each tree ``overlaps'' partly with the other tree. With careful inspection, you should be able to see how the two trees piece together. 
+Now that you have copies of both phylogenetic trees, assemble them into one large tree with all taxonomic groups. The tree from each gene has representatives for \emph{some} but not all of the taxonomic groups. Each tree “overlaps” partly with the other tree. With careful inspection, you should be able to see how the two trees piece together. 
 
 \textsc{Note:} Many taxonomic groups have more than one representative (e.g., bird1, bird2, etc.). You only need to draw one branch for the group (e.g., birds).
 
