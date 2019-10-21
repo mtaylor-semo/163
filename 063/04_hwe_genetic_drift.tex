@@ -64,7 +64,7 @@
 \setlist[1]{labelindent=\parindent}
 \setlist[enumerate]{label=\textsc{\alph*}., ref=\textsc{\alph*}}
 
-\usepackage{hyperref}
+\usepackage[hidelinks]{hyperref}
 %\usepackage{hanging}
 
 \usepackage[sc]{titlesec}
@@ -113,7 +113,7 @@
 
 \subsection*{Evolution by genetic drift}
 
-Evolution is be defined as genetic change in a population over time. 
+Evolution is defined as genetic change in a population over time. 
 The genetic change that happens in a population over time is the change 
 in allele frequencies. Alleles are versions of genes that determine the 
 traits of individuals, such as eye color and hair color. Frequency tells 
@@ -192,15 +192,6 @@ to represent a diploid population size of 20 or 50 individuals.
 	
 \end{enumerate}
 
-\begin{questions}
-	
-	\question
-	Did you get \emph{exactly} the same allele frequencies for
-	Generation 1 that you started with for Generation~0? What about for 
-	Generation~5 compared to Generation~0? Tell how the allele frequencies changed. 
-	
-	\vspace*{6\baselineskip}
-	
 \subsubsection*{Reset the population to the new allele frequencies}
 
 Because you used sampling with replacement, your pool of alleles that 
@@ -235,6 +226,15 @@ frequencies before sampling for the next generation.
 	Put 19 dark alleles and 21 light alleles in the paper bag. \emph{Be sure the total
 		number of alleles you return to the paper bag matches the total number 
 		of alleles you identified for your population (see item~\ref{total_alleles})}.
+
+\begin{questions}
+	
+\question
+Did you get \emph{exactly} the same allele frequencies for
+Generation 1 that you started with for Generation~0? What about for 
+Generation~5 compared to Generation~0? Tell how the allele frequencies changed. 
+
+\vspace*{6\baselineskip}
 
 
 \question
@@ -360,13 +360,13 @@ Tell whether your results show a significant deviation from Hardy-Weinberg equil
 \begin{landscape}
 %\begin{table}[t!]
 \begin{longtable}[l]{C{0.75in}C{0.75in}C{0.75in}C{0.75in}C{0.75in}C{0.75in}C{0.75in}C{0.75in}C{0.75in}}
-	\caption{Genotype and allele frequencies after five generations of sampling.}
+	\caption{Observed genotype and allele frequencies for five generations of random sampling.}
 	\label{tab:selection_results}\tabularnewline
 	\toprule
 	&
-	\multicolumn{3}{c}{Number of Individuals}	&
-	\multicolumn{3}{c}{Genotype Frequencies}  &
-	\multicolumn{2}{c}{Allele Frequencies}\tabularnewline
+	\multicolumn{3}{c}{Observed Number of Individuals}	&
+	\multicolumn{3}{c}{Observed Genotype Frequencies}  &
+	\multicolumn{2}{c}{Obs. Allele Frequencies}\tabularnewline
 	%
 	\cmidrule(lr){2-4} 
 	\cmidrule(l){5-7}
