@@ -1,0 +1,168 @@
+%!TEX TS-program = lualatex
+%!TEX encoding = UTF-8 Unicode
+
+\documentclass[12pt]{exam}
+
+
+%\printanswers
+
+\usepackage{graphicx}
+	\graphicspath{{/Users/goby/Pictures/teach/163/lab/}
+	{img/}} % set of paths to search for images
+
+\usepackage{geometry}
+\geometry{letterpaper, left=1.5in, bottom=1in}                   
+%\geometry{landscape}                % Activate for for rotated page geometry
+\usepackage[parfill]{parskip}    % Activate to begin paragraphs with an empty line rather than an indent
+\usepackage{amssymb, amsmath}
+\usepackage{mathtools}
+	\everymath{\displaystyle}
+
+\usepackage[table]{xcolor}
+
+\usepackage{fontspec}
+\setmainfont[Ligatures={TeX}, BoldFont={* Bold}, ItalicFont={* Italic}, BoldItalicFont={* BoldItalic}, Numbers={OldStyle}]{Linux Libertine O}
+\setsansfont[Scale=MatchLowercase,Ligatures=TeX]{Linux Biolinum O}
+\setmonofont[Scale=MatchLowercase]{Inconsolatazi4}
+\newfontfamily{\tablenumbers}[Numbers={Monospaced,Lining}]{Linux Libertine O}
+\usepackage{microtype}
+
+\usepackage{unicode-math}
+\setmathfont[Scale=MatchLowercase]{TeX Gyre Termes Math}
+
+\usepackage{amsbsy}
+%\usepackage{bm}
+
+% To define fonts for particular uses within a document. For example, 
+% This sets the Libertine font to use tabular number format for tables.
+ %\newfontfamily{\tablenumbers}[Numbers={Monospaced}]{Linux Libertine O}
+% \newfontfamily{\libertinedisplay}{Linux Libertine Display O}
+
+\usepackage{multicol}
+%\usepackage[normalem]{ulem}
+
+\usepackage{longtable}
+\usepackage{caption}
+	\captionsetup{format=plain, justification=raggedright, singlelinecheck=off,labelsep=period,skip=3pt} % Removes colon following figure / table number.
+%\usepackage{siunitx}
+\usepackage{booktabs}
+\usepackage{array}
+\newcolumntype{L}[1]{>{\raggedright\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+\newcolumntype{C}[1]{>{\centering\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+\newcolumntype{R}[1]{>{\raggedleft\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+
+\usepackage{enumitem}
+\setlist{leftmargin=*}
+\setlist[1]{labelindent=\parindent}
+\setlist[enumerate]{label=\textsc{\alph*}.}
+\setlist[itemize]{label=\color{gray}\textbullet}
+%\usepackage{hyperref}
+%\usepackage{placeins} %PRovides \FloatBarrier to flush all floats before a certain point.
+%\usepackage{hanging}
+
+\usepackage[sc]{titlesec}
+
+%% Commands for Exam class
+\renewcommand{\solutiontitle}{\noindent}
+\unframedsolutions
+\SolutionEmphasis{\bfseries}
+
+\renewcommand{\questionshook}{%
+	\setlength{\leftmargin}{-\leftskip}%
+}
+
+%Change \half command from 1/2 to .5
+\renewcommand*\half{.5}
+
+\pagestyle{headandfoot}
+\firstpageheader{\textsc{bi}\,163 Evolution and Ecology}{}{\ifprintanswers\textbf{KEY}\else Name: \enspace \makebox[2.5in]{\hrulefill}\fi}
+\runningheader{}{}{\footnotesize{pg. \thepage}}
+\footer{}{}{}
+\runningheadrule
+
+\newcommand*\AnswerBox[2]{%
+    \parbox[t][#1]{0.92\textwidth}{%
+    \begin{solution}#2\end{solution}}
+%    \vspace*{\stretch{1}}
+}
+
+\newenvironment{AnswerPage}[1]
+    {\begin{minipage}[t][#1]{0.92\textwidth}%
+    \begin{solution}}
+    {\end{solution}\end{minipage}
+    \vspace*{\stretch{1}}}
+
+\newlength{\basespace}
+\setlength{\basespace}{5\baselineskip}
+
+%% To hide and show points
+\newcommand{\hidepoints}{%
+	\pointsinmargin\pointformat{}
+}
+
+\newcommand{\showpoints}{%
+	\nopointsinmargin\pointformat{(\thepoints)}
+}
+
+\newcommand{\bumppoints}[1]{%
+	\addtocounter{numpoints}{#1}
+}
+
+\newcommand*\meanY{\overline{Y\kern1.67pt}\kern-1.67pt}
+\newcommand*\meansubY{\overline{Y}}
+%\newcommand*\meanY{\overline{Y}}
+\newcommand*\ttest{\emph{t}-test}
+\newcommand*\Popa{Population~\textsc{a}}
+\newcommand*\Popb{Population~\textsc{b}}
+\newcommand*\popa{population~\textsc{a}} %lower case
+\newcommand*\popb{population~\textsc{b}} %lower case
+\newcommand*\Corbicula{\textit{Corbicula}}
+\newcommand*\AnswerBlank{\rule{0.75in}{0.4pt}\kern0.67pt.}
+%
+%\makeatletter
+%\def\SetTotalwidth{\advance\linewidth by \@totalleftmargin
+%\@totalleftmargin=0pt}
+%\makeatother
+
+
+\begin{document}
+
+\subsection*{Reproductive isolation in columbines, Part 2 (20 points)}
+
+You have learned that pollinators may contribute to reproductive isolation in \textit{Aquilegia formosa} and \textit{A.~pubescens.} You have also learned that the two species of \textit{Aquilegia} have different colors, orientations, and spur lengths. These differences may contribute to reproductive isolation between \textit{A.~formosa} and \textit{A.~pubescens}. Reproductive isolation may be behavioral (the behavior of the pollinator) or mechanical (the physical transfer of pollen). 
+
+You must develop a hypothesis and experiment to test one question about the role of pollinators and reproductive isolation. Use one of these questions as a guide to help you develop your hypothesis, prediction, and experimental design.
+
+Behavioral: do specific traits (secondary attractants) influence the likelihood that the pollinator will visit?
+
+\begin{itemize}
+\item Does flower color influence the types of pollinators that visit the flower?
+
+\item Does spur length influence the types of pollinators that visit the flower?
+
+\item Does orientation influence the types of pollinators that visit the flower?
+\end{itemize}
+
+Mechanical: do specific traits influence how much time a pollinator spends at a flower? Here, more time visiting a flower results in more pollen being transferred.
+
+\begin{itemize}
+\item Does spur length influence how much time a pollinator spends at a flower?
+
+\item Does orientation influence how much time a pollinator spends at a flower?
+\end{itemize}
+
+\subsubsection*{Assignment}
+
+\begin{enumerate}
+\item Write a hypothesis. Remember that a hypothesis is a direct statement that tentatively explains an observation. (3 points)
+
+\item Turn your hypothesis into a prediction. Predictions usually take the form of an If$\dots$then$\dots$ statement, and incorporates your explanatory and response variables.  For example, "If I make this change to the explanatory variable, then I expect to see this change in the response variable."  The change in the response variable is your predicted experimental outcome. If the results of the experiment agree with your prediction, then your hypothesis would be supported. (3 points)
+
+\item Design an experiment. You should write a paragraph or two that describes an experiment you might perform to test your hypothesis. You must identify your explanatory and response variables. Don't worry about equipment or supplies. Just design what you think would be a good experiment. (14 points)
+
+\item Upload your assignment to the "Reproductive Isolation in Columbines, Part 2" drop box on the Canvas course page. 
+\end{enumerate}
+
+
+
+\end{document}  
