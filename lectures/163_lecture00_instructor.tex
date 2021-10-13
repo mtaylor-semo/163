@@ -1,0 +1,216 @@
+%!TEX TS-program = lualatex
+%!TEX encoding = UTF-8 Unicode
+
+\documentclass[t]{beamer}
+
+%%%% HANDOUTS For online Uncomment the following four lines for handout
+%\documentclass[t,handout]{beamer}  %Use this for handouts.
+%\usepackage{handoutWithNotes}
+%\pgfpagesuselayout{3 on 1 with notes}[letterpaper,border shrink=5mm]
+
+%\includeonlylecture{student}
+
+%%% Including only some slides for students.
+%%% Uncomment the following line. For the slides,
+%%% use the labels shown below the command.
+
+%% For students, use \lecture{student}{student}
+%% For mine, use \lecture{instructor}{instructor}
+
+
+%\usepackage{pgf,pgfpages}
+%\pgfpagesuselayout{4 on 1}[letterpaper,border shrink=5mm]
+
+% FONTS
+\usepackage{fontspec}
+\def\mainfont{Linux Biolinum O}
+\setmainfont[Ligatures={Common,TeX}, Contextuals={NoAlternate}, BoldFont={* Bold}, ItalicFont={* Italic}, Numbers={OldStyle}]{\mainfont}
+\setsansfont[Ligatures={Common,TeX}, Scale=MatchLowercase, Numbers=OldStyle]{Linux Biolinum O} 
+\usepackage{microtype}
+
+\usepackage{graphicx}
+	\graphicspath{{/Users/goby/pictures/teach/163/lecture/}
+	{/Users/goby/pictures/teach/163/common/}} % set of paths to search for images
+
+%\usepackage{units}
+\usepackage{booktabs}
+%\usepackage{textcomp}
+
+\usepackage{tikz}
+	\tikzstyle{every picture}+=[remember picture,overlay]
+	\usetikzlibrary{arrows}
+
+\mode<presentation>
+{
+  \usetheme{Lecture}
+  \setbeamercovered{invisible}
+  \setbeamertemplate{items}[square]
+}
+
+
+\begin{document}
+%
+{
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{hoverflies} }
+\begin{frame}[b]{\textcolor{orange7}{\textsc{bi} 163-01: Evolution and Ecology}}
+
+\begin{center}\LARGE\textcolor{white}{Sit towards the front of the room.}\end{center}
+
+\hfill\textcolor{white}{\tiny Fir0002, Wikimedia \ccbync{3}}
+\end{frame}
+}
+%
+{
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{mike_snake} }
+\begin{frame}[t]
+	\large
+	\vspace{5ex}
+	\hangpara\hspace{17em} Dr.~Mike Taylor
+
+	\hangpara\hspace{17em} \textsc{rh} 217
+
+	\hangpara\hspace{17em} \parbox{4cm}{\textsc{w}\,9--12}
+
+	\hangpara\hspace{17em} mtaylor@semo.edu
+\end{frame}
+}
+
+\begin{frame}[t]{Course material is available from \href{https://semo.instructure.com}{semo.instructure.com}.}
+%	\begin{center}
+		
+\centering
+		\href{https://semo.instructure.com}{\includegraphics[height=0.9\textheight]{canvas_logo}}
+		
+		\medskip
+		
+%	\end{center}
+	
+\end{frame}
+%
+\begin{frame}[t]{I do not give grades. You \highlight{earn} them.}
+
+	\hangpara Four exams @ 60\%,
+
+	\hangpara Lab exercises @ 20\%, and
+
+	\hangpara Assignments @ 20\%.
+
+\end{frame}
+%
+
+
+{
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{C_or_better} }
+\begin{frame}[b]
+\end{frame}
+}
+
+{
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{hotrod}
+}
+
+\begin{frame}[t]{To be \highlight{successful}, you must}
+\vspace{1ex}
+\hspace{22em}\highlight{C}omplete,
+%\pause
+
+\vspace{1ex}
+\hspace{22em}\highlight{A}ttend,
+%\pause
+
+\vspace{1ex}
+\hspace{22em}\highlight{R}ead,
+%\pause
+
+\vspace{1ex}
+\hspace{22em}\highlight{S}tudy.
+
+%\vspace{25ex}
+\vskip 0pt plus 1filll
+
+\tiny 1950 Mercury photo \copyright\,John O'Neill, All Rights Reserved.
+\end{frame}
+}
+%
+{
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{take_good_notes}
+}
+\begin{frame}[b,plain]{To be successful, you must \highlight{take good notes.}}
+\textcolor{white}{\tiny Daniel Foster, Flickr, \ccby{2}}
+\end{frame}
+}
+
+
+\lecture{instructor}{instructor}
+
+{
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{me_and_berg}}
+\begin{frame}[b]{\textcolor{white}{We do stupid stuff in college because\dots}}
+\end{frame}
+}
+
+
+\lecture{student}{student}
+
+{
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{find_balance_stones}}
+\begin{frame}[b]
+\hfill	\tiny bibigeek, Flickr, \ccby{2}
+\end{frame}
+}
+
+
+{
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{think_horizontally} }
+\begin{frame}
+\end{frame}
+}
+
+{
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{connect_the_dots}}
+\begin{frame}[t,plain]
+\end{frame}
+}
+
+\lecture{instructor}{instructor}
+{
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{connect_the_dots_solved}}
+\begin{frame}[t,plain]
+\end{frame}
+}
+
+{
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{sunflowers}
+}
+\begin{frame}[b,plain]
+	\textcolor{white}{\tiny Sunflowers by Trey Ratcliff, Flickr, Creative Commons.}
+\end{frame}
+}
+
+{
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{spider_bee}
+}
+\begin{frame}[b,plain]
+\tiny Goldenrod crab spider photo by Alvesgaspar, Wikimedia Commons.\hfill
+\textcolor{white}{\href{https://www.youtube.com/watch?v=O9B_9XxZKJ8}{Link to Video}}
+\end{frame}
+}
+
+{
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{marine_iguana}}
+\begin{frame}[b,plain]
+	\tiny \textcolor{white}{Marine iguana on San Crist\'{o}bal Island, Galapagos by Les Williams, Flickr, Creative Commons.}\hfill
+	\textcolor{white}{\href{https://www.youtube.com/watch?v=4tBWakZAGqU}{Link to Video}}
+\end{frame}
+}
+
+{
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{bird_paradise.jpg}}
+\begin{frame}[b,plain]
+	\tiny\textcolor{white}{Greater Bird of Paradise \textcopyright Tim Laman, All Rights Reserved. \hfill\href{http://www.youtube.com/watch?v=KIYkpwyKEhY}{Link to Video} }
+\end{frame}
+}
+
+
+
+\end{document}
