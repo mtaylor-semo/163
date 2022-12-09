@@ -1,0 +1,87 @@
+%!TEX TS-program = lualatex
+%!TEX encoding = UTF-8 Unicode
+
+\documentclass[t]{beamer}
+
+%%%% HANDOUTS For online Uncomment the following four lines for handout
+%\documentclass[t,handout]{beamer}  %Use this for handouts.
+%\usepackage{handoutWithNotes}
+%\pgfpagesuselayout{3 on 1 with notes}[letterpaper,border shrink=5mm]
+
+%\includeonlylecture{student}
+
+%%% Including only some slides for students.
+%%% Uncomment the following line. For the slides,
+%%% use the labels shown below the command.
+
+%% For students, use \lecture{student}{student}
+%% For mine, use \lecture{instructor}{instructor}
+
+
+%\usepackage{pgf,pgfpages}
+%\pgfpagesuselayout{4 on 1}[letterpaper,border shrink=5mm]
+
+% FONTS
+\usepackage{fontspec}
+\def\mainfont{Linux Biolinum O}
+\setmainfont[Ligatures={Common,TeX}, Contextuals={NoAlternate}, BoldFont={* Bold}, ItalicFont={* Italic}, Numbers={OldStyle}]{\mainfont}
+\setsansfont[Ligatures={Common,TeX}, Scale=MatchLowercase, Numbers=OldStyle]{Linux Biolinum O} 
+\usepackage{microtype}
+
+\usepackage{graphicx}
+	\graphicspath{{/Users/goby/pictures/teach/163/lecture/}
+	{/Users/goby/pictures/teach/common/}} % set of paths to search for images
+
+%\usepackage{units}
+\usepackage{booktabs}
+%\usepackage{textcomp}
+
+\usepackage{tikz}
+	\tikzstyle{every picture}+=[remember picture,overlay]
+	\usetikzlibrary{arrows}
+
+\mode<presentation>
+{
+  \usetheme{Lecture}
+  \setbeamercovered{invisible}
+  \setbeamertemplate{items}[square]
+}
+
+
+\begin{document}
+
+{
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{ytwa1_3catacres_grayscale}}
+\begin{frame}[t,plain]{\textcolor{white}{Characters vs. traits}}
+
+\vfilll
+
+\tiny \textcolor{white}{Michael S. Taylor, \ccbync{3}}
+
+\end{frame}
+}
+%
+{
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{ytwa1_3catacres}}
+\begin{frame}[t,plain]
+
+\vfilll
+
+\tiny \textcolor{white}{Michael S. Taylor, \ccbync{3}}
+
+\end{frame}
+}
+%
+{
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{yellow-rumped_warbler}}
+\begin{frame}[t,plain]
+
+\vfilll
+
+\hfill \tiny Tom Murray, \ccbync{2}
+\end{frame}
+}
+
+
+
+\end{document}
