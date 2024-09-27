@@ -37,7 +37,6 @@
 %\usepackage{textcomp}
 %\usepackage{mhchem}
 \usepackage{enumitem}
-%\usepackage[export]{adjustbox}
 
 
 \usepackage{tikz}
@@ -52,280 +51,176 @@
   \setbeamertemplate{items}[square]
 }
 
-
 \begin{document}
 
 \lecture{student}{student}
 
-\begin{frame}{Our goal for this lecture is to }
+\begin{frame}{Our goal for this lecture is to}
 
-%	\hangpara learn about the \highlight{hierarchical organization} of life.
-	
-	\hangpara introduce \highlight{ecology,} and
-	
-	\hangpara demonstrate \highlight{population growth,}
-	
-	\hangpara using \highlight{exponential} and \highlight{logistic} growth models.
+	\hangpara show how real populations grow compared to the logistic growth curve,
 
+	\hangpara learn about \highlight{density and dispersion} of individuals in a population,
+
+	\hangpara learn how \highlight{negative feedback} controls \highlight{density-dependent} population growth, and
+	
+	\hangpara learn how \highlight{density-independent} factors control population growth.
+	
 \end{frame}
 %
-%\begin{frame}{Life is a hierarchy of increasing complexity.}
-%\vspace*{-0.5\baselineskip}	
-%\hangpara \begin{tabular}{@{}L{34mm}L{34mm}L{34mm}@{}}
-%\toprule
-%\onslide<1->Cellular 	&
-%Organismal 		&
-%Biosphere 		\\
-%\midrule
-% &	&	\\
-%\onslide<2->Cell		&
-%\onslide<3->Organism	&
-%\onslide<9->\alt<handout>{\rule{30mm}{0.4pt}}{Landscape}\\[1em]
-%%
-%\onslide<2->Organelle		&
-%\onslide<3->Organ System	&
-%\onslide<8->\alt<handout>{\rule{30mm}{0.4pt}}{Ecosystem}\\[1em]
-%%
-%\onslide<2->Macromolecules	&
-%\onslide<3->Organ			&
-%\onslide<7->\alt<handout>{\rule{30mm}{0.4pt}}{Community} \\[1em]
-%%
-%\onslide<2->Molecule		&
-%\onslide<3->Tissue			&
-%\onslide<6->\alt<handout>{\rule{30mm}{0.4pt}}{Species}	\\[1em]
-%%
-%\onslide<2->Atom			&
-%						&
-%\onslide<5->\alt<handout>{\rule{30mm}{0.4pt}}{Population}\\[1em]
-%%\bottomrule
-%\end{tabular}
+{
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{real_populations_daphnia} }
+\begin{frame}{Populations initially \highlight{exceed} carrying capacity.}
+\end{frame}
+}
 %
-%\only<4>{\alt<handout>{}{\hangpara In groups, discuss what levels make up the biosphere.}}
+{
+	\usebackgroundtemplate{\includegraphics[width=\paperwidth]{real_populations_sparrow} }
+	\begin{frame}{Populations \highlight{fluctuate around} carrying capacity.}
+	\end{frame}
+}
 %
-%\onslide<10->\hangpara\highlight{Emergent properties} are properties of life present at one level that were not present in lower levels.
+{
+	\usebackgroundtemplate{\includegraphics[width=\paperwidth]{dispersion_patterns} }
+	\begin{frame}[b]{\highlight{Dispersion} is the spacing pattern of individuals in a population.}
+		\hfill \tiny \copyright Pearson Education, Inc.
+	\end{frame}
+}
 %
-%\onslide<11->\hangpara What levels do you think are encompassed by evolution?  By ecology? 
+{
+	\usebackgroundtemplate{\includegraphics[width=\paperwidth]{dispersion_clumped} }
+	\begin{frame}[b]{\highlight{Clumped} dispersion can be due to patchy resources, social factors, or protection.}
+		%	\hfill \tiny \copyright Pearson Education, Inc.
+	\end{frame}
+}
+%
+{
+	\usebackgroundtemplate{\includegraphics[width=\paperwidth]{dispersion_uniform} }
+	\begin{frame}[t]{\highlight{Uniform} dispersion can be due to territoriality or aggressive interactions among individuals.}
+		
+		\vfilll 
+		
+		\tiny\textcolor{orange5}{Foliash, Wikimedia, public domain.}
+	\end{frame}
+}
+%
+{
+	\usebackgroundtemplate{\includegraphics[width=\paperwidth]{dispersion_random} }
+	\begin{frame}[t]{\highlight{Random} dispersion can be due to constant environment and resources.}
+		
+		\vfilll 
+		
+		\tiny \textcolor{white}{Strecosa, Pixabay, \cc0.}
+	\end{frame}
+}
+%
+{
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{density_trees} }
+\begin{frame}[b]{\highlight{Density} is the number of individuals per unit of area or volume.}
+	\hfill \tiny N\textsc{asa} Wikimedia, public domain
+\end{frame}
+}
+%
+{
+	\usebackgroundtemplate{\includegraphics[width=\paperwidth]{density_atacama_dry} }
+	\begin{frame}[b]{Plant populations in the dry Atacama Desert usually have low density.}
+		\hfill \tiny \textcolor{white}{travfotos, Flickr, \ccbync{2}}
+	\end{frame}
+}
+%
+{
+	\usebackgroundtemplate{\includegraphics[width=\paperwidth]{density_atacama_desert} }
+	\begin{frame}[b]{Populations in the Atacama Desert can reach high density after a rare rain.}
+		\hfill \tiny \textcolor{white}{Mario Ruiz, \textsc{epa}}
+	\end{frame}
+}
+%
+%
+%\lecture{instructor}{instructor}
+%{
+%\usebackgroundtemplate{\includegraphics[width=\paperwidth]{real_populations_sparrow} }
+%\begin{frame}{Populations \highlight{fluctuate around} carrying capacity.}
 %\end{frame}
-%
-{
-\usebackgroundtemplate{\includegraphics[width=\paperwidth]{ecosystem} }
-\begin{frame}[b]{\hfill What is ecology?}
-	\tiny\textcolor{white}{Jeff Taylor, Wikimedia, \ccbysa{3}.}%Elwha River Photo by
-\end{frame}
-}
-%
-\begin{frame}[t]{Ecology has many fields of study.}
-	\begin{minipage}[t]{0.6\textwidth}
-		\vspace{0pt}
-		\includegraphics[width=0.99\textwidth]{ecology_disciplines}
-	\end{minipage}
-	\hfill
-	\begin{minipage}[t]{0.3\textwidth}
-		\vspace{0pt}
-		\highlight{Population}\\
-		\highlight{Community}\\
-		\highlight{Ecosystem}\\
-		Landscape\\
-		Evolutionary\\
-		Behavioral\\
-		Nutritional\\
-		many more\dots
-	\end{minipage}	
-\end{frame}
-%
-{
-\usebackgroundtemplate{\includegraphics[width=\paperwidth]{population_meerkats} }
-\begin{frame}[b]{\textcolor{white}{What is a population?}}
-
-	\tiny\textcolor{white}{Spencer Wright, Flickr, \ccby{2}.}
-\end{frame}
-}
-%
-{
-\usebackgroundtemplate{\includegraphics[width=\paperwidth]{population_dynamics} }
-\begin{frame}[b]{Populations vary in space and time.}
-
-	\hfill \tiny Fig. 53.3 \textcopyright Pearson Education, Inc.
-\end{frame}
-}
-%
-{
-\usebackgroundtemplate{\includegraphics[width=\paperwidth]{Ecoli} }
-\begin{frame}[b]{\textcolor{white}{Meet \textit{Escherichia coli.}}}
-	\tiny \hfill \textcolor{white}{NIAID, National Institutes of Health, public domain.}%E. coli
-\end{frame}
-}
+%}
+%\lecture{student}{student}
 %
 \begin{frame}{}
-	\hangpara\Large What factors do we need to account for population growth under \highlight{idealized} conditions? 
-\end{frame}
-%
-\begin{frame}{Population growth depends on birth and death rates.}
 
-	\hangpara \textit{b} = per capita birth rate (number born per 1000 individuals). \pause
+	\hangpara \highlight{Density-dependent} population regulation occurs when high population density \highlight{decreases birth rate} or \highlight{increases death rate}.
 	
-	\hangpara \textit{d} = per capita death rate (number died per 1000 individuals). \pause
-	
-	\hangpara \textit{r} = \textit{b} – \textit{d} = intrinsic rate of population growth. \pause
-	
-	\hangpara If \textit{r} \textgreater{} 0, then population is growing larger.
-	
-	\hangpara If \textit{r} \textless{} 0 then population is growing smaller.
-	
-	
-\end{frame}
-%
-\begin{frame}{\highlight{Exponential growth} occurs only in idealized conditions.}
-	\begin{center}
-		\Huge $\frac{\Delta N}{\Delta t} = rN$
-	\end{center}
-	
-	\hangpara $\Delta N = $ change in population size,
-
-	\hangpara $\Delta t = $ change in time,
-	
-	\hangpara $r = $ intrinsic rate of population growth, and
-	
-	\hangpara $N = $ size of the population.
+	\hangpara What would happen to population size ($N$) over time?
 	
 \end{frame}
 %
 {
-\usebackgroundtemplate{\includegraphics[width=\paperwidth]{exponential_growth}}
-\begin{frame}[b]
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{density_dependent_song_sparrow} }
+\begin{frame}[b]{}
+\tiny\textcolor{gray!20!white}{Keith, Wikimedia, \ccby{2}.}
 \end{frame}
 }
 %
 {
-\usebackgroundtemplate{\includegraphics[width=\paperwidth]{human_population_growth}}
-\begin{frame}[b]
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{density_dependent_sparrow_nest} }
+\begin{frame}[b]{}
+\tiny\textcolor{gray!20!white}{K.P. McFarland, Flickr, \ccbync{2}.}
+\end{frame}
+}
+%
+\begin{frame}[b]{How does clutch size change? Why?}
+	\begin{center}
+		\includegraphics[height=0.8\textheight]{density_dependent_clutchsize.pdf}
+	\end{center}	
+
+	\tiny Arcese and Smith 1988, J. Animal Ecology 57: 119-136.
+\end{frame}
+%
+\begin{frame}[b]{How does nest failure change? Why?}
+	\begin{center}
+		\includegraphics[height=0.8\textheight]{density_dependent_failure.pdf}
+	\end{center}	
+
+	\tiny Arcese and Smith 1988, J. Animal Ecology 57: 119-136.
+\end{frame}
+%
+{
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{density_dependent_territory} }
+\begin{frame}[b]{}
+\tiny\textcolor{orange5}{Foliash, Wikimedia, public domain.}
+\end{frame}
+}
+%
+{
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{density_dependent_lynx_hare} }
+\begin{frame}[b]{}
 \end{frame}
 }
 %
 \begin{frame}{}
 
-	\hangpara\Large Most populations do not grow under idealized conditions.
-	
-	\hangpara\Large What else do we need to account for?
-	
-	\pause
-	\hangpara \highlight{Carrying capacity.}
-	
-\end{frame}
-%
-\begin{frame}{\highlight{Logistic growth} occurs in natural conditions.}
-	\begin{center}
-		\Huge $\frac{\Delta N}{\Delta t} = rN\left(\frac{K-N}{K}\right)$
-	\end{center}
-	
-	\hangpara $\Delta N = $change in population size,
-
-	\hangpara $\Delta t = $ change in time,
-	
-	\hangpara $r = $ intrinsic rate of population growth, 
-	
-	\hangpara $N = $ size of the population, and
-	
-	\hangpara \highlight{$K = $ carrying capacity.}
-	
-\end{frame}
-%
-\begin{frame}
-	\hangpara Assume $r = 1.0$.
-	
-%	\hangpara If $K = 3000$ and $N = 1000$, \pause then
-	\hangpara If $K = 3000$ and $N = 30$, \pause then
-	
-	\hangpara {$\dfrac{K-N}{K} = \dfrac{(3000-30)}{3000} =  \dfrac{2930}{3000} = 0.99$}
-	
-	\hangpara This means 99\% of resources are \emph{still available} for population growth. \pause Therefore,
-	
-	\hangpara $\dfrac{\Delta N}{\Delta t} = rN\left(\dfrac{K-N}{K}\right) = (1.0)(30)\left(\dfrac{2930}{3000}\right) = 29.7$ individuals added. \pause
-	
-	\hangpara The population nearly \emph{doubled} in size.
-	
-	\hangpara \textcolor{gray}{Exponential growth: $rN = (1)(30) = 30$ individuals added.}
-\end{frame}
-%
-\begin{frame}
-	\hangpara Assume $r = 1.0$.
-	
-	\hangpara If $K = 3000$ and $N = 2700$, \pause then
-	
-	\hangpara {$\dfrac{K-N}{K} = \dfrac{(3000-2700)}{3000} =  \dfrac{300}{3000} = 0.10$.}
-	
-	\hangpara This means that 10\% of resources are available for population growth. \pause Therefore,
-	
-	\hangpara $\dfrac{\Delta N}{\Delta t} = rN\left(\dfrac{K-N}{K}\right) = (1.0)(2700)\left(\dfrac{300}{3000}\right) = 270$ individuals added. \pause
-	
-	\hangpara The population increased by only 10\%.
-	
-	\hangpara \textcolor{gray}{Exponential growth: $rN = (1)(2700) = 2700$ individuals added.}
+	\hangpara \highlight{Density-independent} population regulation decreases birth rate or increases death rate \highlight{regardless} of current population size.
+		
 \end{frame}
 %
 {
-\usebackgroundtemplate{\includegraphics[width=\paperwidth]{logistic_growth}}
-\begin{frame}
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{density_independent_dunes} }
+\begin{frame}[b]{}
+\hfill\tiny Sandy Richard, Flickr,\ccbyncsa{2} .
 \end{frame}
 }
 %
-\lecture{instructor}{instructor}
+{
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{isle_royale} }
+\begin{frame}[b]
 
-\begin{frame}[t]{What is the new population size?}
-	\begin{columns}
-		\begin{column}{0.24\textwidth}
-			
-			\hangpara $N_0 = 2000.$
-	
-			\hangpara $K = 4000.$
-	
-			\hangpara $b = 0.1.$
-	
-			\hangpara $d = 0.05.$ \pause
-	
-		\end{column}
-		\begin{column}{0.74\textwidth}
-			
-			\hangpara $r = 0.1 - 0.05 = 0.05.$ \pause
-		
-			\hangpara $rN = 0.05 \times 2000 = 100.$ \pause
-		
-			\hangpara $\frac{K-N}{K} = \frac{4000-2000}{4000} = 0.5.$ \pause
-		
-			\hangpara $\frac{\Delta N}{\Delta T} = rN\left(\frac{K-N}{K}\right) = 100 \times 0.5 = 50.$ \pause
-		
-			\hangpara $N_1 = 2000 + 50 = 2050.$
-		\end{column}
-	\end{columns}
+	\hfill \tiny \textcolor{white}{Google Earth}
 \end{frame}
+}
 %
-\begin{frame}[t]{What is the new population size?}
-	\begin{columns}
-		\begin{column}{0.24\textwidth}
-			
-			\hangpara $N_0 = 4000.$
-			
-			\hangpara $ K = 3000.$
-			
-			\hangpara $b = 0.1.$
-			
-			\hangpara $d = 0.4.$ \pause
-			
-		\end{column}
-		\begin{column}{0.74\textwidth}
-			
-			\hangpara $r = 0.1 - 0.4 = -0.3.$ \pause
-			
-			\hangpara $rN = -0.3 \times 4000 = -1200.$ \pause
-			
-			\hangpara $\frac{K-N}{K} = \frac{3000-4000}{3000} = -0.33\overline{3}.$ \pause
-			
-			\hangpara $\frac{\Delta N}{\Delta T} = rN\left(\frac{K-N}{K}\right) = -1200 \times -0.33\overline{3} = 400.$ \pause
-			
-			\hangpara $N_1 = 4000 + 400 = 4400.$ 
-
-			\hangpara \highlight{WTF?} How did the population grow larger?
-		\end{column}
-	\end{columns}
+{
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{isle_royale_popsize} }
+\begin{frame}{}
 \end{frame}
+}
+%
+
+
 \end{document}

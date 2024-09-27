@@ -25,7 +25,7 @@
 
 \newfontface\lining[Numbers={Lining}]\mainfont
 
-\usepackage{microtype}
+%\usepackage[draft]{microtype}
 
 
 \mode<presentation>
@@ -54,7 +54,8 @@
 \newcolumntype{C}[1]{>{\centering\let\newline\\\arraybackslash\hspace{0pt}}p{#1}}
 \newcolumntype{R}[1]{>{\raggedleft\let\newline\\\arraybackslash\hspace{0pt}}p{#1}}
 %\usepackage{textcomp}
-%\usepackage{mhchem}
+\usepackage{mhchem}
+\mhchemoptions{textfontcommand=\lining}
 \usepackage{enumitem}
 %\usepackage[export]{adjustbox}
 
@@ -67,7 +68,7 @@
 \usepackage{tikz}
 %		%tikzstyle{every picture} conflicts for some reason with the pgfplots stuff above.
 	\tikzstyle{every picture}+=[remember picture,overlay]
-	\usetikzlibrary{arrows}
+	\usetikzlibrary{arrows, decorations.pathreplacing}
 %\usetikzlibrary{positioning}
 
 % Use the to temporarily set a background grid for positioning.
@@ -75,195 +76,310 @@
 
 \begin{document}
 
-%\lecture{instructor}{instructor}
-%
-%\begin{frame}[t]{$\overline{Y} = 74.4, s = 11.9.$}
-%	\includegraphics[width=\textwidth]{163exam3grades}\par
-%	
-%\end{frame}
-%
-
 \lecture{student}{student}
 
-\begin{frame}{Our goals for this lecture are to}
+\begin{frame}{Our goals for this lecture are to learn}
 
-	\hangpara learn how predator and prey species form \highlight{food webs},
-
-	\hangpara reduce food webs to \highlight{trophic levels}, 
+	\hangpara how climate determines the distribution of ecosystems,
 	
-	\hangpara understand how \highlight{energy flows} through, and
+%	\hangpara the current human population and \highlight{demographics,}
 	
-	\hangpara \highlight{nutrients recycle} within ecosystems.
+	\hangpara about the \highlight{greenhouse effect} and
 	
-%	\vfilll
-	
-%	\hfill \tiny Whew!
+	\hangpara how it affects \highlight{climate change.} 
 	
 \end{frame}
 %
 {
-\usebackgroundtemplate{\includegraphics[width=\paperwidth]{arctic_food_web} }
-\begin{frame}{}
-\hspace{65mm}\begin{minipage}{0.45\textwidth}
-	\flushleft
-	\vspace{4\baselineskip}
+	\usebackgroundtemplate{\includegraphics[width=\paperwidth]{ecosystem_distribution} }
+	\begin{frame}[b]{The distribution of terrestrial ecosystems is determined by \highlight{climate}.}
+		
+	\end{frame}
+}
+%
 
-	\highlight{Food webs} show relationships among predators and prey.
-	\vspace{\baselineskip}
+
+%{
+%	\usebackgroundtemplate{\includegraphics[width=\paperwidth]{climate_solar_input} }
+%	\begin{frame}[b]{Climate is driven by variation of \highlight{solar radiation} from low to high latitudes.}
+%		
+%		\hfill \tiny Fig.~52.3\textsc{a} \copyright Pearson Education, Inc.
+%	\end{frame}
+%}
+%%
+%{
+%	\begin{frame}[t]{Solar input creates wind and precipitation patterns.}
+%		
+%		\includegraphics[width=\textwidth]{climate_circulation_precipitation}
+%		
+%		\vfilll
+%		
+%		\hfill \tiny Fig.~52.3\textsc{b} \copyright Pearson Education, Inc.
+%	\end{frame}
+%}
+%%
+
+
+{
+	\usebackgroundtemplate{\includegraphics[width=\paperwidth]{climograph} }
+	\begin{frame}[b]{Ecosystem distribution is determined by mean annual temperature and precipitation.}
+		
+	\end{frame}
+}
+%
+\begin{frame}[t]{Mountains create \highlight{rain shadows} that affect regional climate.}
 	
-	They can also show how energy and nutrients move among organisms in an ecosystem.
-\end{minipage}
+	\bigskip
+	
+	\includegraphics[width=\textwidth]{rain_shadow}
+	
+	\vfilll
+	
+	\hfill \tiny Fig.~52.6 \copyright\,Pearson Education, Inc.
+\end{frame}
+%
+{
+	\usebackgroundtemplate{\includegraphics[width=\paperwidth]{precipitation_national} }
+	\begin{frame}[b]
+		
+	\end{frame}
+}
+% May move elsewhere, such as population ecology, or convert to exercise. Did not
+% use in Spring 2017.
+
+% BEGIN HUMAN POP.
+{
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{human_population_growth} }
+\begin{frame}[b]{The global population is \textgreater7,910,000,000 people.}
+
+	\hfill \tiny Fig.~53.22 \copyright\,Pearson Education, Inc.
+\end{frame}
+}
+%
+\begin{frame}[t]{The global birth rate for 2020 was 18.1 per 1000 people.}
+
+	\includegraphics[width=\textwidth]{global_birth_rate}
+	
+	\hangpara More than 9,000 people will be born during class time today.
+	
+	\vfilll
+	
+	\hfill \tiny Ali Zifan, Wikimedia Commons, \textsc{cc0}
+\end{frame}
+%
+\begin{frame}[t]{The global death rate for 2020 was 7.6 per 1000 people.}
+
+	\includegraphics[width=\textwidth]{global_death_rate}\par
+	
+	$r \approx 0.0181 - 0.0076 \approx 0.01$\vspace*{\baselineskip}
+	
+	People added = $\frac{\Delta N}{\Delta t} =rN \approx 0.01 \times 7,910,000,000 \approx 79,100,000$
+		
+	\vfilll
+	
+	\hfill \tiny United Nations, Wikimedia Commons, \ccbysa{3}
+\end{frame}
+
+{
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{human_growth_rate} }
+\begin{frame}[b]{The human population growth \emph{rate} is slowing.}
+
+	\hfill \tiny Fig.~53.23 \copyright\,Pearson Education, Inc.
+\end{frame}
+}
+%
+%\begin{frame}[t]{\highlight{Demography} describes the age structure, and birth and death rates of a population.}
+%
+%	\includegraphics[width=\textwidth]{human_demography}
+%	
+%	\vfilll
+%	
+%	\hfill \tiny Fig.~53.24 \copyright\,Pearson Education, Inc.
+%	
+%\end{frame}
+%%
+%{
+%\usebackgroundtemplate{\includegraphics[width=\paperwidth]{us_demographics} }
+%%\setbeamertemplate{background}[grid][step=1em]
+%\begin{frame}[b]{Demographics of the U.S. population.}
+%
+%	\begin{tikzpicture}
+%		\draw  [decorate, decoration={brace, amplitude=5pt}] (9em,1em) -- (9em, 3.6em) node [left,midway, xshift=-9pt] {\small Z};
+%
+%		\draw  [decorate, decoration={brace, amplitude=5pt}] (9em,3.7em) -- (9em, 6.9em) node [left,midway, xshift=-9pt] {\small \highlight{Millenial}};
+%	
+%		\draw  [decorate, decoration={brace, amplitude=5pt}] (9em,7em) -- (9em, 10.2em) node [left,midway, xshift=-9pt] {\small X};
+%
+%		\draw  [decorate, decoration={brace, amplitude=5pt}] (9em,10.3em) -- (9em, 14em) node [left,midway, xshift=-9pt] {\small \highlight{Baby Boomers}};
+%	
+%		\draw  [decorate, decoration={brace, amplitude=5pt}] (9em,14.1em) -- (9em, 17.1em) node [left,midway, xshift=-9pt] {\small Silent};
+%	
+%		\draw  [decorate, decoration={brace, amplitude=5pt}] (9em,17.2em) -- (9em, 19em) node [left,midway, xshift=-9pt] {\small G.I.};
+%	
+%	\end{tikzpicture}
+%	
+%	\tiny Delphia234, Wikimedia Commons, \textsc{cc0}
+%
+%\end{frame}
+%}
+%
+%%
+% Did not use in Fall 2016 nor spring 2017.
+%{
+%\usebackgroundtemplate{\includegraphics[width=\paperwidth]{us_birth_rate} }
+%\begin{frame}[b]{U.S. birth rate, 1934--present.}
+%
+%	\hfill \tiny Before My Ken, Wikimedia, public domain
+%\end{frame}
+%}
+%
+
+
+{
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{human_energy_use} }
+\begin{frame}[b]{The average person uses 5.9$\times$ more energy than is sustainable.}
+
+	\hfill \tiny Fig.~53.26 \copyright\,Pearson Education, Inc.
+\end{frame}
+}
+
+%
+\begin{frame}[t]{Is global warming real? Do liars lie?}
+	\begin{center}
+		\includegraphics[width=\textwidth]{climate_denier_no_warming}
+	\end{center}
+
+	Let us begin with \ce{CO2}.
+	
+	\vfilll
+	
+	\hfill \tiny \copyright~Marc Morano, Climate Depot
+\end{frame}
+
+%
+
+
+% Begin Climate Change.
+%
+\begin{frame}[t]{Consuming energy adds \ce{CO2} to the atmosphere.}
+
+	\includegraphics[width=\textwidth]{industrial_revolution}
 
 	\vfilll
 	
-	\hfill \tiny Fig.~54.15 \copyright\,Pearson Education, Inc.
-\end{frame}
-}
-%
-{
-\usebackgroundtemplate{\includegraphics[width=\paperwidth]{ecosystem_desert_spring} }
-\begin{frame}[b]{\textcolor{black}{What is an \textcolor{white}{ecosystem?} }}
+	\hfill \tiny D.\,W.\,F.~Hardie, Wikimedia, public domain
 
-\tiny \textcolor{white}{Fig.~55.2 \copyright\,Pearson Education, Inc.}
 \end{frame}
-}
 %
 {
-\usebackgroundtemplate{\includegraphics[width=\paperwidth]{sunflowers.jpg} }
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{greenhouse_effect} }
 \begin{frame}[b]
 
-	\hfill \tiny \textcolor{white}{Trey Ratcliff, Flickr \ccbyncsa{2}}
+	\hfill \tiny \textcolor{white}{\textsc{us epa}, Wikimedia Commons, public domain}
 \end{frame}
 }
 %
+\begin{frame}{Pliocene \ce{CO2} was higher in the past than the present.}
+	
+	\includegraphics[width=\textwidth]{co2_pliocene}\par
+	
+	\hangpara But\dots
+	
+	\vfilll
+	
+	\hfill \tiny Gavin Foster, \href{http://www.thefosterlab.org/blog/2015/11/11/is-this-the-last-year-below-400-ppm}{thefosterlab.org}
+\end{frame}
+%
+\begin{frame}{Current \ce{CO2} levels are rising \emph{very} rapidly.}
+	
+	{\centering
+		\includegraphics[height=0.82\textheight]{co2_pleistocene_current}\par
+	}
+	
+	\vfilll
+	
+	\hfill \tiny \textsc{noaa}, public domain
+\end{frame}
+%
+\begin{frame}[t]{This figure uses “cherry-picked” data to support a fake narrative.}
+	
+	{\centering
+		\includegraphics[width=\textwidth]{climate_denier_no_warming}\par
+	}
+	
+	The figure tries to show no global temperature change. But\dots
+	
+	\vfilll
+	
+	\hfill \tiny \copyright~Marc Morano, Climate Depot
+\end{frame}
+%
 {
-\begin{frame}[t]{\highlight{Primary production} is the amount of energy converted to organic matter.}
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{co2_temperature_increase} }
+\begin{frame}[b]{The accumulation of \ce{CO2} causes global temperature to increase.}
 
+	\tiny \href{https://gml.noaa.gov/ccgg/trends/}{Mauna Loa trend}\hfill Fig.~52.8 \copyright Pearson Education, Inc.
+\end{frame}
+}
+%
+
+\begin{frame}[t]{Temperature is actually increasing at a \emph{rate} faster than ever recorded.}
+	
 	\vspace*{-0.5\baselineskip}
 	
-	\includegraphics[width=\textwidth]{primary_productivity}\\[\baselineskip]
+	{\centering\includegraphics[height=0.75\textheight]{warming_rate}\par%
+	}
 	
-	Primary production can be measured as gross (\textsc{gpp}) or net (\textsc{npp}).
+	\vfilll
+	
+	\tiny Hagelaars, J. 2013. http://ourchangingclimate.wordpress.com/2013/03/19/the-two-epochs-of-marcott/\\
+Based on Shakun et al. 2012. Nature 484: 49; Marcott et al. 2013. Science 339: 1198. 
+
+\end{frame}
+%
+{
+	\usebackgroundtemplate{\includegraphics[width=\paperwidth]{ecosystem_distribution} }
+	\begin{frame}[b]{Climate change will affect the distribution of ecosystems.}
+		
+		\hfill \tiny Fig.~52.8 \copyright Pearson Education, Inc.
+	\end{frame}
+}
+%
+\begin{frame}{Ecosystems changed during the last ice age.}
+
+	\includegraphics[width=\textwidth]{pleistocene_ecosystem_proportions}
 
 	\vfilll
 	
-	\hfill \tiny Fig.~55.6 \copyright\,Pearson Education, Inc.
+	\hfill \tiny Fig.~9.17, \emph{Biogeography}, \copyright\,Sinauer Associates, Inc.
 \end{frame}
-}
 %
-{
-\usebackgroundtemplate{\includegraphics[width=\paperwidth]{energy_flow} }
-\begin{frame}[b]
+\begin{frame}[t]{Climate change will cause the distribution of modern species to change.}
 
-	\hfill \tiny Fig.~55.4 \copyright\,Pearson Education, Inc.
-
-\end{frame}
-}
-%
-{
-\usebackgroundtemplate{\includegraphics[width=\paperwidth]{arctic_food_web} }
-\begin{frame}{}
-\hspace{65mm}\begin{minipage}{0.45\textwidth}
-	\flushleft
-	\vspace{4\baselineskip}
-	Food webs can be reduced to food chains that show \highlight{trophic levels.}
-\end{minipage}
-\end{frame}
-}
-{
-\usebackgroundtemplate{\includegraphics[width=\paperwidth]{trophic_food_chain} }
-\begin{frame}[b]
-
-	\hfill \tiny Fig.~54.14 \copyright\,Pearson Education, Inc.
-
-\end{frame}
-}
-%
-{
-\usebackgroundtemplate{\includegraphics[width=\paperwidth]{trophic_efficiency} }
-\begin{frame}[b]
-
-	\hfill \tiny Fig.~55.11 \copyright\,Pearson Education, Inc.
-\end{frame}
-}
-%
-{
-\usebackgroundtemplate{\includegraphics[width=\paperwidth]{energy_partitioning} }
-\begin{frame}[b]{Where does the energy go?}
-
-	\hfill \tiny Fig.~55.10 \copyright\,Pearson Education, Inc.
-\end{frame}
-}
-%
-{
-\usebackgroundtemplate{\includegraphics[width=\paperwidth]{nutrient_cycling} }
-\begin{frame}[b]
-
-	\begin{tikzpicture}
+	\includegraphics[width=\textwidth]{climate_change_range_shift}\par
 	
-		\node [right] at (0em, 1.5em) {\highlight{What are nutrients?}};
-		
-	\end{tikzpicture}
-
-	\hfill \tiny Fig.~55.4 \copyright\,Pearson Education, Inc.
-
-\end{frame}
-}
-%
-{
-\usebackgroundtemplate{\includegraphics[width=\paperwidth]{decomposers} }
-\begin{frame}[b]{\highlight{Decomposers} return nutrients from dead organisms to the ecosystem.}
-
-	\hfill \tiny \textcolor{white}{TimVickers, Wikimedia, public domain}
-\end{frame}
-}
-%
-
-{
-\usebackgroundtemplate{\includegraphics[width=\paperwidth]{decomposers_in_perspective} }
-\begin{frame}[t]{}
-
-	\vspace*{3\baselineskip}
+	\hangpara Many species will not be able to adapt to rapid change.
 	
-	\hspace*{70mm}\parbox{45mm}{\raggedright Decomposers span trophic levels.}
-	
-	\bigskip
-	
-	\hspace*{70mm}\parbox{45mm}{\raggedright Decomposers are consumed by other organisms.}
-		
-	\bigskip
-	
-	\hspace*{70mm}\parbox{46mm}{\raggedright Decomposers convert organic molecules to inorganic molecules that can be used by primary producers.}
-
 	\vfilll
 	
-	\hfill \tiny \copyright\,McGraw-Hill, Inc.
+	\hfill \tiny Fig.~52.7 \copyright Pearson Education, Inc.
+
+\end{frame}
+%
+{
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{climate_ecosystem_change} }
+\begin{frame}[b]{Global climate change will change the types and locations of modern ecosystems.}
+
+	\hfill \tiny Fig.~53.26 \copyright\,Pearson Education, Inc.
 \end{frame}
 }
 %
-{
-\usebackgroundtemplate{\includegraphics[width=\paperwidth]{nitrogen_cycle} }
-\begin{frame}[b]
 
-	\hfill \tiny Fig.~55.14d \copyright\,Pearson Education, Inc.
+\begin{frame}{If we have time\dots}
+
+\href{http://cci-reanalyzer.org/wx/DailySummary/}{Today's global weather}\bigskip
+
+\href{http://nsidc.org/arcticseaicenews/charctic-interactive-sea-ice-graph/}{Arctic sea ice extent}
 \end{frame}
-}
-%
-{
-\usebackgroundtemplate{\includegraphics[width=\paperwidth]{water_cycle} }
-\begin{frame}[b]
-
-	\hfill \tiny Fig.~55.14a \copyright\,Pearson Education, Inc.
-\end{frame}
-}
-%
-{
-\usebackgroundtemplate{\includegraphics[width=\paperwidth]{clear_cutting_nutrient_loss} }
-\begin{frame}[b]
-
-	\hfill \tiny Fig.~55.16 \copyright\,Pearson Education, Inc.
-\end{frame}
-}
-
 %%
 \end{document}

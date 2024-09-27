@@ -30,15 +30,20 @@
 
 \usepackage{multicol}
 \usepackage{booktabs}
+\usepackage{array}
+\newcolumntype{L}[1]{>{\raggedright\let\newline\\\arraybackslash\hspace{0pt}}p{#1}}
+\newcolumntype{C}[1]{>{\centering\let\newline\\\arraybackslash\hspace{0pt}}p{#1}}
+\newcolumntype{R}[1]{>{\raggedleft\let\newline\\\arraybackslash\hspace{0pt}}p{#1}}
 %\usepackage{textcomp}
 %\usepackage{mhchem}
 \usepackage{enumitem}
-\usepackage[export]{adjustbox}
+%\usepackage[export]{adjustbox}
 
 
 \usepackage{tikz}
 	\tikzstyle{every picture}+=[remember picture,overlay]
-%	\usetikzlibrary{arrows}
+	\usetikzlibrary{arrows}
+\usetikzlibrary{positioning}
 
 \mode<presentation>
 {
@@ -51,232 +56,262 @@
 
 \lecture{student}{student}
 
-\begin{frame}{Our goal for this lecture is to continue}
+\begin{frame}{Our goal for this lecture is to learn about}
 	
-	\hangpara learning some important macroevolutionary changes, and
+	\hangpara \highlight{molecular clocks}, and
 	
-	\hangpara learning the \highlight{transitional forms} that show the changes, and
+	\hangpara genome evolution,
 	
-	\hangpara to briefly discuss \highlight{mass extinctions.}
+	\hangpara the evolutionary role of \highlight{homeotic genes} and other developmental genes.
 
 \end{frame}
 %
-\lecture{instructor}{instructor}
-{
-\setbeamercolor{background canvas}{bg=black}
-\begin{frame}[t]
-	\includegraphics[width=\textwidth]{continents_miocene}
+\begin{frame}[b]{Mutations occur at a \emph{roughly} constant rate, called a \highlight{molecular clock.}}
+
+\begin{tikzpicture}
+	\tikzset{every node/.style={font=\footnotesize}};
+	\node (ca) [align=right] at (1,5){\footnotesize Common ancestor:\\ \textsc{caatttatcg}};
 	
-	\vfilll
+	\draw [thick] (ca.east) -- ++(15:8cm) 
+		node [midway, above left, align=right](25up)
+			{10 \textsc{ky} later \\\textsc{caattt\textbf{\textcolor{orange6}{g}}tcg}} 
+		node [right, above left, align=right](50up)
+			{20 \textsc{ky} later\\ \textsc{caat\textbf{\textcolor{orange6}{a}}t\textbf{\textcolor{orange6}{g}}tcg}};
+	\draw [thick] (ca.east) -- ++(-15:8cm) 
+		node [midway, below left, align=right](25down)
+			{\textsc{caa\textbf{\textcolor{orange6}{c}}ttatct}\\10 \textsc{ky} later} 
+		node [right, below left, align=right](50down)
+			{\textsc{caa\textbf{\textcolor{orange6}{c}}ttatc\textbf{\textcolor{orange6}{t}}}\\20 \textsc{ky} later};
 	
-	\hfill \tiny \textcolor{white}{\href{http://scotese.com}{scotese.com}}
-\end{frame}
-}
-%
-\lecture{student}{student}
-
-
-{
-\usebackgroundtemplate{\includegraphics[width=\paperwidth]{artiodactyla_phylogeny1} }
-\begin{frame}[b]
-
-\tiny Spaulding et al. 2009. PLoS \textsc{one} 4(9): e7962.
-\end{frame}
-}
-
-{
-\usebackgroundtemplate{\includegraphics[width=\paperwidth]{artiodactyla_phylogeny2} }
-\begin{frame}[b]
-
-\tiny Spaulding et al. 2009. PLoS \textsc{one} 4(9): e7962.
-\end{frame}
-}
-
-{
-\usebackgroundtemplate{\includegraphics[width=\paperwidth]{cetacean_transition} }
-\begin{frame}[b]
-
-\end{frame}
-}
-%
-{
-\usebackgroundtemplate{\includegraphics[width=\paperwidth]{auditory_bulla} }
-\begin{frame}[b]{Whales and even-toed mammals have different types of a bony ear structure.}
-
-\end{frame}
-}
-%
-\begin{frame}[t]{But, whales and terrestrial cetaceans have the same type of bony ear structure.}
-	\includegraphics[width=\textwidth]{auditory_bulla_indohyus}
-\end{frame}
-%
-\begin{frame}[t]{Terrestrial cetaceans and artiodactyls have a double-pulley ankle joint.}
-	\includegraphics[width=\textwidth]{double_pulley_ankle}
+%	\draw 
+	\node (arrowbase1) at (3,5){};
+	\node (arrowbase2) [below=of 25up.east,xshift=0.5cm,yshift=0.639cm]{};
+	\node (arrowbase3) [above=of 25down.east,xshift=0.5cm,yshift=-0.639cm]{};
 	
-	\vfilll
+	\draw [thick] (25up.east) -- ++(-90:0.45cm);
+	\draw [thick] (25down.east) -- ++(90:0.45cm);
+
+	\draw [thick] (50up.east) -- ++(-90:0.45cm);
+	\draw [thick] (50down.east) -- ++(90:0.45cm);
+
+	\draw [->] (arrowbase1.center) -- ++(15: 3.3cm) node (arrow1){};
+	\draw [->] (arrowbase1.center) -- ++(-15: 3.3cm) node (arrow2){};
+	
+	\draw [->] (arrowbase2.center) -- ++(15: 3.4cm);
+	\draw [->] (arrowbase3.center) -- ++(-15: 3.4cm);
+	
+\end{tikzpicture}
+
+\end{frame}
+%
+{
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{molecular_clock_calibration} }
+\begin{frame}[b]{Molecular clocks have to be calibrated to the fossil record or known geological events.}
+
+\hfill \tiny Bromham and Penny 2003. Nature Reviews Genetics 4: 216.
+\end{frame}
+}
+%
+\begin{frame}[t]{If two species differ by 30 mutations, when did they last share a common ancestor?}
+
+	\includegraphics[width=\textwidth]{molecular_clock_mammals}
+	
+	\onslide<2>{\vspace*{0.5\baselineskip}How many mutations if they last shared a common ancestor about 60 \textsc{mya}?}
+
+	\vskip0pt plus 1filll
 	
 	\hfill \tiny \textcopyright Pearson Education, Inc.
 \end{frame}
 %
 {
-\usebackgroundtemplate{\includegraphics[width=\paperwidth]{cetacean_appendages} }
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{molecular_clock_genes} }
+\begin{frame}[b]{Different genes have different clock rates.}
+
+\end{frame}
+}
+%
+\begin{frame}{What genetic changes explain macroevolutionary change?}
+
+	\hangpara If the fossil record documents macroevolutionary change, 
+	then the \highlight{genomes} of the descendants should document those changes.
+	 
+\end{frame}
+%
+{
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{gene_duplication} }
+\begin{frame}[b]
+\end{frame}
+}
+%
+\begin{frame}{The globin family evolved by gene duplication.}
+
+	\centering\includegraphics[height=0.82\textheight]{gene_duplication_globins}
+	 
+	 \vfilll
+	 
+	 \hfill \tiny \textcopyright Pearson Education, Inc.
+\end{frame}
+%
+
+%% Orthologous and paralogous was too complicated. No need for it.
+
+%\begin{frame}{Two types of \highlight{homologous genes} are found in the genome.}
+%
+%	\includegraphics[width=\textwidth]{gene_duplication_homologs}
+%	 
+%	 \vfilll
+%	 
+%	 \hfill \tiny \textcopyright Pearson Education, Inc.
+%\end{frame}
+%%
+%\begin{frame}
+%
+%	\begin{overprint}
+%		\alt<handout>{}{\onslide<1>\includegraphics[height=0.78\textheight]{para_ortho_1}
+%		\onslide<2>\includegraphics[height=0.78\textheight]{para_ortho_2}
+%		\onslide<3>\includegraphics[height=0.78\textheight]{para_ortho_3}
+%		\onslide<4>\includegraphics[height=0.78\textheight]{para_ortho_4}
+%		\onslide<5>\includegraphics[height=0.78\textheight]{para_ortho_5}
+%		\onslide<6>\includegraphics[height=0.78\textheight]{para_ortho_6}}
+%		\onslide<7>\includegraphics[height=0.78\textheight]{para_ortho_7}
+%	\end{overprint}
+%	
+%\end{frame}
+%%
+%\begin{frame}[t]{Identify some paralogs and homologs.}
+%	\includegraphics[width=\textwidth]{gene_duplication_phylogeny}
+%	
+%	\vfilll
+%	
+%	\hfill \tiny Ballerini and Kramer 2011. Frontiers in Plant Science 2(81): 1.
+%\end{frame}
+%
+\begin{frame}[t]{Duplicated genes can become \highlight{pseudogenes} or evolve new functions.}
+	
+	\includegraphics[width=\textwidth]{gene_duplication_pseudogenes_opsins}\\
+	
+	\vfilll
+	 
+	\hfill \tiny Top: \textcopyright Pearson Education, Inc. Bottom: \textcopyright Oxford University Press.
+\end{frame}
+%
+\begin{frame}[t]{Olfactory receptors in vertebrates have hundreds of homologous genes.}
+	
+	\includegraphics[width=\textwidth]{gene_duplication_olfactory_receptors}\\
+	
+	\vfilll
+	 
+	\hfill \tiny Niimura et al. 2014. Genome Research 24: 1485.
+\end{frame}
+%
+{
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{homeotic_genes_hox} }
+\begin{frame}[b]
+
+	\hfill \tiny \href{http://learn.genetics.utah.edu/basics/hoxgenes}{learn.genetics.utah.edu}
+\end{frame}
+}
+%
+\begin{frame}[t]{The role of homeotic genes was discovered through their mutations.}
+	\vspace*{-0.5\baselineskip}
+	\begin{center}
+		\includegraphics[width=0.85\textwidth]{homeotic_genes_antp}
+	\end{center}
+	
+	A mutation to the \textit{Antp} \textit{Hox} gene in Drosophila causes legs to grow where the antennae should be.
+	\vfilll
+
+	\hfill \tiny Fig. 18.20 \textcopyright Pearson Education, Inc.
+\end{frame}
+%
+\begin{frame}[t]{Homeotic proteins regulate other genes.}
+	\vspace*{-0.5\baselineskip}
+	\begin{center}
+		\includegraphics[width=0.75\textwidth]{homeotic_genes_regulation}
+	\end{center}
+	
+	If the binding sequence changes, the gene may be ``turned on'' in the wrong place or ``turned off.''
+	\vfilll
+
+	\hfill \tiny \href{http://learn.genetics.utah.edu/basics/hoxgenes}{learn.genetics.utah.edu}
+\end{frame}
+%
+{
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{homeotic_genes_hox_fly} }
+\begin{frame}[b]{}
+
+	\tiny \href{http://learn.genetics.utah.edu/basics/hoxgenes}{learn.genetics.utah.edu}
+\end{frame}
+}
+%
+{
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{homeotic_genes_inverts} }
+\begin{frame}[b]{\textit{Ubx} is a \textit{Hox} gene that controls leg position in invertebrates.}
+
+	\hfill \tiny Fig. 25.25 \textcopyright Pearson Education, Inc.
+\end{frame}
+}
+%
+{
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{homeotic_genes_arthropod_diversity} }
+\begin{frame}[b]{}
+
+	\tiny \href{http://learn.genetics.utah.edu/basics/hoxgenes}{learn.genetics.utah.edu}
+\end{frame}
+}
+%
+{
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{homeotic_genes_vertebrates} }
+\begin{frame}[b]{\textit{Hox genes} also control the vertebrate body plan.}
+
+	\tiny \href{http://learn.genetics.utah.edu/basics/hoxgenes}{learn.genetics.utah.edu}
+\end{frame}
+}
+%
+{
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{homeotic_genes_vertebrate_duplication} }
 \begin{frame}[b]
 
 \end{frame}
 }
 %
 {
-\usebackgroundtemplate{\includegraphics[width=\paperwidth]{cetacean_nostrils} }
-\begin{frame}[b]{Nostril position shifted with adaption to aquatic habitat.}
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{eyes_structure} }
+\begin{frame}{Eyes evolved independently multiple times.}
 
-\tiny \textcopyright Roberts \& Company
-\end{frame}
-}
-%
-{
-\usebackgroundtemplate{\includegraphics[width=\paperwidth]{cetacean_habitat} }
-\begin{frame}[b]{Their habitat shifted from fresh to salt water.}
-
-\tiny \textcopyright Roberts \& Company
-\end{frame}
-}
-%
-\lecture{instructor}{instructor}
-{
-\setbeamercolor{background canvas}{bg=black}
-\begin{frame}[t]
-	\includegraphics[width=\textwidth]{continents_pleistocene}
+\begin{minipage}{0.27\textwidth}
 	
+	\flushright
+	\vspace{2em}
+	\hangpara Insect
+	
+	\vspace{5em}
+	
+	\hangpara Giant clam	
+	\vspace{5em}
+	
+	\hangpara Human
+	
+\end{minipage}
+\end{frame}
+}
+%
+{
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{eyes_pax6} }
+\begin{frame}[t]{The \highlight{\textit{Pax6}} developmental gene controls eye development.}
+
 	\vfilll
 	
-	\hfill \tiny \textcolor{white}{\href{http://scotese.com}{scotese.com}}
+	\tiny Carroll et al. 2005. \textit{From DNA to Diversity}. Blackwell.
 \end{frame}
 }
 %
-\lecture{student}{student}
-
-\begin{frame}[t]{How many species do you see?}
-	\includegraphics[width=\textwidth]{hominid_skulls}
-	
-	\vspace*{-\baselineskip}
-	\pause
-	\alt<handout>{}{%
-	\begin{multicols}{3}
-	\begin{enumerate}[leftmargin=*,label=\textsc{\Alph*}.]
-	{\tiny
-	\item Chimpanzee, modern\\
-	\item \textit{Australopithecus africanus}, 2.6 \textsc{mya}\\
-	\item \textit{A. africanus}, 2.5 \textsc{mya}\\
-	\item \textit{Homo habilis}, 1.9 \textsc{mya}\\
-	\item \textit{H. habilis}, 1.8 \textsc{mya}\\
-	\item \textit{H. rudolfensis}, 1.8 \textsc{mya}\\
-	\item \textit{H. erectus}, 1.75 \textsc{mya}\\
-	\item \textit{H. ergaster}, 1.75 \textsc{mya}\\
-	\item \textit{H. heidelbergensis}, 300–125 \textsc{kya}\\
-	\item \textit{H. neanderthalensis}, 70 \textsc{kya}\\
-	\item \textit{H. neanderthalensis}, 60 \textsc{kya}\\
-	\item \textit{H. neanderthalensis}, 45 \textsc{kya}\\
-	\item \textit{H. sapiens}, Cro-Magnon, 30 \textsc{kya}\\
-	\item \textit{H. sapiens}, modern}\\
-	\end{enumerate}
-	\end{multicols}
-	}
-	
-\end{frame}
-%
 {
-\usebackgroundtemplate{\includegraphics[width=\paperwidth]{human_transition} }
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{homeotic_genes_paedomorphosis} }
 \begin{frame}[b]
-\hfill \tiny \textcopyright Roberts \& Company
+
+	\tiny Fig. 25.23 \textcopyright Pearson Education, Inc.
 \end{frame}
 }
-%
-\begin{frame}[t]{Hominins evolved in east central Africa nearly 4 \textsc{mya}.}
-	\includegraphics[width=\textwidth]{hominid_origins}
-\end{frame}
-%
-{
-\usebackgroundtemplate{\includegraphics[width=\paperwidth]{hominid_timeline} }
-\begin{frame}[b]{Four major groups of hominins show adaptive shifts.}
-\hfill \tiny \textcopyright Foley and Gamble 2009. Phil. Trans. R. Soc. B 364:  3267.
-\end{frame}
-}
-%
-\begin{frame}[t]{Bipedalism evolved before large brain size}
-	\includegraphics[width=\textwidth]{hominin_brain_size}
-
-\end{frame}
-%
-{
-\usebackgroundtemplate{\includegraphics[width=\paperwidth]{bipedalism} }
-\begin{frame}[b]{What is the advantage of \highlight{bipedalism?}}
-\hfill \tiny \textcopyright McGraw-Hill
-\end{frame}
-}
-%
-{
-\usebackgroundtemplate{\includegraphics[width=\paperwidth]{hominid_advances} }
-\begin{frame}[b]{Adaptations associated wth bipedalism and brain size increase.}
-\hfill \tiny \textcopyright Foley and Gamble 2009. Phil. Trans. R. Soc. B 364:  3267.
-\end{frame}
-}
-%
-{
-\begin{frame}[b]{\textit{Homo} left Africa in waves.}
-	\centering
-	\includegraphics[width=\textwidth]{human_dispersal}
-
-	\vfilll
-
-	\tiny\hfill \textcopyright McGraw-Hill.
-\end{frame}
-}
-%
-{
-\usebackgroundtemplate{\includegraphics[width=\paperwidth]{mass_extinctions} }
-\begin{frame}[b]{Five \highlight{mass extinctions} have occurred since the Cambrian.}
-\hfill \tiny \textcopyright Pearson Education, Inc.
-\end{frame}
-}
-%
-\begin{frame}[t]{A mass extinction occurs when at least 75\% of species go extinct.}
-\centering
-\begin{tabular}{@{}lrr@{}}
-	\toprule
-	Event & Genera & Species \\
-	\midrule
-	End Ordovician	&	57\% & 86\% \\
-	Late Devonian & 35\% & 75\% \\
-	End Permian	& 59\% & 96\% \\
-	End Triassic	& 47\% & 80\% \\
-	End Cretaceous (\textsc{k/t}) & 40\% & 76\% \\
-	\bottomrule
-\end{tabular}
-
-\end{frame}
-%
-\begin{frame}[t]{The causes of mass extinction all cause \highlight{rapid climate change.}}
-
-	\begin{multicols}{2}
-	\hangpara Asteroid impact
-	
-	\hangpara Volcanism
-	
-	\hangpara Glaciation
-	
-	\hangpara Methane gas
-	
-	\hangpara Changing ocean currents
-	
-	\hangpara Not all of these apply to every mass extinction.
-	
-	\columnbreak
-	
-	\includegraphics[width=0.4\textwidth, frame]{kt_asteroid_impact_site}\\
-	{\footnotesize 180 km (112 mi) crater created by\\10 km asteroid impact.}
-
-	\end{multicols}
-	
-\end{frame}
 %
 \end{document}

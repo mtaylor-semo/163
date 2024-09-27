@@ -17,25 +17,37 @@
 %% For students, use \lecture{student}{student}
 %% For mine, use \lecture{instructor}{instructor}
 
-
 % Fonts
 \usepackage{fontspec}
 \def\mainfont{Linux Biolinum O}
-\setmainfont[Ligatures={Common,TeX}, Contextuals={NoAlternate}, BoldFont={* Bold}, ItalicFont={* Italic}, Numbers={Proportional, OldStyle}]{\mainfont}
-\setsansfont[Ligatures={Common,TeX}, Scale=MatchLowercase, Numbers={Proportional,OldStyle}, BoldFont={* Bold}, ItalicFont={* Italic},]{Linux Biolinum O} 
+\setmainfont[Ligatures={Common,TeX}, Contextuals={NoAlternate}, Numbers={Proportional, OldStyle}]{\mainfont}
+\setsansfont[Ligatures={Common,TeX}, Scale=MatchLowercase, Numbers={Proportional,OldStyle}, BoldFont={* Bold}, ItalicFont={* Italic},]\mainfont
+
+\newfontface\lining[Numbers={Lining}]\mainfont
+
 \usepackage{microtype}
 
+
+\mode<presentation>
+{
+  \usetheme{Lecture}
+  \setbeamercovered{invisible}
+  \setbeamertemplate{items}[default]
+}
+
+
+
 \usepackage{amsmath,amssymb}
-%\usepackage{unicode-math}
-%\setmathfont[Scale=MatchLowercase]{TeX Gyre Termes Math}
+\usepackage{unicode-math}
+%\setmathfont[Scale=MatchLowercase]{TeX Gyre Pagella Math}
 
 \usepackage{graphicx}
 	\graphicspath{{/Users/mtaylor/pictures/teach/163/lecture/}
 	{/Users/mtaylor/pictures/teach/common/}} % set of paths to search for images
 
-\usepackage{color}
-%\definecolor{biolum}{RGB}{111,253,254}
-\definecolor{biolum}{RGB}{6,174,249}
+\usepackage{xcolor}
+
+\def\mygray{gray!50}
 
 \usepackage{multicol}
 \usepackage{booktabs}
@@ -48,19 +60,94 @@
 \usepackage{enumitem}
 %\usepackage[export]{adjustbox}
 
+\usepackage{color}
+%\definecolor{biolum}{RGB}{111,253,254}
+\definecolor{biolum}{RGB}{6,174,249}
 
-\usepackage{tikz}
-	\tikzstyle{every picture}+=[remember picture,overlay]
-	\usetikzlibrary{arrows}
-\usetikzlibrary{positioning}
+\usepackage{calc} %For widthof, in one slide below.
+\makeatletter
+\def\@hspace#1{\begingroup\setlength\dimen@{#1}\hskip\dimen@\endgroup}
+\makeatother
 
-\mode<presentation>
-{
-  \usetheme{Lecture}
-  \setbeamercovered{invisible}
-  \setbeamertemplate{items}[square]
+\usepackage{pgfplots}
+	\usepgfplotslibrary{colorbrewer}
+	\usepgfplotslibrary{fillbetween}
+	\pgfplotsset{
+		% Set `compat level to 1.11 or higher so you don't need to
+        % prefix every tikz coordinate with `axis cs:'
+		compat=1.14,
+		baseplot/.style	= {
+            width				= 10cm,
+            height			= 5cm,
+            axis lines*		= left,
+            axis on top,
+            enlargelimits	= upper,
+            ylabel style	= {align=right, rotate=-90},
+            xlabel			= {Resource Gradient},
+            ylabel			= {Relative\\Abundance},
+            ticks				= none,
+            no markers,
+            samples		= 30,
+            smooth,
+		},
+		3dbaseplot/.style={
+    			width          	= 10cm,
+			view           	= {45}{65},
+			axis on top,
+			enlargelimits = false,
+%			domain         	= 1:4,
+%			y domain       = 1:4,
+			no markers,
+			samples        = 30,
+			xlabel         	= {Temperature},
+			ylabel         	= {Seed Size},
+			zlabel         	= {Relative\\Abundance},
+			xlabel style	= {sloped, at={(rel axis cs:0.5,1,1)}, above, sloped like x axis},
+			ylabel style	= {sloped, at={(rel axis cs:0,0.5,1)}, above, sloped like y axis},
+			zlabel style	= {rotate=-90, align=right},
+			ticks				= none,
+%			point meta max	= 1,
+			smooth,
+	},
+	/pgf/declare function = {
+		normal(\m,\s)=1/(2*\s*sqrt(pi))*exp(-(x-\m)^2/(2*\s^2));
+	},
+	/pgf/declare function = {
+		bivar(\ma,\sa,\mb,\sb)=
+    		1/(2*pi*\sa*\sb) * exp(-((x-\ma)^2/\sa^2 + (y-\mb)^2/\sb^2))/2;
+	}
 }
 
+% create a variable that stores the factor of the standard
+% deviations for that the ellipses should be drawn
+\pgfmathsetmacro{\factor}{3}
+	
+% to simplify the input, which repeats all the time, create a command
+% here #1 = `name path', #2 = `\mean', #3 = `\stddev'
+% the idea is that the normal values are almost zero after 4 standard
+% deviations and so the `samples' can be better used in that ±4 standard
+% deviation range around the mean value
+% (this has the positive side effect that the lines of two neighboring
+%  normal plots don't overlap in the "zero" range and thus makes it
+%  much easier for TikZ/PGFPlots to identify the "real" intersections.)
+\newcommand*\myaddplot[4]{
+    \addplot+ [thick, name path=#1,domain=#2-\factor*#3:#2+\factor*#3, color=#4] {normal(#2,#3)};
+}
+\newcommand*\mydashedplot[4]{
+    \addplot+ [thick, dashed, name path=#1,domain=#2-\factor*#3:#2+\factor*#3, color=#4] {normal(#2,#3)};
+}
+\newcommand*\myaddplotX[4]{
+    \addplot3+ [name path=#1,domain=#2-\factor*#3:#2+\factor*#3, color=#4] (x,4,{normal(#2,#3)});
+}
+\newcommand*\myaddplotY[4]{
+    \addplot3+ [name path=#1,domain=#2-\factor*#3:#2+\factor*#3, color=#4] (1,x,{normal(#2,#3)});
+}
+
+%\usepackage{tikz}
+%		%tikzstyle{every picture} conflicts for some reason with the pgfplots stuff above.
+%%	\tikzstyle{every picture}+=[remember picture,overlay]
+%	\usetikzlibrary{arrows}
+%\usetikzlibrary{positioning}
 
 \begin{document}
 
@@ -68,394 +155,750 @@
 
 \begin{frame}{Our goal for this lecture is to}
 
-	\hangpara learn how \highlight{source} and \highlight{sink} populations\\are interconnected to form \highlight{metapopulations.}
+	\hangpara learn about \highlight{community ecology},
+	
+	\hangpara understand the types of \highlight{interspecific interactions} in a community, and
+	
+	\hangpara show how the interactions influence evolution of the species.
 	
 \end{frame}
 %
-%{
-%\usebackgroundtemplate{\includegraphics[width=\paperwidth]{wombat} }
-%\begin{frame}[b]
-%	\hfill \tiny \textcolor{white}{J.J. Harrison, Wikimedia, \ccbysa{3}}
-%\end{frame}
-%}
+{
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{community_ecology} }
+\begin{frame}[b]{\textcolor{black}{What is a \textcolor{orange6}{community?} }}
+
+	\tiny \textcolor{white}{Mile End Residents, Flickr \ccby{2}}
+
+\end{frame}
+}
+
+\begin{frame}[t]{An emergent property of communities is \highlight{interspecific interactions.}}
+
+\hangpara $- \slash -:$ Both populations are negatively affected.\\
+	\hspace{\widthof{$- \slash -:$}} e.g., interspecific competition.
+
+\hangpara $+ \slash -:$ One populations is positively affected, and\\
+	 \hspace{\widthof{$- \slash -:$}} one population is negatively affected.\\
+	\hspace{\widthof{$- \slash -:$}} e.g., predation.
+
+\hangpara $+ \slash +:$ Both populations are positively affected.\\
+	\hspace{\widthof{$+ \slash +:$}} e.g., mutualism.
+
+
+\hangpara Substitute a {\lining0} for a $+$ or $-$ to indicate a neutral interaction.
+
+\end{frame}
+%
+\begin{frame}[t]{Species use a specific range of a resource gradient.}
+	\centering 
+	\begin{tikzpicture}
+		\begin{axis}[
+			baseplot,
+			set layers,
+			]
+    
+			\myaddplot{A}{2.7}{0.4}{orange6};
+
+		\end{axis}
+		
+		\node [right, text width = 10cm] at (-2,-2) {The resource gradient can be abiotic, like temperature, or biotic, like seed size.};
+		
+	\end{tikzpicture}
+\end{frame}
+%
+%% BEGIN BUILDING TO SHOW HOW THE PLOTS WORK. ADD ORANGE TEMPERATURE,
+% then orange soil ph.  
+
+% Orange temperature on x axis.
+\begin{frame}[t]{Species use multiple resources. \textcolor{white}{like temperature, pH, precipitation and much more.}}
+    \centering
+
+\begin{tikzpicture}[
+	declare function = {orMuX=2.0;},
+	declare function = {orMuY=3.2;},
+	declare function = {blMuX=2.5;},
+	declare function = {blMuY=2.7;},
+	declare function = {sX=0.25;},
+	declare function = {sY=0.15;},
+	]
+		\begin{axis}[
+			3dbaseplot,
+			colormap/OrRd,
+			set layers,
+			ylabel={},
+			samples=30,
+			clip mode=individual,
+  		]
+		
+            \myaddplotX{B}{blMuX}{sX}{white}
+            \myaddplotY{C}{blMuY}{sY}{white}
+            \myaddplotY{D}{orMuY}{sY}{white}
+            \myaddplotX{A}{orMuX}{sX}{orange6}
+         
+		% x axis
+		\draw [dashed] (orMuX-\factor*sX,\pgfkeysvalueof{/pgfplots/ymin}) -- (orMuX-\factor*sX,\pgfkeysvalueof{/pgfplots/ymax});
+		\draw [dashed] (orMuX+\factor*sX, \pgfkeysvalueof{/pgfplots/ymin}) -- (orMuX+\factor*sX, \pgfkeysvalueof{/pgfplots/ymax});
+
+		\node at (xticklabel cs:0.5) [below, sloped like x axis] {Temperature};
+
+  \end{axis}
+\end{tikzpicture}
+
+\end{frame}
+
+% Add Soil pH
+\begin{frame}[t]{Species use multiple resources. \textcolor{white}{like temperature, pH, precipitation and much more.}}
+
+    \centering
+
+\begin{tikzpicture}[
+	declare function = {orMuX=2.0;},
+	declare function = {orMuY=3.2;},
+	declare function = {blMuX=2.5;},
+	declare function = {blMuY=2.7;},
+	declare function = {sX=0.25;},
+	declare function = {sY=0.15;},
+	]
+		\begin{axis}[
+			3dbaseplot,
+			colormap/OrRd,
+			set layers,
+			samples=30,
+			clip mode=individual,
+  		]
+		
+            \myaddplotX{B}{blMuX}{sX}{white}
+            \myaddplotY{C}{blMuY}{sY}{white}
+
+            \myaddplotX{A}{orMuX}{sX}{orange6}
+            \myaddplotY{D}{orMuY}{sY}{orange6}
+         
+		% x axis
+		\draw [dashed] (orMuX-\factor*sX,\pgfkeysvalueof{/pgfplots/ymin}) -- (orMuX-\factor*sX,\pgfkeysvalueof{/pgfplots/ymax});
+		\draw [dashed] (orMuX+\factor*sX, \pgfkeysvalueof{/pgfplots/ymin}) -- (orMuX+\factor*sX, \pgfkeysvalueof{/pgfplots/ymax});
+
+		% y axis
+		\draw [dashed] (\pgfkeysvalueof{/pgfplots/xmin}, orMuY-\factor*sY) -- (\pgfkeysvalueof{/pgfplots/xmax}, orMuY-\factor*sY);
+		\draw [dashed] (\pgfkeysvalueof{/pgfplots/xmin}, orMuY+\factor*sY) -- (\pgfkeysvalueof{/pgfplots/xmax}, orMuY+\factor*sY);
+
+		\node at (rel axis cs:1,0.5,0) [below, sloped like y axis] {Seed Size};
+
+  \end{axis}
+\end{tikzpicture}
+
+\end{frame}
+
+% Both together with surface plot.
+\begin{frame}[t]{The \highlight{ecological niche} represents all of the biotic and abiotic resources required by a species.}
+
+    \centering
+
+\begin{tikzpicture}[
+	declare function = {orMuX=2.0;},
+	declare function = {orMuY=3.2;},
+	declare function = {blMuX=2.5;},
+	declare function = {blMuY=2.7;},
+	declare function = {sX=0.25;},
+	declare function = {sY=0.15;},
+	]
+		\begin{axis}[
+			3dbaseplot,
+			colormap/OrRd,
+			set layers,
+			samples=30,
+  		]
+		
+            \myaddplotX{B}{blMuX}{sX}{white}
+            \myaddplotY{C}{blMuY}{sY}{white}
+
+            \myaddplotX{A}{orMuX}{sX}{orange6}
+            \myaddplotY{D}{orMuY}{sY}{orange6}
+         
+		% x axis
+		\draw [dashed] (orMuX-\factor*sX,\pgfkeysvalueof{/pgfplots/ymin}) -- (orMuX-\factor*sX,\pgfkeysvalueof{/pgfplots/ymax});
+		\draw [dashed] (orMuX+\factor*sX, \pgfkeysvalueof{/pgfplots/ymin}) -- (orMuX+\factor*sX, \pgfkeysvalueof{/pgfplots/ymax});
+
+		% y axis
+		\draw [dashed] (\pgfkeysvalueof{/pgfplots/xmin}, orMuY-\factor*sY) -- (\pgfkeysvalueof{/pgfplots/xmax}, orMuY-\factor*sY);
+		\draw [dashed] (\pgfkeysvalueof{/pgfplots/xmin}, orMuY+\factor*sY) -- (\pgfkeysvalueof{/pgfplots/xmax}, orMuY+\factor*sY);
+
+	\addplot3 [
+    		surf,
+		domain = orMuX - \factor*sX:orMuX + \factor*sX, 
+		domain y = orMuY-\factor*sY:orMuY + \factor*sY,
+		opacity=0.5,
+		colormap/Oranges] 
+		{bivar(orMuX, sX, orMuY, sY)};
+		
+  \end{axis}
+\end{tikzpicture}
+
+\end{frame}
+%
+
+
+\begin{frame}[t]{\highlight{Interspecific competition} can occur when two or more species require the same part of a resource gradient.}
+	\centering
+	\begin{tikzpicture}
+		\begin{axis}[
+			baseplot,
+			set layers,
+			]
+    
+			\myaddplot{A}{2.9}{0.4}{orange6};
+			\myaddplot{B}{3.1}{0.4}{blue7};
+      
+			\pgfonlayer{pre main}
+				\fill[\mygray, intersection segments={of= B and A}];
+			\endpgfonlayer
+		\end{axis}
+
+		\node [right, text width = 10cm] at (-2,-2) {Interspecific competition $(- / -)$ is strong because both species share most of the  resource gradient (shaded area).};
+	\end{tikzpicture}
+\end{frame}
+%
+{
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{competition_coral_reef} }
+\begin{frame}[b]{\highlight{Interspecific competition} occurs when species use the same \textit{limited} resource.}
+
+	\hfill \tiny \textcolor{white}{Toby Hudson, Wikimedia \ccbysa{3}}
+
+\end{frame}
+}
+%
+
+
+% Add second species, lots of niche overlap, strong competition.
+\begin{frame}[t]{\highlight{Competitive exclusion} means that two species with the same niche cannot coexist in a community.}
+
+    \centering
+
+\begin{tikzpicture}[
+	declare function = {orMuX=2.0;},
+	declare function = {orMuY=3.2;},
+	declare function = {blMuX=2.1;},
+	declare function = {blMuY=3.1;},
+	declare function = {sX=0.25;},
+	declare function = {sY=0.15;},
+	]
+		\begin{axis}[
+			3dbaseplot,
+			colormap/OrRd,
+			set layers,
+			samples=30,
+  		]
+		
+            \myaddplotX{E}{2.5}{sX}{white}
+            \myaddplotY{F}{2.7}{sY}{white}
+         
+            \myaddplotX{A}{orMuX}{sX}{orange6}
+            \myaddplotX{B}{blMuX}{sX}{blue7}
+            \myaddplotY{D}{orMuY}{sY}{orange6}
+            \myaddplotY{C}{blMuY}{sY}{blue7}
+
+	\addplot3 [
+    		surf,
+		domain=orMuX - \factor*0.25:orMuX + \factor*0.25, 
+		domain y = orMuY - \factor*0.15:orMuY + \factor*0.15,
+		opacity=0.5,
+		colormap/Oranges] 
+		{bivar(orMuX, sX, orMuY, sY)};
+		
+	\addplot3 [
+		surf, 
+		domain=blMuX - \factor*0.25:blMuX + \factor*0.25, 
+		domain y = blMuY - \factor*0.15:blMuY + \factor*0.15,
+		opacity=0.3,
+		colormap/Blues] 
+		{bivar(blMuX, sX, blMuY, sY)};
+
+  \end{axis}
+\end{tikzpicture}
+
+\end{frame}
+%
+% Add second species, minimal niche overlap.
+\begin{frame}[t]{Species can coexist when they use at least some resources differently from each other.}
+
+    \centering
+
+\begin{tikzpicture}[
+	declare function = {orMuX=2.0;},
+	declare function = {orMuY=3.2;},
+	declare function = {blMuX=2.1;},
+	declare function = {blMuY=2.6;},
+	declare function = {sX=0.25;},
+	declare function = {sY=0.15;},
+	]
+		\begin{axis}[
+			3dbaseplot,
+			colormap/OrRd,
+			set layers,
+			samples=30,
+  		]
+%		\pgfmathsetmacro{\factor}{2.5}
+		
+            \myaddplotX{E}{2.5}{sX}{white}
+            \myaddplotY{F}{2.7}{sY}{white}
+
+            \myaddplotX{B}{blMuX}{sX}{blue7}
+            \myaddplotY{C}{blMuY}{sY}{blue7}
+            
+            \myaddplotX{A}{orMuX}{sX}{orange6}
+            \myaddplotY{D}{orMuY}{sY}{orange6}
+         
+	\addplot3 [
+    		surf,
+		domain=orMuX - \factor*sX:orMuX + \factor*sX, 
+		domain y = orMuY-\factor*sY:orMuY+\factor*sY,
+		opacity=0.5,
+		colormap/Oranges] 
+		{bivar(orMuX,sX,orMuY,sY)};
+		
+	\addplot3 [
+		surf, 
+		domain=blMuX-\factor*sX:blMuX+\factor*sX, 
+		domain y = blMuY-\factor*sY:blMuY+\factor*sY,
+		opacity=0.5,
+		colormap/Blues] 
+		{bivar(blMuX, sX, blMuY, sY)};
+
+
+  \end{axis}
+\end{tikzpicture}
+
+\end{frame}
+%
+\begin{frame}[t]{More species can coexist if they specialize on different parts of the resource gradient.}
+	\centering 
+	\begin{tikzpicture}
+		\begin{axis}[
+			baseplot,
+			set layers,
+			]
+            \myaddplot{A}{1.7}{0.1}{orange6}
+            \myaddplot{B}{2.2}{0.1}{blue7}
+            \myaddplot{C}{2.7}{0.1}{magenta}
+            \myaddplot{D}{3.2}{0.1}{black}
+            \myaddplot{E}{3.7}{0.1}{green6}
+
+            \pgfonlayer{pre main}
+                \fill[\mygray, intersection segments={of=B and A}];
+                \fill[\mygray, intersection segments={of=C and B}];
+                \fill[\mygray, intersection segments={of=D and C}];
+                \fill[\mygray, intersection segments={of=E and D}];
+            \endpgfonlayer
+        \end{axis}
+
+	\node [right, text width = 10cm] at (-2,-2)  {Interspecific competition is minimized because species do not share most of the resource};
+	\end{tikzpicture}
+\end{frame}
+
+%
+{
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{resource_partitioning} }
+\begin{frame}[b]{\highlight{Resource partitioning} allows more species to coexist in the community.}
+	\hfill \tiny Fig~54.2 \copyright\,Pearson Education, Inc.
+\end{frame}
+}
+
 %%
-%{
-%\usebackgroundtemplate{\includegraphics[width=\paperwidth]{wombat_range} }
-%\begin{frame}{}
-%
-%\end{frame}
-%}
-%
-\begin{frame}{\highlight{Metapopulations} are larger groups of smaller subpopulations.}
+\begin{frame}[t]{The \highlight{fundamental niche} represents the resources that can be \emph{potentially} used  by a species.}
 
-	\hangpara They have patches of suitable habitat surrounded by unsuitable habitat.
+	\vspace*{\baselineskip}
 	
-	\hangpara They are subject to local extinction and recolonization.
-	
-	\hangpara Interactions occur more often within subpopulations than among subpopulations.
+	\centering 
+	\begin{tikzpicture}
+		\begin{axis}[
+			baseplot,
+			]
+    
+			\myaddplot{A}{2.7}{0.3}{orange6};
+      
+		\end{axis}
 
+	\end{tikzpicture}
 \end{frame}
 %
+\begin{frame}[t]{The \highlight{realized niche} represents the resources that are \emph{actually} used  by a species in the community.}
+
+	\vspace*{\baselineskip}
+
+	\centering 
+	\begin{tikzpicture}
+		\begin{axis}[
+			baseplot,
+			set layers,
+			]
+    
+            \myaddplot{B}{2.2}{0.11}{blue7}
+            \myaddplot{C}{2.7}{0.11}{orange6}
+            \myaddplot{D}{3.2}{0.11}{magenta}
+
+            \pgfonlayer{pre main}
+                \fill[\mygray, intersection segments={of=C and B}];
+                \fill[\mygray, intersection segments={of=D and C}];
+            \endpgfonlayer
+      
+		\end{axis}
+
+		\begin{axis}[
+			baseplot,
+			]
+			\mydashedplot{Z}{2.7}{0.3}{gray};
+		\end{axis}		
+
+		
+		\node [right, gray] (fundamental) at (5.5,4) {Fundamental niche};
+
+		\draw [gray, thick, ->] (fundamental.west) -- (4.9,2.4);
+		
+		\node [left, orange6] (realized) at (2.5,4) {Realized niche};
+		
+		\draw [orange6, thick, ->] (realized.east) -- (3.4,2.6);
+		
+
+	\end{tikzpicture}
+\end{frame}
 {
-\usebackgroundtemplate{\includegraphics[width=\paperwidth]{metapopulation_glanville_fritillary} }
-\begin{frame}[b]
-	\hfill \tiny	\textcolor{white}{Marie-Lan Nguyen, Flickr, \ccby{2}}
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{competition_ecological_niche} }
+\begin{frame}[b]{Smaller realized niches allow more species to coexist in the community.}
+
+	\tiny Fig.~54.3~\textcopyright\,Pearson Education, Inc.
 \end{frame}
 }
 %
 {
-\usebackgroundtemplate{\includegraphics[width=\paperwidth]{metapopulation_fritillary_patches} }
-\begin{frame}[b]
-	\tiny \textcopyright Pearson Education, Inc.
-\end{frame}
-}
-%
-{
-\usebackgroundtemplate{\includegraphics[width=\paperwidth]{metapopulation_fritillary_patches_2012} }
-\begin{frame}[b]
-	\hfill \tiny Ojanen et al.~2012. Ecology and Evolution 3: 3713.
-\end{frame}
-}
-%
-\begin{frame}{A hypothetical metapopulation.}
-	\centering
-	\includegraphics[height=0.8\textheight]{metapopulation_class}
-	
-	\vfilll
-	
-	\hfill \tiny \textcopyright T. G. Barnes, University of Kentucky Cooperative Extension Service.
-\end{frame}
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{competition_character_displacement} }
+\begin{frame}[b]{\highlight{Character displacement} in sympatry reduces competition.}
 
-%
-\begin{frame}{What do \highlight{source} and \highlight{sink} mean?}
-	\centering
-	\includegraphics[height=0.8\textheight]{metapopulation_class}
-	
-	\vfilll
-	
-	\hfill \tiny \textcopyright T. G. Barnes, University of Kentucky Cooperative Extension Service.
+	\hfill \tiny Fig.~54.4~\textcopyright\,Pearson Education, Inc.
 \end{frame}
+}
 %
-\begin{frame}[c]{}
+\lecture{instructor}{instructor}
+
+{
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{darters_of_illinois} }
+\begin{frame}[b]
+
+	\hfill \tiny \copyright\,The North American Native Fishes Association
+\end{frame}
+}
+%
+\lecture{student}{student}
+
+\begin{frame}[t]{More darter species in a stream increase character displacement.}
+
+	\vspace*{-\baselineskip}
+
 	\begin{multicols}{2}
-		\onslide<1->\includegraphics[width=0.45\textwidth]{metapopulation_class}
-
+		{\centering
+		\includegraphics[height=0.75\textheight]{character_displacement_darters_graph}
+		
+		}
 
 	\columnbreak
-		\onslide<1->\hangpara \highlight{Source populations} have high emigration and low local extinction.
-		
-		\onslide<2>\hangpara \highlight{Sink populations} have high local extinction but are recolonized by occasional immigration. 
 	
-	\end{multicols}
+			\includegraphics[height=0.75\textheight]{character_displacement_darters}
+			
+\end{multicols}
 
+\vfilll
+
+\hfill \tiny Knouft 2003. Evolution 57: 2374.
 \end{frame}
 %
-\begin{frame}{Why are some habitat patches \highlight{sources} and others \highlight{sinks?}}
-	\centering
-	\includegraphics[height=0.8\textheight]{metapopulation_class}
+{
+%\usebackgroundtemplate{\includegraphics[width=\paperwidth]{predator_prey_heron} }
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{predator_prey_evolution} }
+\begin{frame}[b]{\highlight{Predation} $(+ / -)$ affects evolution of predators and prey.}
 
-	\vfilll
-	
-	\hfill \tiny \textcopyright T. G. Barnes, University of Kentucky Cooperative Extension Service.
-	
+	\hfill \tiny Marie and Allistair Knock, Flickr \ccbyncsa{2}.
+%	\tiny\textcolor{white}{Chad E., Wikimedia \ccbysa{3}}
 \end{frame}
+}
 %
-\begin{frame}[t]{What are the characteristics of a source?}
-	\begin{minipage}{0.5\textwidth}
-		\begin{center}
-			\vspace{1\baselineskip}
-			\includegraphics[width=0.9\textwidth]{metapopulation_class}
-		\end{center}
-	\end{minipage}\begin{minipage}{0.5\textwidth}
-		\flushleft
-		
-		\hangpara \textcolor{white}{A}\vspace{-1\baselineskip}
-		
-		\hangpara \makebox[0.8\textwidth]{\hrulefill}
-		
-		\hangpara \makebox[0.8\textwidth]{\hrulefill}
-		
-		\hangpara \makebox[0.8\textwidth]{\hrulefill}
-		
-		\hangpara \makebox[0.8\textwidth]{\hrulefill}
-		
-	\end{minipage}	
+{
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{aposematic_grasshopper} }
+\begin{frame}[b]{}
+\tiny \textcolor{white}{MrClean1982, Flickr \ccbync{2}}
 \end{frame}
-
+}
+%
+{
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{mimicry} }
+\begin{frame}[b]{}
+\end{frame}
+}
 %
 \lecture{instructor}{instructor}
 
-\begin{frame}[t]{Source populations}
-	\begin{minipage}{0.5\textwidth}
-		\begin{center}
-			\vspace{1\baselineskip}
-			\includegraphics[width=0.9\textwidth]{metapopulation_class}
-		\end{center}
-	\end{minipage}\begin{minipage}{0.5\textwidth}
-		\flushleft
-		
-		\hangpara \textcolor{white}{A}\vspace{-1\baselineskip}
-		
-		\hangpara are in the center of the range,\pause
-		
-		\hangpara have high \highlight{habitat quality,}\pause
-		
-		\hangpara have more births than deaths, \pause
-		
-		\hangpara and so have \highlight{more emigration} than immigration.
-		
-	\end{minipage}	
+{\setbeamercolor{background canvas}{bg=black}
+\begin{frame}{}
+\centering
+	\includegraphics[height=\textheight]{mimicry_rhagoletis}
 \end{frame}
+}
+%
+{\setbeamercolor{background canvas}{bg=black}
+\begin{frame}{}
+\centering
+	\includegraphics[width=\textwidth]{mimicry_Goniurellia_tridens}
+\end{frame}
+}
+%
+{
+\setbeamercolor{background canvas}{bg=black}
+\begin{frame}{}
+\centering
+	\includegraphics[width=\textwidth]{mimicry_moth_spider_legs}
+\end{frame}
+}
+%
+{
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{mimicry_cleaner_wrasse} }
+\begin{frame}[b]{}
+\tiny\textcolor{white}{Brocken Inaglory, Wikimedia \ccbysa{3}}
+\end{frame}
+}
+%
+{
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{mimicry_cleaner_mimic} }
+\begin{frame}[b]
+
+	\hfill \tiny\textcolor{white}{Jenny Huang, Wikimedia \ccby{2}}
+\end{frame}
+}
 
 %
 \lecture{student}{student}
+{
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{camoflage_frog1} }
+\begin{frame}{}
 
-\begin{frame}[t]{What are the characteristics of a sink?}
-	\begin{minipage}{0.5\textwidth}
-		\begin{center}
-			\vspace{1\baselineskip}
-			\includegraphics[width=0.9\textwidth]{metapopulation_class}
-		\end{center}
-	\end{minipage}\begin{minipage}{0.5\textwidth}
-		\flushleft
-		
-		\hangpara \textcolor{white}{A}\vspace{-1\baselineskip}
-		
-		\hangpara \makebox[0.8\textwidth]{\hrulefill}
-		
-		\hangpara \makebox[0.8\textwidth]{\hrulefill}
-		
-		\hangpara \makebox[0.8\textwidth]{\hrulefill}
-		
-		\hangpara \makebox[0.8\textwidth]{\hrulefill}
-		
-	\end{minipage}	
+\vspace{4\baselineskip}
+
+\hspace{64mm}\hangpara \Large\textcolor{orange5}{Cryptic coloration}
+
+\hspace{60mm}\hangpara \large\textcolor{white}{Where am I? What am I?}
 \end{frame}
+}
 %
 \lecture{instructor}{instructor}
-
-\begin{frame}[t]{Sink populations}
-	\begin{minipage}{0.5\textwidth}
-		\begin{center}
-			\vspace{1\baselineskip}
-			\includegraphics[width=0.9\textwidth]{metapopulation_class}
-		\end{center}
-	\end{minipage}\begin{minipage}{0.5\textwidth}
-		\flushleft
-		
-		\hangpara \textcolor{white}{A}\vspace{-1\baselineskip}
-		
-		\hangpara are near the margins of the range,\pause
-		
-		\hangpara have low habitat quality,\pause
-		
-		\hangpara have more deaths than births,\pause
-		
-		\hangpara and so have \highlight{more immigration} than emigration.
-		
-	\end{minipage}	
+{
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{camoflage_frog2} }
+\begin{frame}{}
 \end{frame}
+}
 %
-\lecture{student}{student}
-
-\begin{frame}{Why do sink populations go extinct?}
-	\begin{minipage}{0.5\textwidth}
-		\begin{center}
-			\vspace{1\baselineskip}
-			\includegraphics[width=0.9\textwidth]{metapopulation_class}
-		\end{center}
-	\end{minipage}\begin{minipage}{0.5\textwidth}
-		\flushleft
-		
-		\hangpara \textcolor{white}{A}\vspace{-1\baselineskip}
-		
-		\hangpara \makebox[0.8\textwidth]{\hrulefill}
-		
-		\hangpara \makebox[0.8\textwidth]{\hrulefill}
-		
-		\hangpara \makebox[0.8\textwidth]{\hrulefill}
-		
-		\hangpara \makebox[0.8\textwidth]{\hrulefill}
-		
-		\hangpara \makebox[0.8\textwidth]{\hrulefill}
-		
-	\end{minipage}	
+{
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{camoflage_frogmouth} }
+\begin{frame}{}
 \end{frame}
+}
 %
-\lecture{instructor}{instructor}
-
-\begin{frame}[t]{Sink populations go extinct because of}
-	\begin{minipage}{0.5\textwidth}
-		\begin{center}
-			\vspace{1\baselineskip}
-			\includegraphics[width=0.9\textwidth]{metapopulation_class}
-		\end{center}
-	\end{minipage}\begin{minipage}{0.5\textwidth}
-		\flushleft
-		
-		\hangpara \textcolor{white}{A}\vspace{-1\baselineskip}
-		
-		\hangpara habitat quality,\pause
-		
-		\hangpara $d + e > b + i$,\pause
-		
-		\hangpara distance of sink from source,\pause
-		
-		\hangpara size of sink patch,\pause
-		
-		\hangpara and random events.
-		
-	\end{minipage}	
+{
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{camoflage_nightjar} }
+\begin{frame}{}
 \end{frame}
+}
 %
-\lecture{student}{student}
-
-\begin{frame}{What does sink recolonization depend on?}
-	\begin{minipage}{0.5\textwidth}
-		\begin{center}
-			\vspace{1\baselineskip}
-			\includegraphics[width=0.9\textwidth]{metapopulation_class}
-		\end{center}
-	\end{minipage}\begin{minipage}{0.5\textwidth}
-		\flushleft
-		
-		\hangpara \textcolor{white}{A}\vspace{-1\baselineskip}
-		
-		\hangpara \makebox[0.8\textwidth]{\hrulefill}
-		
-		\hangpara \makebox[0.8\textwidth]{\hrulefill}
-		
-		\hangpara \makebox[0.8\textwidth]{\hrulefill}
-		
-		\hangpara \makebox[0.8\textwidth]{\hrulefill}
-		
-		\hangpara \makebox[0.8\textwidth]{\hrulefill}
-		
-		\hangpara \makebox[0.8\textwidth]{\hrulefill}		
-	\end{minipage}		
+{
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{camoflage_ptarmigan} }
+\begin{frame}{}
 \end{frame}
+}
 %
-\lecture{instructor}{instructor}
-
-\begin{frame}[t]{Sink recolonization depends on}
-	\begin{minipage}{0.5\textwidth}
-		\begin{center}
-			\vspace{1\baselineskip}
-			\includegraphics[width=0.9\textwidth]{metapopulation_class}
-		\end{center}
-	\end{minipage}\begin{minipage}{0.5\textwidth}
-		\flushleft
-		
-		\hangpara \textcolor{white}{A}\vspace{-1\baselineskip}
-		
-		\hangpara habitat quality,\pause
-		
-		\hangpara rate of source emigration,\pause
-		
-		\hangpara distance of sink from source,\pause
-		
-		\hangpara size of sink patch,\pause
-		
-		\hangpara unsuitable habitat between patches,\pause
-		
-		\hangpara and random events.
-		
-	\end{minipage}	
+{
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{camoflage_pika} }
+\begin{frame}{}
 \end{frame}
+}
 %
-\lecture{student}{student}
-
-\begin{frame}[t]{Organisms can move among patches through \highlight{corridors} of suitable habitat.}
-
-	\centering \includegraphics[width=0.85\textwidth]{metapopulation_corridors}
-
-	\vfilll
-	
-	\hfill \tiny \textcopyright T. G. Barnes, University of Kentucky Cooperative Extension Service.
+{
+\setbeamercolor{background canvas}{bg=black}
+\begin{frame}{}
+\centering
+	\includegraphics[width=\textwidth]{camoflage_orchid_mantis1}
 \end{frame}
+}
 %
+{
+\setbeamercolor{background canvas}{bg=black}
+\begin{frame}{}
+\centering
+	\includegraphics[width=\textwidth]{camoflage_orchid_mantis2}
+\end{frame}
+}
+%
+{
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{camoflage_giraffe} }
+\begin{frame}{}
+\end{frame}
+}
+%
+{
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{camoflage_owl} }
+\begin{frame}{}
+\end{frame}
+}
+%
+{
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{camoflage_leopard} }
+\begin{frame}{}
+\end{frame}
+}
+%
+{
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{camoflage_parrot} }
+\begin{frame}{}
+\end{frame}
+}
+%
+{
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{camoflage_wire_coral_shrimp} }
+\begin{frame}{}
+\end{frame}
+}
+%
+{
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{camoflage_leaftail_gecko} }
+\begin{frame}{}
+\end{frame}
+}
+%
+{
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{camoflage_bittern1} }
+\begin{frame}{}
+\end{frame}
+}
+%
+{
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{camoflage_bittern2} }
+\begin{frame}{}
+\end{frame}
+}
+%
+{
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{camoflage_bittern3} }
+\begin{frame}{}
+\end{frame}
+}
+%
+{
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{camoflage_bittern1} }
+\begin{frame}{}
+\end{frame}
+}
+%
+
 \lecture{instructor}{instructor}
 
 {
-	\usebackgroundtemplate{\includegraphics[width=\paperwidth]{metapopulation_exercise} }
-	\begin{frame}[b]{}
-	\end{frame}
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{deep_sea_adaptations_biolum} }
+\begin{frame}[b]{\textcolor{biolum}{Bioluminescence: cryptic coloration and other uses.}}
+
+	\tiny\textcolor{biolum}{\href{https://www.youtube.com/watch?v=UXl8F-eIoiM}{Link to video} \hfill \href{http://biolum.eemb.ucsb.edu/organism/movies/porichthys.mov}{\textit{Porichthys}}}
+\end{frame}
 }
 %
-\begin{frame}[c]{}
-	\begin{minipage}{0.8\textwidth}
-		\begin{center}
-			\vspace{1\baselineskip}
-			\includegraphics[width=0.9\textwidth]{metapopulation_exercise}
-		\end{center}
-	\end{minipage}\begin{minipage}{0.19\textwidth}
-		\flushleft
-		
-		\textbf{Source}\\
-		
-		\vspace*{9\baselineskip}
-		
-		\vspace*{2ex}
-		
-		\textbf{Sink} 
-		
-	\end{minipage}	
-\end{frame}
-%
-\begin{frame}[c]{}
-	\begin{minipage}{0.8\textwidth}
-		\begin{center}
-			\vspace{1\baselineskip}
-			\includegraphics[width=0.9\textwidth]{metapopulation_exercise}
-		\end{center}
-	\end{minipage}\begin{minipage}{0.19\textwidth}
-		\flushleft
-		
-		\textbf{Source}\\
-		4H\\
-		7H\\
-		
-		\vspace{1ex}
-		8H=5H\\
-		6M\\
-		2M\\
-		10L\\
-		
-		\vspace{1ex}
-		9L\\
-		1M\\
-		3L\\
-		\textbf{Sink} 
-		
-	\end{minipage}	
-\end{frame}
-%
+{
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{cool_shit_vomit_biolum} }
+\begin{frame}[b]{\textcolor{biolum}{Don't you wish that you could vomit bioluminescence?}}
 
-%\lecture{instructor}{instructor}
+\hfill \tiny \textcolor{biolum}{\textsc{noaa} Ocean Explorer, Flickr, \ccbysa{2}}
+\end{frame}
+}
 %
-%{
-%\usebackgroundtemplate{\includegraphics[width=\paperwidth]{deep_sea_adaptations_biolum} }
-%\begin{frame}[b]{\textcolor{biolum}{Cool stuff in biology: bioluminescence}}
+{
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{cool_shit_dragonfish} }
+\begin{frame}[b]
+
+\tiny \textcolor{biolum}{\textcopyright\,Edith Widder, Ocean Research \& Conservation Assoc.}
+\end{frame}
+}
+
+\lecture{student}{student}
+
+{
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{herbivory} }
+\begin{frame}[b]{\textcolor{white}{Plants evolve defenses against \textcolor{orange4}{herbivory} $(+ / -)$.}}
+
+	\hfill\tiny\textcolor{white}{Olgierd Rudak, Wikimedia \ccby{2}}
+
+\end{frame}
+}
 %
-%	\tiny\textcolor{white}{\href{https://www.youtube.com/watch?v=UXl8F-eIoiM}{Link to video}}
-%\end{frame}
-%}
-%%
-%{
-%\usebackgroundtemplate{\includegraphics[width=\paperwidth]{cool_shit_vomit_biolum} }
-%\begin{frame}[b]{\textcolor{biolum}{Don't you wish that you could vomit bioluminescence?}}
-%
-%\hfill \tiny \textcolor{biolum}{\textsc{noaa} Ocean Explorer, Flickr, \ccbysa{2}}
-%\end{frame}
-%}
-%%
-%{
-%\usebackgroundtemplate{\includegraphics[width=\paperwidth]{cool_shit_dragonfish} }
-%\begin{frame}[b]
-%
-%\tiny \textcolor{biolum}{\textcopyright\,Edith Widder, Ocean Research \& Conservation Assoc.}
-%\end{frame}
-%}
+\begin{frame}{\highlight{Symbiosis} is a long-term ecological interaction between two species.}
+
+	\hangpara Mutualism: $ + / + $ 
+	
+	\hangpara Commensalism: $ + / 0$
+	
+	\hangpara Parasitism: $ + / - $ 
+		
+\end{frame}
 
 %
+{
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{mutualism} }
+\begin{frame}[b]{}
+\hfill\tiny\textcolor{white}{Kevin  Bryant, Flickr \ccbyncsa{2}}
+\end{frame}
+}
+%
+{
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{commensalism} }
+\begin{frame}[t]
+
+\vspace*{70mm}
+
+\hfill \tiny \textcolor{white}{\copyright\,Dave Burdick}
+
+\vfilll
+
+\tiny \textcolor{white}{James St. John, Flickr \ccby{2}} \hfill \copyright\,James Van Tassell
+\end{frame}
+}
+%
+{
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{parasitism} }
+\begin{frame}[b]{}
+\hfill\tiny\textcolor{white}{edgeplot, Flickr \ccbyncsa{2}}
+\end{frame}
+}
+%
+{
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{parasitism_carpenteria1} }
+\begin{frame}[t]{Carpenteria Marsh, California}
+\end{frame}
+}
+%
+{
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{parasitism_carpenteria2} }
+\begin{frame}[t]{Parasites can influence an entire community.}
+\end{frame}
+}
+%
+{
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{parasitism_anglerfish} }
+\begin{frame}[b]{}
+\hfill\tiny\textcolor{white}{\textcopyright\,Theodore W. Pietsch, University of Washington.}
+\end{frame}
+}
+%
+\lecture{instructor}{instructor}
+%
+{
+	\usebackgroundtemplate{\includegraphics[width=\paperwidth]{cane_toad} }
+	\begin{frame}[b]{\textcolor{white}{Can predators evolve resistance to cane toad toxins?}}
+		
+		\vfilll
+		
+		\hfill \tiny \textcolor{white}{Brian Gratwicke, Wikimedia \ccby{2}}
+	\end{frame}
+}
+
+%%
 \end{document}

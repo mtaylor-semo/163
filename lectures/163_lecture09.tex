@@ -10,42 +10,64 @@
 
 %\includeonlylecture{student}
 
-%%% Including only some slides for students.
-%%% Uncomment the following line. For the slides,
-%%% use the labels shown below the command.
-
 %% For students, use \lecture{student}{student}
 %% For mine, use \lecture{instructor}{instructor}
-
-
-%\usepackage{pgf,pgfpages}
-%\pgfpagesuselayout{4 on 1}[letterpaper,border shrink=5mm]
 
 % FONTS
 \usepackage{fontspec}
 \def\mainfont{Linux Biolinum O}
 \setmainfont[Ligatures={Common,TeX}, Contextuals={NoAlternate}, BoldFont={* Bold}, ItalicFont={* Italic}, Numbers={OldStyle}]{\mainfont}
-\setsansfont[Ligatures={Common,TeX}, Scale=MatchLowercase, Numbers=OldStyle]{Linux Biolinum O} 
+\setsansfont[Ligatures={Common,TeX}, Scale=MatchLowercase, Numbers=OldStyle, BoldFont={* Bold}, ItalicFont={* Italic},]{Linux Biolinum O} 
+\newfontfamily{\liningtab}[Numbers=Lining]{Linux Biolinum O}
 \usepackage{microtype}
 
 \usepackage{graphicx}
 	\graphicspath{{/Users/mtaylor/pictures/teach/163/lecture/}
 	{/Users/mtaylor/pictures/teach/common/}} % set of paths to search for images
 
-%\usepackage{units}
+\usepackage[pgf]{adjustbox}
+
+\usepackage{multicol}
 \usepackage{longtable}
 \usepackage{booktabs}
-\usepackage{multicol}
+%\usepackage{textcomp}
+\usepackage{mhchem}
 
-
-\usepackage{array}
-\newcolumntype{L}[1]{>{\raggedright\let\newline\\\arraybackslash\hspace{0pt}}p{#1}}
-\newcolumntype{C}[1]{>{\centering\let\newline\\\arraybackslash\hspace{0pt}}p{#1}}
-\newcolumntype{R}[1]{>{\raggedleft\let\newline\\\arraybackslash\hspace{0pt}}p{#1}}
+\usepackage[justification=raggedright, labelsep=period]{caption}
+\captionsetup{singlelinecheck=off}
+\captionsetup{skip=0.2em}
 
 \usepackage{tikz}
 	\tikzstyle{every picture}+=[remember picture,overlay]
-	\usetikzlibrary{trees}
+	\usetikzlibrary{arrows, arrows.meta}
+	\usetikzlibrary{positioning, backgrounds}
+
+\usepackage{forest}
+\forestset{
+    every leaf node/.style={
+        if n children=0{#1}{}
+    },
+    every tree node/.style={
+        if n children=0{}{#1}
+    },
+    mytree/.style={
+        for tree={
+            edge path={
+            \noexpand\path [draw, very thick, \forestoption{edge}] (!u.parent anchor) |- (.child anchor)\forestoption{edge label};
+            },
+            every tree node={draw=none,inner sep=0, outer sep=0, minimum size=0},
+            every leaf node/.style={align=left},
+            grow=east,
+            parent anchor=east, 
+            child anchor=west,
+            anchor=west,
+            l sep=5mm,
+            s sep=3mm,
+            draw=none,
+    			if n children=0{tier=word}{}
+        }
+    }
+}
 
 \mode<presentation>
 {
@@ -53,203 +75,312 @@
   \setbeamercovered{invisible}
 }
 
-
 \begin{document}
 
-\begin{frame}{Our goals for this lecture are to }
+\lecture{student}{student}
+\begin{frame}{Our goal for this lecture is to}
+
+	\hangpara introduce the conception of \highlight{macroevolution,}
 	
-	\hangpara review \highlight{homology} and \highlight{analogy,}
+	\hangpara learn about fossils and the \highlight{fossil record,}
 	
-	\hangpara place homology and analogy in the context of phylogenetic trees and recent labs, and
-
-	\hangpara introduce biogeography.
+	\hangpara get a sense of the scale of geological and evolutionary time, and
 	
-\end{frame}
-
-%
-
-%
-%
-{
-\usebackgroundtemplate{\includegraphics[width=\paperwidth]{homologous_bird_wings} }
-\begin{frame}[b]{A \highlight{homology} is a similar character shared among species due to common ancestry.}
-
-	\vfilll
-
-	\tiny Pixabay, \cc \hfill derdento, Pixabay \cc
-
-\end{frame}
-}
-%
-{
-\usebackgroundtemplate{\includegraphics[width=\paperwidth]{homologous_appendages} }
-\begin{frame}[t]{Homologies result from modification of existing traits through evolutionary processes.}
-
-	\vfilll
-
-	\hfill \tiny \copyright Pearson Education, Inc.
-
-\end{frame}
-}
-%
-\begin{frame}[t]{Homologous characters are used to make phylogenetic trees.}
-
-\begin{longtable}[l]{@{}L{0.8in}C{0.9in}C{0.9in}C{0.7in}C{0.7in}@{}}
-\toprule
-Taxonomic Group & Blastopore becomes anus & Trochophore larvae & Vertebrae & Four Limbs \tabularnewline
-\midrule
-Clam &
-	0 &
-	1 & 
-	0 & 
-	0 \tabularnewline
-Crocodile &
-	1 & 
-	0 & 
-	1 & 
-	1 \tabularnewline
-Earthworm & 
-	0 &
-	1 & 
-	0 & 
-	0 \tabularnewline
-Goldfish & 
-	1 & 
-	0 & 
-	1 & 
-	0 \tabularnewline
-Ostrich & 
-	1 & 
-	0 & 
-	1 & 
-	1 \tabularnewline
-Salamander & 
-	1 & 
-	0 & 
-	1 & 
-	1 \tabularnewline
-Sea Urchin &
-	1 &
-	0 & 
-	0 & 
-	0 \tabularnewline
-Tiger & 
-	1 & 
-	0 & 
-	1 & 
-	1 \tabularnewline
-\bottomrule
-\end{longtable}
-
-\end{frame}
-%
-{
-\usebackgroundtemplate{\includegraphics[width=\paperwidth]{convergent_evolution_wings}}
-\begin{frame}[b]{An \highlight{analogy} is a similar character due to similar function, \emph{not} common ancestry.}
-
-
-\tiny Top: Conty, Wikimedia, \ccby{3} \hfill Bottom: Martin Hauser, Wikimedia \ccby{3}
-\end{frame}
-}
-%
-{
-\usebackgroundtemplate{\includegraphics[width=\paperwidth]{convergent_evolution_streamlined}}
-\begin{frame}[t]{Analogies are the result of \highlight{convergent evolution.}}
-
-	\vspace{3.85cm}
-
-	\tiny \textcolor{white}{Alexander Vasenin, Wikimedia, \ccbysa{3}
-	\hfill Terry Goos, Wikimedia, \ccby{2}}
-
-	\vfilll
-
-	\tiny Nobu Tamura, Wikimedia, \ccby{2} \hfill \textcolor{white}{Ken Funakoshi, Wikimedia, \ccby{2}}
-
-\end{frame}
-}
-%
-{
-\usebackgroundtemplate{\includegraphics[width=\paperwidth]{elacatinus_phylogeny}}
-\begin{frame}[b]
-
-	\tiny  Taylor and Hellberg 2005. \hfill Photo: \copyright~Paul Humann
-
-\end{frame}
-}
-
-{
-\usebackgroundtemplate{\includegraphics[width=\paperwidth]{aquilegia_phylogeny}}
-\begin{frame}[b]{Floral diversity results from adaptation to different pollinators.}
-
-	\hfill \tiny  Whittall and Hodges 2007. Nature Letters 447: 706.
-
-\end{frame}
-}
-%
-{
-\usebackgroundtemplate{\includegraphics[width=\paperwidth]{canary_islands_gallotia}}
-\begin{frame}[b]
-
-	\hfill \tiny  Thorpe et al. 1993. J. Evol. Biol. 6: 725.
-
-\end{frame}
-}
-%
-{
-\usebackgroundtemplate{\includegraphics[width=\paperwidth]{tenerife_galloti}}
-\begin{frame}[b]
-
-	\hfill \tiny  Modified from Thorpe and Brown 1989. Biol. J. Linn. Soc. 38: 303.
-
-\end{frame}
-}
-%
-\begin{frame}[t]{\highlight{Biogeography} is the study of the distribution of organisms.}
-
-	\includegraphics[width=\textwidth]{island_biogeography_size}
-
-	\vfilll
+	\hangpara learn how eukaryotic cells evolved through \highlight{endosymbiosis.}
 	
-	\hfill \tiny Wikimedia, \ccby{2}
+
 \end{frame}
+%
 
-\begin{frame}[t]{How can we explain the distribution of flightless birds?}
+{
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{macroevolution_dinosaurs} }
+\begin{frame}{\highlight{Macroevolution} is broad evolutionary changes over time between different lineages.}
+\end{frame}
+}
 
-	{\centering \includegraphics[height=0.8\textheight]{ratites}\par
+\begin{frame}{\highlight{Macroevolution} happens because of microevolution.}
+
+	\centering
+	\begin{tikzpicture}
+		[remember picture, overlay,
+		myLine/.style={color=black,very thick},
+		myArrow/.style={color=orange6, thick, ->}]
+
+			\draw [myLine] (-3,-2) -- (0,-2);
+			\draw [myLine] (0,-2) -- (0,-0.7); % vertical lines
+			\draw [myLine] (0,-2) -- (0,-3.3);
+			\draw [myLine] (0,-0.7) -- (3,-0.7); % descendants
+			\draw [myLine] (0,-3.3) -- (3,-3.3); 
+
+		% Draw the tree:
+		
+			\draw [myLine] (-3,-2) -- (0,-2); % ancestor
+
+			\draw [myLine] (0,-2) -- (0,-0.7); % vertical lines
+			\draw [myLine] (0,-2) -- (0,-3.3);
+		
+			\draw [myLine] (0,-0.7) -- (3,-0.7); % descendants
+			\draw [myLine] (0,-3.3) -- (3,-3.3); 
+
+		% Ancestor microevolution
+			\node [color=blue6] at (-1.5,-1.8) {Microevolution}; % ancestor
+	
+		% Speciation
+		%	\node [color=orange6] (speciation) at (-1.5,-3.1) {Speciation};
+		%	\node [circle, draw=orange6, thick, minimum size=3mm] (speccirc) at (0,-2) {};
+		%	\draw [color=orange6, thick] (speciation) edge (speccirc);
+		
+		
+		% Descendant microevolution
+			\node [color=blue6] at (1.5,-0.5) {Microevolution}; % descendants
+			\node [color=blue6] at (1.5,-3.5) {Microevolution};
+
+		% Macroevolution
+			\node [color=orange6] (macro) at (1.7,-2) {Macroevolution};
+			\draw [myArrow] (macro.north) to (1.7,-0.8);
+			\draw [myArrow] (macro.south) to (1.7,-3.2);
+
+	\end{tikzpicture}
+
+\end{frame}
+%
+\begin{frame}{The results of macroevolution are visible in the fossil record. What is a \highlight{fossil?} }
+
+	\alt<handout>{}{\onslide<2->{%
+	
+	\hangpara{\itshape “A preserved remnant or impression of an organism that lived in the past.” } \hfill— Campbell Biology, 10th ed.
+	
+	
+	\hangpara{\itshape “Any remains, impression, or trace of a living thing of a former geologic age, as a skeleton, footprint, etc.”}\hfill — dictionary.com}
+	
 	}
 
-	\vfilll
-	
-	\hfill \tiny Wikimedia, \ccby{2}
-
 \end{frame}
+%
+\begin{frame}[t]{Many types of fossils are known, including}
 
-\begin{frame}[t]{Plate tectonics explains the distribution of flightless birds.}
+	\vspace*{-\baselineskip}
 
-	{\centering \includegraphics[height=0.8\textheight]{ratite_biogeography}\par
-	}
+	\begin{multicols}{2}
+
+		\includegraphics[width=0.48\textwidth]{fossil_permineralized}\vspace*{\baselineskip}
+
+		\includegraphics[width=0.48\textwidth]{fossil_tissue}
+
+	\columnbreak
+
+		\includegraphics[width=0.48\textwidth]{fossil_trace}\vspace*{\baselineskip}
+
+		Permineralized fossils (upper left)\\
+		Trace fossils (upper right)\\
+		Soft tissues (lower left)\\
+		Chemical fossils (not shown)
+
+	\end{multicols}
 
 	\vfilll
-	
-	\hfill \tiny Mitchell et al. 2014. Science 344: 898.
-	
-\end{frame}
 
-\begin{frame}[t]{Organisms can expand their range by dispersal.}
+	\tiny top row: Mark Wilson, Wikimedia public domain (top row). Lower left: \textcopyright Mary Schweitzer, North Carolina State University.
 
-	{\centering \includegraphics[height=0.8\textheight]{cattle_egret_range}\par
-	}
-	
 \end{frame}
 %
 {
-\usebackgroundtemplate{\includegraphics[width=\paperwidth]{camel_distribution}}
-\begin{frame}[b]{Ancestral camels evolved in North America and dispersed elsewhere.}
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{fossil_formation} }
+\begin{frame}[b]{Fossils form under specific conditions.}
+\hfill \tiny \textcopyright Roberts \& Company
+\end{frame}
+}
+%
+{
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{fossil_radiometric_dating} }
+\begin{frame}[b]{\highlight{Radiometric dating} is used to help age fossils.}
+\hfill \tiny \textcopyright Roberts \& Company
+\end{frame}
+}
+%
+\begin{frame}[t]{Combinations of isotopes provide cross check of age.}
 
-	\tiny  John O'Neill, Wikimedia \ccbysa{3}
+	\includegraphics[width=\textwidth]{radiometric_elements}
+
+	\vfilll
+	
+	\hfill \tiny mitopencourseware, Flickr, \ccbyncsa{2}.
+
+\end{frame}
+%
+\begin{frame}[t]{The parent element decreases by half for each half-life period. The daughter element increases in proportion.}
+
+    {\liningtab
+    \begin{longtable}[c]{@{}lccccccc@{}}
+    \multicolumn{8}{l}{Percent remaining after each half-life.}\tabularnewline
+    \toprule
+    	& \multicolumn{7}{c}{Half-life Number}\tabularnewline
+    	\cmidrule{2-8}
+    Isotope	& 0 & 1 & 2 & 3 & 4 & 5 & 6 \tabularnewline
+    \midrule
+    Parent element 	& 100 & 50 & 25 & 12.5 & 6.25   & 3.125 & 1.5625 \tabularnewline
+    Daugher element & 0     & 50 & 75 & 87.5 & 93.75 & 96.875 & 98.4375 \tabularnewline 
+    \bottomrule
+    \end{longtable}
+    
+    \pause
+    
+    \begin{longtable}{@{}lccccccc@{}}
+    \multicolumn{8}{l}{Number of atoms remaining after each half-life.}\tabularnewline
+    \toprule
+    	& \multicolumn{7}{c}{Half-life Number}\tabularnewline
+    	\cmidrule{2-8}
+    Isotope	& 0 & 1 & 2 & 3 & 4 & 5 & 6 \tabularnewline
+    \midrule
+    Parent Element 	& 256 & 128 & 64 & 32 & 16   & 8 & 4 \tabularnewline
+    Daugher element & 0   & 128 & 192 & 224 & 240 & 248 & 252 \tabularnewline 
+    \bottomrule
+    \end{longtable}
+    }%liningtab
+    
+\end{frame}
+%
+\begin{frame}{Simple example: What is the age of a sample if\dots}
+
+	\vspace{-\baselineskip}
+
+	\onslide<1->{
+		\hangpara Isotope A has a half-life of 50 million years, and the sample contains \\
+		25\% of the parent element and 75\% of the daughter element?
+
+	\hangpara A: Age $=$ 2 half lives $\times$ 50 \textsc{my}/half life $=$ \highlight{100 million years old.}
+	}%onslide1
+
+	\onslide<2->{
+		\hangpara Isotope B has a half-life of 20 million years, and the sample contains \\
+		3.125\% of the parent element and 96.875\% of the daughter element?
+
+		\hangpara B: Age $=$ 5 half lives $\times$ 20 \textsc{my}/half life $=$ \highlight{100 million years old.}
+	}%onslide2
+	
+	
+	\onslide<1->{
+	    {\liningtab
+    		\begin{longtable}[c]{@{}lccccccc@{}}
+	    \toprule
+    		& \multicolumn{7}{c}{Half-life Number}\tabularnewline
+    		\cmidrule{2-8}
+	    Isotope	& 0 & 1 & 2 & 3 & 4 & 5 & 6 \tabularnewline
+    		\midrule
+	    Parent element 	& 100 & 50 & 25 & 12.5 & 6.25   & 3.125 & 1.5625 \tabularnewline
+    		Daugher element & 0     & 50 & 75 & 87.5 & 93.75 & 96.875 & 98.4375 \tabularnewline 
+	    \bottomrule
+    		\end{longtable}
+    		}%liningtab
+	}%onslide1
+
+\end{frame}
+%
+{
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{fossil_relative_dating} }
+\begin{frame}[b]
+\tiny \textcopyright Roberts \& Company \hfill Jill Curie, Wikimedia, \ccbysa{3} 
+\end{frame}
+}
+%
+\begin{frame}[t]{Organisms leave distinct chemical signatures.}
+
+	\includegraphics[width=\textwidth]{fossil_chemicals}
+
+	\vfilll
+	
+	\hfill \tiny Schubotz 2009. Ph.D. Disseration, Üniversität Bremen.
+
+\end{frame}
+%
+{
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{geological_record_lower} }
+\begin{frame}[b]
+\hfill \tiny \textcopyright Pearson Education, Inc.
+\end{frame}
+}
+%
+{
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{geological_record_upper} }
+\begin{frame}[b]
+\hfill \tiny \textcopyright Pearson Education, Inc.
+\end{frame}
+}
+%
+\lecture{instructor}{instructor}
+{
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{fossil_clock1} }
+\begin{frame}[b]
+\hfill \tiny \textcopyright Pearson Education, Inc.
+\end{frame}
+}
+%
+{
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{fossil_clock2} }
+\begin{frame}[b]
+\hfill \tiny \textcopyright Pearson Education, Inc.
+\end{frame}
+}
+%
+\lecture{student}{student}
+{
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{fossil_clock3} }
+\begin{frame}[b]
+\hfill \tiny \textcopyright Pearson Education, Inc.
+\end{frame}
+}
+%
+\begin{frame}[t]{Life on Earth evolved at least 3.8 billion years ago.}
+
+	\includegraphics[width=\textwidth]{fossil_stromatolite}
+	
+	\vfilll
+	
+	\hfill \tiny \textcopyright Pearson Education, Inc.
+\end{frame}
+
+{
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{fossil_oxygen_increase} }
+\begin{frame}[b]{Cyanobacteria caused atmospheric \ce{O2} to increase about 2.4 billion years ago.}
+\tiny \textcopyright Pearson Education, Inc.
+\end{frame}
+}
+%
+{
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{fossil_eukaryote} }
+\begin{frame}[b]{Eukaryotes evolved \emph{at least} 2.1 billion years ago.}
+\tiny \textcolor{white}{Xvazquez, Wikimedia, \ccbysa{2}}
+\end{frame}
+}
+%
+\begin{frame}[t]{Eukaryotic cells evolved through \highlight{endosymbiosis.}}
+	\includegraphics[width=\textwidth]{fossil_endosymbiosis}
+	
+	\vfilll
+	
+	\hfill \tiny \textcopyright Pearson Education, Inc.
+\end{frame}
+%
+{
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{endosymbiosis_appearance} }
+\begin{frame}
 
 \end{frame}
 }
 %
+\begin{frame}[t]{Evidence for \highlight{endosymbiosis.} }
+
+	\hangpara Mitochondria and chloroplasts
+	
+	\hangpara \hspace*{1em} have circular \textsc{dna} like bacteria,
+	
+	\hangpara \hspace*{1em} divide like bacteria,
+	
+	\hangpara \hspace*{1em} have plasma membranes like bacteria, and
+	
+	\hangpara \hspace*{1em} are most closely related to bacteria.
+	
+\end{frame}
+
 
 \end{document}
